@@ -504,7 +504,7 @@ function renderHome() {
   $("#main").innerHTML = `
     <div class="page-head">
       <h1 class="page-title">Biển <span class="accent">Cổng</span></h1>
-      <p class="page-sub">Mỗi cánh cổng dẫn vào một thế giới. Huy hiệu linh thú ở góc là dấu tiến cử. Kéo thả thẻ để sắp xếp — số cổng tự đánh lại theo vị trí.</p>
+      <p class="page-sub">Mỗi cánh cổng dẫn vào một thế giới.</p>
     </div>
     <div class="map-grid">
       ${cards}
@@ -836,7 +836,7 @@ function renderDraftsList() {
     <div class="page-head drafts-head-row">
       <div style="flex:1">
         <h1 class="page-title">Thư Phòng <span class="accent">San Hô</span></h1>
-        <p class="page-sub">Nơi cất những trang nháp ý tưởng — cả hai kẻ giữ biển sao đều đọc và viết được.</p>
+        <p class="page-sub">Nơi cất những trang nháp ý tưởng.</p>
       </div>
       <button class="btn btn-gold" id="btn-new-draft">✎ Trải trang giấy mới</button>
     </div>
