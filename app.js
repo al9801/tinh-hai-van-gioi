@@ -1,6 +1,7 @@
 // ============================================================
 //  ĐẠI NGÀN VẠN GIỚI — logic ứng dụng
 //  Firebase Auth (Google) + Firestore realtime
+//  Thêm ?demo=1 vào URL để xem thử giao diện với dữ liệu mẫu
 // ============================================================
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
@@ -16,9 +17,10 @@ import {
 const CFG = window.FIREBASE_CONFIG || {};
 const ACCOUNTS = window.ACCOUNTS || {};
 const DEFAULT_GAS = window.DEFAULT_GAS_LINK || "https://aistudio.google.com/";
+const DEMO = new URLSearchParams(location.search).has("demo");
 
 let auth = null, db = null;
-let me = null;              // { email, icon, name, displayName }
+let me = null;              // { email, icon, name }
 let maps = [];              // danh sách map (realtime)
 let drafts = [];            // danh sách nháp Thư Phòng (realtime)
 let unsubMaps = null, unsubDrafts = null;
@@ -90,8 +92,101 @@ function friendlyAuthError(e) {
   return "Không đăng nhập được: " + (e?.message || e);
 }
 
+/* ── Kho dữ liệu: Firestore thật hoặc demo tại chỗ ────── */
+const store = DEMO ? demoStore() : firestoreStore();
+
+function firestoreStore() {
+  return {
+    subscribe() {
+      unsubMaps = onSnapshot(
+        query(collection(db, "maps"), orderBy("order")),
+        (snap) => { maps = snap.docs.map((d) => ({ id: d.id, ...d.data() })); route(true); },
+        (err) => {
+          console.error(err);
+          toast("Không đọc được dữ liệu — kiểm tra Firestore Rules (README bước 5).", true);
+        });
+      unsubDrafts = onSnapshot(
+        query(collection(db, "drafts"), orderBy("updatedAt", "desc")),
+        (snap) => { drafts = snap.docs.map((d) => ({ id: d.id, ...d.data() })); route(true); },
+        (err) => console.error(err));
+    },
+    async addMap(data) {
+      const ref = await addDoc(collection(db, "maps"),
+        { ...data, createdAt: serverTimestamp(), updatedAt: serverTimestamp() });
+      return ref.id;
+    },
+    updateMap: (id, patch) =>
+      updateDoc(doc(db, "maps", id), { ...patch, updatedAt: serverTimestamp() }),
+    // tiến cử: không đụng updatedAt (không phải "sửa nội dung")
+    setRecommends: (id, recommends) => updateDoc(doc(db, "maps", id), { recommends }),
+    deleteMap: (id) => deleteDoc(doc(db, "maps", id)),
+    async addDraft(data) {
+      const ref = await addDoc(collection(db, "drafts"),
+        { ...data, createdAt: serverTimestamp(), updatedAt: serverTimestamp() });
+      return ref.id;
+    },
+    updateDraft: (id, patch) =>
+      updateDoc(doc(db, "drafts", id), { ...patch, updatedAt: serverTimestamp() }),
+    deleteDraft: (id) => deleteDoc(doc(db, "drafts", id)),
+  };
+}
+
+function demoStore() {
+  const now = () => { const d = new Date(); return { toDate: () => d }; };
+  const uid = () => "demo-" + Math.random().toString(36).slice(2, 9);
+  const emails = Object.keys(ACCOUNTS);
+  maps = [
+    {
+      id: "demo-1", order: 1, title: "Map 1 — Trấn Vực Sâm Lâm",
+      world: "Khu rừng ranh giới nơi mọi lời hứa đều mọc thành cây.",
+      gasLink: DEFAULT_GAS,
+      recommends: { [emails[0]]: true, [emails[1]]: true },
+      content: "<h2>Trấn Vực Sâm Lâm</h2><p>Rừng ranh giới ngăn giữa cõi người và cõi mộng…</p>",
+      prompt: "<p>Bạn là <b>Thủ Mộc Nhân</b>, kẻ canh giữ cánh cổng…</p>",
+      ideas: "", updatedAt: now(),
+    },
+    {
+      id: "demo-2", order: 2, title: "Map 2 — Hải Vực Lưu Quang",
+      world: "Thành phố nổi trên lưng cá voi cổ đại, đèn lồng thay mặt trời.",
+      gasLink: DEFAULT_GAS,
+      recommends: { [emails[1]]: true },
+      content: "", prompt: "", ideas: "", updatedAt: now(),
+    },
+    {
+      id: "demo-3", order: 3, title: "Map 3 — Thành Đêm Không Ngủ",
+      world: "Đô thị hiện đại, nhưng cứ nửa đêm là mọc thêm một con phố mới.",
+      gasLink: DEFAULT_GAS,
+      recommends: {},
+      content: "", prompt: "", ideas: "", updatedAt: now(),
+    },
+  ];
+  drafts = [
+    { id: "demo-d1", title: "Ý tưởng arc nhân vật Sylas", owner: emails[0],
+      content: "<p>Sylas không nói dối — nhưng luôn nói thiếu một nửa…</p>", updatedAt: now() },
+    { id: "demo-d2", title: "Nháp luật phép cõi mộng", owner: emails[1],
+      content: "<p>Phép chỉ hoạt động khi có người tin…</p>", updatedAt: now() },
+  ];
+  const touch = (obj) => { obj.updatedAt = now(); };
+  return {
+    demo: true,
+    subscribe() {},
+    async addMap(data) { const id = uid(); maps.push({ id, ...data, updatedAt: now() }); route(true); return id; },
+    async updateMap(id, patch) { const m = maps.find((x) => x.id === id); if (m) { Object.assign(m, patch); touch(m); } route(true); },
+    async setRecommends(id, recommends) { const m = maps.find((x) => x.id === id); if (m) m.recommends = recommends; route(true); },
+    async deleteMap(id) { maps = maps.filter((x) => x.id !== id); route(true); },
+    async addDraft(data) { const id = uid(); drafts.unshift({ id, ...data, updatedAt: now() }); route(true); return id; },
+    async updateDraft(id, patch) { const d = drafts.find((x) => x.id === id); if (d) { Object.assign(d, patch); touch(d); } route(true); },
+    async deleteDraft(id) { drafts = drafts.filter((x) => x.id !== id); route(true); },
+  };
+}
+
 /* ── Khởi động ────────────────────────────────────────── */
-if (!CFG.apiKey || /PASTE/.test(CFG.apiKey)) {
+if (DEMO) {
+  const [email, acct] = Object.entries(ACCOUNTS)[0];
+  me = { email, ...acct };
+  enterForest();
+  setTimeout(() => toast("🍃 Đang xem bản DEMO — mọi thay đổi sẽ tan khi tải lại trang."), 600);
+} else if (!CFG.apiKey || /PASTE/.test(CFG.apiKey)) {
   show("#screen-setup");
 } else {
   const app = initializeApp(CFG);
@@ -112,7 +207,7 @@ if (!CFG.apiKey || /PASTE/.test(CFG.apiKey)) {
       show("#screen-denied");
       return;
     }
-    me = { email, icon: acct.icon, name: acct.name, displayName: user.displayName || acct.name };
+    me = { email, icon: acct.icon, name: acct.name };
     enterForest();
   });
 }
@@ -128,7 +223,10 @@ $("#btn-login")?.addEventListener("click", async () => {
   }
 });
 $("#btn-denied-logout")?.addEventListener("click", () => signOut(auth));
-$("#btn-logout")?.addEventListener("click", () => signOut(auth));
+$("#btn-logout")?.addEventListener("click", () => {
+  if (DEMO) { location.href = location.pathname; return; }
+  signOut(auth);
+});
 
 function teardown() {
   me = null;
@@ -141,28 +239,9 @@ function teardown() {
 function enterForest() {
   $("#user-totem").textContent = me.icon;
   $("#user-totem").title = `${me.name} — ${me.email}`;
-  $("#user-name").textContent = me.name;
+  $("#user-name").textContent = me.name + (DEMO ? " (demo)" : "");
   show("#screen-app");
-
-  unsubMaps = onSnapshot(
-    query(collection(db, "maps"), orderBy("order")),
-    (snap) => {
-      maps = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
-      route(/*soft=*/true);
-    },
-    (err) => {
-      console.error(err);
-      toast("Không đọc được dữ liệu — kiểm tra Firestore Rules (README bước 5).", true);
-    }
-  );
-  unsubDrafts = onSnapshot(
-    query(collection(db, "drafts"), orderBy("updatedAt", "desc")),
-    (snap) => {
-      drafts = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
-      route(/*soft=*/true);
-    },
-    (err) => console.error(err)
-  );
+  store.subscribe();
   route();
 }
 
@@ -178,7 +257,7 @@ function parseHash() {
   return { view: "home" };
 }
 
-// soft=true: dữ liệu snapshot mới về — chỉ cập nhật phần hiển thị,
+// soft=true: dữ liệu mới về — chỉ cập nhật phần hiển thị,
 // KHÔNG dựng lại editor đang gõ dở.
 function route(soft = false) {
   if (!me) return;
@@ -201,7 +280,7 @@ function route(soft = false) {
   else if (r.view === "map") renderMapView(r);
   else if (r.view === "drafts") renderDraftsList();
   else if (r.view === "draft") renderDraftView(r);
-  window.scrollTo({ top: 0 });
+  if (!soft) window.scrollTo({ top: 0 });
 }
 
 /* ── HOME: Rừng Cổng ──────────────────────────────────── */
@@ -221,7 +300,7 @@ function renderHome() {
       <p class="page-sub">Mỗi cánh cổng dẫn vào một thế giới. Huy hiệu linh thú ở góc là dấu tiến cử của hai kẻ giữ rừng.</p>
     </div>
     <div class="map-grid">
-      ${cards || ""}
+      ${cards}
       <button class="map-card new-card" id="btn-new-map">
         <span class="new-card-plus">✦</span>
         <span class="new-card-label">Mở cánh cổng mới</span>
@@ -234,9 +313,9 @@ function renderHome() {
 
 /* ── MAP VIEW ─────────────────────────────────────────── */
 const SUBTABS = [
-  { key: "map",    label: "🗺️ Nội dung Map",  field: "content", ph: "Ghi lại thế giới này: địa danh, thế lực, luật lệ, bí sử…" },
-  { key: "prompt", label: "📜 Prompt",          field: "prompt",  ph: "Dán / soạn prompt nhân vật cho Google AI Studio ở đây…" },
-  { key: "y-tuong", label: "💭 Ý tưởng nháp",   field: "ideas",   ph: "Nháp tự do: ý tưởng, tình tiết, nhân vật chưa chốt…" },
+  { key: "map",     label: "🗺️ Nội dung Map", field: "content", ph: "Ghi lại thế giới này: địa danh, thế lực, luật lệ, bí sử…" },
+  { key: "prompt",  label: "📜 Prompt",        field: "prompt",  ph: "Dán / soạn prompt nhân vật cho Google AI Studio ở đây…" },
+  { key: "y-tuong", label: "💭 Ý tưởng nháp",  field: "ideas",   ph: "Nháp tự do: ý tưởng, tình tiết, nhân vật chưa chốt…" },
 ];
 
 function findMap(id) { return maps.find((m) => m.id === id); }
@@ -279,12 +358,12 @@ function renderMapView({ id, tab }) {
     html: m[st.field] || "",
     placeholder: st.ph,
     showCopy: st.key === "prompt",
-    save: (html) => updateDoc(doc(db, "maps", id), { [st.field]: html, updatedAt: serverTimestamp() }),
+    save: (html) => store.updateMap(id, { [st.field]: html }),
   });
   updateMapMeta({ id, tab });
 }
 
-// cập nhật phần "sống" của map view khi snapshot về (không đụng editor)
+// cập nhật phần "sống" của map view khi dữ liệu mới về (không đụng editor)
 function updateMapMeta({ id }) {
   const m = findMap(id);
   if (!m || !$("#mv-title")) return;
@@ -298,11 +377,11 @@ function updateMapMeta({ id }) {
   btn.classList.toggle("rec-on", mine);
   btn.innerHTML = mine ? `${me.icon} Đã tiến cử ✓` : `${me.icon} Tiến cử map này`;
 
-  const others = Object.entries(ACCOUNTS)
+  const names = Object.entries(ACCOUNTS)
     .filter(([em]) => rec[em])
     .map(([, a]) => `${a.icon} ${a.name}`);
-  $("#rec-status").textContent = others.length
-    ? "Đã tiến cử: " + others.join(" · ")
+  $("#rec-status").textContent = names.length
+    ? "Đã tiến cử: " + names.join(" · ")
     : "Chưa ai tiến cử map này.";
 }
 
@@ -310,11 +389,12 @@ async function toggleRecommend(id) {
   const m = findMap(id);
   if (!m) return;
   const rec = { ...(m.recommends || {}) };
-  if (rec[me.email]) delete rec[me.email];
-  else rec[me.email] = true;
+  const turningOn = !rec[me.email];
+  if (turningOn) rec[me.email] = true;
+  else delete rec[me.email];
   try {
-    await updateDoc(doc(db, "maps", id), { recommends: rec });
-    toast(rec[me.email] ? `${me.icon} Linh thú của bạn đã đậu lên cánh cổng` : "Đã rút lại tiến cử");
+    await store.setRecommends(id, rec);
+    toast(turningOn ? `${me.icon} Linh thú của bạn đã đậu lên cánh cổng` : "Đã rút lại tiến cử");
   } catch (e) { toast("Không lưu được tiến cử: " + e.message, true); }
 }
 
@@ -342,20 +422,19 @@ $("#btn-map-save").addEventListener("click", async () => {
   const gasLink = $("#inp-map-gas").value.trim() || DEFAULT_GAS;
   try {
     if (editingMapId) {
-      await updateDoc(doc(db, "maps", editingMapId), { title, world, gasLink, updatedAt: serverTimestamp() });
+      await store.updateMap(editingMapId, { title, world, gasLink });
       toast("Đã lưu cánh cổng.");
     } else {
       const maxOrder = maps.reduce((mx, m) => Math.max(mx, m.order || 0), 0);
-      const ref = await addDoc(collection(db, "maps"), {
+      const newId = await store.addMap({
         title, world, gasLink,
         order: maxOrder + 1,
         content: "", prompt: "", ideas: "",
         recommends: {},
         createdBy: me.email,
-        createdAt: serverTimestamp(), updatedAt: serverTimestamp(),
       });
       toast("✦ Một cánh cổng mới vừa hiện ra giữa rừng.");
-      location.hash = `#/map/${ref.id}`;
+      location.hash = `#/map/${newId}`;
     }
     closeMapModal();
   } catch (e) { toast("Không lưu được: " + e.message, true); }
@@ -367,7 +446,7 @@ $("#btn-map-delete").addEventListener("click", async () => {
   const sure = prompt(`Phá bỏ cánh cổng sẽ xoá vĩnh viễn nội dung map, prompt và ý tưởng bên trong.\nGõ đúng tên map để xác nhận:\n\n${m.title}`);
   if (sure !== m.title) { if (sure !== null) toast("Tên không khớp — cánh cổng vẫn nguyên.", true); return; }
   try {
-    await deleteDoc(doc(db, "maps", editingMapId));
+    await store.deleteMap(editingMapId);
     closeMapModal();
     location.hash = "#/";
     toast("Cánh cổng đã tan vào sương.");
@@ -403,12 +482,8 @@ function renderDraftsList() {
 
   $("#btn-new-draft").addEventListener("click", async () => {
     try {
-      const ref = await addDoc(collection(db, "drafts"), {
-        title: "", content: "",
-        owner: me.email,
-        createdAt: serverTimestamp(), updatedAt: serverTimestamp(),
-      });
-      location.hash = `#/thu-phong/${ref.id}`;
+      const newId = await store.addDraft({ title: "", content: "", owner: me.email });
+      location.hash = `#/thu-phong/${newId}`;
     } catch (e) { toast("Không tạo được nháp: " + e.message, true); }
   });
 }
@@ -438,7 +513,7 @@ function renderDraftView({ id }) {
   $("#draft-title").addEventListener("input", (e) => {
     clearTimeout(titleTimer);
     titleTimer = setTimeout(() => {
-      updateDoc(doc(db, "drafts", id), { title: e.target.value.trim(), updatedAt: serverTimestamp() })
+      store.updateDraft(id, { title: e.target.value.trim() })
         .catch((err) => toast("Không lưu được tên: " + err.message, true));
     }, 700);
   });
@@ -446,7 +521,7 @@ function renderDraftView({ id }) {
   $("#btn-del-draft").addEventListener("click", async () => {
     if (!confirm("Đốt trang nháp này? Nội dung sẽ mất vĩnh viễn.")) return;
     try {
-      await deleteDoc(doc(db, "drafts", id));
+      await store.deleteDraft(id);
       location.hash = "#/thu-phong";
       toast("Trang nháp đã hoá tro.");
     } catch (e) { toast("Không xoá được: " + e.message, true); }
@@ -455,7 +530,7 @@ function renderDraftView({ id }) {
   mountEditor($("#editor-slot"), {
     html: d.content || "",
     placeholder: "Viết ý tưởng của bạn ở đây — như một trang docx giữa rừng…",
-    save: (html) => updateDoc(doc(db, "drafts", id), { content: html, updatedAt: serverTimestamp() }),
+    save: (html) => store.updateDraft(id, { content: html }),
   });
   updateDraftMeta({ id });
 }
