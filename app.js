@@ -1308,7 +1308,8 @@ function notifyBrowser(m) {
   if (!document.hidden && chatOpen) return;
   const a = ACCOUNTS[m.by];
   const body = m.stickerId ? "🖼️ Gửi một sticker" : (m.text || "").slice(0, 120);
-  try { new Notification(`${a?.icon || "🫧"} ${a?.name || m.by}`, { body }); } catch {}
+  // silent: true — hiện thông báo nhưng không phát tiếng
+  try { new Notification(`${a?.icon || "🫧"} ${a?.name || m.by}`, { body, silent: true }); } catch {}
 }
 
 function onChatMsgs(msgs) {
