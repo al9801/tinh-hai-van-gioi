@@ -5,18 +5,18 @@
 // BƯỚC 1: Dán firebaseConfig lấy từ Firebase Console vào đây
 // (Xem hướng dẫn từng bước trong README.md)
 window.FIREBASE_CONFIG = {
-  apiKey: "PASTE_API_KEY_VAO_DAY",
-  authDomain: "PASTE_PROJECT.firebaseapp.com",
-  projectId: "PASTE_PROJECT_ID",
-  storageBucket: "PASTE_PROJECT.appspot.com",
-  messagingSenderId: "PASTE_SENDER_ID",
-  appId: "PASTE_APP_ID",
+  apiKey: "AIzaSyBVLY60RSHrRNXoN7v2hTTJT9dSkFYWCJw",
+  authDomain: "tinh-hai-van-gioi.firebaseapp.com",
+  projectId: "tinh-hai-van-gioi",
+  storageBucket: "tinh-hai-van-gioi.firebasestorage.app",
+  messagingSenderId: "483530711647",
+  appId: "1:483530711647:web:bc644b1e309745caf5f1ea",
 };
 
 // BƯỚC 2: Danh sách email được phép bước qua Cổng Rừng
 // + linh thú đại diện của mỗi người (icon gắn lên map khi tiến cử)
 window.ACCOUNTS = {
-  "dinhhieungan@gmail.com": { icon: "🦇", name: "Dơi Đêm" },
+  "dinhhieungan@gmail.com": { icon: "🦇", name: "Dơi" },
   "kimtuoc259@gmail.com": { icon: "🐋", name: "Cá Voi Sao" },
 };
 
