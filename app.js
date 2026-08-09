@@ -29,6 +29,7 @@ let mountedRoute = "";      // route đã dựng DOM (tránh re-mount editor khi
 
 // trạng thái ghi chú 💧 + truyền âm 🫧 (khai báo sớm vì dùng ngay lúc khởi động)
 let activeCmt = null;       // { page, doSave, api } của editor đang mở
+let flushEditor = null;     // doSave của editor hiện tại — gọi trước khi unmount để không mất chữ
 let cmtPop = null;
 let cmtPopCloser = null;
 let chatMsgs = [];
@@ -93,6 +94,12 @@ function fmtTime(ts) {
   const d = ts.toDate();
   return d.toLocaleDateString("vi-VN", { day: "2-digit", month: "2-digit", year: "numeric" }) +
     " " + d.toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" });
+}
+// link thiếu https:// sẽ bị trình duyệt hiểu là đường dẫn trong site → mở ra trang 404
+function normalizeUrl(u) {
+  u = (u || "").trim();
+  if (!u) return "";
+  return /^https?:\/\//i.test(u) ? u : "https://" + u;
 }
 function stripHtml(html) {
   const tmp = document.createElement("div");
@@ -394,11 +401,19 @@ function route(soft = false) {
 
   if (soft && key === mountedRoute) {
     if (r.view === "home") renderHome();          // home không có editor → render lại thoải mái
-    if (r.view === "drafts") renderDraftsList();
-    if (r.view === "map") updateMapMeta(r);       // chỉ cập nhật tiêu đề/huy hiệu/nút
-    if (r.view === "draft") updateDraftMeta(r);
+    else if (r.view === "drafts") renderDraftsList();
+    else if (r.view === "map") {
+      // dữ liệu vừa về sau khi lỡ hiện màn "không tồn tại" → dựng lại cho đúng
+      if (findMap(r.id) && !$("#mv-title")) renderMapView(r);
+      else updateMapMeta(r);                      // bình thường: chỉ cập nhật tiêu đề/huy hiệu/nút
+    }
+    else if (r.view === "draft") {
+      if (findDraft(r.id) && !$("#draft-title")) renderDraftView(r);
+      else updateDraftMeta(r);
+    }
     return;
   }
+  flushEditor?.(); flushEditor = null;  // sắp dựng lại view → lưu ngay chữ đang gõ dở, không để mất
   mountedRoute = key;
   if (r.view === "home") renderHome();
   else if (r.view === "map") renderMapView(r);
@@ -593,7 +608,7 @@ function updateMapMeta({ id }) {
   if (!m || !$("#mv-title")) return;
   $("#mv-title").textContent = m.title || "(chưa đặt tên)";
   $("#mv-world").textContent = m.world || "";
-  $("#mv-gas").href = m.gasLink || DEFAULT_GAS;
+  $("#mv-gas").href = normalizeUrl(m.gasLink) || DEFAULT_GAS;
 
   const rec = m.recommends || {};
   const mine = !!rec[me.email];
@@ -643,7 +658,7 @@ $("#btn-map-save").addEventListener("click", async () => {
   const title = $("#inp-map-title").value.trim();
   if (!title) { toast("Cánh cổng cần một cái tên.", true); return; }
   const world = $("#inp-map-world").value.trim();
-  const gasLink = $("#inp-map-gas").value.trim() || DEFAULT_GAS;
+  const gasLink = normalizeUrl($("#inp-map-gas").value) || DEFAULT_GAS;
   try {
     if (editingMapId) {
       await store.updateMap(editingMapId, { title, world, gasLink });
@@ -837,6 +852,8 @@ function mountEditor(slot, { html, placeholder, save, showCopy = false, comments
     saveTimer = setTimeout(doSave, 900);
   });
   page.addEventListener("blur", () => { clearTimeout(saveTimer); doSave(); });
+  flushEditor = () => { clearTimeout(saveTimer); return doSave(); };
+  window.addEventListener("beforeunload", () => { clearTimeout(saveTimer); doSave(); }, { once: true });
 
   // chèn ảnh: nén rồi đặt vào vị trí con trỏ
   let savedImgRange = null;
