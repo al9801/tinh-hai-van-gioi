@@ -1372,6 +1372,11 @@ $("#btn-sticker")?.addEventListener("click", () => {
   renderStickerGrid();
 });
 
+// quay lại ô gõ chữ → khung sticker tự thu mình
+$("#chat-input")?.addEventListener("focus", () => {
+  $("#sticker-picker")?.classList.add("hidden");
+});
+
 $("#sticker-grid")?.addEventListener("click", async (e) => {
   const del = e.target.closest("[data-del]");
   if (del) {
