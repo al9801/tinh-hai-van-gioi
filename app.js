@@ -30,14 +30,27 @@ let mountedRoute = "";      // route đã dựng DOM (tránh re-mount editor khi
 const $ = (sel) => document.querySelector(sel);
 const $$ = (sel) => [...document.querySelectorAll(sel)];
 
-/* ── Đom đóm ──────────────────────────────────────────── */
-(function spawnFireflies() {
+/* ── Trời sao + sinh quang ────────────────────────────── */
+(function spawnSky() {
   const host = $("#fireflies");
-  for (let i = 0; i < 22; i++) {
+  // sao lấp lánh rải khắp trời
+  for (let i = 0; i < 60; i++) {
+    const s = document.createElement("span");
+    s.className = "star" + (Math.random() < 0.15 ? " gold" : "");
+    const size = (1 + Math.random() * 1.8).toFixed(1);
+    s.style.width = s.style.height = size + "px";
+    s.style.left = Math.random() * 100 + "%";
+    s.style.top = Math.random() * 80 + "%";
+    s.style.setProperty("--dur", (2.5 + Math.random() * 4).toFixed(1) + "s");
+    s.style.setProperty("--delay", (-Math.random() * 6).toFixed(1) + "s");
+    host.appendChild(s);
+  }
+  // đốm sinh quang trôi như plankton phát sáng
+  for (let i = 0; i < 16; i++) {
     const f = document.createElement("span");
-    f.className = "firefly";
+    f.className = "firefly" + (Math.random() < 0.3 ? " gold" : "");
     f.style.left = Math.random() * 100 + "%";
-    f.style.top = 20 + Math.random() * 75 + "%";
+    f.style.top = 30 + Math.random() * 65 + "%";
     f.style.setProperty("--dx", (Math.random() * 120 - 60).toFixed(0) + "px");
     f.style.setProperty("--dy", (Math.random() * -90 - 20).toFixed(0) + "px");
     f.style.setProperty("--dur", (7 + Math.random() * 9).toFixed(1) + "s");
@@ -185,7 +198,7 @@ if (DEMO) {
   const [email, acct] = Object.entries(ACCOUNTS)[0];
   me = { email, ...acct };
   enterForest();
-  setTimeout(() => toast("🍃 Đang xem bản DEMO — mọi thay đổi sẽ tan khi tải lại trang."), 600);
+  setTimeout(() => toast("🌊 Đang xem bản DEMO — mọi thay đổi sẽ tan khi tải lại trang."), 600);
 } else if (!CFG.apiKey || /PASTE/.test(CFG.apiKey)) {
   show("#screen-setup");
 } else {
@@ -296,8 +309,8 @@ function renderHome() {
 
   $("#main").innerHTML = `
     <div class="page-head">
-      <h1 class="page-title">Rừng <span class="accent">Cổng</span></h1>
-      <p class="page-sub">Mỗi cánh cổng dẫn vào một thế giới. Huy hiệu linh thú ở góc là dấu tiến cử của hai kẻ giữ rừng.</p>
+      <h1 class="page-title">Biển <span class="accent">Cổng</span></h1>
+      <p class="page-sub">Mỗi cánh cổng dẫn vào một thế giới. Huy hiệu linh thú ở góc là dấu tiến cử của hai kẻ giữ biển sao.</p>
     </div>
     <div class="map-grid">
       ${cards}
@@ -306,7 +319,7 @@ function renderHome() {
         <span class="new-card-label">Mở cánh cổng mới</span>
       </button>
     </div>
-    ${maps.length === 0 ? `<p class="empty-state">Khu rừng còn tĩnh lặng — hãy mở cánh cổng đầu tiên.</p>` : ""}`;
+    ${maps.length === 0 ? `<p class="empty-state">Biển sao còn tĩnh lặng — hãy mở cánh cổng đầu tiên.</p>` : ""}`;
 
   $("#btn-new-map").addEventListener("click", () => openMapModal(null));
 }
@@ -323,14 +336,14 @@ function findMap(id) { return maps.find((m) => m.id === id); }
 function renderMapView({ id, tab }) {
   const m = findMap(id);
   if (!m) {
-    $("#main").innerHTML = `<p class="empty-state">Cánh cổng này không tồn tại — có lẽ đã bị rừng nuốt mất.<br><br><a class="btn btn-ghost" href="#/">← Về Rừng Cổng</a></p>`;
+    $("#main").innerHTML = `<p class="empty-state">Cánh cổng này không tồn tại — có lẽ đã bị sóng cuốn mất.<br><br><a class="btn btn-ghost" href="#/">← Về Biển Cổng</a></p>`;
     return;
   }
   const st = SUBTABS.find((t) => t.key === tab) || SUBTABS[0];
 
   $("#main").innerHTML = `
     <div class="map-view-head">
-      <a class="breadcrumb" href="#/">← Rừng Cổng</a>
+      <a class="breadcrumb" href="#/">← Biển Cổng</a>
       <div class="map-title-row">
         <div style="flex:1; min-width: 240px;">
           <h1 class="map-view-title" id="mv-title"></h1>
@@ -433,7 +446,7 @@ $("#btn-map-save").addEventListener("click", async () => {
         recommends: {},
         createdBy: me.email,
       });
-      toast("✦ Một cánh cổng mới vừa hiện ra giữa rừng.");
+      toast("✦ Một cánh cổng mới vừa hiện ra giữa biển sao.");
       location.hash = `#/map/${newId}`;
     }
     closeMapModal();
@@ -449,7 +462,7 @@ $("#btn-map-delete").addEventListener("click", async () => {
     await store.deleteMap(editingMapId);
     closeMapModal();
     location.hash = "#/";
-    toast("Cánh cổng đã tan vào sương.");
+    toast("Cánh cổng đã tan vào bọt sóng.");
   } catch (e) { toast("Không xoá được: " + e.message, true); }
 });
 
@@ -472,8 +485,8 @@ function renderDraftsList() {
   $("#main").innerHTML = `
     <div class="page-head drafts-head-row">
       <div style="flex:1">
-        <h1 class="page-title">Thư Phòng <span class="accent">Cổ Mộc</span></h1>
-        <p class="page-sub">Nơi cất những trang nháp ý tưởng — cả hai kẻ giữ rừng đều đọc và viết được.</p>
+        <h1 class="page-title">Thư Phòng <span class="accent">San Hô</span></h1>
+        <p class="page-sub">Nơi cất những trang nháp ý tưởng — cả hai kẻ giữ biển sao đều đọc và viết được.</p>
       </div>
       <button class="btn btn-gold" id="btn-new-draft">✎ Trải trang giấy mới</button>
     </div>
@@ -494,17 +507,17 @@ function findDraft(id) { return drafts.find((d) => d.id === id); }
 function renderDraftView({ id }) {
   const d = findDraft(id);
   if (!d) {
-    $("#main").innerHTML = `<p class="empty-state">Trang nháp này không còn trong thư phòng.<br><br><a class="btn btn-ghost" href="#/thu-phong">← Về Thư Phòng</a></p>`;
+    $("#main").innerHTML = `<p class="empty-state">Trang nháp này không còn trong thư phòng.<br><br><a class="btn btn-ghost" href="#/thu-phong">← Về Thư Phòng San Hô</a></p>`;
     return;
   }
   $("#main").innerHTML = `
     <div class="map-view-head">
-      <a class="breadcrumb" href="#/thu-phong">← Thư Phòng Cổ Mộc</a>
+      <a class="breadcrumb" href="#/thu-phong">← Thư Phòng San Hô</a>
       <input id="draft-title" class="draft-title-input" placeholder="Đặt tên cho trang nháp…" value="${esc(d.title)}">
       <div class="map-actions" style="margin-top:6px">
         <span class="rec-status" id="draft-meta"></span>
         <span class="spacer"></span>
-        <button class="btn btn-danger-ghost" id="btn-del-draft">Đốt trang nháp…</button>
+        <button class="btn btn-danger-ghost" id="btn-del-draft">Thả trôi trang nháp…</button>
       </div>
     </div>
     <div class="editor-wrap" id="editor-slot"></div>`;
@@ -519,17 +532,17 @@ function renderDraftView({ id }) {
   });
 
   $("#btn-del-draft").addEventListener("click", async () => {
-    if (!confirm("Đốt trang nháp này? Nội dung sẽ mất vĩnh viễn.")) return;
+    if (!confirm("Thả trôi trang nháp này? Nội dung sẽ chìm vĩnh viễn.")) return;
     try {
       await store.deleteDraft(id);
       location.hash = "#/thu-phong";
-      toast("Trang nháp đã hoá tro.");
+      toast("Trang nháp đã trôi theo hải lưu.");
     } catch (e) { toast("Không xoá được: " + e.message, true); }
   });
 
   mountEditor($("#editor-slot"), {
     html: d.content || "",
-    placeholder: "Viết ý tưởng của bạn ở đây — như một trang docx giữa rừng…",
+    placeholder: "Viết ý tưởng của bạn ở đây — như một trang docx giữa biển sao…",
     save: (html) => store.updateDraft(id, { content: html }),
   });
   updateDraftMeta({ id });
@@ -586,7 +599,7 @@ function mountEditor(slot, { html, placeholder, save, showCopy = false }) {
   const doSave = async () => {
     const cur = page.innerHTML;
     if (cur === lastSaved) return;
-    status.textContent = "Đang khắc lên vỏ cây…";
+    status.textContent = "Đang gửi theo hải lưu…";
     status.className = "tb-status saving";
     try {
       await save(cur);

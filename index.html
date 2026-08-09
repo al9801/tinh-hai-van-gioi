@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Đại Ngàn Vạn Giới</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌲</text></svg>">
+<title>Tinh Hải Vạn Giới</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐋</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -12,45 +12,74 @@
 </head>
 <body>
 
-<!-- ══════════ Nền rừng: sương + đom đóm + tán cây ══════════ -->
-<div class="forest-bg" aria-hidden="true">
+<!-- ══════════ Nền biển sao: trăng + sao + sinh quang + đàn cá bay ══════════ -->
+<div class="ocean-bg" aria-hidden="true">
+  <div class="moon"></div>
   <div class="mist mist-1"></div>
   <div class="mist mist-2"></div>
   <div id="fireflies"></div>
-  <svg class="forest-silhouette" viewBox="0 0 1440 320" preserveAspectRatio="xMidYMax slice">
-    <path class="tree-far" d="M0,320 L0,240 L30,235 L45,180 L60,235 L80,230 L95,150 L115,230 L140,225 L160,170 L185,228 L210,222 L228,140 L250,225 L275,220 L300,160 L320,222 L350,218 L370,120 L395,220 L420,215 L445,165 L465,218 L490,214 L515,130 L540,218 L565,212 L590,155 L610,215 L640,210 L660,110 L685,214 L710,210 L735,150 L755,214 L780,208 L805,135 L830,212 L855,208 L880,160 L900,212 L930,206 L950,115 L975,210 L1000,206 L1025,150 L1045,210 L1070,204 L1095,128 L1120,208 L1145,204 L1170,158 L1190,208 L1220,202 L1240,118 L1265,206 L1290,202 L1315,148 L1335,206 L1360,200 L1385,140 L1410,204 L1440,200 L1440,320 Z"/>
-    <path class="tree-near" d="M0,320 L0,280 L40,275 L60,200 L85,272 L120,268 L145,175 L175,268 L215,264 L245,190 L275,264 L315,260 L345,160 L380,262 L420,258 L450,185 L485,258 L525,254 L555,150 L595,256 L635,252 L665,180 L700,254 L740,250 L775,165 L810,252 L850,248 L880,190 L915,250 L955,246 L985,155 L1025,248 L1065,244 L1095,185 L1130,246 L1170,242 L1200,160 L1240,244 L1280,240 L1310,180 L1345,242 L1385,238 L1415,170 L1440,240 L1440,320 Z"/>
+
+  <div class="sky-swimmers">
+    <!-- cá voi bơi ngang trời -->
+    <div class="swimmer whale-1">
+      <svg class="bob" viewBox="0 0 220 120">
+        <path class="whale-body" d="M12,64 C26,38 62,26 104,28 C138,30 162,42 176,50 L198,34 C204,44 202,52 194,58 C202,64 204,72 198,80 L174,64 C150,78 112,86 76,82 C48,78 24,72 12,64 Z M88,80 C96,92 108,96 118,91 C107,86 97,82 88,80 Z"/>
+      </svg>
+    </div>
+    <!-- đàn cá xuôi dòng -->
+    <div class="swimmer school-1">
+      <span class="fish-holder" style="--i:0s; left:0px;   top:44px;"><svg class="fish" width="24" viewBox="0 0 32 16"><path d="M2,8 C8,2 15,2 21,8 C15,14 8,14 2,8 Z M21,8 L29,3 L29,13 Z"/></svg></span>
+      <span class="fish-holder" style="--i:-1s; left:38px;  top:20px;"><svg class="fish" width="20" viewBox="0 0 32 16"><path d="M2,8 C8,2 15,2 21,8 C15,14 8,14 2,8 Z M21,8 L29,3 L29,13 Z"/></svg></span>
+      <span class="fish-holder" style="--i:-2s; left:44px;  top:66px;"><svg class="fish" width="22" viewBox="0 0 32 16"><path d="M2,8 C8,2 15,2 21,8 C15,14 8,14 2,8 Z M21,8 L29,3 L29,13 Z"/></svg></span>
+      <span class="fish-holder" style="--i:-3s; left:86px;  top:6px;"><svg class="fish" width="17" viewBox="0 0 32 16"><path d="M2,8 C8,2 15,2 21,8 C15,14 8,14 2,8 Z M21,8 L29,3 L29,13 Z"/></svg></span>
+      <span class="fish-holder" style="--i:-4s; left:92px;  top:42px;"><svg class="fish" width="26" viewBox="0 0 32 16"><path d="M2,8 C8,2 15,2 21,8 C15,14 8,14 2,8 Z M21,8 L29,3 L29,13 Z"/></svg></span>
+      <span class="fish-holder" style="--i:-5s; left:100px; top:82px;"><svg class="fish" width="18" viewBox="0 0 32 16"><path d="M2,8 C8,2 15,2 21,8 C15,14 8,14 2,8 Z M21,8 L29,3 L29,13 Z"/></svg></span>
+      <span class="fish-holder" style="--i:-2.5s; left:142px; top:26px;"><svg class="fish" width="21" viewBox="0 0 32 16"><path d="M2,8 C8,2 15,2 21,8 C15,14 8,14 2,8 Z M21,8 L29,3 L29,13 Z"/></svg></span>
+      <span class="fish-holder" style="--i:-1.5s; left:150px; top:60px;"><svg class="fish" width="19" viewBox="0 0 32 16"><path d="M2,8 C8,2 15,2 21,8 C15,14 8,14 2,8 Z M21,8 L29,3 L29,13 Z"/></svg></span>
+    </div>
+    <!-- đàn cá nhỏ bơi ngược hướng -->
+    <div class="swimmer school-2 rev">
+      <span class="fish-holder" style="--i:0s; left:0px;  top:30px;"><svg class="fish" width="16" viewBox="0 0 32 16"><path d="M2,8 C8,2 15,2 21,8 C15,14 8,14 2,8 Z M21,8 L29,3 L29,13 Z"/></svg></span>
+      <span class="fish-holder" style="--i:-2s; left:30px; top:8px;"><svg class="fish" width="14" viewBox="0 0 32 16"><path d="M2,8 C8,2 15,2 21,8 C15,14 8,14 2,8 Z M21,8 L29,3 L29,13 Z"/></svg></span>
+      <span class="fish-holder" style="--i:-4s; left:36px; top:52px;"><svg class="fish" width="15" viewBox="0 0 32 16"><path d="M2,8 C8,2 15,2 21,8 C15,14 8,14 2,8 Z M21,8 L29,3 L29,13 Z"/></svg></span>
+      <span class="fish-holder" style="--i:-1s; left:72px; top:28px;"><svg class="fish" width="17" viewBox="0 0 32 16"><path d="M2,8 C8,2 15,2 21,8 C15,14 8,14 2,8 Z M21,8 L29,3 L29,13 Z"/></svg></span>
+    </div>
+  </div>
+
+  <svg class="waves" viewBox="0 0 1440 220" preserveAspectRatio="xMidYMax slice">
+    <path class="wave-far" d="M0,120 Q45,95 90,120 T180,120 T270,120 T360,120 T450,120 T540,120 T630,120 T720,120 T810,120 T900,120 T990,120 T1080,120 T1170,120 T1260,120 T1350,120 T1440,120 L1440,220 L0,220 Z"/>
+    <path class="wave-near" d="M0,165 Q60,130 120,165 T240,165 T360,165 T480,165 T600,165 T720,165 T840,165 T960,165 T1080,165 T1200,165 T1320,165 T1440,165 L1440,220 L0,220 Z"/>
   </svg>
 </div>
 
 <!-- ══════════ MÀN HÌNH: đang tải ══════════ -->
 <section id="screen-loading" class="screen center-screen">
   <div class="rune-spinner">✦</div>
-  <p class="muted">Đang mở đường vào đại ngàn…</p>
+  <p class="muted">Đang rẽ sóng mở lối vào biển sao…</p>
 </section>
 
 <!-- ══════════ MÀN HÌNH: chưa cấu hình Firebase ══════════ -->
 <section id="screen-setup" class="screen center-screen hidden">
   <div class="gate-card">
-    <div class="gate-emblem">🌲</div>
-    <h1 class="site-title">Đại Ngàn Vạn Giới</h1>
-    <p class="gate-sub">Khu rừng chưa được đánh thức</p>
+    <div class="gate-emblem">🐋</div>
+    <h1 class="site-title">Tinh Hải Vạn Giới</h1>
+    <p class="gate-sub">Vùng biển chưa được đánh thức</p>
     <div class="setup-note">
       <p>Trang chưa kết nối Firebase. Hãy mở file <code>firebase-config.js</code> và dán cấu hình dự án Firebase vào (hướng dẫn từng bước trong <code>README.md</code>), sau đó tải lại trang.</p>
     </div>
-    <a class="btn btn-ghost" style="margin-top:22px" href="?demo=1">🍃 Xem thử giao diện (bản demo)</a>
+    <a class="btn btn-ghost" style="margin-top:22px" href="?demo=1">🌊 Xem thử giao diện (bản demo)</a>
   </div>
 </section>
 
-<!-- ══════════ MÀN HÌNH: Cổng Rừng (đăng nhập) ══════════ -->
+<!-- ══════════ MÀN HÌNH: Hải Môn (đăng nhập) ══════════ -->
 <section id="screen-login" class="screen center-screen hidden">
   <div class="gate-card">
-    <div class="gate-emblem">🌲</div>
-    <h1 class="site-title">Đại Ngàn Vạn Giới</h1>
-    <p class="gate-sub">Nơi Cây Thế Giới treo những cánh cổng dẫn vào vạn thế giới.<br>Khu rừng chỉ mở lối cho những kẻ được chọn.</p>
+    <div class="gate-emblem">🐋</div>
+    <h1 class="site-title">Tinh Hải Vạn Giới</h1>
+    <p class="gate-sub">Nơi đàn cá bơi giữa trời sao, và mỗi cánh cổng là một thế giới.<br>Biển sao chỉ rẽ sóng cho những kẻ được chọn.</p>
     <button id="btn-login" class="btn btn-gold btn-lg">
       <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
-      Bước qua Cổng Rừng bằng Google
+      Bước qua Hải Môn bằng Google
     </button>
     <p id="login-error" class="login-error hidden"></p>
   </div>
@@ -60,8 +89,8 @@
 <section id="screen-denied" class="screen center-screen hidden">
   <div class="gate-card">
     <div class="gate-emblem">🚫</div>
-    <h1 class="site-title" style="font-size:1.6rem">Rừng thiêng không nhận ra ngươi</h1>
-    <p class="gate-sub">Tài khoản <strong id="denied-email"></strong> không nằm trong danh sách được chọn.<br>Hãy dùng đúng hòm thư đã được khắc tên lên Cây Thế Giới.</p>
+    <h1 class="site-title" style="font-size:1.6rem">Biển sao không nhận ra ngươi</h1>
+    <p class="gate-sub">Tài khoản <strong id="denied-email"></strong> không nằm trong danh sách được chọn.<br>Hãy dùng đúng hòm thư đã được khắc tên lên vầng trăng đáy nước.</p>
     <button id="btn-denied-logout" class="btn btn-ghost">Rời khỏi & thử tài khoản khác</button>
   </div>
 </section>
@@ -70,24 +99,24 @@
 <section id="screen-app" class="screen hidden">
   <header class="app-header">
     <a href="#/" class="brand">
-      <span class="brand-glyph">🌲</span>
-      <span class="brand-text">Đại Ngàn <em>Vạn Giới</em></span>
+      <span class="brand-glyph">🐋</span>
+      <span class="brand-text">Tinh Hải <em>Vạn Giới</em></span>
     </a>
     <nav class="top-nav">
-      <a href="#/" data-nav="home" class="nav-link">Rừng Cổng</a>
-      <a href="#/thu-phong" data-nav="drafts" class="nav-link">Thư Phòng Cổ Mộc</a>
+      <a href="#/" data-nav="home" class="nav-link">Biển Cổng</a>
+      <a href="#/thu-phong" data-nav="drafts" class="nav-link">Thư Phòng San Hô</a>
     </nav>
     <div class="user-chip">
       <span id="user-totem" class="user-totem" title=""></span>
       <span id="user-name" class="user-name"></span>
-      <button id="btn-logout" class="btn-icon" title="Rời khỏi khu rừng">⎋</button>
+      <button id="btn-logout" class="btn-icon" title="Rời khỏi biển sao">⎋</button>
     </div>
   </header>
 
   <main id="main" class="main"></main>
 
   <footer class="app-footer">
-    <span>「 Mỗi cánh cổng là một thế giới — mỗi thế giới là một câu chuyện chưa kể 」</span>
+    <span>「 Mỗi cánh cổng là một thế giới — mỗi thế giới là một vì sao chưa tắt 」</span>
   </footer>
 </section>
 

@@ -1,11 +1,11 @@
-# 🌲 Đại Ngàn Vạn Giới
+# 🐋 Tinh Hải Vạn Giới
 
-Cổng thế giới riêng của hai kẻ giữ rừng 🦇 🐋 — nơi lưu các MAP (thế giới roleplay cho Google AI Studio), prompt, và những trang nháp ý tưởng.
+Cổng thế giới riêng của hai kẻ giữ biển sao 🦇 🐋 — biển đêm nơi đàn cá bơi giữa trời sao, lưu các MAP (thế giới roleplay cho Google AI Studio), prompt, và những trang nháp ý tưởng.
 
-- **Rừng Cổng** — lưới các cánh cổng, mỗi cổng là một map. Huy hiệu linh thú ở góc thẻ là dấu "tiến cử" của từng người (cả hai cùng tiến cử → hai huy hiệu đậu cạnh nhau).
+- **Biển Cổng** — lưới các cánh cổng, mỗi cổng là một map. Huy hiệu linh thú ở góc thẻ là dấu "tiến cử" của từng người (cả hai cùng tiến cử → hai huy hiệu đậu cạnh nhau).
 - **Mỗi map** — nút mở Google AI Studio ngay đầu trang, nút tiến cử, và 3 trang giấy kiểu docx: *Nội dung Map · Prompt · Ý tưởng nháp*. Tự động lưu, đồng bộ realtime giữa hai tài khoản.
-- **Thư Phòng Cổ Mộc** — kho nháp chung, mỗi nháp là một trang giấy docx.
-- Chỉ email trong danh sách mới bước qua Cổng Rừng (đăng nhập Google + chặn cứng bằng Firestore Rules).
+- **Thư Phòng San Hô** — kho nháp chung, mỗi nháp là một trang giấy docx.
+- Chỉ email trong danh sách mới bước qua Hải Môn (đăng nhập Google + chặn cứng bằng Firestore Rules).
 
 ---
 
@@ -62,7 +62,7 @@ Mở http://localhost:8080 (localhost đã nằm sẵn trong Authorized domains 
 | File | Vai trò |
 |---|---|
 | `index.html` | Khung trang + các màn hình |
-| `styles.css` | Toàn bộ giao diện rừng đại ngàn |
+| `styles.css` | Toàn bộ giao diện biển sao |
 | `app.js` | Đăng nhập, realtime, editor docx, tiến cử |
 | `firebase-config.js` | **File duy nhất cần sửa** — config + danh sách email |
 | `firestore.rules` | Rules dán vào Firebase Console |
