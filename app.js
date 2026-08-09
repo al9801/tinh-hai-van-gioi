@@ -185,8 +185,9 @@ function firestoreStore() {
     },
     updateMap: (id, patch) =>
       updateDoc(doc(db, "maps", id), { ...patch, updatedAt: serverTimestamp() }),
-    // tiến cử: không đụng updatedAt (không phải "sửa nội dung")
+    // tiến cử / xếp thứ tự: không đụng updatedAt (không phải "sửa nội dung")
     setRecommends: (id, recommends) => updateDoc(doc(db, "maps", id), { recommends }),
+    setOrder: (id, order) => updateDoc(doc(db, "maps", id), { order }),
     async deleteMap(id) {
       await deleteDoc(doc(db, "maps", id));
       deleteDoc(doc(db, "mapfiles", id)).catch(() => {}); // dọn luôn file HTML nếu có
@@ -288,6 +289,7 @@ function demoStore() {
     async addMap(data) { const id = uid(); maps.push({ id, ...data, updatedAt: now() }); route(true); return id; },
     async updateMap(id, patch) { const m = maps.find((x) => x.id === id); if (m) { Object.assign(m, patch); touch(m); } route(true); },
     async setRecommends(id, recommends) { const m = maps.find((x) => x.id === id); if (m) m.recommends = recommends; route(true); },
+    async setOrder(id, order) { const m = maps.find((x) => x.id === id); if (m) m.order = order; maps.sort((a, b) => (a.order || 0) - (b.order || 0)); },
     async deleteMap(id) { maps = maps.filter((x) => x.id !== id); delete htmlFiles[id]; route(true); },
     async getMapHtml(id) { return htmlFiles[id] || null; },
     async saveMapHtml(id, html) { htmlFiles[id] = html; },
@@ -423,9 +425,11 @@ function route(soft = false) {
 }
 
 /* ── HOME: Rừng Cổng ──────────────────────────────────── */
+let dragMapId = null;
+
 function renderHome() {
   const cards = maps.map((m) => `
-    <a class="map-card" href="#/map/${m.id}">
+    <a class="map-card" href="#/map/${m.id}" data-id="${m.id}" draggable="true">
       <span class="totem-corner">${totemBadges(m.recommends)}</span>
       <div class="map-card-num">✦ Cánh cổng ${esc(String(m.order ?? "?"))} ✦</div>
       <div class="map-card-title">${esc(m.title)}</div>
@@ -436,7 +440,7 @@ function renderHome() {
   $("#main").innerHTML = `
     <div class="page-head">
       <h1 class="page-title">Biển <span class="accent">Cổng</span></h1>
-      <p class="page-sub">Mỗi cánh cổng dẫn vào một thế giới. Huy hiệu linh thú ở góc là dấu tiến cử của hai kẻ giữ biển sao.</p>
+      <p class="page-sub">Mỗi cánh cổng dẫn vào một thế giới. Huy hiệu linh thú ở góc là dấu tiến cử. Kéo thả thẻ để sắp xếp — số cổng tự đánh lại theo vị trí.</p>
     </div>
     <div class="map-grid">
       ${cards}
@@ -448,6 +452,51 @@ function renderHome() {
     ${maps.length === 0 ? `<p class="empty-state">Biển sao còn tĩnh lặng — hãy mở cánh cổng đầu tiên.</p>` : ""}`;
 
   $("#btn-new-map").addEventListener("click", () => openMapModal(null));
+
+  // kéo thả sắp xếp thứ tự cổng
+  $$(".map-card[data-id]").forEach((card) => {
+    card.addEventListener("dragstart", (e) => {
+      dragMapId = card.dataset.id;
+      card.classList.add("dragging");
+      e.dataTransfer.effectAllowed = "move";
+      e.dataTransfer.setData("text/plain", dragMapId); // Firefox cần có data mới kéo được
+    });
+    card.addEventListener("dragend", () => {
+      card.classList.remove("dragging");
+      $$(".map-card.drag-over").forEach((c) => c.classList.remove("drag-over"));
+    });
+    card.addEventListener("dragover", (e) => {
+      if (!dragMapId || dragMapId === card.dataset.id) return;
+      e.preventDefault();
+      e.dataTransfer.dropEffect = "move";
+      card.classList.add("drag-over");
+    });
+    card.addEventListener("dragleave", () => card.classList.remove("drag-over"));
+    card.addEventListener("drop", async (e) => {
+      e.preventDefault();
+      card.classList.remove("drag-over");
+      await reorderMaps(dragMapId, card.dataset.id);
+      dragMapId = null;
+    });
+  });
+}
+
+// thả cổng src vào vị trí của cổng dst → đánh lại order = vị trí mới (1, 2, 3…)
+async function reorderMaps(srcId, dstId) {
+  if (!srcId || !dstId || srcId === dstId) return;
+  const seq = [...maps].sort((a, b) => (a.order || 0) - (b.order || 0));
+  const from = seq.findIndex((m) => m.id === srcId);
+  const to = seq.findIndex((m) => m.id === dstId);
+  if (from < 0 || to < 0) return;
+  const [moved] = seq.splice(from, 1);
+  seq.splice(to, 0, moved);
+  try {
+    await Promise.all(seq
+      .map((m, i) => (m.order !== i + 1 ? store.setOrder(m.id, i + 1) : null))
+      .filter(Boolean));
+    toast("✦ Đã xếp lại các cánh cổng.");
+    route(true); // demo cần vẽ lại ngay; bản thật snapshot sẽ tự về
+  } catch (e) { toast("Không xếp lại được: " + e.message, true); }
 }
 
 /* ── MAP VIEW ─────────────────────────────────────────── */
@@ -654,11 +703,17 @@ function closeMapModal() { $("#modal-map").classList.add("hidden"); }
 $("#btn-map-cancel").addEventListener("click", closeMapModal);
 $("#modal-map").addEventListener("click", (e) => { if (e.target.id === "modal-map") closeMapModal(); });
 
+let savingMap = false; // chống bấm Lưu nhiều lần tạo map trùng
 $("#btn-map-save").addEventListener("click", async () => {
+  if (savingMap) return;
   const title = $("#inp-map-title").value.trim();
   if (!title) { toast("Cánh cổng cần một cái tên.", true); return; }
   const world = $("#inp-map-world").value.trim();
   const gasLink = normalizeUrl($("#inp-map-gas").value) || DEFAULT_GAS;
+  const btn = $("#btn-map-save");
+  savingMap = true;
+  btn.disabled = true;
+  btn.textContent = "Đang lưu…";
   try {
     if (editingMapId) {
       await store.updateMap(editingMapId, { title, world, gasLink });
@@ -677,6 +732,11 @@ $("#btn-map-save").addEventListener("click", async () => {
     }
     closeMapModal();
   } catch (e) { toast("Không lưu được: " + e.message, true); }
+  finally {
+    savingMap = false;
+    btn.disabled = false;
+    btn.textContent = "Lưu";
+  }
 });
 
 $("#btn-map-delete").addEventListener("click", async () => {
@@ -719,11 +779,14 @@ function renderDraftsList() {
     <div class="drafts-grid">${cards}</div>
     ${drafts.length === 0 ? `<p class="empty-state">Thư phòng còn trống — trải trang giấy đầu tiên đi.</p>` : ""}`;
 
-  $("#btn-new-draft").addEventListener("click", async () => {
+  $("#btn-new-draft").addEventListener("click", async (e) => {
+    const btn = e.currentTarget;
+    if (btn.disabled) return; // chống double-click tạo nháp trùng
+    btn.disabled = true;
     try {
       const newId = await store.addDraft({ title: "", content: "", owner: me.email });
       location.hash = `#/thu-phong/${newId}`;
-    } catch (e) { toast("Không tạo được nháp: " + e.message, true); }
+    } catch (err) { toast("Không tạo được nháp: " + err.message, true); btn.disabled = false; }
   });
 }
 

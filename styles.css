@@ -888,3 +888,12 @@ body {
   line-height: 1.9;
 }
 .has-map-chip { color: var(--glow); }
+
+/* kéo thả sắp xếp cổng */
+.map-card[draggable="true"] { user-select: none; }
+.map-card.dragging { opacity: 0.35; transform: scale(0.97); }
+.map-card.drag-over {
+  border-color: var(--gold) !important;
+  box-shadow: 0 0 28px rgba(217, 180, 111, 0.4);
+  transform: translateY(-3px);
+}
