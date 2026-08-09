@@ -17,7 +17,7 @@ window.FIREBASE_CONFIG = {
 // + linh thú đại diện của mỗi người (icon gắn lên map khi tiến cử)
 window.ACCOUNTS = {
   "dinhhieungan@gmail.com": { icon: "🦇", name: "Dơi" },
-  "kimtuoc259@gmail.com": { icon: "🐋", name: "Cá Voi Sao" },
+  "kimtuoc259@gmail.com": { icon: "⭐", name: "Cá Voi Sao" },
 };
 
 // Link Google AI Studio mặc định khi tạo map mới (mỗi map sửa riêng được)
