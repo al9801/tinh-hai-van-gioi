@@ -35,6 +35,8 @@ let chatMsgs = [];
 let chatInit = false;
 let chatOpen = false;
 let chatUnread = 0;
+let stickers = [];
+let unsubStickers = null;
 
 const $ = (sel) => document.querySelector(sel);
 const $$ = (sel) => [...document.querySelectorAll(sel)];
@@ -105,6 +107,43 @@ function totemBadges(recommends) {
       `<span class="totem-badge" title="${esc(a.name)} (${esc(email)}) đã tiến cử">${a.icon}</span>`)
     .join("");
 }
+/* nén ảnh phía client thành data-URL (Firestore giới hạn ~1MB/document) */
+function loadImage(url) {
+  return new Promise((res, rej) => {
+    const img = new Image();
+    img.onload = () => res(img);
+    img.onerror = () => rej(new Error("Không đọc được ảnh"));
+    img.src = url;
+  });
+}
+async function shrinkImage(file, maxDim, targetChars) {
+  const dataUrl = await new Promise((res, rej) => {
+    const r = new FileReader();
+    r.onload = () => res(r.result);
+    r.onerror = () => rej(new Error("Không đọc được file"));
+    r.readAsDataURL(file);
+  });
+  const img = await loadImage(dataUrl);
+  let scale = Math.min(1, maxDim / Math.max(img.width, img.height));
+  let best = null;
+  for (let attempt = 0; attempt < 4; attempt++) {
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.max(1, Math.round(img.width * scale));
+    canvas.height = Math.max(1, Math.round(img.height * scale));
+    canvas.getContext("2d").drawImage(img, 0, 0, canvas.width, canvas.height);
+    let out = canvas.toDataURL("image/webp", 0.82);
+    if (!out.startsWith("data:image/webp")) { // trình duyệt không nén được webp
+      out = (file.type === "image/png" && attempt === 0)
+        ? canvas.toDataURL("image/png")      // giữ nền trong suốt nếu còn nhỏ
+        : canvas.toDataURL("image/jpeg", 0.8);
+    }
+    best = out;
+    if (out.length <= targetChars) return out;
+    scale *= 0.7; // còn nặng → thu nhỏ thêm rồi thử lại
+  }
+  return best;
+}
+
 function friendlyAuthError(e) {
   const code = e?.code || "";
   if (code.includes("popup-closed") || code.includes("cancelled")) return "Cửa sổ đăng nhập đã bị đóng.";
@@ -156,7 +195,16 @@ function firestoreStore() {
         (snap) => cb(snap.docs.map((d) => ({ id: d.id, ...d.data() }))),
         (err) => console.error(err));
     },
-    sendChat: (text) => addDoc(collection(db, "chat"), { text, by: me.email, at: serverTimestamp() }),
+    // payload: { text } hoặc { stickerId }
+    sendChat: (payload) => addDoc(collection(db, "chat"), { ...payload, by: me.email, at: serverTimestamp() }),
+    subscribeStickers(cb) {
+      unsubStickers = onSnapshot(
+        query(collection(db, "stickers"), orderBy("at")),
+        (snap) => cb(snap.docs.map((d) => ({ id: d.id, ...d.data() }))),
+        (err) => console.error(err));
+    },
+    addSticker: (data) => addDoc(collection(db, "stickers"), { data, by: me.email, at: serverTimestamp() }),
+    deleteSticker: (id) => deleteDoc(doc(db, "stickers", id)),
   };
 }
 
@@ -205,11 +253,16 @@ function demoStore() {
     { id: "demo-m2", by: emails[0], text: "Ừ, tôi vừa sửa lại prompt rồi đó!", at: now() },
   ];
   let chatCb = null;
+  let stickerArr = [];
+  let stickerCb = null;
   return {
     demo: true,
     subscribe() {},
     subscribeChat(cb) { chatCb = cb; cb(chatArr.slice()); },
-    async sendChat(text) { chatArr.push({ id: uid(), by: me.email, text, at: now() }); chatCb?.(chatArr.slice()); },
+    async sendChat(payload) { chatArr.push({ id: uid(), by: me.email, ...payload, at: now() }); chatCb?.(chatArr.slice()); },
+    subscribeStickers(cb) { stickerCb = cb; cb(stickerArr.slice()); },
+    async addSticker(data) { stickerArr.push({ id: uid(), data, by: me.email, at: now() }); stickerCb?.(stickerArr.slice()); },
+    async deleteSticker(id) { stickerArr = stickerArr.filter((s) => s.id !== id); stickerCb?.(stickerArr.slice()); },
     async addMap(data) { const id = uid(); maps.push({ id, ...data, updatedAt: now() }); route(true); return id; },
     async updateMap(id, patch) { const m = maps.find((x) => x.id === id); if (m) { Object.assign(m, patch); touch(m); } route(true); },
     async setRecommends(id, recommends) { const m = maps.find((x) => x.id === id); if (m) m.recommends = recommends; route(true); },
@@ -277,7 +330,8 @@ function teardown() {
   unsubMaps?.(); unsubMaps = null;
   unsubDrafts?.(); unsubDrafts = null;
   unsubChat?.(); unsubChat = null;
-  maps = []; drafts = [];
+  unsubStickers?.(); unsubStickers = null;
+  maps = []; drafts = []; stickers = [];
   chatMsgs = []; chatInit = false; chatUnread = 0;
   mountedRoute = "";
 }
@@ -289,6 +343,11 @@ function enterForest() {
   show("#screen-app");
   store.subscribe();
   store.subscribeChat(onChatMsgs);
+  store.subscribeStickers((arr) => {
+    stickers = arr;
+    renderStickerGrid();
+    renderChatList(); // vá lại tin sticker đến trước khi kho sticker tải xong
+  });
   route();
 }
 
@@ -615,6 +674,7 @@ const TOOLBAR = [
   { block: "blockquote", label: "❝", title: "Trích dẫn" },
   { cmd: "insertHorizontalRule", label: "―", title: "Đường kẻ ngang" },
   { sep: true },
+  { image: true, label: "🖼️", title: "Chèn ảnh (hoặc dán thẳng ảnh vào trang)" },
   { cmd: "removeFormat", label: "⌫ᴬ", title: "Xoá định dạng" },
   { cmd: "undo", label: "↺", title: "Hoàn tác" },
   { cmd: "redo", label: "↻", title: "Làm lại" },
@@ -623,12 +683,14 @@ const TOOLBAR = [
 function mountEditor(slot, { html, placeholder, save, showCopy = false, comments = null }) {
   slot.innerHTML = `
     <div class="editor-toolbar">
-      ${TOOLBAR.map((t) => t.sep
-        ? `<span class="tb-sep"></span>`
-        : `<button class="tb-btn" data-cmd="${t.cmd || ""}" data-block="${t.block || ""}" title="${t.title}" ${t.style ? `style="${t.style}"` : ""}>${t.label}</button>`
-      ).join("")}
+      ${TOOLBAR.map((t) => {
+        if (t.sep) return `<span class="tb-sep"></span>`;
+        if (t.image) return `<button class="tb-btn" data-img="1" title="${t.title}">${t.label}</button>`;
+        return `<button class="tb-btn" data-cmd="${t.cmd || ""}" data-block="${t.block || ""}" title="${t.title}" ${t.style ? `style="${t.style}"` : ""}>${t.label}</button>`;
+      }).join("")}
       ${showCopy ? `<span class="tb-sep"></span><button class="tb-btn" id="tb-copy" title="Copy toàn bộ prompt (dạng chữ thuần) để dán vào AI Studio">⧉ Copy</button>` : ""}
       <span class="tb-status" id="tb-status">Tự động lưu</span>
+      <input type="file" accept="image/*" class="tb-img-file" hidden>
     </div>
     <div class="doc-page" id="doc-page" contenteditable="true" data-placeholder="${esc(placeholder)}"></div>`;
 
@@ -662,8 +724,62 @@ function mountEditor(slot, { html, placeholder, save, showCopy = false, comments
   });
   page.addEventListener("blur", () => { clearTimeout(saveTimer); doSave(); });
 
-  // dán = giữ chữ thuần cho sạch trang
+  // chèn ảnh: nén rồi đặt vào vị trí con trỏ
+  let savedImgRange = null;
+  const caretToEnd = () => {
+    const r = document.createRange();
+    r.selectNodeContents(page); r.collapse(false);
+    const s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+  };
+  async function insertImageFile(file) {
+    if (!file?.type?.startsWith("image/")) { toast("File này không phải ảnh.", true); return; }
+    status.textContent = "Đang nén ảnh…";
+    status.className = "tb-status saving";
+    try {
+      const data = await shrinkImage(file, 1000, 260_000);
+      page.focus();
+      const sel = window.getSelection();
+      if (savedImgRange && page.contains(savedImgRange.commonAncestorContainer)) {
+        sel.removeAllRanges(); sel.addRange(savedImgRange);
+      } else if (!sel.rangeCount || !page.contains(sel.getRangeAt(0).commonAncestorContainer)) {
+        caretToEnd();
+      }
+      document.execCommand("insertHTML", false, `<img src="${data}" alt="">`);
+      savedImgRange = null;
+      page.dispatchEvent(new Event("input")); // kích hoạt tự động lưu
+      if (page.innerHTML.length > 800_000) {
+        toast("Trang đang nặng vì nhiều ảnh — giới hạn ~1MB/trang, cân nhắc bớt ảnh.", true);
+      }
+    } catch (e) {
+      status.textContent = "⚠ Lỗi ảnh"; status.className = "tb-status";
+      toast("Không chèn được ảnh: " + e.message, true);
+    }
+  }
+  const imgBtn = slot.querySelector("[data-img]");
+  const imgInput = slot.querySelector(".tb-img-file");
+  imgBtn?.addEventListener("mousedown", () => { // nhớ vị trí con trỏ trước khi mở hộp chọn file
+    const sel = window.getSelection();
+    if (sel.rangeCount && page.contains(sel.getRangeAt(0).commonAncestorContainer)) {
+      savedImgRange = sel.getRangeAt(0).cloneRange();
+    }
+  });
+  imgBtn?.addEventListener("click", () => imgInput.click());
+  imgInput?.addEventListener("change", () => {
+    const f = imgInput.files[0];
+    imgInput.value = "";
+    if (f) insertImageFile(f);
+  });
+
+  // dán: ảnh → nén & chèn; chữ → giữ chữ thuần cho sạch trang
   page.addEventListener("paste", (e) => {
+    const items = [...((e.clipboardData || window.clipboardData)?.items || [])];
+    const imgItem = items.find((it) => it.type.startsWith("image/"));
+    if (imgItem) {
+      e.preventDefault();
+      const f = imgItem.getAsFile();
+      if (f) insertImageFile(f);
+      return;
+    }
     e.preventDefault();
     const text = (e.clipboardData || window.clipboardData).getData("text/plain");
     document.execCommand("insertText", false, text);
@@ -889,10 +1005,20 @@ function renderChatList() {
   list.innerHTML = chatMsgs.map((m) => {
     const mine = m.by === me?.email;
     const a = ACCOUNTS[m.by];
+    let body, stickerCls = "";
+    if (m.stickerId) {
+      const st = stickers.find((s) => s.id === m.stickerId);
+      body = st
+        ? `<img class="chat-sticker" src="${st.data}" alt="sticker">`
+        : `<div class="chat-text">🖼️ <i>(sticker đã bị xoá khỏi kho)</i></div>`;
+      if (st) stickerCls = " sticker-bubble";
+    } else {
+      body = `<div class="chat-text">${esc(m.text)}</div>`;
+    }
     return `<div class="chat-msg ${mine ? "mine" : ""}">
       ${mine ? "" : `<span class="chat-avatar" title="${esc(a?.name || m.by)}">${a?.icon || "🫧"}</span>`}
-      <div class="chat-bubble">
-        <div class="chat-text">${esc(m.text)}</div>
+      <div class="chat-bubble${stickerCls}">
+        ${body}
         <div class="chat-time">${fmtChatTime(m.at)}</div>
       </div>
     </div>`;
@@ -911,7 +1037,8 @@ function notifyBrowser(m) {
   if (!("Notification" in window) || Notification.permission !== "granted") return;
   if (!document.hidden && chatOpen) return;
   const a = ACCOUNTS[m.by];
-  try { new Notification(`${a?.icon || "🫧"} ${a?.name || m.by}`, { body: m.text.slice(0, 120) }); } catch {}
+  const body = m.stickerId ? "🖼️ Gửi một sticker" : (m.text || "").slice(0, 120);
+  try { new Notification(`${a?.icon || "🫧"} ${a?.name || m.by}`, { body }); } catch {}
 }
 
 function onChatMsgs(msgs) {
@@ -926,7 +1053,7 @@ function onChatMsgs(msgs) {
     chatUnread += fresh.length;
     updateChatBadge();
     const a = ACCOUNTS[last.by];
-    toast(`${a?.icon || "🫧"} ${a?.name || last.by}: ${last.text.slice(0, 60)}`);
+    toast(`${a?.icon || "🫧"} ${a?.name || last.by}: ${last.stickerId ? "đã gửi một sticker 🖼️" : (last.text || "").slice(0, 60)}`);
   }
   notifyBrowser(last);
 }
@@ -954,8 +1081,55 @@ $("#chat-form")?.addEventListener("submit", async (e) => {
   const text = inp.value.trim();
   if (!text) return;
   inp.value = "";
-  try { await store.sendChat(text); }
+  try { await store.sendChat({ text }); }
   catch (err) { toast("Sóng không truyền được: " + err.message, true); inp.value = text; }
+});
+
+/* ── Kho sticker 🖼️ ──────────────────────────────────── */
+function renderStickerGrid() {
+  const grid = $("#sticker-grid");
+  if (!grid) return;
+  grid.innerHTML = stickers.map((s) => `
+    <span class="sticker-item" data-id="${s.id}" title="Ấn để gửi sticker">
+      <img src="${s.data}" alt="sticker">
+      <button class="sticker-del" data-del="${s.id}" title="Xoá sticker khỏi kho">✕</button>
+    </span>`).join("") + `
+    <label class="sticker-add" title="Thêm ảnh làm sticker (tự nén)">＋<input type="file" accept="image/*" hidden></label>`;
+}
+
+$("#btn-sticker")?.addEventListener("click", () => {
+  $("#sticker-picker").classList.toggle("hidden");
+  renderStickerGrid();
+});
+
+$("#sticker-grid")?.addEventListener("click", async (e) => {
+  const del = e.target.closest("[data-del]");
+  if (del) {
+    e.stopPropagation();
+    if (!confirm("Xoá sticker này khỏi kho chung? (Tin nhắn cũ từng gửi nó sẽ không hiện được nữa)")) return;
+    try { await store.deleteSticker(del.dataset.del); }
+    catch (err) { toast("Không xoá được sticker: " + err.message, true); }
+    return;
+  }
+  const item = e.target.closest(".sticker-item");
+  if (item) {
+    try { await store.sendChat({ stickerId: item.dataset.id }); }
+    catch (err) { toast("Sóng không truyền được: " + err.message, true); }
+  }
+});
+
+$("#sticker-grid")?.addEventListener("change", async (e) => {
+  const input = e.target;
+  if (input.type !== "file" || !input.files?.[0]) return;
+  const f = input.files[0];
+  input.value = "";
+  if (!f.type.startsWith("image/")) { toast("File này không phải ảnh.", true); return; }
+  try {
+    toast("Đang nén ảnh thành sticker…");
+    const data = await shrinkImage(f, 240, 140_000);
+    await store.addSticker(data);
+    toast("🖼️ Sticker mới đã vào kho.");
+  } catch (err) { toast("Không thêm được sticker: " + err.message, true); }
 });
 
 /* Khởi động sau khi toàn bộ module đã được khai báo */

@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=4">
+<link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
 
@@ -130,7 +130,12 @@
       <button id="chat-close" class="btn-icon" title="Thu sóng">✕</button>
     </div>
     <div id="chat-list" class="chat-list"></div>
+    <div id="sticker-picker" class="sticker-picker hidden">
+      <div id="sticker-grid" class="sticker-grid"></div>
+      <p class="sticker-hint">Ấn sticker để gửi · rê chuột lên sticker rồi ấn ✕ để xoá · ảnh thêm vào tự nén thành sticker</p>
+    </div>
     <form id="chat-form" class="chat-form">
+      <button type="button" id="btn-sticker" class="btn-icon" title="Kho sticker">🖼️</button>
       <input id="chat-input" placeholder="Gửi lời theo sóng…" autocomplete="off" maxlength="1000">
       <button class="btn btn-gold chat-send" type="submit" title="Gửi">➤</button>
     </form>
@@ -164,7 +169,7 @@
 
 <div id="toast" class="toast hidden"></div>
 
-<script src="firebase-config.js?v=4"></script>
-<script type="module" src="app.js?v=4"></script>
+<script src="firebase-config.js?v=5"></script>
+<script type="module" src="app.js?v=5"></script>
 </body>
 </html>

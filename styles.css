@@ -515,6 +515,12 @@ body {
 }
 .doc-page pre { padding: 12px 16px; overflow-x: auto; margin: 0.8em 0; }
 .doc-page code { padding: 1px 5px; }
+.doc-page img {
+  max-width: 100%; height: auto;
+  border-radius: 8px;
+  margin: 6px 0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+}
 
 /* ── Thư Phòng (danh sách nháp) ───────────────────────── */
 .drafts-head-row { display: flex; align-items: center; gap: 16px; margin-bottom: 26px; flex-wrap: wrap; }
@@ -782,8 +788,57 @@ body {
 }
 .chat-text { font-size: 0.87rem; color: var(--ink); white-space: pre-wrap; word-break: break-word; }
 .chat-time { font-size: 0.64rem; color: var(--ink-faint); text-align: right; margin-top: 2px; }
+/* kho sticker */
+.sticker-picker {
+  border-top: 1px solid var(--line);
+  padding: 10px 12px 2px;
+  max-height: 200px; overflow-y: auto;
+}
+.sticker-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.sticker-item {
+  position: relative;
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 4px;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.15s;
+}
+.sticker-item:hover { border-color: var(--gold); transform: scale(1.05); }
+.sticker-item img { width: 100%; height: 56px; object-fit: contain; display: block; }
+.sticker-del {
+  position: absolute; top: -6px; right: -6px;
+  width: 18px; height: 18px;
+  border: none; border-radius: 50%;
+  background: #c0564f; color: #fff;
+  font-size: 0.6rem; line-height: 1;
+  display: none; place-items: center;
+  cursor: pointer;
+}
+.sticker-item:hover .sticker-del { display: grid; }
+.sticker-add {
+  display: grid; place-items: center;
+  min-height: 64px;
+  border: 1.5px dashed var(--line-strong);
+  border-radius: 10px;
+  color: var(--ink-faint);
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.sticker-add:hover { color: var(--gold-bright); border-color: var(--gold); }
+.sticker-hint { font-size: 0.66rem; color: var(--ink-faint); margin: 8px 2px 8px; }
+
+.chat-sticker { width: 120px; height: 120px; object-fit: contain; display: block; }
+.chat-bubble.sticker-bubble { background: transparent; border: none; padding: 2px; }
+
 .chat-form {
-  display: flex; gap: 8px;
+  display: flex; gap: 8px; align-items: center;
   padding: 10px 12px;
   border-top: 1px solid var(--line);
 }

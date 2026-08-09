@@ -7,6 +7,8 @@ Cổng thế giới riêng của hai kẻ giữ biển sao 🦇 🐋 — biển 
 - **Thư Phòng San Hô** — kho nháp chung, mỗi nháp là một trang giấy docx.
 - **Ghi chú 💧 kiểu docx** — bôi đen chữ trong bất kỳ trang giấy nào → bấm "💧 Ghi chú" → đoạn đó được bôi sáng kèm giọt nước; ấn vào để đọc, trả lời, hoặc "Giải quyết ✓" (gỡ bôi sáng). Hai người đều thấy ghi chú của nhau.
 - **Truyền Âm 🫧** — popchat nổi góc màn hình giữa hai tài khoản. Tin nhắn lưu vĩnh viễn trong Firestore (collection `chat`), có badge số tin chưa đọc + thông báo trình duyệt khi tab đang ẩn (trình duyệt sẽ hỏi quyền thông báo lần đầu mở chat).
+- **Kho sticker 🖼️ dùng chung** — trong Truyền Âm, ấn 🖼️ để mở kho: thêm ảnh bất kỳ → tự nén thành sticker (~≤100KB) lưu vào collection `stickers` chung, cả hai người cùng thấy và cùng gửi được; ấn sticker để gửi, rê chuột + ✕ để xoá khỏi kho.
+- **Ảnh trong trang docx** — dán ảnh thẳng vào trang giấy hoặc bấm nút 🖼️ trên toolbar. Ảnh tự nén (≤1000px, webp/jpeg) để nằm trong giới hạn ~1MB/trang của Firestore; nếu trang nặng quá sẽ có cảnh báo.
 - Chỉ email trong danh sách mới bước qua Hải Môn (đăng nhập Google + chặn cứng bằng Firestore Rules).
 
 ---
