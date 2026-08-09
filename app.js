@@ -10,7 +10,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import {
   getFirestore, collection, doc, addDoc, updateDoc, deleteDoc,
-  onSnapshot, query, orderBy, serverTimestamp,
+  onSnapshot, query, orderBy, serverTimestamp, limitToLast,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 /* ── Trạng thái chung ─────────────────────────────────── */
@@ -23,9 +23,18 @@ let auth = null, db = null;
 let me = null;              // { email, icon, name }
 let maps = [];              // danh sách map (realtime)
 let drafts = [];            // danh sách nháp Thư Phòng (realtime)
-let unsubMaps = null, unsubDrafts = null;
+let unsubMaps = null, unsubDrafts = null, unsubChat = null;
 let editingMapId = null;    // map đang mở trong modal (null = tạo mới)
 let mountedRoute = "";      // route đã dựng DOM (tránh re-mount editor khi snapshot về)
+
+// trạng thái ghi chú 💧 + truyền âm 🫧 (khai báo sớm vì dùng ngay lúc khởi động)
+let activeCmt = null;       // { page, doSave, api } của editor đang mở
+let cmtPop = null;
+let cmtPopCloser = null;
+let chatMsgs = [];
+let chatInit = false;
+let chatOpen = false;
+let chatUnread = 0;
 
 const $ = (sel) => document.querySelector(sel);
 const $$ = (sel) => [...document.querySelectorAll(sel)];
@@ -141,6 +150,13 @@ function firestoreStore() {
     updateDraft: (id, patch) =>
       updateDoc(doc(db, "drafts", id), { ...patch, updatedAt: serverTimestamp() }),
     deleteDraft: (id) => deleteDoc(doc(db, "drafts", id)),
+    subscribeChat(cb) {
+      unsubChat = onSnapshot(
+        query(collection(db, "chat"), orderBy("at"), limitToLast(150)),
+        (snap) => cb(snap.docs.map((d) => ({ id: d.id, ...d.data() }))),
+        (err) => console.error(err));
+    },
+    sendChat: (text) => addDoc(collection(db, "chat"), { text, by: me.email, at: serverTimestamp() }),
   };
 }
 
@@ -154,9 +170,13 @@ function demoStore() {
       world: "Khu rừng ranh giới nơi mọi lời hứa đều mọc thành cây.",
       gasLink: DEFAULT_GAS,
       recommends: { [emails[0]]: true, [emails[1]]: true },
-      content: "<h2>Trấn Vực Sâm Lâm</h2><p>Rừng ranh giới ngăn giữa cõi người và cõi mộng…</p>",
+      content: `<h2>Trấn Vực Sâm Lâm</h2><p>Rừng ranh giới ngăn giữa <mark class="cmt cmt-end" data-cid="demo-c1">cõi người và cõi mộng</mark>…</p>`,
       prompt: "<p>Bạn là <b>Thủ Mộc Nhân</b>, kẻ canh giữ cánh cổng…</p>",
-      ideas: "", updatedAt: now(),
+      ideas: "",
+      comments: { "demo-c1": { items: [
+        { by: emails[1], text: "Chỗ này tả thêm cảnh ranh giới mờ dần vào đêm trăng tròn nhé?", at: new Date().toISOString() },
+      ] } },
+      updatedAt: now(),
     },
     {
       id: "demo-2", order: 2, title: "Map 2 — Hải Vực Lưu Quang",
@@ -180,9 +200,16 @@ function demoStore() {
       content: "<p>Phép chỉ hoạt động khi có người tin…</p>", updatedAt: now() },
   ];
   const touch = (obj) => { obj.updatedAt = now(); };
+  let chatArr = [
+    { id: "demo-m1", by: emails[1], text: "Map 2 tối nay mở thử không? 🌊", at: now() },
+    { id: "demo-m2", by: emails[0], text: "Ừ, tôi vừa sửa lại prompt rồi đó!", at: now() },
+  ];
+  let chatCb = null;
   return {
     demo: true,
     subscribe() {},
+    subscribeChat(cb) { chatCb = cb; cb(chatArr.slice()); },
+    async sendChat(text) { chatArr.push({ id: uid(), by: me.email, text, at: now() }); chatCb?.(chatArr.slice()); },
     async addMap(data) { const id = uid(); maps.push({ id, ...data, updatedAt: now() }); route(true); return id; },
     async updateMap(id, patch) { const m = maps.find((x) => x.id === id); if (m) { Object.assign(m, patch); touch(m); } route(true); },
     async setRecommends(id, recommends) { const m = maps.find((x) => x.id === id); if (m) m.recommends = recommends; route(true); },
@@ -193,15 +220,19 @@ function demoStore() {
   };
 }
 
-/* ── Khởi động ────────────────────────────────────────── */
-if (DEMO) {
-  const [email, acct] = Object.entries(ACCOUNTS)[0];
-  me = { email, ...acct };
-  enterForest();
-  setTimeout(() => toast("🌊 Đang xem bản DEMO — mọi thay đổi sẽ tan khi tải lại trang."), 600);
-} else if (!CFG.apiKey || /PASTE/.test(CFG.apiKey)) {
-  show("#screen-setup");
-} else {
+/* ── Khởi động (gọi ở CUỐI file, sau khi mọi thứ đã khai báo) ── */
+function boot() {
+  if (DEMO) {
+    const [email, acct] = Object.entries(ACCOUNTS)[0];
+    me = { email, ...acct };
+    enterForest();
+    setTimeout(() => toast("🌊 Đang xem bản DEMO — mọi thay đổi sẽ tan khi tải lại trang."), 600);
+    return;
+  }
+  if (!CFG.apiKey || /PASTE/.test(CFG.apiKey)) {
+    show("#screen-setup");
+    return;
+  }
   const app = initializeApp(CFG);
   auth = getAuth(app);
   db = getFirestore(app);
@@ -245,7 +276,9 @@ function teardown() {
   me = null;
   unsubMaps?.(); unsubMaps = null;
   unsubDrafts?.(); unsubDrafts = null;
+  unsubChat?.(); unsubChat = null;
   maps = []; drafts = [];
+  chatMsgs = []; chatInit = false; chatUnread = 0;
   mountedRoute = "";
 }
 
@@ -255,6 +288,7 @@ function enterForest() {
   $("#user-name").textContent = me.name + (DEMO ? " (demo)" : "");
   show("#screen-app");
   store.subscribe();
+  store.subscribeChat(onChatMsgs);
   route();
 }
 
@@ -372,6 +406,10 @@ function renderMapView({ id, tab }) {
     placeholder: st.ph,
     showCopy: st.key === "prompt",
     save: (html) => store.updateMap(id, { [st.field]: html }),
+    comments: {
+      data: () => findMap(id)?.comments || {},
+      save: (obj) => store.updateMap(id, { comments: obj }),
+    },
   });
   updateMapMeta({ id, tab });
 }
@@ -544,6 +582,10 @@ function renderDraftView({ id }) {
     html: d.content || "",
     placeholder: "Viết ý tưởng của bạn ở đây — như một trang docx giữa biển sao…",
     save: (html) => store.updateDraft(id, { content: html }),
+    comments: {
+      data: () => findDraft(id)?.comments || {},
+      save: (obj) => store.updateDraft(id, { comments: obj }),
+    },
   });
   updateDraftMeta({ id });
 }
@@ -578,7 +620,7 @@ const TOOLBAR = [
   { cmd: "redo", label: "↻", title: "Làm lại" },
 ];
 
-function mountEditor(slot, { html, placeholder, save, showCopy = false }) {
+function mountEditor(slot, { html, placeholder, save, showCopy = false, comments = null }) {
   slot.innerHTML = `
     <div class="editor-toolbar">
       ${TOOLBAR.map((t) => t.sep
@@ -642,4 +684,279 @@ function mountEditor(slot, { html, placeholder, save, showCopy = false }) {
       toast("⧉ Đã copy toàn bộ prompt — dán thẳng vào AI Studio.");
     } catch { toast("Không copy được — hãy bôi đen thủ công.", true); }
   });
+
+  // ── ghi chú 💧 kiểu docx ──
+  if (comments) {
+    activeCmt = { page, doSave, api: comments };
+    page.addEventListener("mouseup", () => setTimeout(updateCmtFab, 10));
+    page.addEventListener("keyup", () => setTimeout(updateCmtFab, 10));
+    page.addEventListener("click", (e) => {
+      const m = e.target.closest("mark.cmt");
+      if (m) { e.preventDefault(); openThreadPopover(m); }
+    });
+  } else {
+    activeCmt = null;
+  }
 }
+
+/* ── GHI CHÚ (comment + highlight kiểu docx) ──────────── */
+const cmtFab = document.createElement("button");
+cmtFab.className = "cmt-fab hidden";
+cmtFab.textContent = "💧 Ghi chú";
+document.body.appendChild(cmtFab);
+
+function hideCmtFab() { cmtFab.classList.add("hidden"); }
+
+function updateCmtFab() {
+  if (!activeCmt) return hideCmtFab();
+  const sel = window.getSelection();
+  if (!sel.rangeCount || sel.isCollapsed) return hideCmtFab();
+  const range = sel.getRangeAt(0);
+  if (!activeCmt.page.contains(range.commonAncestorContainer)) return hideCmtFab();
+  const rect = range.getBoundingClientRect();
+  if (!rect.width && !rect.height) return hideCmtFab();
+  cmtFab.style.left = Math.min(rect.right + window.scrollX + 6, window.scrollX + window.innerWidth - 130) + "px";
+  cmtFab.style.top = (rect.top + window.scrollY - 40) + "px";
+  cmtFab.classList.remove("hidden");
+}
+
+// bọc từng đoạn text trong vùng bôi đen bằng <mark class="cmt" data-cid>
+function wrapRangeWithComment(root, range, cid) {
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+  let n;
+  while ((n = walker.nextNode())) {
+    if (range.intersectsNode(n) && n.textContent.length) nodes.push(n);
+  }
+  const marks = [];
+  for (const node of nodes) {
+    let start = 0, end = node.textContent.length;
+    if (node === range.startContainer) start = range.startOffset;
+    if (node === range.endContainer) end = range.endOffset;
+    if (start >= end) continue;
+    const r = document.createRange();
+    r.setStart(node, start); r.setEnd(node, end);
+    const mark = document.createElement("mark");
+    mark.className = "cmt";
+    mark.dataset.cid = cid;
+    try { r.surroundContents(mark); marks.push(mark); } catch { /* bỏ qua đoạn không bọc được */ }
+  }
+  if (marks.length) marks[marks.length - 1].classList.add("cmt-end");
+  return marks.length > 0;
+}
+
+function unwrapComment(root, cid) {
+  root.querySelectorAll(`mark.cmt[data-cid="${cid}"]`).forEach((m) => {
+    while (m.firstChild) m.parentNode.insertBefore(m.firstChild, m);
+    m.remove();
+  });
+  root.normalize();
+}
+
+function fmtIso(at) {
+  const d = at?.toDate ? at.toDate() : new Date(at);
+  if (isNaN(d)) return "";
+  return d.toLocaleDateString("vi-VN", { day: "2-digit", month: "2-digit" }) +
+    " " + d.toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" });
+}
+
+function closeCmtPopover(runCancel = false) {
+  if (cmtPopCloser) { document.removeEventListener("mousedown", cmtPopCloser); cmtPopCloser = null; }
+  if (runCancel && cmtPop?._onCancel) cmtPop._onCancel();
+  cmtPop?.remove();
+  cmtPop = null;
+}
+
+function showCommentPopover({ x, y, thread, isNew, onCreate, onReply, onResolve, onCancel }) {
+  closeCmtPopover(true);
+  const pop = document.createElement("div");
+  pop.className = "cmt-pop";
+  const items = (thread?.items || []).map((it) => {
+    const a = ACCOUNTS[it.by];
+    return `<div class="cmt-item">
+      <div class="cmt-item-head"><span>${a?.icon || "💬"} ${esc(a?.name || it.by)}</span><span class="cmt-time">${esc(fmtIso(it.at))}</span></div>
+      <div class="cmt-item-text">${esc(it.text)}</div>
+    </div>`;
+  }).join("");
+  pop.innerHTML = `
+    <div class="cmt-pop-head"><span>💧 ${isNew ? "Ghi chú mới" : "Ghi chú"}</span><button class="btn-icon cmt-x" title="Đóng">✕</button></div>
+    ${items ? `<div class="cmt-thread">${items}</div>` : ""}
+    <textarea class="cmt-input" rows="2" placeholder="${isNew ? "Viết ghi chú cho đoạn vừa bôi sáng…" : "Trả lời…"}"></textarea>
+    <div class="cmt-pop-actions">
+      ${isNew ? "" : `<button class="btn btn-danger-ghost cmt-resolve" title="Xoá ghi chú & bỏ bôi sáng">Giải quyết ✓</button>`}
+      <span class="spacer"></span>
+      <button class="btn btn-gold cmt-send">${isNew ? "Lưu ghi chú" : "Gửi"}</button>
+    </div>`;
+  document.body.appendChild(pop);
+  pop.style.left = Math.max(12, Math.min(x, window.scrollX + window.innerWidth - 320)) + "px";
+  pop.style.top = (y + 8) + "px";
+  pop._onCancel = onCancel || null;
+  cmtPop = pop;
+
+  const input = pop.querySelector(".cmt-input");
+  setTimeout(() => input.focus(), 40);
+  const submit = async () => {
+    const text = input.value.trim();
+    if (!text) { if (isNew) closeCmtPopover(true); return; }
+    try { await (isNew ? onCreate(text) : onReply(text)); }
+    catch (e) { toast("Không lưu được ghi chú: " + e.message, true); }
+  };
+  pop.querySelector(".cmt-send").addEventListener("click", submit);
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); submit(); }
+    if (e.key === "Escape") closeCmtPopover(true);
+  });
+  pop.querySelector(".cmt-x").addEventListener("click", () => closeCmtPopover(true));
+  pop.querySelector(".cmt-resolve")?.addEventListener("click", async () => {
+    try { await onResolve(); } catch (e) { toast("Không xoá được: " + e.message, true); }
+  });
+  cmtPopCloser = (e) => { if (!pop.contains(e.target)) closeCmtPopover(true); };
+  setTimeout(() => document.addEventListener("mousedown", cmtPopCloser), 0);
+}
+
+cmtFab.addEventListener("mousedown", (e) => {
+  e.preventDefault();
+  if (!activeCmt) return;
+  const sel = window.getSelection();
+  if (!sel.rangeCount || sel.isCollapsed) return hideCmtFab();
+  const range = sel.getRangeAt(0).cloneRange();
+  const cid = "c" + Math.random().toString(36).slice(2, 10);
+  const ctx = activeCmt;
+  const ok = wrapRangeWithComment(ctx.page, range, cid);
+  sel.removeAllRanges();
+  hideCmtFab();
+  if (!ok) { toast("Không bôi sáng được vùng này — thử chọn gọn hơn.", true); return; }
+  const marks = ctx.page.querySelectorAll(`mark.cmt[data-cid="${cid}"]`);
+  const rect = marks[marks.length - 1].getBoundingClientRect();
+  showCommentPopover({
+    x: rect.left + window.scrollX,
+    y: rect.bottom + window.scrollY,
+    isNew: true,
+    onCreate: async (text) => {
+      const obj = { ...ctx.api.data() };
+      obj[cid] = { items: [{ by: me.email, text, at: new Date().toISOString() }] };
+      await ctx.api.save(obj);
+      await ctx.doSave();
+      cmtPop._onCancel = null;
+      closeCmtPopover();
+      toast("💧 Đã thả ghi chú lên trang.");
+    },
+    onCancel: () => unwrapComment(ctx.page, cid),
+  });
+});
+
+function openThreadPopover(markEl) {
+  if (!activeCmt) return;
+  const ctx = activeCmt;
+  const cid = markEl.dataset.cid;
+  const rect = markEl.getBoundingClientRect();
+  const pos = { x: rect.left + window.scrollX, y: rect.bottom + window.scrollY };
+  const render = () => {
+    showCommentPopover({
+      ...pos,
+      isNew: false,
+      thread: ctx.api.data()[cid] || { items: [] },
+      onReply: async (text) => {
+        const obj = { ...ctx.api.data() };
+        const t = obj[cid] || { items: [] };
+        obj[cid] = { items: [...t.items, { by: me.email, text, at: new Date().toISOString() }] };
+        await ctx.api.save(obj);
+        render(); // vẽ lại thread với câu trả lời mới
+      },
+      onResolve: async () => {
+        unwrapComment(ctx.page, cid);
+        const obj = { ...ctx.api.data() };
+        delete obj[cid];
+        await ctx.api.save(obj);
+        await ctx.doSave();
+        closeCmtPopover();
+        toast("Ghi chú đã được giải quyết — bôi sáng tan vào sóng.");
+      },
+    });
+  };
+  render();
+}
+
+/* ── TRUYỀN ÂM (popchat) ──────────────────────────────── */
+function fmtChatTime(ts) {
+  const d = ts?.toDate ? ts.toDate() : null;
+  return d ? d.toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" }) : "";
+}
+
+function renderChatList() {
+  const list = $("#chat-list");
+  if (!list) return;
+  list.innerHTML = chatMsgs.map((m) => {
+    const mine = m.by === me?.email;
+    const a = ACCOUNTS[m.by];
+    return `<div class="chat-msg ${mine ? "mine" : ""}">
+      ${mine ? "" : `<span class="chat-avatar" title="${esc(a?.name || m.by)}">${a?.icon || "🫧"}</span>`}
+      <div class="chat-bubble">
+        <div class="chat-text">${esc(m.text)}</div>
+        <div class="chat-time">${fmtChatTime(m.at)}</div>
+      </div>
+    </div>`;
+  }).join("");
+  list.scrollTop = list.scrollHeight;
+}
+
+function updateChatBadge() {
+  const b = $("#chat-badge");
+  if (!b) return;
+  b.textContent = chatUnread > 9 ? "9+" : String(chatUnread);
+  b.classList.toggle("hidden", chatUnread === 0);
+}
+
+function notifyBrowser(m) {
+  if (!("Notification" in window) || Notification.permission !== "granted") return;
+  if (!document.hidden && chatOpen) return;
+  const a = ACCOUNTS[m.by];
+  try { new Notification(`${a?.icon || "🫧"} ${a?.name || m.by}`, { body: m.text.slice(0, 120) }); } catch {}
+}
+
+function onChatMsgs(msgs) {
+  const prevLen = chatMsgs.length;
+  chatMsgs = msgs;
+  renderChatList();
+  if (!chatInit) { chatInit = true; return; }
+  const fresh = msgs.slice(prevLen).filter((m) => m.by !== me?.email);
+  if (!fresh.length) return;
+  const last = fresh[fresh.length - 1];
+  if (!chatOpen) {
+    chatUnread += fresh.length;
+    updateChatBadge();
+    const a = ACCOUNTS[last.by];
+    toast(`${a?.icon || "🫧"} ${a?.name || last.by}: ${last.text.slice(0, 60)}`);
+  }
+  notifyBrowser(last);
+}
+
+function toggleChat(open) {
+  chatOpen = open ?? !chatOpen;
+  $("#chat-panel").classList.toggle("hidden", !chatOpen);
+  $("#chat-fab").classList.toggle("chat-fab-active", chatOpen);
+  if (chatOpen) {
+    chatUnread = 0;
+    updateChatBadge();
+    renderChatList();
+    setTimeout(() => $("#chat-input")?.focus(), 60);
+    if ("Notification" in window && Notification.permission === "default") {
+      Notification.requestPermission();
+    }
+  }
+}
+
+$("#chat-fab")?.addEventListener("click", () => toggleChat());
+$("#chat-close")?.addEventListener("click", () => toggleChat(false));
+$("#chat-form")?.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const inp = $("#chat-input");
+  const text = inp.value.trim();
+  if (!text) return;
+  inp.value = "";
+  try { await store.sendChat(text); }
+  catch (err) { toast("Sóng không truyền được: " + err.message, true); inp.value = text; }
+});
+
+/* Khởi động sau khi toàn bộ module đã được khai báo */
+boot();

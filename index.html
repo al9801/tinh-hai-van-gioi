@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
 
@@ -118,6 +118,23 @@
   <footer class="app-footer">
     <span>「 Mỗi cánh cổng là một thế giới — mỗi thế giới là một vì sao chưa tắt 」</span>
   </footer>
+
+  <!-- ══════════ TRUYỀN ÂM: popchat giữa hai kẻ giữ biển ══════════ -->
+  <button id="chat-fab" class="chat-fab" title="Truyền Âm — nhắn tin cho người kia">
+    🫧<span id="chat-badge" class="chat-badge hidden"></span>
+  </button>
+  <div id="chat-panel" class="chat-panel hidden">
+    <div class="chat-head">
+      <span class="chat-head-title">🫧 Truyền Âm</span>
+      <span class="chat-head-sub">tin nhắn lưu vĩnh viễn trong biển</span>
+      <button id="chat-close" class="btn-icon" title="Thu sóng">✕</button>
+    </div>
+    <div id="chat-list" class="chat-list"></div>
+    <form id="chat-form" class="chat-form">
+      <input id="chat-input" placeholder="Gửi lời theo sóng…" autocomplete="off" maxlength="1000">
+      <button class="btn btn-gold chat-send" type="submit" title="Gửi">➤</button>
+    </form>
+  </div>
 </section>
 
 <!-- ══════════ MODAL: tạo / sửa map ══════════ -->
@@ -147,7 +164,7 @@
 
 <div id="toast" class="toast hidden"></div>
 
-<script src="firebase-config.js"></script>
-<script type="module" src="app.js"></script>
+<script src="firebase-config.js?v=3"></script>
+<script type="module" src="app.js?v=3"></script>
 </body>
 </html>

@@ -5,6 +5,8 @@ Cổng thế giới riêng của hai kẻ giữ biển sao 🦇 🐋 — biển 
 - **Biển Cổng** — lưới các cánh cổng, mỗi cổng là một map. Huy hiệu linh thú ở góc thẻ là dấu "tiến cử" của từng người (cả hai cùng tiến cử → hai huy hiệu đậu cạnh nhau).
 - **Mỗi map** — nút mở Google AI Studio ngay đầu trang, nút tiến cử, và 3 trang giấy kiểu docx: *Nội dung Map · Prompt · Ý tưởng nháp*. Tự động lưu, đồng bộ realtime giữa hai tài khoản.
 - **Thư Phòng San Hô** — kho nháp chung, mỗi nháp là một trang giấy docx.
+- **Ghi chú 💧 kiểu docx** — bôi đen chữ trong bất kỳ trang giấy nào → bấm "💧 Ghi chú" → đoạn đó được bôi sáng kèm giọt nước; ấn vào để đọc, trả lời, hoặc "Giải quyết ✓" (gỡ bôi sáng). Hai người đều thấy ghi chú của nhau.
+- **Truyền Âm 🫧** — popchat nổi góc màn hình giữa hai tài khoản. Tin nhắn lưu vĩnh viễn trong Firestore (collection `chat`), có badge số tin chưa đọc + thông báo trình duyệt khi tab đang ẩn (trình duyệt sẽ hỏi quyền thông báo lần đầu mở chat).
 - Chỉ email trong danh sách mới bước qua Hải Môn (đăng nhập Google + chặn cứng bằng Firestore Rules).
 
 ---
