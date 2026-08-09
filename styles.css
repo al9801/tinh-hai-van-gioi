@@ -127,13 +127,15 @@ body {
   from { transform: translateX(calc(100vw + 340px)); }
   to   { transform: translateX(-340px); }
 }
+/* --flip: -1 = quay đầu sang phải (khi bơi trái → phải) */
 @keyframes bob {
-  from { transform: translateY(-9px) rotate(-1.5deg); }
-  to   { transform: translateY(9px) rotate(1.5deg); }
+  from { transform: translateY(-9px) rotate(-1.5deg) scaleX(var(--flip, 1)); }
+  to   { transform: translateY(9px) rotate(1.5deg) scaleX(var(--flip, 1)); }
 }
 .bob { animation: bob 7s ease-in-out infinite alternate; }
 
 .whale-1 { top: 15%; width: 210px; animation: swim 95s linear -35s infinite; }
+.whale-1 .bob { --flip: -1; } /* cá voi bơi sang phải → đầu phải */
 .whale-body {
   fill: rgba(140, 200, 235, 0.16);
   stroke: rgba(170, 225, 248, 0.30);
@@ -150,7 +152,9 @@ body {
   stroke-width: 0.6;
 }
 .fish { filter: drop-shadow(0 0 5px rgba(127, 212, 232, 0.45)); }
-.rev .fish { transform: scaleX(-1); }
+/* hình cá gốc quay đầu sang TRÁI:
+   đàn bơi sang phải (school-1) phải lật đầu; đàn bơi sang trái (rev) giữ nguyên */
+.school-1 .fish { transform: scaleX(-1); }
 
 /* ── Khung màn hình ───────────────────────────────────── */
 .screen { position: relative; z-index: 1; min-height: 100vh; }
