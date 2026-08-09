@@ -10,7 +10,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import {
   getFirestore, collection, doc, addDoc, updateDoc, deleteDoc,
-  onSnapshot, query, orderBy, serverTimestamp, limitToLast,
+  onSnapshot, query, orderBy, serverTimestamp, limitToLast, getDoc, setDoc,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 /* ── Trạng thái chung ─────────────────────────────────── */
@@ -180,7 +180,14 @@ function firestoreStore() {
       updateDoc(doc(db, "maps", id), { ...patch, updatedAt: serverTimestamp() }),
     // tiến cử: không đụng updatedAt (không phải "sửa nội dung")
     setRecommends: (id, recommends) => updateDoc(doc(db, "maps", id), { recommends }),
-    deleteMap: (id) => deleteDoc(doc(db, "maps", id)),
+    async deleteMap(id) {
+      await deleteDoc(doc(db, "maps", id));
+      deleteDoc(doc(db, "mapfiles", id)).catch(() => {}); // dọn luôn file HTML nếu có
+    },
+    // file HTML của map lưu riêng 1 doc (mapfiles/{mapId}) để doc map chính không phình to
+    getMapHtml: (id) => getDoc(doc(db, "mapfiles", id)).then((s) => (s.exists() ? s.data().html : null)),
+    saveMapHtml: (id, html) => setDoc(doc(db, "mapfiles", id), { html, by: me.email, at: serverTimestamp() }),
+    deleteMapHtml: (id) => deleteDoc(doc(db, "mapfiles", id)),
     async addDraft(data) {
       const ref = await addDoc(collection(db, "drafts"),
         { ...data, createdAt: serverTimestamp(), updatedAt: serverTimestamp() });
@@ -221,6 +228,7 @@ function demoStore() {
       content: `<h2>Trấn Vực Sâm Lâm</h2><p>Rừng ranh giới ngăn giữa <mark class="cmt cmt-end" data-cid="demo-c1">cõi người và cõi mộng</mark>…</p>`,
       prompt: "<p>Bạn là <b>Thủ Mộc Nhân</b>, kẻ canh giữ cánh cổng…</p>",
       ideas: "",
+      hasHtml: true,
       comments: { "demo-c1": { items: [
         { by: emails[1], text: "Chỗ này tả thêm cảnh ranh giới mờ dần vào đêm trăng tròn nhé?", at: new Date().toISOString() },
       ] } },
@@ -255,6 +263,13 @@ function demoStore() {
   let chatCb = null;
   let stickerArr = [];
   let stickerCb = null;
+  const htmlFiles = {
+    "demo-1": `<!doctype html><html><head><meta charset="utf-8"></head>
+<body style="margin:0;background:radial-gradient(700px 400px at 60% 20%,#12305c,#070d1e);color:#cfe6f5;font-family:Georgia,serif;display:grid;place-items:center;min-height:100vh;text-align:center">
+<div><div style="font-size:3rem">🗺️</div><h1 style="letter-spacing:.1em">BẢN ĐỒ DEMO</h1>
+<p>Đây là nơi file map <b>.html</b> tương tác của bạn hiển thị.<br>Ở bản thật, hãy bấm "⬆ Tải HTML lên" và chọn file map của bạn.</p></div>
+</body></html>`,
+  };
   return {
     demo: true,
     subscribe() {},
@@ -266,7 +281,10 @@ function demoStore() {
     async addMap(data) { const id = uid(); maps.push({ id, ...data, updatedAt: now() }); route(true); return id; },
     async updateMap(id, patch) { const m = maps.find((x) => x.id === id); if (m) { Object.assign(m, patch); touch(m); } route(true); },
     async setRecommends(id, recommends) { const m = maps.find((x) => x.id === id); if (m) m.recommends = recommends; route(true); },
-    async deleteMap(id) { maps = maps.filter((x) => x.id !== id); route(true); },
+    async deleteMap(id) { maps = maps.filter((x) => x.id !== id); delete htmlFiles[id]; route(true); },
+    async getMapHtml(id) { return htmlFiles[id] || null; },
+    async saveMapHtml(id, html) { htmlFiles[id] = html; },
+    async deleteMapHtml(id) { delete htmlFiles[id]; },
     async addDraft(data) { const id = uid(); drafts.unshift({ id, ...data, updatedAt: now() }); route(true); return id; },
     async updateDraft(id, patch) { const d = drafts.find((x) => x.id === id); if (d) { Object.assign(d, patch); touch(d); } route(true); },
     async deleteDraft(id) { drafts = drafts.filter((x) => x.id !== id); route(true); },
@@ -357,7 +375,7 @@ window.addEventListener("hashchange", () => route());
 function parseHash() {
   const h = (location.hash || "#/").replace(/^#/, "");
   const parts = h.split("/").filter(Boolean);
-  if (parts[0] === "map" && parts[1]) return { view: "map", id: parts[1], tab: parts[2] || "map" };
+  if (parts[0] === "map" && parts[1]) return { view: "map", id: parts[1], tab: parts[2] || "" };
   if (parts[0] === "thu-phong" && parts[1]) return { view: "draft", id: parts[1] };
   if (parts[0] === "thu-phong") return { view: "drafts" };
   return { view: "home" };
@@ -397,7 +415,7 @@ function renderHome() {
       <div class="map-card-num">✦ Cánh cổng ${esc(String(m.order ?? "?"))} ✦</div>
       <div class="map-card-title">${esc(m.title)}</div>
       <div class="map-card-world">${esc(m.world || "Thế giới chưa được mô tả…")}</div>
-      <div class="map-card-foot">${m.updatedAt ? "Chạm gần nhất: " + fmtTime(m.updatedAt) : ""}</div>
+      <div class="map-card-foot">${m.hasHtml ? `<span class="has-map-chip">🧭 có bản đồ</span> · ` : ""}${m.updatedAt ? "Chạm gần nhất: " + fmtTime(m.updatedAt) : ""}</div>
     </a>`).join("");
 
   $("#main").innerHTML = `
@@ -432,7 +450,11 @@ function renderMapView({ id, tab }) {
     $("#main").innerHTML = `<p class="empty-state">Cánh cổng này không tồn tại — có lẽ đã bị sóng cuốn mất.<br><br><a class="btn btn-ghost" href="#/">← Về Biển Cổng</a></p>`;
     return;
   }
-  const st = SUBTABS.find((t) => t.key === tab) || SUBTABS[0];
+  // tab mặc định: có bản đồ HTML thì mở bản đồ, không thì mở nội dung
+  const tabKey = tab || (m.hasHtml ? "ban-do" : "map");
+  const isMapHtmlTab = tabKey === "ban-do";
+  const st = SUBTABS.find((t) => t.key === tabKey) || SUBTABS[0];
+  const allTabs = [{ key: "ban-do", label: "🧭 Bản đồ HTML" }, ...SUBTABS];
 
   $("#main").innerHTML = `
     <div class="map-view-head">
@@ -451,7 +473,7 @@ function renderMapView({ id, tab }) {
       </div>
     </div>
     <div class="subtabs">
-      ${SUBTABS.map((t) => `<button class="subtab ${t.key === st.key ? "active" : ""}" data-tab="${t.key}">${t.label}</button>`).join("")}
+      ${allTabs.map((t) => `<button class="subtab ${t.key === (isMapHtmlTab ? "ban-do" : st.key) ? "active" : ""}" data-tab="${t.key}">${t.label}</button>`).join("")}
     </div>
     <div class="editor-wrap" id="editor-slot"></div>`;
 
@@ -460,17 +482,109 @@ function renderMapView({ id, tab }) {
   $("#btn-edit-map").addEventListener("click", () => openMapModal(id));
   $("#btn-rec").addEventListener("click", () => toggleRecommend(id));
 
-  mountEditor($("#editor-slot"), {
-    html: m[st.field] || "",
-    placeholder: st.ph,
-    showCopy: st.key === "prompt",
-    save: (html) => store.updateMap(id, { [st.field]: html }),
-    comments: {
-      data: () => findMap(id)?.comments || {},
-      save: (obj) => store.updateMap(id, { comments: obj }),
-    },
-  });
+  if (isMapHtmlTab) {
+    activeCmt = null; // tab bản đồ không có editor
+    renderMapHtmlTab(m);
+  } else {
+    mountEditor($("#editor-slot"), {
+      html: m[st.field] || "",
+      placeholder: st.ph,
+      showCopy: st.key === "prompt",
+      save: (html) => store.updateMap(id, { [st.field]: html }),
+      comments: {
+        data: () => findMap(id)?.comments || {},
+        save: (obj) => store.updateMap(id, { comments: obj }),
+      },
+    });
+  }
   updateMapMeta({ id, tab });
+}
+
+/* ── Tab Bản đồ HTML: upload / xem / gỡ file map .html ── */
+async function renderMapHtmlTab(m) {
+  const slot = $("#editor-slot");
+  const routeKey = mountedRoute;
+  let curHtml = null;
+
+  slot.innerHTML = `
+    <div class="htmlmap-bar">
+      <span class="rec-status" id="htmlmap-info">Đang lặn xuống lấy bản đồ…</span>
+      <span class="spacer"></span>
+      <button class="btn btn-ghost hidden" id="btn-map-full">⛶ Toàn màn hình</button>
+      <label class="btn btn-gold" title="Chọn file map .html (tự chứa, dưới 0.9MB)">⬆ Tải HTML lên
+        <input type="file" id="inp-maphtml" accept=".html,.htm,text/html" hidden>
+      </label>
+      <button class="btn btn-danger-ghost hidden" id="btn-maphtml-del">Gỡ bản đồ…</button>
+    </div>
+    <div id="htmlmap-body"></div>`;
+
+  const info = slot.querySelector("#htmlmap-info");
+  const body = slot.querySelector("#htmlmap-body");
+  const btnFull = slot.querySelector("#btn-map-full");
+  const btnDel = slot.querySelector("#btn-maphtml-del");
+
+  const paint = () => {
+    if (curHtml) {
+      body.innerHTML = `<iframe class="htmlmap-frame" sandbox="allow-scripts" title="Bản đồ ${esc(m.title)}"></iframe>`;
+      body.querySelector("iframe").srcdoc = curHtml;
+      info.textContent = `Bản đồ HTML · ${Math.round(curHtml.length / 1024)}KB`;
+      btnFull.classList.remove("hidden");
+      btnDel.classList.remove("hidden");
+    } else {
+      body.innerHTML = `
+        <div class="htmlmap-empty">
+          <div style="font-size:2.2rem">🧭</div>
+          <p>Cánh cổng này chưa có bản đồ HTML.<br>Bấm <b>⬆ Tải HTML lên</b> để thả file map tương tác của bạn xuống biển.</p>
+        </div>`;
+      info.textContent = "Chưa có bản đồ.";
+      btnFull.classList.add("hidden");
+      btnDel.classList.add("hidden");
+    }
+  };
+
+  try { curHtml = await store.getMapHtml(m.id); }
+  catch (e) { info.textContent = "Không tải được bản đồ: " + e.message; return; }
+  if (mountedRoute !== routeKey) return; // người dùng đã rời tab trong lúc chờ
+  paint();
+
+  slot.querySelector("#inp-maphtml").addEventListener("change", async (e) => {
+    const f = e.target.files[0];
+    e.target.value = "";
+    if (!f) return;
+    if (!/\.html?$/i.test(f.name) && !(f.type || "").includes("html")) {
+      toast("Hãy chọn một file .html.", true); return;
+    }
+    const text = await f.text();
+    if (text.length > 900_000) {
+      toast(`File nặng ${Math.round(text.length / 1024)}KB — vượt giới hạn ~0.9MB/bản đồ của Firestore. Hãy nén bớt (bỏ ảnh nhúng nặng) rồi thử lại.`, true);
+      return;
+    }
+    try {
+      info.textContent = "Đang thả bản đồ xuống biển…";
+      await store.saveMapHtml(m.id, text);
+      await store.updateMap(m.id, { hasHtml: true });
+      curHtml = text;
+      paint();
+      toast("🧭 Bản đồ đã neo vào cánh cổng.");
+    } catch (err) { toast("Không lưu được bản đồ: " + err.message, true); }
+  });
+
+  btnFull.addEventListener("click", () => {
+    if (!curHtml) return;
+    const url = URL.createObjectURL(new Blob([curHtml], { type: "text/html" }));
+    window.open(url, "_blank");
+  });
+
+  btnDel.addEventListener("click", async () => {
+    if (!confirm("Gỡ bản đồ HTML khỏi cánh cổng này? (File gốc trên máy bạn không bị ảnh hưởng)")) return;
+    try {
+      await store.deleteMapHtml(m.id);
+      await store.updateMap(m.id, { hasHtml: false });
+      curHtml = null;
+      paint();
+      toast("Bản đồ đã được kéo lên khỏi biển.");
+    } catch (err) { toast("Không gỡ được: " + err.message, true); }
+  });
 }
 
 // cập nhật phần "sống" của map view khi dữ liệu mới về (không đụng editor)

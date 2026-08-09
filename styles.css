@@ -865,3 +865,26 @@ body {
   .editor-toolbar { top: 108px; }
   .map-view-title { font-size: 1.5rem; }
 }
+
+/* ── Tab Bản đồ HTML ──────────────────────────────────── */
+.htmlmap-bar {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  margin: 22px 0 14px;
+}
+.htmlmap-frame {
+  width: 100%; height: 74vh; min-height: 420px;
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  background: #0b1020;
+  box-shadow: var(--shadow);
+  display: block;
+}
+.htmlmap-empty {
+  text-align: center;
+  color: var(--ink-faint);
+  padding: 70px 20px;
+  border: 1.5px dashed var(--line-strong);
+  border-radius: 14px;
+  line-height: 1.9;
+}
+.has-map-chip { color: var(--glow); }
