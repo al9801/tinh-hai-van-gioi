@@ -28,8 +28,21 @@ let editingMapId = null;    // map đang mở trong modal (null = tạo mới)
 let mountedRoute = "";      // route đã dựng DOM (tránh re-mount editor khi snapshot về)
 
 // trạng thái ghi chú 💧 + truyền âm 🫧 (khai báo sớm vì dùng ngay lúc khởi động)
-let activeCmt = null;       // { page, doSave, api } của editor đang mở
+let activeCmt = null;       // { page, doSave, api } của editor mở
 let flushEditor = null;     // doSave của editor hiện tại — gọi trước khi unmount để không mất chữ
+
+// nhớ vị trí cuộn của từng view + tab đang mở của từng map (không reset khi qua lại)
+let scrollKey = null;
+const viewScroll = {};
+let mapTabMemory = {};
+try { mapTabMemory = JSON.parse(localStorage.getItem("thvg-tab-mem") || "{}"); } catch {}
+function rememberTab(id, tab) {
+  mapTabMemory[id] = tab;
+  try { localStorage.setItem("thvg-tab-mem", JSON.stringify(mapTabMemory)); } catch {}
+}
+window.addEventListener("scroll", () => {
+  if (scrollKey) viewScroll[scrollKey] = window.scrollY;
+}, { passive: true });
 let cmtPop = null;
 let cmtPopCloser = null;
 let chatMsgs = [];
@@ -479,13 +492,35 @@ function route(soft = false) {
     }
     return;
   }
+  if (scrollKey) viewScroll[scrollKey] = window.scrollY; // chụp vị trí cuộn ngay lúc rời view
   flushEditor?.(); flushEditor = null;  // sắp dựng lại view → lưu ngay chữ đang gõ dở, không để mất
   mountedRoute = key;
+
+  // đọc vị trí cuộn đã nhớ TRƯỚC khi dựng (dựng xong mới bật ghi lại)
+  const newSK = scrollKeyFor(r);
+  const savedY = viewScroll[newSK] || 0;
+  scrollKey = null;
+
   if (r.view === "home") renderHome();
   else if (r.view === "map") renderMapView(r);
   else if (r.view === "drafts") renderDraftsList();
   else if (r.view === "draft") renderDraftView(r);
-  if (!soft) window.scrollTo({ top: 0 });
+
+  scrollKey = newSK;
+  if (!soft) {
+    // instant: nhảy thẳng về chỗ cũ, không animate (tránh bị ngắt giữa chừng)
+    window.scrollTo({ top: savedY, behavior: "instant" });
+    // nội dung tải trễ (iframe/ảnh) có thể làm trang ngắn lúc đầu → chỉnh lại lần nữa
+    if (savedY) setTimeout(() => window.scrollTo({ top: viewScroll[newSK] ?? savedY, behavior: "instant" }), 300);
+  }
+}
+
+function scrollKeyFor(r) {
+  if (r.view === "home") return "home";
+  if (r.view === "drafts") return "drafts";
+  if (r.view === "map") return `map:${r.id}:${resolveMapTab(r.id, r.tab)}`;
+  if (r.view === "draft") return `draft:${r.id}`;
+  return "other";
 }
 
 /* ── HOME: Rừng Cổng ──────────────────────────────────── */
@@ -572,14 +607,19 @@ const SUBTABS = [
 
 function findMap(id) { return maps.find((m) => m.id === id); }
 
+function resolveMapTab(id, tab) {
+  return tab || mapTabMemory[id] || (findMap(id)?.hasHtml ? "ban-do" : "map");
+}
+
 function renderMapView({ id, tab }) {
   const m = findMap(id);
   if (!m) {
     $("#main").innerHTML = `<p class="empty-state">Cánh cổng này không tồn tại — có lẽ đã bị sóng cuốn mất.<br><br><a class="btn btn-ghost" href="#/">← Về Biển Cổng</a></p>`;
     return;
   }
-  // tab mặc định: có bản đồ HTML thì mở bản đồ, không thì mở nội dung
-  const tabKey = tab || (m.hasHtml ? "ban-do" : "map");
+  // tab: ưu tiên tab trong URL → tab đã nhớ của map này → mặc định theo có/không bản đồ
+  const tabKey = resolveMapTab(id, tab);
+  if (tab) rememberTab(id, tab); // người dùng chủ động chọn tab → ghi nhớ cho lần sau
   const isMapHtmlTab = tabKey === "ban-do";
   const st = SUBTABS.find((t) => t.key === tabKey) || SUBTABS[0];
   const allTabs = [{ key: "ban-do", label: "🧭 Bản đồ HTML" }, ...SUBTABS];
