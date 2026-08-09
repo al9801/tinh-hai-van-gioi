@@ -1,0 +1,16 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Chỉ 2 email được khắc tên lên Cây Thế Giới mới đọc/ghi được
+    function allowed() {
+      return request.auth != null &&
+        request.auth.token.email in [
+          'dinhhieungan@gmail.com',
+          'kimtuoc259@gmail.com'
+        ];
+    }
+    match /{document=**} {
+      allow read, write: if allowed();
+    }
+  }
+}
