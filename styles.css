@@ -897,3 +897,22 @@ body {
   box-shadow: 0 0 28px rgba(217, 180, 111, 0.4);
   transform: translateY(-3px);
 }
+
+/* bảng trong trang giấy (dán từ Google Docs / Word) */
+.doc-page table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0.9em 0;
+  font-size: 0.95em;
+}
+.doc-page td, .doc-page th {
+  border: 1px solid #cfc2a4;
+  padding: 7px 12px;
+  vertical-align: top;
+  text-align: left;
+}
+.doc-page th {
+  background: #ece2c8;
+  font-weight: 600;
+}
+.doc-page tr:nth-child(even) td { background: rgba(207, 194, 164, 0.12); }

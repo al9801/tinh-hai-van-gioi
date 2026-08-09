@@ -151,6 +151,70 @@ async function shrinkImage(file, maxDim, targetChars) {
   return best;
 }
 
+/* ── Lọc HTML dán vào editor: giữ bảng/đậm/nghiêng/danh sách, bỏ rác Google Docs/Word ── */
+const KEEP_TAGS = new Set([
+  "P", "BR", "B", "STRONG", "I", "EM", "U", "S", "STRIKE", "H1", "H2", "H3",
+  "UL", "OL", "LI", "BLOCKQUOTE", "TABLE", "THEAD", "TBODY", "TFOOT", "TR", "TD", "TH",
+  "HR", "PRE", "CODE", "A", "IMG",
+]);
+
+function sanitizePastedHtml(html) {
+  const src = new DOMParser().parseFromString(html, "text/html").body;
+  const out = document.createElement("div");
+  cleanChildren(src, out);
+  return out.innerHTML;
+}
+function cleanChildren(srcParent, outParent) {
+  [...srcParent.childNodes].forEach((n) => cleanNode(n, outParent));
+}
+function cleanNode(n, out) {
+  if (n.nodeType === Node.TEXT_NODE) { out.appendChild(document.createTextNode(n.textContent)); return; }
+  if (n.nodeType !== Node.ELEMENT_NODE) return;
+  let tag = n.tagName;
+  const style = (n.getAttribute("style") || "").toLowerCase();
+  if (["SCRIPT", "STYLE", "META", "LINK", "TITLE", "IFRAME", "OBJECT", "EMBED", "FORM", "INPUT", "BUTTON"].includes(tag)) return;
+  // Google Docs bọc toàn bộ nội dung trong <b style="font-weight:normal"> — không phải chữ đậm
+  if (tag === "B" && style.includes("font-weight:normal")) tag = "SPAN";
+
+  // giữ đậm/nghiêng/gạch khai báo qua style của span (kiểu Google Docs)
+  let target = out;
+  const wraps = [];
+  if (tag !== "B" && tag !== "STRONG" && /font-weight\s*:\s*(bold|[6-9]00)/.test(style)) wraps.push("strong");
+  if (tag !== "I" && tag !== "EM" && /font-style\s*:\s*italic/.test(style)) wraps.push("em");
+  if (/text-decoration[^;]*underline/.test(style)) wraps.push("u");
+  if (/text-decoration[^;]*line-through/.test(style)) wraps.push("s");
+  for (const w of wraps) { const el = document.createElement(w); target.appendChild(el); target = el; }
+
+  if (KEEP_TAGS.has(tag)) {
+    if (tag === "IMG") {
+      const s = n.getAttribute("src") || "";
+      if (/^(data:image\/|https?:\/\/)/i.test(s)) {
+        const img = document.createElement("img");
+        img.src = s;
+        target.appendChild(img);
+      }
+      return;
+    }
+    const el = document.createElement(tag.toLowerCase());
+    if (tag === "A") {
+      const href = normalizeUrl(n.getAttribute("href") || "");
+      if (href) { el.href = href; el.target = "_blank"; el.rel = "noopener"; }
+    }
+    if (tag === "TD" || tag === "TH") {
+      ["colspan", "rowspan"].forEach((a) => { const v = n.getAttribute(a); if (v) el.setAttribute(a, v); });
+    }
+    target.appendChild(el);
+    cleanChildren(n, el);
+  } else if (["DIV", "SECTION", "ARTICLE", "HEADER", "FOOTER", "MAIN"].includes(tag)) {
+    const el = document.createElement("p"); // block lạ → đoạn văn
+    target.appendChild(el);
+    cleanChildren(n, el);
+    if (!el.textContent.trim() && !el.querySelector("img,table")) el.remove();
+  } else {
+    cleanChildren(n, target); // span/font/thẻ lạ → bóc vỏ, giữ ruột
+  }
+}
+
 function friendlyAuthError(e) {
   const code = e?.code || "";
   if (code.includes("popup-closed") || code.includes("cancelled")) return "Cửa sổ đăng nhập đã bị đóng.";
@@ -964,9 +1028,11 @@ function mountEditor(slot, { html, placeholder, save, showCopy = false, comments
     if (f) insertImageFile(f);
   });
 
-  // dán: ảnh → nén & chèn; chữ → giữ chữ thuần cho sạch trang
+  // dán: ảnh → nén & chèn; nội dung Google Docs/Word → giữ bảng + định dạng, lọc rác;
+  // còn lại → chữ thuần
   page.addEventListener("paste", (e) => {
-    const items = [...((e.clipboardData || window.clipboardData)?.items || [])];
+    const cd = e.clipboardData || window.clipboardData;
+    const items = [...(cd?.items || [])];
     const imgItem = items.find((it) => it.type.startsWith("image/"));
     if (imgItem) {
       e.preventDefault();
@@ -974,9 +1040,19 @@ function mountEditor(slot, { html, placeholder, save, showCopy = false, comments
       if (f) insertImageFile(f);
       return;
     }
+    const htmlData = cd.getData("text/html");
+    if (htmlData) {
+      e.preventDefault();
+      try {
+        const clean = sanitizePastedHtml(htmlData);
+        if (clean.trim()) {
+          document.execCommand("insertHTML", false, clean);
+          return;
+        }
+      } catch { /* lỗi lọc → rơi xuống dán chữ thuần */ }
+    }
     e.preventDefault();
-    const text = (e.clipboardData || window.clipboardData).getData("text/plain");
-    document.execCommand("insertText", false, text);
+    document.execCommand("insertText", false, cd.getData("text/plain"));
   });
 
   slot.querySelectorAll(".tb-btn[data-cmd], .tb-btn[data-block]").forEach((b) => {
