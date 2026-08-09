@@ -492,10 +492,10 @@ function route(soft = false) {
 let dragMapId = null;
 
 function renderHome() {
-  const cards = maps.map((m) => `
+  const cards = maps.map((m, i) => `
     <a class="map-card" href="#/map/${m.id}" data-id="${m.id}" draggable="true">
       <span class="totem-corner">${totemBadges(m.recommends)}</span>
-      <div class="map-card-num">✦ Cánh cổng ${esc(String(m.order ?? "?"))} ✦</div>
+      <div class="map-card-num">✦ Cánh cổng ${i + 1} ✦</div>
       <div class="map-card-title">${esc(m.title)}</div>
       <div class="map-card-world">${esc(m.world || "Thế giới chưa được mô tả…")}</div>
       <div class="map-card-foot">${m.hasHtml ? `<span class="has-map-chip">🧭 có bản đồ</span> · ` : ""}${m.updatedAt ? "Chạm gần nhất: " + fmtTime(m.updatedAt) : ""}</div>
