@@ -930,6 +930,7 @@ const TOOLBAR = [
   { block: "blockquote", label: "❝", title: "Trích dẫn" },
   { cmd: "insertHorizontalRule", label: "―", title: "Đường kẻ ngang" },
   { sep: true },
+  { tbl: true, label: "⊞", title: "Bảng — chèn bảng mới, hoặc chỉnh bảng đang đứng trong đó" },
   { image: true, label: "🖼️", title: "Chèn ảnh (hoặc dán thẳng ảnh vào trang)" },
   { cmd: "removeFormat", label: "⌫ᴬ", title: "Xoá định dạng" },
   { cmd: "undo", label: "↺", title: "Hoàn tác" },
@@ -941,6 +942,7 @@ function mountEditor(slot, { html, placeholder, save, showCopy = false, comments
     <div class="editor-toolbar">
       ${TOOLBAR.map((t) => {
         if (t.sep) return `<span class="tb-sep"></span>`;
+        if (t.tbl) return `<button class="tb-btn" data-tbl="1" title="${t.title}">${t.label}</button>`;
         if (t.image) return `<button class="tb-btn" data-img="1" title="${t.title}">${t.label}</button>`;
         return `<button class="tb-btn" data-cmd="${t.cmd || ""}" data-block="${t.block || ""}" title="${t.title}" ${t.style ? `style="${t.style}"` : ""}>${t.label}</button>`;
       }).join("")}
@@ -1013,6 +1015,136 @@ function mountEditor(slot, { html, placeholder, save, showCopy = false, comments
       toast("Không chèn được ảnh: " + e.message, true);
     }
   }
+  // ── bảng: chèn mới + chỉnh sửa ──
+  let tblPop = null;
+  const closeTblPop = () => { tblPop?.remove(); tblPop = null; };
+
+  function popShell(rect) {
+    closeTblPop();
+    const pop = document.createElement("div");
+    pop.className = "tbl-pop";
+    document.body.appendChild(pop);
+    pop.style.left = Math.max(12, Math.min(rect.left + window.scrollX, window.scrollX + window.innerWidth - 210)) + "px";
+    pop.style.top = (rect.bottom + window.scrollY + 6) + "px";
+    pop.addEventListener("mousedown", (e) => e.preventDefault()); // giữ caret trong trang
+    const closer = (e) => { if (!pop.contains(e.target)) { document.removeEventListener("mousedown", closer); closeTblPop(); } };
+    setTimeout(() => document.addEventListener("mousedown", closer), 0);
+    tblPop = pop;
+    return pop;
+  }
+
+  function caretCell() {
+    const sel = window.getSelection();
+    if (!sel.rangeCount) return null;
+    const n = sel.anchorNode;
+    const el = n && (n.nodeType === 1 ? n : n.parentElement);
+    const cell = el?.closest("td,th");
+    return cell && page.contains(cell) ? cell : null;
+  }
+
+  function insertTable(rows, cols) {
+    page.focus();
+    const sel = window.getSelection();
+    if (!sel.rangeCount || !page.contains(sel.getRangeAt(0).commonAncestorContainer)) caretToEnd();
+    const head = "<tr>" + "<th><br></th>".repeat(cols) + "</tr>";
+    const body = ("<tr>" + "<td><br></td>".repeat(cols) + "</tr>").repeat(Math.max(0, rows - 1));
+    document.execCommand("insertHTML", false, `<table><tbody>${head}${body}</tbody></table><p><br></p>`);
+    page.dispatchEvent(new Event("input"));
+  }
+
+  function showTableSizePicker(rect) {
+    const pop = popShell(rect);
+    pop.innerHTML = `<div class="tbl-pop-title">Chèn bảng</div>
+      <div class="tbl-grid">${Array.from({ length: 25 }, (_, i) =>
+        `<span class="tbl-cell" data-r="${Math.floor(i / 5) + 1}" data-c="${(i % 5) + 1}"></span>`).join("")}</div>
+      <div class="tbl-size-label">Rê chuột chọn cỡ</div>`;
+    const label = pop.querySelector(".tbl-size-label");
+    const cells = [...pop.querySelectorAll(".tbl-cell")];
+    cells.forEach((c) => {
+      c.addEventListener("mouseenter", () => {
+        const R = +c.dataset.r, C = +c.dataset.c;
+        cells.forEach((x) => x.classList.toggle("on", +x.dataset.r <= R && +x.dataset.c <= C));
+        label.textContent = `${R} hàng × ${C} cột (hàng đầu là tiêu đề)`;
+      });
+      c.addEventListener("click", () => { insertTable(+c.dataset.r, +c.dataset.c); closeTblPop(); });
+    });
+  }
+
+  function showTableMenu(rect, cell) {
+    const pop = popShell(rect);
+    pop.innerHTML = `<div class="tbl-pop-title">Chỉnh bảng</div>
+      <button class="tbl-act" data-act="row">➕ Thêm hàng dưới</button>
+      <button class="tbl-act" data-act="col">➕ Thêm cột phải</button>
+      <button class="tbl-act" data-act="delrow">✖ Xoá hàng này</button>
+      <button class="tbl-act" data-act="delcol">✖ Xoá cột này</button>
+      <button class="tbl-act tbl-danger" data-act="deltbl">🗑 Xoá cả bảng</button>`;
+    pop.addEventListener("click", (e) => {
+      const act = e.target.closest(".tbl-act")?.dataset.act;
+      if (!act) return;
+      const table = cell.closest("table");
+      const row = cell.parentElement;
+      const idx = cell.cellIndex;
+      if (act === "row") {
+        const nr = document.createElement("tr");
+        nr.innerHTML = "<td><br></td>".repeat(row.children.length);
+        row.after(nr);
+      } else if (act === "col") {
+        table.querySelectorAll("tr").forEach((tr) => {
+          const ref = tr.children[Math.min(idx, tr.children.length - 1)];
+          const el = document.createElement(ref?.tagName === "TH" ? "th" : "td");
+          el.innerHTML = "<br>";
+          ref ? ref.after(el) : tr.appendChild(el);
+        });
+      } else if (act === "delrow") {
+        row.remove();
+        if (!table.querySelector("tr")) table.remove();
+      } else if (act === "delcol") {
+        table.querySelectorAll("tr").forEach((tr) => tr.children[idx]?.remove());
+        if (!table.querySelector("td,th")) table.remove();
+      } else if (act === "deltbl") {
+        table.remove();
+      }
+      page.dispatchEvent(new Event("input"));
+      closeTblPop();
+    });
+  }
+
+  const tblBtn = slot.querySelector("[data-tbl]");
+  tblBtn?.addEventListener("mousedown", (e) => e.preventDefault()); // giữ caret
+  tblBtn?.addEventListener("click", () => {
+    const rect = tblBtn.getBoundingClientRect();
+    const cell = caretCell();
+    if (cell) showTableMenu(rect, cell);
+    else showTableSizePicker(rect);
+  });
+
+  // Tab nhảy giữa các ô; Tab ở ô cuối cùng tự thêm hàng mới
+  page.addEventListener("keydown", (e) => {
+    if (e.key !== "Tab") return;
+    const cell = caretCell();
+    if (!cell) return;
+    e.preventDefault();
+    const cells = [...cell.closest("table").querySelectorAll("td,th")];
+    const i = cells.indexOf(cell);
+    let target = e.shiftKey ? cells[i - 1] : cells[i + 1];
+    if (!target && !e.shiftKey) {
+      const row = cell.parentElement;
+      const nr = document.createElement("tr");
+      nr.innerHTML = "<td><br></td>".repeat(row.children.length);
+      row.after(nr);
+      target = nr.firstElementChild;
+      page.dispatchEvent(new Event("input"));
+    }
+    if (target) {
+      const r = document.createRange();
+      r.selectNodeContents(target);
+      r.collapse(true);
+      const s = window.getSelection();
+      s.removeAllRanges();
+      s.addRange(r);
+    }
+  });
+
   const imgBtn = slot.querySelector("[data-img]");
   const imgInput = slot.querySelector(".tb-img-file");
   imgBtn?.addEventListener("mousedown", () => { // nhớ vị trí con trỏ trước khi mở hộp chọn file

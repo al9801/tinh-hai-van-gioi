@@ -983,3 +983,45 @@ body {
 .meteor-1 { top: 6%;  left: 76%; --period: 21s; --md: 3s; }
 .meteor-2 { top: 15%; left: 40%; --period: 34s; --md: 14s; }
 .meteor-3 { top: 3%;  left: 56%; --period: 49s; --md: 27s; width: 110px; }
+
+/* ── Popover bảng (chèn & chỉnh) ──────────────────────── */
+.tbl-pop {
+  position: absolute; z-index: 60;
+  width: 196px;
+  background: var(--panel-solid);
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 10px 12px;
+  animation: modal-up 0.18s ease;
+}
+.tbl-pop-title {
+  font-family: var(--font-display);
+  font-size: 0.85rem; color: var(--gold-bright);
+  margin-bottom: 8px;
+}
+.tbl-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+}
+.tbl-cell {
+  aspect-ratio: 1;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  transition: all 0.1s;
+}
+.tbl-cell.on { background: rgba(217, 180, 111, 0.35); border-color: var(--gold); }
+.tbl-size-label { font-size: 0.7rem; color: var(--ink-faint); margin-top: 7px; text-align: center; }
+.tbl-act {
+  display: block; width: 100%;
+  background: none; border: none;
+  color: var(--ink); font-family: var(--font-body); font-size: 0.84rem;
+  text-align: left; padding: 7px 8px;
+  border-radius: 7px; cursor: pointer;
+}
+.tbl-act:hover { background: rgba(255, 255, 255, 0.07); color: var(--gold-bright); }
+.tbl-act.tbl-danger { color: var(--danger); }
+.tbl-act.tbl-danger:hover { background: rgba(224, 133, 133, 0.1); color: #f0a5a5; }
