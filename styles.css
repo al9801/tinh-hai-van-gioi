@@ -916,3 +916,70 @@ body {
   font-weight: 600;
 }
 .doc-page tr:nth-child(even) td { background: rgba(207, 194, 164, 0.12); }
+
+/* ── Đàn sứa trôi ─────────────────────────────────────── */
+.jelly-field { position: absolute; inset: 0; }
+.jelly {
+  position: absolute; top: 103%;
+  width: var(--w, 36px);
+  animation: jelly-rise var(--rise, 100s) linear var(--rd, 0s) infinite;
+}
+.jelly-sway {
+  display: block;
+  animation: jelly-sway var(--sway, 6s) ease-in-out infinite alternate;
+}
+.jelly-svg {
+  width: 100%; height: auto; display: block;
+  animation: jelly-pulse 2.6s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 10px rgba(127, 212, 232, 0.35));
+}
+.jelly-bell {
+  fill: rgba(160, 215, 245, 0.15);
+  stroke: rgba(180, 230, 250, 0.34);
+  stroke-width: 1;
+}
+.jelly-tent {
+  fill: none;
+  stroke: rgba(170, 225, 248, 0.28);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+@keyframes jelly-rise {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-135vh); }
+}
+@keyframes jelly-sway {
+  from { transform: translateX(-13px) rotate(-4deg); }
+  to   { transform: translateX(13px) rotate(4deg); }
+}
+@keyframes jelly-pulse {
+  from { transform: scale(1, 0.95); }
+  to   { transform: scale(0.95, 1.05); }
+}
+
+/* ── Sao băng vàng ấm ─────────────────────────────────── */
+.meteor {
+  position: absolute;
+  width: 150px; height: 2px; border-radius: 999px;
+  background: linear-gradient(90deg, #f6dfa8, rgba(246, 223, 168, 0));
+  box-shadow: 0 0 8px rgba(240, 212, 154, 0.7);
+  opacity: 0;
+  transform: rotate(-32deg);
+  animation: meteor var(--period, 25s) linear var(--md, 0s) infinite;
+}
+.meteor::before { /* đầu sao băng sáng rực */
+  content: "";
+  position: absolute; left: -3px; top: -2px;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #fdf3d8;
+  box-shadow: 0 0 14px 5px rgba(240, 212, 154, 0.85);
+}
+@keyframes meteor {
+  0%   { opacity: 0; transform: translate(0, 0) rotate(-32deg); }
+  1.5% { opacity: 1; }
+  8%   { opacity: 0; transform: translate(-480px, 300px) rotate(-32deg); }
+  100% { opacity: 0; transform: translate(-480px, 300px) rotate(-32deg); }
+}
+.meteor-1 { top: 6%;  left: 76%; --period: 21s; --md: 3s; }
+.meteor-2 { top: 15%; left: 40%; --period: 34s; --md: 14s; }
+.meteor-3 { top: 3%;  left: 56%; --period: 49s; --md: 27s; width: 110px; }
