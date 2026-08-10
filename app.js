@@ -201,6 +201,18 @@ function cleanNode(n, out) {
   if (/text-decoration[^;]*underline/.test(style)) wraps.push("u");
   if (/text-decoration[^;]*line-through/.test(style)) wraps.push("s");
   for (const w of wraps) { const el = document.createElement(w); target.appendChild(el); target = el; }
+  // giữ màu highlight nền (kiểu bôi màu trong Google Docs)
+  const bg = style.match(/background(?:-color)?\s*:\s*([^;]+)/);
+  if (bg) {
+    const v = bg[1].trim();
+    if (/^(#[0-9a-f]{3,8}|rgba?\([\d\s.,%]+\)|[a-z]+)$/i.test(v) &&
+        !/^(transparent|white|#fff(?:fff)?|inherit|initial|unset|none)$/i.test(v)) {
+      const el = document.createElement("span");
+      el.style.backgroundColor = v;
+      target.appendChild(el);
+      target = el;
+    }
+  }
 
   if (KEEP_TAGS.has(tag)) {
     if (tag === "IMG") {
@@ -993,6 +1005,7 @@ const TOOLBAR = [
   { block: "blockquote", label: "❝", title: "Trích dẫn" },
   { cmd: "insertHorizontalRule", label: "―", title: "Đường kẻ ngang" },
   { sep: true },
+  { hl: true, label: "🖍", title: "Đổ màu highlight cho chữ đang bôi đen" },
   { tbl: true, label: "⊞", title: "Bảng — chèn bảng mới, hoặc chỉnh bảng đang đứng trong đó" },
   { image: true, label: "🖼️", title: "Chèn ảnh (hoặc dán thẳng ảnh vào trang)" },
   { cmd: "removeFormat", label: "⌫ᴬ", title: "Xoá định dạng" },
@@ -1005,6 +1018,7 @@ function mountEditor(slot, { html, placeholder, save, showCopy = false, comments
     <div class="editor-toolbar">
       ${TOOLBAR.map((t) => {
         if (t.sep) return `<span class="tb-sep"></span>`;
+        if (t.hl) return `<button class="tb-btn" data-hl="1" title="${t.title}">${t.label}</button>`;
         if (t.tbl) return `<button class="tb-btn" data-tbl="1" title="${t.title}">${t.label}</button>`;
         if (t.image) return `<button class="tb-btn" data-img="1" title="${t.title}">${t.label}</button>`;
         return `<button class="tb-btn" data-cmd="${t.cmd || ""}" data-block="${t.block || ""}" title="${t.title}" ${t.style ? `style="${t.style}"` : ""}>${t.label}</button>`;
@@ -1181,6 +1195,27 @@ function mountEditor(slot, { html, placeholder, save, showCopy = false, comments
     else showTableSizePicker(rect);
   });
 
+  // ── đổ màu highlight ──
+  const HL_COLORS = ["#f9e79b", "#ffd9a8", "#f6c9c9", "#cdeedd", "#cfe4f7", "#e6d6f5"];
+  const hlBtn = slot.querySelector("[data-hl]");
+  hlBtn?.addEventListener("mousedown", (e) => e.preventDefault()); // giữ vùng bôi đen
+  hlBtn?.addEventListener("click", () => {
+    const pop = popShell(hlBtn.getBoundingClientRect());
+    pop.innerHTML = `<div class="tbl-pop-title">Đổ màu highlight</div>
+      <div class="hl-row">
+        ${HL_COLORS.map((c) => `<button class="hl-swatch" data-c="${c}" style="background:${c}"></button>`).join("")}
+        <button class="hl-swatch hl-none" data-c="" title="Bỏ màu highlight">✕</button>
+      </div>`;
+    pop.addEventListener("click", (e) => {
+      const b = e.target.closest(".hl-swatch");
+      if (!b) return;
+      page.focus();
+      document.execCommand("hiliteColor", false, b.dataset.c || "transparent");
+      page.dispatchEvent(new Event("input"));
+      closeTblPop();
+    });
+  });
+
   // Tab nhảy giữa các ô; Tab ở ô cuối cùng tự thêm hàng mới
   page.addEventListener("keydown", (e) => {
     if (e.key !== "Tab") return;
@@ -1207,6 +1242,27 @@ function mountEditor(slot, { html, placeholder, save, showCopy = false, comments
       s.addRange(r);
     }
   });
+
+  // ảnh dán kèm đoạn văn thường là link ngoài (Google Docs) → tải về, nén, nhúng vĩnh viễn
+  async function inlineRemoteImages() {
+    const imgs = [...page.querySelectorAll("img")].filter((i) => /^https?:\/\//i.test(i.getAttribute("src") || ""));
+    if (!imgs.length) return;
+    status.textContent = `Đang nhúng ${imgs.length} ảnh…`;
+    status.className = "tb-status saving";
+    let ok = 0;
+    for (const img of imgs) {
+      try {
+        const resp = await fetch(img.getAttribute("src"), { mode: "cors" });
+        if (!resp.ok) continue;
+        const blob = await resp.blob();
+        if (!blob.type.startsWith("image/")) continue;
+        img.src = await shrinkImage(blob, 1000, 260_000);
+        ok++;
+      } catch { /* không tải được (chặn CORS) → giữ link gốc, ảnh vẫn hiển thị */ }
+    }
+    page.dispatchEvent(new Event("input"));
+    if (ok) toast(`🖼️ Đã nhúng ${ok}/${imgs.length} ảnh dán kèm vào trang.`);
+  }
 
   const imgBtn = slot.querySelector("[data-img]");
   const imgInput = slot.querySelector(".tb-img-file");
@@ -1242,6 +1298,7 @@ function mountEditor(slot, { html, placeholder, save, showCopy = false, comments
         const clean = sanitizePastedHtml(htmlData);
         if (clean.trim()) {
           document.execCommand("insertHTML", false, clean);
+          setTimeout(inlineRemoteImages, 60); // ảnh link ngoài → tải về nhúng hẳn vào trang
           return;
         }
       } catch { /* lỗi lọc → rơi xuống dán chữ thuần */ }
