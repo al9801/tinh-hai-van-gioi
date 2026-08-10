@@ -1055,3 +1055,46 @@ body {
   opacity: 0.7;
   letter-spacing: 0.1em;
 }
+
+/* nhãn sticker 🔥 NSFW dán lên thẻ cổng */
+.nsfw-sticker {
+  position: absolute; top: -10px; left: 14px;
+  font-size: 1.5rem;
+  transform: rotate(-14deg);
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 12px rgba(255, 130, 40, 0.55));
+  animation: totem-pop 0.35s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+.nsfw-sticker.nsfw-inline {
+  position: static;
+  display: inline-block;
+  font-size: 1.4rem;
+  align-self: flex-start;
+  pointer-events: auto;
+}
+
+/* checkbox trong modal */
+.field-check {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.88rem; color: var(--ink-dim);
+  cursor: pointer;
+}
+.field-check input { width: auto; accent-color: var(--gold); transform: scale(1.15); }
+
+/* hàng nút chọn font/cỡ chữ */
+.font-row { display: flex; gap: 5px; flex-wrap: wrap; }
+.font-opt {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  padding: 6px 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s;
+}
+.font-opt:hover { border-color: var(--gold); color: var(--gold-bright); }

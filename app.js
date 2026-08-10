@@ -193,6 +193,22 @@ function cleanNode(n, out) {
   // Google Docs bọc toàn bộ nội dung trong <b style="font-weight:normal"> — không phải chữ đậm
   if (tag === "B" && style.includes("font-weight:normal")) tag = "SPAN";
 
+  // thẻ <font> (từ chỉnh cỡ chữ trong editor hoặc web cũ) → span giữ cỡ/kiểu chữ
+  if (tag === "FONT") {
+    const sz = parseInt(n.getAttribute("size") || "", 10);
+    const em = { 1: 0.7, 2: 0.85, 4: 1.15, 5: 1.4, 6: 1.7, 7: 2 }[sz];
+    const face = (n.getAttribute("face") || "").replace(/[^\w\s'",-]/g, "");
+    let t2 = out;
+    if (em || face) {
+      const el = document.createElement("span");
+      if (em) el.style.fontSize = em + "em";
+      if (face) el.style.fontFamily = face;
+      t2.appendChild(el); t2 = el;
+    }
+    cleanChildren(n, t2);
+    return;
+  }
+
   // giữ đậm/nghiêng/gạch khai báo qua style của span (kiểu Google Docs)
   let target = out;
   const wraps = [];
@@ -201,6 +217,19 @@ function cleanNode(n, out) {
   if (/text-decoration[^;]*underline/.test(style)) wraps.push("u");
   if (/text-decoration[^;]*line-through/.test(style)) wraps.push("s");
   for (const w of wraps) { const el = document.createElement(w); target.appendChild(el); target = el; }
+  // giữ cỡ chữ chỉnh tay (bỏ qua dải cỡ mặc định 13–17px cho sạch)
+  const fsm = style.match(/font-size\s*:\s*([\d.]+)(px|pt|em|rem)/);
+  if (fsm) {
+    const raw = parseFloat(fsm[1]);
+    const px = fsm[2] === "pt" ? raw * 1.333 : (fsm[2] === "em" || fsm[2] === "rem") ? raw * 16 : raw;
+    if (px >= 8 && px <= 60 && (px < 13 || px > 17)) {
+      const el = document.createElement("span");
+      el.style.fontSize = Math.round(px) + "px";
+      target.appendChild(el);
+      target = el;
+    }
+  }
+
   // giữ màu highlight nền (kiểu bôi màu trong Google Docs)
   const bg = style.match(/background(?:-color)?\s*:\s*([^;]+)/);
   if (bg) {
@@ -627,6 +656,7 @@ let dragMapId = null;
 function renderHome() {
   const cards = maps.map((m, i) => `
     <a class="map-card" href="#/map/${m.id}" data-id="${m.id}" draggable="true">
+      ${m.nsfw ? `<span class="nsfw-sticker" title="Cổng thiên về NSFW">🔥</span>` : ""}
       <span class="totem-corner">${totemBadges(m.recommends)}</span>
       <div class="map-card-num">✦ Cánh cổng ${i + 1} ✦</div>
       <div class="map-card-title">${esc(m.title)}</div>
@@ -730,7 +760,8 @@ function renderMapView({ id, tab }) {
           <h1 class="map-view-title" id="mv-title"></h1>
           <p class="map-view-world" id="mv-world"></p>
         </div>
-        <button class="btn-icon" id="btn-edit-map" title="Sửa tên / mô tả / link GAS">✎</button>
+        <span id="mv-nsfw" class="nsfw-sticker nsfw-inline hidden" title="Cổng thiên về NSFW">🔥</span>
+        <button class="btn-icon" id="btn-edit-map" title="Sửa tên / mô tả / link GAS / nhãn">✎</button>
       </div>
       <div class="map-actions">
         <a class="btn gas-btn" id="mv-gas" target="_blank" rel="noopener">🌀 Mở Google AI Studio</a>
@@ -861,6 +892,7 @@ function updateMapMeta({ id }) {
   if (!m || !$("#mv-title")) return;
   $("#mv-title").textContent = m.title || "(chưa đặt tên)";
   $("#mv-world").textContent = m.world || "";
+  $("#mv-nsfw")?.classList.toggle("hidden", !m.nsfw);
   $("#mv-gas").href = normalizeUrl(m.gasLink) || DEFAULT_GAS;
 
   const rec = m.recommends || {};
@@ -898,6 +930,7 @@ function openMapModal(mapId) {
   $("#inp-map-title").value = m?.title || "";
   $("#inp-map-world").value = m?.world || "";
   $("#inp-map-gas").value = m?.gasLink || DEFAULT_GAS;
+  $("#inp-map-nsfw").checked = !!m?.nsfw;
   $("#btn-map-delete").classList.toggle("hidden", !m);
   $("#modal-map").classList.remove("hidden");
   setTimeout(() => $("#inp-map-title").focus(), 60);
@@ -914,18 +947,19 @@ $("#btn-map-save").addEventListener("click", async () => {
   if (!title) { toast("Cánh cổng cần một cái tên.", true); return; }
   const world = $("#inp-map-world").value.trim();
   const gasLink = normalizeUrl($("#inp-map-gas").value) || DEFAULT_GAS;
+  const nsfw = $("#inp-map-nsfw").checked;
   const btn = $("#btn-map-save");
   savingMap = true;
   btn.disabled = true;
   btn.textContent = "Đang lưu…";
   try {
     if (editingMapId) {
-      await store.updateMap(editingMapId, { title, world, gasLink });
+      await store.updateMap(editingMapId, { title, world, gasLink, nsfw });
       toast("Đã lưu cánh cổng.");
     } else {
       const maxOrder = maps.reduce((mx, m) => Math.max(mx, m.order || 0), 0);
       const newId = await store.addMap({
-        title, world, gasLink,
+        title, world, gasLink, nsfw,
         order: maxOrder + 1,
         content: "", prompt: "", ideas: "",
         recommends: {},
@@ -1088,6 +1122,7 @@ const TOOLBAR = [
   { block: "blockquote", label: "❝", title: "Trích dẫn" },
   { cmd: "insertHorizontalRule", label: "―", title: "Đường kẻ ngang" },
   { sep: true },
+  { fontm: true, label: "Aa", title: "Cỡ chữ & kiểu font cho vùng bôi đen" },
   { hl: true, label: "🖍", title: "Đổ màu highlight cho chữ đang bôi đen" },
   { tbl: true, label: "⊞", title: "Bảng — chèn bảng mới, hoặc chỉnh bảng đang đứng trong đó" },
   { image: true, label: "🖼️", title: "Chèn ảnh (hoặc dán thẳng ảnh vào trang)" },
@@ -1101,6 +1136,7 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
     <div class="editor-toolbar">
       ${TOOLBAR.map((t) => {
         if (t.sep) return `<span class="tb-sep"></span>`;
+        if (t.fontm) return `<button class="tb-btn" data-fontm="1" title="${t.title}">${t.label}</button>`;
         if (t.hl) return `<button class="tb-btn" data-hl="1" title="${t.title}">${t.label}</button>`;
         if (t.tbl) return `<button class="tb-btn" data-tbl="1" title="${t.title}">${t.label}</button>`;
         if (t.image) return `<button class="tb-btn" data-img="1" title="${t.title}">${t.label}</button>`;
@@ -1324,6 +1360,35 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
     const cell = caretCell();
     if (cell) showTableMenu(rect, cell);
     else showTableSizePicker(rect);
+  });
+
+  // ── cỡ chữ & kiểu font ──
+  const fontBtn = slot.querySelector("[data-fontm]");
+  fontBtn?.addEventListener("mousedown", (e) => e.preventDefault()); // giữ vùng bôi đen
+  fontBtn?.addEventListener("click", () => {
+    const pop = popShell(fontBtn.getBoundingClientRect());
+    pop.innerHTML = `<div class="tbl-pop-title">Cỡ chữ</div>
+      <div class="font-row">
+        <button class="font-opt" data-fs="2" style="font-size:0.72rem">Nhỏ</button>
+        <button class="font-opt" data-fs="3">Thường</button>
+        <button class="font-opt" data-fs="5" style="font-size:1.05rem">Lớn</button>
+        <button class="font-opt" data-fs="6" style="font-size:1.2rem">Rất lớn</button>
+      </div>
+      <div class="tbl-pop-title" style="margin-top:10px">Kiểu font</div>
+      <div class="font-row">
+        <button class="font-opt" data-ff="Be Vietnam Pro">Không chân</button>
+        <button class="font-opt" data-ff="Spectral" style="font-family:Spectral,Georgia,serif">Có chân</button>
+        <button class="font-opt" data-ff="Menlo" style="font-family:Menlo,monospace">Mono</button>
+      </div>`;
+    pop.addEventListener("click", (e) => {
+      const b = e.target.closest(".font-opt");
+      if (!b) return;
+      page.focus();
+      if (b.dataset.fs) document.execCommand("fontSize", false, b.dataset.fs);
+      if (b.dataset.ff) document.execCommand("fontName", false, b.dataset.ff);
+      page.dispatchEvent(new Event("input"));
+      closeTblPop();
+    });
   });
 
   // ── đổ màu highlight ──
