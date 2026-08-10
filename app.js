@@ -1066,7 +1066,7 @@ function mountEditor(slot, { html, placeholder, save, showCopy = false, comments
       if (!c) continue;
       if (live.dataset.iid) { c.removeAttribute("src"); continue; } // đã ở kho
       const src = live.getAttribute("src") || "";
-      if (src.startsWith("data:image/") && src.length > 30_000) {
+      if (src.startsWith("data:image/") && src.length > 12_000) {
         const iid = "i" + Math.random().toString(36).slice(2, 10);
         await store.saveImage(iid, src);
         imgCache[iid] = src;
@@ -1097,7 +1097,12 @@ function mountEditor(slot, { html, placeholder, save, showCopy = false, comments
     } catch (e) {
       status.textContent = "⚠ Lỗi lưu";
       status.className = "tb-status";
-      toast("Không lưu được: " + e.message, true);
+      if (/longer than/i.test(e.message || "")) {
+        const kb = Math.round(page.innerHTML.length / 1024);
+        toast(`Trang vượt trần 1MB của Firestore (hiện ~${kb}KB). Hãy tải lại trang (Ctrl/Cmd+Shift+R) để chắc chắn đang chạy bản mới nhất rồi gõ thử 1 ký tự — ảnh sẽ tự tách vào kho. Nếu vẫn lỗi, hãy chia bớt nội dung sang tab Ý tưởng nháp.`, true);
+      } else {
+        toast("Không lưu được: " + e.message, true);
+      }
     }
   };
   page.addEventListener("input", () => {
