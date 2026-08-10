@@ -31,6 +31,10 @@ let mountedRoute = "";      // route đã dựng DOM (tránh re-mount editor khi
 let activeCmt = null;       // { page, doSave, api } của editor mở
 let flushEditor = null;     // doSave của editor hiện tại — gọi trước khi unmount để không mất chữ
 
+// nhớ chỗ đứng gần nhất trong từng khu — nút điều hướng đưa về đúng trang đang mở dở
+let lastSeaHash = "#/";           // Biển Cổng: home hoặc map đang mở
+let lastLibHash = "#/thu-phong";  // Thư Phòng: danh sách hoặc nháp đang viết
+
 // nhớ vị trí cuộn của từng view + tab đang mở của từng map (không reset khi qua lại)
 let scrollKey = null;
 const viewScroll = {};
@@ -458,6 +462,19 @@ function enterForest() {
 /* ── Router ───────────────────────────────────────────── */
 window.addEventListener("hashchange", () => route());
 
+// nút điều hướng: quay về đúng trang đang mở dở trong khu đó;
+// bấm lần nữa (khi đã ở đó) mới ra màn hình tổng
+$('[data-nav="home"]')?.addEventListener("click", (e) => {
+  e.preventDefault();
+  const cur = location.hash || "#/";
+  location.hash = (cur === lastSeaHash) ? "#/" : lastSeaHash;
+});
+$('[data-nav="drafts"]')?.addEventListener("click", (e) => {
+  e.preventDefault();
+  const cur = location.hash || "#/";
+  location.hash = (cur === lastLibHash) ? "#/thu-phong" : lastLibHash;
+});
+
 function parseHash() {
   const h = (location.hash || "#/").replace(/^#/, "");
   const parts = h.split("/").filter(Boolean);
@@ -475,8 +492,14 @@ function route(soft = false) {
   const key = r.view + ":" + (r.id || "") + ":" + (r.tab || "");
 
   $$(".nav-link").forEach((a) => a.classList.remove("active"));
-  if (r.view === "home") $('[data-nav="home"]')?.classList.add("active");
+  if (r.view === "home" || r.view === "map") $('[data-nav="home"]')?.classList.add("active");
   if (r.view === "drafts" || r.view === "draft") $('[data-nav="drafts"]')?.classList.add("active");
+
+  // ghi nhớ chỗ đứng trong từng khu
+  if (r.view === "home") lastSeaHash = "#/";
+  else if (r.view === "map") lastSeaHash = location.hash;
+  if (r.view === "drafts") lastLibHash = "#/thu-phong";
+  else if (r.view === "draft") lastLibHash = location.hash;
 
   if (soft && key === mountedRoute) {
     if (r.view === "home") renderHome();          // home không có editor → render lại thoải mái
