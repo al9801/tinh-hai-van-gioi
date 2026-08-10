@@ -292,6 +292,37 @@ function firestoreStore() {
     // ảnh trong trang lưu kho riêng (images/{iid}) — né trần 1MB/document của Firestore
     saveImage: (iid, data) => setDoc(doc(db, "images", iid), { data, by: me.email, at: serverTimestamp() }),
     getImage: (iid) => getDoc(doc(db, "images", iid)).then((s) => (s.exists() ? s.data().data : null)),
+    // trang chữ quá dài → tự chia khúc 850KB lưu ở collection chunks, mở thì ghép lại
+    async saveDocField(coll, id, field, html) {
+      const CH = 850_000;
+      const cur = (coll === "maps" ? findMap(id) : findDraft(id)) || {};
+      const oldN = cur[field + "Chunks"] || 0;
+      const n = html.length > CH ? Math.ceil(html.length / CH) : 0;
+      for (let i = 0; i < n; i++) {
+        await setDoc(doc(db, "chunks", `${coll}-${id}-${field}-${i}`),
+          { data: html.slice(i * CH, (i + 1) * CH) });
+      }
+      await updateDoc(doc(db, coll, id), {
+        // khi chia khúc: field chính chỉ giữ đoạn chữ xem trước
+        [field]: n ? stripHtml(html).slice(0, 300) : html,
+        [field + "Chunks"]: n,
+        updatedAt: serverTimestamp(),
+      });
+      for (let i = n; i < oldN; i++) { // dọn khúc thừa của bản cũ
+        deleteDoc(doc(db, "chunks", `${coll}-${id}-${field}-${i}`)).catch(() => {});
+      }
+    },
+    async loadDocField(coll, id, field) {
+      const cur = (coll === "maps" ? findMap(id) : findDraft(id)) || {};
+      const n = cur[field + "Chunks"] || 0;
+      if (!n) return cur[field] || "";
+      let out = "";
+      for (let i = 0; i < n; i++) {
+        const s = await getDoc(doc(db, "chunks", `${coll}-${id}-${field}-${i}`));
+        out += s.exists() ? s.data().data : "";
+      }
+      return out;
+    },
     async addDraft(data) {
       const ref = await addDoc(collection(db, "drafts"),
         { ...data, createdAt: serverTimestamp(), updatedAt: serverTimestamp() });
@@ -392,6 +423,33 @@ function demoStore() {
     async deleteMapHtml(id) { delete htmlFiles[id]; },
     async saveImage(iid, data) { this._imgs = this._imgs || {}; this._imgs[iid] = data; },
     async getImage(iid) { return (this._imgs || {})[iid] || null; },
+    // demo: ngưỡng chia khúc thấp (500 ký tự) để thử được luồng trang dài
+    async saveDocField(coll, id, field, html) {
+      const arr = coll === "maps" ? maps : drafts;
+      const obj = arr.find((x) => x.id === id);
+      if (!obj) return;
+      this._chunks = this._chunks || {};
+      const CH = 500;
+      if (html.length > CH) {
+        const n = Math.ceil(html.length / CH);
+        for (let i = 0; i < n; i++) this._chunks[`${coll}-${id}-${field}-${i}`] = html.slice(i * CH, (i + 1) * CH);
+        obj[field] = stripHtml(html).slice(0, 300);
+        obj[field + "Chunks"] = n;
+      } else {
+        obj[field] = html;
+        obj[field + "Chunks"] = 0;
+      }
+      touch(obj); route(true);
+    },
+    async loadDocField(coll, id, field) {
+      const arr = coll === "maps" ? maps : drafts;
+      const obj = arr.find((x) => x.id === id) || {};
+      const n = obj[field + "Chunks"] || 0;
+      if (!n) return obj[field] || "";
+      let out = "";
+      for (let i = 0; i < n; i++) out += (this._chunks || {})[`${coll}-${id}-${field}-${i}`] || "";
+      return out;
+    },
     async addDraft(data) { const id = uid(); drafts.unshift({ id, ...data, updatedAt: now() }); route(true); return id; },
     async updateDraft(id, patch) { const d = drafts.find((x) => x.id === id); if (d) { Object.assign(d, patch); touch(d); } route(true); },
     async deleteDraft(id) { drafts = drafts.filter((x) => x.id !== id); route(true); },
@@ -694,11 +752,13 @@ function renderMapView({ id, tab }) {
     activeCmt = null; // tab bản đồ không có editor
     renderMapHtmlTab(m);
   } else {
+    const chunked = (m[st.field + "Chunks"] || 0) > 0;
     mountEditor($("#editor-slot"), {
-      html: m[st.field] || "",
+      html: chunked ? "" : (m[st.field] || ""),
+      load: chunked ? () => store.loadDocField("maps", id, st.field) : null,
       placeholder: st.ph,
       showCopy: st.key === "prompt",
-      save: (html) => store.updateMap(id, { [st.field]: html }),
+      save: (html) => store.saveDocField("maps", id, st.field, html),
       comments: {
         data: () => findMap(id)?.comments || {},
         save: (obj) => store.updateMap(id, { comments: obj }),
@@ -973,10 +1033,12 @@ function renderDraftView({ id }) {
     } catch (e) { toast("Không xoá được: " + e.message, true); }
   });
 
+  const dChunked = (d.contentChunks || 0) > 0;
   mountEditor($("#editor-slot"), {
-    html: d.content || "",
+    html: dChunked ? "" : (d.content || ""),
+    load: dChunked ? () => store.loadDocField("drafts", id, "content") : null,
     placeholder: "Viết ý tưởng của bạn ở đây — như một trang docx giữa biển sao…",
-    save: (html) => store.updateDraft(id, { content: html }),
+    save: (html) => store.saveDocField("drafts", id, "content", html),
     comments: {
       data: () => findDraft(id)?.comments || {},
       save: (obj) => store.updateDraft(id, { comments: obj }),
@@ -1034,7 +1096,7 @@ const TOOLBAR = [
   { cmd: "redo", label: "↻", title: "Làm lại" },
 ];
 
-function mountEditor(slot, { html, placeholder, save, showCopy = false, comments = null }) {
+function mountEditor(slot, { html, load = null, placeholder, save, showCopy = false, comments = null }) {
   slot.innerHTML = `
     <div class="editor-toolbar">
       ${TOOLBAR.map((t) => {
@@ -1052,8 +1114,26 @@ function mountEditor(slot, { html, placeholder, save, showCopy = false, comments
 
   const page = slot.querySelector("#doc-page");
   const status = slot.querySelector("#tb-status");
-  page.innerHTML = html;
+  page.innerHTML = html || "";
   hydrateImages(page); // ảnh lưu kho riêng → nạp lại src
+
+  // trang dài lưu chia khúc → tải ghép lại trước khi cho gõ
+  if (load) {
+    page.contentEditable = "false";
+    status.textContent = "Đang mở trang dài…";
+    status.className = "tb-status saving";
+    load().then((full) => {
+      page.innerHTML = full;
+      hydrateImages(page);
+      lastSaved = full;
+      page.contentEditable = "true";
+      status.textContent = "Tự động lưu";
+      status.className = "tb-status";
+    }).catch((e) => {
+      status.textContent = "⚠ Không tải được";
+      toast("Không tải được nội dung trang: " + e.message, true);
+    });
+  }
 
   // dạng LƯU TRỮ: ảnh nặng đẩy vào kho images/{iid}, trang chỉ giữ mã tham chiếu
   // (tránh đụng trần 1MB/document của Firestore)
