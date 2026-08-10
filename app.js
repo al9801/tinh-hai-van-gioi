@@ -289,6 +289,9 @@ function firestoreStore() {
     getMapHtml: (id) => getDoc(doc(db, "mapfiles", id)).then((s) => (s.exists() ? s.data().html : null)),
     saveMapHtml: (id, html) => setDoc(doc(db, "mapfiles", id), { html, by: me.email, at: serverTimestamp() }),
     deleteMapHtml: (id) => deleteDoc(doc(db, "mapfiles", id)),
+    // ảnh trong trang lưu kho riêng (images/{iid}) — né trần 1MB/document của Firestore
+    saveImage: (iid, data) => setDoc(doc(db, "images", iid), { data, by: me.email, at: serverTimestamp() }),
+    getImage: (iid) => getDoc(doc(db, "images", iid)).then((s) => (s.exists() ? s.data().data : null)),
     async addDraft(data) {
       const ref = await addDoc(collection(db, "drafts"),
         { ...data, createdAt: serverTimestamp(), updatedAt: serverTimestamp() });
@@ -387,6 +390,8 @@ function demoStore() {
     async getMapHtml(id) { return htmlFiles[id] || null; },
     async saveMapHtml(id, html) { htmlFiles[id] = html; },
     async deleteMapHtml(id) { delete htmlFiles[id]; },
+    async saveImage(iid, data) { this._imgs = this._imgs || {}; this._imgs[iid] = data; },
+    async getImage(iid) { return (this._imgs || {})[iid] || null; },
     async addDraft(data) { const id = uid(); drafts.unshift({ id, ...data, updatedAt: now() }); route(true); return id; },
     async updateDraft(id, patch) { const d = drafts.find((x) => x.id === id); if (d) { Object.assign(d, patch); touch(d); } route(true); },
     async deleteDraft(id) { drafts = drafts.filter((x) => x.id !== id); route(true); },
@@ -988,6 +993,22 @@ function updateDraftMeta({ id }) {
     `${owner ? owner.icon + " " + owner.name : d.owner || ""} · sửa lần cuối ${fmtTime(d.updatedAt) || "—"}`;
 }
 
+/* ── Kho ảnh của trang: tách ảnh nặng ra doc riêng ────── */
+const imgCache = {}; // iid → dataURL (đỡ phải tải lại trong phiên)
+
+// nạp lại ảnh cho trang vừa mở (ảnh lưu ở kho, trang chỉ giữ mã data-iid)
+async function hydrateImages(root) {
+  const imgs = [...root.querySelectorAll("img[data-iid]")].filter((i) => !i.getAttribute("src"));
+  for (const img of imgs) {
+    const iid = img.dataset.iid;
+    try {
+      const data = imgCache[iid] ?? (imgCache[iid] = await store.getImage(iid));
+      if (data) img.src = data;
+      else img.alt = "(ảnh không còn trong kho)";
+    } catch { /* mạng lỗi → ảnh hiện lại ở lần mở sau */ }
+  }
+}
+
 /* ── EDITOR kiểu docx ─────────────────────────────────── */
 const TOOLBAR = [
   { cmd: "bold", label: "B", title: "Đậm (⌘B)", style: "font-weight:700" },
@@ -1032,15 +1053,43 @@ function mountEditor(slot, { html, placeholder, save, showCopy = false, comments
   const page = slot.querySelector("#doc-page");
   const status = slot.querySelector("#tb-status");
   page.innerHTML = html;
+  hydrateImages(page); // ảnh lưu kho riêng → nạp lại src
+
+  // dạng LƯU TRỮ: ảnh nặng đẩy vào kho images/{iid}, trang chỉ giữ mã tham chiếu
+  // (tránh đụng trần 1MB/document của Firestore)
+  async function toStorageHtml() {
+    const clone = page.cloneNode(true);
+    const liveImgs = [...page.querySelectorAll("img")];
+    const cloneImgs = [...clone.querySelectorAll("img")];
+    for (let k = 0; k < liveImgs.length; k++) {
+      const live = liveImgs[k], c = cloneImgs[k];
+      if (!c) continue;
+      if (live.dataset.iid) { c.removeAttribute("src"); continue; } // đã ở kho
+      const src = live.getAttribute("src") || "";
+      if (src.startsWith("data:image/") && src.length > 30_000) {
+        const iid = "i" + Math.random().toString(36).slice(2, 10);
+        await store.saveImage(iid, src);
+        imgCache[iid] = src;
+        live.dataset.iid = iid; // đánh dấu bản sống để lần sau không đẩy lại
+        c.dataset.iid = iid;
+        c.removeAttribute("src");
+      }
+    }
+    return clone.innerHTML;
+  }
 
   let saveTimer = null;
-  let lastSaved = html;
+  let lastSaved = html; // html từ kho đã ở dạng lưu trữ
   const doSave = async () => {
-    const cur = page.innerHTML;
-    if (cur === lastSaved) return;
     status.textContent = "Đang gửi theo hải lưu…";
     status.className = "tb-status saving";
     try {
+      const cur = await toStorageHtml();
+      if (cur === lastSaved) {
+        status.textContent = "✓ Đã lưu";
+        status.className = "tb-status saved";
+        return;
+      }
       await save(cur);
       lastSaved = cur;
       status.textContent = "✓ Đã lưu";
@@ -1083,10 +1132,7 @@ function mountEditor(slot, { html, placeholder, save, showCopy = false, comments
       }
       document.execCommand("insertHTML", false, `<img src="${data}" alt="">`);
       savedImgRange = null;
-      page.dispatchEvent(new Event("input")); // kích hoạt tự động lưu
-      if (page.innerHTML.length > 800_000) {
-        toast("Trang đang nặng vì nhiều ảnh — giới hạn ~1MB/trang, cân nhắc bớt ảnh.", true);
-      }
+      page.dispatchEvent(new Event("input")); // kích hoạt tự động lưu (ảnh sẽ tự tách vào kho riêng)
     } catch (e) {
       status.textContent = "⚠ Lỗi ảnh"; status.className = "tb-status";
       toast("Không chèn được ảnh: " + e.message, true);
