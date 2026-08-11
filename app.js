@@ -46,6 +46,8 @@ function rememberTab(id, tab) {
 }
 window.addEventListener("scroll", () => {
   if (scrollKey) viewScroll[scrollKey] = window.scrollY;
+  // nút vút về đầu trang: chỉ ló ra khi đã cuộn sâu (tránh bấm nhầm)
+  $("#btn-top")?.classList.toggle("show", window.scrollY > 500);
 }, { passive: true });
 let cmtPop = null;
 let cmtPopCloser = null;
@@ -321,12 +323,14 @@ function firestoreStore() {
     // ảnh trong trang lưu kho riêng (images/{iid}) — né trần 1MB/document của Firestore
     saveImage: (iid, data) => setDoc(doc(db, "images", iid), { data, by: me.email, at: serverTimestamp() }),
     getImage: (iid) => getDoc(doc(db, "images", iid)).then((s) => (s.exists() ? s.data().data : null)),
-    // trang chữ quá dài → tự chia khúc 850KB lưu ở collection chunks, mở thì ghép lại
+    // trang chữ quá dài → tự chia khúc lưu ở collection chunks, mở thì ghép lại.
+    // QUAN TRỌNG: Firestore đếm BYTE (chữ Việt = 2-3 byte/ký tự) nên phải đo bằng TextEncoder
     async saveDocField(coll, id, field, html) {
-      const CH = 850_000;
       const cur = (coll === "maps" ? findMap(id) : findDraft(id)) || {};
       const oldN = cur[field + "Chunks"] || 0;
-      const n = html.length > CH ? Math.ceil(html.length / CH) : 0;
+      const bytes = new TextEncoder().encode(html).length;
+      const CH = 280_000; // ký tự/khúc — kể cả toàn chữ 3-byte vẫn ≤ ~840KB/khúc
+      const n = bytes > 900_000 ? Math.ceil(html.length / CH) : 0;
       for (let i = 0; i < n; i++) {
         await setDoc(doc(db, "chunks", `${coll}-${id}-${field}-${i}`),
           { data: html.slice(i * CH, (i + 1) * CH) });
@@ -338,6 +342,11 @@ function firestoreStore() {
         updatedAt: serverTimestamp(),
       });
       for (let i = n; i < oldN; i++) { // dọn khúc thừa của bản cũ
+        deleteDoc(doc(db, "chunks", `${coll}-${id}-${field}-${i}`)).catch(() => {});
+      }
+    },
+    deleteFieldChunks(coll, id, field, count) {
+      for (let i = 0; i < (count || 0); i++) {
         deleteDoc(doc(db, "chunks", `${coll}-${id}-${field}-${i}`)).catch(() => {});
       }
     },
@@ -478,6 +487,9 @@ function demoStore() {
       let out = "";
       for (let i = 0; i < n; i++) out += (this._chunks || {})[`${coll}-${id}-${field}-${i}`] || "";
       return out;
+    },
+    deleteFieldChunks(coll, id, field, count) {
+      for (let i = 0; i < (count || 0); i++) delete (this._chunks || {})[`${coll}-${id}-${field}-${i}`];
     },
     async addDraft(data) { const id = uid(); drafts.unshift({ id, ...data, updatedAt: now() }); route(true); return id; },
     async updateDraft(id, patch) { const d = drafts.find((x) => x.id === id); if (d) { Object.assign(d, patch); touch(d); } route(true); },
@@ -1044,6 +1056,7 @@ function renderDraftView({ id }) {
       <div class="map-actions" style="margin-top:6px">
         <span class="rec-status" id="draft-meta"></span>
         <span class="spacer"></span>
+        <button class="btn gas-btn" id="btn-draft-to-map" title="Biến nháp này thành một cánh cổng mới ngoài Biển Cổng">🌊 Đẩy ra Biển Cổng</button>
         <button class="btn btn-danger-ghost" id="btn-del-draft">Thả trôi trang nháp…</button>
       </div>
     </div>
@@ -1056,6 +1069,38 @@ function renderDraftView({ id }) {
       store.updateDraft(id, { title: e.target.value.trim() })
         .catch((err) => toast("Không lưu được tên: " + err.message, true));
     }, 700);
+  });
+
+  $("#btn-draft-to-map").addEventListener("click", async (e) => {
+    const btn = e.currentTarget;
+    if (btn.disabled) return;
+    const dd = findDraft(id);
+    if (!confirm(`Đẩy nháp "${dd?.title || "(chưa đặt tên)"}" ra Biển Cổng thành một cánh cổng mới?\nNháp sẽ rời khỏi Thư Phòng, toàn bộ nội dung và ghi chú đi theo.`)) return;
+    btn.disabled = true;
+    btn.textContent = "🌊 Đang dong buồm…";
+    try {
+      await flushEditor?.(); // chốt chữ đang gõ dở trước khi di cư
+      const full = await store.loadDocField("drafts", id, "content");
+      const maxOrder = maps.reduce((mx, m) => Math.max(mx, m.order || 0), 0);
+      const newId = await store.addMap({
+        title: dd?.title || "Cánh cổng mới", world: "", gasLink: DEFAULT_GAS,
+        order: maxOrder + 1, content: "", prompt: "", ideas: "",
+        recommends: {}, createdBy: me.email,
+      });
+      await store.saveDocField("maps", newId, "content", full);
+      if (dd?.comments && Object.keys(dd.comments).length) {
+        await store.updateMap(newId, { comments: dd.comments }); // ghi chú 💧 đi theo nội dung
+      }
+      const oldChunks = dd?.contentChunks || 0;
+      await store.deleteDraft(id);
+      store.deleteFieldChunks?.("drafts", id, "content", oldChunks);
+      toast("🌊 Nháp đã dong buồm ra Biển Cổng.");
+      location.hash = `#/map/${newId}`;
+    } catch (err) {
+      toast("Không đẩy được: " + err.message, true);
+      btn.disabled = false;
+      btn.textContent = "🌊 Đẩy ra Biển Cổng";
+    }
   });
 
   $("#btn-del-draft").addEventListener("click", async () => {
@@ -1143,6 +1188,7 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
         return `<button class="tb-btn" data-cmd="${t.cmd || ""}" data-block="${t.block || ""}" title="${t.title}" ${t.style ? `style="${t.style}"` : ""}>${t.label}</button>`;
       }).join("")}
       ${showCopy ? `<span class="tb-sep"></span><button class="tb-btn" id="tb-copy" title="Copy toàn bộ prompt (dạng chữ thuần) để dán vào AI Studio">⧉ Copy</button>` : ""}
+      ${comments ? `<span class="tb-sep"></span><button class="tb-btn" data-cnav="prev" title="Ghi chú trước">‹</button><button class="tb-btn" data-cnav="jump" title="Số ghi chú trong trang — bấm để xem lần lượt">💧<span class="cmt-count">0</span></button><button class="tb-btn" data-cnav="next" title="Ghi chú kế tiếp">›</button>` : ""}
       <span class="tb-status" id="tb-status">Tự động lưu</span>
       <input type="file" accept="image/*" class="tb-img-file" hidden>
     </div>
@@ -1150,6 +1196,7 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
 
   const page = slot.querySelector("#doc-page");
   const status = slot.querySelector("#tb-status");
+  let refreshCmtCount = null; // gán ở khối ghi chú phía dưới
   page.innerHTML = html || "";
   hydrateImages(page); // ảnh lưu kho riêng → nạp lại src
 
@@ -1165,6 +1212,7 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
       page.contentEditable = "true";
       status.textContent = "Tự động lưu";
       status.className = "tb-status";
+      refreshCmtCount?.();
     }).catch((e) => {
       status.textContent = "⚠ Không tải được";
       toast("Không tải được nội dung trang: " + e.message, true);
@@ -1521,7 +1569,35 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
 
   // ── ghi chú 💧 kiểu docx ──
   if (comments) {
-    activeCmt = { page, doSave, api: comments };
+    // đếm & duyệt lần lượt từng ghi chú trong trang (không bỏ sót)
+    let navIdx = -1;
+    const cmtMarks = () => {
+      const seen = new Set();
+      return [...page.querySelectorAll("mark.cmt")].filter((m) => {
+        if (seen.has(m.dataset.cid)) return false;
+        seen.add(m.dataset.cid);
+        return true;
+      });
+    };
+    refreshCmtCount = () => {
+      const el = slot.querySelector(".cmt-count");
+      if (el) el.textContent = cmtMarks().length;
+    };
+    const gotoCmt = (dir) => {
+      const list = cmtMarks();
+      if (!list.length) { toast("Trang này chưa có ghi chú 💧 nào."); return; }
+      navIdx = ((dir === 0 ? 0 : navIdx + dir) + list.length) % list.length;
+      const mark = list[navIdx];
+      mark.scrollIntoView({ block: "center", behavior: "smooth" });
+      setTimeout(() => openThreadPopover(mark), 380);
+    };
+    slot.querySelector('[data-cnav="prev"]')?.addEventListener("click", () => gotoCmt(-1));
+    slot.querySelector('[data-cnav="next"]')?.addEventListener("click", () => gotoCmt(1));
+    slot.querySelector('[data-cnav="jump"]')?.addEventListener("click", () => gotoCmt(0));
+    refreshCmtCount();
+    page.addEventListener("input", () => refreshCmtCount());
+
+    activeCmt = { page, doSave, api: comments, refresh: refreshCmtCount };
     page.addEventListener("mouseup", () => setTimeout(updateCmtFab, 10));
     page.addEventListener("keyup", () => setTimeout(updateCmtFab, 10));
     page.addEventListener("click", (e) => {
@@ -1673,6 +1749,7 @@ cmtFab.addEventListener("mousedown", (e) => {
       await ctx.doSave();
       cmtPop._onCancel = null;
       closeCmtPopover();
+      ctx.refresh?.();
       toast("💧 Đã thả ghi chú lên trang.");
     },
     onCancel: () => unwrapComment(ctx.page, cid),
@@ -1704,6 +1781,7 @@ function openThreadPopover(markEl) {
         await ctx.api.save(obj);
         await ctx.doSave();
         closeCmtPopover();
+        ctx.refresh?.();
         toast("Ghi chú đã được giải quyết — bôi sáng tan vào sóng.");
       },
     });
@@ -1791,6 +1869,8 @@ function toggleChat(open) {
     }
   }
 }
+
+$("#btn-top")?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
 $("#chat-fab")?.addEventListener("click", () => toggleChat());
 $("#chat-close")?.addEventListener("click", () => toggleChat(false));

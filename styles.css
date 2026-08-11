@@ -1098,3 +1098,31 @@ body {
   transition: all 0.15s;
 }
 .font-opt:hover { border-color: var(--gold); color: var(--gold-bright); }
+
+/* ── Nút vút về đầu trang ─────────────────────────────── */
+.btn-top {
+  position: fixed; left: 22px; bottom: 22px; z-index: 48;
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  background: radial-gradient(circle at 35% 30%, #1c355e, #0d1a30);
+  border: 1.5px solid var(--line-strong);
+  color: var(--gold-bright);
+  font-size: 0.7rem; line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.5);
+  /* ẩn hẳn khi chưa cuộn — không thể bấm nhầm */
+  opacity: 0; pointer-events: none; transform: translateY(10px);
+  transition: all 0.25s ease;
+}
+.btn-top .btn-top-arrow { font-size: 1rem; display: block; margin-top: -2px; }
+.btn-top.show { opacity: 0.7; pointer-events: auto; transform: none; }
+.btn-top:hover {
+  opacity: 1;
+  border-color: var(--gold);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.5), 0 0 22px rgba(217, 180, 111, 0.3);
+  transform: translateY(-2px);
+}
+
+/* bộ đếm ghi chú trên toolbar */
+.tb-btn .cmt-count { margin-left: 3px; font-size: 0.72rem; color: var(--glow); }
