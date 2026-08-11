@@ -632,7 +632,9 @@ function route(soft = false) {
     return;
   }
   if (scrollKey) viewScroll[scrollKey] = window.scrollY; // chụp vị trí cuộn ngay lúc rời view
-  flushEditor?.(); flushEditor = null;  // sắp dựng lại view → lưu ngay chữ đang gõ dở, không để mất
+  hideCmtFab();            // nút 💧 Ghi chú không được lơ lửng theo sang trang khác
+  closeCmtPopover(true);   // đóng popover dở (gỡ bôi sáng chưa có lời) TRƯỚC khi chốt lưu
+  flushEditor?.(); flushEditor = null;  // rồi mới lưu chữ đang gõ dở, không để mất
   mountedRoute = key;
 
   // đọc vị trí cuộn đã nhớ TRƯỚC khi dựng (dựng xong mới bật ghi lại)
@@ -1622,6 +1624,9 @@ cmtFab.textContent = "💧 Ghi chú";
 document.body.appendChild(cmtFab);
 
 function hideCmtFab() { cmtFab.classList.add("hidden"); }
+
+// vùng bôi đen thay đổi ở bất kỳ đâu → nút 💧 tự hiện/ẩn theo (kể cả click ra ngoài editor)
+document.addEventListener("selectionchange", () => setTimeout(updateCmtFab, 10));
 
 function updateCmtFab() {
   if (!activeCmt) return hideCmtFab();
