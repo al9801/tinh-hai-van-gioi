@@ -1126,3 +1126,42 @@ body {
 
 /* bộ đếm ghi chú trên toolbar */
 .tb-btn .cmt-count { margin-left: 3px; font-size: 0.72rem; color: var(--glow); }
+
+/* ── Chip duyệt ghi chú: nổi bên mép phải trang giấy ──── */
+.cmt-nav-wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  position: sticky;
+  top: 122px;
+  z-index: 9;
+  height: 0; /* không chiếm dòng — chip nổi tự do */
+}
+.cmt-nav-chip {
+  position: absolute;
+  right: -14px;
+  top: 12px;
+  display: flex;
+  align-items: center;
+  background: rgba(13, 26, 50, 0.92);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 2px 4px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  animation: fab-pop 0.2s ease;
+}
+.cmt-nav-btn, .cmt-nav-count {
+  background: none; border: none; cursor: pointer;
+  color: var(--ink-dim);
+  font-family: var(--font-body);
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  transition: all 0.15s;
+}
+.cmt-nav-btn:hover, .cmt-nav-count:hover { color: var(--gold-bright); background: rgba(255, 255, 255, 0.06); }
+.cmt-nav-count b { font-weight: 600; color: var(--glow); margin-left: 3px; }
+@media (max-width: 720px) {
+  .cmt-nav-wrap { top: 164px; }
+  .cmt-nav-chip { right: 4px; }
+}

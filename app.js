@@ -1188,10 +1188,14 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
         return `<button class="tb-btn" data-cmd="${t.cmd || ""}" data-block="${t.block || ""}" title="${t.title}" ${t.style ? `style="${t.style}"` : ""}>${t.label}</button>`;
       }).join("")}
       ${showCopy ? `<span class="tb-sep"></span><button class="tb-btn" id="tb-copy" title="Copy toàn bộ prompt (dạng chữ thuần) để dán vào AI Studio">⧉ Copy</button>` : ""}
-      ${comments ? `<span class="tb-sep"></span><button class="tb-btn" data-cnav="prev" title="Ghi chú trước">‹</button><button class="tb-btn" data-cnav="jump" title="Số ghi chú trong trang — bấm để xem lần lượt">💧<span class="cmt-count">0</span></button><button class="tb-btn" data-cnav="next" title="Ghi chú kế tiếp">›</button>` : ""}
       <span class="tb-status" id="tb-status">Tự động lưu</span>
       <input type="file" accept="image/*" class="tb-img-file" hidden>
     </div>
+    ${comments ? `<div class="cmt-nav-wrap"><div class="cmt-nav-chip hidden">
+      <button class="cmt-nav-btn" data-cnav="prev" title="Ghi chú trước">‹</button>
+      <button class="cmt-nav-count" data-cnav="jump" title="Xem lần lượt các ghi chú trong trang">💧<b class="cmt-count">0</b></button>
+      <button class="cmt-nav-btn" data-cnav="next" title="Ghi chú kế tiếp">›</button>
+    </div></div>` : ""}
     <div class="doc-page" id="doc-page" contenteditable="true" data-placeholder="${esc(placeholder)}"></div>`;
 
   const page = slot.querySelector("#doc-page");
@@ -1580,8 +1584,10 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
       });
     };
     refreshCmtCount = () => {
+      const n = cmtMarks().length;
       const el = slot.querySelector(".cmt-count");
-      if (el) el.textContent = cmtMarks().length;
+      if (el) el.textContent = n;
+      slot.querySelector(".cmt-nav-chip")?.classList.toggle("hidden", n === 0);
     };
     const gotoCmt = (dir) => {
       const list = cmtMarks();
