@@ -1165,3 +1165,102 @@ body {
   .cmt-nav-wrap { top: 164px; }
   .cmt-nav-chip { right: 4px; }
 }
+
+/* ── Thanh tìm kiếm + sắp xếp + phân trang ────────────── */
+.browse-bar {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  margin: -6px 0 22px;
+}
+.search-inp {
+  flex: 1 1 200px; max-width: 340px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 9px 16px;
+  color: var(--ink);
+  font-family: var(--font-body); font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.search-inp:focus { border-color: var(--gold); }
+.sort-sel {
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--ink-dim);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-family: var(--font-body); font-size: 0.85rem;
+  outline: none; cursor: pointer;
+}
+.sort-sel option { background: var(--panel-solid); color: var(--ink); }
+.pager { display: flex; align-items: center; gap: 4px; }
+.pager-info { font-size: 0.8rem; color: var(--ink-faint); min-width: 36px; text-align: center; }
+.btn-icon:disabled { opacity: 0.25; cursor: default; }
+.drafts-head-row .search-inp { flex: 0 1 240px; }
+
+/* ── Đàn cá ghé thăm nằm mép dưới thẻ map ─────────────── */
+.fish-row {
+  position: absolute; bottom: -12px; left: 18px;
+  display: flex; gap: 3px;
+  font-size: 1.1rem;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.55));
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* nhãn 🩹 map đang sửa (cạnh nhãn 🔥) */
+.wip-sticker {
+  position: absolute; top: -10px; left: 58px;
+  font-size: 1.45rem;
+  transform: rotate(9deg);
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 10px rgba(180, 200, 220, 0.35));
+  animation: totem-pop 0.35s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+.nsfw-sticker.wip-inline {
+  position: static; display: inline-block;
+  font-size: 1.35rem; transform: rotate(8deg);
+  align-self: flex-start; pointer-events: auto;
+}
+
+/* ghim ưu tiên trên thẻ nháp */
+.pin-badge {
+  position: absolute; top: -10px; right: 12px;
+  background: var(--panel-solid);
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  padding: 2px 9px;
+  font-size: 0.78rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45), 0 0 12px rgba(217, 180, 111, 0.25);
+  animation: totem-pop 0.3s ease;
+}
+
+/* ── Ai đang trong biển ───────────────────────────────── */
+.presence-dock {
+  position: fixed; right: 18px; top: 86px; z-index: 47;
+  display: flex; flex-direction: column; gap: 8px;
+  pointer-events: none;
+}
+.presence-bub {
+  width: 42px; height: 42px; border-radius: 50%;
+  display: grid; place-items: center;
+  font-size: 1.25rem;
+  background: radial-gradient(circle at 35% 30%, #1c355e, #0d1a30);
+  border: 1.5px solid var(--line-strong);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5), 0 0 16px rgba(127, 212, 232, 0.28);
+  animation: presence-in 0.5s ease;
+  transition: all 0.65s ease;
+  pointer-events: auto;
+}
+@keyframes presence-in {
+  from { transform: translateX(46px) scale(0.4); opacity: 0; }
+  to   { transform: none; opacity: 1; }
+}
+.presence-bub.away { opacity: 0; transform: translateX(46px) rotate(24deg); }
+
+/* ── Cá ghé thăm: giao diện chỉ-xem ───────────────────── */
+body.guest [data-nav="drafts"] { display: none; }
+body.guest #chat-fab, body.guest #chat-panel { display: none !important; }
+body.guest .doc-page { user-select: none; }
+.doc-readonly { caret-color: transparent; border-radius: 6px; }

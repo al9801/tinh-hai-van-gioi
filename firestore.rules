@@ -1,16 +1,40 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Chỉ 2 email được khắc tên lên Cây Thế Giới mới đọc/ghi được
-    function allowed() {
-      return request.auth != null &&
-        request.auth.token.email in [
-          'dinhhieungan@gmail.com',
-          'kimtuoc259@gmail.com'
-        ];
+    // ── Chủ đế chế: toàn quyền ──
+    function owners() {
+      return ['dinhhieungan@gmail.com', 'kimtuoc259@gmail.com'];
     }
-    match /{document=**} {
-      allow read, write: if allowed();
+    // ── Cá ghé thăm 🐟: chỉ xem map; thêm email mới thì sửa cả đây lẫn firebase-config.js ──
+    function guests() {
+      return ['jorneiden226@gmail.com', 'keycorn23@gmail.com'];
     }
+    function em() { return request.auth.token.email; }
+    function isOwner() { return request.auth != null && em() in owners(); }
+    function isGuest() { return request.auth != null && em() in guests(); }
+
+    // Map: chủ toàn quyền; cá đọc được + CHỈ được chạm vào field fishMarks (dấu cá ghé)
+    match /maps/{id} {
+      allow read: if isOwner() || isGuest();
+      allow create, delete: if isOwner();
+      allow update: if isOwner()
+        || (isGuest() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['fishMarks']));
+    }
+    match /mapfiles/{id} { allow read: if isOwner() || isGuest(); allow write: if isOwner(); }
+    match /images/{id}   { allow read: if isOwner() || isGuest(); allow write: if isOwner(); }
+    // Khúc nội dung dài: cá chỉ đọc được khúc của MAP (không đọc được khúc của nháp)
+    match /chunks/{cid} {
+      allow read: if isOwner() || (isGuest() && cid.matches('^maps-.*'));
+      allow write: if isOwner();
+    }
+    // Ai đang online: mọi người được duyệt đều thấy; chỉ tự ghi nhịp của chính mình
+    match /presence/{email} {
+      allow read: if isOwner() || isGuest();
+      allow write: if (isOwner() || isGuest()) && em() == email;
+    }
+    // Khu riêng của hai chủ — cá KHÔNG vào được
+    match /drafts/{id}   { allow read, write: if isOwner(); }
+    match /chat/{id}     { allow read, write: if isOwner(); }
+    match /stickers/{id} { allow read, write: if isOwner(); }
   }
 }

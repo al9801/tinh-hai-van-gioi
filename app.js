@@ -16,8 +16,17 @@ import {
 /* ── Trạng thái chung ─────────────────────────────────── */
 const CFG = window.FIREBASE_CONFIG || {};
 const ACCOUNTS = window.ACCOUNTS || {};
+const GUEST_EMAILS = window.GUESTS || [];
+const SEA_CREATURES = window.SEA_CREATURES || [{ icon: "🐟", name: "Cá Lạ Không Tên" }];
 const DEFAULT_GAS = window.DEFAULT_GAS_LINK || "https://aistudio.google.com/";
 const DEMO = new URLSearchParams(location.search).has("demo");
+
+// gán danh tính sinh vật biển cho cá ghé thăm — băm email nên cố định, không đổi
+function guestIdentity(email) {
+  let h = 0;
+  for (const c of String(email)) h = (h * 31 + c.charCodeAt(0)) >>> 0;
+  return SEA_CREATURES[h % SEA_CREATURES.length];
+}
 
 let auth = null, db = null;
 let me = null;              // { email, icon, name }
@@ -57,6 +66,10 @@ let chatOpen = false;
 let chatUnread = 0;
 let stickers = [];
 let unsubStickers = null;
+let unsubPresence = null;
+let presenceArr = [];
+let beatTimer = null;
+let presenceSweep = null;
 
 const $ = (sel) => document.querySelector(sel);
 const $$ = (sel) => [...document.querySelectorAll(sel)];
@@ -289,14 +302,15 @@ const store = DEMO ? demoStore() : firestoreStore();
 
 function firestoreStore() {
   return {
-    subscribe() {
+    subscribe(guestOnly = false) {
       unsubMaps = onSnapshot(
         query(collection(db, "maps"), orderBy("order")),
         (snap) => { maps = snap.docs.map((d) => ({ id: d.id, ...d.data() })); route(true); },
         (err) => {
           console.error(err);
-          toast("Không đọc được dữ liệu — kiểm tra Firestore Rules (README bước 5).", true);
+          toast("Không đọc được dữ liệu — kiểm tra Firestore Rules đã Publish bản mới chưa.", true);
         });
+      if (guestOnly) return; // cá ghé thăm không được đọc Thư Phòng
       unsubDrafts = onSnapshot(
         query(collection(db, "drafts"), orderBy("updatedAt", "desc")),
         (snap) => { drafts = snap.docs.map((d) => ({ id: d.id, ...d.data() })); route(true); },
@@ -309,9 +323,19 @@ function firestoreStore() {
     },
     updateMap: (id, patch) =>
       updateDoc(doc(db, "maps", id), { ...patch, updatedAt: serverTimestamp() }),
-    // tiến cử / xếp thứ tự: không đụng updatedAt (không phải "sửa nội dung")
+    // tiến cử / xếp thứ tự / dấu cá / pin nháp: không đụng updatedAt (không phải "sửa nội dung")
     setRecommends: (id, recommends) => updateDoc(doc(db, "maps", id), { recommends }),
     setOrder: (id, order) => updateDoc(doc(db, "maps", id), { order }),
+    setFishMarks: (id, fishMarks) => updateDoc(doc(db, "maps", id), { fishMarks }),
+    setDraftPriority: (id, priority) => updateDoc(doc(db, "drafts", id), { priority }),
+    // ai đang online: mỗi người tự ghi "nhịp tim" của mình
+    subscribePresence(cb) {
+      unsubPresence = onSnapshot(collection(db, "presence"),
+        (snap) => cb(snap.docs.map((d) => ({ email: d.id, ...d.data() }))),
+        (err) => console.error(err));
+    },
+    beat: () => setDoc(doc(db, "presence", me.email),
+      { icon: me.icon, name: me.name, at: serverTimestamp() }).catch(() => {}),
     async deleteMap(id) {
       await deleteDoc(doc(db, "maps", id));
       deleteDoc(doc(db, "mapfiles", id)).catch(() => {}); // dọn luôn file HTML nếu có
@@ -398,6 +422,7 @@ function demoStore() {
       world: "Khu rừng ranh giới nơi mọi lời hứa đều mọc thành cây.",
       gasLink: DEFAULT_GAS,
       recommends: { [emails[0]]: true, [emails[1]]: true },
+      fishMarks: Object.fromEntries((GUEST_EMAILS.slice(0, 2)).map((g) => [g, true])),
       content: `<h2>Trấn Vực Sâm Lâm</h2><p>Rừng ranh giới ngăn giữa <mark class="cmt cmt-end" data-cid="demo-c1">cõi người và cõi mộng</mark>…</p>`,
       prompt: "<p>Bạn là <b>Thủ Mộc Nhân</b>, kẻ canh giữ cánh cổng…</p>",
       ideas: "",
@@ -410,7 +435,7 @@ function demoStore() {
     {
       id: "demo-2", order: 2, title: "Map 2 — Hải Vực Lưu Quang",
       world: "Thành phố nổi trên lưng cá voi cổ đại, đèn lồng thay mặt trời.",
-      gasLink: DEFAULT_GAS,
+      gasLink: DEFAULT_GAS, wip: true,
       recommends: { [emails[1]]: true },
       content: "", prompt: "", ideas: "", updatedAt: now(),
     },
@@ -454,6 +479,13 @@ function demoStore() {
     async addMap(data) { const id = uid(); maps.push({ id, ...data, updatedAt: now() }); route(true); return id; },
     async updateMap(id, patch) { const m = maps.find((x) => x.id === id); if (m) { Object.assign(m, patch); touch(m); } route(true); },
     async setRecommends(id, recommends) { const m = maps.find((x) => x.id === id); if (m) m.recommends = recommends; route(true); },
+    async setFishMarks(id, fishMarks) { const m = maps.find((x) => x.id === id); if (m) m.fishMarks = fishMarks; route(true); },
+    async setDraftPriority(id, priority) { const d = drafts.find((x) => x.id === id); if (d) d.priority = priority; route(true); },
+    subscribePresence(cb) {
+      // demo: giả lập người kia đang online cho thấy hiệu ứng
+      cb([{ email: "demo-khac@bien.sao", icon: "⭐", name: "Cá Voi Sao", at: { toDate: () => new Date() } }]);
+    },
+    beat() {},
     async setOrder(id, order) { const m = maps.find((x) => x.id === id); if (m) m.order = order; maps.sort((a, b) => (a.order || 0) - (b.order || 0)); },
     async deleteMap(id) { maps = maps.filter((x) => x.id !== id); delete htmlFiles[id]; route(true); },
     async getMapHtml(id) { return htmlFiles[id] || null; },
@@ -500,8 +532,13 @@ function demoStore() {
 /* ── Khởi động (gọi ở CUỐI file, sau khi mọi thứ đã khai báo) ── */
 function boot() {
   if (DEMO) {
-    const [email, acct] = Object.entries(ACCOUNTS)[0];
-    me = { email, ...acct };
+    if (new URLSearchParams(location.search).has("guest")) {
+      // demo góc nhìn cá ghé thăm: ?demo=1&guest=1
+      me = { email: "demo-ca@bien.sao", ...guestIdentity("demo-ca@bien.sao"), guest: true };
+    } else {
+      const [email, acct] = Object.entries(ACCOUNTS)[0];
+      me = { email, ...acct };
+    }
     enterForest();
     setTimeout(() => toast("🌊 Đang xem bản DEMO — mọi thay đổi sẽ tan khi tải lại trang."), 600);
     return;
@@ -522,14 +559,19 @@ function boot() {
     }
     const email = (user.email || "").toLowerCase();
     const acct = ACCOUNTS[email];
-    if (!acct) {
-      teardown();
-      $("#denied-email").textContent = user.email || "(không rõ)";
-      show("#screen-denied");
+    if (acct) {
+      me = { email, icon: acct.icon, name: acct.name };
+      enterForest();
       return;
     }
-    me = { email, icon: acct.icon, name: acct.name };
-    enterForest();
+    if (GUEST_EMAILS.includes(email)) {
+      me = { email, ...guestIdentity(email), guest: true }; // cá ghé thăm 🐟
+      enterForest();
+      return;
+    }
+    teardown();
+    $("#denied-email").textContent = user.email || "(không rõ)";
+    show("#screen-denied");
   });
 }
 
@@ -555,6 +597,11 @@ function teardown() {
   unsubDrafts?.(); unsubDrafts = null;
   unsubChat?.(); unsubChat = null;
   unsubStickers?.(); unsubStickers = null;
+  unsubPresence?.(); unsubPresence = null;
+  clearInterval(beatTimer); clearInterval(presenceSweep);
+  presenceArr = [];
+  document.body.classList.remove("guest");
+  const dock = $("#presence-dock"); if (dock) dock.innerHTML = "";
   maps = []; drafts = []; stickers = [];
   chatMsgs = []; chatInit = false; chatUnread = 0;
   mountedRoute = "";
@@ -564,14 +611,22 @@ function enterForest() {
   $("#user-totem").textContent = me.icon;
   $("#user-totem").title = `${me.name} — ${me.email}`;
   $("#user-name").textContent = me.name + (DEMO ? " (demo)" : "");
+  document.body.classList.toggle("guest", !!me.guest);
   show("#screen-app");
-  store.subscribe();
-  store.subscribeChat(onChatMsgs);
-  store.subscribeStickers((arr) => {
-    stickers = arr;
-    renderStickerGrid();
-    renderChatList(); // vá lại tin sticker đến trước khi kho sticker tải xong
-  });
+  store.subscribe(!!me.guest);
+  if (!me.guest) { // khu riêng của hai chủ
+    store.subscribeChat(onChatMsgs);
+    store.subscribeStickers((arr) => {
+      stickers = arr;
+      renderStickerGrid();
+      renderChatList(); // vá lại tin sticker đến trước khi kho sticker tải xong
+    });
+  }
+  // ai đang trong biển: nghe danh sách + tự ghi nhịp tim mỗi phút
+  store.subscribePresence?.((arr) => { presenceArr = arr; renderPresence(); });
+  store.beat?.();
+  beatTimer = setInterval(() => { if (!document.hidden) store.beat?.(); }, 60_000);
+  presenceSweep = setInterval(renderPresence, 30_000);
   route();
 }
 
@@ -605,6 +660,11 @@ function parseHash() {
 function route(soft = false) {
   if (!me) return;
   const r = parseHash();
+  // cá ghé thăm không được bơi vào Thư Phòng San Hô
+  if (me.guest && (r.view === "drafts" || r.view === "draft")) {
+    location.hash = "#/";
+    return;
+  }
   const key = r.view + ":" + (r.id || "") + ":" + (r.tab || "");
 
   $$(".nav-link").forEach((a) => a.classList.remove("active"));
@@ -618,7 +678,8 @@ function route(soft = false) {
   else if (r.view === "draft") lastLibHash = location.hash;
 
   if (soft && key === mountedRoute) {
-    if (r.view === "home") renderHome();          // home không có editor → render lại thoải mái
+    // home/drafts không có editor → chỉ vẽ lại phần lưới (giữ ô tìm kiếm đang gõ)
+    if (r.view === "home") { if ($("#home-grid")) renderHomeGrid(); else renderHome(); }
     else if (r.view === "drafts") renderDraftsList();
     else if (r.view === "map") {
       // dữ liệu vừa về sau khi lỡ hiện màn "không tồn tại" → dựng lại cho đúng
@@ -667,33 +728,102 @@ function scrollKeyFor(r) {
 /* ── HOME: Rừng Cổng ──────────────────────────────────── */
 let dragMapId = null;
 
-function renderHome() {
-  const cards = maps.map((m, i) => `
-    <a class="map-card" href="#/map/${m.id}" data-id="${m.id}" draggable="true">
-      ${m.nsfw ? `<span class="nsfw-sticker" title="Cổng thiên về NSFW">🔥</span>` : ""}
-      <span class="totem-corner">${totemBadges(m.recommends)}</span>
-      <div class="map-card-num">✦ Cánh cổng ${i + 1} ✦</div>
-      <div class="map-card-title">${esc(m.title)}</div>
-      <div class="map-card-world">${esc(m.world || "Thế giới chưa được mô tả…")}</div>
-      <div class="map-card-foot">${m.hasHtml ? `<span class="has-map-chip">🧭 có bản đồ</span> · ` : ""}${m.updatedAt ? "Chạm gần nhất: " + fmtTime(m.updatedAt) : ""}</div>
-    </a>`).join("");
+let homeQ = "";
+let homeSort = "pos";
+let homePage = 0;
+const HOME_PAGE_SIZE = 12;
 
+// đàn cá ghé thăm nằm ở mép DƯỚI thẻ (khác huy hiệu chủ ở góc trên)
+function fishRow(m) {
+  const icons = Object.keys(m.fishMarks || {}).map((em) => {
+    const g = guestIdentity(em);
+    return `<span title="${esc(g.name)} đã ghé thăm">${g.icon}</span>`;
+  }).join("");
+  return icons ? `<span class="fish-row">${icons}</span>` : "";
+}
+
+function renderHome() {
   $("#main").innerHTML = `
     <div class="page-head">
       <h1 class="page-title">Biển <span class="accent">Cổng</span></h1>
       <p class="page-sub">Mỗi cánh cổng dẫn vào một thế giới.</p>
     </div>
+    <div class="browse-bar">
+      <input id="home-search" class="search-inp" type="search" placeholder="🔍 Tìm cánh cổng…" value="${esc(homeQ)}" autocomplete="off">
+      <select id="home-sort" class="sort-sel" title="Sắp xếp">
+        <option value="pos">Theo vị trí</option>
+        <option value="new">Mới sửa</option>
+        <option value="name">Tên A→Z</option>
+        <option value="rec">Được tiến cử</option>
+      </select>
+      <span class="spacer"></span>
+      <div class="pager hidden" id="home-pager">
+        <button class="btn-icon" id="pg-prev" title="Trang trước">‹</button>
+        <span class="pager-info" id="pg-info"></span>
+        <button class="btn-icon" id="pg-next" title="Trang sau">›</button>
+      </div>
+    </div>
+    <div id="home-grid"></div>`;
+  $("#home-sort").value = homeSort;
+  $("#home-search").addEventListener("input", (e) => { homeQ = e.target.value; homePage = 0; renderHomeGrid(); });
+  $("#home-sort").addEventListener("change", (e) => { homeSort = e.target.value; homePage = 0; renderHomeGrid(); });
+  $("#pg-prev").addEventListener("click", () => { homePage--; renderHomeGrid(); });
+  $("#pg-next").addEventListener("click", () => { homePage++; renderHomeGrid(); });
+  renderHomeGrid();
+}
+
+function renderHomeGrid() {
+  const grid = $("#home-grid");
+  if (!grid) return;
+  // số cổng luôn theo vị trí GỐC (thứ tự kéo thả), không đổi khi lọc/sắp xếp
+  const posNo = {};
+  maps.forEach((m, i) => { posNo[m.id] = i + 1; });
+
+  const q = homeQ.trim().toLowerCase();
+  let list = maps.filter((m) => !q ||
+    (m.title || "").toLowerCase().includes(q) || (m.world || "").toLowerCase().includes(q));
+  if (homeSort === "new") list = [...list].sort((a, b) => (b.updatedAt?.toDate?.() || 0) - (a.updatedAt?.toDate?.() || 0));
+  else if (homeSort === "name") list = [...list].sort((a, b) => (a.title || "").localeCompare(b.title || "", "vi"));
+  else if (homeSort === "rec") list = [...list].sort((a, b) =>
+    Object.keys(b.recommends || {}).length - Object.keys(a.recommends || {}).length);
+
+  const pages = Math.max(1, Math.ceil(list.length / HOME_PAGE_SIZE));
+  homePage = Math.min(Math.max(0, homePage), pages - 1);
+  const pageList = list.slice(homePage * HOME_PAGE_SIZE, (homePage + 1) * HOME_PAGE_SIZE);
+  $("#home-pager").classList.toggle("hidden", pages <= 1);
+  $("#pg-info").textContent = `${homePage + 1}/${pages}`;
+  $("#pg-prev").disabled = homePage === 0;
+  $("#pg-next").disabled = homePage >= pages - 1;
+
+  // chỉ kéo thả được ở chế độ mặc định (không lọc, không đổi sort) và không phải cá
+  const canDrag = !me.guest && !q && homeSort === "pos";
+  const cards = pageList.map((m) => `
+    <a class="map-card" href="#/map/${m.id}" data-id="${m.id}" ${canDrag ? `draggable="true"` : ""}>
+      ${m.nsfw ? `<span class="nsfw-sticker" title="Cổng thiên về NSFW">🔥</span>` : ""}
+      ${m.wip ? `<span class="wip-sticker" title="Map đang sửa — chưa chơi được">🩹</span>` : ""}
+      <span class="totem-corner">${totemBadges(m.recommends)}</span>
+      <div class="map-card-num">✦ Cánh cổng ${posNo[m.id]} ✦</div>
+      <div class="map-card-title">${esc(m.title)}</div>
+      <div class="map-card-world">${esc(m.world || "Thế giới chưa được mô tả…")}</div>
+      <div class="map-card-foot">${m.hasHtml ? `<span class="has-map-chip">🧭 có bản đồ</span> · ` : ""}${m.updatedAt ? "Chạm gần nhất: " + fmtTime(m.updatedAt) : ""}</div>
+      ${fishRow(m)}
+    </a>`).join("");
+
+  grid.innerHTML = `
     <div class="map-grid">
       ${cards}
-      <button class="map-card new-card" id="btn-new-map">
+      ${me.guest ? "" : `<button class="map-card new-card" id="btn-new-map">
         <span class="new-card-plus">✦</span>
         <span class="new-card-label">Mở cánh cổng mới</span>
-      </button>
+      </button>`}
     </div>
-    ${maps.length === 0 ? `<p class="empty-state">Biển sao còn tĩnh lặng — hãy mở cánh cổng đầu tiên.</p>` : ""}`;
+    ${list.length === 0 ? `<p class="empty-state">${q ? "Không cánh cổng nào khớp từ khoá." : "Biển sao còn tĩnh lặng — hãy mở cánh cổng đầu tiên."}</p>` : ""}`;
 
-  $("#btn-new-map").addEventListener("click", () => openMapModal(null));
+  $("#btn-new-map")?.addEventListener("click", () => openMapModal(null));
+  if (canDrag) wireMapDrag();
+}
 
+function wireMapDrag() {
   // kéo thả sắp xếp thứ tự cổng
   $$(".map-card[data-id]").forEach((card) => {
     card.addEventListener("dragstart", (e) => {
@@ -760,11 +890,16 @@ function renderMapView({ id, tab }) {
     return;
   }
   // tab: ưu tiên tab trong URL → tab đã nhớ của map này → mặc định theo có/không bản đồ
-  const tabKey = resolveMapTab(id, tab);
-  if (tab) rememberTab(id, tab); // người dùng chủ động chọn tab → ghi nhớ cho lần sau
+  let tabKey = resolveMapTab(id, tab);
+  if (tab && !me.guest) rememberTab(id, tab); // người dùng chủ động chọn tab → ghi nhớ cho lần sau
+  const isGuest = !!me.guest;
+  // cá ghé thăm chỉ có 2 tab: bản đồ + nội dung
+  if (isGuest && !["ban-do", "map"].includes(tabKey)) tabKey = m.hasHtml ? "ban-do" : "map";
   const isMapHtmlTab = tabKey === "ban-do";
   const st = SUBTABS.find((t) => t.key === tabKey) || SUBTABS[0];
-  const allTabs = [{ key: "ban-do", label: "🧭 Bản đồ HTML" }, ...SUBTABS];
+  const allTabs = isGuest
+    ? [{ key: "ban-do", label: "🧭 Bản đồ HTML" }, SUBTABS[0]]
+    : [{ key: "ban-do", label: "🧭 Bản đồ HTML" }, ...SUBTABS];
 
   $("#main").innerHTML = `
     <div class="map-view-head">
@@ -774,13 +909,16 @@ function renderMapView({ id, tab }) {
           <h1 class="map-view-title" id="mv-title"></h1>
           <p class="map-view-world" id="mv-world"></p>
         </div>
+        <span id="mv-wip" class="nsfw-sticker wip-inline hidden" title="Map đang sửa — chưa chơi được">🩹</span>
         <span id="mv-nsfw" class="nsfw-sticker nsfw-inline hidden" title="Cổng thiên về NSFW">🔥</span>
-        <button class="btn-icon" id="btn-edit-map" title="Sửa tên / mô tả / link GAS / nhãn">✎</button>
+        ${isGuest ? "" : `<button class="btn-icon" id="btn-edit-map" title="Sửa tên / mô tả / link GAS / nhãn">✎</button>`}
       </div>
       <div class="map-actions">
         <a class="btn gas-btn" id="mv-gas" target="_blank" rel="noopener">🌀 Mở Google AI Studio</a>
-        <button class="btn rec-btn" id="btn-rec"></button>
-        <span class="rec-status" id="rec-status"></span>
+        ${isGuest
+          ? `<span class="rec-status" id="fish-visited"></span>`
+          : `<button class="btn rec-btn" id="btn-rec"></button>
+        <span class="rec-status" id="rec-status"></span>`}
       </div>
     </div>
     <div class="subtabs">
@@ -790,8 +928,18 @@ function renderMapView({ id, tab }) {
 
   $$(".subtab").forEach((b) =>
     b.addEventListener("click", () => { location.hash = `#/map/${id}/${b.dataset.tab}`; }));
-  $("#btn-edit-map").addEventListener("click", () => openMapModal(id));
-  $("#btn-rec").addEventListener("click", () => toggleRecommend(id));
+  $("#btn-edit-map")?.addEventListener("click", () => openMapModal(id));
+  $("#btn-rec")?.addEventListener("click", () => toggleRecommend(id));
+
+  // cá ghé qua → dấu cá tự nằm lại mép dưới thẻ map
+  if (isGuest) {
+    const fm = m.fishMarks || {};
+    if (!fm[me.email]) {
+      store.setFishMarks(id, { ...fm, [me.email]: true })
+        .then(() => toast(`${me.icon} Dấu cá của bạn đã nằm lại cổng này.`))
+        .catch(() => {});
+    }
+  }
 
   if (isMapHtmlTab) {
     activeCmt = null; // tab bản đồ không có editor
@@ -803,8 +951,9 @@ function renderMapView({ id, tab }) {
       load: chunked ? () => store.loadDocField("maps", id, st.field) : null,
       placeholder: st.ph,
       showCopy: st.key === "prompt",
+      readOnly: isGuest,
       save: (html) => store.saveDocField("maps", id, st.field, html),
-      comments: {
+      comments: isGuest ? null : {
         data: () => findMap(id)?.comments || {},
         save: (obj) => store.updateMap(id, { comments: obj }),
       },
@@ -819,15 +968,16 @@ async function renderMapHtmlTab(m) {
   const routeKey = mountedRoute;
   let curHtml = null;
 
+  const guest = !!me.guest;
   slot.innerHTML = `
     <div class="htmlmap-bar">
       <span class="rec-status" id="htmlmap-info">Đang lặn xuống lấy bản đồ…</span>
       <span class="spacer"></span>
       <button class="btn btn-ghost hidden" id="btn-map-full">⛶ Toàn màn hình</button>
-      <label class="btn btn-gold" title="Chọn file map .html (tự chứa, dưới 0.9MB)">⬆ Tải HTML lên
+      ${guest ? "" : `<label class="btn btn-gold" title="Chọn file map .html (tự chứa, dưới 0.9MB)">⬆ Tải HTML lên
         <input type="file" id="inp-maphtml" accept=".html,.htm,text/html" hidden>
       </label>
-      <button class="btn btn-danger-ghost hidden" id="btn-maphtml-del">Gỡ bản đồ…</button>
+      <button class="btn btn-danger-ghost hidden" id="btn-maphtml-del">Gỡ bản đồ…</button>`}
     </div>
     <div id="htmlmap-body"></div>`;
 
@@ -842,7 +992,7 @@ async function renderMapHtmlTab(m) {
       body.querySelector("iframe").srcdoc = curHtml;
       info.textContent = `Bản đồ HTML · ${Math.round(curHtml.length / 1024)}KB`;
       btnFull.classList.remove("hidden");
-      btnDel.classList.remove("hidden");
+      btnDel?.classList.remove("hidden");
     } else {
       body.innerHTML = `
         <div class="htmlmap-empty">
@@ -851,7 +1001,7 @@ async function renderMapHtmlTab(m) {
         </div>`;
       info.textContent = "Chưa có bản đồ.";
       btnFull.classList.add("hidden");
-      btnDel.classList.add("hidden");
+      btnDel?.classList.add("hidden");
     }
   };
 
@@ -860,7 +1010,7 @@ async function renderMapHtmlTab(m) {
   if (mountedRoute !== routeKey) return; // người dùng đã rời tab trong lúc chờ
   paint();
 
-  slot.querySelector("#inp-maphtml").addEventListener("change", async (e) => {
+  slot.querySelector("#inp-maphtml")?.addEventListener("change", async (e) => {
     const f = e.target.files[0];
     e.target.value = "";
     if (!f) return;
@@ -888,7 +1038,7 @@ async function renderMapHtmlTab(m) {
     window.open(url, "_blank");
   });
 
-  btnDel.addEventListener("click", async () => {
+  btnDel?.addEventListener("click", async () => {
     if (!confirm("Gỡ bản đồ HTML khỏi cánh cổng này? (File gốc trên máy bạn không bị ảnh hưởng)")) return;
     try {
       await store.deleteMapHtml(m.id);
@@ -907,18 +1057,28 @@ function updateMapMeta({ id }) {
   $("#mv-title").textContent = m.title || "(chưa đặt tên)";
   $("#mv-world").textContent = m.world || "";
   $("#mv-nsfw")?.classList.toggle("hidden", !m.nsfw);
+  $("#mv-wip")?.classList.toggle("hidden", !m.wip);
   $("#mv-gas").href = normalizeUrl(m.gasLink) || DEFAULT_GAS;
+
+  if (me.guest) {
+    const fishes = Object.keys(m.fishMarks || {}).map((em) => guestIdentity(em).icon).join(" ");
+    const fv = $("#fish-visited");
+    if (fv) fv.textContent = fishes ? `Cá đã ghé: ${fishes}` : "Bạn là chú cá đầu tiên ghé cổng này.";
+    return;
+  }
 
   const rec = m.recommends || {};
   const mine = !!rec[me.email];
   const btn = $("#btn-rec");
-  btn.classList.toggle("rec-on", mine);
-  btn.innerHTML = mine ? `${me.icon} Đã tiến cử ✓` : `${me.icon} Tiến cử map này`;
-
+  if (btn) {
+    btn.classList.toggle("rec-on", mine);
+    btn.innerHTML = mine ? `${me.icon} Đã tiến cử ✓` : `${me.icon} Tiến cử map này`;
+  }
   const names = Object.entries(ACCOUNTS)
     .filter(([em]) => rec[em])
     .map(([, a]) => `${a.icon} ${a.name}`);
-  $("#rec-status").textContent = names.length
+  const rs = $("#rec-status");
+  if (rs) rs.textContent = names.length
     ? "Đã tiến cử: " + names.join(" · ")
     : "Chưa ai tiến cử map này.";
 }
@@ -945,6 +1105,7 @@ function openMapModal(mapId) {
   $("#inp-map-world").value = m?.world || "";
   $("#inp-map-gas").value = m?.gasLink || DEFAULT_GAS;
   $("#inp-map-nsfw").checked = !!m?.nsfw;
+  $("#inp-map-wip").checked = !!m?.wip;
   $("#btn-map-delete").classList.toggle("hidden", !m);
   $("#modal-map").classList.remove("hidden");
   setTimeout(() => $("#inp-map-title").focus(), 60);
@@ -962,18 +1123,19 @@ $("#btn-map-save").addEventListener("click", async () => {
   const world = $("#inp-map-world").value.trim();
   const gasLink = normalizeUrl($("#inp-map-gas").value) || DEFAULT_GAS;
   const nsfw = $("#inp-map-nsfw").checked;
+  const wip = $("#inp-map-wip").checked;
   const btn = $("#btn-map-save");
   savingMap = true;
   btn.disabled = true;
   btn.textContent = "Đang lưu…";
   try {
     if (editingMapId) {
-      await store.updateMap(editingMapId, { title, world, gasLink, nsfw });
+      await store.updateMap(editingMapId, { title, world, gasLink, nsfw, wip });
       toast("Đã lưu cánh cổng.");
     } else {
       const maxOrder = maps.reduce((mx, m) => Math.max(mx, m.order || 0), 0);
       const newId = await store.addMap({
-        title, world, gasLink, nsfw,
+        title, world, gasLink, nsfw, wip,
         order: maxOrder + 1,
         content: "", prompt: "", ideas: "",
         recommends: {},
@@ -1005,11 +1167,21 @@ $("#btn-map-delete").addEventListener("click", async () => {
 });
 
 /* ── THƯ PHÒNG: danh sách nháp ────────────────────────── */
+let draftQ = "";
+
 function renderDraftsList() {
-  const cards = drafts.map((d) => {
+  const q = draftQ.trim().toLowerCase();
+  // nháp được 📌 ưu tiên nổi lên đầu
+  const list = [...drafts]
+    .filter((d) => !q || (d.title || "").toLowerCase().includes(q) || stripHtml(d.content).toLowerCase().includes(q))
+    .sort((a, b) => Object.keys(b.priority || {}).length - Object.keys(a.priority || {}).length);
+
+  const cards = list.map((d) => {
     const owner = ACCOUNTS[d.owner];
+    const pins = Object.keys(d.priority || {}).map((em) => ACCOUNTS[em]?.icon || "📌").join("");
     return `
     <a class="draft-card" href="#/thu-phong/${d.id}">
+      ${pins ? `<span class="pin-badge" title="Được đánh dấu ưu tiên triển khai">📌${pins}</span>` : ""}
       <div class="draft-card-title">${esc(d.title || "(nháp chưa đặt tên)")}</div>
       <div class="draft-card-preview">${esc(stripHtml(d.content).slice(0, 180) || "Trang giấy còn trắng…")}</div>
       <div class="draft-card-meta">
@@ -1026,10 +1198,20 @@ function renderDraftsList() {
         <h1 class="page-title">Thư Phòng <span class="accent">San Hô</span></h1>
         <p class="page-sub">Nơi cất những trang nháp ý tưởng.</p>
       </div>
+      <input id="draft-search" class="search-inp" type="search" placeholder="🔍 Tìm nháp…" value="${esc(draftQ)}" autocomplete="off">
       <button class="btn btn-gold" id="btn-new-draft">✎ Trải trang giấy mới</button>
     </div>
     <div class="drafts-grid">${cards}</div>
-    ${drafts.length === 0 ? `<p class="empty-state">Thư phòng còn trống — trải trang giấy đầu tiên đi.</p>` : ""}`;
+    ${list.length === 0 ? `<p class="empty-state">${q ? "Không nháp nào khớp từ khoá." : "Thư phòng còn trống — trải trang giấy đầu tiên đi."}</p>` : ""}`;
+
+  $("#draft-search").addEventListener("input", (e) => {
+    draftQ = e.target.value;
+    const pos = e.target.selectionStart;
+    renderDraftsList();
+    const inp = $("#draft-search");
+    inp.focus();
+    inp.setSelectionRange(pos, pos);
+  });
 
   $("#btn-new-draft").addEventListener("click", async (e) => {
     const btn = e.currentTarget;
@@ -1058,6 +1240,7 @@ function renderDraftView({ id }) {
       <div class="map-actions" style="margin-top:6px">
         <span class="rec-status" id="draft-meta"></span>
         <span class="spacer"></span>
+        <button class="btn" id="btn-pin-draft" title="Đánh dấu ưu tiên: 'thích cốt truyện này, triển trước đi!'"></button>
         <button class="btn gas-btn" id="btn-draft-to-map" title="Biến nháp này thành một cánh cổng mới ngoài Biển Cổng">🌊 Đẩy ra Biển Cổng</button>
         <button class="btn btn-danger-ghost" id="btn-del-draft">Thả trôi trang nháp…</button>
       </div>
@@ -1071,6 +1254,19 @@ function renderDraftView({ id }) {
       store.updateDraft(id, { title: e.target.value.trim() })
         .catch((err) => toast("Không lưu được tên: " + err.message, true));
     }, 700);
+  });
+
+  $("#btn-pin-draft").addEventListener("click", async () => {
+    const dd = findDraft(id);
+    if (!dd) return;
+    const pr = { ...(dd.priority || {}) };
+    const on = !pr[me.email];
+    if (on) pr[me.email] = true; else delete pr[me.email];
+    try {
+      await store.setDraftPriority(id, pr);
+      toast(on ? "📌 Đã ghim: cốt truyện này ưu tiên triển khai!" : "Đã gỡ ghim ưu tiên.");
+      updateDraftMeta({ id });
+    } catch (err) { toast("Không ghim được: " + err.message, true); }
   });
 
   $("#btn-draft-to-map").addEventListener("click", async (e) => {
@@ -1134,6 +1330,12 @@ function updateDraftMeta({ id }) {
   const owner = ACCOUNTS[d.owner];
   $("#draft-meta").textContent =
     `${owner ? owner.icon + " " + owner.name : d.owner || ""} · sửa lần cuối ${fmtTime(d.updatedAt) || "—"}`;
+  const pinBtn = $("#btn-pin-draft");
+  if (pinBtn) {
+    const mine = !!(d.priority || {})[me.email];
+    pinBtn.classList.toggle("rec-on", mine);
+    pinBtn.textContent = mine ? "📌 Đã ghim ưu tiên ✓" : "📌 Ghim ưu tiên";
+  }
 }
 
 /* ── Kho ảnh của trang: tách ảnh nặng ra doc riêng ────── */
@@ -1178,7 +1380,22 @@ const TOOLBAR = [
   { cmd: "redo", label: "↻", title: "Làm lại" },
 ];
 
-function mountEditor(slot, { html, load = null, placeholder, save, showCopy = false, comments = null }) {
+function mountEditor(slot, { html, load = null, placeholder, save, showCopy = false, comments = null, readOnly = false }) {
+  // cá ghé thăm: trang chỉ xem — không toolbar, không sửa, không ghi chú
+  if (readOnly) {
+    slot.innerHTML = `<div class="doc-page doc-readonly" id="doc-page" contenteditable="false"></div>`;
+    const page = slot.querySelector("#doc-page");
+    page.innerHTML = html || "";
+    hydrateImages(page);
+    if (load) {
+      page.innerHTML = `<p style="color:#9a9481;font-style:italic">Đang mở trang dài…</p>`;
+      load().then((full) => { page.innerHTML = full; hydrateImages(page); })
+        .catch(() => { page.innerHTML = `<p>Không tải được nội dung.</p>`; });
+    }
+    activeCmt = null;
+    flushEditor = null;
+    return;
+  }
   slot.innerHTML = `
     <div class="editor-toolbar">
       ${TOOLBAR.map((t) => {
@@ -1882,6 +2099,41 @@ function toggleChat(open) {
 }
 
 $("#btn-top")?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+/* ── Ai đang trong biển: logo trồi ra / trôi đi ───────── */
+function renderPresence() {
+  const dock = $("#presence-dock");
+  if (!dock || !me) return;
+  const now = Date.now();
+  const online = presenceArr.filter((p) =>
+    p.email !== me.email && p.at?.toDate && now - p.at.toDate().getTime() < 150_000);
+  const cur = new Set(online.map((p) => p.email));
+  // ai rời biển → logo trôi đi mất
+  [...dock.children].forEach((el) => {
+    if (!cur.has(el.dataset.email) && !el.classList.contains("away")) {
+      el.classList.add("away");
+      setTimeout(() => el.remove(), 700);
+    }
+  });
+  // ai vừa vào → logo trồi ra
+  online.forEach((p) => {
+    if (![...dock.children].some((el) => el.dataset.email === p.email)) {
+      const b = document.createElement("span");
+      b.className = "presence-bub";
+      b.dataset.email = p.email;
+      b.title = `${p.name || p.email} đang trong biển`;
+      b.textContent = p.icon || "🫧";
+      dock.appendChild(b);
+    }
+  });
+}
+
+/* ── Khoá copy với cá ghé thăm (rào mềm chống trộm chữ) ── */
+document.addEventListener("copy", (e) => {
+  if (me?.guest) { e.preventDefault(); toast("🐟 Cá ghé thăm không mang được chữ về biển đâu."); }
+});
+document.addEventListener("cut", (e) => { if (me?.guest) e.preventDefault(); });
+document.addEventListener("contextmenu", (e) => { if (me?.guest) e.preventDefault(); });
 
 $("#chat-fab")?.addEventListener("click", () => toggleChat());
 $("#chat-close")?.addEventListener("click", () => toggleChat(false));
