@@ -737,7 +737,7 @@ const HOME_PAGE_SIZE = 12;
 function fishRow(m) {
   const icons = Object.keys(m.fishMarks || {}).map((em) => {
     const g = guestIdentity(em);
-    return `<span title="${esc(g.name)} đã ghé thăm">${g.icon}</span>`;
+    return `<span title="${esc(g.name)} đã đánh giá">${g.icon}</span>`;
   }).join("");
   return icons ? `<span class="fish-row">${icons}</span>` : "";
 }
@@ -916,7 +916,8 @@ function renderMapView({ id, tab }) {
       <div class="map-actions">
         <a class="btn gas-btn" id="mv-gas" target="_blank" rel="noopener">🌀 Mở Google AI Studio</a>
         ${isGuest
-          ? `<span class="rec-status" id="fish-visited"></span>`
+          ? `<button class="btn rec-btn" id="btn-fish"></button>
+        <span class="rec-status" id="fish-visited"></span>`
           : `<button class="btn rec-btn" id="btn-rec"></button>
         <span class="rec-status" id="rec-status"></span>`}
       </div>
@@ -930,16 +931,7 @@ function renderMapView({ id, tab }) {
     b.addEventListener("click", () => { location.hash = `#/map/${id}/${b.dataset.tab}`; }));
   $("#btn-edit-map")?.addEventListener("click", () => openMapModal(id));
   $("#btn-rec")?.addEventListener("click", () => toggleRecommend(id));
-
-  // cá ghé qua → dấu cá tự nằm lại mép dưới thẻ map
-  if (isGuest) {
-    const fm = m.fishMarks || {};
-    if (!fm[me.email]) {
-      store.setFishMarks(id, { ...fm, [me.email]: true })
-        .then(() => toast(`${me.icon} Dấu cá của bạn đã nằm lại cổng này.`))
-        .catch(() => {});
-    }
-  }
+  $("#btn-fish")?.addEventListener("click", () => toggleFishMark(id));
 
   if (isMapHtmlTab) {
     activeCmt = null; // tab bản đồ không có editor
@@ -1061,9 +1053,16 @@ function updateMapMeta({ id }) {
   $("#mv-gas").href = normalizeUrl(m.gasLink) || DEFAULT_GAS;
 
   if (me.guest) {
-    const fishes = Object.keys(m.fishMarks || {}).map((em) => guestIdentity(em).icon).join(" ");
+    const fm = m.fishMarks || {};
+    const mine = !!fm[me.email];
+    const fb = $("#btn-fish");
+    if (fb) {
+      fb.classList.toggle("rec-on", mine);
+      fb.innerHTML = mine ? `${me.icon} Đã đánh giá ✓` : `${me.icon} Đánh giá map này`;
+    }
+    const fishes = Object.keys(fm).map((em) => guestIdentity(em).icon).join(" ");
     const fv = $("#fish-visited");
-    if (fv) fv.textContent = fishes ? `Cá đã ghé: ${fishes}` : "Bạn là chú cá đầu tiên ghé cổng này.";
+    if (fv) fv.textContent = fishes ? `Cá đã đánh giá: ${fishes}` : "Chưa chú cá nào đánh giá map này.";
     return;
   }
 
@@ -1081,6 +1080,20 @@ function updateMapMeta({ id }) {
   if (rs) rs.textContent = names.length
     ? "Đã tiến cử: " + names.join(" · ")
     : "Chưa ai tiến cử map này.";
+}
+
+// cá đánh giá map → dấu cá đậu mép dưới thẻ (chủ động, không phải cứ ghé là dính)
+async function toggleFishMark(id) {
+  const m = findMap(id);
+  if (!m) return;
+  const fm = { ...(m.fishMarks || {}) };
+  const turningOn = !fm[me.email];
+  if (turningOn) fm[me.email] = true;
+  else delete fm[me.email];
+  try {
+    await store.setFishMarks(id, fm);
+    toast(turningOn ? `${me.icon} Dấu cá của bạn đã đậu dưới cánh cổng.` : "Đã rút dấu cá về.");
+  } catch (e) { toast("Không lưu được đánh giá: " + e.message, true); }
 }
 
 async function toggleRecommend(id) {
