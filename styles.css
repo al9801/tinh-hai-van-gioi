@@ -1311,3 +1311,30 @@ body.guest .doc-page { user-select: none; }
   z-index: 2;
   pointer-events: none;
 }
+
+/* ── Mũi tên lật trang hai bên hông (ẩn mờ, trỏ chuột mới nổi) ── */
+.page-side {
+  position: fixed; top: 50%; transform: translateY(-50%);
+  z-index: 15;
+  width: 44px; height: 96px;
+  display: grid; place-items: center;
+  background: rgba(13, 26, 50, 0.85);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--gold-bright);
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  cursor: pointer;
+  opacity: 0.08; /* gần như tàng hình — không vướng mắt khi viết */
+  transition: opacity 0.25s, box-shadow 0.25s;
+}
+.page-side:hover {
+  opacity: 1;
+  border-color: var(--gold);
+  box-shadow: 0 0 26px rgba(217, 180, 111, 0.35);
+}
+.page-side-left  { left: max(10px, calc(50% - 505px)); }
+.page-side-right { right: max(10px, calc(50% - 505px)); }
+@media (max-width: 720px) {
+  .page-side { width: 34px; height: 74px; font-size: 1.2rem; opacity: 0.16; }
+}

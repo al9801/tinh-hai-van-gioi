@@ -1422,6 +1422,9 @@ function mountPagedEditor(slot, opts) {
         <button class="pgn-btn" data-pgn="add" title="Trải thêm một trang giấy mới">＋</button>
         ${total > 1 ? `<button class="pgn-btn pgn-del" data-pgn="del" title="Xoá trang đang mở (các trang sau dồn lên)">🗑</button>` : ""}` : ""}
       </div></div>` : ""}
+      ${total > 1 ? `
+      <button class="page-side page-side-left" data-pgn="prev" title="Trang trước">‹</button>
+      <button class="page-side page-side-right" data-pgn="next" title="Trang sau">›</button>` : ""}
       <div class="paged-editor-slot"></div>`;
 
     const field = fieldForPage(opts.base, cur);
@@ -1467,6 +1470,11 @@ function mountPagedEditor(slot, opts) {
         } catch (e) { toast("Không xoá được trang: " + e.message, true); return; }
       }
       render();
+      // lật bằng mũi tên bên hông → đưa mắt về đầu trang mới để đọc liền mạch
+      if (b.classList.contains("page-side")) {
+        const top = slot.getBoundingClientRect().top + window.scrollY - 150;
+        window.scrollTo({ top: Math.max(0, top), behavior: "instant" });
+      }
     }));
   };
   render();
