@@ -1268,16 +1268,11 @@ body.guest .doc-page { user-select: none; }
 /* ── Chip chuyển trang: nổi bên mép TRÁI trang giấy (đối xứng chip ghi chú) ── */
 .page-nav-wrap {
   max-width: 880px;
-  margin: 0 auto;
-  position: sticky;
-  top: 122px;
-  z-index: 9;
-  height: 0; /* không chiếm dòng — chip nổi tự do, không đụng toolbar */
+  margin: 16px auto 10px;
+  display: flex;
+  justify-content: center; /* chip nằm hàng riêng trên toolbar, căn giữa trục trang */
 }
 .page-nav-chip {
-  position: absolute;
-  left: -14px;
-  top: 64px; /* nằm dưới toolbar, ngang hàng chip ghi chú bên phải */
   display: flex;
   align-items: center;
   background: rgba(13, 26, 50, 0.92);
@@ -1304,10 +1299,7 @@ body.guest .doc-page { user-select: none; }
 .pgn-sep { width: 1px; height: 16px; background: var(--line-strong); margin: 0 3px; }
 .pgn-del { color: var(--danger); }
 .pgn-del:hover { color: #f0a5a5; background: rgba(224, 133, 133, 0.1); }
-@media (max-width: 720px) {
-  .page-nav-wrap { top: 164px; }
-  .page-nav-chip { left: 4px; }
-}
+
 
 /* dấu 🌫️ "không có H" — đậu góc DƯỚI bên phải thẻ cổng */
 .noh-sticker {
