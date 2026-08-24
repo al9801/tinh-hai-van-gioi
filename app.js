@@ -1409,14 +1409,14 @@ function mountPagedEditor(slot, opts) {
     const canEdit = !opts.readOnly;
 
     slot.innerHTML = `
-      ${(total > 1 || canEdit) ? `<div class="page-nav">
+      ${(total > 1 || canEdit) ? `<div class="page-nav-wrap"><div class="page-nav-chip">
         <button class="pgn-btn" data-pgn="prev" title="Trang trước">‹</button>
-        <span class="pgn-label">📄 Trang ${cur + 1}/${total}</span>
+        <span class="pgn-label" title="Trang ${cur + 1} / ${total}">📄${cur + 1}/${total}</span>
         <button class="pgn-btn" data-pgn="next" title="Trang sau — hết trang thì quay về đầu">›</button>
         ${canEdit ? `<span class="pgn-sep"></span>
-        <button class="pgn-btn pgn-add" data-pgn="add" title="Trải thêm một trang giấy mới">＋ Trang</button>
+        <button class="pgn-btn" data-pgn="add" title="Trải thêm một trang giấy mới">＋</button>
         ${total > 1 ? `<button class="pgn-btn pgn-del" data-pgn="del" title="Xoá trang đang mở (các trang sau dồn lên)">🗑</button>` : ""}` : ""}
-      </div>` : ""}
+      </div></div>` : ""}
       <div class="paged-editor-slot"></div>`;
 
     const field = fieldForPage(opts.base, cur);
