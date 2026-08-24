@@ -424,6 +424,8 @@ function demoStore() {
       recommends: { [emails[0]]: true, [emails[1]]: true },
       fishMarks: Object.fromEntries((GUEST_EMAILS.slice(0, 2)).map((g) => [g, true])),
       content: `<h2>Trấn Vực Sâm Lâm</h2><p>Rừng ranh giới ngăn giữa <mark class="cmt cmt-end" data-cid="demo-c1">cõi người và cõi mộng</mark>…</p>`,
+      content_p1: "<h2>Trang hai — Bí sử</h2><p>Những điều chỉ kể khi trăng tròn…</p>",
+      contentPages: 2,
       prompt: "<p>Bạn là <b>Thủ Mộc Nhân</b>, kẻ canh giữ cánh cổng…</p>",
       ideas: "",
       hasHtml: true,
@@ -936,6 +938,20 @@ function renderMapView({ id, tab }) {
   if (isMapHtmlTab) {
     activeCmt = null; // tab bản đồ không có editor
     renderMapHtmlTab(m);
+  } else if (st.key === "map") {
+    // tab Nội dung Map là "cuốn sổ" nhiều trang (giữ nguyên các trang khi nháp đẩy ra biển)
+    mountPagedEditor($("#editor-slot"), {
+      coll: "maps", id, base: "content",
+      getDocObj: () => findMap(id),
+      placeholder: st.ph,
+      showCopy: false,
+      readOnly: isGuest,
+      comments: isGuest ? null : {
+        data: () => findMap(id)?.comments || {},
+        save: (obj) => store.updateMap(id, { comments: obj }),
+      },
+      saveMeta: (patch) => store.updateMap(id, patch),
+    });
   } else {
     const chunked = (m[st.field + "Chunks"] || 0) > 0;
     mountEditor($("#editor-slot"), {
@@ -1291,20 +1307,25 @@ function renderDraftView({ id }) {
     btn.textContent = "🌊 Đang dong buồm…";
     try {
       await flushEditor?.(); // chốt chữ đang gõ dở trước khi di cư
-      const full = await store.loadDocField("drafts", id, "content");
+      const totalPages = Math.max(1, dd?.contentPages || 1);
       const maxOrder = maps.reduce((mx, m) => Math.max(mx, m.order || 0), 0);
       const newId = await store.addMap({
         title: dd?.title || "Cánh cổng mới", world: "", gasLink: DEFAULT_GAS,
         order: maxOrder + 1, content: "", prompt: "", ideas: "",
+        contentPages: totalPages, // mang theo đủ số trang giấy
         recommends: {}, createdBy: me.email,
       });
-      await store.saveDocField("maps", newId, "content", full);
+      for (let i = 0; i < totalPages; i++) {
+        const pg = await store.loadDocField("drafts", id, fieldForPage("content", i));
+        await store.saveDocField("maps", newId, fieldForPage("content", i), pg);
+      }
       if (dd?.comments && Object.keys(dd.comments).length) {
         await store.updateMap(newId, { comments: dd.comments }); // ghi chú 💧 đi theo nội dung
       }
-      const oldChunks = dd?.contentChunks || 0;
+      const oldChunksPerPage = Array.from({ length: totalPages },
+        (_, i) => [fieldForPage("content", i), dd?.[fieldForPage("content", i) + "Chunks"] || 0]);
       await store.deleteDraft(id);
-      store.deleteFieldChunks?.("drafts", id, "content", oldChunks);
+      oldChunksPerPage.forEach(([f, n]) => store.deleteFieldChunks?.("drafts", id, f, n));
       toast("🌊 Nháp đã dong buồm ra Biển Cổng.");
       location.hash = `#/map/${newId}`;
     } catch (err) {
@@ -1323,16 +1344,17 @@ function renderDraftView({ id }) {
     } catch (e) { toast("Không xoá được: " + e.message, true); }
   });
 
-  const dChunked = (d.contentChunks || 0) > 0;
-  mountEditor($("#editor-slot"), {
-    html: dChunked ? "" : (d.content || ""),
-    load: dChunked ? () => store.loadDocField("drafts", id, "content") : null,
+  mountPagedEditor($("#editor-slot"), {
+    coll: "drafts", id, base: "content",
+    getDocObj: () => findDraft(id),
     placeholder: "Viết ý tưởng của bạn ở đây — như một trang docx giữa biển sao…",
-    save: (html) => store.saveDocField("drafts", id, "content", html),
+    showCopy: false,
+    readOnly: false,
     comments: {
       data: () => findDraft(id)?.comments || {},
       save: (obj) => store.updateDraft(id, { comments: obj }),
     },
+    saveMeta: (patch) => store.updateDraft(id, patch),
   });
   updateDraftMeta({ id });
 }
@@ -1365,6 +1387,84 @@ async function hydrateImages(root) {
       else img.alt = "(ảnh không còn trong kho)";
     } catch { /* mạng lỗi → ảnh hiện lại ở lần mở sau */ }
   }
+}
+
+/* ── Sổ nhiều trang: một tài liệu chứa nhiều trang giấy ── */
+const pageMem = {}; // nhớ đang mở trang mấy của từng tài liệu (trong phiên)
+
+function fieldForPage(base, i) { return i === 0 ? base : `${base}_p${i}`; }
+
+// bọc mountEditor thành "cuốn sổ": nút ‹ › chuyển trang (hết trang quay về đầu),
+// ＋ thêm trang, 🗑 xoá trang (các trang sau dồn lên)
+function mountPagedEditor(slot, opts) {
+  const render = () => {
+    const d = opts.getDocObj();
+    if (!d) return;
+    const total = Math.max(1, d.contentPages || 1);
+    const key = `${opts.coll}:${opts.id}:${opts.base}`;
+    let cur = pageMem[key] ?? 0;
+    if (cur >= total) cur = total - 1;
+    if (cur < 0) cur = 0;
+    pageMem[key] = cur;
+    const canEdit = !opts.readOnly;
+
+    slot.innerHTML = `
+      ${(total > 1 || canEdit) ? `<div class="page-nav">
+        <button class="pgn-btn" data-pgn="prev" title="Trang trước">‹</button>
+        <span class="pgn-label">📄 Trang ${cur + 1}/${total}</span>
+        <button class="pgn-btn" data-pgn="next" title="Trang sau — hết trang thì quay về đầu">›</button>
+        ${canEdit ? `<span class="pgn-sep"></span>
+        <button class="pgn-btn pgn-add" data-pgn="add" title="Trải thêm một trang giấy mới">＋ Trang</button>
+        ${total > 1 ? `<button class="pgn-btn pgn-del" data-pgn="del" title="Xoá trang đang mở (các trang sau dồn lên)">🗑</button>` : ""}` : ""}
+      </div>` : ""}
+      <div class="paged-editor-slot"></div>`;
+
+    const field = fieldForPage(opts.base, cur);
+    const chunked = (d[field + "Chunks"] || 0) > 0;
+    mountEditor(slot.querySelector(".paged-editor-slot"), {
+      html: chunked ? "" : (d[field] || ""),
+      load: chunked ? () => store.loadDocField(opts.coll, opts.id, field) : null,
+      placeholder: opts.placeholder,
+      showCopy: opts.showCopy,
+      readOnly: opts.readOnly,
+      save: (html) => store.saveDocField(opts.coll, opts.id, field, html),
+      comments: opts.comments,
+    });
+
+    slot.querySelectorAll("[data-pgn]").forEach((b) => b.addEventListener("click", async () => {
+      const act = b.dataset.pgn;
+      await flushEditor?.(); flushEditor = null; // chốt chữ trang hiện tại trước khi rời
+      const dd = opts.getDocObj();
+      if (!dd) return;
+      const tt = Math.max(1, dd.contentPages || 1);
+      if (act === "prev") pageMem[key] = (cur - 1 + tt) % tt;
+      else if (act === "next") pageMem[key] = (cur + 1) % tt; // trang cuối → tự quay về đầu
+      else if (act === "add") {
+        try {
+          await opts.saveMeta({ contentPages: tt + 1 });
+          dd.contentPages = tt + 1; // cập nhật tại chỗ, không chờ snapshot
+          pageMem[key] = tt;
+          toast(`📄 Đã trải thêm trang ${tt + 1}.`);
+        } catch (e) { toast("Không thêm được trang: " + e.message, true); return; }
+      } else if (act === "del") {
+        if (tt <= 1) return;
+        if (!confirm(`Xoá trang ${cur + 1}? Nội dung trang này sẽ mất, các trang sau dồn lên.`)) return;
+        try {
+          for (let j = cur; j < tt - 1; j++) { // dồn các trang sau lên một bậc
+            const nx = await store.loadDocField(opts.coll, opts.id, fieldForPage(opts.base, j + 1));
+            await store.saveDocField(opts.coll, opts.id, fieldForPage(opts.base, j), nx);
+          }
+          await store.saveDocField(opts.coll, opts.id, fieldForPage(opts.base, tt - 1), "");
+          await opts.saveMeta({ contentPages: tt - 1 });
+          dd.contentPages = tt - 1;
+          pageMem[key] = Math.max(0, Math.min(cur, tt - 2));
+          toast("Trang đã tan vào sóng — các trang sau dồn lên.");
+        } catch (e) { toast("Không xoá được trang: " + e.message, true); return; }
+      }
+      render();
+    }));
+  };
+  render();
 }
 
 /* ── EDITOR kiểu docx ─────────────────────────────────── */

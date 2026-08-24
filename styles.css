@@ -1264,3 +1264,29 @@ body.guest [data-nav="drafts"] { display: none; }
 body.guest #chat-fab, body.guest #chat-panel { display: none !important; }
 body.guest .doc-page { user-select: none; }
 .doc-readonly { caret-color: transparent; border-radius: 6px; }
+
+/* ── Nút chuyển trang của cuốn sổ nhiều trang ─────────── */
+.page-nav {
+  max-width: 880px;
+  margin: 20px auto -6px;
+  display: flex; align-items: center; justify-content: center;
+  gap: 4px;
+}
+.pgn-btn {
+  background: rgba(13, 26, 50, 0.85);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--ink-dim);
+  font-family: var(--font-body); font-size: 0.85rem;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.pgn-btn:hover { color: var(--gold-bright); border-color: var(--gold); }
+.pgn-label {
+  font-size: 0.82rem; color: var(--gold-bright);
+  padding: 0 8px; white-space: nowrap;
+}
+.pgn-sep { width: 1px; height: 18px; background: var(--line-strong); margin: 0 6px; }
+.pgn-del { color: var(--danger); border-color: rgba(224, 133, 133, 0.35); }
+.pgn-del:hover { color: #f0a5a5; border-color: var(--danger); }
