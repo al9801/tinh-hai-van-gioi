@@ -1325,7 +1325,7 @@ body.guest .doc-page { user-select: none; }
   font-family: var(--font-body);
   font-size: 1.5rem;
   cursor: pointer;
-  opacity: 0.08; /* gần như tàng hình — không vướng mắt khi viết */
+  opacity: 0.85; /* nổi hẳn — hover thì rực sáng */
   transition: opacity 0.25s, box-shadow 0.25s;
 }
 .page-side:hover {
@@ -1336,5 +1336,5 @@ body.guest .doc-page { user-select: none; }
 .page-side-left  { left: max(10px, calc(50% - 505px)); }
 .page-side-right { right: max(10px, calc(50% - 505px)); }
 @media (max-width: 720px) {
-  .page-side { width: 34px; height: 74px; font-size: 1.2rem; opacity: 0.16; }
+  .page-side { width: 34px; height: 74px; font-size: 1.2rem; }
 }

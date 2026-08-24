@@ -1480,6 +1480,16 @@ function mountPagedEditor(slot, opts) {
   render();
 }
 
+// phím ← → lật trang — chỉ khi KHÔNG đang gõ trong ô nhập/trang giấy
+document.addEventListener("keydown", (e) => {
+  if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+  const el = document.activeElement;
+  if (el && (el.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(el.tagName))) return;
+  if (!$("#modal-map")?.classList.contains("hidden")) return; // đang mở modal thì thôi
+  const btn = document.querySelector(e.key === "ArrowLeft" ? ".page-side-left" : ".page-side-right");
+  if (btn) { e.preventDefault(); btn.click(); }
+});
+
 /* ── EDITOR kiểu docx ─────────────────────────────────── */
 const TOOLBAR = [
   { cmd: "bold", label: "B", title: "Đậm (⌘B)", style: "font-weight:700" },
