@@ -1308,3 +1308,14 @@ body.guest .doc-page { user-select: none; }
   .page-nav-wrap { top: 164px; }
   .page-nav-chip { left: 4px; }
 }
+
+/* dấu 🌫️ "không có H" — đậu góc DƯỚI bên phải thẻ cổng */
+.noh-sticker {
+  position: absolute; bottom: -11px; right: 14px;
+  font-size: 1.4rem;
+  transform: rotate(-8deg);
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 10px rgba(160, 200, 235, 0.45));
+  animation: totem-pop 0.35s ease;
+  z-index: 2;
+  pointer-events: none;
+}

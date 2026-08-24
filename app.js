@@ -425,7 +425,7 @@ function demoStore() {
       fishMarks: Object.fromEntries((GUEST_EMAILS.slice(0, 2)).map((g) => [g, true])),
       content: `<h2>Trấn Vực Sâm Lâm</h2><p>Rừng ranh giới ngăn giữa <mark class="cmt cmt-end" data-cid="demo-c1">cõi người và cõi mộng</mark>…</p>`,
       content_p1: "<h2>Trang hai — Bí sử</h2><p>Những điều chỉ kể khi trăng tròn…</p>",
-      contentPages: 2,
+      contentPages: 2, noH: true,
       prompt: "<p>Bạn là <b>Thủ Mộc Nhân</b>, kẻ canh giữ cánh cổng…</p>",
       ideas: "",
       hasHtml: true,
@@ -804,6 +804,7 @@ function renderHomeGrid() {
       ${m.nsfw ? `<span class="nsfw-sticker" title="Cổng thiên về NSFW">🔥</span>` : ""}
       ${m.wip ? `<span class="wip-sticker" title="Map đang sửa — chưa chơi được">🩹</span>` : ""}
       <span class="totem-corner">${totemBadges(m.recommends)}</span>
+      ${m.noH ? `<span class="noh-sticker" title="Không có H — chơi có 'kéo rèm'">🌫️</span>` : ""}
       <div class="map-card-num">✦ Cánh cổng ${posNo[m.id]} ✦</div>
       <div class="map-card-title">${esc(m.title)}</div>
       <div class="map-card-world">${esc(m.world || "Thế giới chưa được mô tả…")}</div>
@@ -911,6 +912,7 @@ function renderMapView({ id, tab }) {
           <h1 class="map-view-title" id="mv-title"></h1>
           <p class="map-view-world" id="mv-world"></p>
         </div>
+        <span id="mv-noh" class="nsfw-sticker wip-inline hidden" title="Không có H — chơi có 'kéo rèm'">🌫️</span>
         <span id="mv-wip" class="nsfw-sticker wip-inline hidden" title="Map đang sửa — chưa chơi được">🩹</span>
         <span id="mv-nsfw" class="nsfw-sticker nsfw-inline hidden" title="Cổng thiên về NSFW">🔥</span>
         ${isGuest ? "" : `<button class="btn-icon" id="btn-edit-map" title="Sửa tên / mô tả / link GAS / nhãn">✎</button>`}
@@ -1066,6 +1068,7 @@ function updateMapMeta({ id }) {
   $("#mv-world").textContent = m.world || "";
   $("#mv-nsfw")?.classList.toggle("hidden", !m.nsfw);
   $("#mv-wip")?.classList.toggle("hidden", !m.wip);
+  $("#mv-noh")?.classList.toggle("hidden", !m.noH);
   $("#mv-gas").href = normalizeUrl(m.gasLink) || DEFAULT_GAS;
 
   if (me.guest) {
@@ -1135,6 +1138,7 @@ function openMapModal(mapId) {
   $("#inp-map-gas").value = m?.gasLink || DEFAULT_GAS;
   $("#inp-map-nsfw").checked = !!m?.nsfw;
   $("#inp-map-wip").checked = !!m?.wip;
+  $("#inp-map-noh").checked = !!m?.noH;
   $("#btn-map-delete").classList.toggle("hidden", !m);
   $("#modal-map").classList.remove("hidden");
   setTimeout(() => $("#inp-map-title").focus(), 60);
@@ -1153,18 +1157,19 @@ $("#btn-map-save").addEventListener("click", async () => {
   const gasLink = normalizeUrl($("#inp-map-gas").value) || DEFAULT_GAS;
   const nsfw = $("#inp-map-nsfw").checked;
   const wip = $("#inp-map-wip").checked;
+  const noH = $("#inp-map-noh").checked;
   const btn = $("#btn-map-save");
   savingMap = true;
   btn.disabled = true;
   btn.textContent = "Đang lưu…";
   try {
     if (editingMapId) {
-      await store.updateMap(editingMapId, { title, world, gasLink, nsfw, wip });
+      await store.updateMap(editingMapId, { title, world, gasLink, nsfw, wip, noH });
       toast("Đã lưu cánh cổng.");
     } else {
       const maxOrder = maps.reduce((mx, m) => Math.max(mx, m.order || 0), 0);
       const newId = await store.addMap({
-        title, world, gasLink, nsfw, wip,
+        title, world, gasLink, nsfw, wip, noH,
         order: maxOrder + 1,
         content: "", prompt: "", ideas: "",
         recommends: {},
