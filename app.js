@@ -347,17 +347,6 @@ function firestoreStore() {
     // ảnh trong trang lưu kho riêng (images/{iid}) — né trần 1MB/document của Firestore
     saveImage: (iid, data) => setDoc(doc(db, "images", iid), { data, by: me.email, at: serverTimestamp() }),
     getImage: (iid) => getDoc(doc(db, "images", iid)).then((s) => (s.exists() ? s.data().data : null)),
-    // 🎭 cuộc chơi Gemini: mỗi người một dòng chat riêng cho từng map
-    loadPlay: (mapId) => getDoc(doc(db, "plays", `${mapId}__${me.email}`))
-      .then((s) => (s.exists() ? (s.data().msgs || []) : [])),
-    savePlay(mapId, msgs) {
-      // giữ dưới trần 1MB: đầy thì rụng bớt lượt cũ nhất
-      let arr = msgs;
-      while (arr.length > 2 && new TextEncoder().encode(JSON.stringify(arr)).length > 850_000) {
-        arr = arr.slice(2);
-      }
-      return setDoc(doc(db, "plays", `${mapId}__${me.email}`), { msgs: arr, updatedAt: serverTimestamp() });
-    },
     // trang chữ quá dài → tự chia khúc lưu ở collection chunks, mở thì ghép lại.
     // QUAN TRỌNG: Firestore đếm BYTE (chữ Việt = 2-3 byte/ký tự) nên phải đo bằng TextEncoder
     async saveDocField(coll, id, field, html) {
@@ -506,8 +495,6 @@ function demoStore() {
     async deleteMapHtml(id) { delete htmlFiles[id]; },
     async saveImage(iid, data) { this._imgs = this._imgs || {}; this._imgs[iid] = data; },
     async getImage(iid) { return (this._imgs || {})[iid] || null; },
-    async loadPlay(mapId) { return (this._plays || {})[mapId] || []; },
-    async savePlay(mapId, msgs) { this._plays = this._plays || {}; this._plays[mapId] = msgs; },
     // demo: ngưỡng chia khúc thấp (500 ký tự) để thử được luồng trang dài
     async saveDocField(coll, id, field, html) {
       const arr = coll === "maps" ? maps : drafts;
@@ -913,7 +900,6 @@ function renderMapView({ id, tab }) {
   if (isGuest && !["ban-do", "map"].includes(tabKey)) tabKey = m.hasHtml ? "ban-do" : "map";
   if (tabKey === "phong-choi") tabKey = m.hasHtml ? "ban-do" : "map"; // tab phòng chơi cũ đã gỡ
   const isMapHtmlTab = tabKey === "ban-do";
-  const isPlayTab = false;
   const st = SUBTABS.find((t) => t.key === tabKey) || SUBTABS[0];
   const allTabs = isGuest
     ? [{ key: "ban-do", label: "🧭 Bản đồ HTML" }, SUBTABS[0]]
@@ -934,7 +920,6 @@ function renderMapView({ id, tab }) {
       </div>
       <div class="map-actions">
         <a class="btn gas-btn" id="mv-gas" target="_blank" rel="noopener">🌀 Mở Google AI Studio</a>
-        <button class="btn" id="btn-gas-split" title="Mở AI Studio ở nửa phải màn hình — biển giữ nửa trái để vừa chơi vừa tra map">⿻ Song song</button>
         ${isGuest
           ? `<button class="btn rec-btn" id="btn-fish"></button>
         <span class="rec-status" id="fish-visited"></span>`
@@ -943,7 +928,7 @@ function renderMapView({ id, tab }) {
       </div>
     </div>
     <div class="subtabs">
-      ${allTabs.map((t) => `<button class="subtab ${t.key === (isMapHtmlTab ? "ban-do" : (isPlayTab ? "phong-choi" : st.key)) ? "active" : ""}" data-tab="${t.key}">${t.label}</button>`).join("")}
+      ${allTabs.map((t) => `<button class="subtab ${t.key === (isMapHtmlTab ? "ban-do" : st.key) ? "active" : ""}" data-tab="${t.key}">${t.label}</button>`).join("")}
     </div>
     <div class="editor-wrap" id="editor-slot"></div>`;
 
@@ -952,23 +937,10 @@ function renderMapView({ id, tab }) {
   $("#btn-edit-map")?.addEventListener("click", () => openMapModal(id));
   $("#btn-rec")?.addEventListener("click", () => toggleRecommend(id));
   $("#btn-fish")?.addEventListener("click", () => toggleFishMark(id));
-  // chơi song song: AI Studio thật (đúng tài khoản + gói Pro) nửa phải, biển nửa trái
-  $("#btn-gas-split")?.addEventListener("click", () => {
-    const mm = findMap(id);
-    const url = normalizeUrl(mm?.gasLink) || DEFAULT_GAS;
-    const w = Math.floor(screen.availWidth / 2);
-    const h = screen.availHeight;
-    window.open(url, "gas-song-song", `width=${w},height=${h},left=${w},top=0`);
-    try { window.resizeTo(w, h); window.moveTo(0, 0); } catch { /* trình duyệt không cho thì thôi */ }
-  });
 
   if (isMapHtmlTab) {
     activeCmt = null; // tab bản đồ không có editor
     renderMapHtmlTab(m);
-  } else if (isPlayTab) {
-    activeCmt = null;
-    flushEditor = null;
-    renderPlayTab(m);
   } else if (st.key === "map") {
     // tab Nội dung Map là "cuốn sổ" nhiều trang (giữ nguyên các trang khi nháp đẩy ra biển)
     mountPagedEditor($("#editor-slot"), {
@@ -999,224 +971,6 @@ function renderMapView({ id, tab }) {
     });
   }
   updateMapMeta({ id, tab });
-}
-
-/* ── 🎭 PHÒNG CHƠI: khung chat Gemini ngay trong biển ──── */
-const GEM_KEY_LS = "thvg-gemini-key";
-const GEM_MODEL_LS = "thvg-gemini-model";
-let playAbort = null;   // đang stream thì có thể bấm Dừng
-let playBusy = false;
-
-function htmlToText(html) {
-  const tmp = document.createElement("div");
-  tmp.innerHTML = (html || "").replace(/<(br|\/p|\/div|\/li|\/h[1-6]|\/tr)[^>]*>/gi, "$&\n");
-  return tmp.textContent.replace(/\n{3,}/g, "\n\n").trim();
-}
-// hiển thị lời thoại: xuống dòng + **đậm** *nghiêng* đơn giản
-function mdLite(text) {
-  return esc(text)
-    .replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>")
-    .replace(/\*([^*\n]+)\*/g, "<i>$1</i>")
-    .replace(/\n/g, "<br>");
-}
-
-function renderPlayTab(m) {
-  const slot = $("#editor-slot");
-  const key = DEMO ? "demo" : (localStorage.getItem(GEM_KEY_LS) || "");
-
-  if (!key) { // chưa có chìa khoá → màn nhập key
-    slot.innerHTML = `
-      <div class="play-setup">
-        <div style="font-size:2rem">🎭</div>
-        <h3>Phòng chơi cần chìa khoá Gemini</h3>
-        <p>Tạo API key miễn phí (1 phút) tại
-          <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a>,
-          dán vào đây. Key chỉ nằm trong trình duyệt của bạn, không đưa lên mạng của ai khác.</p>
-        <div class="play-setup-row">
-          <input id="play-key-inp" type="password" class="search-inp" style="max-width:none;flex:1" placeholder="AIza…">
-          <button id="play-key-save" class="btn btn-gold">Mở phòng</button>
-        </div>
-        <p class="play-note">Lưu ý: phòng chơi chạy free tier của API (không dùng gói AI Pro).
-          Model Flash chơi thoải mái; phiên dài hơi bằng model Pro thì bấm 🌀 sang AI Studio.</p>
-      </div>`;
-    slot.querySelector("#play-key-save").addEventListener("click", () => {
-      const k = slot.querySelector("#play-key-inp").value.trim();
-      if (!k) { toast("Dán key vào đã nhé.", true); return; }
-      localStorage.setItem(GEM_KEY_LS, k);
-      renderPlayTab(m);
-    });
-    return;
-  }
-
-  slot.innerHTML = `
-    <div class="play-room">
-      <div class="play-bar">
-        <select id="play-model" class="sort-sel"></select>
-        <span class="spacer"></span>
-        <button class="btn-icon" id="play-key-btn" title="Đổi API key">🔑</button>
-        <button class="btn-icon" id="play-clear" title="Xoá cuộc chơi này (chỉ của bạn)">🗑</button>
-      </div>
-      <div id="play-msgs" class="play-msgs"><p class="play-hint">Đang mở cuộc chơi…</p></div>
-      <div class="play-input-row">
-        <textarea id="play-input" class="play-input" rows="2" placeholder="Nhập lời của bạn… (Ctrl+Enter để gửi)"></textarea>
-        <button class="btn btn-gold play-send" id="play-send">Gửi ▷</button>
-      </div>
-    </div>`;
-
-  populatePlayModels(key);
-  let msgs = [];
-  const list = $("#play-msgs");
-
-  const paint = (streamingText = null) => {
-    list.innerHTML = msgs.map((x) => `
-      <div class="play-msg ${x.role}">
-        <div class="play-role">${x.role === "user" ? `${me.icon} Bạn` : "✦ Model"}</div>
-        <div class="play-text">${mdLite(x.text)}</div>
-      </div>`).join("") +
-      (streamingText !== null ? `
-      <div class="play-msg model streaming">
-        <div class="play-role">✦ Model</div>
-        <div class="play-text">${mdLite(streamingText)}<span class="play-caret">▍</span></div>
-      </div>` : "") +
-      (!msgs.length && streamingText === null
-        ? `<p class="play-hint">Prompt của map được nạp làm hồn nhân vật. Nhập lời đầu tiên để mở màn.</p>` : "");
-    list.scrollTop = list.scrollHeight;
-  };
-
-  store.loadPlay(m.id).then((arr) => { msgs = arr; paint(); });
-
-  const setBusy = (b) => {
-    playBusy = b;
-    const btn = $("#play-send");
-    if (btn) btn.textContent = b ? "■ Dừng" : "Gửi ▷";
-  };
-
-  async function send() {
-    const inp = $("#play-input");
-    if (playBusy) { playAbort?.abort(); return; } // đang chạy → nút thành Dừng
-    const text = inp.value.trim();
-    if (!text) return;
-    inp.value = "";
-    msgs.push({ role: "user", text });
-    store.savePlay(m.id, msgs).catch(() => {}); // lưu ngay lời vừa gửi, lỡ đứt mạng không mất
-    paint("");
-    setBusy(true);
-    try {
-      const sysHtml = await store.loadDocField("maps", m.id, "prompt");
-      const sys = htmlToText(sysHtml);
-      const model = localStorage.getItem(GEM_MODEL_LS) || "gemini-2.5-flash";
-      let out = "";
-      if (DEMO) { // demo: giả lập stream để xem giao diện
-        const fake = "🌊 (demo) Sóng vọng lại lời bạn: " + text + "\n\nỞ bản thật, chỗ này là lời nhân vật do Gemini viết, chạy theo prompt của map.";
-        for (let i = 6; i <= fake.length + 5; i += 6) {
-          out = fake.slice(0, i);
-          paint(out);
-          await new Promise((r) => setTimeout(r, 20));
-        }
-        out = fake;
-      } else {
-        playAbort = new AbortController();
-        const resp = await fetch(
-          `https://generativelanguage.googleapis.com/v1beta/models/${model}:streamGenerateContent?alt=sse&key=${encodeURIComponent(key)}`,
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            signal: playAbort.signal,
-            body: JSON.stringify({
-              ...(sys ? { systemInstruction: { parts: [{ text: sys }] } } : {}),
-              contents: msgs.map((x) => ({ role: x.role === "user" ? "user" : "model", parts: [{ text: x.text }] })),
-            }),
-          });
-        if (!resp.ok) {
-          const err = await resp.json().catch(() => ({}));
-          throw new Error(err?.error?.message || `HTTP ${resp.status}`);
-        }
-        const reader = resp.body.getReader();
-        const dec = new TextDecoder();
-        let buf = "";
-        let blocked = "";
-        for (;;) {
-          const { done, value } = await reader.read();
-          if (done) break;
-          buf += dec.decode(value, { stream: true });
-          const lines = buf.split("\n");
-          buf = lines.pop();
-          for (const ln of lines) {
-            if (!ln.startsWith("data: ")) continue;
-            try {
-              const j = JSON.parse(ln.slice(6));
-              const cand = j.candidates?.[0];
-              const delta = cand?.content?.parts?.map((p) => p.text || "").join("") || "";
-              if (delta) { out += delta; paint(out); }
-              if (cand?.finishReason === "SAFETY") blocked = "bộ lọc an toàn của API";
-              if (j.promptFeedback?.blockReason) blocked = "bộ lọc an toàn (chặn từ prompt)";
-            } catch { /* dòng SSE lẻ */ }
-          }
-        }
-        if (!out && blocked) out = `⚠ Lượt này bị ${blocked} chặn — thử diễn đạt khác nhé.`;
-        if (!out) out = "⚠ Model không trả lời gì — thử lại nhé.";
-      }
-      msgs.push({ role: "model", text: out });
-      paint();
-      store.savePlay(m.id, msgs).catch((e) => toast("Không lưu được cuộc chơi: " + e.message, true));
-    } catch (e) {
-      if (e.name === "AbortError") {
-        msgs.push({ role: "model", text: "⏹ (đã dừng giữa chừng)" });
-        paint();
-        store.savePlay(m.id, msgs).catch(() => {});
-      } else {
-        msgs.pop(); // trả lại lời user để gửi lại
-        paint();
-        $("#play-input").value = text;
-        toast("Lỗi phòng chơi: " + e.message, true);
-      }
-    } finally {
-      playAbort = null;
-      setBusy(false);
-    }
-  }
-
-  $("#play-send").addEventListener("click", send);
-  $("#play-input").addEventListener("keydown", (e) => {
-    if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) { e.preventDefault(); send(); }
-  });
-  $("#play-key-btn").addEventListener("click", () => {
-    if (!confirm("Đổi API key? (Cuộc chơi vẫn giữ nguyên)")) return;
-    localStorage.removeItem(GEM_KEY_LS);
-    renderPlayTab(m);
-  });
-  $("#play-clear").addEventListener("click", async () => {
-    if (!confirm("Xoá toàn bộ cuộc chơi của bạn ở map này? Không lấy lại được.")) return;
-    msgs = [];
-    paint();
-    store.savePlay(m.id, []).catch(() => {});
-    toast("Cuộc chơi đã tan vào bọt sóng.");
-  });
-}
-
-async function populatePlayModels(key) {
-  const sel = $("#play-model");
-  if (!sel) return;
-  const saved = localStorage.getItem(GEM_MODEL_LS) || "gemini-2.5-flash";
-  let names = ["gemini-2.5-flash", "gemini-2.5-pro"];
-  if (!DEMO) {
-    try {
-      const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${encodeURIComponent(key)}&pageSize=50`);
-      if (r.ok) {
-        const j = await r.json();
-        const got = (j.models || [])
-          .filter((mo) => (mo.supportedGenerationMethods || []).includes("generateContent")
-            && /models\/gemini/.test(mo.name)
-            && !/embedding|tts|image-generation|live|audio|thinking-exp/.test(mo.name))
-          .map((mo) => mo.name.replace("models/", ""));
-        if (got.length) names = got;
-      }
-    } catch { /* mạng lỗi → dùng danh sách mặc định */ }
-  }
-  if (!names.includes(saved)) names.unshift(saved);
-  if (!sel.isConnected) return;
-  sel.innerHTML = names.map((n) => `<option ${n === saved ? "selected" : ""}>${n}</option>`).join("");
-  sel.onchange = () => localStorage.setItem(GEM_MODEL_LS, sel.value);
 }
 
 /* ── Tab Bản đồ HTML: upload / xem / gỡ file map .html ── */
