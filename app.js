@@ -911,12 +911,13 @@ function renderMapView({ id, tab }) {
   const isGuest = !!me.guest;
   // cá ghé thăm chỉ có 2 tab: bản đồ + nội dung
   if (isGuest && !["ban-do", "map"].includes(tabKey)) tabKey = m.hasHtml ? "ban-do" : "map";
+  if (tabKey === "phong-choi") tabKey = m.hasHtml ? "ban-do" : "map"; // tab phòng chơi cũ đã gỡ
   const isMapHtmlTab = tabKey === "ban-do";
-  const isPlayTab = tabKey === "phong-choi" && !isGuest;
+  const isPlayTab = false;
   const st = SUBTABS.find((t) => t.key === tabKey) || SUBTABS[0];
   const allTabs = isGuest
     ? [{ key: "ban-do", label: "🧭 Bản đồ HTML" }, SUBTABS[0]]
-    : [{ key: "ban-do", label: "🧭 Bản đồ HTML" }, { key: "phong-choi", label: "🎭 Phòng chơi" }, ...SUBTABS];
+    : [{ key: "ban-do", label: "🧭 Bản đồ HTML" }, ...SUBTABS];
 
   $("#main").innerHTML = `
     <div class="map-view-head">
@@ -933,6 +934,7 @@ function renderMapView({ id, tab }) {
       </div>
       <div class="map-actions">
         <a class="btn gas-btn" id="mv-gas" target="_blank" rel="noopener">🌀 Mở Google AI Studio</a>
+        <button class="btn" id="btn-gas-split" title="Mở AI Studio ở nửa phải màn hình — biển giữ nửa trái để vừa chơi vừa tra map">⿻ Song song</button>
         ${isGuest
           ? `<button class="btn rec-btn" id="btn-fish"></button>
         <span class="rec-status" id="fish-visited"></span>`
@@ -950,6 +952,15 @@ function renderMapView({ id, tab }) {
   $("#btn-edit-map")?.addEventListener("click", () => openMapModal(id));
   $("#btn-rec")?.addEventListener("click", () => toggleRecommend(id));
   $("#btn-fish")?.addEventListener("click", () => toggleFishMark(id));
+  // chơi song song: AI Studio thật (đúng tài khoản + gói Pro) nửa phải, biển nửa trái
+  $("#btn-gas-split")?.addEventListener("click", () => {
+    const mm = findMap(id);
+    const url = normalizeUrl(mm?.gasLink) || DEFAULT_GAS;
+    const w = Math.floor(screen.availWidth / 2);
+    const h = screen.availHeight;
+    window.open(url, "gas-song-song", `width=${w},height=${h},left=${w},top=0`);
+    try { window.resizeTo(w, h); window.moveTo(0, 0); } catch { /* trình duyệt không cho thì thôi */ }
+  });
 
   if (isMapHtmlTab) {
     activeCmt = null; // tab bản đồ không có editor
