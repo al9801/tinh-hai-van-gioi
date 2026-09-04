@@ -999,6 +999,47 @@ function renderMapView({ id, tab }) {
   updateMapMeta({ id, tab });
 }
 
+// cập nhật phần "sống" của map view khi dữ liệu mới về (không đụng editor)
+function updateMapMeta({ id }) {
+  const m = findMap(id);
+  if (!m || !$("#mv-title")) return;
+  $("#mv-title").textContent = m.title || "(chưa đặt tên)";
+  $("#mv-world").textContent = m.world || "";
+  $("#mv-nsfw")?.classList.toggle("hidden", !m.nsfw);
+  $("#mv-wip")?.classList.toggle("hidden", !m.wip);
+  $("#mv-noh")?.classList.toggle("hidden", !m.noH);
+  $("#mv-gas").href = normalizeUrl(m.gasLink) || DEFAULT_GAS;
+
+  if (me.guest) {
+    const fm = m.fishMarks || {};
+    const mine = !!fm[me.email];
+    const fb = $("#btn-fish");
+    if (fb) {
+      fb.classList.toggle("rec-on", mine);
+      fb.innerHTML = mine ? `${me.icon} Đã đánh giá ✓` : `${me.icon} Đánh giá map này`;
+    }
+    const fishes = Object.keys(fm).map((em) => guestIdentity(em).icon).join(" ");
+    const fv = $("#fish-visited");
+    if (fv) fv.textContent = fishes ? `Cá đã đánh giá: ${fishes}` : "Chưa chú cá nào đánh giá map này.";
+    return;
+  }
+
+  const rec = m.recommends || {};
+  const mine = !!rec[me.email];
+  const btn = $("#btn-rec");
+  if (btn) {
+    btn.classList.toggle("rec-on", mine);
+    btn.innerHTML = mine ? `${me.icon} Đã tiến cử ✓` : `${me.icon} Tiến cử map này`;
+  }
+  const names = Object.entries(ACCOUNTS)
+    .filter(([em]) => rec[em])
+    .map(([, a]) => `${a.icon} ${a.name}`);
+  const rs = $("#rec-status");
+  if (rs) rs.textContent = names.length
+    ? "Đã tiến cử: " + names.join(" · ")
+    : "Chưa ai tiến cử map này.";
+}
+
 /* ── Khung file HTML gắn map: dùng chung cho Bản đồ (xem tại chỗ)
    và Hồ sơ (mở cửa sổ nổi — bấm ra ngoài / Esc để đóng) ──────── */
 let hsPopEl = null, hsPopKey = null;
@@ -1035,7 +1076,7 @@ async function renderHtmlFileTab(m, cfg) {
     <div class="htmlmap-bar">
       <span class="rec-status" id="hf-info">Đang lặn xuống lấy ${cfg.name}…</span>
       <span class="spacer"></span>
-      <button class="btn ${cfg.popup ? "gas-btn" : "btn-ghost"} hidden" id="hf-primary">${cfg.popup ? cfg.icon + " Mở " + cfg.name : "⛶ Toàn màn hình"}</button>
+      <button class="btn btn-ghost hidden" id="hf-primary">${cfg.popup ? "⛶ Cửa sổ nổi" : "⛶ Toàn màn hình"}</button>
       ${guest ? "" : `<label class="btn btn-gold" title="Chọn file ${cfg.name} .html (tự chứa, dưới 0.9MB)">⬆ Tải HTML lên
         <input type="file" id="hf-file" accept=".html,.htm,text/html" hidden>
       </label>
@@ -1051,17 +1092,8 @@ async function renderHtmlFileTab(m, cfg) {
 
   const paint = () => {
     if (curHtml) {
-      if (cfg.popup) {
-        body.innerHTML = `<button class="hs-teaser" id="hf-teaser">
-          <span class="hs-teaser-ic">${cfg.icon}</span>
-          <span class="hs-teaser-t">Mở ${cfg.name}</span>
-          <span class="hs-teaser-s">cửa sổ nổi tương tác — bấm ra ngoài hoặc Esc để đóng</span>
-        </button>`;
-        body.querySelector("#hf-teaser").addEventListener("click", () => openHtmlPopup(curHtml, Name));
-      } else {
-        body.innerHTML = `<iframe class="htmlmap-frame" sandbox="allow-scripts" title="${cfg.name} ${esc(m.title)}"></iframe>`;
-        body.querySelector("iframe").srcdoc = curHtml;
-      }
+      body.innerHTML = `<iframe class="htmlmap-frame" sandbox="allow-scripts" title="${cfg.name} ${esc(m.title)}"></iframe>`;
+      body.querySelector("iframe").srcdoc = curHtml;
       info.textContent = `${cfg.icon} ${Name} HTML · ${Math.round(curHtml.length / 1024)}KB`;
       btnPrimary.classList.remove("hidden");
       btnDel?.classList.remove("hidden");
@@ -1080,7 +1112,7 @@ async function renderHtmlFileTab(m, cfg) {
 
   btnPrimary.addEventListener("click", () => {
     if (!curHtml) return;
-    if (cfg.popup) openHtmlPopup(curHtml, Name);
+    if (cfg.popup) openHtmlPopup(curHtml, Name); // cửa sổ nổi — Esc / bấm ngoài để đóng
     else window.open(URL.createObjectURL(new Blob([curHtml], { type: "text/html" })), "_blank");
   });
 
