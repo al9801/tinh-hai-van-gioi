@@ -716,7 +716,6 @@ function route(soft = false) {
   }
   if (scrollKey) viewScroll[scrollKey] = window.scrollY; // chụp vị trí cuộn ngay lúc rời view
   hideCmtFab();            // nút 💧 Ghi chú không được lơ lửng theo sang trang khác
-  closeHtmlPopup();        // cửa sổ hồ sơ đang mở cũng đóng theo
   closeCmtPopover(true);   // đóng popover dở (gỡ bôi sáng chưa có lời) TRƯỚC khi chốt lưu
   flushEditor?.(); flushEditor = null;  // rồi mới lưu chữ đang gõ dở, không để mất
   mountedRoute = key;
@@ -1042,30 +1041,6 @@ function updateMapMeta({ id }) {
 
 /* ── Khung file HTML gắn map: dùng chung cho Bản đồ (xem tại chỗ)
    và Hồ sơ (mở cửa sổ nổi — bấm ra ngoài / Esc để đóng) ──────── */
-let hsPopEl = null, hsPopKey = null;
-function openHtmlPopup(html, title) {
-  closeHtmlPopup();
-  const el = document.createElement("div");
-  el.className = "hs-pop-backdrop";
-  el.innerHTML = `<div class="hs-pop-frame">
-    <button class="hs-pop-x" title="Đóng (Esc)">✕</button>
-    <iframe class="hs-pop-iframe" sandbox="allow-scripts" title="${esc(title)}"></iframe>
-  </div>`;
-  document.body.appendChild(el);
-  el.querySelector("iframe").srcdoc = html;
-  el.addEventListener("mousedown", (e) => { if (e.target === el) closeHtmlPopup(); }); // bấm nền tối là tắt
-  el.querySelector(".hs-pop-x").addEventListener("click", closeHtmlPopup);
-  hsPopKey = (e) => { if (e.key === "Escape") closeHtmlPopup(); };
-  document.addEventListener("keydown", hsPopKey);
-  hsPopEl = el;
-}
-function closeHtmlPopup() {
-  if (hsPopKey) document.removeEventListener("keydown", hsPopKey);
-  hsPopKey = null;
-  hsPopEl?.remove();
-  hsPopEl = null;
-}
-
 async function renderHtmlFileTab(m, cfg) {
   const slot = $("#editor-slot");
   const routeKey = mountedRoute;
@@ -1076,7 +1051,7 @@ async function renderHtmlFileTab(m, cfg) {
     <div class="htmlmap-bar">
       <span class="rec-status" id="hf-info">Đang lặn xuống lấy ${cfg.name}…</span>
       <span class="spacer"></span>
-      <button class="btn btn-ghost hidden" id="hf-primary">${cfg.popup ? "⛶ Cửa sổ nổi" : "⛶ Toàn màn hình"}</button>
+      <button class="btn btn-ghost hidden" id="hf-primary">⛶ Toàn màn hình</button>
       ${guest ? "" : `<label class="btn btn-gold" title="Chọn file ${cfg.name} .html (tự chứa, dưới 0.9MB)">⬆ Tải HTML lên
         <input type="file" id="hf-file" accept=".html,.htm,text/html" hidden>
       </label>
@@ -1112,8 +1087,7 @@ async function renderHtmlFileTab(m, cfg) {
 
   btnPrimary.addEventListener("click", () => {
     if (!curHtml) return;
-    if (cfg.popup) openHtmlPopup(curHtml, Name); // cửa sổ nổi — Esc / bấm ngoài để đóng
-    else window.open(URL.createObjectURL(new Blob([curHtml], { type: "text/html" })), "_blank");
+    window.open(URL.createObjectURL(new Blob([curHtml], { type: "text/html" })), "_blank");
   });
 
   slot.querySelector("#hf-file")?.addEventListener("change", async (e) => {
@@ -1522,7 +1496,6 @@ function mountPagedEditor(slot, opts) {
 // phím ← → lật trang — chỉ khi KHÔNG đang gõ trong ô nhập/trang giấy
 document.addEventListener("keydown", (e) => {
   if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
-  if (hsPopEl) return; // cửa sổ hồ sơ đang mở
   const el = document.activeElement;
   if (el && (el.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(el.tagName))) return;
   if (!$("#modal-map")?.classList.contains("hidden")) return; // đang mở modal thì thôi
