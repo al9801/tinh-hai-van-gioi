@@ -339,6 +339,7 @@ function firestoreStore() {
     async deleteMap(id) {
       await deleteDoc(doc(db, "maps", id));
       deleteDoc(doc(db, "mapfiles", id)).catch(() => {}); // dọn luôn file HTML nếu có
+      deleteDoc(doc(db, "mapfiles", `${id}__hoso`)).catch(() => {});
     },
     // file HTML của map lưu riêng 1 doc (mapfiles/{mapId}) để doc map chính không phình to
     getMapHtml: (id) => getDoc(doc(db, "mapfiles", id)).then((s) => (s.exists() ? s.data().html : null)),
@@ -426,18 +427,7 @@ function demoStore() {
       content: `<h2>Trấn Vực Sâm Lâm</h2><p>Rừng ranh giới ngăn giữa <mark class="cmt cmt-end" data-cid="demo-c1">cõi người và cõi mộng</mark>…</p>`,
       content_p1: "<h2>Trang hai — Bí sử</h2><p>Những điều chỉ kể khi trăng tròn…</p>",
       contentPages: 2, noH: true,
-      profiles: [
-        { tpl: "poster", kicker: "NGÕ CẨM ĐƯỜNG · TRẤN VỰC", title: "TÌM CHỦ", sub: "chó vàng to, không vòng cổ, tông người ở cửa siêu thị",
-          imgIid: "", imgCap: "",
-          rows: [["Giống", "Golden, 80cm chưa tính đuôi", false], ["Vòng cổ", "không có", false], ["Tính nết", "gầm người lạ, dính một người", false], ["Tên thật", "Đường Vĩ Kỳ, 26", true], ["Thân thiết", "45/100", false]],
-          tags: ["thú nhân", "đời thường hài", "không ai chết"],
-          quote: "Cả ngõ đọc tờ này rồi bảo nhau: chó lạc, gọi phường đi. Cả ngõ đều sai." },
-        { tpl: "glass", kicker: "HỒ SƠ CƯ DÂN", title: "Ôn Giang", sub: "chủ tiệm trà đầu ngõ, cười nhiều nói ít",
-          imgIid: "", imgCap: "",
-          rows: [["Tâm trạng", "bình thản một cách đáng ngờ", false], ["Ngoại hình", "áo cổ lọ, tay áo luôn sạch", false], ["Bí mật", "đừng hỏi về cái ô đỏ", true], ["Cảnh giác", "70/100", false]],
-          tags: ["thanh lịch", "ghen ngầm"],
-          quote: "Mình chỉ cần cậu ấy nhìn về phía này một lần…" },
-      ],
+      hasProfile: true,
       prompt: "<p>Bạn là <b>Thủ Mộc Nhân</b>, kẻ canh giữ cánh cổng…</p>",
       ideas: "",
       hasHtml: true,
@@ -476,6 +466,24 @@ function demoStore() {
   let stickerArr = [];
   let stickerCb = null;
   const htmlFiles = {
+    "demo-1__hoso": `<!doctype html><html><head><meta charset="utf-8"><style>
+body{margin:0;background:#2a251c;display:grid;place-items:center;min-height:100vh;font-family:'Be Vietnam Pro',-apple-system,sans-serif;padding:20px;box-sizing:border-box}
+.p{background:linear-gradient(168deg,#f7f0df,#e9e0cc);color:#4a3f31;max-width:430px;padding:28px;border-radius:4px;box-shadow:0 12px 34px rgba(0,0,0,.5);transform:rotate(-.6deg)}
+.k{letter-spacing:.3em;font-size:11px;color:#8a7962;text-align:center}
+h1{margin:6px 0 2px;text-align:center;font-size:34px;letter-spacing:.05em}
+.s{text-align:center;font-size:13px;color:#6b5d49;margin-bottom:12px}
+.r{display:flex;align-items:baseline;gap:8px;font-size:14px;margin:9px 0}
+.d{flex:1;border-bottom:2px dotted #cfc2a4;transform:translateY(-4px)}
+.v{font-weight:700}.a{color:#b5533c}
+.q{margin-top:14px;padding:10px 12px;background:rgba(224,174,134,.3);border-left:4px solid #b5533c;font-style:italic;font-size:13px}
+button{margin-top:14px;width:100%;padding:10px;border:1px dashed #8a7962;background:#efe7d6;border-radius:6px;cursor:pointer;font-family:inherit;font-size:13px}
+</style></head><body><div class="p"><div class="k">DEMO · HỒ SƠ THEME TỰ DO</div><h1>TÌM CHỦ</h1><div class="s">chó vàng to, không vòng cổ</div>
+<div class="r"><span>Giống</span><span class="d"></span><span class="v">Golden, 80cm chưa tính đuôi</span></div>
+<div class="r"><span>Tính nết</span><span class="d"></span><span class="v">gầm người lạ, dính một người</span></div>
+<div class="r"><span>Tên thật</span><span class="d"></span><span class="v a">Đường Vĩ Kỳ, 26</span></div>
+<div class="q">Cả ngõ đọc tờ này rồi bảo nhau: chó lạc, gọi phường đi. Cả ngõ đều sai.</div>
+<button onclick="this.textContent='🐾 gâu! (tương tác trong hồ sơ chạy ngon)'">bấm thử tương tác</button>
+</div></body></html>`,
     "demo-1": `<!doctype html><html><head><meta charset="utf-8"></head>
 <body style="margin:0;background:radial-gradient(700px 400px at 60% 20%,#12305c,#070d1e);color:#cfe6f5;font-family:Georgia,serif;display:grid;place-items:center;min-height:100vh;text-align:center">
 <div><div style="font-size:3rem">🗺️</div><h1 style="letter-spacing:.1em">BẢN ĐỒ DEMO</h1>
@@ -708,6 +716,7 @@ function route(soft = false) {
   }
   if (scrollKey) viewScroll[scrollKey] = window.scrollY; // chụp vị trí cuộn ngay lúc rời view
   hideCmtFab();            // nút 💧 Ghi chú không được lơ lửng theo sang trang khác
+  closeHtmlPopup();        // cửa sổ hồ sơ đang mở cũng đóng theo
   closeCmtPopover(true);   // đóng popover dở (gỡ bôi sáng chưa có lời) TRƯỚC khi chốt lưu
   flushEditor?.(); flushEditor = null;  // rồi mới lưu chữ đang gõ dở, không để mất
   mountedRoute = key;
@@ -990,210 +999,92 @@ function renderMapView({ id, tab }) {
   updateMapMeta({ id, tab });
 }
 
-/* ── 🎭 HỒ SƠ NHÂN VẬT: khung linh động theo thế giới ─── */
-// profile = { tpl: 'poster'|'glass', kicker, title, sub, imgIid, imgCap, rows:[[k,v,accent]], tags:[], quote }
-let charModalCtx = null;   // { mapId, idx } đang sửa trong modal
-let refreshProfiles = null;
-
-function profileBarOrText(v, accent) {
-  const mBar = /^(\d{1,3})\s*\/\s*100$/.exec(v.trim());
-  if (mBar) {
-    const n = Math.min(100, +mBar[1]);
-    return `<span class="hs-bar"><span class="hs-bar-track"><span class="hs-bar-fill" data-w="${n}"></span></span><span class="hs-bar-num">${n}</span></span>`;
-  }
-  return `<span class="hs-v${accent ? " accent" : ""}">${esc(v)}</span>`;
+/* ── Khung file HTML gắn map: dùng chung cho Bản đồ (xem tại chỗ)
+   và Hồ sơ (mở cửa sổ nổi — bấm ra ngoài / Esc để đóng) ──────── */
+let hsPopEl = null, hsPopKey = null;
+function openHtmlPopup(html, title) {
+  closeHtmlPopup();
+  const el = document.createElement("div");
+  el.className = "hs-pop-backdrop";
+  el.innerHTML = `<div class="hs-pop-frame">
+    <button class="hs-pop-x" title="Đóng (Esc)">✕</button>
+    <iframe class="hs-pop-iframe" sandbox="allow-scripts" title="${esc(title)}"></iframe>
+  </div>`;
+  document.body.appendChild(el);
+  el.querySelector("iframe").srcdoc = html;
+  el.addEventListener("mousedown", (e) => { if (e.target === el) closeHtmlPopup(); }); // bấm nền tối là tắt
+  el.querySelector(".hs-pop-x").addEventListener("click", closeHtmlPopup);
+  hsPopKey = (e) => { if (e.key === "Escape") closeHtmlPopup(); };
+  document.addEventListener("keydown", hsPopKey);
+  hsPopEl = el;
+}
+function closeHtmlPopup() {
+  if (hsPopKey) document.removeEventListener("keydown", hsPopKey);
+  hsPopKey = null;
+  hsPopEl?.remove();
+  hsPopEl = null;
 }
 
-function profileCardHtml(p, idx, canEdit) {
-  const rows = (p.rows || []).map(([k, v, acc]) => `
-    <div class="hs-row"><span class="hs-k">${esc(k)}</span><span class="hs-dots"></span>${profileBarOrText(v, acc)}</div>`).join("");
-  const tags = (p.tags || []).length
-    ? `<div class="hs-tags">${p.tags.map((t) => `<span class="hs-tag">${esc(t)}</span>`).join("")}</div>` : "";
-  const quote = p.quote ? `<div class="hs-quote">${esc(p.quote)}</div>` : "";
-  const img = p.imgIid ? `
-    <div class="hs-imgbox"><img class="hs-img" data-iid="${esc(p.imgIid)}" alt="">
-    ${p.imgCap ? `<div class="hs-imgcap">${esc(p.imgCap)}</div>` : ""}</div>` : "";
-  const edit = canEdit ? `<button class="btn-icon hs-edit" data-idx="${idx}" title="Sửa hồ sơ này">✎</button>` : "";
-  return `
-    <div class="hs-card hs-${p.tpl === "glass" ? "glass" : "poster"}">
-      ${edit}
-      ${p.kicker ? `<div class="hs-kicker">${esc(p.kicker)}</div>` : ""}
-      <div class="hs-title">${esc(p.title || "")}</div>
-      ${p.sub ? `<div class="hs-sub">${esc(p.sub)}</div>` : ""}
-      <div class="hs-rule"></div>
-      ${img}
-      ${rows ? `<div class="hs-rows">${rows}</div>` : ""}
-      ${tags}
-      ${quote}
-    </div>`;
-}
-
-function renderProfileTab(m) {
-  const slot = $("#editor-slot");
-  const canEdit = !me.guest;
-  const draw = () => {
-    const mm = findMap(m.id);
-    if (!mm || !slot.isConnected) return;
-    const profiles = mm.profiles || [];
-    slot.innerHTML = `
-      <div class="hs-wall" id="hs-wall">
-        ${profiles.map((p, i) => profileCardHtml(p, i, canEdit)).join("")}
-        ${!profiles.length ? `<p class="empty-state">Chưa có hồ sơ nào được dán lên tường thế giới này.</p>` : ""}
-        ${canEdit ? `<button class="btn btn-gold hs-add" id="btn-add-char">＋ Dán hồ sơ mới</button>` : ""}
-      </div>`;
-    hydrateImages(slot); // ảnh hồ sơ lưu kho images/
-    // thanh chỉ số chạy từ 0 tới mức thật
-    requestAnimationFrame(() => requestAnimationFrame(() => {
-      slot.querySelectorAll(".hs-bar-fill").forEach((f) => { f.style.width = f.dataset.w + "%"; });
-    }));
-    // click ảnh phóng to / thu lại
-    slot.querySelectorAll(".hs-imgbox").forEach((b) =>
-      b.addEventListener("click", () => b.classList.toggle("zoom")));
-    slot.querySelector("#btn-add-char")?.addEventListener("click", () => openCharModal(m.id, null));
-    slot.querySelectorAll(".hs-edit").forEach((b) =>
-      b.addEventListener("click", () => openCharModal(m.id, +b.dataset.idx)));
-  };
-  refreshProfiles = draw;
-  draw();
-}
-
-function openCharModal(mapId, idx) {
-  const mm = findMap(mapId);
-  const p = idx !== null ? (mm?.profiles || [])[idx] : null;
-  charModalCtx = { mapId, idx, keepImg: p?.imgIid || "" };
-  $("#modal-char-title").textContent = p ? "Sửa hồ sơ" : "Dán hồ sơ mới";
-  $("#inp-ch-tpl").value = p?.tpl || "poster";
-  $("#inp-ch-kicker").value = p?.kicker || "";
-  $("#inp-ch-title").value = p?.title || "";
-  $("#inp-ch-sub").value = p?.sub || "";
-  $("#inp-ch-img").value = "";
-  $("#inp-ch-imgcap").value = p?.imgCap || "";
-  $("#inp-ch-rows").value = (p?.rows || []).map(([k, v, a]) => `${k}: ${a ? "*" : ""}${v}`).join("\n");
-  $("#inp-ch-tags").value = (p?.tags || []).join(", ");
-  $("#inp-ch-quote").value = p?.quote || "";
-  $("#btn-ch-delete").classList.toggle("hidden", !p);
-  $("#modal-char").classList.remove("hidden");
-  setTimeout(() => $("#inp-ch-title").focus(), 60);
-}
-function closeCharModal() { $("#modal-char").classList.add("hidden"); charModalCtx = null; }
-
-$("#btn-ch-cancel")?.addEventListener("click", closeCharModal);
-$("#modal-char")?.addEventListener("click", (e) => { if (e.target.id === "modal-char") closeCharModal(); });
-
-$("#btn-ch-save")?.addEventListener("click", async (e) => {
-  const btn = e.currentTarget;
-  if (btn.disabled || !charModalCtx) return;
-  const title = $("#inp-ch-title").value.trim();
-  if (!title) { toast("Hồ sơ cần một tiêu đề.", true); return; }
-  btn.disabled = true;
-  btn.textContent = "Đang lưu…";
-  try {
-    const { mapId, idx } = charModalCtx;
-    // ảnh: chọn mới thì nén + đẩy vào kho, không thì giữ ảnh cũ
-    let imgIid = charModalCtx.keepImg || "";
-    const f = $("#inp-ch-img").files[0];
-    if (f && f.type.startsWith("image/")) {
-      const data = await shrinkImage(f, 800, 220_000);
-      imgIid = "i" + Math.random().toString(36).slice(2, 10);
-      await store.saveImage(imgIid, data);
-      imgCache[imgIid] = data;
-    }
-    const rows = $("#inp-ch-rows").value.split("\n").map((ln) => {
-      const i2 = ln.indexOf(":");
-      if (i2 < 1) return null;
-      let v = ln.slice(i2 + 1).trim();
-      const acc = v.startsWith("*");
-      if (acc) v = v.slice(1).trim();
-      return [ln.slice(0, i2).trim(), v, acc];
-    }).filter((r) => r && r[0] && r[1]);
-    const prof = {
-      tpl: $("#inp-ch-tpl").value,
-      kicker: $("#inp-ch-kicker").value.trim(),
-      title,
-      sub: $("#inp-ch-sub").value.trim(),
-      imgIid,
-      imgCap: $("#inp-ch-imgcap").value.trim(),
-      rows,
-      tags: $("#inp-ch-tags").value.split(",").map((t) => t.trim()).filter(Boolean),
-      quote: $("#inp-ch-quote").value.trim(),
-    };
-    const mm = findMap(mapId);
-    const profiles = [...(mm?.profiles || [])];
-    if (idx !== null) profiles[idx] = prof; else profiles.push(prof);
-    await store.updateMap(mapId, { profiles });
-    if (mm) mm.profiles = profiles; // cập nhật tại chỗ, không chờ snapshot
-    closeCharModal();
-    refreshProfiles?.();
-    toast("🎭 Hồ sơ đã dán lên tường.");
-  } catch (err) { toast("Không lưu được hồ sơ: " + err.message, true); }
-  finally { btn.disabled = false; btn.textContent = "Lưu"; }
-});
-
-$("#btn-ch-delete")?.addEventListener("click", async () => {
-  if (!charModalCtx || charModalCtx.idx === null) return;
-  if (!confirm("Xé hồ sơ này khỏi tường? Không lấy lại được.")) return;
-  const { mapId, idx } = charModalCtx;
-  const mm = findMap(mapId);
-  const profiles = [...(mm?.profiles || [])];
-  profiles.splice(idx, 1);
-  try {
-    await store.updateMap(mapId, { profiles });
-    if (mm) mm.profiles = profiles;
-    closeCharModal();
-    refreshProfiles?.();
-    toast("Hồ sơ đã bị gió biển cuốn đi.");
-  } catch (err) { toast("Không xoá được: " + err.message, true); }
-});
-
-/* ── Tab Bản đồ HTML: upload / xem / gỡ file map .html ── */
-async function renderMapHtmlTab(m) {
+async function renderHtmlFileTab(m, cfg) {
   const slot = $("#editor-slot");
   const routeKey = mountedRoute;
+  const guest = !!me.guest;
   let curHtml = null;
 
-  const guest = !!me.guest;
   slot.innerHTML = `
     <div class="htmlmap-bar">
-      <span class="rec-status" id="htmlmap-info">Đang lặn xuống lấy bản đồ…</span>
+      <span class="rec-status" id="hf-info">Đang lặn xuống lấy ${cfg.name}…</span>
       <span class="spacer"></span>
-      <button class="btn btn-ghost hidden" id="btn-map-full">⛶ Toàn màn hình</button>
-      ${guest ? "" : `<label class="btn btn-gold" title="Chọn file map .html (tự chứa, dưới 0.9MB)">⬆ Tải HTML lên
-        <input type="file" id="inp-maphtml" accept=".html,.htm,text/html" hidden>
+      <button class="btn ${cfg.popup ? "gas-btn" : "btn-ghost"} hidden" id="hf-primary">${cfg.popup ? cfg.icon + " Mở " + cfg.name : "⛶ Toàn màn hình"}</button>
+      ${guest ? "" : `<label class="btn btn-gold" title="Chọn file ${cfg.name} .html (tự chứa, dưới 0.9MB)">⬆ Tải HTML lên
+        <input type="file" id="hf-file" accept=".html,.htm,text/html" hidden>
       </label>
-      <button class="btn btn-danger-ghost hidden" id="btn-maphtml-del">Gỡ bản đồ…</button>`}
+      <button class="btn btn-danger-ghost hidden" id="hf-del">Gỡ ${cfg.name}…</button>`}
     </div>
-    <div id="htmlmap-body"></div>`;
+    <div id="hf-body"></div>`;
 
-  const info = slot.querySelector("#htmlmap-info");
-  const body = slot.querySelector("#htmlmap-body");
-  const btnFull = slot.querySelector("#btn-map-full");
-  const btnDel = slot.querySelector("#btn-maphtml-del");
+  const info = slot.querySelector("#hf-info");
+  const body = slot.querySelector("#hf-body");
+  const btnPrimary = slot.querySelector("#hf-primary");
+  const btnDel = slot.querySelector("#hf-del");
+  const Name = cfg.name[0].toUpperCase() + cfg.name.slice(1);
 
   const paint = () => {
     if (curHtml) {
-      body.innerHTML = `<iframe class="htmlmap-frame" sandbox="allow-scripts" title="Bản đồ ${esc(m.title)}"></iframe>`;
-      body.querySelector("iframe").srcdoc = curHtml;
-      info.textContent = `Bản đồ HTML · ${Math.round(curHtml.length / 1024)}KB`;
-      btnFull.classList.remove("hidden");
+      if (cfg.popup) {
+        body.innerHTML = `<button class="hs-teaser" id="hf-teaser">
+          <span class="hs-teaser-ic">${cfg.icon}</span>
+          <span class="hs-teaser-t">Mở ${cfg.name}</span>
+          <span class="hs-teaser-s">cửa sổ nổi tương tác — bấm ra ngoài hoặc Esc để đóng</span>
+        </button>`;
+        body.querySelector("#hf-teaser").addEventListener("click", () => openHtmlPopup(curHtml, Name));
+      } else {
+        body.innerHTML = `<iframe class="htmlmap-frame" sandbox="allow-scripts" title="${cfg.name} ${esc(m.title)}"></iframe>`;
+        body.querySelector("iframe").srcdoc = curHtml;
+      }
+      info.textContent = `${cfg.icon} ${Name} HTML · ${Math.round(curHtml.length / 1024)}KB`;
+      btnPrimary.classList.remove("hidden");
       btnDel?.classList.remove("hidden");
     } else {
-      body.innerHTML = `
-        <div class="htmlmap-empty">
-          <div style="font-size:2.2rem">🧭</div>
-          <p>Cánh cổng này chưa có bản đồ HTML.<br>Bấm <b>⬆ Tải HTML lên</b> để thả file map tương tác của bạn xuống biển.</p>
-        </div>`;
-      info.textContent = "Chưa có bản đồ.";
-      btnFull.classList.add("hidden");
+      body.innerHTML = `<div class="htmlmap-empty"><div style="font-size:2.2rem">${cfg.icon}</div><p>${cfg.emptyText}</p></div>`;
+      info.textContent = `Chưa có ${cfg.name}.`;
+      btnPrimary.classList.add("hidden");
       btnDel?.classList.add("hidden");
     }
   };
 
-  try { curHtml = await store.getMapHtml(m.id); }
-  catch (e) { info.textContent = "Không tải được bản đồ: " + e.message; return; }
+  try { curHtml = await store.getMapHtml(cfg.fileId); }
+  catch (e) { info.textContent = `Không tải được ${cfg.name}: ` + e.message; return; }
   if (mountedRoute !== routeKey) return; // người dùng đã rời tab trong lúc chờ
   paint();
 
-  slot.querySelector("#inp-maphtml")?.addEventListener("change", async (e) => {
+  btnPrimary.addEventListener("click", () => {
+    if (!curHtml) return;
+    if (cfg.popup) openHtmlPopup(curHtml, Name);
+    else window.open(URL.createObjectURL(new Blob([curHtml], { type: "text/html" })), "_blank");
+  });
+
+  slot.querySelector("#hf-file")?.addEventListener("change", async (e) => {
     const f = e.target.files[0];
     e.target.value = "";
     if (!f) return;
@@ -1201,104 +1092,47 @@ async function renderMapHtmlTab(m) {
       toast("Hãy chọn một file .html.", true); return;
     }
     const text = await f.text();
-    if (text.length > 900_000) {
-      toast(`File nặng ${Math.round(text.length / 1024)}KB — vượt giới hạn ~0.9MB/bản đồ của Firestore. Hãy nén bớt (bỏ ảnh nhúng nặng) rồi thử lại.`, true);
+    if (new TextEncoder().encode(text).length > 900_000) {
+      toast("File nặng quá — vượt giới hạn ~0.9MB. Nén bớt (bỏ ảnh nhúng nặng) rồi thử lại.", true);
       return;
     }
     try {
-      info.textContent = "Đang thả bản đồ xuống biển…";
-      await store.saveMapHtml(m.id, text);
-      await store.updateMap(m.id, { hasHtml: true });
+      info.textContent = `Đang thả ${cfg.name} xuống biển…`;
+      await store.saveMapHtml(cfg.fileId, text);
+      await store.updateMap(m.id, { [cfg.flag]: true });
+      const mm = findMap(m.id); if (mm) mm[cfg.flag] = true;
       curHtml = text;
       paint();
-      toast("🧭 Bản đồ đã neo vào cánh cổng.");
-    } catch (err) { toast("Không lưu được bản đồ: " + err.message, true); }
-  });
-
-  btnFull.addEventListener("click", () => {
-    if (!curHtml) return;
-    const url = URL.createObjectURL(new Blob([curHtml], { type: "text/html" }));
-    window.open(url, "_blank");
+      toast(`${cfg.icon} ${Name} đã neo vào cánh cổng.`);
+    } catch (err) { toast(`Không lưu được ${cfg.name}: ` + err.message, true); }
   });
 
   btnDel?.addEventListener("click", async () => {
-    if (!confirm("Gỡ bản đồ HTML khỏi cánh cổng này? (File gốc trên máy bạn không bị ảnh hưởng)")) return;
+    if (!confirm(`Gỡ ${cfg.name} khỏi cánh cổng này? (File gốc trên máy bạn không bị ảnh hưởng)`)) return;
     try {
-      await store.deleteMapHtml(m.id);
-      await store.updateMap(m.id, { hasHtml: false });
+      await store.deleteMapHtml(cfg.fileId);
+      await store.updateMap(m.id, { [cfg.flag]: false });
+      const mm = findMap(m.id); if (mm) mm[cfg.flag] = false;
       curHtml = null;
       paint();
-      toast("Bản đồ đã được kéo lên khỏi biển.");
+      toast(`${Name} đã được kéo lên khỏi biển.`);
     } catch (err) { toast("Không gỡ được: " + err.message, true); }
   });
 }
 
-// cập nhật phần "sống" của map view khi dữ liệu mới về (không đụng editor)
-function updateMapMeta({ id }) {
-  const m = findMap(id);
-  if (!m || !$("#mv-title")) return;
-  $("#mv-title").textContent = m.title || "(chưa đặt tên)";
-  $("#mv-world").textContent = m.world || "";
-  $("#mv-nsfw")?.classList.toggle("hidden", !m.nsfw);
-  $("#mv-wip")?.classList.toggle("hidden", !m.wip);
-  $("#mv-noh")?.classList.toggle("hidden", !m.noH);
-  $("#mv-gas").href = normalizeUrl(m.gasLink) || DEFAULT_GAS;
-
-  if (me.guest) {
-    const fm = m.fishMarks || {};
-    const mine = !!fm[me.email];
-    const fb = $("#btn-fish");
-    if (fb) {
-      fb.classList.toggle("rec-on", mine);
-      fb.innerHTML = mine ? `${me.icon} Đã đánh giá ✓` : `${me.icon} Đánh giá map này`;
-    }
-    const fishes = Object.keys(fm).map((em) => guestIdentity(em).icon).join(" ");
-    const fv = $("#fish-visited");
-    if (fv) fv.textContent = fishes ? `Cá đã đánh giá: ${fishes}` : "Chưa chú cá nào đánh giá map này.";
-    return;
-  }
-
-  const rec = m.recommends || {};
-  const mine = !!rec[me.email];
-  const btn = $("#btn-rec");
-  if (btn) {
-    btn.classList.toggle("rec-on", mine);
-    btn.innerHTML = mine ? `${me.icon} Đã tiến cử ✓` : `${me.icon} Tiến cử map này`;
-  }
-  const names = Object.entries(ACCOUNTS)
-    .filter(([em]) => rec[em])
-    .map(([, a]) => `${a.icon} ${a.name}`);
-  const rs = $("#rec-status");
-  if (rs) rs.textContent = names.length
-    ? "Đã tiến cử: " + names.join(" · ")
-    : "Chưa ai tiến cử map này.";
+function renderMapHtmlTab(m) {
+  renderHtmlFileTab(m, {
+    fileId: m.id, flag: "hasHtml", name: "bản đồ", icon: "🧭", popup: false,
+    emptyText: "Cánh cổng này chưa có bản đồ HTML.<br>Bấm <b>⬆ Tải HTML lên</b> để thả file map tương tác của bạn xuống biển.",
+  });
 }
 
-// cá đánh giá map → dấu cá đậu mép dưới thẻ (chủ động, không phải cứ ghé là dính)
-async function toggleFishMark(id) {
-  const m = findMap(id);
-  if (!m) return;
-  const fm = { ...(m.fishMarks || {}) };
-  const turningOn = !fm[me.email];
-  if (turningOn) fm[me.email] = true;
-  else delete fm[me.email];
-  try {
-    await store.setFishMarks(id, fm);
-    toast(turningOn ? `${me.icon} Dấu cá của bạn đã đậu dưới cánh cổng.` : "Đã rút dấu cá về.");
-  } catch (e) { toast("Không lưu được đánh giá: " + e.message, true); }
-}
-
-async function toggleRecommend(id) {
-  const m = findMap(id);
-  if (!m) return;
-  const rec = { ...(m.recommends || {}) };
-  const turningOn = !rec[me.email];
-  if (turningOn) rec[me.email] = true;
-  else delete rec[me.email];
-  try {
-    await store.setRecommends(id, rec);
-    toast(turningOn ? `${me.icon} Linh thú của bạn đã đậu lên cánh cổng` : "Đã rút lại tiến cử");
-  } catch (e) { toast("Không lưu được tiến cử: " + e.message, true); }
+// 🎭 Hồ sơ: file HTML theme tự do theo từng thế giới (nhờ Claude thiết kế → tải lên)
+function renderProfileTab(m) {
+  renderHtmlFileTab(m, {
+    fileId: `${m.id}__hoso`, flag: "hasProfile", name: "hồ sơ", icon: "🎭", popup: true,
+    emptyText: "Thế giới này chưa có hồ sơ nhân vật.<br>Nhờ Claude thiết kế file hồ sơ .html theo theme thế giới rồi bấm <b>⬆ Tải HTML lên</b>.",
+  });
 }
 
 /* ── Modal tạo / sửa map ──────────────────────────────── */
@@ -1656,6 +1490,7 @@ function mountPagedEditor(slot, opts) {
 // phím ← → lật trang — chỉ khi KHÔNG đang gõ trong ô nhập/trang giấy
 document.addEventListener("keydown", (e) => {
   if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+  if (hsPopEl) return; // cửa sổ hồ sơ đang mở
   const el = document.activeElement;
   if (el && (el.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(el.tagName))) return;
   if (!$("#modal-map")?.classList.contains("hidden")) return; // đang mở modal thì thôi
