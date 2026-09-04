@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=38">
+<link rel="stylesheet" href="styles.css?v=39">
 </head>
 <body>
 
@@ -131,7 +131,7 @@
 
   <footer class="app-footer">
     <span>「 Mỗi cánh cổng là một thế giới — mỗi thế giới là một vì sao chưa tắt 」</span>
-    <span class="app-version">v38</span>
+    <span class="app-version">v39</span>
   </footer>
 
   <!-- ══════════ TRUYỀN ÂM: popchat giữa hai kẻ giữ biển ══════════ -->
@@ -200,9 +200,61 @@
   </div>
 </div>
 
+<!-- ══════════ MODAL: hồ sơ nhân vật (linh động theo thế giới) ══════════ -->
+<div id="modal-char" class="modal-backdrop hidden">
+  <div class="modal" style="max-height:88vh; overflow-y:auto;">
+    <h2 id="modal-char-title" class="modal-title">Thêm hồ sơ</h2>
+    <label class="field">
+      <span class="field-label">Kiểu khung</span>
+      <select id="inp-ch-tpl" class="sort-sel" style="width:100%; border-radius:9px;">
+        <option value="poster">🗞 Tờ dán góc phố — giấy kem, băng keo, dòng kẻ chấm</option>
+        <option value="glass">🍵 Thẻ kính chiều muộn — glass ấm, pill tên</option>
+      </select>
+    </label>
+    <label class="field">
+      <span class="field-label">Dòng mào đầu (nhỏ, chữ cách quãng)</span>
+      <input id="inp-ch-kicker" type="text" maxlength="80" placeholder="VD: NGÕ CẨM ĐƯỜNG · ÔN GIANG">
+    </label>
+    <label class="field">
+      <span class="field-label">Tiêu đề lớn <em>*</em></span>
+      <input id="inp-ch-title" type="text" maxlength="80" placeholder="VD: TÌM CHỦ — hoặc tên nhân vật">
+    </label>
+    <label class="field">
+      <span class="field-label">Dòng phụ đề</span>
+      <input id="inp-ch-sub" type="text" maxlength="160" placeholder="VD: chó vàng to, không vòng cổ, tông người ở cửa siêu thị">
+    </label>
+    <label class="field">
+      <span class="field-label">Ảnh (tuỳ chọn) + chú thích</span>
+      <input id="inp-ch-img" type="file" accept="image/*" style="padding:8px;">
+      <input id="inp-ch-imgcap" type="text" maxlength="120" placeholder="VD: ảnh chụp vội, mờ, chỉ thấy một mảng lông vàng" style="margin-top:8px;">
+    </label>
+    <label class="field">
+      <span class="field-label">Các trường — mỗi dòng "Nhãn: giá trị" · thêm * trước giá trị để tô nổi · "45/100" thành thanh chỉ số</span>
+      <textarea id="inp-ch-rows" rows="6" style="width:100%; background:rgba(0,0,0,0.3); border:1px solid var(--line-strong); border-radius:9px; padding:10px 13px; color:var(--ink); font-family:var(--font-body); font-size:0.9rem; outline:none; resize:vertical;" placeholder="Giống: Golden, 80cm chưa tính đuôi
+Vòng cổ: không có
+Tên thật: *Đường Vĩ Kỳ, 26
+Thân thiết: 45/100"></textarea>
+    </label>
+    <label class="field">
+      <span class="field-label">Tags (phẩy ngăn cách)</span>
+      <input id="inp-ch-tags" type="text" maxlength="200" placeholder="VD: thú nhân, đời thường hài, không ai chết">
+    </label>
+    <label class="field">
+      <span class="field-label">Khối trích dẫn (in nghiêng, viền màu)</span>
+      <input id="inp-ch-quote" type="text" maxlength="300" placeholder="VD: Cả ngõ đọc tờ này rồi bảo nhau: chó lạc, gọi phường đi…">
+    </label>
+    <div class="modal-actions">
+      <button id="btn-ch-delete" class="btn btn-danger-ghost hidden">Xoá hồ sơ…</button>
+      <span class="spacer"></span>
+      <button id="btn-ch-cancel" class="btn btn-ghost">Thôi</button>
+      <button id="btn-ch-save" class="btn btn-gold">Lưu</button>
+    </div>
+  </div>
+</div>
+
 <div id="toast" class="toast hidden"></div>
 
-<script src="firebase-config.js?v=38"></script>
-<script type="module" src="app.js?v=38"></script>
+<script src="firebase-config.js?v=39"></script>
+<script type="module" src="app.js?v=39"></script>
 </body>
 </html>

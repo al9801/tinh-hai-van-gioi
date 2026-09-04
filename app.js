@@ -426,6 +426,18 @@ function demoStore() {
       content: `<h2>Trấn Vực Sâm Lâm</h2><p>Rừng ranh giới ngăn giữa <mark class="cmt cmt-end" data-cid="demo-c1">cõi người và cõi mộng</mark>…</p>`,
       content_p1: "<h2>Trang hai — Bí sử</h2><p>Những điều chỉ kể khi trăng tròn…</p>",
       contentPages: 2, noH: true,
+      profiles: [
+        { tpl: "poster", kicker: "NGÕ CẨM ĐƯỜNG · TRẤN VỰC", title: "TÌM CHỦ", sub: "chó vàng to, không vòng cổ, tông người ở cửa siêu thị",
+          imgIid: "", imgCap: "",
+          rows: [["Giống", "Golden, 80cm chưa tính đuôi", false], ["Vòng cổ", "không có", false], ["Tính nết", "gầm người lạ, dính một người", false], ["Tên thật", "Đường Vĩ Kỳ, 26", true], ["Thân thiết", "45/100", false]],
+          tags: ["thú nhân", "đời thường hài", "không ai chết"],
+          quote: "Cả ngõ đọc tờ này rồi bảo nhau: chó lạc, gọi phường đi. Cả ngõ đều sai." },
+        { tpl: "glass", kicker: "HỒ SƠ CƯ DÂN", title: "Ôn Giang", sub: "chủ tiệm trà đầu ngõ, cười nhiều nói ít",
+          imgIid: "", imgCap: "",
+          rows: [["Tâm trạng", "bình thản một cách đáng ngờ", false], ["Ngoại hình", "áo cổ lọ, tay áo luôn sạch", false], ["Bí mật", "đừng hỏi về cái ô đỏ", true], ["Cảnh giác", "70/100", false]],
+          tags: ["thanh lịch", "ghen ngầm"],
+          quote: "Mình chỉ cần cậu ấy nhìn về phía này một lần…" },
+      ],
       prompt: "<p>Bạn là <b>Thủ Mộc Nhân</b>, kẻ canh giữ cánh cổng…</p>",
       ideas: "",
       hasHtml: true,
@@ -896,14 +908,15 @@ function renderMapView({ id, tab }) {
   let tabKey = resolveMapTab(id, tab);
   if (tab && !me.guest) rememberTab(id, tab); // người dùng chủ động chọn tab → ghi nhớ cho lần sau
   const isGuest = !!me.guest;
-  // cá ghé thăm chỉ có 2 tab: bản đồ + nội dung
-  if (isGuest && !["ban-do", "map"].includes(tabKey)) tabKey = m.hasHtml ? "ban-do" : "map";
+  // cá ghé thăm: bản đồ + nội dung + hồ sơ
+  if (isGuest && !["ban-do", "map", "ho-so"].includes(tabKey)) tabKey = m.hasHtml ? "ban-do" : "map";
   if (tabKey === "phong-choi") tabKey = m.hasHtml ? "ban-do" : "map"; // tab phòng chơi cũ đã gỡ
   const isMapHtmlTab = tabKey === "ban-do";
+  const isProfileTab = tabKey === "ho-so";
   const st = SUBTABS.find((t) => t.key === tabKey) || SUBTABS[0];
   const allTabs = isGuest
-    ? [{ key: "ban-do", label: "🧭 Bản đồ HTML" }, SUBTABS[0]]
-    : [{ key: "ban-do", label: "🧭 Bản đồ HTML" }, ...SUBTABS];
+    ? [{ key: "ban-do", label: "🧭 Bản đồ HTML" }, SUBTABS[0], { key: "ho-so", label: "🎭 Hồ sơ" }]
+    : [{ key: "ban-do", label: "🧭 Bản đồ HTML" }, ...SUBTABS, { key: "ho-so", label: "🎭 Hồ sơ" }];
 
   $("#main").innerHTML = `
     <div class="map-view-head">
@@ -928,7 +941,7 @@ function renderMapView({ id, tab }) {
       </div>
     </div>
     <div class="subtabs">
-      ${allTabs.map((t) => `<button class="subtab ${t.key === (isMapHtmlTab ? "ban-do" : st.key) ? "active" : ""}" data-tab="${t.key}">${t.label}</button>`).join("")}
+      ${allTabs.map((t) => `<button class="subtab ${t.key === (isMapHtmlTab ? "ban-do" : (isProfileTab ? "ho-so" : st.key)) ? "active" : ""}" data-tab="${t.key}">${t.label}</button>`).join("")}
     </div>
     <div class="editor-wrap" id="editor-slot"></div>`;
 
@@ -941,6 +954,10 @@ function renderMapView({ id, tab }) {
   if (isMapHtmlTab) {
     activeCmt = null; // tab bản đồ không có editor
     renderMapHtmlTab(m);
+  } else if (isProfileTab) {
+    activeCmt = null;
+    flushEditor = null;
+    renderProfileTab(m);
   } else if (st.key === "map") {
     // tab Nội dung Map là "cuốn sổ" nhiều trang (giữ nguyên các trang khi nháp đẩy ra biển)
     mountPagedEditor($("#editor-slot"), {
@@ -972,6 +989,161 @@ function renderMapView({ id, tab }) {
   }
   updateMapMeta({ id, tab });
 }
+
+/* ── 🎭 HỒ SƠ NHÂN VẬT: khung linh động theo thế giới ─── */
+// profile = { tpl: 'poster'|'glass', kicker, title, sub, imgIid, imgCap, rows:[[k,v,accent]], tags:[], quote }
+let charModalCtx = null;   // { mapId, idx } đang sửa trong modal
+let refreshProfiles = null;
+
+function profileBarOrText(v, accent) {
+  const mBar = /^(\d{1,3})\s*\/\s*100$/.exec(v.trim());
+  if (mBar) {
+    const n = Math.min(100, +mBar[1]);
+    return `<span class="hs-bar"><span class="hs-bar-track"><span class="hs-bar-fill" data-w="${n}"></span></span><span class="hs-bar-num">${n}</span></span>`;
+  }
+  return `<span class="hs-v${accent ? " accent" : ""}">${esc(v)}</span>`;
+}
+
+function profileCardHtml(p, idx, canEdit) {
+  const rows = (p.rows || []).map(([k, v, acc]) => `
+    <div class="hs-row"><span class="hs-k">${esc(k)}</span><span class="hs-dots"></span>${profileBarOrText(v, acc)}</div>`).join("");
+  const tags = (p.tags || []).length
+    ? `<div class="hs-tags">${p.tags.map((t) => `<span class="hs-tag">${esc(t)}</span>`).join("")}</div>` : "";
+  const quote = p.quote ? `<div class="hs-quote">${esc(p.quote)}</div>` : "";
+  const img = p.imgIid ? `
+    <div class="hs-imgbox"><img class="hs-img" data-iid="${esc(p.imgIid)}" alt="">
+    ${p.imgCap ? `<div class="hs-imgcap">${esc(p.imgCap)}</div>` : ""}</div>` : "";
+  const edit = canEdit ? `<button class="btn-icon hs-edit" data-idx="${idx}" title="Sửa hồ sơ này">✎</button>` : "";
+  return `
+    <div class="hs-card hs-${p.tpl === "glass" ? "glass" : "poster"}">
+      ${edit}
+      ${p.kicker ? `<div class="hs-kicker">${esc(p.kicker)}</div>` : ""}
+      <div class="hs-title">${esc(p.title || "")}</div>
+      ${p.sub ? `<div class="hs-sub">${esc(p.sub)}</div>` : ""}
+      <div class="hs-rule"></div>
+      ${img}
+      ${rows ? `<div class="hs-rows">${rows}</div>` : ""}
+      ${tags}
+      ${quote}
+    </div>`;
+}
+
+function renderProfileTab(m) {
+  const slot = $("#editor-slot");
+  const canEdit = !me.guest;
+  const draw = () => {
+    const mm = findMap(m.id);
+    if (!mm || !slot.isConnected) return;
+    const profiles = mm.profiles || [];
+    slot.innerHTML = `
+      <div class="hs-wall" id="hs-wall">
+        ${profiles.map((p, i) => profileCardHtml(p, i, canEdit)).join("")}
+        ${!profiles.length ? `<p class="empty-state">Chưa có hồ sơ nào được dán lên tường thế giới này.</p>` : ""}
+        ${canEdit ? `<button class="btn btn-gold hs-add" id="btn-add-char">＋ Dán hồ sơ mới</button>` : ""}
+      </div>`;
+    hydrateImages(slot); // ảnh hồ sơ lưu kho images/
+    // thanh chỉ số chạy từ 0 tới mức thật
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      slot.querySelectorAll(".hs-bar-fill").forEach((f) => { f.style.width = f.dataset.w + "%"; });
+    }));
+    // click ảnh phóng to / thu lại
+    slot.querySelectorAll(".hs-imgbox").forEach((b) =>
+      b.addEventListener("click", () => b.classList.toggle("zoom")));
+    slot.querySelector("#btn-add-char")?.addEventListener("click", () => openCharModal(m.id, null));
+    slot.querySelectorAll(".hs-edit").forEach((b) =>
+      b.addEventListener("click", () => openCharModal(m.id, +b.dataset.idx)));
+  };
+  refreshProfiles = draw;
+  draw();
+}
+
+function openCharModal(mapId, idx) {
+  const mm = findMap(mapId);
+  const p = idx !== null ? (mm?.profiles || [])[idx] : null;
+  charModalCtx = { mapId, idx, keepImg: p?.imgIid || "" };
+  $("#modal-char-title").textContent = p ? "Sửa hồ sơ" : "Dán hồ sơ mới";
+  $("#inp-ch-tpl").value = p?.tpl || "poster";
+  $("#inp-ch-kicker").value = p?.kicker || "";
+  $("#inp-ch-title").value = p?.title || "";
+  $("#inp-ch-sub").value = p?.sub || "";
+  $("#inp-ch-img").value = "";
+  $("#inp-ch-imgcap").value = p?.imgCap || "";
+  $("#inp-ch-rows").value = (p?.rows || []).map(([k, v, a]) => `${k}: ${a ? "*" : ""}${v}`).join("\n");
+  $("#inp-ch-tags").value = (p?.tags || []).join(", ");
+  $("#inp-ch-quote").value = p?.quote || "";
+  $("#btn-ch-delete").classList.toggle("hidden", !p);
+  $("#modal-char").classList.remove("hidden");
+  setTimeout(() => $("#inp-ch-title").focus(), 60);
+}
+function closeCharModal() { $("#modal-char").classList.add("hidden"); charModalCtx = null; }
+
+$("#btn-ch-cancel")?.addEventListener("click", closeCharModal);
+$("#modal-char")?.addEventListener("click", (e) => { if (e.target.id === "modal-char") closeCharModal(); });
+
+$("#btn-ch-save")?.addEventListener("click", async (e) => {
+  const btn = e.currentTarget;
+  if (btn.disabled || !charModalCtx) return;
+  const title = $("#inp-ch-title").value.trim();
+  if (!title) { toast("Hồ sơ cần một tiêu đề.", true); return; }
+  btn.disabled = true;
+  btn.textContent = "Đang lưu…";
+  try {
+    const { mapId, idx } = charModalCtx;
+    // ảnh: chọn mới thì nén + đẩy vào kho, không thì giữ ảnh cũ
+    let imgIid = charModalCtx.keepImg || "";
+    const f = $("#inp-ch-img").files[0];
+    if (f && f.type.startsWith("image/")) {
+      const data = await shrinkImage(f, 800, 220_000);
+      imgIid = "i" + Math.random().toString(36).slice(2, 10);
+      await store.saveImage(imgIid, data);
+      imgCache[imgIid] = data;
+    }
+    const rows = $("#inp-ch-rows").value.split("\n").map((ln) => {
+      const i2 = ln.indexOf(":");
+      if (i2 < 1) return null;
+      let v = ln.slice(i2 + 1).trim();
+      const acc = v.startsWith("*");
+      if (acc) v = v.slice(1).trim();
+      return [ln.slice(0, i2).trim(), v, acc];
+    }).filter((r) => r && r[0] && r[1]);
+    const prof = {
+      tpl: $("#inp-ch-tpl").value,
+      kicker: $("#inp-ch-kicker").value.trim(),
+      title,
+      sub: $("#inp-ch-sub").value.trim(),
+      imgIid,
+      imgCap: $("#inp-ch-imgcap").value.trim(),
+      rows,
+      tags: $("#inp-ch-tags").value.split(",").map((t) => t.trim()).filter(Boolean),
+      quote: $("#inp-ch-quote").value.trim(),
+    };
+    const mm = findMap(mapId);
+    const profiles = [...(mm?.profiles || [])];
+    if (idx !== null) profiles[idx] = prof; else profiles.push(prof);
+    await store.updateMap(mapId, { profiles });
+    if (mm) mm.profiles = profiles; // cập nhật tại chỗ, không chờ snapshot
+    closeCharModal();
+    refreshProfiles?.();
+    toast("🎭 Hồ sơ đã dán lên tường.");
+  } catch (err) { toast("Không lưu được hồ sơ: " + err.message, true); }
+  finally { btn.disabled = false; btn.textContent = "Lưu"; }
+});
+
+$("#btn-ch-delete")?.addEventListener("click", async () => {
+  if (!charModalCtx || charModalCtx.idx === null) return;
+  if (!confirm("Xé hồ sơ này khỏi tường? Không lấy lại được.")) return;
+  const { mapId, idx } = charModalCtx;
+  const mm = findMap(mapId);
+  const profiles = [...(mm?.profiles || [])];
+  profiles.splice(idx, 1);
+  try {
+    await store.updateMap(mapId, { profiles });
+    if (mm) mm.profiles = profiles;
+    closeCharModal();
+    refreshProfiles?.();
+    toast("Hồ sơ đã bị gió biển cuốn đi.");
+  } catch (err) { toast("Không xoá được: " + err.message, true); }
+});
 
 /* ── Tab Bản đồ HTML: upload / xem / gỡ file map .html ── */
 async function renderMapHtmlTab(m) {
