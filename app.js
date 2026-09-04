@@ -1131,7 +1131,7 @@ function renderMapHtmlTab(m) {
 function renderProfileTab(m) {
   renderHtmlFileTab(m, {
     fileId: `${m.id}__hoso`, flag: "hasProfile", name: "hồ sơ", icon: "🎭", popup: true,
-    emptyText: "Thế giới này chưa có hồ sơ nhân vật.<br>Nhờ Claude thiết kế file hồ sơ .html theo theme thế giới rồi bấm <b>⬆ Tải HTML lên</b>.",
+    emptyText: "Thế giới này chưa có hồ sơ nhân vật.",
   });
 }
 
