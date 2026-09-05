@@ -779,19 +779,57 @@ function renderHome() {
         <option value="rec">Được tiến cử</option>
       </select>
       <span class="spacer"></span>
-      <div class="pager hidden" id="home-pager">
-        <button class="btn-icon" id="pg-prev" title="Trang trước">‹</button>
-        <span class="pager-info" id="pg-info"></span>
-        <button class="btn-icon" id="pg-next" title="Trang sau">›</button>
-      </div>
+      <div class="pager hidden" id="home-pager"></div>
     </div>
     <div id="home-grid"></div>`;
   $("#home-sort").value = homeSort;
   $("#home-search").addEventListener("input", (e) => { homeQ = e.target.value; homePage = 0; renderHomeGrid(); });
   $("#home-sort").addEventListener("change", (e) => { homeSort = e.target.value; homePage = 0; renderHomeGrid(); });
-  $("#pg-prev").addEventListener("click", () => { homePage--; renderHomeGrid(); });
-  $("#pg-next").addEventListener("click", () => { homePage++; renderHomeGrid(); });
   renderHomeGrid();
+}
+
+// dãy số trang gọn: đầu · quanh trang hiện tại · cuối, chèn … cho khoảng nhảy
+function pagerSlots(cur, total) {
+  const around = 1; // số trang hai bên trang hiện tại
+  const set = new Set([0, total - 1, cur]);
+  for (let d = 1; d <= around; d++) { set.add(cur - d); set.add(cur + d); }
+  const nums = [...set].filter((n) => n >= 0 && n < total).sort((a, b) => a - b);
+  const out = [];
+  let prev = -1;
+  for (const n of nums) {
+    if (prev >= 0 && n - prev > 1) out.push("…");
+    out.push(n);
+    prev = n;
+  }
+  return out;
+}
+
+function renderPager(cur, total) {
+  const el = $("#home-pager");
+  if (!el) return;
+  el.classList.toggle("hidden", total <= 1);
+  if (total <= 1) { el.innerHTML = ""; return; }
+  const btn = (label, page, opts = {}) => {
+    const dis = opts.disabled ? " disabled" : "";
+    const on = opts.active ? " pg-on" : "";
+    const cls = opts.icon ? "btn-icon" : "pg-num";
+    return `<button class="${cls}${on}" data-pg="${page}"${dis}${opts.title ? ` title="${opts.title}"` : ""}>${label}</button>`;
+  };
+  let html = "";
+  html += btn("«", 0, { icon: true, disabled: cur === 0, title: "Trang đầu" });
+  html += btn("‹", cur - 1, { icon: true, disabled: cur === 0, title: "Trang trước" });
+  for (const s of pagerSlots(cur, total)) {
+    html += s === "…" ? `<span class="pg-gap">…</span>` : btn(String(s + 1), s, { active: s === cur });
+  }
+  html += btn("›", cur + 1, { icon: true, disabled: cur === total - 1, title: "Trang sau" });
+  html += btn("»", total - 1, { icon: true, disabled: cur === total - 1, title: "Trang cuối" });
+  el.innerHTML = html;
+  el.querySelectorAll("[data-pg]").forEach((b) => b.addEventListener("click", () => {
+    if (b.disabled) return;
+    homePage = +b.dataset.pg;
+    renderHomeGrid();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }));
 }
 
 function renderHomeGrid() {
@@ -812,10 +850,7 @@ function renderHomeGrid() {
   const pages = Math.max(1, Math.ceil(list.length / HOME_PAGE_SIZE));
   homePage = Math.min(Math.max(0, homePage), pages - 1);
   const pageList = list.slice(homePage * HOME_PAGE_SIZE, (homePage + 1) * HOME_PAGE_SIZE);
-  $("#home-pager").classList.toggle("hidden", pages <= 1);
-  $("#pg-info").textContent = `${homePage + 1}/${pages}`;
-  $("#pg-prev").disabled = homePage === 0;
-  $("#pg-next").disabled = homePage >= pages - 1;
+  renderPager(homePage, pages);
 
   // chỉ kéo thả được ở chế độ mặc định (không lọc, không đổi sort) và không phải cá
   const canDrag = !me.guest && !q && homeSort === "pos";

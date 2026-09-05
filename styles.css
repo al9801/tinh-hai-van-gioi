@@ -1193,8 +1193,25 @@ body {
   outline: none; cursor: pointer;
 }
 .sort-sel option { background: var(--panel-solid); color: var(--ink); }
-.pager { display: flex; align-items: center; gap: 4px; }
-.pager-info { font-size: 0.8rem; color: var(--ink-faint); min-width: 36px; text-align: center; }
+.pager { display: flex; align-items: center; gap: 3px; flex-wrap: wrap; }
+.pager .btn-icon { min-width: 30px; }
+.pg-num {
+  min-width: 30px; height: 30px; padding: 0 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  color: var(--ink-dim);
+  font-family: var(--font-body); font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.pg-num:hover { color: var(--gold-bright); border-color: var(--gold); }
+.pg-num.pg-on {
+  color: var(--bg-0); font-weight: 700;
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+  border-color: var(--gold);
+}
+.pg-gap { color: var(--ink-faint); padding: 0 3px; align-self: flex-end; }
 .btn-icon:disabled { opacity: 0.25; cursor: default; }
 .drafts-head-row .search-inp { flex: 0 1 240px; }
 
