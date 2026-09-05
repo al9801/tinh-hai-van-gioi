@@ -375,6 +375,27 @@ function firestoreStore() {
         deleteDoc(doc(db, "chunks", `${coll}-${id}-${field}-${i}`)).catch(() => {});
       }
     },
+    // đọc TƯƠI toàn bộ trang của một nháp thẳng từ Firestore (nguồn thật) —
+    // dùng khi đẩy ra biển, tránh cảnh máy (nhất là điện thoại) còn bản nhớ tạm cũ
+    async snapshotDraftPages(id) {
+      const s = await getDoc(doc(db, "drafts", id));
+      if (!s.exists()) return { total: 1, pages: [""], comments: null };
+      const d = s.data();
+      const total = Math.max(1, d.contentPages || 1);
+      const pages = [];
+      for (let i = 0; i < total; i++) {
+        const field = i === 0 ? "content" : `content_p${i}`;
+        const n = d[field + "Chunks"] || 0;
+        if (!n) { pages.push(d[field] || ""); continue; }
+        let out = "";
+        for (let k = 0; k < n; k++) {
+          const cs = await getDoc(doc(db, "chunks", `drafts-${id}-${field}-${k}`));
+          out += cs.exists() ? cs.data().data : "";
+        }
+        pages.push(out);
+      }
+      return { total, pages, comments: d.comments || null };
+    },
     async loadDocField(coll, id, field) {
       const cur = (coll === "maps" ? findMap(id) : findDraft(id)) || {};
       const n = cur[field + "Chunks"] || 0;
@@ -544,6 +565,13 @@ button{margin-top:14px;width:100%;padding:10px;border:1px dashed #8a7962;backgro
     },
     deleteFieldChunks(coll, id, field, count) {
       for (let i = 0; i < (count || 0); i++) delete (this._chunks || {})[`${coll}-${id}-${field}-${i}`];
+    },
+    async snapshotDraftPages(id) {
+      const d = drafts.find((x) => x.id === id) || {};
+      const total = Math.max(1, d.contentPages || 1);
+      const pages = [];
+      for (let i = 0; i < total; i++) pages.push(await this.loadDocField("drafts", id, fieldForPage("content", i)));
+      return { total, pages, comments: d.comments || null };
     },
     async addDraft(data) { const id = uid(); drafts.unshift({ id, ...data, updatedAt: now() }); route(true); return id; },
     async updateDraft(id, patch) { const d = drafts.find((x) => x.id === id); if (d) { Object.assign(d, patch); touch(d); } route(true); },
@@ -1360,7 +1388,9 @@ function renderDraftView({ id }) {
     btn.textContent = "🌊 Đang dong buồm…";
     try {
       await flushEditor?.(); // chốt chữ đang gõ dở trước khi di cư
-      const totalPages = Math.max(1, dd?.contentPages || 1);
+      // đọc TƯƠI từ Firestore để không mất trang do bản nhớ tạm trên máy còn cũ (lỗi trên điện thoại)
+      const snap = await store.snapshotDraftPages(id);
+      const totalPages = snap.total;
       const maxOrder = maps.reduce((mx, m) => Math.max(mx, m.order || 0), 0);
       const newId = await store.addMap({
         title: dd?.title || "Cánh cổng mới", world: "", gasLink: DEFAULT_GAS,
@@ -1369,11 +1399,10 @@ function renderDraftView({ id }) {
         recommends: {}, createdBy: me.email,
       });
       for (let i = 0; i < totalPages; i++) {
-        const pg = await store.loadDocField("drafts", id, fieldForPage("content", i));
-        await store.saveDocField("maps", newId, fieldForPage("content", i), pg);
+        await store.saveDocField("maps", newId, fieldForPage("content", i), snap.pages[i] || "");
       }
-      if (dd?.comments && Object.keys(dd.comments).length) {
-        await store.updateMap(newId, { comments: dd.comments }); // ghi chú 💧 đi theo nội dung
+      if (snap.comments && Object.keys(snap.comments).length) {
+        await store.updateMap(newId, { comments: snap.comments }); // ghi chú 💧 đi theo nội dung
       }
       const oldChunksPerPage = Array.from({ length: totalPages },
         (_, i) => [fieldForPage("content", i), dd?.[fieldForPage("content", i) + "Chunks"] || 0]);
