@@ -138,6 +138,29 @@ function stripHtml(html) {
   tmp.innerHTML = html || "";
   return tmp.textContent.trim();
 }
+// giãn dòng: đặt line-height cho các khối chứa vùng bôi đen (execCommand không hỗ trợ line-height)
+const BLOCK_TAGS = new Set(["P", "LI", "H1", "H2", "H3", "BLOCKQUOTE", "DIV", "PRE", "TD", "TH"]);
+function setLineHeight(page, lh) {
+  const sel = window.getSelection();
+  const blocks = new Set();
+  if (sel.rangeCount && page.contains(sel.getRangeAt(0).commonAncestorContainer) && !sel.isCollapsed) {
+    const range = sel.getRangeAt(0);
+    page.querySelectorAll("p,li,h1,h2,h3,blockquote,div,pre,td,th").forEach((el) => {
+      if (range.intersectsNode(el)) blocks.add(el);
+    });
+  } else if (sel.rangeCount) {
+    // con trỏ đứng một chỗ → khối đang chứa con trỏ
+    let n = sel.getRangeAt(0).startContainer;
+    n = n.nodeType === 1 ? n : n.parentElement;
+    const b = n?.closest("p,li,h1,h2,h3,blockquote,div,pre,td,th");
+    if (b && page.contains(b)) blocks.add(b);
+  }
+  if (blocks.size) {
+    blocks.forEach((b) => { b.style.lineHeight = lh; });
+  } else {
+    page.style.lineHeight = lh; // không có khối nào → giãn cả trang
+  }
+}
 function totemBadges(recommends) {
   const rec = recommends || {};
   return Object.entries(ACCOUNTS)
@@ -1863,6 +1886,13 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
         <button class="font-opt" data-ff="Be Vietnam Pro">Không chân</button>
         <button class="font-opt" data-ff="Spectral" style="font-family:Spectral,Georgia,serif">Có chân</button>
         <button class="font-opt" data-ff="Menlo" style="font-family:Menlo,monospace">Mono</button>
+      </div>
+      <div class="tbl-pop-title" style="margin-top:10px">Giãn dòng</div>
+      <div class="font-row">
+        <button class="font-opt" data-lh="1.35">Khít</button>
+        <button class="font-opt" data-lh="1.75">Thường</button>
+        <button class="font-opt" data-lh="2.15">Rộng</button>
+        <button class="font-opt" data-lh="2.6">Rất rộng</button>
       </div>`;
     pop.addEventListener("click", (e) => {
       const b = e.target.closest(".font-opt");
@@ -1870,6 +1900,7 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
       page.focus();
       if (b.dataset.fs) document.execCommand("fontSize", false, b.dataset.fs);
       if (b.dataset.ff) document.execCommand("fontName", false, b.dataset.ff);
+      if (b.dataset.lh) setLineHeight(page, b.dataset.lh);
       page.dispatchEvent(new Event("input"));
       closeTblPop();
     });
