@@ -1869,6 +1869,51 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
     else showTableSizePicker(rect);
   });
 
+  // ── kéo mép cột để chỉnh rộng ──
+  // rê chuột tới sát mép phải một ô → con trỏ đổi thành mũi tên kéo; kéo để đổi bề rộng cột.
+  // Width đặt lên ô hàng ĐẦU + table-layout:fixed nên áp cho cả cột và lưu vào HTML.
+  const EDGE = 6;
+  let colDrag = null;
+  const cellAtEdge = (e) => {
+    // dò ô ngay dưới con trỏ (kể cả khi đứng sát mép), rồi kiểm mép phải
+    const el = document.elementFromPoint(e.clientX, e.clientY);
+    const cell = el?.closest?.("td,th") || e.target.closest?.("td,th");
+    if (!cell || !page.contains(cell)) return null;
+    const r = cell.getBoundingClientRect();
+    return (Math.abs(r.right - e.clientX) <= EDGE) ? cell : null;
+  };
+  page.addEventListener("mousemove", (e) => {
+    if (colDrag) return;
+    page.style.cursor = cellAtEdge(e) ? "col-resize" : "";
+  });
+  page.addEventListener("mousedown", (e) => {
+    const cell = cellAtEdge(e);
+    if (!cell) return;
+    e.preventDefault(); // không đặt con trỏ, chỉ kéo
+    const table = cell.closest("table");
+    const idx = cell.cellIndex;
+    const headRow = table.querySelector("tr");
+    const headCell = headRow.children[idx] || cell;
+    const startW = headCell.getBoundingClientRect().width; // đo TRƯỚC khi đổi layout để kéo 1:1
+    table.style.tableLayout = "fixed";
+    if (!table.style.width) table.style.width = "100%";
+    colDrag = { table, headCell, startX: e.clientX, startW };
+    page.style.cursor = "col-resize";
+    document.body.style.userSelect = "none";
+  });
+  document.addEventListener("mousemove", (e) => {
+    if (!colDrag) return;
+    const w = Math.max(40, Math.round(colDrag.startW + (e.clientX - colDrag.startX)));
+    colDrag.headCell.style.width = w + "px";
+  });
+  document.addEventListener("mouseup", () => {
+    if (!colDrag) return;
+    colDrag = null;
+    page.style.cursor = "";
+    document.body.style.userSelect = "";
+    page.dispatchEvent(new Event("input")); // lưu bề rộng mới
+  });
+
   // ── cỡ chữ & kiểu font ──
   const fontBtn = slot.querySelector("[data-fontm]");
   fontBtn?.addEventListener("mousedown", (e) => e.preventDefault()); // giữ vùng bôi đen
