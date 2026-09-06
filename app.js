@@ -1125,6 +1125,34 @@ function updateMapMeta({ id }) {
     : "Chưa ai tiến cử map này.";
 }
 
+// chủ tiến cử map → huy hiệu linh thú đậu góc thẻ
+async function toggleRecommend(id) {
+  const m = findMap(id);
+  if (!m) return;
+  const rec = { ...(m.recommends || {}) };
+  const turningOn = !rec[me.email];
+  if (turningOn) rec[me.email] = true;
+  else delete rec[me.email];
+  try {
+    await store.setRecommends(id, rec);
+    toast(turningOn ? `${me.icon} Linh thú của bạn đã đậu lên cánh cổng` : "Đã rút lại tiến cử");
+  } catch (e) { toast("Không lưu được tiến cử: " + e.message, true); }
+}
+
+// cá ghé thăm đánh giá map → dấu cá đậu mép dưới thẻ
+async function toggleFishMark(id) {
+  const m = findMap(id);
+  if (!m) return;
+  const fm = { ...(m.fishMarks || {}) };
+  const turningOn = !fm[me.email];
+  if (turningOn) fm[me.email] = true;
+  else delete fm[me.email];
+  try {
+    await store.setFishMarks(id, fm);
+    toast(turningOn ? `${me.icon} Dấu cá của bạn đã đậu dưới cánh cổng.` : "Đã rút dấu cá về.");
+  } catch (e) { toast("Không lưu được đánh giá: " + e.message, true); }
+}
+
 /* ── Khung file HTML gắn map: dùng chung cho Bản đồ (xem tại chỗ)
    và Hồ sơ (mở cửa sổ nổi — bấm ra ngoài / Esc để đóng) ──────── */
 async function renderHtmlFileTab(m, cfg) {
