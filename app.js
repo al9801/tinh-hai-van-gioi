@@ -39,6 +39,7 @@ let mountedRoute = "";      // route đã dựng DOM (tránh re-mount editor khi
 // trạng thái ghi chú 💧 + truyền âm 🫧 (khai báo sớm vì dùng ngay lúc khởi động)
 let activeCmt = null;       // { page, doSave, api } của editor mở
 let flushEditor = null;     // doSave của editor hiện tại — gọi trước khi unmount để không mất chữ
+let activeEditorSync = null; // đồng bộ realtime cho khung soạn đang mở (khi người kia sửa)
 
 // nhớ chỗ đứng gần nhất trong từng khu — nút điều hướng đưa về đúng trang đang mở dở
 let lastSeaHash = "#/";           // Biển Cổng: home hoặc map đang mở
@@ -757,11 +758,11 @@ function route(soft = false) {
     else if (r.view === "map") {
       // dữ liệu vừa về sau khi lỡ hiện màn "không tồn tại" → dựng lại cho đúng
       if (findMap(r.id) && !$("#mv-title")) renderMapView(r);
-      else updateMapMeta(r);                      // bình thường: chỉ cập nhật tiêu đề/huy hiệu/nút
+      else { updateMapMeta(r); activeEditorSync?.(); } // cập nhật meta + đồng bộ khung soạn
     }
     else if (r.view === "draft") {
       if (findDraft(r.id) && !$("#draft-title")) renderDraftView(r);
-      else updateDraftMeta(r);
+      else { updateDraftMeta(r); activeEditorSync?.(); }
     }
     return;
   }
@@ -769,6 +770,7 @@ function route(soft = false) {
   hideCmtFab();            // nút 💧 Ghi chú không được lơ lửng theo sang trang khác
   closeCmtPopover(true);   // đóng popover dở (gỡ bôi sáng chưa có lời) TRƯỚC khi chốt lưu
   flushEditor?.(); flushEditor = null;  // rồi mới lưu chữ đang gõ dở, không để mất
+  activeEditorSync = null; // sắp dựng view khác → gỡ đồng bộ editor cũ (editor mới sẽ tự gắn lại)
   mountedRoute = key;
 
   // đọc vị trí cuộn đã nhớ TRƯỚC khi dựng (dựng xong mới bật ghi lại)
@@ -1074,6 +1076,7 @@ function renderMapView({ id, tab }) {
       placeholder: st.ph,
       showCopy: st.key === "prompt",
       readOnly: isGuest,
+      coll: "maps", id, field: st.field,
       save: (html) => store.saveDocField("maps", id, st.field, html),
       comments: isGuest ? null : {
         data: () => findMap(id)?.comments || {},
@@ -1563,6 +1566,7 @@ function mountPagedEditor(slot, opts) {
       placeholder: opts.placeholder,
       showCopy: opts.showCopy,
       readOnly: opts.readOnly,
+      coll: opts.coll, id: opts.id, field,
       save: (html) => store.saveDocField(opts.coll, opts.id, field, html),
       comments: opts.comments,
     });
@@ -1644,7 +1648,7 @@ const TOOLBAR = [
   { cmd: "redo", label: "↻", title: "Làm lại" },
 ];
 
-function mountEditor(slot, { html, load = null, placeholder, save, showCopy = false, comments = null, readOnly = false }) {
+function mountEditor(slot, { html, load = null, placeholder, save, showCopy = false, comments = null, readOnly = false, coll = null, id = null, field = null }) {
   // cá ghé thăm: trang chỉ xem — không toolbar, không sửa, không ghi chú
   if (readOnly) {
     slot.innerHTML = `<div class="doc-page doc-readonly" id="doc-page" contenteditable="false"></div>`;
@@ -1658,6 +1662,7 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
     }
     activeCmt = null;
     flushEditor = null;
+    activeEditorSync = null;
     return;
   }
   slot.innerHTML = `
@@ -1731,7 +1736,10 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
 
   let saveTimer = null;
   let lastSaved = html; // html từ kho đã ở dạng lưu trữ
+  let saving = false;      // đang ghi → bỏ qua tiếng vọng snapshot của chính mình
+  let remoteAhead = false; // người kia vừa sửa lúc mình đang gõ dở → tạm khoá tự lưu để không đè
   const doSave = async () => {
+    if (remoteAhead) return; // đang chờ xử lý xung đột — không ghi đè bản người kia
     status.textContent = "Đang gửi theo hải lưu…";
     status.className = "tb-status saving";
     try {
@@ -1741,11 +1749,14 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
         status.className = "tb-status saved";
         return;
       }
+      saving = true;
       await save(cur);
       lastSaved = cur;
+      saving = false;
       status.textContent = "✓ Đã lưu";
       status.className = "tb-status saved";
     } catch (e) {
+      saving = false;
       status.textContent = "⚠ Lỗi lưu";
       status.className = "tb-status";
       if (/longer than/i.test(e.message || "")) {
@@ -1765,6 +1776,46 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
   page.addEventListener("blur", () => { clearTimeout(saveTimer); doSave(); });
   flushEditor = () => { clearTimeout(saveTimer); return doSave(); };
   window.addEventListener("beforeunload", () => { clearTimeout(saveTimer); doSave(); }, { once: true });
+
+  // ── Đồng bộ realtime: khi người kia sửa cùng trang ──
+  // an toàn (mình chưa gõ gì) → nạp bản mới ngay; đang gõ dở → hỏi thay vì đè mất.
+  let conflictFresh = null;
+  function hideConflict() { slot.querySelector(".sync-bar")?.remove(); }
+  function showConflict(fresh) {
+    conflictFresh = fresh;
+    if (slot.querySelector(".sync-bar")) return; // đã hiện rồi, chỉ cập nhật conflictFresh
+    const bar = document.createElement("div");
+    bar.className = "sync-bar";
+    bar.innerHTML = `<span>⚠ Người kia vừa sửa trang này. Bạn đang gõ dở — chọn cách xử lý để không mất chữ:</span>
+      <button class="btn btn-ghost sync-keep">Giữ bản của tôi & ghi đè</button>
+      <button class="btn btn-gold sync-take">Lấy bản của người kia</button>`;
+    slot.insertBefore(bar, slot.querySelector(".doc-page"));
+    bar.querySelector(".sync-take").addEventListener("click", () => {
+      page.innerHTML = conflictFresh; hydrateImages(page); lastSaved = conflictFresh;
+      remoteAhead = false; hideConflict(); refreshCmtCount?.();
+      toast("Đã lấy bản của người kia.");
+    });
+    bar.querySelector(".sync-keep").addEventListener("click", () => {
+      remoteAhead = false; hideConflict();
+      doSave(); // ghi đè bản người kia bằng bản của mình (mình chủ động chọn)
+      toast("Đã giữ và ghi đè bằng bản của bạn.");
+    });
+  }
+  const doSync = async () => {
+    if (!coll || !id || !field || saving) return;
+    let fresh;
+    try { fresh = await store.loadDocField(coll, id, field); } catch { return; }
+    if (fresh === lastSaved) { remoteAhead = false; hideConflict(); return; } // không có gì mới / tiếng vọng của mình
+    const dirty = page.innerHTML !== lastSaved;
+    if (!dirty && document.activeElement !== page) {
+      page.innerHTML = fresh; hydrateImages(page); lastSaved = fresh; refreshCmtCount?.();
+      status.textContent = "↻ Vừa nhận bản mới của người kia"; status.className = "tb-status saved";
+    } else {
+      remoteAhead = true;
+      showConflict(fresh);
+    }
+  };
+  activeEditorSync = doSync;
 
   // chèn ảnh: nén rồi đặt vào vị trí con trỏ
   let savedImgRange = null;

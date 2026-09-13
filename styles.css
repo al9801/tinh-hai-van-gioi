@@ -1357,3 +1357,18 @@ body.guest .doc-page { user-select: none; }
 }
 
 
+
+/* ── Thanh cảnh báo xung đột đồng bộ realtime ─────────── */
+.sync-bar {
+  max-width: 880px;
+  margin: 12px auto 0;
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  padding: 10px 14px;
+  background: rgba(120, 60, 30, 0.35);
+  border: 1px solid var(--danger);
+  border-radius: 12px;
+  color: var(--ink);
+  font-size: 0.85rem;
+}
+.sync-bar span { flex: 1; min-width: 200px; }
+.sync-bar .btn { padding: 6px 12px; font-size: 0.8rem; white-space: nowrap; }
