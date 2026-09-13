@@ -40,6 +40,7 @@ let mountedRoute = "";      // route đã dựng DOM (tránh re-mount editor khi
 let activeCmt = null;       // { page, doSave, api } của editor mở
 let flushEditor = null;     // doSave của editor hiện tại — gọi trước khi unmount để không mất chữ
 let activeEditorSync = null; // đồng bộ realtime cho khung soạn đang mở (khi người kia sửa)
+let activePagedSync = null;  // đồng bộ số trang của cuốn sổ đang mở (khi người kia thêm/bớt trang)
 
 // nhớ chỗ đứng gần nhất trong từng khu — nút điều hướng đưa về đúng trang đang mở dở
 let lastSeaHash = "#/";           // Biển Cổng: home hoặc map đang mở
@@ -758,11 +759,11 @@ function route(soft = false) {
     else if (r.view === "map") {
       // dữ liệu vừa về sau khi lỡ hiện màn "không tồn tại" → dựng lại cho đúng
       if (findMap(r.id) && !$("#mv-title")) renderMapView(r);
-      else { updateMapMeta(r); activeEditorSync?.(); } // cập nhật meta + đồng bộ khung soạn
+      else { updateMapMeta(r); activeEditorSync?.(); activePagedSync?.(); } // meta + nội dung + số trang
     }
     else if (r.view === "draft") {
       if (findDraft(r.id) && !$("#draft-title")) renderDraftView(r);
-      else { updateDraftMeta(r); activeEditorSync?.(); }
+      else { updateDraftMeta(r); activeEditorSync?.(); activePagedSync?.(); }
     }
     return;
   }
@@ -771,6 +772,7 @@ function route(soft = false) {
   closeCmtPopover(true);   // đóng popover dở (gỡ bôi sáng chưa có lời) TRƯỚC khi chốt lưu
   flushEditor?.(); flushEditor = null;  // rồi mới lưu chữ đang gõ dở, không để mất
   activeEditorSync = null; // sắp dựng view khác → gỡ đồng bộ editor cũ (editor mới sẽ tự gắn lại)
+  activePagedSync = null;
   mountedRoute = key;
 
   // đọc vị trí cuộn đã nhớ TRƯỚC khi dựng (dựng xong mới bật ghi lại)
@@ -1533,11 +1535,13 @@ function fieldForPage(base, i) { return i === 0 ? base : `${base}_p${i}`; }
 // bọc mountEditor thành "cuốn sổ": nút ‹ › chuyển trang (hết trang quay về đầu),
 // ＋ thêm trang, 🗑 xoá trang (các trang sau dồn lên)
 function mountPagedEditor(slot, opts) {
+  const key = `${opts.coll}:${opts.id}:${opts.base}`;
+  let shownTotal = 0; // số trang đang hiển thị trên nav — để phát hiện người kia thêm/bớt trang
   const render = () => {
     const d = opts.getDocObj();
     if (!d) return;
     const total = Math.max(1, d.contentPages || 1);
-    const key = `${opts.coll}:${opts.id}:${opts.base}`;
+    shownTotal = total;
     let cur = pageMem[key] ?? 0;
     if (cur >= total) cur = total - 1;
     if (cur < 0) cur = 0;
@@ -1608,6 +1612,25 @@ function mountPagedEditor(slot, opts) {
         window.scrollTo({ top: Math.max(0, top), behavior: "instant" });
       }
     }));
+    activePagedSync = syncNav; // route(true) gọi để cập nhật số trang khi người kia thêm/bớt
+  };
+  // người kia thêm/bớt trang → cập nhật thanh số trang mà không dựng lại khung đang gõ
+  const syncNav = () => {
+    const d = opts.getDocObj(); if (!d) return;
+    const newTotal = Math.max(1, d.contentPages || 1);
+    if (newTotal === shownTotal) return;
+    const cur = pageMem[key] ?? 0;
+    if (newTotal > 1 && shownTotal > 1 && cur < newTotal) {
+      // chỉ đổi con số → vá nhãn tại chỗ, không đụng khung soạn
+      shownTotal = newTotal;
+      const label = slot.querySelector(".pgn-label");
+      if (label) { label.textContent = `📄${cur + 1}/${newTotal}`; label.title = `Trang ${cur + 1} / ${newTotal}`; }
+      return;
+    }
+    // đổi cấu trúc (hiện/ẩn mũi tên hai bên) → chỉ dựng lại khi mình không đang gõ dở
+    const pageEl = slot.querySelector(".doc-page");
+    if (document.activeElement !== pageEl && !slot.querySelector(".sync-bar")) render();
+    else shownTotal = newTotal; // đang gõ: ghi nhận để lần blur/lật kế tiếp cập nhật
   };
   render();
 }
