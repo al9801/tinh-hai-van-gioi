@@ -11,6 +11,7 @@ import {
 import {
   getFirestore, collection, doc, addDoc, updateDoc, deleteDoc,
   onSnapshot, query, orderBy, serverTimestamp, limitToLast, getDoc, setDoc,
+  getDocs, startAt, endAt,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 /* ── Trạng thái chung ─────────────────────────────────── */
@@ -41,6 +42,7 @@ let activeCmt = null;       // { page, doSave, api } của editor mở
 let flushEditor = null;     // doSave của editor hiện tại — gọi trước khi unmount để không mất chữ
 let activeEditorSync = null; // đồng bộ realtime cho khung soạn đang mở (khi người kia sửa)
 let activePagedSync = null;  // đồng bộ số trang của cuốn sổ đang mở (khi người kia thêm/bớt trang)
+const histLast = {};         // mốc lịch sử gần nhất theo từng trường (để giãn nhịp ghi)
 
 // nhớ chỗ đứng gần nhất trong từng khu — nút điều hướng đưa về đúng trang đang mở dở
 let lastSeaHash = "#/";           // Biển Cổng: home hoặc map đang mở
@@ -400,6 +402,30 @@ function firestoreStore() {
         deleteDoc(doc(db, "chunks", `${coll}-${id}-${field}-${i}`)).catch(() => {});
       }
     },
+    // lịch sử chỉnh sửa: mỗi mốc là 1 doc history/{coll-id-field__ts}, giữ 7 ngày
+    async saveHistory(coll, id, field, html) {
+      const key = `${coll}-${id}-${field}`;
+      const ts = Date.now();
+      await setDoc(doc(db, "history", `${key}__${String(ts).padStart(16, "0")}`),
+        { key, html, by: me.email, at: ts });
+      this._pruneHistory(key); // dọn mốc quá 7 ngày (chạy nền)
+    },
+    async listHistory(coll, id, field) {
+      const key = `${coll}-${id}-${field}`;
+      const snap = await getDocs(query(collection(db, "history"),
+        orderBy("__name__"), startAt(`${key}__`), endAt(`${key}__`)));
+      const cutoff = Date.now() - 7 * 86400e3;
+      return snap.docs.map((d) => d.data()).filter((x) => (x.at || 0) >= cutoff)
+        .sort((a, b) => b.at - a.at);
+    },
+    async _pruneHistory(key) {
+      try {
+        const snap = await getDocs(query(collection(db, "history"),
+          orderBy("__name__"), startAt(`${key}__`), endAt(`${key}__`)));
+        const cutoff = Date.now() - 7 * 86400e3;
+        snap.docs.forEach((d) => { if ((d.data().at || 0) < cutoff) deleteDoc(d.ref).catch(() => {}); });
+      } catch { /* dọn lịch sử là việc phụ, lỗi thì bỏ qua */ }
+    },
     // đọc TƯƠI toàn bộ trang của một nháp thẳng từ Firestore (nguồn thật) —
     // dùng khi đẩy ra biển, tránh cảnh máy (nhất là điện thoại) còn bản nhớ tạm cũ
     async snapshotDraftPages(id) {
@@ -597,6 +623,16 @@ button{margin-top:14px;width:100%;padding:10px;border:1px dashed #8a7962;backgro
       const pages = [];
       for (let i = 0; i < total; i++) pages.push(await this.loadDocField("drafts", id, fieldForPage("content", i)));
       return { total, pages, comments: d.comments || null };
+    },
+    async saveHistory(coll, id, field, html) {
+      this._hist = this._hist || {};
+      const k = `${coll}-${id}-${field}`;
+      (this._hist[k] = this._hist[k] || []).push({ html, by: me.email, at: Date.now() });
+    },
+    async listHistory(coll, id, field) {
+      const arr = (this._hist || {})[`${coll}-${id}-${field}`] || [];
+      const cutoff = Date.now() - 7 * 86400e3;
+      return arr.filter((x) => x.at >= cutoff).sort((a, b) => b.at - a.at);
     },
     async addDraft(data) { const id = uid(); drafts.unshift({ id, ...data, updatedAt: now() }); route(true); return id; },
     async updateDraft(id, patch) { const d = drafts.find((x) => x.id === id); if (d) { Object.assign(d, patch); touch(d); } route(true); },
@@ -1645,6 +1681,76 @@ document.addEventListener("keydown", (e) => {
   if (btn) { e.preventDefault(); btn.click(); }
 });
 
+/* ── 🕘 Modal lịch sử chỉnh sửa (giữ 7 ngày) ──────────── */
+function fmtHistTime(ts) {
+  const d = new Date(ts);
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const dd = new Date(ts); dd.setHours(0, 0, 0, 0);
+  const days = Math.round((today - dd) / 86400e3);
+  const day = days === 0 ? "Hôm nay" : days === 1 ? "Hôm qua" : `${days} ngày trước`;
+  return `${day} · ${d.toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" })}`;
+}
+
+async function openHistoryModal({ coll, id, field, onRestore }) {
+  const back = document.createElement("div");
+  back.className = "modal-backdrop hist-backdrop";
+  back.innerHTML = `<div class="modal hist-modal">
+    <h2 class="modal-title">🕘 Lịch sử chỉnh sửa <span class="hist-sub">(giữ 7 ngày gần nhất)</span></h2>
+    <div class="hist-body">
+      <div class="hist-list" id="hist-list"><p class="hist-empty">Đang lặn tìm các bản cũ…</p></div>
+      <div class="hist-preview" id="hist-preview"><p class="hist-empty">Chọn một mốc thời gian bên trái để xem lại.</p></div>
+    </div>
+    <div class="modal-actions">
+      <span class="spacer"></span>
+      <button class="btn btn-ghost" id="hist-close">Đóng</button>
+      <button class="btn btn-gold hidden" id="hist-restore">Khôi phục bản này</button>
+    </div>
+  </div>`;
+  document.body.appendChild(back);
+  const close = () => { document.removeEventListener("keydown", onKey); back.remove(); };
+  const onKey = (e) => { if (e.key === "Escape") close(); };
+  document.addEventListener("keydown", onKey);
+  back.addEventListener("mousedown", (e) => { if (e.target === back) close(); });
+  back.querySelector("#hist-close").addEventListener("click", close);
+
+  const listEl = back.querySelector("#hist-list");
+  const prevEl = back.querySelector("#hist-preview");
+  const restoreBtn = back.querySelector("#hist-restore");
+  let chosen = null;
+
+  let items = [];
+  try { items = await store.listHistory(coll, id, field); }
+  catch (e) { listEl.innerHTML = `<p class="hist-empty">Không tải được lịch sử: ${esc(e.message)}</p>`; return; }
+  if (!items.length) {
+    listEl.innerHTML = `<p class="hist-empty">Chưa có bản lưu nào trong 7 ngày. Từ giờ mỗi lần sửa sẽ được ghi mốc để cứu nếu lỡ mất.</p>`;
+    return;
+  }
+  listEl.innerHTML = items.map((h, i) => {
+    const a = ACCOUNTS[h.by];
+    return `<button class="hist-item" data-i="${i}">
+      <span class="hist-when">${fmtHistTime(h.at)}</span>
+      <span class="hist-who">${a ? a.icon + " " + esc(a.name) : esc(h.by || "")}</span>
+    </button>`;
+  }).join("");
+
+  listEl.querySelectorAll(".hist-item").forEach((b) => b.addEventListener("click", () => {
+    listEl.querySelectorAll(".hist-item").forEach((x) => x.classList.remove("on"));
+    b.classList.add("on");
+    chosen = items[+b.dataset.i];
+    prevEl.innerHTML = `<div class="doc-page hist-doc">${chosen.html}</div>`;
+    hydrateImages(prevEl);
+    restoreBtn.classList.remove("hidden");
+  }));
+
+  restoreBtn.addEventListener("click", async () => {
+    if (!chosen) return;
+    if (!confirm(`Khôi phục về bản "${fmtHistTime(chosen.at)}"? Bản hiện tại sẽ được lưu lại vào lịch sử trước khi thay.`)) return;
+    restoreBtn.disabled = true;
+    try { await onRestore(chosen.html); close(); }
+    catch (e) { toast("Không khôi phục được: " + e.message, true); restoreBtn.disabled = false; }
+  });
+}
+
 /* ── EDITOR kiểu docx ─────────────────────────────────── */
 const TOOLBAR = [
   { cmd: "bold", label: "B", title: "Đậm (⌘B)", style: "font-weight:700" },
@@ -1699,6 +1805,7 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
         return `<button class="tb-btn" data-cmd="${t.cmd || ""}" data-block="${t.block || ""}" title="${t.title}" ${t.style ? `style="${t.style}"` : ""}>${t.label}</button>`;
       }).join("")}
       ${showCopy ? `<span class="tb-sep"></span><button class="tb-btn" id="tb-copy" title="Copy toàn bộ prompt (dạng chữ thuần) để dán vào AI Studio">⧉ Copy</button>` : ""}
+      ${(coll && id && field) ? `<span class="tb-sep"></span><button class="tb-btn" data-hist="1" title="Lịch sử chỉnh sửa (giữ 7 ngày) — xem lại & khôi phục bản cũ nếu lỡ mất">🕘</button>` : ""}
       <span class="tb-status" id="tb-status">Tự động lưu</span>
       <input type="file" accept="image/*" class="tb-img-file" hidden>
     </div>
@@ -1778,6 +1885,14 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
       saving = false;
       status.textContent = "✓ Đã lưu";
       status.className = "tb-status saved";
+      // ghi mốc lịch sử — giãn cách ≥6 phút/lần để không phình (giữ 7 ngày)
+      if (coll && id && field) {
+        const hk = `${coll}:${id}:${field}`;
+        if (Date.now() - (histLast[hk] || 0) > 6 * 60_000) {
+          histLast[hk] = Date.now();
+          store.saveHistory?.(coll, id, field, cur).catch(() => {});
+        }
+      }
     } catch (e) {
       saving = false;
       status.textContent = "⚠ Lỗi lưu";
@@ -1839,6 +1954,26 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
     }
   };
   activeEditorSync = doSync;
+
+  // 🕘 lịch sử chỉnh sửa
+  const histBtn = slot.querySelector("[data-hist]");
+  histBtn?.addEventListener("mousedown", (e) => e.preventDefault());
+  histBtn?.addEventListener("click", () => {
+    openHistoryModal({
+      coll, id, field,
+      onRestore: async (html) => {
+        // chốt mốc bản HIỆN TẠI trước khi đè, để lỡ khôi phục nhầm vẫn quay lại được
+        try { await store.saveHistory?.(coll, id, field, await toStorageHtml()); } catch {}
+        page.innerHTML = html;
+        hydrateImages(page);
+        remoteAhead = false; hideConflict();
+        refreshCmtCount?.();
+        lastSaved = "__restored__"; // ép khác lastSaved để doSave chắc chắn ghi
+        await doSave();
+        toast("🕘 Đã khôi phục bản đã chọn.");
+      },
+    });
+  });
 
   // chèn ảnh: nén rồi đặt vào vị trí con trỏ
   let savedImgRange = null;

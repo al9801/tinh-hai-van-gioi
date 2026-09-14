@@ -1372,3 +1372,38 @@ body.guest .doc-page { user-select: none; }
 }
 .sync-bar span { flex: 1; min-width: 200px; }
 .sync-bar .btn { padding: 6px 12px; font-size: 0.8rem; white-space: nowrap; }
+
+/* ── 🕘 Modal lịch sử chỉnh sửa ───────────────────────── */
+.hist-modal { width: min(880px, 96vw); }
+.hist-sub { font-size: 0.72rem; color: var(--ink-faint); font-family: var(--font-body); font-weight: 400; }
+.hist-body { display: flex; gap: 14px; height: min(60vh, 520px); }
+.hist-list {
+  width: 230px; flex-shrink: 0; overflow-y: auto;
+  border: 1px solid var(--line); border-radius: 12px; padding: 6px;
+  background: rgba(0, 0, 0, 0.2);
+}
+.hist-item {
+  display: flex; flex-direction: column; gap: 2px; width: 100%; text-align: left;
+  background: none; border: none; border-radius: 9px; padding: 9px 11px;
+  color: var(--ink); cursor: pointer; transition: background 0.15s;
+}
+.hist-item:hover { background: rgba(255, 255, 255, 0.05); }
+.hist-item.on { background: rgba(217, 180, 111, 0.16); }
+.hist-when { font-size: 0.86rem; color: var(--gold-bright); }
+.hist-who { font-size: 0.74rem; color: var(--ink-dim); }
+.hist-preview {
+  flex: 1; overflow-y: auto;
+  border: 1px solid var(--line); border-radius: 12px;
+  background: var(--paper);
+}
+.hist-doc {
+  min-height: auto; box-shadow: none; border-radius: 12px;
+  padding: 26px 30px; margin: 0; max-width: none;
+}
+.hist-empty { color: var(--ink-faint); font-style: italic; padding: 24px; text-align: center; }
+.hist-preview .hist-empty { color: var(--paper-dim); }
+@media (max-width: 720px) {
+  .hist-body { flex-direction: column; height: auto; }
+  .hist-list { width: auto; max-height: 30vh; }
+  .hist-preview { max-height: 40vh; }
+}
