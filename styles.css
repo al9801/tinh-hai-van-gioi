@@ -1407,3 +1407,60 @@ body.guest .doc-page { user-select: none; }
   .hist-list { width: auto; max-height: 30vh; }
   .hist-preview { max-height: 40vh; }
 }
+
+/* ── Số cổng trong map ────────────────────────────────── */
+.mv-gate {
+  font-family: var(--font-display);
+  font-size: 0.72rem; letter-spacing: 0.22em;
+  color: var(--glow);
+  text-shadow: 0 0 10px rgba(127, 212, 232, 0.4);
+  margin: 4px 0 2px;
+}
+
+/* ── Mục lục 📑 ───────────────────────────────────────── */
+.toc-item {
+  display: block; width: 100%; text-align: left;
+  background: none; border: none; cursor: pointer;
+  color: var(--ink); font-family: var(--font-body); font-size: 0.86rem;
+  padding: 6px 8px; border-radius: 7px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 280px;
+  transition: background 0.15s;
+}
+.toc-item:hover { background: rgba(255, 255, 255, 0.07); color: var(--gold-bright); }
+.toc-h2 { padding-left: 18px; font-size: 0.82rem; color: var(--ink-dim); }
+.toc-h3 { padding-left: 32px; font-size: 0.79rem; color: var(--ink-faint); }
+.toc-empty { color: var(--ink-faint); font-size: 0.82rem; padding: 8px; }
+
+/* ── Chế độ đọc 📖 ────────────────────────────────────── */
+.editor-wrap.reading .editor-toolbar,
+.editor-wrap.reading .page-nav-wrap,
+.editor-wrap.reading .cmt-nav-wrap,
+.editor-wrap.reading .page-side { display: none !important; }
+.editor-wrap.reading .doc-page {
+  max-width: 720px;
+  font-size: 1.08rem;
+  padding: 48px 56px 80px;
+  cursor: default;
+}
+.editor-wrap.reading { position: relative; }
+.editor-wrap.reading::before {
+  content: "📖 Đang đọc — bấm 📖 để soạn tiếp";
+  position: sticky; top: 66px; z-index: 8;
+  display: block; text-align: center;
+  font-size: 0.72rem; color: var(--ink-faint);
+  padding: 6px; margin-bottom: -6px;
+}
+
+/* ── 🔎 Tìm toàn văn ──────────────────────────────────── */
+.ft-modal { width: min(680px, 96vw); }
+.ft-results { margin-top: 12px; max-height: min(56vh, 480px); overflow-y: auto; }
+.ft-item {
+  display: block; width: 100%; text-align: left;
+  background: rgba(0, 0, 0, 0.18); border: 1px solid var(--line);
+  border-radius: 10px; padding: 10px 13px; margin-bottom: 8px;
+  cursor: pointer; transition: border-color 0.15s;
+}
+.ft-item:hover { border-color: var(--gold); }
+.ft-where { display: block; font-size: 0.76rem; color: var(--glow); margin-bottom: 3px; }
+.ft-snip { display: block; font-size: 0.86rem; color: var(--ink-dim); line-height: 1.5; }
+.ft-snip mark { background: rgba(217, 180, 111, 0.4); color: var(--ink); border-radius: 3px; }

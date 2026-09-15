@@ -889,6 +889,8 @@ function renderHome() {
         <option value="name">Tên A→Z</option>
         <option value="rec">Được tiến cử</option>
       </select>
+      <button class="btn btn-ghost" id="btn-fulltext" title="Tìm sâu trong toàn bộ nội dung mọi map/nháp">🔎 Tìm toàn văn</button>
+      ${me.guest ? "" : `<button class="btn btn-ghost" id="btn-backup" title="Tải toàn bộ nội dung về máy để giữ ngoài">📦 Backup</button>`}
       <span class="spacer"></span>
       <div class="pager hidden" id="home-pager"></div>
     </div>
@@ -896,6 +898,8 @@ function renderHome() {
   $("#home-sort").value = homeSort;
   $("#home-search").addEventListener("input", (e) => { homeQ = e.target.value; homePage = 0; renderHomeGrid(); });
   $("#home-sort").addEventListener("change", (e) => { homeSort = e.target.value; homePage = 0; renderHomeGrid(); });
+  $("#btn-fulltext").addEventListener("click", openFullTextSearch);
+  $("#btn-backup")?.addEventListener("click", runBackup);
   renderHomeGrid();
 }
 
@@ -1075,6 +1079,7 @@ function renderMapView({ id, tab }) {
   $("#main").innerHTML = `
     <div class="map-view-head">
       <a class="breadcrumb" href="#/">← Biển Cổng</a>
+      <div class="mv-gate" id="mv-gate"></div>
       <div class="map-title-row">
         <div style="flex:1; min-width: 240px;">
           <h1 class="map-view-title" id="mv-title"></h1>
@@ -1151,6 +1156,9 @@ function updateMapMeta({ id }) {
   if (!m || !$("#mv-title")) return;
   $("#mv-title").textContent = m.title || "(chưa đặt tên)";
   $("#mv-world").textContent = m.world || "";
+  const pos = maps.findIndex((x) => x.id === id); // số cổng theo vị trí thực ngoài Biển Cổng
+  const gateEl = $("#mv-gate");
+  if (gateEl) gateEl.textContent = pos >= 0 ? `✦ CÁNH CỔNG ${pos + 1} ✦` : "";
   $("#mv-nsfw")?.classList.toggle("hidden", !m.nsfw);
   $("#mv-wip")?.classList.toggle("hidden", !m.wip);
   $("#mv-noh")?.classList.toggle("hidden", !m.noH);
@@ -1703,6 +1711,163 @@ document.addEventListener("keydown", (e) => {
   if (btn) { e.preventDefault(); btn.click(); }
 });
 
+/* ── 📦 Backup + 🔎 Tìm toàn văn: gom nội dung mọi map/nháp ── */
+async function inlineImagesForExport(html) {
+  const div = document.createElement("div");
+  div.innerHTML = html || "";
+  for (const img of [...div.querySelectorAll("img[data-iid]")]) {
+    const iid = img.dataset.iid;
+    let data = imgCache[iid];
+    if (data === undefined) { try { data = await store.getImage(iid); imgCache[iid] = data; } catch { data = null; } }
+    if (data) { img.setAttribute("src", data); img.removeAttribute("data-iid"); }
+    else img.remove();
+  }
+  return div.innerHTML;
+}
+
+async function gatherAll({ withImages }) {
+  const res = { maps: [], drafts: [] };
+  for (let mi = 0; mi < maps.length; mi++) {
+    const m = maps[mi];
+    const total = Math.max(1, m.contentPages || 1);
+    const pages = [];
+    for (let i = 0; i < total; i++) {
+      let h = await store.loadDocField("maps", m.id, fieldForPage("content", i));
+      if (withImages) h = await inlineImagesForExport(h);
+      pages.push(h);
+    }
+    let prompt = await store.loadDocField("maps", m.id, "prompt");
+    let ideas = await store.loadDocField("maps", m.id, "ideas");
+    if (withImages) { prompt = await inlineImagesForExport(prompt); ideas = await inlineImagesForExport(ideas); }
+    res.maps.push({ id: m.id, pos: mi + 1, title: m.title || "", world: m.world || "", pages, prompt, ideas });
+  }
+  if (!me.guest) for (const d of drafts) {
+    const total = Math.max(1, d.contentPages || 1);
+    const pages = [];
+    for (let i = 0; i < total; i++) {
+      let h = await store.loadDocField("drafts", d.id, fieldForPage("content", i));
+      if (withImages) h = await inlineImagesForExport(h);
+      pages.push(h);
+    }
+    res.drafts.push({ id: d.id, title: d.title || "", pages });
+  }
+  return res;
+}
+
+function downloadFile(name, content, type) {
+  const url = URL.createObjectURL(new Blob([content], { type }));
+  const a = document.createElement("a");
+  a.href = url; a.download = name;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 4000);
+}
+
+function buildBackupHtml(data) {
+  const sec = (title, inner) => `<section><h2>${esc(title)}</h2>${inner}</section>`;
+  const pageBlock = (pages) => pages.map((h, i) =>
+    `<div class="pg">${pages.length > 1 ? `<div class="pgh">Trang ${i + 1}</div>` : ""}${h || "<em>(trống)</em>"}</div>`).join("");
+  const mapsHtml = data.maps.map((m) => sec(
+    `Cánh cổng ${m.pos} — ${m.title}`,
+    `${m.world ? `<p class="wd"><i>${esc(m.world)}</i></p>` : ""}
+     <h3>Nội dung Map</h3>${pageBlock(m.pages)}
+     ${stripHtml(m.prompt) ? `<h3>Prompt</h3><div class="pg">${m.prompt}</div>` : ""}
+     ${stripHtml(m.ideas) ? `<h3>Ý tưởng nháp</h3><div class="pg">${m.ideas}</div>` : ""}`)).join("");
+  const draftsHtml = data.drafts.length
+    ? `<h1>Thư Phòng San Hô</h1>` + data.drafts.map((d) => sec(d.title || "(nháp chưa đặt tên)", pageBlock(d.pages))).join("")
+    : "";
+  return `<!doctype html><html lang="vi"><head><meta charset="utf-8"><title>Tinh Hải Vạn Giới — Backup</title>
+<style>body{max-width:820px;margin:24px auto;padding:0 18px;font-family:-apple-system,'Be Vietnam Pro',sans-serif;line-height:1.7;color:#222}
+h1{border-bottom:2px solid #c9a24b;padding-bottom:6px;margin-top:40px}
+section{margin:22px 0;padding:16px 18px;border:1px solid #e3dcc8;border-radius:10px;background:#faf6ec}
+section h2{margin:0 0 8px;color:#7a5c1e}.wd{color:#666;margin:2px 0 12px}
+.pg{border-top:1px dashed #ddd;padding-top:10px;margin-top:10px}.pgh{font-size:.8em;color:#999;letter-spacing:.1em}
+img{max-width:100%;border-radius:6px}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:6px 10px}
+mark.cmt{background:#f6e6c8}</style></head>
+<body><h1>🐋 Tinh Hải Vạn Giới — Bản lưu ${new Date().toLocaleString("vi-VN")}</h1>
+<h1>Biển Cổng (${data.maps.length} cổng)</h1>${mapsHtml}${draftsHtml}</body></html>`;
+}
+
+let backupBusy = false;
+async function runBackup() {
+  if (backupBusy) return;
+  backupBusy = true;
+  toast("📦 Đang gói toàn bộ nội dung… (chờ chút)");
+  try {
+    const data = await gatherAll({ withImages: true });
+    downloadFile(`tinh-hai-van-gioi — backup ${new Date().toISOString().slice(0, 10)}.html`,
+      buildBackupHtml(data), "text/html");
+    toast("📦 Đã tải bản lưu về máy — mở bằng trình duyệt là đọc được hết.");
+  } catch (e) { toast("Không tạo được backup: " + e.message, true); }
+  finally { backupBusy = false; }
+}
+
+/* ── 🔎 Tìm toàn văn ──────────────────────────────────── */
+let ftIndex = null;
+async function buildFtIndex() {
+  const data = await gatherAll({ withImages: false });
+  const E = [];
+  data.maps.forEach((m) => {
+    E.push({ kind: "map", id: m.id, title: m.title, pos: m.pos, tab: "map", page: 0, where: "Tên & mô tả", text: `${m.title} ${m.world}` });
+    m.pages.forEach((h, i) => E.push({ kind: "map", id: m.id, title: m.title, pos: m.pos, tab: "map", page: i, where: `Nội dung · trang ${i + 1}`, text: stripHtml(h) }));
+    if (stripHtml(m.prompt)) E.push({ kind: "map", id: m.id, title: m.title, pos: m.pos, tab: "prompt", page: 0, where: "Prompt", text: stripHtml(m.prompt) });
+    if (stripHtml(m.ideas)) E.push({ kind: "map", id: m.id, title: m.title, pos: m.pos, tab: "y-tuong", page: 0, where: "Ý tưởng", text: stripHtml(m.ideas) });
+  });
+  data.drafts.forEach((d) => d.pages.forEach((h, i) =>
+    E.push({ kind: "draft", id: d.id, title: d.title || "(nháp)", page: i, where: `Nháp · trang ${i + 1}`, text: stripHtml(h) })));
+  return E;
+}
+function ftSnippet(text, q) {
+  const idx = text.toLowerCase().indexOf(q);
+  if (idx < 0) return esc(text.slice(0, 90));
+  const s = Math.max(0, idx - 35), e = Math.min(text.length, idx + q.length + 55);
+  return (s ? "…" : "") + esc(text.slice(s, idx)) + `<mark>${esc(text.slice(idx, idx + q.length))}</mark>` + esc(text.slice(idx + q.length, e)) + (e < text.length ? "…" : "");
+}
+async function openFullTextSearch() {
+  const back = document.createElement("div");
+  back.className = "modal-backdrop ft-backdrop";
+  back.innerHTML = `<div class="modal ft-modal">
+    <h2 class="modal-title">🔎 Tìm toàn văn <span class="hist-sub">(cả chữ bên trong mọi map & nháp)</span></h2>
+    <input id="ft-inp" class="search-inp" style="max-width:none;width:100%" type="search" placeholder="Gõ từ khoá — VD: Ôn Giang, Thập Điện…" autocomplete="off">
+    <div class="ft-results" id="ft-results"><p class="hist-empty">Đang lục toàn bộ nội dung…</p></div>
+    <div class="modal-actions"><span class="spacer"></span><button class="btn btn-ghost" id="ft-close">Đóng</button></div>
+  </div>`;
+  document.body.appendChild(back);
+  const close = () => { document.removeEventListener("keydown", onKey); back.remove(); };
+  const onKey = (e) => { if (e.key === "Escape") close(); };
+  document.addEventListener("keydown", onKey);
+  back.addEventListener("mousedown", (e) => { if (e.target === back) close(); });
+  back.querySelector("#ft-close").addEventListener("click", close);
+  const inp = back.querySelector("#ft-inp");
+  const box = back.querySelector("#ft-results");
+
+  try { ftIndex = await buildFtIndex(); } // dựng lại mỗi lần mở để luôn tươi
+  catch (e) { box.innerHTML = `<p class="hist-empty">Không lục được: ${esc(e.message)}</p>`; return; }
+  box.innerHTML = `<p class="hist-empty">Gõ từ khoá để tìm trong ${ftIndex.length} mục nội dung.</p>`;
+  inp.focus();
+
+  inp.addEventListener("input", () => {
+    const q = inp.value.trim().toLowerCase();
+    if (q.length < 2) { box.innerHTML = `<p class="hist-empty">Gõ ít nhất 2 ký tự.</p>`; return; }
+    const hits = ftIndex.filter((e) => e.text.toLowerCase().includes(q)).slice(0, 60);
+    if (!hits.length) { box.innerHTML = `<p class="hist-empty">Không thấy "${esc(q)}" ở đâu cả.</p>`; return; }
+    box.innerHTML = hits.map((h, i) => `<button class="ft-item" data-i="${i}">
+      <span class="ft-where">${h.kind === "map" ? `⛩ Cổng ${h.pos} · ${esc(h.title)}` : `📝 ${esc(h.title)}`} · ${esc(h.where)}</span>
+      <span class="ft-snip">${ftSnippet(h.text, q)}</span></button>`).join("");
+    box.querySelectorAll(".ft-item").forEach((b) => b.addEventListener("click", () => {
+      const h = hits[+b.dataset.i];
+      if (h.kind === "map") {
+        if (h.tab === "map") pageMem[`maps:${h.id}:content`] = h.page;
+        close();
+        location.hash = `#/map/${h.id}/${h.tab}`;
+      } else {
+        pageMem[`drafts:${h.id}:content`] = h.page;
+        close();
+        location.hash = `#/thu-phong/${h.id}`;
+      }
+    }));
+  });
+}
+
 /* ── 🕘 Modal lịch sử chỉnh sửa (giữ 7 ngày) ──────────── */
 function fmtHistTime(ts) {
   const d = new Date(ts);
@@ -1828,6 +1993,8 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
       }).join("")}
       ${showCopy ? `<span class="tb-sep"></span><button class="tb-btn" id="tb-copy" title="Copy toàn bộ prompt (dạng chữ thuần) để dán vào AI Studio">⧉ Copy</button>` : ""}
       ${(coll && id && field) ? `<span class="tb-sep"></span><button class="tb-btn" data-hist="1" title="Lịch sử chỉnh sửa (giữ 7 ngày) — xem lại & khôi phục bản cũ nếu lỡ mất">🕘</button>` : ""}
+      <button class="tb-btn" data-toc="1" title="Mục lục — nhảy tới các tiêu đề trong trang">📑</button>
+      <button class="tb-btn" data-read="1" title="Chế độ đọc — ẩn thanh công cụ, chữ rộng ra">📖</button>
       <span class="tb-status" id="tb-status">Tự động lưu</span>
       <input type="file" accept="image/*" class="tb-img-file" hidden>
     </div>
@@ -1976,6 +2143,34 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
     }
   };
   activeEditorSync = doSync;
+
+  // 📑 mục lục — nhảy tới tiêu đề
+  const tocBtn = slot.querySelector("[data-toc]");
+  tocBtn?.addEventListener("mousedown", (e) => e.preventDefault());
+  tocBtn?.addEventListener("click", () => {
+    const heads = [...page.querySelectorAll("h1,h2,h3")].filter((h) => h.textContent.trim());
+    const pop = popShell(tocBtn.getBoundingClientRect());
+    if (!heads.length) {
+      pop.innerHTML = `<div class="tbl-pop-title">Mục lục</div><div class="toc-empty">Trang chưa có tiêu đề (H1/H2/H3) nào.</div>`;
+      return;
+    }
+    pop.innerHTML = `<div class="tbl-pop-title">Mục lục</div>` +
+      heads.map((h, i) => `<button class="toc-item toc-${h.tagName.toLowerCase()}" data-i="${i}">${esc(h.textContent.trim())}</button>`).join("");
+    pop.querySelectorAll(".toc-item").forEach((b) => b.addEventListener("click", () => {
+      heads[+b.dataset.i].scrollIntoView({ block: "start", behavior: "smooth" });
+      closeTblPop();
+    }));
+  });
+
+  // 📖 chế độ đọc — ẩn thanh công cụ, chữ rộng, chỉ xem
+  const readBtn = slot.querySelector("[data-read]");
+  readBtn?.addEventListener("click", () => {
+    const wrap = slot.closest(".editor-wrap") || slot; // khung ngoài (kể cả khi có phân trang)
+    const on = wrap.classList.toggle("reading");
+    page.contentEditable = on ? "false" : "true";
+    readBtn.classList.toggle("tb-active", on);
+    if (on) toast("📖 Chế độ đọc — bấm 📖 lần nữa để soạn tiếp.");
+  });
 
   // 🕘 lịch sử chỉnh sửa
   const histBtn = slot.querySelector("[data-hist]");
