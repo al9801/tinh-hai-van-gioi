@@ -426,6 +426,21 @@ function firestoreStore() {
         snap.docs.forEach((d) => { if ((d.data().at || 0) < cutoff) deleteDoc(d.ref).catch(() => {}); });
       } catch { /* dọn lịch sử là việc phụ, lỗi thì bỏ qua */ }
     },
+    // di cư lịch sử sang key mới (đẩy nháp ra biển → id đổi) để không mất nhật ký
+    async migrateHistory(fromColl, fromId, toColl, toId, field) {
+      const fromKey = `${fromColl}-${fromId}-${field}`;
+      const toKey = `${toColl}-${toId}-${field}`;
+      try {
+        const snap = await getDocs(query(collection(db, "history"),
+          orderBy("__name__"), startAt(`${fromKey}__`), endAt(`${fromKey}__`)));
+        for (const d of snap.docs) {
+          const x = d.data();
+          await setDoc(doc(db, "history", `${toKey}__${String(x.at).padStart(16, "0")}`),
+            { key: toKey, html: x.html, by: x.by, at: x.at });
+          deleteDoc(d.ref).catch(() => {});
+        }
+      } catch { /* di cư lỗi thì thôi, không chặn việc đẩy */ }
+    },
     // đọc TƯƠI toàn bộ trang của một nháp thẳng từ Firestore (nguồn thật) —
     // dùng khi đẩy ra biển, tránh cảnh máy (nhất là điện thoại) còn bản nhớ tạm cũ
     async snapshotDraftPages(id) {
@@ -633,6 +648,11 @@ button{margin-top:14px;width:100%;padding:10px;border:1px dashed #8a7962;backgro
       const arr = (this._hist || {})[`${coll}-${id}-${field}`] || [];
       const cutoff = Date.now() - 7 * 86400e3;
       return arr.filter((x) => x.at >= cutoff).sort((a, b) => b.at - a.at);
+    },
+    async migrateHistory(fromColl, fromId, toColl, toId, field) {
+      this._hist = this._hist || {};
+      const fk = `${fromColl}-${fromId}-${field}`, tk = `${toColl}-${toId}-${field}`;
+      if (this._hist[fk]) { this._hist[tk] = (this._hist[tk] || []).concat(this._hist[fk]); delete this._hist[fk]; }
     },
     async addDraft(data) { const id = uid(); drafts.unshift({ id, ...data, updatedAt: now() }); route(true); return id; },
     async updateDraft(id, patch) { const d = drafts.find((x) => x.id === id); if (d) { Object.assign(d, patch); touch(d); } route(true); },
@@ -1491,7 +1511,9 @@ function renderDraftView({ id }) {
         recommends: {}, createdBy: me.email,
       });
       for (let i = 0; i < totalPages; i++) {
-        await store.saveDocField("maps", newId, fieldForPage("content", i), snap.pages[i] || "");
+        const f = fieldForPage("content", i);
+        await store.saveDocField("maps", newId, f, snap.pages[i] || "");
+        await store.migrateHistory?.("drafts", id, "maps", newId, f); // nhật ký chỉnh sửa đi theo
       }
       if (snap.comments && Object.keys(snap.comments).length) {
         await store.updateMap(newId, { comments: snap.comments }); // ghi chú 💧 đi theo nội dung
