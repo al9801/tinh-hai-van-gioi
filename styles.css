@@ -898,8 +898,18 @@ body:not(.guest) .gas-fab { bottom: 86px; }
   }
   .editor-toolbar::-webkit-scrollbar { display: none; }
   .tb-btn { flex: 0 0 auto; min-width: 38px; height: 38px; font-size: 0.95rem; }
-  .tb-status { position: sticky; right: 0; margin-left: 6px;
-    background: rgba(12, 22, 42, 0.96); padding-left: 6px; }
+  /* "Tự động lưu" quá dài, che nút → thu thành 1 icon nhỏ nép sát mép phải */
+  .tb-status {
+    position: sticky; right: 0; flex: 0 0 auto; margin-left: 4px;
+    font-size: 0; padding: 0 6px 0 10px;
+    background: linear-gradient(90deg, transparent, rgba(12, 22, 42, 0.96) 30%);
+  }
+  .tb-status::before { font-size: 1rem; content: "💾"; opacity: 0.7; }
+  .tb-status.saving::before { content: "⏳"; opacity: 1; }
+  .tb-status.saved::before { content: "✓"; color: var(--glow); opacity: 1; font-weight: 700; }
+
+  /* cụm điều hướng trang gọn lại, nép sát toolbar */
+  .page-nav-wrap { margin: 10px auto 6px; }
 
   /* Tab phụ trong cổng: cũng cuộn ngang, không xuống dòng */
   .subtabs {
@@ -1417,7 +1427,13 @@ body.guest .doc-page { user-select: none; }
 .page-side-left  { left: max(10px, calc(50% - 505px)); }
 .page-side-right { right: max(10px, calc(50% - 505px)); }
 @media (max-width: 720px) {
-  .page-side { width: 34px; height: 74px; font-size: 1.2rem; }
+  /* Điện thoại: ẩn hai pill lật trang ở rìa (đè lên thanh công cụ, lại thừa vì đã có cụm ‹1/2›+🗑).
+     Chỉ hiện lại khi ĐANG ĐỌC — lúc đó thanh công cụ ẩn nên không còn vướng. */
+  .page-side { display: none; }
+  .editor-wrap.reading .page-side {
+    display: grid; width: 40px; height: 72px; font-size: 1.3rem;
+    opacity: 0.9;
+  }
 }
 
 
