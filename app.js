@@ -876,14 +876,17 @@ function renderHome() {
     </div>
     <div class="browse-bar">
       <input id="home-search" class="search-inp" type="search" placeholder="🔍 Tìm cánh cổng…" value="${esc(homeQ)}" autocomplete="off">
-      <select id="home-sort" class="sort-sel" title="Sắp xếp">
-        <option value="pos">Theo vị trí</option>
-        <option value="new">Mới sửa</option>
-        <option value="name">Tên A→Z</option>
-        <option value="rec">Được tiến cử</option>
-      </select>
-      <button class="btn btn-ghost" id="btn-fulltext" title="Tìm sâu trong toàn bộ nội dung mọi map/nháp">🔎 Tìm toàn văn</button>
-      ${me.guest ? "" : `<button class="btn btn-ghost" id="btn-backup" title="Tải toàn bộ nội dung về máy để giữ ngoài">📦 Backup</button>`}
+      <span class="sort-wrap">
+        <span class="sort-ic" aria-hidden="true">⇅</span>
+        <select id="home-sort" class="sort-sel" title="Sắp xếp cổng">
+          <option value="pos">Theo vị trí</option>
+          <option value="new">Mới sửa</option>
+          <option value="name">Tên A→Z</option>
+          <option value="rec">Được tiến cử</option>
+        </select>
+      </span>
+      <button class="btn btn-ghost icon-btn" id="btn-fulltext" title="Tìm sâu trong toàn bộ nội dung mọi map/nháp"><span class="ib-ic">🔎</span><span class="ib-tx">Tìm toàn văn</span></button>
+      ${me.guest ? "" : `<button class="btn btn-ghost icon-btn" id="btn-backup" title="Tải toàn bộ nội dung về máy để giữ ngoài"><span class="ib-ic">📦</span><span class="ib-tx">Backup</span></button>`}
       <span class="spacer"></span>
       <div class="pager hidden" id="home-pager"></div>
     </div>
