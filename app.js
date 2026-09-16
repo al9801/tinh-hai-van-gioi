@@ -272,18 +272,8 @@ function cleanNode(n, out) {
     }
   }
 
-  // giữ màu highlight nền (kiểu bôi màu trong Google Docs)
-  const bg = style.match(/background(?:-color)?\s*:\s*([^;]+)/);
-  if (bg) {
-    const v = bg[1].trim();
-    if (/^(#[0-9a-f]{3,8}|rgba?\([\d\s.,%]+\)|[a-z]+)$/i.test(v) &&
-        !/^(transparent|white|#fff(?:fff)?|inherit|initial|unset|none)$/i.test(v)) {
-      const el = document.createElement("span");
-      el.style.backgroundColor = v;
-      target.appendChild(el);
-      target = el;
-    }
-  }
+  // KHÔNG giữ màu nền khi dán — chữ cop từ web/Docs hay bị "ám" nền tối/nền màu.
+  // Muốn tô sáng thì dùng nút 🖍 highlight trong thanh công cụ.
 
   if (KEEP_TAGS.has(tag)) {
     if (tag === "IMG") {
@@ -2463,7 +2453,14 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
     return [...set];
   };
 
+  let plainPasteNext = false; // Ctrl/Cmd+Shift+V → lần dán kế tiếp là chữ thô
   page.addEventListener("keydown", (e) => {
+    // Ctrl/Cmd+Shift+V: dán KHÔNG định dạng (chữ thô) — đặt cờ rồi để sự kiện paste tự xử
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === "v" || e.key === "V")) {
+      plainPasteNext = true;
+      setTimeout(() => { plainPasteNext = false; }, 500); // tự huỷ nếu không có gì để dán
+      return;
+    }
     // Tab trong bảng: nhảy ô (giữ như cũ)
     if (e.key === "Tab") {
       const cell = caretCell();
@@ -2581,6 +2578,13 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
   // còn lại → chữ thuần
   page.addEventListener("paste", (e) => {
     const cd = e.clipboardData || window.clipboardData;
+    // Ctrl/Cmd+Shift+V: dán chữ thô, bỏ mọi định dạng
+    if (plainPasteNext) {
+      plainPasteNext = false;
+      e.preventDefault();
+      document.execCommand("insertText", false, cd.getData("text/plain"));
+      return;
+    }
     const items = [...(cd?.items || [])];
     const imgItem = items.find((it) => it.type.startsWith("image/"));
     if (imgItem) {
