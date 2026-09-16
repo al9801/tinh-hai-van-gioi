@@ -2452,7 +2452,7 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
       let n = range.startContainer;
       n = n.nodeType === 1 ? n : n.parentElement;
       const b = n?.closest("p,li,h1,h2,h3,blockquote,div,pre");
-      if (b && page.contains(b)) set.add(b);
+      if (b && b !== page && page.contains(b)) set.add(b); // không thụt lề chính khung trang
     }
     return [...set];
   };
@@ -2519,7 +2519,8 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
     const m = before.match(/^([-*•]|\d+[.)])\s$/);            // đúng "ký hiệu + 1 dấu cách"
     if (!m) return;
     const block = node.parentElement?.closest("p,div,h1,h2,h3,blockquote");
-    if (!block || !page.contains(block)) return;
+    // KHÔNG được thay chính khung doc-page (nó cũng là div) → sẽ vỡ cả trang
+    if (!block || block === page || !page.contains(block) || !page.contains(block.parentNode)) return;
     autoListing = true;
     node.textContent = node.textContent.slice(r.startOffset); // bỏ ký hiệu vừa gõ
     const li = document.createElement("li");
