@@ -1434,8 +1434,8 @@ body.guest .doc-page { user-select: none; }
 /* ── Chế độ đọc 📖 ────────────────────────────────────── */
 .editor-wrap.reading .editor-toolbar,
 .editor-wrap.reading .page-nav-wrap,
-.editor-wrap.reading .cmt-nav-wrap,
-.editor-wrap.reading .page-side { display: none !important; }
+.editor-wrap.reading .cmt-nav-wrap { display: none !important; }
+/* giữ mũi tên hai bên để LẬT TRANG khi đang đọc */
 .editor-wrap.reading .doc-page {
   max-width: 720px;
   font-size: 1.08rem;
