@@ -2,13 +2,21 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Tinh Hải Vạn Giới</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⭐</text></svg>">
+<!-- ══ Cài lên màn hình chính (PWA) ══ -->
+<link rel="manifest" href="manifest.json?v=57">
+<meta name="theme-color" content="#0a1228">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tinh Hải">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=56">
+<link rel="stylesheet" href="styles.css?v=57">
 </head>
 <body>
 
@@ -141,6 +149,9 @@
   <!-- nút vút về đầu trang: nằm góc trái, chỉ hiện khi cuộn sâu để không bấm nhầm -->
   <button id="btn-top" class="btn-top" title="Vút về đầu trang">✦<span class="btn-top-arrow">↑</span></button>
 
+  <!-- bong bóng nổi mở Google AI Studio: luôn với tới được, kể cả khi đang soạn / cuộn sâu (chỉ hiện trong cổng) -->
+  <a id="gas-fab" class="gas-fab hidden" target="_blank" rel="noopener" title="Mở Google AI Studio cho cổng này">🌀</a>
+
   <button id="chat-fab" class="chat-fab" title="Truyền Âm — nhắn tin cho người kia">
     🫧<span id="chat-badge" class="chat-badge hidden"></span>
   </button>
@@ -202,7 +213,15 @@
 
 <div id="toast" class="toast hidden"></div>
 
-<script src="firebase-config.js?v=56"></script>
-<script type="module" src="app.js?v=56"></script>
+<script src="firebase-config.js?v=57"></script>
+<script type="module" src="app.js?v=57"></script>
+<script>
+  // Đăng ký service worker để cài được lên màn hình chính
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js?v=57').catch(() => {});
+    });
+  }
+</script>
 </body>
 </html>

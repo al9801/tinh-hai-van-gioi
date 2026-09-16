@@ -836,6 +836,9 @@ function route(soft = false) {
   const savedY = viewScroll[newSK] || 0;
   scrollKey = null;
 
+  // bong bóng 🌀 chỉ nổi khi đang trong một cổng
+  if (r.view !== "map") $("#gas-fab")?.classList.add("hidden");
+
   if (r.view === "home") renderHome();
   else if (r.view === "map") renderMapView(r);
   else if (r.view === "drafts") renderDraftsList();
@@ -1162,7 +1165,10 @@ function updateMapMeta({ id }) {
   $("#mv-nsfw")?.classList.toggle("hidden", !m.nsfw);
   $("#mv-wip")?.classList.toggle("hidden", !m.wip);
   $("#mv-noh")?.classList.toggle("hidden", !m.noH);
-  $("#mv-gas").href = normalizeUrl(m.gasLink) || DEFAULT_GAS;
+  const gasHref = normalizeUrl(m.gasLink) || DEFAULT_GAS;
+  $("#mv-gas").href = gasHref;
+  const fab = $("#gas-fab");
+  if (fab) { fab.href = gasHref; fab.classList.remove("hidden"); }
 
   if (me.guest) {
     const fm = m.fishMarks || {};
