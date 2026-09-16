@@ -248,6 +248,9 @@ body {
   transition: all 0.2s;
 }
 .btn-icon:hover { color: var(--gold-bright); background: rgba(255, 255, 255, 0.06); }
+/* nút "icon + chữ": desktop hiện cả hai; điện thoại ẩn chữ thành chip icon tròn (xem @600px) */
+.icon-btn { display: inline-flex; align-items: center; }
+.icon-btn .ib-tx { margin-left: 5px; }
 
 /* ── Header ứng dụng ──────────────────────────────────── */
 .app-header {
@@ -982,6 +985,29 @@ body:not(.guest) .gas-fab { bottom: 86px; }
   .chat-fab { bottom: max(16px, env(safe-area-inset-bottom)); }
   body:not(.guest) .gas-fab { bottom: calc(70px + env(safe-area-inset-bottom)); }
   body.guest .gas-fab { bottom: max(16px, env(safe-area-inset-bottom)); }
+
+  /* ── Gọn nút map view về 1 hàng (kiểu chip icon) ── */
+  /* nút "Mở Google AI Studio" inline: ẩn — đã có bong bóng 🌀 nổi thay thế */
+  #mv-gas { display: none; }
+  .map-actions { gap: 10px; margin-top: 14px; flex-wrap: nowrap; align-items: center; }
+  .map-actions .rec-btn { flex: 0 0 auto; }
+  .map-actions .rec-status {
+    flex: 1 1 auto; min-width: 0;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.74rem;
+  }
+
+  /* thanh file (Bản đồ / Hồ sơ): thông tin + 3 nút gọn thành 1 hàng, nút phụ = chip icon */
+  .htmlmap-bar { flex-wrap: nowrap; gap: 8px; align-items: center; margin: 16px 0 12px; }
+  .htmlmap-bar .rec-status {
+    flex: 1 1 auto; min-width: 0;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.74rem;
+  }
+  .htmlmap-bar .spacer { display: none; }
+  .htmlmap-bar .icon-btn {
+    flex: 0 0 auto; padding: 0; width: 42px; height: 42px;
+    justify-content: center; border-radius: 50%; font-size: 1.15rem;
+  }
+  .htmlmap-bar .icon-btn .ib-tx { display: none; }
 }
 
 /* ── Tab Bản đồ HTML ──────────────────────────────────── */

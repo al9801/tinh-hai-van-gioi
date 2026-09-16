@@ -1230,11 +1230,11 @@ async function renderHtmlFileTab(m, cfg) {
     <div class="htmlmap-bar">
       <span class="rec-status" id="hf-info">Đang lặn xuống lấy ${cfg.name}…</span>
       <span class="spacer"></span>
-      <button class="btn btn-ghost hidden" id="hf-primary">⛶ Toàn màn hình</button>
-      ${guest ? "" : `<label class="btn btn-gold" title="Chọn file ${cfg.name} .html (tự chứa, dưới 0.9MB)">⬆ Tải HTML lên
+      <button class="btn btn-ghost icon-btn hidden" id="hf-primary" title="Mở toàn màn hình"><span class="ib-ic">⛶</span><span class="ib-tx">Toàn màn hình</span></button>
+      ${guest ? "" : `<label class="btn btn-gold icon-btn" title="Tải file ${cfg.name} .html lên (tự chứa, dưới 0.9MB)"><span class="ib-ic">⬆</span><span class="ib-tx">Tải HTML lên</span>
         <input type="file" id="hf-file" accept=".html,.htm,text/html" hidden>
       </label>
-      <button class="btn btn-danger-ghost hidden" id="hf-del">Gỡ ${cfg.name}…</button>`}
+      <button class="btn btn-danger-ghost icon-btn hidden" id="hf-del" title="Gỡ ${cfg.name}"><span class="ib-ic">🗑</span><span class="ib-tx">Gỡ ${cfg.name}</span></button>`}
     </div>
     <div id="hf-body"></div>`;
 
