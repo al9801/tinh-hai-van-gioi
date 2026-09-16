@@ -6,7 +6,7 @@
 <title>Tinh Hải Vạn Giới</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⭐</text></svg>">
 <!-- ══ Cài lên màn hình chính (PWA) ══ -->
-<link rel="manifest" href="manifest.json?v=59">
+<link rel="manifest" href="manifest.json?v=60">
 <meta name="theme-color" content="#0a1228">
 <link rel="apple-touch-icon" href="icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=59">
+<link rel="stylesheet" href="styles.css?v=60">
 </head>
 <body>
 
@@ -213,13 +213,13 @@
 
 <div id="toast" class="toast hidden"></div>
 
-<script src="firebase-config.js?v=59"></script>
-<script type="module" src="app.js?v=59"></script>
+<script src="firebase-config.js?v=60"></script>
+<script type="module" src="app.js?v=60"></script>
 <script>
   // Đăng ký service worker để cài được lên màn hình chính
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('sw.js?v=59').catch(() => {});
+      navigator.serviceWorker.register('sw.js?v=60').catch(() => {});
     });
   }
 </script>
