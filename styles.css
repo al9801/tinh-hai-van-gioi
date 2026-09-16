@@ -1443,13 +1443,16 @@ body.guest .doc-page { user-select: none; }
   cursor: default;
 }
 .editor-wrap.reading { position: relative; }
-.editor-wrap.reading::before {
-  content: "📖 Đang đọc — bấm 📖 để soạn tiếp";
-  position: sticky; top: 66px; z-index: 8;
-  display: block; text-align: center;
-  font-size: 0.72rem; color: var(--ink-faint);
-  padding: 6px; margin-bottom: -6px;
+.read-exit {
+  position: sticky; top: 66px; z-index: 12;
+  display: block; margin: 0 auto 6px;
+  background: rgba(13, 26, 50, 0.92); backdrop-filter: blur(8px);
+  border: 1px solid var(--gold); border-radius: 999px;
+  color: var(--gold-bright); font-family: var(--font-body); font-size: 0.78rem;
+  padding: 7px 16px; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+  transition: all 0.2s;
 }
+.read-exit:hover { background: #16294c; box-shadow: 0 4px 18px rgba(217,180,111,0.3); }
 
 /* ── 🔎 Tìm toàn văn ──────────────────────────────────── */
 .ft-modal { width: min(680px, 96vw); }

@@ -2164,12 +2164,23 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
 
   // 📖 chế độ đọc — ẩn thanh công cụ, chữ rộng, chỉ xem
   const readBtn = slot.querySelector("[data-read]");
-  readBtn?.addEventListener("click", () => {
+  const setReading = (on) => {
     const wrap = slot.closest(".editor-wrap") || slot; // khung ngoài (kể cả khi có phân trang)
-    const on = wrap.classList.toggle("reading");
+    wrap.classList.toggle("reading", on);
     page.contentEditable = on ? "false" : "true";
-    readBtn.classList.toggle("tb-active", on);
-    if (on) toast("📖 Chế độ đọc — bấm 📖 lần nữa để soạn tiếp.");
+    readBtn?.classList.toggle("tb-active", on);
+    let exit = wrap.querySelector(".read-exit");
+    if (on && !exit) {
+      exit = document.createElement("button");
+      exit.className = "read-exit";
+      exit.textContent = "📖 Đang đọc — bấm để soạn tiếp";
+      exit.addEventListener("click", () => setReading(false));
+      wrap.insertBefore(exit, wrap.firstChild);
+    } else if (!on && exit) { exit.remove(); }
+  };
+  readBtn?.addEventListener("click", () => {
+    const wrap = slot.closest(".editor-wrap") || slot;
+    setReading(!wrap.classList.contains("reading"));
   });
 
   // 🕘 lịch sử chỉnh sửa
@@ -2426,31 +2437,101 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
     });
   });
 
-  // Tab nhảy giữa các ô; Tab ở ô cuối cùng tự thêm hàng mới
+  // các khối chứa vùng bôi đen (hoặc khối chứa con trỏ)
+  const blocksInSel = () => {
+    const sel = window.getSelection();
+    const set = new Set();
+    if (!sel.rangeCount) return [];
+    const range = sel.getRangeAt(0);
+    if (!sel.isCollapsed) {
+      page.querySelectorAll("p,li,h1,h2,h3,blockquote,div,pre").forEach((el) => {
+        if (range.intersectsNode(el) && !el.querySelector("table")) set.add(el);
+      });
+    }
+    if (!set.size) {
+      let n = range.startContainer;
+      n = n.nodeType === 1 ? n : n.parentElement;
+      const b = n?.closest("p,li,h1,h2,h3,blockquote,div,pre");
+      if (b && page.contains(b)) set.add(b);
+    }
+    return [...set];
+  };
+
   page.addEventListener("keydown", (e) => {
-    if (e.key !== "Tab") return;
-    const cell = caretCell();
-    if (!cell) return;
-    e.preventDefault();
-    const cells = [...cell.closest("table").querySelectorAll("td,th")];
-    const i = cells.indexOf(cell);
-    let target = e.shiftKey ? cells[i - 1] : cells[i + 1];
-    if (!target && !e.shiftKey) {
-      const row = cell.parentElement;
-      const nr = document.createElement("tr");
-      nr.innerHTML = "<td><br></td>".repeat(row.children.length);
-      row.after(nr);
-      target = nr.firstElementChild;
+    // Tab trong bảng: nhảy ô (giữ như cũ)
+    if (e.key === "Tab") {
+      const cell = caretCell();
+      if (cell) {
+        e.preventDefault();
+        const cells = [...cell.closest("table").querySelectorAll("td,th")];
+        const i = cells.indexOf(cell);
+        let target = e.shiftKey ? cells[i - 1] : cells[i + 1];
+        if (!target && !e.shiftKey) {
+          const row = cell.parentElement;
+          const nr = document.createElement("tr");
+          nr.innerHTML = "<td><br></td>".repeat(row.children.length);
+          row.after(nr);
+          target = nr.firstElementChild;
+          page.dispatchEvent(new Event("input"));
+        }
+        if (target) { const r = document.createRange(); r.selectNodeContents(target); r.collapse(true); const s = window.getSelection(); s.removeAllRanges(); s.addRange(r); }
+        return;
+      }
+      // Tab ngoài bảng: thụt lề đoạn (Shift+Tab lùi về)
+      e.preventDefault();
+      const step = 32;
+      blocksInSel().forEach((b) => {
+        const cur = parseInt(b.style.marginLeft) || 0;
+        const next = e.shiftKey ? Math.max(0, cur - step) : Math.min(step * 8, cur + step);
+        b.style.marginLeft = next ? next + "px" : "";
+      });
       page.dispatchEvent(new Event("input"));
+      return;
     }
-    if (target) {
-      const r = document.createRange();
-      r.selectNodeContents(target);
-      r.collapse(true);
-      const s = window.getSelection();
-      s.removeAllRanges();
-      s.addRange(r);
+    // Enter trên một mục danh sách RỖNG → thoát danh sách, về đoạn thường
+    if (e.key === "Enter" && !e.shiftKey) {
+      const sel = window.getSelection();
+      if (sel.rangeCount && sel.isCollapsed) {
+        let n = sel.getRangeAt(0).startContainer;
+        n = n.nodeType === 1 ? n : n.parentElement;
+        const li = n?.closest("li");
+        if (li && page.contains(li) && !li.textContent.trim()) {
+          e.preventDefault();
+          const listCmd = li.closest("ol") ? "insertOrderedList" : "insertUnorderedList";
+          document.execCommand(listCmd, false, null); // bỏ mục rỗng khỏi danh sách
+          page.dispatchEvent(new Event("input"));
+        }
+      }
     }
+  });
+
+  // gõ "- ", "* " hoặc "1. " ở ĐẦU dòng → tự thành danh sách (kiểu Markdown)
+  let autoListing = false;
+  page.addEventListener("input", () => {
+    if (autoListing) return;
+    const sel = window.getSelection();
+    if (!sel.rangeCount || !sel.isCollapsed) return;
+    const r = sel.getRangeAt(0);
+    const node = r.startContainer;
+    if (node.nodeType !== 3 || node.previousSibling) return; // phải là text ngay đầu khối
+    if (node.parentElement?.closest("li")) return;           // đã trong danh sách rồi
+    const before = node.textContent.slice(0, r.startOffset);
+    const m = before.match(/^([-*•]|\d+[.)])\s$/);            // đúng "ký hiệu + 1 dấu cách"
+    if (!m) return;
+    const block = node.parentElement?.closest("p,div,h1,h2,h3,blockquote");
+    if (!block || !page.contains(block)) return;
+    autoListing = true;
+    node.textContent = node.textContent.slice(r.startOffset); // bỏ ký hiệu vừa gõ
+    const li = document.createElement("li");
+    while (block.firstChild) li.appendChild(block.firstChild);
+    if (!li.firstChild) li.appendChild(document.createElement("br"));
+    const list = document.createElement(/\d/.test(m[1]) ? "ol" : "ul");
+    list.appendChild(li);
+    block.replaceWith(list);
+    const nr = document.createRange(); nr.setStart(li, 0); nr.collapse(true);
+    sel.removeAllRanges(); sel.addRange(nr);
+    autoListing = false;
+    page.dispatchEvent(new Event("input"));
   });
 
   // ảnh dán kèm đoạn văn thường là link ngoài (Google Docs) → tải về, nén, nhúng vĩnh viễn
