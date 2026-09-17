@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1b2b66"/>
+      <stop offset="0.5" stop-color="#0e1a42"/>
+      <stop offset="1" stop-color="#060a1e"/>
+    </linearGradient>
+    <radialGradient id="moonGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fdf3d2" stop-opacity="0.85"/>
+      <stop offset="0.5" stop-color="#e9d8a4" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#e9d8a4" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="moon" cx="0.42" cy="0.38" r="0.72">
+      <stop offset="0" stop-color="#fefae8"/>
+      <stop offset="0.7" stop-color="#f4e7bf"/>
+      <stop offset="1" stop-color="#dcc78c"/>
+    </radialGradient>
+    <!-- thân cá voi: tối, hơi ánh trăng ở lưng -->
+    <linearGradient id="whale" x1="0.2" y1="0" x2="0.6" y2="1">
+      <stop offset="0" stop-color="#20477a"/>
+      <stop offset="0.45" stop-color="#122a52"/>
+      <stop offset="1" stop-color="#0a1730"/>
+    </linearGradient>
+    <radialGradient id="vign" cx="0.5" cy="0.46" r="0.75">
+      <stop offset="0.6" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.42"/>
+    </radialGradient>
+    <filter id="soft" x="-70%" y="-70%" width="240%" height="240%"><feGaussianBlur stdDeviation="6"/></filter>
+    <filter id="softbig" x="-90%" y="-90%" width="280%" height="280%"><feGaussianBlur stdDeviation="18"/></filter>
+    <clipPath id="round"><rect width="512" height="512" rx="112"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#round)">
+    <rect width="512" height="512" fill="url(#sky)"/>
+
+    <!-- sao nền, thưa & tinh tế -->
+    <g fill="#dbe8ff">
+      <circle cx="70"  cy="100" r="2.6" opacity="0.85"/>
+      <circle cx="126" cy="66"  r="1.7" opacity="0.6"/>
+      <circle cx="60"  cy="188" r="2"   opacity="0.7"/>
+      <circle cx="150" cy="150" r="1.5" opacity="0.5"/>
+      <circle cx="430" cy="300" r="2.2" opacity="0.7"/>
+      <circle cx="470" cy="228" r="1.6" opacity="0.55"/>
+      <circle cx="96"  cy="330" r="1.8" opacity="0.6"/>
+      <circle cx="404" cy="392" r="2"   opacity="0.6"/>
+      <circle cx="250" cy="70"  r="1.7" opacity="0.55"/>
+      <circle cx="330" cy="430" r="1.6" opacity="0.5"/>
+      <circle cx="150" cy="430" r="2"   opacity="0.55"/>
+    </g>
+    <g fill="#fff3cf" opacity="0.9">
+      <path d="M112 128 l3.5 11 11 3.5 -11 3.5 -3.5 11 -3.5 -11 -11 -3.5 11 -3.5 z"/>
+      <path d="M446 356 l3 9 9 3 -9 3 -3 9 -3 -9 -9 -3 9 -3 z" opacity="0.8"/>
+    </g>
+
+    <!-- TRĂNG TRÒN + quầng sáng -->
+    <circle cx="332" cy="158" r="146" fill="url(#moonGlow)" filter="url(#softbig)"/>
+    <g>
+      <circle cx="332" cy="158" r="78" fill="url(#moon)"/>
+      <!-- biển tối trên mặt trăng (maria) rất nhạt -->
+      <g fill="#e4d09a" opacity="0.45">
+        <circle cx="310" cy="142" r="14"/>
+        <circle cx="352" cy="170" r="11"/>
+        <circle cx="326" cy="184" r="8"/>
+        <circle cx="358" cy="132" r="6"/>
+      </g>
+      <circle cx="332" cy="158" r="78" fill="none" stroke="#fff6da" stroke-opacity="0.5" stroke-width="1.5"/>
+    </g>
+
+    <!-- vệt sao cá voi để lại (đuôi → dưới trái) -->
+    <g fill="#bfe0ff">
+      <circle cx="150" cy="330" r="3.4" opacity="0.9"/>
+      <circle cx="122" cy="356" r="2.6" opacity="0.7"/>
+      <circle cx="98"  cy="380" r="2"   opacity="0.55"/>
+      <circle cx="176" cy="316" r="2.4" opacity="0.75"/>
+      <circle cx="80"  cy="404" r="1.6" opacity="0.4"/>
+    </g>
+
+    <!-- CÁ VOI SAO: silhouette rắc sao, lượn về phía trăng -->
+    <g transform="translate(78 200) scale(1.74) rotate(-9 105 55)">
+      <!-- quầng sáng nhẹ quanh cá -->
+      <ellipse cx="105" cy="56" rx="120" ry="52" fill="#7fd4e8" opacity="0.10" filter="url(#softbig)"/>
+      <!-- thân cá voi (path gốc của app) -->
+      <path d="M12,64 C26,38 62,26 104,28 C138,30 162,42 176,50 L198,34 C204,44 202,52 194,58 C202,64 204,72 198,80 L174,64 C150,78 112,86 76,82 C48,78 24,72 12,64 Z M88,80 C96,92 108,96 118,91 C107,86 97,82 88,80 Z"
+            fill="url(#whale)"/>
+      <!-- viền ánh trăng ở lưng -->
+      <path d="M12,64 C26,38 62,26 104,28 C138,30 162,42 176,50 L198,34"
+            fill="none" stroke="#d8edff" stroke-opacity="0.75" stroke-width="2.1" stroke-linecap="round"/>
+      <!-- chòm sao trong mình cá -->
+      <g fill="#eaf4ff">
+        <circle cx="52"  cy="52" r="2.3" opacity="0.95"/>
+        <circle cx="74"  cy="46" r="1.7" opacity="0.85"/>
+        <circle cx="92"  cy="56" r="2.6" opacity="1"/>
+        <circle cx="112" cy="49" r="1.6" opacity="0.8"/>
+        <circle cx="120" cy="64" r="2"   opacity="0.9"/>
+        <circle cx="140" cy="54" r="1.8" opacity="0.85"/>
+        <circle cx="64"  cy="66" r="1.5" opacity="0.7"/>
+        <circle cx="100" cy="70" r="1.5" opacity="0.7"/>
+      </g>
+      <!-- nối chòm sao bằng nét mảnh -->
+      <path d="M52 52 L74 46 L92 56 L112 49 L140 54 M92 56 L120 64" fill="none"
+            stroke="#cfe4ff" stroke-opacity="0.5" stroke-width="1"/>
+      <!-- mắt sáng -->
+      <circle cx="182" cy="50" r="3.4" fill="#fff4d2"/>
+      <circle cx="182" cy="50" r="6" fill="#fff4d2" opacity="0.4" filter="url(#soft)"/>
+    </g>
+
+    <!-- vignette + viền tinh tế -->
+    <rect width="512" height="512" fill="url(#vign)"/>
+    <rect x="6" y="6" width="500" height="500" rx="106" fill="none" stroke="#bcd8ff" stroke-opacity="0.14" stroke-width="3"/>
+  </g>
+</svg>
