@@ -1428,7 +1428,7 @@ function renderDraftsList() {
         <p class="page-sub">Nơi cất những trang nháp ý tưởng.</p>
       </div>
       <input id="draft-search" class="search-inp" type="search" placeholder="🔍 Tìm nháp…" value="${esc(draftQ)}" autocomplete="off">
-      <button class="btn btn-gold" id="btn-new-draft">✎ Trải trang giấy mới</button>
+      <button class="btn btn-gold icon-btn" id="btn-new-draft" title="Trải trang giấy mới"><span class="ib-ic">✎</span><span class="ib-tx">Trải trang giấy mới</span></button>
     </div>
     <div class="drafts-grid">${cards}</div>
     ${list.length === 0 ? `<p class="empty-state">${q ? "Không nháp nào khớp từ khoá." : "Thư phòng còn trống — trải trang giấy đầu tiên đi."}</p>` : ""}`;
@@ -1469,9 +1469,9 @@ function renderDraftView({ id }) {
       <div class="map-actions" style="margin-top:6px">
         <span class="rec-status" id="draft-meta"></span>
         <span class="spacer"></span>
-        <button class="btn" id="btn-pin-draft" title="Đánh dấu ưu tiên: 'thích cốt truyện này, triển trước đi!'"></button>
-        <button class="btn gas-btn" id="btn-draft-to-map" title="Biến nháp này thành một cánh cổng mới ngoài Biển Cổng">🌊 Đẩy ra Biển Cổng</button>
-        <button class="btn btn-danger-ghost" id="btn-del-draft">Thả trôi trang nháp…</button>
+        <button class="btn icon-btn" id="btn-pin-draft" title="Đánh dấu ưu tiên: 'thích cốt truyện này, triển trước đi!'"><span class="ib-ic">📌</span><span class="ib-tx">Ghim ưu tiên</span></button>
+        <button class="btn gas-btn icon-btn" id="btn-draft-to-map" title="Biến nháp này thành một cánh cổng mới ngoài Biển Cổng"><span class="ib-ic">🌊</span><span class="ib-tx">Đẩy ra Biển Cổng</span></button>
+        <button class="btn btn-danger-ghost icon-btn" id="btn-del-draft" title="Thả trôi trang nháp — nội dung chìm vĩnh viễn"><span class="ib-ic">🗑</span><span class="ib-tx">Thả trôi trang nháp…</span></button>
       </div>
     </div>
     <div class="editor-wrap" id="editor-slot"></div>`;
@@ -1504,7 +1504,8 @@ function renderDraftView({ id }) {
     const dd = findDraft(id);
     if (!confirm(`Đẩy nháp "${dd?.title || "(chưa đặt tên)"}" ra Biển Cổng thành một cánh cổng mới?\nNháp sẽ rời khỏi Thư Phòng, toàn bộ nội dung và ghi chú đi theo.`)) return;
     btn.disabled = true;
-    btn.textContent = "🌊 Đang dong buồm…";
+    const btnTx = btn.querySelector(".ib-tx");
+    if (btnTx) btnTx.textContent = "Đang dong buồm…";
     try {
       await flushEditor?.(); // chốt chữ đang gõ dở trước khi di cư
       // đọc TƯƠI từ Firestore để không mất trang do bản nhớ tạm trên máy còn cũ (lỗi trên điện thoại)
@@ -1534,7 +1535,7 @@ function renderDraftView({ id }) {
     } catch (err) {
       toast("Không đẩy được: " + err.message, true);
       btn.disabled = false;
-      btn.textContent = "🌊 Đẩy ra Biển Cổng";
+      if (btnTx) btnTx.textContent = "Đẩy ra Biển Cổng";
     }
   });
 
@@ -1572,7 +1573,8 @@ function updateDraftMeta({ id }) {
   if (pinBtn) {
     const mine = !!(d.priority || {})[me.email];
     pinBtn.classList.toggle("rec-on", mine);
-    pinBtn.textContent = mine ? "📌 Đã ghim ưu tiên ✓" : "📌 Ghim ưu tiên";
+    const pinTx = pinBtn.querySelector(".ib-tx");
+    if (pinTx) pinTx.textContent = mine ? "Đã ghim ưu tiên ✓" : "Ghim ưu tiên";
   }
 }
 
@@ -1697,6 +1699,25 @@ function mountPagedEditor(slot, opts) {
     if (document.activeElement !== pageEl && !slot.querySelector(".sync-bar")) render();
     else shownTotal = newTotal; // đang gõ: ghi nhận để lần blur/lật kế tiếp cập nhật
   };
+
+  // Vuốt ngang để lật trang (điện thoại) — mũi tên hai bên đã ẩn trên mobile.
+  // Chỉ nhận cú vuốt NGANG rõ ràng & nhanh, để không nuốt thao tác cuộn dọc hay bôi chữ.
+  let sx = 0, sy = 0, st = 0;
+  slot.addEventListener("touchstart", (e) => {
+    if (e.touches.length !== 1) { st = 0; return; }
+    sx = e.touches[0].clientX; sy = e.touches[0].clientY; st = Date.now();
+  }, { passive: true });
+  slot.addEventListener("touchend", (e) => {
+    if (!st) return;
+    const t = e.changedTouches[0]; if (!t) return;
+    const dx = t.clientX - sx, dy = t.clientY - sy, dt = Date.now() - st;
+    st = 0;
+    if (dt > 700) return; // vuốt phải nhanh, không phải giữ lâu
+    if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.8) return; // ngang & dứt khoát
+    const btn = slot.querySelector(`.pgn-btn[data-pgn="${dx < 0 ? "next" : "prev"}"]`); // vuốt trái = trang sau
+    if (btn) btn.click();
+  }, { passive: true });
+
   render();
 }
 

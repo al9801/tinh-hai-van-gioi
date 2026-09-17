@@ -984,12 +984,16 @@ body:not(.guest) .gas-fab { bottom: 86px; }
   .new-card-plus { font-size: 1.5rem; }
   .new-card-label { font-size: 0.78rem; }
 
-  /* Thư Phòng: tiêu đề đang chen ngang ô tìm → vỡ mỗi dòng một chữ.
-     Xếp dọc: tựa full-width, rồi ô tìm, rồi nút — cho gọn kiểu điện thoại. */
-  .drafts-head-row { flex-direction: column; align-items: stretch; gap: 12px; margin-bottom: 20px; }
-  .drafts-head-row > div { flex: none; }
-  .drafts-head-row .search-inp { flex: none; width: 100%; max-width: none; }
-  .drafts-head-row #btn-new-draft { width: 100%; }
+  /* Thư Phòng: tựa chiếm trọn hàng đầu (khỏi vỡ chữ), hàng dưới = ô tìm + nút
+     "trải trang" thu thành icon ✎ tròn cho gọn (khỏi dàn full-width trống trải). */
+  .drafts-head-row { gap: 10px 8px; margin-bottom: 18px; align-items: center; }
+  .drafts-head-row > div { flex: 1 1 100%; }
+  .drafts-head-row .search-inp { flex: 1 1 auto; width: auto; max-width: none; }
+  .drafts-head-row #btn-new-draft {
+    flex: 0 0 auto; padding: 0; width: 44px; height: 44px;
+    justify-content: center; border-radius: 50%; font-size: 1.15rem; gap: 0;
+  }
+  .drafts-head-row #btn-new-draft .ib-tx { display: none; }
   .page-title { font-size: 1.6rem; }
 
   /* thanh tìm/sắp xếp: hàng 1 = ô tìm + sort(icon ⇅); hàng 2 = 2 nút gọn; hàng 3 = số trang căn giữa */
@@ -1034,12 +1038,21 @@ body:not(.guest) .gas-fab { bottom: 86px; }
   /* ── Gọn nút map view về 1 hàng (kiểu chip icon) ── */
   /* nút "Mở Google AI Studio" inline: ẩn — đã có bong bóng 🌀 nổi thay thế */
   #mv-gas { display: none; }
-  .map-actions { gap: 10px; margin-top: 14px; flex-wrap: nowrap; align-items: center; }
+  .map-actions { gap: 8px; margin-top: 14px; flex-wrap: nowrap; align-items: center; }
   .map-actions .rec-btn { flex: 0 0 auto; }
+  .map-actions .spacer { display: none; }
   .map-actions .rec-status {
     flex: 1 1 auto; min-width: 0;
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.74rem;
   }
+  /* Nút hành động trong TRANG NHÁP (ghim/đẩy/xoá) & map view: thu thành chip icon tròn
+     — trước đây .btn bo 999px + nowrap bóp nhỏ khiến chữ vỡ thành cục tròn lấn cấn. */
+  .map-actions .icon-btn {
+    flex: 0 0 auto; padding: 0; width: 44px; height: 44px;
+    justify-content: center; border-radius: 50%; font-size: 1.2rem; gap: 0;
+  }
+  .map-actions .icon-btn .ib-tx { display: none; }
+  .map-actions .icon-btn .ib-ic { margin: 0; }
 
   /* thanh file (Bản đồ / Hồ sơ): thông tin + 3 nút gọn thành 1 hàng, nút phụ = chip icon */
   .htmlmap-bar { flex-wrap: nowrap; gap: 8px; align-items: center; margin: 16px 0 12px; }
