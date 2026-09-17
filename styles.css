@@ -911,6 +911,9 @@ body:not(.guest) .gas-fab { bottom: 86px; }
   }
   .top-nav { order: 3; width: 100%; margin-left: 0; }
   .user-name { display: none; }
+  /* Header mobile cao (safe-area + nav xuống hàng) đè cắt nửa trên trăng nền
+     → hạ trăng xuống hẳn dưới header cho tròn vành, thu nhỏ chút. */
+  .moon { top: calc(env(safe-area-inset-top) + 118px); right: 7vw; width: 94px; height: 94px; }
   .main { padding: 26px 16px 90px; }
   .doc-page { padding: 34px 22px 60px; font-size: 1rem; }
   .map-view-title { font-size: 1.5rem; }
