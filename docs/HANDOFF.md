@@ -1,5 +1,5 @@
 # Handoff — Tinh Hải Vạn Giới
-Cập nhật: 2026-09-17 (v76)
+Cập nhật: 2026-09-17 (v77)
 
 Web hub roleplay riêng của hai người, theme biển đêm & trời sao. SPA thuần
 (`index.html` + `app.js` + `styles.css`) + Firebase Auth Google + Firestore realtime.
@@ -7,7 +7,8 @@ Repo `al9801/tinh-hai-van-gioi`, live https://al9801.github.io/tinh-hai-van-gioi
 (GitHub Actions tự deploy khi push `main`).
 
 ## Trạng thái
-- Bản chạy: v76. v76: trăng NỀN `.moon` (top:7vh ~57px) bị header mobile (safe-area + nav xuống hàng ~140px) đè cắt nửa trên → `@720px .moon{top:calc(env(safe-area-inset-top)+118px); width/height:94px}` cho tròn vành dưới header. (Đây là trăng nền trong `.ocean-bg`, KHÁC trăng trong icon app.)
+- Bản chạy: v77. v77: iPhone PWA hiện **mảng xám ở dải status bar** (Android không) — do `black-translucent` cho nội dung chui dưới status bar + header là KÍNH MỜ (`rgba(6,12,26,.82)`+`backdrop-filter:blur`) blur ánh trăng/nền sáng sau lưng → xám. Fix `@720px .app-header{background:#0a1228; backdrop-filter:none}` (đặc, khớp theme-color) → status bar tối liền mạch như Android. (Desktop giữ kính mờ.)
+- Bản chạy trước: v76. v76: trăng NỀN `.moon` (top:7vh ~57px) bị header mobile (safe-area + nav xuống hàng ~140px) đè cắt nửa trên → `@720px .moon{top:calc(env(safe-area-inset-top)+118px); width/height:94px}` cho tròn vành dưới header. (Đây là trăng nền trong `.ocean-bg`, KHÁC trăng trong icon app.)
 - Bản chạy trước: v75. v73: preview nháp bẻ chuỗi dài ở cả bản gốc. v74→v75: **icon app mới**. v74 (bản 1) bị chê xấu (sao vàng giữa). v75 (chốt): **Cá Voi Sao lượn dưới TRĂNG TRÒN** — cá voi là silhouette rắc chòm sao (dùng lại path cá voi của app), viền lưng ánh trăng, vệt sao ở đuôi, bỏ hẳn ngôi sao giữa. File nguồn `icon-source.svg` LƯU TRONG REPO để chỉnh sau. Favicon inline = mô-típ trăng+cá thu nhỏ. `?v=75` cho icon trong manifest/apple-touch để bust cache.
 - QUY TRÌNH đổi icon (máy KHÔNG có rsvg/imagemagick/cairosvg): sửa `icon-source.svg` → chạy server python nhỏ trong scratchpad phục vụ harness.html (canvas `drawImage` render SVG→PNG) + nhận POST base64 ghi thẳng PNG (base64 quá lớn để trả qua tool) → `sips -Z 192 icon-192.png` tạo bản nhỏ → copy vào repo. LƯU Ý cổng: 8791 bị app node khác chiếm, dùng cổng lạ (8642). Icon cài trên home screen chỉ đổi khi GỠ cài lại (OS cache).
 - Bản chạy trước: v72. v71: danh sách nháp `.drafts-grid` chia 2 ô ≤600px như Biển Cổng (thu gọn thẻ, meta xếp dọc owner/ngày, bỏ dấu `·` bằng `span:nth-child(2){display:none}`). v72 VÁ: thẻ nháp chứa URL dài không dấu cách kéo phình 1 cột → hai cột lệch hẳn (ảnh thật). Nguyên nhân: `1fr` có min = min-content. Fix: `repeat(2, minmax(0,1fr))` cho cả `.drafts-grid` lẫn `.map-grid` + `overflow-wrap:anywhere` cho `.draft-card-preview/title`. BÀI HỌC: grid 2 ô luôn dùng `minmax(0,1fr)` khỏi nội dung kéo lệch.
