@@ -1,5 +1,5 @@
 # Handoff — Tinh Hải Vạn Giới
-Cập nhật: 2026-09-17 00:00
+Cập nhật: 2026-09-17 (v63)
 
 Web hub roleplay riêng của hai người, theme biển đêm & trời sao. SPA thuần
 (`index.html` + `app.js` + `styles.css`) + Firebase Auth Google + Firestore realtime.
@@ -7,7 +7,8 @@ Repo `al9801/tinh-hai-van-gioi`, live https://al9801.github.io/tinh-hai-van-gioi
 (GitHub Actions tự deploy khi push `main`).
 
 ## Trạng thái
-- Bản chạy: v62. Cụm việc gần nhất (v57–v62): PWA cài màn hình chính + tối ưu giao diện điện thoại.
+- Bản chạy: v63. Cụm việc gần nhất (v57–v63): PWA cài màn hình chính + tối ưu giao diện điện thoại.
+- v63: (1) HẾT tự phóng to khi chạm ô nhập trên iOS — mọi input text ép `font-size:16px` ở `@media 720px` (chat/tìm/modal trước đây <16px là thủ phạm zoom). (2) Bảng dán KHỎI bị xén — `@media 600px`: `.doc-page table{table-layout:fixed}` + `word-break/overflow-wrap` cho td/th (sanitizePastedHtml đã bỏ hết width cột nên chia đều + xuống dòng là đủ). (3) Truyền Âm trên phone mở dạng sheet gần full, cao `min(72dvh, 100dvh-96px)`, chat-form chừa `safe-area-inset-bottom`. (4) Nhãn footer sửa lệch v56→v63.
 - PWA xong: `manifest.json`, `sw.js`, `icon-192.png`/`icon-512.png`; cài lên home screen được (icon ⭐).
 - Mobile xong: lưới cổng 2 cột, thanh công cụ soạn thảo cuộn ngang, nút map view thành chip icon 1 hàng, sort thành icon ⇅, pager căn giữa, safe-area cho header.
 - Dán: bỏ ám màu nền + Ctrl/Cmd+Shift+V dán thô (v59).
