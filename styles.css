@@ -908,6 +908,12 @@ body:not(.guest) .gas-fab { bottom: 86px; }
     padding-top: max(12px, env(safe-area-inset-top));
     padding-left: max(16px, env(safe-area-inset-left));
     padding-right: max(16px, env(safe-area-inset-right));
+    /* iPhone PWA (status bar trong suốt): kính mờ blur ánh trăng sau lưng → mảng xám ở
+       vùng status bar. Cho header màu tối ĐẶC khớp theme-color để status bar liền mạch
+       như Android; bỏ blur (vô tác dụng khi nền đặc). */
+    background: #0a1228;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
   }
   .top-nav { order: 3; width: 100%; margin-left: 0; }
   .user-name { display: none; }
