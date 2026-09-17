@@ -1,5 +1,5 @@
 # Handoff — Tinh Hải Vạn Giới
-Cập nhật: 2026-09-17 (v63)
+Cập nhật: 2026-09-17 (v67)
 
 Web hub roleplay riêng của hai người, theme biển đêm & trời sao. SPA thuần
 (`index.html` + `app.js` + `styles.css`) + Firebase Auth Google + Firestore realtime.
@@ -7,7 +7,13 @@ Repo `al9801/tinh-hai-van-gioi`, live https://al9801.github.io/tinh-hai-van-gioi
 (GitHub Actions tự deploy khi push `main`).
 
 ## Trạng thái
-- Bản chạy: v63. Cụm việc gần nhất (v57–v63): PWA cài màn hình chính + tối ưu giao diện điện thoại.
+- Bản chạy: v67. Cụm v64–v67 (tối ưu mobile đợt 2, đã test thật ở 375px):
+  - Thư Phòng: tựa `.page-title` chiếm trọn hàng đầu (`.drafts-head-row > div{flex:1 1 100% !important}` — override INLINE `style="flex:1"` trong app.js, đây là lý do fix đầu tiên không ăn), hàng dưới = ô tìm + nút "Trải trang giấy mới" thu thành icon-btn ✎ tròn 44px.
+  - Trang nháp (renderDraftView): 3 nút ghim/đẩy/xoá chuyển sang `icon-btn` (`.ib-ic`/`.ib-tx`), ≤600px thành chip tròn 44px 📌🌊🗑 (`.map-actions .icon-btn`), ẩn `.ib-tx`. updateDraftMeta + trạng thái loading của #btn-draft-to-map cập nhật qua `.ib-tx` thay vì `textContent` (khỏi xoá spans). Ẩn `.map-actions .spacer` mobile.
+  - Bảng trong doc: `@media 600px .doc-page table{table-layout:fixed;width:100%}` + `word-break/overflow-wrap` — ĐÃ verify: bảng 6 cột + URL dài không tràn (scrollWidth==clientWidth). Fix có từ v63 nhưng user thấy bản CACHE cũ (xem mục cache dưới).
+  - Vuốt lật trang (mountPagedEditor): touchstart/touchend trên `slot`, vuốt ngang dứt khoát (|dx|≥60, |dx|>1.8|dy|, <700ms) → click `.pgn-btn[data-pgn=prev/next]`; vuốt trái = trang sau. BỎ QUA khi touchstart trên `.editor-toolbar`/`.page-nav-wrap` (toolbar cuộn ngang nằm trong slot). Đã verify cả 4 ca (trái/phải/dọc/chậm/toolbar).
+- v63 cũ: iOS input ≥16px (hết zoom), chat sheet mobile (100dvh).
+- Cụm việc gần nhất trước đó (v57–v62): PWA cài màn hình chính. Cụm việc gần nhất (v57–v63): PWA cài màn hình chính + tối ưu giao diện điện thoại.
 - v63: (1) HẾT tự phóng to khi chạm ô nhập trên iOS — mọi input text ép `font-size:16px` ở `@media 720px` (chat/tìm/modal trước đây <16px là thủ phạm zoom). (2) Bảng dán KHỎI bị xén — `@media 600px`: `.doc-page table{table-layout:fixed}` + `word-break/overflow-wrap` cho td/th (sanitizePastedHtml đã bỏ hết width cột nên chia đều + xuống dòng là đủ). (3) Truyền Âm trên phone mở dạng sheet gần full, cao `min(72dvh, 100dvh-96px)`, chat-form chừa `safe-area-inset-bottom`. (4) Nhãn footer sửa lệch v56→v63.
 - PWA xong: `manifest.json`, `sw.js`, `icon-192.png`/`icon-512.png`; cài lên home screen được (icon ⭐).
 - Mobile xong: lưới cổng 2 cột, thanh công cụ soạn thảo cuộn ngang, nút map view thành chip icon 1 hàng, sort thành icon ⇅, pager căn giữa, safe-area cho header.
@@ -16,6 +22,8 @@ Repo `al9801/tinh-hai-van-gioi`, live https://al9801.github.io/tinh-hai-van-gioi
 
 ## Việc kế tiếp
 - Không có việc bắt buộc. Chờ phản hồi người dùng về giao diện điện thoại.
+- Còn 1 điểm nhỏ chưa động: pill ghi chú "💧N" nổi đè góc trên-phải trang giấy khi soạn (dùng được, chỉ hơi lửng lơ). Sửa nếu user than.
+- KHI VERIFY DEPLOY: bản mới lên GitHub Pages nhưng service worker vẫn phục vụ INDEX cache cũ → trình duyệt tải `styles.css?v=<cũ>`. Muốn thấy bản mới ngay phải cache-bust URL (thêm `&fresh=N`) hoặc Cmd/Ctrl+Shift+R. Lúc test bằng trình duyệt: kiểm `getComputedStyle`/`link[href]` để chắc đã ăn `?v` mới, đừng tin ảnh chụp lần đầu.
 - Nếu người dùng than icon sort/chip khó hiểu: cân nhắc thêm nhãn nhỏ dưới icon.
 - Khi sửa js/css BẤT KỲ: tăng `?v=N` trong `index.html` (5 chỗ: manifest, styles, firebase-config, app.js, sw.js), commit + push.
 
