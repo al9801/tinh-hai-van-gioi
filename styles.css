@@ -987,7 +987,7 @@ body:not(.guest) .gas-fab { bottom: 86px; }
   /* Thư Phòng: tựa chiếm trọn hàng đầu (khỏi vỡ chữ), hàng dưới = ô tìm + nút
      "trải trang" thu thành icon ✎ tròn cho gọn (khỏi dàn full-width trống trải). */
   .drafts-head-row { gap: 10px 8px; margin-bottom: 18px; align-items: center; }
-  .drafts-head-row > div { flex: 1 1 100%; }
+  .drafts-head-row > div { flex: 1 1 100% !important; } /* thắng inline style="flex:1" để tựa chiếm trọn hàng đầu */
   .drafts-head-row .search-inp { flex: 1 1 auto; width: auto; max-width: none; }
   .drafts-head-row #btn-new-draft {
     flex: 0 0 auto; padding: 0; width: 44px; height: 44px;
