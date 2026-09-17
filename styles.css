@@ -564,6 +564,7 @@ body {
   font-size: 0.82rem; color: var(--ink-dim);
   display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
   min-height: 3.6em;
+  overflow-wrap: anywhere; /* URL/chuỗi dài dán vào nháp tự bẻ, khỏi kéo giãn thẻ */
 }
 .draft-card-meta {
   margin-top: 12px; font-size: 0.72rem; color: var(--ink-faint);

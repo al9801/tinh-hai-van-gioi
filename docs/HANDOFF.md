@@ -7,7 +7,7 @@ Repo `al9801/tinh-hai-van-gioi`, live https://al9801.github.io/tinh-hai-van-gioi
 (GitHub Actions tự deploy khi push `main`).
 
 ## Trạng thái
-- Bản chạy: v71. v71: danh sách nháp `.drafts-grid` chia 2 ô ≤600px như Biển Cổng (thu gọn thẻ, meta xếp dọc owner/ngày, bỏ dấu `·` bằng `span:nth-child(2){display:none}`).
+- Bản chạy: v72. v71: danh sách nháp `.drafts-grid` chia 2 ô ≤600px như Biển Cổng (thu gọn thẻ, meta xếp dọc owner/ngày, bỏ dấu `·` bằng `span:nth-child(2){display:none}`). v72 VÁ: thẻ nháp chứa URL dài không dấu cách kéo phình 1 cột → hai cột lệch hẳn (ảnh thật). Nguyên nhân: `1fr` có min = min-content. Fix: `repeat(2, minmax(0,1fr))` cho cả `.drafts-grid` lẫn `.map-grid` + `overflow-wrap:anywhere` cho `.draft-card-preview/title`. BÀI HỌC: grid 2 ô luôn dùng `minmax(0,1fr)` khỏi nội dung kéo lệch.
 - v70 (đợt trước): Cụm v68–v70 (sau khi đóng vai tester soi toàn bộ mobile ở 375px):
   - **Toolbar soạn thảo giấu 14/22 nút** sau cuộn ngang → thêm nút `.tb-more` (mũi tên › gold nhấp nháy, sticky phải, nép trái nút 💾) trong mountEditor; JS `updMore()` toggle `.hidden` theo `scrollWidth/clientWidth/scrollLeft` (chạy rAF + setTimeout 200/600 vì layout/font chưa xong ở rAF đầu → từng ẩn nhầm); bấm nút = `scrollBy 70%`. Chỉ hiện ≤720px (base `.tb-more{display:none}`).
   - **Thẻ cổng home**: bỏ nhãn "Chạm gần nhất:" trên mobile (`.mcf-lbl{display:none}`, giữ ở tooltip), bọc ngày trong `.mcf-time{white-space:nowrap}` để xuống dòng nguyên cụm (khỏi bẻ "10:34"), `.map-grid` gap dọc 20px, `.fish-row` nhỏ lại (bottom:-8px).
