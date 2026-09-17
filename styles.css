@@ -984,6 +984,14 @@ body:not(.guest) .gas-fab { bottom: 86px; }
   .new-card-plus { font-size: 1.5rem; }
   .new-card-label { font-size: 0.78rem; }
 
+  /* Thư Phòng: tiêu đề đang chen ngang ô tìm → vỡ mỗi dòng một chữ.
+     Xếp dọc: tựa full-width, rồi ô tìm, rồi nút — cho gọn kiểu điện thoại. */
+  .drafts-head-row { flex-direction: column; align-items: stretch; gap: 12px; margin-bottom: 20px; }
+  .drafts-head-row > div { flex: none; }
+  .drafts-head-row .search-inp { flex: none; width: 100%; max-width: none; }
+  .drafts-head-row #btn-new-draft { width: 100%; }
+  .page-title { font-size: 1.6rem; }
+
   /* thanh tìm/sắp xếp: hàng 1 = ô tìm + sort(icon ⇅); hàng 2 = 2 nút gọn; hàng 3 = số trang căn giữa */
   .browse-bar { gap: 8px; }
   .search-inp { flex: 1 1 180px; max-width: none; min-width: 0; padding: 9px 14px; }
