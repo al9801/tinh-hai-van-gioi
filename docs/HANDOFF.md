@@ -1,5 +1,5 @@
 # Handoff — Tinh Hải Vạn Giới
-Cập nhật: 2026-09-17 (v67)
+Cập nhật: 2026-09-17 (v70)
 
 Web hub roleplay riêng của hai người, theme biển đêm & trời sao. SPA thuần
 (`index.html` + `app.js` + `styles.css`) + Firebase Auth Google + Firestore realtime.
@@ -7,13 +7,19 @@ Repo `al9801/tinh-hai-van-gioi`, live https://al9801.github.io/tinh-hai-van-gioi
 (GitHub Actions tự deploy khi push `main`).
 
 ## Trạng thái
-- Bản chạy: v67. Cụm v64–v67 (tối ưu mobile đợt 2, đã test thật ở 375px):
+- Bản chạy: v70. Cụm v68–v70 (sau khi đóng vai tester soi toàn bộ mobile ở 375px):
+  - **Toolbar soạn thảo giấu 14/22 nút** sau cuộn ngang → thêm nút `.tb-more` (mũi tên › gold nhấp nháy, sticky phải, nép trái nút 💾) trong mountEditor; JS `updMore()` toggle `.hidden` theo `scrollWidth/clientWidth/scrollLeft` (chạy rAF + setTimeout 200/600 vì layout/font chưa xong ở rAF đầu → từng ẩn nhầm); bấm nút = `scrollBy 70%`. Chỉ hiện ≤720px (base `.tb-more{display:none}`).
+  - **Thẻ cổng home**: bỏ nhãn "Chạm gần nhất:" trên mobile (`.mcf-lbl{display:none}`, giữ ở tooltip), bọc ngày trong `.mcf-time{white-space:nowrap}` để xuống dòng nguyên cụm (khỏi bẻ "10:34"), `.map-grid` gap dọc 20px, `.fish-row` nhỏ lại (bottom:-8px).
+  - **Presence** (`.presence-dock`): top:86px đè header mobile → dời `bottom:150px right:14px`, bubble 34px. LƯU Ý: override PHẢI đặt SAU định nghĩa base trong file (base ở ~dòng 1489) — đặt trong `@media 720px` phía trên đó thì THUA thứ tự file (cùng specificity). Đây là lần thứ 2 dính bẫy này (xem sort-sel).
+  - **Câu chữ modal Lịch sử**: bỏ "bên trái" (sai khi mobile xếp dọc) → "Chọn một mốc thời gian để xem lại bản cũ."
+  - Đã verify tất cả bằng trình duyệt thật (JS đo + ảnh).
+- Cụm v64–v67 (tối ưu mobile đợt 2, đã test thật ở 375px):
   - Thư Phòng: tựa `.page-title` chiếm trọn hàng đầu (`.drafts-head-row > div{flex:1 1 100% !important}` — override INLINE `style="flex:1"` trong app.js, đây là lý do fix đầu tiên không ăn), hàng dưới = ô tìm + nút "Trải trang giấy mới" thu thành icon-btn ✎ tròn 44px.
   - Trang nháp (renderDraftView): 3 nút ghim/đẩy/xoá chuyển sang `icon-btn` (`.ib-ic`/`.ib-tx`), ≤600px thành chip tròn 44px 📌🌊🗑 (`.map-actions .icon-btn`), ẩn `.ib-tx`. updateDraftMeta + trạng thái loading của #btn-draft-to-map cập nhật qua `.ib-tx` thay vì `textContent` (khỏi xoá spans). Ẩn `.map-actions .spacer` mobile.
   - Bảng trong doc: `@media 600px .doc-page table{table-layout:fixed;width:100%}` + `word-break/overflow-wrap` — ĐÃ verify: bảng 6 cột + URL dài không tràn (scrollWidth==clientWidth). Fix có từ v63 nhưng user thấy bản CACHE cũ (xem mục cache dưới).
   - Vuốt lật trang (mountPagedEditor): touchstart/touchend trên `slot`, vuốt ngang dứt khoát (|dx|≥60, |dx|>1.8|dy|, <700ms) → click `.pgn-btn[data-pgn=prev/next]`; vuốt trái = trang sau. BỎ QUA khi touchstart trên `.editor-toolbar`/`.page-nav-wrap` (toolbar cuộn ngang nằm trong slot). Đã verify cả 4 ca (trái/phải/dọc/chậm/toolbar).
 - v63 cũ: iOS input ≥16px (hết zoom), chat sheet mobile (100dvh).
-- Cụm việc gần nhất trước đó (v57–v62): PWA cài màn hình chính. Cụm việc gần nhất (v57–v63): PWA cài màn hình chính + tối ưu giao diện điện thoại.
+- Cụm v57–v63: PWA cài màn hình chính + tối ưu giao diện điện thoại đợt 1.
 - v63: (1) HẾT tự phóng to khi chạm ô nhập trên iOS — mọi input text ép `font-size:16px` ở `@media 720px` (chat/tìm/modal trước đây <16px là thủ phạm zoom). (2) Bảng dán KHỎI bị xén — `@media 600px`: `.doc-page table{table-layout:fixed}` + `word-break/overflow-wrap` cho td/th (sanitizePastedHtml đã bỏ hết width cột nên chia đều + xuống dòng là đủ). (3) Truyền Âm trên phone mở dạng sheet gần full, cao `min(72dvh, 100dvh-96px)`, chat-form chừa `safe-area-inset-bottom`. (4) Nhãn footer sửa lệch v56→v63.
 - PWA xong: `manifest.json`, `sw.js`, `icon-192.png`/`icon-512.png`; cài lên home screen được (icon ⭐).
 - Mobile xong: lưới cổng 2 cột, thanh công cụ soạn thảo cuộn ngang, nút map view thành chip icon 1 hàng, sort thành icon ⇅, pager căn giữa, safe-area cho header.
