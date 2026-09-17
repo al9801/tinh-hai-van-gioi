@@ -974,7 +974,7 @@ function renderHomeGrid() {
       <div class="map-card-num">✦ Cánh cổng ${posNo[m.id]} ✦</div>
       <div class="map-card-title">${esc(m.title)}</div>
       <div class="map-card-world">${esc(m.world || "Thế giới chưa được mô tả…")}</div>
-      <div class="map-card-foot" title="${m.updatedAt ? "Chạm gần nhất: " + fmtTime(m.updatedAt) : ""}">${m.hasHtml ? `<span class="has-map-chip">🧭 có bản đồ</span> · ` : ""}${m.updatedAt ? `<span class="mcf-lbl">Chạm gần nhất: </span>${fmtTime(m.updatedAt)}` : ""}</div>
+      <div class="map-card-foot" title="${m.updatedAt ? "Chạm gần nhất: " + fmtTime(m.updatedAt) : ""}">${m.hasHtml ? `<span class="has-map-chip">🧭 có bản đồ</span> · ` : ""}${m.updatedAt ? `<span class="mcf-lbl">Chạm gần nhất: </span><span class="mcf-time">${fmtTime(m.updatedAt)}</span>` : ""}</div>
       ${fishRow(m)}
     </a>`).join("");
 
