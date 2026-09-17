@@ -479,6 +479,7 @@ body {
 .tb-status { margin-left: auto; font-size: 0.75rem; color: var(--ink-faint); padding-right: 8px; white-space: nowrap; }
 .tb-status.saving { color: var(--gold); }
 .tb-status.saved { color: var(--glow); }
+.tb-more { display: none; } /* chỉ hiện trên điện thoại (thanh công cụ cuộn ngang) */
 
 .doc-page {
   max-width: 880px;
@@ -931,6 +932,20 @@ body:not(.guest) .gas-fab { bottom: 86px; }
   .tb-status::before { font-size: 1rem; content: "💾"; opacity: 0.7; }
   .tb-status.saving::before { content: "⏳"; opacity: 1; }
   .tb-status.saved::before { content: "✓"; color: var(--glow); opacity: 1; font-weight: 700; }
+  /* mũi tên "còn công cụ" nhấp nháy ở mép phải, nép sát trái nút 💾 */
+  .tb-more {
+    position: sticky; right: 34px; z-index: 2;
+    flex: 0 0 auto; display: grid; place-items: center;
+    width: 24px; height: 38px; padding: 0; margin: 0;
+    border: none; background: linear-gradient(90deg, transparent, rgba(12, 22, 42, 0.96) 60%);
+    color: var(--gold-bright); font-size: 1.4rem; line-height: 1; cursor: pointer;
+    animation: tb-more-nudge 1.3s ease-in-out infinite;
+  }
+  .tb-more.hidden { display: none; }
+  @keyframes tb-more-nudge {
+    0%, 100% { transform: translateX(0); opacity: 0.6; }
+    50% { transform: translateX(3px); opacity: 1; }
+  }
 
   /* cụm điều hướng trang gọn lại, nép sát toolbar */
   .page-nav-wrap { margin: 10px auto 6px; }
@@ -949,6 +964,11 @@ body:not(.guest) .gas-fab { bottom: 86px; }
   .btn-icon { min-width: 40px; min-height: 40px; }
   .top-nav .nav-link { padding: 9px 14px; }
   .toc-item { max-width: 100%; padding: 9px 10px; }
+
+  /* Presence: header mobile cao hơn (nav xuống hàng) nên top:86px đè lên hero,
+     nhìn như nút lạ. Dời xuống rail phải trên cụm fab & thu nhỏ cho ra "chỉ báo". */
+  .presence-dock { top: auto; bottom: 150px; right: 14px; }
+  .presence-bub { width: 34px; height: 34px; font-size: 1rem; }
 }
 
 /* ── Màn hình rất hẹp (điện thoại nhỏ) ────────────────── */
@@ -966,7 +986,9 @@ body:not(.guest) .gas-fab { bottom: 86px; }
 
 /* ── Điện thoại: cổng thành lưới 2 ô nhỏ gọn, bớt lôm côm ── */
 @media (max-width: 600px) {
-  .map-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .map-grid { grid-template-columns: repeat(2, 1fr); gap: 20px 12px; } /* nới gap dọc: chừa chỗ đàn cá treo dưới + huy hiệu thẻ dưới */
+  .map-card-foot .mcf-lbl { display: none; } /* bỏ chữ "Chạm gần nhất:" cho ngày gọn 1 dòng (đã có ở tooltip) */
+  .fish-row { bottom: -8px; left: 12px; font-size: 0.92rem; gap: 2px; } /* đàn cá nhỏ & bớt dốc xuống */
   .map-card {
     padding: 18px 11px 13px; min-height: 138px;
     border-radius: 46px 46px var(--r) var(--r);

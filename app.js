@@ -974,7 +974,7 @@ function renderHomeGrid() {
       <div class="map-card-num">✦ Cánh cổng ${posNo[m.id]} ✦</div>
       <div class="map-card-title">${esc(m.title)}</div>
       <div class="map-card-world">${esc(m.world || "Thế giới chưa được mô tả…")}</div>
-      <div class="map-card-foot">${m.hasHtml ? `<span class="has-map-chip">🧭 có bản đồ</span> · ` : ""}${m.updatedAt ? "Chạm gần nhất: " + fmtTime(m.updatedAt) : ""}</div>
+      <div class="map-card-foot" title="${m.updatedAt ? "Chạm gần nhất: " + fmtTime(m.updatedAt) : ""}">${m.hasHtml ? `<span class="has-map-chip">🧭 có bản đồ</span> · ` : ""}${m.updatedAt ? `<span class="mcf-lbl">Chạm gần nhất: </span>${fmtTime(m.updatedAt)}` : ""}</div>
       ${fishRow(m)}
     </a>`).join("");
 
@@ -1906,7 +1906,7 @@ async function openHistoryModal({ coll, id, field, onRestore }) {
     <h2 class="modal-title">🕘 Lịch sử chỉnh sửa <span class="hist-sub">(giữ 7 ngày gần nhất)</span></h2>
     <div class="hist-body">
       <div class="hist-list" id="hist-list"><p class="hist-empty">Đang lặn tìm các bản cũ…</p></div>
-      <div class="hist-preview" id="hist-preview"><p class="hist-empty">Chọn một mốc thời gian bên trái để xem lại.</p></div>
+      <div class="hist-preview" id="hist-preview"><p class="hist-empty">Chọn một mốc thời gian để xem lại bản cũ.</p></div>
     </div>
     <div class="modal-actions">
       <span class="spacer"></span>
@@ -2016,6 +2016,7 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
       ${(coll && id && field) ? `<span class="tb-sep"></span><button class="tb-btn" data-hist="1" title="Lịch sử chỉnh sửa (giữ 7 ngày) — xem lại & khôi phục bản cũ nếu lỡ mất">🕘</button>` : ""}
       <button class="tb-btn" data-toc="1" title="Mục lục — nhảy tới các tiêu đề trong trang">📑</button>
       <button class="tb-btn" data-read="1" title="Chế độ đọc — ẩn thanh công cụ, chữ rộng ra">📖</button>
+      <button class="tb-more hidden" type="button" aria-label="Còn công cụ — kéo ngang để xem thêm" title="Còn công cụ — kéo ngang để xem thêm">›</button>
       <span class="tb-status" id="tb-status">Tự động lưu</span>
       <input type="file" accept="image/*" class="tb-img-file" hidden>
     </div>
@@ -2029,6 +2030,21 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
   const page = slot.querySelector("#doc-page");
   const status = slot.querySelector("#tb-status");
   let refreshCmtCount = null; // gán ở khối ghi chú phía dưới
+
+  // Gợi ý "còn công cụ" trên điện thoại: thanh cuộn ngang giấu nhiều nút → hiện mũi tên ›
+  // nhấp nháy ở mép phải khi còn cuộn được, bấm để lướt tiếp, tự ẩn khi đã tới cuối.
+  const toolbar = slot.querySelector(".editor-toolbar");
+  const moreHint = slot.querySelector(".tb-more");
+  if (toolbar && moreHint) {
+    const updMore = () => {
+      const canScroll = toolbar.scrollWidth - toolbar.clientWidth > 6;
+      const atEnd = toolbar.scrollLeft + toolbar.clientWidth >= toolbar.scrollWidth - 4;
+      moreHint.classList.toggle("hidden", !canScroll || atEnd);
+    };
+    toolbar.addEventListener("scroll", updMore, { passive: true });
+    moreHint.addEventListener("click", () => toolbar.scrollBy({ left: toolbar.clientWidth * 0.7, behavior: "smooth" }));
+    requestAnimationFrame(updMore);
+  }
   page.innerHTML = html || "";
   hydrateImages(page); // ảnh lưu kho riêng → nạp lại src
 
