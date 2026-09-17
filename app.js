@@ -1704,7 +1704,8 @@ function mountPagedEditor(slot, opts) {
   // Chỉ nhận cú vuốt NGANG rõ ràng & nhanh, để không nuốt thao tác cuộn dọc hay bôi chữ.
   let sx = 0, sy = 0, st = 0;
   slot.addEventListener("touchstart", (e) => {
-    if (e.touches.length !== 1) { st = 0; return; }
+    // bỏ qua nếu vuốt bắt đầu trên thanh công cụ (vốn cuộn ngang) hay cụm nút lật trang
+    if (e.touches.length !== 1 || e.target.closest(".editor-toolbar, .page-nav-wrap")) { st = 0; return; }
     sx = e.touches[0].clientX; sy = e.touches[0].clientY; st = Date.now();
   }, { passive: true });
   slot.addEventListener("touchend", (e) => {
