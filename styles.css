@@ -1014,6 +1014,15 @@ body:not(.guest) .gas-fab { bottom: 86px; }
   .drafts-head-row #btn-new-draft .ib-tx { display: none; }
   .page-title { font-size: 1.6rem; }
 
+  /* Danh sách nháp: chia 2 ô như Biển Cổng, thu gọn thẻ cho vừa cột hẹp */
+  .drafts-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .draft-card { padding: 14px 12px 12px; border-left-width: 2px; }
+  .draft-card-title { font-size: 0.92rem; line-height: 1.25; margin-bottom: 5px; }
+  .draft-card-preview { font-size: 0.72rem; -webkit-line-clamp: 3; min-height: 0; }
+  .draft-card-meta { margin-top: 9px; font-size: 0.62rem; flex-direction: column; align-items: flex-start; gap: 1px; }
+  .draft-card-meta span:nth-child(2) { display: none; } /* bỏ dấu · khi xếp dọc */
+  .pin-badge { font-size: 0.8rem; }
+
   /* thanh tìm/sắp xếp: hàng 1 = ô tìm + sort(icon ⇅); hàng 2 = 2 nút gọn; hàng 3 = số trang căn giữa */
   .browse-bar { gap: 8px; }
   .search-inp { flex: 1 1 180px; max-width: none; min-width: 0; padding: 9px 14px; }
