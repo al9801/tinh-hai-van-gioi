@@ -2043,7 +2043,10 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
     };
     toolbar.addEventListener("scroll", updMore, { passive: true });
     moreHint.addEventListener("click", () => toolbar.scrollBy({ left: toolbar.clientWidth * 0.7, behavior: "smooth" }));
+    // chạy lại nhiều nhịp: layout/font có thể chưa xong ở rAF đầu (khiến tưởng chưa cuộn được)
     requestAnimationFrame(updMore);
+    setTimeout(updMore, 200);
+    setTimeout(updMore, 600);
   }
   page.innerHTML = html || "";
   hydrateImages(page); // ảnh lưu kho riêng → nạp lại src
