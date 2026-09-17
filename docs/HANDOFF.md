@@ -1,5 +1,5 @@
 # Handoff — Tinh Hải Vạn Giới
-Cập nhật: 2026-09-17 (v70)
+Cập nhật: 2026-09-17 (v71)
 
 Web hub roleplay riêng của hai người, theme biển đêm & trời sao. SPA thuần
 (`index.html` + `app.js` + `styles.css`) + Firebase Auth Google + Firestore realtime.
@@ -7,7 +7,8 @@ Repo `al9801/tinh-hai-van-gioi`, live https://al9801.github.io/tinh-hai-van-gioi
 (GitHub Actions tự deploy khi push `main`).
 
 ## Trạng thái
-- Bản chạy: v70. Cụm v68–v70 (sau khi đóng vai tester soi toàn bộ mobile ở 375px):
+- Bản chạy: v71. v71: danh sách nháp `.drafts-grid` chia 2 ô ≤600px như Biển Cổng (thu gọn thẻ, meta xếp dọc owner/ngày, bỏ dấu `·` bằng `span:nth-child(2){display:none}`).
+- v70 (đợt trước): Cụm v68–v70 (sau khi đóng vai tester soi toàn bộ mobile ở 375px):
   - **Toolbar soạn thảo giấu 14/22 nút** sau cuộn ngang → thêm nút `.tb-more` (mũi tên › gold nhấp nháy, sticky phải, nép trái nút 💾) trong mountEditor; JS `updMore()` toggle `.hidden` theo `scrollWidth/clientWidth/scrollLeft` (chạy rAF + setTimeout 200/600 vì layout/font chưa xong ở rAF đầu → từng ẩn nhầm); bấm nút = `scrollBy 70%`. Chỉ hiện ≤720px (base `.tb-more{display:none}`).
   - **Thẻ cổng home**: bỏ nhãn "Chạm gần nhất:" trên mobile (`.mcf-lbl{display:none}`, giữ ở tooltip), bọc ngày trong `.mcf-time{white-space:nowrap}` để xuống dòng nguyên cụm (khỏi bẻ "10:34"), `.map-grid` gap dọc 20px, `.fish-row` nhỏ lại (bottom:-8px).
   - **Presence** (`.presence-dock`): top:86px đè header mobile → dời `bottom:150px right:14px`, bubble 34px. LƯU Ý: override PHẢI đặt SAU định nghĩa base trong file (base ở ~dòng 1489) — đặt trong `@media 720px` phía trên đó thì THUA thứ tự file (cùng specificity). Đây là lần thứ 2 dính bẫy này (xem sort-sel).
