@@ -892,6 +892,14 @@ body:not(.guest) .gas-fab { bottom: 86px; }
 
 /* ── Responsive ───────────────────────────────────────── */
 @media (max-width: 720px) {
+  /* iOS Safari TỰ PHÓNG TO màn hình khi chạm vào ô nhập cỡ chữ <16px.
+     Ép mọi ô nhập ≥16px để khỏi zoom (gây cảm giác "dàn như máy tính"). */
+  .chat-form input, .field input, .search-inp, .sort-sel,
+  input[type="text"], input[type="url"], input[type="search"],
+  input:not([type]), textarea {
+    font-size: 16px;
+  }
+
   .app-header {
     gap: 12px; flex-wrap: wrap;
     padding: 12px 16px;
@@ -999,6 +1007,17 @@ body:not(.guest) .gas-fab { bottom: 86px; }
   .pager { gap: 2px; }
   .pager .btn-icon, .pg-num { min-width: 28px; height: 28px; font-size: 0.8rem; padding: 0 6px; }
 
+  /* Truyền Âm: trên điện thoại mở dạng "sheet" gần full màn hình thay vì popup
+     nổi góc kiểu máy tính. Dùng 100dvh để bàn phím bật lên KHÔNG che ô nhập. */
+  .chat-panel {
+    right: 12px; left: 12px; bottom: 12px;
+    width: auto;
+    height: min(72dvh, calc(100dvh - 96px));
+    border-radius: 20px;
+  }
+  .chat-bubble { max-width: 82%; }
+  .chat-form { padding-bottom: max(10px, env(safe-area-inset-bottom)); }
+
   /* fab chừa lề an toàn dưới (thanh home iPhone) */
   .chat-fab { bottom: max(16px, env(safe-area-inset-bottom)); }
   body:not(.guest) .gas-fab { bottom: calc(70px + env(safe-area-inset-bottom)); }
@@ -1026,6 +1045,18 @@ body:not(.guest) .gas-fab { bottom: 86px; }
     justify-content: center; border-radius: 50%; font-size: 1.15rem;
   }
   .htmlmap-bar .icon-btn .ib-tx { display: none; }
+
+  /* ── Bảng dán vào trang giấy: KHỎI xén nội dung trên điện thoại ──
+     Bảng dán bị bỏ hết width cột → mặc định co theo chữ, tràn mép phải & bị cắt.
+     table-layout:fixed chia đều cột theo bề ngang trang, chữ tự xuống dòng. */
+  .doc-page table { table-layout: fixed; width: 100%; }
+  .doc-page td, .doc-page th {
+    padding: 6px 8px;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+  /* chuỗi dài không dấu cách (link…) cũng gói lại thay vì đẩy trang rộng ra */
+  .doc-page { overflow-wrap: anywhere; }
 }
 
 /* ── Tab Bản đồ HTML ──────────────────────────────────── */
