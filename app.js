@@ -88,7 +88,48 @@ window.addEventListener("scroll", () => {
   if (scrollKey) viewScroll[scrollKey] = window.scrollY;
   // nút vút về đầu trang: chỉ ló ra khi đã cuộn sâu (tránh bấm nhầm)
   $("#btn-top")?.classList.toggle("show", window.scrollY > 500);
+  scrollbarUpdate();
 }, { passive: true });
+
+// ── Thanh cuộn kéo được ở mép phải: trang dài trên điện thoại/máy khỏi phải vuốt lê thê ──
+let sbDrag = false, sbDragOffset = 0;
+function scrollbarUpdate() {
+  const sb = $("#scrollbar"), thumb = $("#scrollbar-thumb");
+  if (!sb || !thumb) return;
+  const vh = window.innerHeight, dh = document.documentElement.scrollHeight;
+  if (dh - vh < 400) { sb.classList.add("hidden"); return; } // trang ngắn → khỏi cần
+  sb.classList.remove("hidden");
+  const trackH = sb.clientHeight || vh;
+  const th = Math.max(40, Math.round(trackH * vh / dh));
+  const maxTop = trackH - th;
+  thumb.style.height = th + "px";
+  if (!sbDrag) thumb.style.top = Math.max(0, Math.min(maxTop, Math.round(maxTop * (window.scrollY / (dh - vh))))) + "px";
+}
+function scrollbarDragTo(clientY) {
+  const sb = $("#scrollbar"), thumb = $("#scrollbar-thumb");
+  const trackH = sb.clientHeight, th = thumb.offsetHeight;
+  const dh = document.documentElement.scrollHeight, vh = window.innerHeight;
+  let top = clientY - sb.getBoundingClientRect().top - sbDragOffset;
+  top = Math.max(0, Math.min(trackH - th, top));
+  thumb.style.top = top + "px";
+  const ratio = (trackH - th) ? top / (trackH - th) : 0;
+  window.scrollTo({ top: ratio * (dh - vh), behavior: "instant" });
+}
+function wireScrollbar() {
+  const thumb = $("#scrollbar-thumb"); if (!thumb) return;
+  const start = (clientY) => {
+    sbDrag = true; sbDragOffset = clientY - thumb.getBoundingClientRect().top;
+    $("#scrollbar").classList.add("dragging");
+  };
+  const end = () => { if (!sbDrag) return; sbDrag = false; $("#scrollbar").classList.remove("dragging"); };
+  thumb.addEventListener("mousedown", (e) => { e.preventDefault(); start(e.clientY); });
+  window.addEventListener("mousemove", (e) => { if (sbDrag) scrollbarDragTo(e.clientY); });
+  window.addEventListener("mouseup", end);
+  thumb.addEventListener("touchstart", (e) => start(e.touches[0].clientY), { passive: true });
+  window.addEventListener("touchmove", (e) => { if (sbDrag) { scrollbarDragTo(e.touches[0].clientY); e.preventDefault(); } }, { passive: false });
+  window.addEventListener("touchend", end);
+  window.addEventListener("resize", scrollbarUpdate);
+}
 let cmtPop = null;
 let cmtPopCloser = null;
 let chatMsgs = [];
@@ -878,6 +919,8 @@ function route(soft = false) {
     // nội dung tải trễ (iframe/ảnh) có thể làm trang ngắn lúc đầu → chỉnh lại lần nữa
     if (savedY) setTimeout(() => window.scrollTo({ top: viewScroll[newSK] ?? savedY, behavior: "instant" }), 300);
   }
+  scrollbarUpdate();
+  setTimeout(scrollbarUpdate, 350); // nội dung/ảnh tải trễ → đo lại chiều cao
 }
 
 function scrollKeyFor(r) {
@@ -3125,4 +3168,5 @@ $("#sticker-grid")?.addEventListener("change", async (e) => {
 });
 
 /* Khởi động sau khi toàn bộ module đã được khai báo */
+wireScrollbar();
 boot();

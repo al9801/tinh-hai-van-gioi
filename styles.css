@@ -1377,6 +1377,26 @@ body:not(.guest) .gas-fab { bottom: 86px; }
   transform: translateY(-2px);
 }
 
+/* ── Thanh cuộn kéo được ở mép phải (tự vẽ vì native ẩn/không có trên cảm ứng) ── */
+.scrollbar {
+  position: fixed; top: 0; right: 0; width: 16px; height: 100vh; z-index: 46;
+  pointer-events: none;
+}
+.scrollbar.hidden { display: none; }
+.scrollbar-thumb {
+  position: absolute; right: 3px; width: 7px; min-height: 40px;
+  border-radius: 999px;
+  background: rgba(217, 180, 111, 0.45);
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  pointer-events: auto; cursor: grab; touch-action: none;
+  transition: background 0.2s, width 0.15s;
+}
+.scrollbar-thumb::before { /* vùng chạm rộng hơn phần nhìn thấy, dễ nắm trên điện thoại */
+  content: ""; position: absolute; inset: -6px -10px;
+}
+.scrollbar-thumb:hover { background: var(--gold); width: 9px; }
+.scrollbar.dragging .scrollbar-thumb { background: var(--gold-bright); width: 9px; cursor: grabbing; }
+
 /* bộ đếm ghi chú trên toolbar */
 .tb-btn .cmt-count { margin-left: 3px; font-size: 0.72rem; color: var(--glow); }
 
