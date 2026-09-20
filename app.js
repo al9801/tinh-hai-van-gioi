@@ -43,6 +43,33 @@ let flushEditor = null;     // doSave của editor hiện tại — gọi trư�
 let activeEditorSync = null; // đồng bộ realtime cho khung soạn đang mở (khi người kia sửa)
 let activePagedSync = null;  // đồng bộ số trang của cuốn sổ đang mở (khi người kia thêm/bớt trang)
 const histLast = {};         // mốc lịch sử gần nhất theo từng trường (để giãn nhịp ghi)
+let editorDirty = false;     // có chữ đã gõ chưa lưu xong → chặn rời trang làm bay mất
+
+// nhảy thẳng về chỗ soạn dở lần trước khi mở web
+let mapsLoaded = false, draftsLoaded = false, resumeDone = false;
+function noteLastEdit() {
+  try { localStorage.setItem("thvg-last-edit", JSON.stringify({ hash: location.hash || "" })); } catch {}
+}
+function maybeResumeLastEdit() {
+  if (resumeDone) return;
+  const cur = location.hash || "";
+  if (cur && cur !== "#/") { resumeDone = true; return; } // đang mở link cụ thể → tôn trọng
+  let le = null;
+  try { le = JSON.parse(localStorage.getItem("thvg-last-edit") || "null"); } catch {}
+  if (!le || !le.hash) { if (mapsLoaded && draftsLoaded) resumeDone = true; return; }
+  const id = le.hash.split("/")[2];
+  if (le.hash.startsWith("#/map/")) {
+    if (!mapsLoaded) return;               // chờ danh sách cổng về mới biết còn tồn tại không
+    resumeDone = true;
+    if (maps.some((m) => m.id === id)) location.hash = le.hash;
+  } else if (le.hash.startsWith("#/thu-phong/")) {
+    if (!draftsLoaded) return;
+    resumeDone = true;
+    if (drafts.some((d) => d.id === id)) location.hash = le.hash;
+  } else {
+    resumeDone = true;
+  }
+}
 
 // nhớ chỗ đứng gần nhất trong từng khu — nút điều hướng đưa về đúng trang đang mở dở
 let lastSeaHash = "#/";           // Biển Cổng: home hoặc map đang mở
@@ -322,7 +349,7 @@ function firestoreStore() {
     subscribe(guestOnly = false) {
       unsubMaps = onSnapshot(
         query(collection(db, "maps"), orderBy("order")),
-        (snap) => { maps = snap.docs.map((d) => ({ id: d.id, ...d.data() })); route(true); },
+        (snap) => { maps = snap.docs.map((d) => ({ id: d.id, ...d.data() })); mapsLoaded = true; maybeResumeLastEdit(); route(true); },
         (err) => {
           console.error(err);
           toast("Không đọc được dữ liệu — kiểm tra Firestore Rules đã Publish bản mới chưa.", true);
@@ -330,7 +357,7 @@ function firestoreStore() {
       if (guestOnly) return; // cá ghé thăm không được đọc Thư Phòng
       unsubDrafts = onSnapshot(
         query(collection(db, "drafts"), orderBy("updatedAt", "desc")),
-        (snap) => { drafts = snap.docs.map((d) => ({ id: d.id, ...d.data() })); route(true); },
+        (snap) => { drafts = snap.docs.map((d) => ({ id: d.id, ...d.data() })); draftsLoaded = true; maybeResumeLastEdit(); route(true); },
         (err) => console.error(err));
     },
     async addMap(data) {
@@ -569,7 +596,7 @@ button{margin-top:14px;width:100%;padding:10px;border:1px dashed #8a7962;backgro
   };
   return {
     demo: true,
-    subscribe() {},
+    subscribe() { mapsLoaded = true; draftsLoaded = true; maybeResumeLastEdit(); },
     subscribeChat(cb) { chatCb = cb; cb(chatArr.slice()); },
     async sendChat(payload) { chatArr.push({ id: uid(), by: me.email, ...payload, at: now() }); chatCb?.(chatArr.slice()); },
     subscribeStickers(cb) { stickerCb = cb; cb(stickerArr.slice()); },
@@ -753,6 +780,16 @@ function enterForest() {
 
 /* ── Router ───────────────────────────────────────────── */
 window.addEventListener("hashchange", () => route());
+
+// chặn bay mất chữ: đang gõ dở mà đóng/back → cố lưu nốt + để trình duyệt hỏi lại
+window.addEventListener("beforeunload", (e) => {
+  if (!editorDirty) return;
+  flushEditor?.();
+  e.preventDefault();
+  e.returnValue = "";
+});
+// mobile không hiện hộp thoại beforeunload → chuyển app / ẩn tab thì lưu nốt
+document.addEventListener("visibilitychange", () => { if (document.hidden) flushEditor?.(); });
 
 // nút điều hướng: quay về đúng trang đang mở dở trong khu đó;
 // bấm lần nữa (khi đã ở đó) mới ra màn hình tổng
@@ -1595,7 +1632,9 @@ async function hydrateImages(root) {
 }
 
 /* ── Sổ nhiều trang: một tài liệu chứa nhiều trang giấy ── */
-const pageMem = {}; // nhớ đang mở trang mấy của từng tài liệu (trong phiên)
+let pageMem = {}; // nhớ đang mở trang mấy của từng tài liệu (giữ qua cả lần tải lại)
+try { pageMem = JSON.parse(localStorage.getItem("thvg-page-mem") || "{}"); } catch {}
+function persistPageMem() { try { localStorage.setItem("thvg-page-mem", JSON.stringify(pageMem)); } catch {} }
 
 function fieldForPage(base, i) { return i === 0 ? base : `${base}_p${i}`; }
 
@@ -1672,6 +1711,7 @@ function mountPagedEditor(slot, opts) {
           toast("Trang đã tan vào sóng — các trang sau dồn lên.");
         } catch (e) { toast("Không xoá được trang: " + e.message, true); return; }
       }
+      persistPageMem();
       render();
       // lật bằng mũi tên bên hông → đưa mắt về đầu trang mới để đọc liền mạch
       if (b.classList.contains("page-side")) {
@@ -1878,10 +1918,12 @@ async function openFullTextSearch() {
       const h = hits[+b.dataset.i];
       if (h.kind === "map") {
         if (h.tab === "map") pageMem[`maps:${h.id}:content`] = h.page;
+        persistPageMem();
         close();
         location.hash = `#/map/${h.id}/${h.tab}`;
       } else {
         pageMem[`drafts:${h.id}:content`] = h.page;
+        persistPageMem();
         close();
         location.hash = `#/thu-phong/${h.id}`;
       }
@@ -1986,6 +2028,7 @@ const TOOLBAR = [
 ];
 
 function mountEditor(slot, { html, load = null, placeholder, save, showCopy = false, comments = null, readOnly = false, coll = null, id = null, field = null }) {
+  editorDirty = false; // khung mới = sạch (khung cũ đã được flush trước khi tới đây)
   // cá ghé thăm: trang chỉ xem — không toolbar, không sửa, không ghi chú
   if (readOnly) {
     slot.innerHTML = `<div class="doc-page doc-readonly" id="doc-page" contenteditable="false"></div>`;
@@ -2104,6 +2147,7 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
     try {
       const cur = await toStorageHtml();
       if (cur === lastSaved) {
+        editorDirty = false;
         status.textContent = "✓ Đã lưu";
         status.className = "tb-status saved";
         return;
@@ -2111,6 +2155,7 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
       saving = true;
       await save(cur);
       lastSaved = cur;
+      editorDirty = false;
       saving = false;
       status.textContent = "✓ Đã lưu";
       status.className = "tb-status saved";
@@ -2135,6 +2180,8 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
     }
   };
   page.addEventListener("input", () => {
+    editorDirty = true;
+    noteLastEdit();
     status.textContent = "Đang viết…";
     status.className = "tb-status";
     clearTimeout(saveTimer);
@@ -2142,7 +2189,6 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
   });
   page.addEventListener("blur", () => { clearTimeout(saveTimer); doSave(); });
   flushEditor = () => { clearTimeout(saveTimer); return doSave(); };
-  window.addEventListener("beforeunload", () => { clearTimeout(saveTimer); doSave(); }, { once: true });
 
   // ── Đồng bộ realtime: khi người kia sửa cùng trang ──
   // an toàn (mình chưa gõ gì) → nạp bản mới ngay; đang gõ dở → hỏi thay vì đè mất.
