@@ -425,6 +425,9 @@ function firestoreStore() {
       await deleteDoc(doc(db, "maps", id));
       deleteDoc(doc(db, "mapfiles", id)).catch(() => {}); // dọn luôn file HTML nếu có
       deleteDoc(doc(db, "mapfiles", `${id}__hoso`)).catch(() => {});
+      const m = findMap(id); // các trang thêm của Bản đồ / Hồ sơ
+      [...(m?.htmlPages || []), ...(m?.profilePages || [])].forEach((p) =>
+        deleteDoc(doc(db, "mapfiles", p.id)).catch(() => {}));
     },
     // file HTML của map lưu riêng 1 doc (mapfiles/{mapId}) để doc map chính không phình to
     getMapHtml: (id) => getDoc(doc(db, "mapfiles", id)).then((s) => (s.exists() ? s.data().html : null)),
@@ -1301,58 +1304,141 @@ async function toggleFishMark(id) {
   } catch (e) { toast("Không lưu được đánh giá: " + e.message, true); }
 }
 
-/* ── Khung file HTML gắn map: dùng chung cho Bản đồ (xem tại chỗ)
-   và Hồ sơ (mở cửa sổ nổi — bấm ra ngoài / Esc để đóng) ──────── */
+/* ── Khung file HTML gắn map: dùng chung cho Bản đồ và Hồ sơ ─────
+   Nhiều file = nhiều trang lật như sổ doc. Danh sách trang lưu trên
+   doc map (cfg.listField = [{id, name}]), nội dung từng trang nằm ở
+   mapfiles/{id}. Map cũ chỉ có cờ cfg.flag → coi như 1 trang cfg.fileId. */
+const HF_IC = {
+  prev: '<path d="m15 18-6-6 6-6"/>',
+  next: '<path d="m9 18 6-6-6-6"/>',
+  plus: '<path d="M5 12h14"/><path d="M12 5v14"/>',
+  replace: '<path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/>',
+  trash: '<path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>',
+  full: '<path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/>',
+  download: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/>',
+  upload: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/>',
+};
+const hfIcon = (k) => `<svg class="hf-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${HF_IC[k]}</svg>`;
+const hfPageMem = {}; // fileId gốc → trang đang xem (quay lại tab khỏi về trang 1)
+
+function hfPagesOf(m, cfg) {
+  const list = m[cfg.listField];
+  if (Array.isArray(list)) return list.map((p) => ({ ...p }));
+  return m[cfg.flag] ? [{ id: cfg.fileId, name: "" }] : [];
+}
+
 async function renderHtmlFileTab(m, cfg) {
   const slot = $("#editor-slot");
   const routeKey = mountedRoute;
   const guest = !!me.guest;
+  let pages = hfPagesOf(m, cfg);
+  let cur = Math.min(hfPageMem[cfg.fileId] || 0, Math.max(pages.length - 1, 0));
   let curHtml = null;
+  let pendingMode = "add"; // file chọn xong sẽ "add" thêm trang hay "replace" trang đang mở
+  const Name = cfg.name[0].toUpperCase() + cfg.name.slice(1);
+  const b = (act, ic, label, extra = "") =>
+    `<button class="pgn-btn hf-btn ${extra}" data-hf="${act}" title="${label}" aria-label="${label}">${hfIcon(ic)}</button>`;
 
   slot.innerHTML = `
     <div class="htmlmap-bar">
       <span class="rec-status" id="hf-info">Đang lặn xuống lấy ${cfg.name}…</span>
       <span class="spacer"></span>
-      <button class="btn btn-ghost icon-btn hidden" id="hf-primary" title="Mở toàn màn hình"><span class="ib-ic">⛶</span><span class="ib-tx">Toàn màn hình</span></button>
-      ${guest ? "" : `<label class="btn btn-gold icon-btn" title="Tải file ${cfg.name} .html lên (tự chứa, dưới 0.9MB)"><span class="ib-ic">⬆</span><span class="ib-tx">Tải HTML lên</span>
-        <input type="file" id="hf-file" accept=".html,.htm,text/html" hidden>
-      </label>
-      <button class="btn btn-danger-ghost icon-btn hidden" id="hf-del" title="Gỡ ${cfg.name}"><span class="ib-ic">🗑</span><span class="ib-tx">Gỡ ${cfg.name}</span></button>`}
+      <div class="page-nav-chip hf-nav hidden" id="hf-nav">
+        ${b("prev", "prev", "Trang trước (←)")}
+        <span class="pgn-label" id="hf-label"></span>
+        ${b("next", "next", "Trang sau (→) — hết trang thì quay về đầu")}
+        ${guest ? "" : `<span class="pgn-sep"></span>
+        ${b("add", "plus", `Thêm trang: tải thêm một file ${cfg.name} .html`)}
+        ${b("replace", "replace", "Thay file của trang đang mở")}
+        ${b("del", "trash", "Gỡ trang đang mở", "pgn-del")}`}
+      </div>
+      <div class="page-nav-chip hf-tools hidden" id="hf-tools">
+        ${b("full", "full", "Mở toàn màn hình (tab mới)")}
+        ${b("download", "download", "Tải file .html của trang này về máy")}
+      </div>
+      ${guest ? "" : `<input type="file" id="hf-file" accept=".html,.htm,text/html" hidden>`}
     </div>
     <div id="hf-body"></div>`;
 
   const info = slot.querySelector("#hf-info");
   const body = slot.querySelector("#hf-body");
-  const btnPrimary = slot.querySelector("#hf-primary");
-  const btnDel = slot.querySelector("#hf-del");
-  const Name = cfg.name[0].toUpperCase() + cfg.name.slice(1);
+  const nav = slot.querySelector("#hf-nav");
+  const tools = slot.querySelector("#hf-tools");
+  const fileInp = slot.querySelector("#hf-file");
+  const pageName = (i) => pages[i]?.name || `${m.title} — ${cfg.name}${pages.length > 1 ? " " + (i + 1) : ""}`;
 
   const paint = () => {
+    const has = pages.length > 0;
+    nav.classList.toggle("hidden", !has || (guest && pages.length < 2));
+    tools.classList.toggle("hidden", !curHtml);
+    nav.querySelectorAll('[data-hf="prev"],[data-hf="next"]').forEach((x) => x.classList.toggle("hidden", pages.length < 2));
+    slot.querySelector("#hf-label").textContent = `${cur + 1}/${pages.length}`;
+    slot.querySelector("#hf-label").title = pageName(cur);
     if (curHtml) {
-      body.innerHTML = `<iframe class="htmlmap-frame" sandbox="allow-scripts" title="${cfg.name} ${esc(m.title)}"></iframe>`;
+      body.innerHTML = `<iframe class="htmlmap-frame" sandbox="allow-scripts" title="${esc(pageName(cur))}"></iframe>`;
       body.querySelector("iframe").srcdoc = curHtml;
-      info.textContent = `${cfg.icon} ${Name} HTML · ${Math.round(curHtml.length / 1024)}KB`;
-      btnPrimary.classList.remove("hidden");
-      btnDel?.classList.remove("hidden");
+      info.textContent = `${cfg.icon} ${pages[cur]?.name || Name} · ${Math.round(curHtml.length / 1024)}KB`;
+      info.title = pageName(cur);
+    } else if (has) {
+      body.innerHTML = `<div class="htmlmap-empty"><div style="font-size:2.2rem">${cfg.icon}</div><p>Trang ${cur + 1} trống hoặc đã bị gỡ.</p></div>`;
+      info.textContent = `${cfg.icon} Trang ${cur + 1}`;
     } else {
-      body.innerHTML = `<div class="htmlmap-empty"><div style="font-size:2.2rem">${cfg.icon}</div><p>${cfg.emptyText}</p></div>`;
+      body.innerHTML = `<div class="htmlmap-empty"><div style="font-size:2.2rem">${cfg.icon}</div><p>${cfg.emptyText}</p>
+        ${guest ? "" : `<button class="btn btn-gold icon-btn" id="hf-first"><span class="ib-ic">${hfIcon("upload")}</span><span class="ib-tx">Tải HTML lên</span></button>`}</div>`;
+      body.querySelector("#hf-first")?.addEventListener("click", () => { pendingMode = "add"; fileInp.click(); });
       info.textContent = `Chưa có ${cfg.name}.`;
-      btnPrimary.classList.add("hidden");
-      btnDel?.classList.add("hidden");
     }
   };
 
-  try { curHtml = await store.getMapHtml(cfg.fileId); }
-  catch (e) { info.textContent = `Không tải được ${cfg.name}: ` + e.message; return; }
-  if (mountedRoute !== routeKey) return; // người dùng đã rời tab trong lúc chờ
-  paint();
+  const load = async (i) => {
+    cur = Math.max(0, Math.min(i, pages.length - 1));
+    hfPageMem[cfg.fileId] = cur;
+    curHtml = null;
+    if (pages.length) {
+      info.textContent = `Đang lật sang trang ${cur + 1}…`;
+      try { curHtml = await store.getMapHtml(pages[cur].id); }
+      catch (e) { info.textContent = `Không tải được ${cfg.name}: ` + e.message; return; }
+      if (mountedRoute !== routeKey) return; // đã rời tab trong lúc chờ
+    }
+    paint();
+  };
 
-  btnPrimary.addEventListener("click", () => {
-    if (!curHtml) return;
-    window.open(URL.createObjectURL(new Blob([curHtml], { type: "text/html" })), "_blank");
+  // lưu danh sách trang lên doc map (cờ cfg.flag giữ để thẻ cổng/tab mặc định dùng tiếp)
+  const savePages = async () => {
+    const patch = { [cfg.listField]: pages, [cfg.flag]: pages.length > 0 };
+    await store.updateMap(m.id, patch);
+    const mm = findMap(m.id); if (mm) Object.assign(mm, patch);
+  };
+
+  slot.querySelector(".htmlmap-bar").addEventListener("click", async (e) => {
+    const act = e.target.closest("[data-hf]")?.dataset.hf;
+    if (!act) return;
+    const n = pages.length;
+    if (act === "prev") load((cur - 1 + n) % n);
+    else if (act === "next") load((cur + 1) % n);
+    else if (act === "add" || act === "replace") { pendingMode = act; fileInp?.click(); }
+    else if (act === "full" && curHtml) window.open(URL.createObjectURL(new Blob([curHtml], { type: "text/html" })), "_blank");
+    else if (act === "download" && curHtml) {
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(new Blob([curHtml], { type: "text/html" }));
+      const base = pageName(cur).replace(/\.html?$/i, "").replace(/[\\/:*?"<>|]+/g, " ").trim();
+      a.download = `${base || cfg.name}.html`;
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+    } else if (act === "del") {
+      if (!n) return;
+      if (!confirm(`Gỡ trang ${cur + 1}/${n} (${pageName(cur)}) khỏi ${cfg.name}? File gốc trên máy không bị ảnh hưởng.`)) return;
+      try {
+        const [gone] = pages.splice(cur, 1);
+        await savePages();
+        store.deleteMapHtml(gone.id).catch(() => {});
+        toast(`Đã gỡ trang ${cur + 1}.`);
+        load(Math.min(cur, pages.length - 1));
+      } catch (err) { toast("Không gỡ được: " + err.message, true); }
+    }
   });
 
-  slot.querySelector("#hf-file")?.addEventListener("change", async (e) => {
+  fileInp?.addEventListener("change", async (e) => {
     const f = e.target.files[0];
     e.target.value = "";
     if (!f) return;
@@ -1364,41 +1450,40 @@ async function renderHtmlFileTab(m, cfg) {
       toast("File nặng quá — vượt giới hạn ~0.9MB. Nén bớt (bỏ ảnh nhúng nặng) rồi thử lại.", true);
       return;
     }
+    const name = f.name.replace(/\.html?$/i, "");
     try {
       info.textContent = `Đang thả ${cfg.name} xuống biển…`;
-      await store.saveMapHtml(cfg.fileId, text);
-      await store.updateMap(m.id, { [cfg.flag]: true });
-      const mm = findMap(m.id); if (mm) mm[cfg.flag] = true;
-      curHtml = text;
-      paint();
-      toast(`${cfg.icon} ${Name} đã neo vào cánh cổng.`);
+      if (pendingMode === "replace" && pages[cur]) {
+        await store.saveMapHtml(pages[cur].id, text);
+        pages[cur].name = name;
+      } else {
+        // trang đầu dùng lại id gốc (map cũ, thẻ cổng đọc), trang sau thêm hậu tố riêng
+        const id = pages.some((p) => p.id === cfg.fileId)
+          ? `${cfg.fileId}__p${Date.now().toString(36)}` : cfg.fileId;
+        await store.saveMapHtml(id, text);
+        pages.push({ id, name });
+        cur = pages.length - 1;
+      }
+      await savePages();
+      toast(`${cfg.icon} Trang ${cur + 1} đã neo vào cánh cổng.`);
+      load(cur);
     } catch (err) { toast(`Không lưu được ${cfg.name}: ` + err.message, true); }
   });
 
-  btnDel?.addEventListener("click", async () => {
-    if (!confirm(`Gỡ ${cfg.name} khỏi cánh cổng này? (File gốc trên máy bạn không bị ảnh hưởng)`)) return;
-    try {
-      await store.deleteMapHtml(cfg.fileId);
-      await store.updateMap(m.id, { [cfg.flag]: false });
-      const mm = findMap(m.id); if (mm) mm[cfg.flag] = false;
-      curHtml = null;
-      paint();
-      toast(`${Name} đã được kéo lên khỏi biển.`);
-    } catch (err) { toast("Không gỡ được: " + err.message, true); }
-  });
+  load(cur);
 }
 
 function renderMapHtmlTab(m) {
   renderHtmlFileTab(m, {
-    fileId: m.id, flag: "hasHtml", name: "bản đồ", icon: "🧭", popup: false,
-    emptyText: "Cánh cổng này chưa có bản đồ HTML.<br>Bấm <b>⬆ Tải HTML lên</b> để thả file map tương tác của bạn xuống biển.",
+    fileId: m.id, flag: "hasHtml", listField: "htmlPages", name: "bản đồ", icon: "🧭",
+    emptyText: "Cánh cổng này chưa có bản đồ HTML.",
   });
 }
 
 // 🎭 Hồ sơ: file HTML theme tự do theo từng thế giới (nhờ Claude thiết kế → tải lên)
 function renderProfileTab(m) {
   renderHtmlFileTab(m, {
-    fileId: `${m.id}__hoso`, flag: "hasProfile", name: "hồ sơ", icon: "🎭", popup: true,
+    fileId: `${m.id}__hoso`, flag: "hasProfile", listField: "profilePages", name: "hồ sơ", icon: "🎭",
     emptyText: "Thế giới này chưa có hồ sơ nhân vật.",
   });
 }
@@ -1811,7 +1896,9 @@ document.addEventListener("keydown", (e) => {
   const el = document.activeElement;
   if (el && (el.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(el.tagName))) return;
   if (!$("#modal-map")?.classList.contains("hidden")) return; // đang mở modal thì thôi
-  const btn = document.querySelector(e.key === "ArrowLeft" ? ".page-side-left" : ".page-side-right");
+  const btn = document.querySelector(e.key === "ArrowLeft"
+    ? '.page-side-left, .hf-nav:not(.hidden) [data-hf="prev"]:not(.hidden)'
+    : '.page-side-right, .hf-nav:not(.hidden) [data-hf="next"]:not(.hidden)');
   if (btn) { e.preventDefault(); btn.click(); }
 });
 

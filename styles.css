@@ -1093,19 +1093,6 @@ body:not(.guest) .gas-fab { bottom: 86px; }
   .map-actions .icon-btn .ib-tx { display: none; }
   .map-actions .icon-btn .ib-ic { margin: 0; }
 
-  /* thanh file (Bản đồ / Hồ sơ): thông tin + 3 nút gọn thành 1 hàng, nút phụ = chip icon */
-  .htmlmap-bar { flex-wrap: nowrap; gap: 8px; align-items: center; margin: 16px 0 12px; }
-  .htmlmap-bar .rec-status {
-    flex: 1 1 auto; min-width: 0;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.74rem;
-  }
-  .htmlmap-bar .spacer { display: none; }
-  .htmlmap-bar .icon-btn {
-    flex: 0 0 auto; padding: 0; width: 42px; height: 42px;
-    justify-content: center; border-radius: 50%; font-size: 1.15rem;
-  }
-  .htmlmap-bar .icon-btn .ib-tx { display: none; }
-
   /* ── Bảng dán vào trang giấy: KHỎI xén nội dung trên điện thoại ──
      Bảng dán bị bỏ hết width cột → mặc định co theo chữ, tràn mép phải & bị cắt.
      table-layout:fixed chia đều cột theo bề ngang trang, chữ tự xuống dòng. */
@@ -1141,6 +1128,17 @@ body:not(.guest) .gas-fab { bottom: 86px; }
   line-height: 1.9;
 }
 .has-map-chip { color: var(--glow); }
+.htmlmap-empty .btn { margin-top: 8px; }
+.htmlmap-empty .hf-svg { width: 18px; height: 18px; }
+
+/* thanh Bản đồ / Hồ sơ: chip lật trang (‹ 1/3 › | ＋ ⟳ 🗑) + chip công cụ (⛶ ⬇), toàn icon */
+.htmlmap-bar .page-nav-chip { animation: none; }
+.hf-btn {
+  display: inline-grid; place-items: center;
+  width: 34px; height: 34px; padding: 0;
+}
+.hf-svg { width: 18px; height: 18px; display: block; }
+#hf-label { min-width: 2.6em; text-align: center; }
 
 /* kéo thả sắp xếp cổng */
 .map-card[draggable="true"] { user-select: none; }
@@ -1752,3 +1750,22 @@ body.guest .doc-page { user-select: none; }
 .ft-where { display: block; font-size: 0.76rem; color: var(--glow); margin-bottom: 3px; }
 .ft-snip { display: block; font-size: 0.86rem; color: var(--ink-dim); line-height: 1.5; }
 .ft-snip mark { background: rgba(217, 180, 111, 0.4); color: var(--ink); border-radius: 3px; }
+
+/* thanh Bản đồ / Hồ sơ trên điện thoại: 1 hàng, chữ trạng thái co lại, nút chạm 40px
+   (đặt CUỐI file để thắng .page-nav-chip / .pgn-btn base) */
+@media (max-width: 720px) {
+  .htmlmap-bar { flex-wrap: nowrap; gap: 6px; margin: 16px 0 12px; }
+  .htmlmap-bar .rec-status {
+    flex: 1 1 auto; min-width: 0;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.74rem;
+  }
+  .htmlmap-bar .spacer { display: none; }
+  .htmlmap-bar .page-nav-chip { flex: 0 0 auto; padding: 1px 2px; }
+  .hf-btn { width: 40px; height: 40px; }
+}
+@media (max-width: 430px) {
+  /* chật: chữ trạng thái lên hàng riêng, 2 chip xuống hàng dưới */
+  .htmlmap-bar { flex-wrap: wrap; justify-content: center; }
+  .htmlmap-bar .rec-status { flex-basis: 100%; text-align: center; }
+  .hf-btn { width: 36px; height: 38px; }
+}
