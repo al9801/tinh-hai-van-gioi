@@ -1341,6 +1341,7 @@ async function renderHtmlFileTab(m, cfg) {
 
   slot.innerHTML = `
     <div class="htmlmap-bar">
+      <button class="btn btn-gold hf-full hidden" id="hf-full" data-hf="full" title="Mở toàn màn hình (tab mới)">${hfIcon("full")}<span class="hf-full-tx">Mở rộng</span></button>
       <span class="rec-status" id="hf-info">Đang lặn xuống lấy ${cfg.name}…</span>
       <span class="spacer"></span>
       <div class="page-nav-chip hf-nav hidden" id="hf-nav">
@@ -1353,7 +1354,6 @@ async function renderHtmlFileTab(m, cfg) {
         ${b("del", "trash", "Gỡ trang đang mở", "pgn-del")}`}
       </div>
       <div class="page-nav-chip hf-tools hidden" id="hf-tools">
-        ${b("full", "full", "Mở toàn màn hình (tab mới)")}
         ${b("download", "download", "Tải file .html của trang này về máy")}
       </div>
       ${guest ? "" : `<input type="file" id="hf-file" accept=".html,.htm,text/html" hidden>`}
@@ -1371,6 +1371,7 @@ async function renderHtmlFileTab(m, cfg) {
     const has = pages.length > 0;
     nav.classList.toggle("hidden", !has || (guest && pages.length < 2));
     tools.classList.toggle("hidden", !curHtml);
+    slot.querySelector("#hf-full").classList.toggle("hidden", !curHtml);
     nav.querySelectorAll('[data-hf="prev"],[data-hf="next"]').forEach((x) => x.classList.toggle("hidden", pages.length < 2));
     slot.querySelector("#hf-label").textContent = `${cur + 1}/${pages.length}`;
     slot.querySelector("#hf-label").title = pageName(cur);

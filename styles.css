@@ -1140,6 +1140,13 @@ body:not(.guest) .gas-fab { bottom: 86px; }
 .hf-svg { width: 18px; height: 18px; display: block; }
 #hf-label { min-width: 2.6em; text-align: center; }
 
+/* nút Mở rộng: tách hẳn ra ngoài cùng bên trái, to & rõ (dùng nhiều nhất, tránh cạnh nút xoá) */
+.hf-full {
+  display: inline-flex; align-items: center; gap: 7px; flex: 0 0 auto;
+  padding: 9px 18px; font-size: 0.85rem;
+}
+.hf-full .hf-svg { width: 17px; height: 17px; }
+
 /* kéo thả sắp xếp cổng */
 .map-card[draggable="true"] { user-select: none; }
 .map-card.dragging { opacity: 0.35; transform: scale(0.97); }
@@ -1768,4 +1775,5 @@ body.guest .doc-page { user-select: none; }
   .htmlmap-bar { flex-wrap: wrap; justify-content: center; }
   .htmlmap-bar .rec-status { flex-basis: 100%; text-align: center; }
   .hf-btn { width: 36px; height: 38px; }
+  .hf-full { margin-right: auto; } /* ở hàng riêng trên cùng, ghim sát trái */
 }

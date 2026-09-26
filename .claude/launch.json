@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "thvg", "runtimeExecutable": "python3", "runtimeArgs": ["-m", "http.server", "8653"], "port": 8653 }
+  ]
+}
