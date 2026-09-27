@@ -531,13 +531,15 @@ body {
 }
 .subtab {
   background: none; border: none; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 7px;
   font-family: var(--font-body); font-size: 0.9rem;
   color: var(--ink-dim);
-  padding: 10px 18px;
+  padding: 10px 16px;
   border-bottom: 2px solid transparent;
   margin-bottom: -1px;
   transition: all 0.2s;
 }
+.subtab .ic { opacity: 0.85; }
 .subtab:hover { color: var(--ink); }
 .subtab.active { color: var(--gold-bright); border-bottom-color: var(--gold); }
 
@@ -556,13 +558,14 @@ body {
 }
 .tb-btn {
   min-width: 32px; height: 32px;
-  display: grid; place-items: center;
+  display: inline-flex; align-items: center; justify-content: center; gap: 4px;
   background: none; border: none; border-radius: 7px;
   color: var(--ink-dim); font-size: 0.88rem; cursor: pointer;
   font-family: var(--font-page);
   transition: all 0.15s;
   padding: 0 8px;
 }
+.tb-btn .ic { width: 1.15em; height: 1.15em; vertical-align: 0; }
 .tb-btn:hover { background: rgba(255, 255, 255, 0.08); color: var(--ink); }
 .tb-btn.tb-active { color: var(--gold-bright); background: rgba(217, 180, 111, 0.14); }
 .tb-sep { width: 1px; height: 20px; background: var(--line-strong); margin: 0 6px; }
@@ -1128,7 +1131,8 @@ body:not(.guest) .gas-fab { bottom: 86px; }
 
   /* thanh tìm/sắp xếp: hàng 1 = ô tìm + sort(icon ⇅); hàng 2 = 2 nút gọn; hàng 3 = số trang căn giữa */
   .browse-bar { gap: 8px; }
-  .search-inp { flex: 1 1 180px; max-width: none; min-width: 0; padding: 9px 14px; }
+  .search-wrap { flex: 1 1 180px; max-width: none; }
+  .search-inp { padding: 9px 14px 9px 36px; }
   /* sort thu thành nút icon tròn ⇅ */
   .sort-wrap { flex: 0 0 auto; }
   .sort-ic {
@@ -1229,6 +1233,12 @@ body:not(.guest) .gas-fab { bottom: 86px; }
   width: 34px; height: 34px; padding: 0;
 }
 .hf-svg { width: 18px; height: 18px; display: block; }
+/* icon line dùng chung cho nút/tab */
+.ic {
+  display: inline-block; width: 1.2em; height: 1.2em; vertical-align: -0.22em;
+  fill: none; stroke: currentColor; stroke-width: 2;
+  stroke-linecap: round; stroke-linejoin: round;
+}
 #hf-label { min-width: 2.6em; text-align: center; }
 
 /* nút Mở rộng: tách hẳn ra ngoài cùng bên trái, to & rõ (dùng nhiều nhất, tránh cạnh nút xoá) */
@@ -1540,18 +1550,21 @@ body:not(.guest) .gas-fab { bottom: 86px; }
   display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
   margin: -6px 0 22px;
 }
+.search-wrap { position: relative; display: inline-flex; flex: 1 1 200px; max-width: 340px; align-items: center; }
+.search-ic { position: absolute; left: 14px; color: var(--ink-faint); pointer-events: none; width: 1.05em; height: 1.05em; }
 .search-inp {
-  flex: 1 1 200px; max-width: 340px;
+  flex: 1 1 auto; width: 100%; min-width: 0;
   background: rgba(0, 0, 0, 0.3);
   border: 1px solid var(--line-strong);
   border-radius: 999px;
-  padding: 9px 16px;
+  padding: 9px 16px 9px 38px;
   color: var(--ink);
   font-family: var(--font-body); font-size: 0.9rem;
   outline: none;
   transition: border-color 0.2s;
 }
 .search-inp:focus { border-color: var(--gold); }
+.search-wrap:focus-within .search-ic { color: var(--gold); }
 .sort-sel {
   background: rgba(0, 0, 0, 0.3);
   color: var(--ink-dim);

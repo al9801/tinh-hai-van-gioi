@@ -960,9 +960,9 @@ function renderHome() {
       <p class="page-sub">Mỗi cánh cổng dẫn vào một thế giới.</p>
     </div>
     <div class="browse-bar">
-      <input id="home-search" class="search-inp" type="search" placeholder="🔍 Tìm cánh cổng…" value="${esc(homeQ)}" autocomplete="off">
+      <span class="search-wrap">${ic("search", "search-ic")}<input id="home-search" class="search-inp" type="search" placeholder="Tìm cánh cổng…" value="${esc(homeQ)}" autocomplete="off"></span>
       <span class="sort-wrap">
-        <span class="sort-ic" aria-hidden="true">⇅</span>
+        <span class="sort-ic" aria-hidden="true">${ic("sort")}</span>
         <select id="home-sort" class="sort-sel" title="Sắp xếp cổng">
           <option value="pos">Theo vị trí</option>
           <option value="new">Mới sửa</option>
@@ -970,8 +970,8 @@ function renderHome() {
           <option value="rec">Được tiến cử</option>
         </select>
       </span>
-      <button class="btn btn-ghost icon-btn" id="btn-fulltext" title="Tìm sâu trong toàn bộ nội dung mọi map/nháp"><span class="ib-ic">🔎</span><span class="ib-tx">Tìm toàn văn</span></button>
-      ${me.guest ? "" : `<button class="btn btn-ghost icon-btn" id="btn-backup" title="Tải toàn bộ nội dung về máy để giữ ngoài"><span class="ib-ic">📦</span><span class="ib-tx">Backup</span></button>`}
+      <button class="btn btn-ghost icon-btn" id="btn-fulltext" title="Tìm sâu trong toàn bộ nội dung mọi map/nháp"><span class="ib-ic">${ic("fileSearch")}</span><span class="ib-tx">Tìm toàn văn</span></button>
+      ${me.guest ? "" : `<button class="btn btn-ghost icon-btn" id="btn-backup" title="Tải toàn bộ nội dung về máy để giữ ngoài"><span class="ib-ic">${ic("box")}</span><span class="ib-tx">Backup</span></button>`}
       <span class="spacer"></span>
       <div class="pager hidden" id="home-pager"></div>
     </div>
@@ -1012,13 +1012,13 @@ function renderPager(cur, total) {
     return `<button class="${cls}${on}" data-pg="${page}"${dis}${opts.title ? ` title="${opts.title}"` : ""}>${label}</button>`;
   };
   let html = "";
-  html += btn("«", 0, { icon: true, disabled: cur === 0, title: "Trang đầu" });
-  html += btn("‹", cur - 1, { icon: true, disabled: cur === 0, title: "Trang trước" });
+  html += btn(ic("chevsL"), 0, { icon: true, disabled: cur === 0, title: "Trang đầu" });
+  html += btn(ic("chevL"), cur - 1, { icon: true, disabled: cur === 0, title: "Trang trước" });
   for (const s of pagerSlots(cur, total)) {
     html += s === "…" ? `<span class="pg-gap">…</span>` : btn(String(s + 1), s, { active: s === cur });
   }
-  html += btn("›", cur + 1, { icon: true, disabled: cur === total - 1, title: "Trang sau" });
-  html += btn("»", total - 1, { icon: true, disabled: cur === total - 1, title: "Trang cuối" });
+  html += btn(ic("chevR"), cur + 1, { icon: true, disabled: cur === total - 1, title: "Trang sau" });
+  html += btn(ic("chevsR"), total - 1, { icon: true, disabled: cur === total - 1, title: "Trang cuối" });
   el.innerHTML = html;
   el.querySelectorAll("[data-pg]").forEach((b) => b.addEventListener("click", () => {
     if (b.disabled) return;
@@ -1134,9 +1134,9 @@ async function reorderMaps(srcId, dstId) {
 
 /* ── MAP VIEW ─────────────────────────────────────────── */
 const SUBTABS = [
-  { key: "map",     label: "🗺️ Nội dung Map", field: "content", ph: "Ghi lại thế giới này: địa danh, thế lực, luật lệ, bí sử…" },
-  { key: "prompt",  label: "📜 Prompt",        field: "prompt",  ph: "Dán / soạn prompt nhân vật cho Google AI Studio ở đây…" },
-  { key: "y-tuong", label: "💭 Ý tưởng nháp",  field: "ideas",   ph: "Nháp tự do: ý tưởng, tình tiết, nhân vật chưa chốt…" },
+  { key: "map",     icon: "map",    label: "Nội dung Map", field: "content", ph: "Ghi lại thế giới này: địa danh, thế lực, luật lệ, bí sử…" },
+  { key: "prompt",  icon: "scroll", label: "Prompt",        field: "prompt",  ph: "Dán / soạn prompt nhân vật cho Google AI Studio ở đây…" },
+  { key: "y-tuong", icon: "bulb",   label: "Ý tưởng nháp",  field: "ideas",   ph: "Nháp tự do: ý tưởng, tình tiết, nhân vật chưa chốt…" },
 ];
 
 function findMap(id) { return maps.find((m) => m.id === id); }
@@ -1162,8 +1162,8 @@ function renderMapView({ id, tab }) {
   const isProfileTab = tabKey === "ho-so";
   const st = SUBTABS.find((t) => t.key === tabKey) || SUBTABS[0];
   const allTabs = isGuest
-    ? [{ key: "ban-do", label: "🧭 Bản đồ HTML" }, SUBTABS[0], { key: "ho-so", label: "🎭 Hồ sơ" }]
-    : [{ key: "ban-do", label: "🧭 Bản đồ HTML" }, ...SUBTABS, { key: "ho-so", label: "🎭 Hồ sơ" }];
+    ? [{ key: "ban-do", icon: "compass", label: "Bản đồ HTML" }, SUBTABS[0], { key: "ho-so", icon: "mask", label: "Hồ sơ" }]
+    : [{ key: "ban-do", icon: "compass", label: "Bản đồ HTML" }, ...SUBTABS, { key: "ho-so", icon: "mask", label: "Hồ sơ" }];
 
   $("#main").innerHTML = `
     <div class="map-view-head">
@@ -1191,7 +1191,7 @@ function renderMapView({ id, tab }) {
       </div>
     </div>
     <div class="subtabs">
-      ${allTabs.map((t) => `<button class="subtab ${t.key === (isMapHtmlTab ? "ban-do" : (isProfileTab ? "ho-so" : st.key)) ? "active" : ""}" data-tab="${t.key}">${t.label}</button>`).join("")}
+      ${allTabs.map((t) => `<button class="subtab ${t.key === (isMapHtmlTab ? "ban-do" : (isProfileTab ? "ho-so" : st.key)) ? "active" : ""}" data-tab="${t.key}">${ic(t.icon)}<span>${t.label}</span></button>`).join("")}
     </div>
     <div class="editor-wrap" id="editor-slot"></div>`;
 
@@ -1345,6 +1345,40 @@ const HF_IC = {
   upload: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/>',
 };
 const hfIcon = (k) => `<svg class="hf-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${HF_IC[k]}</svg>`;
+
+// bộ icon line tối giản dùng cho nút/tab (icon đánh dấu KHÔNG dùng bộ này)
+const ICN = {
+  camera: '<path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3Z"/><circle cx="12" cy="13" r="3"/>',
+  trash: '<path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>',
+  compass: '<circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>',
+  map: '<path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0Z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/>',
+  scroll: '<path d="M19 17V5a2 2 0 0 0-2-2H4"/><path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"/>',
+  bulb: '<path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/>',
+  mask: '<path d="M4 6a2 2 0 0 0-2 2v4a5 5 0 0 0 5 5 8 8 0 0 1 5 2 8 8 0 0 1 5-2 5 5 0 0 0 5-5V8a2 2 0 0 0-2-2h-3a8 8 0 0 0-5 2 8 8 0 0 0-5-2Z"/><path d="M6 11c1.5 0 2.5.5 3 2"/><path d="M18 11c-1.5 0-2.5.5-3 2"/>',
+  list: '<path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/>',
+  listOrdered: '<path d="M10 6h11"/><path d="M10 12h11"/><path d="M10 18h11"/><path d="M4 6h1v4"/><path d="M4 10h2"/><path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1"/>',
+  quote: '<path d="M17 6H3"/><path d="M21 12H8"/><path d="M21 18H8"/><path d="M3 12v6"/>',
+  minus: '<path d="M5 12h14"/>',
+  highlighter: '<path d="m9 11-6 6v3h9l3-3"/><path d="m22 12-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4"/>',
+  table: '<path d="M12 3v18"/><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/>',
+  image: '<rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/>',
+  eraser: '<path d="m7 21-4.3-4.3a1 1 0 0 1 0-1.4l9.6-9.6a1 1 0 0 1 1.4 0l5.6 5.6a1 1 0 0 1 0 1.4L13 21"/><path d="M22 21H7"/><path d="m5 11 9 9"/>',
+  undo: '<path d="M3 7v6h6"/><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"/>',
+  redo: '<path d="M21 7v6h-6"/><path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3L21 13"/>',
+  clock: '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
+  toc: '<path d="M21 12h-8"/><path d="M21 6H8"/><path d="M21 18h-8"/><path d="M3 6v4c0 1.1.9 2 2 2h3"/><path d="M3 10v6c0 1.1.9 2 2 2h3"/>',
+  book: '<path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3Z"/>',
+  copy: '<rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>',
+  search: '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+  sort: '<path d="m21 16-4 4-4-4"/><path d="M17 20V4"/><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/>',
+  fileSearch: '<path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M4 7V4a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2H9"/><circle cx="5" cy="14" r="3"/><path d="m9 18-1.5-1.5"/>',
+  box: '<path d="M11 21.7a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7Z"/><path d="M3.3 7 12 12l8.7-5"/><path d="M12 22V12"/><path d="m7.5 4.3 9 5.1"/>',
+  chevL: '<path d="m15 18-6-6 6-6"/>',
+  chevR: '<path d="m9 18 6-6-6-6"/>',
+  chevsL: '<path d="m11 17-5-5 5-5"/><path d="m18 17-5-5 5-5"/>',
+  chevsR: '<path d="m13 17 5-5-5-5"/><path d="m6 17 5-5-5-5"/>',
+};
+const ic = (n, cls) => `<svg class="ic${cls ? " " + cls : ""}" viewBox="0 0 24 24" aria-hidden="true">${ICN[n] || ""}</svg>`;
 const hfPageMem = {}; // fileId gốc → trang đang xem (quay lại tab khỏi về trang 1)
 
 function hfPagesOf(m, cfg) {
@@ -2318,18 +2352,18 @@ const TOOLBAR = [
   { block: "h3", label: "H3", title: "Tiêu đề nhỏ" },
   { block: "p", label: "¶", title: "Đoạn văn thường" },
   { sep: true },
-  { cmd: "insertUnorderedList", label: "•≡", title: "Danh sách chấm" },
-  { cmd: "insertOrderedList", label: "1≡", title: "Danh sách số" },
-  { block: "blockquote", label: "❝", title: "Trích dẫn" },
-  { cmd: "insertHorizontalRule", label: "―", title: "Đường kẻ ngang" },
+  { cmd: "insertUnorderedList", icon: "list", title: "Danh sách chấm" },
+  { cmd: "insertOrderedList", icon: "listOrdered", title: "Danh sách số" },
+  { block: "blockquote", icon: "quote", title: "Trích dẫn" },
+  { cmd: "insertHorizontalRule", icon: "minus", title: "Đường kẻ ngang" },
   { sep: true },
   { fontm: true, label: "Aa", title: "Cỡ chữ & kiểu font cho vùng bôi đen" },
-  { hl: true, label: "🖍", title: "Đổ màu highlight cho chữ đang bôi đen" },
-  { tbl: true, label: "⊞", title: "Bảng — chèn bảng mới, hoặc chỉnh bảng đang đứng trong đó" },
-  { image: true, label: "🖼️", title: "Chèn ảnh (hoặc dán thẳng ảnh vào trang)" },
-  { cmd: "removeFormat", label: "⌫ᴬ", title: "Xoá định dạng" },
-  { cmd: "undo", label: "↺", title: "Hoàn tác" },
-  { cmd: "redo", label: "↻", title: "Làm lại" },
+  { hl: true, icon: "highlighter", title: "Đổ màu highlight cho chữ đang bôi đen" },
+  { tbl: true, icon: "table", title: "Bảng — chèn bảng mới, hoặc chỉnh bảng đang đứng trong đó" },
+  { image: true, icon: "image", title: "Chèn ảnh (hoặc dán thẳng ảnh vào trang)" },
+  { cmd: "removeFormat", icon: "eraser", title: "Xoá định dạng" },
+  { cmd: "undo", icon: "undo", title: "Hoàn tác" },
+  { cmd: "redo", icon: "redo", title: "Làm lại" },
 ];
 
 function mountEditor(slot, { html, load = null, placeholder, save, showCopy = false, comments = null, readOnly = false, coll = null, id = null, field = null }) {
@@ -2354,16 +2388,17 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
     <div class="editor-toolbar">
       ${TOOLBAR.map((t) => {
         if (t.sep) return `<span class="tb-sep"></span>`;
-        if (t.fontm) return `<button class="tb-btn" data-fontm="1" title="${t.title}">${t.label}</button>`;
-        if (t.hl) return `<button class="tb-btn" data-hl="1" title="${t.title}">${t.label}</button>`;
-        if (t.tbl) return `<button class="tb-btn" data-tbl="1" title="${t.title}">${t.label}</button>`;
-        if (t.image) return `<button class="tb-btn" data-img="1" title="${t.title}">${t.label}</button>`;
-        return `<button class="tb-btn" data-cmd="${t.cmd || ""}" data-block="${t.block || ""}" title="${t.title}" ${t.style ? `style="${t.style}"` : ""}>${t.label}</button>`;
+        const inner = t.icon ? ic(t.icon) : t.label;
+        if (t.fontm) return `<button class="tb-btn" data-fontm="1" title="${t.title}">${inner}</button>`;
+        if (t.hl) return `<button class="tb-btn" data-hl="1" title="${t.title}">${inner}</button>`;
+        if (t.tbl) return `<button class="tb-btn" data-tbl="1" title="${t.title}">${inner}</button>`;
+        if (t.image) return `<button class="tb-btn" data-img="1" title="${t.title}">${inner}</button>`;
+        return `<button class="tb-btn" data-cmd="${t.cmd || ""}" data-block="${t.block || ""}" title="${t.title}" ${t.style ? `style="${t.style}"` : ""}>${inner}</button>`;
       }).join("")}
-      ${showCopy ? `<span class="tb-sep"></span><button class="tb-btn" id="tb-copy" title="Copy toàn bộ prompt (dạng chữ thuần) để dán vào AI Studio">⧉ Copy</button>` : ""}
-      ${(coll && id && field) ? `<span class="tb-sep"></span><button class="tb-btn" data-hist="1" title="Lịch sử chỉnh sửa (giữ 7 ngày) — xem lại & khôi phục bản cũ nếu lỡ mất">🕘</button>` : ""}
-      <button class="tb-btn" data-toc="1" title="Mục lục — nhảy tới các tiêu đề trong trang">📑</button>
-      <button class="tb-btn" data-read="1" title="Chế độ đọc — ẩn thanh công cụ, chữ rộng ra">📖</button>
+      ${showCopy ? `<span class="tb-sep"></span><button class="tb-btn" id="tb-copy" title="Copy toàn bộ prompt (dạng chữ thuần) để dán vào AI Studio">${ic("copy")}<span>Copy</span></button>` : ""}
+      ${(coll && id && field) ? `<span class="tb-sep"></span><button class="tb-btn" data-hist="1" title="Lịch sử chỉnh sửa (giữ 7 ngày) — xem lại & khôi phục bản cũ nếu lỡ mất">${ic("clock")}</button>` : ""}
+      <button class="tb-btn" data-toc="1" title="Mục lục — nhảy tới các tiêu đề trong trang">${ic("toc")}</button>
+      <button class="tb-btn" data-read="1" title="Chế độ đọc — ẩn thanh công cụ, chữ rộng ra">${ic("book")}</button>
       <button class="tb-more hidden" type="button" aria-label="Còn công cụ — kéo ngang để xem thêm" title="Còn công cụ — kéo ngang để xem thêm">›</button>
       <span class="tb-status" id="tb-status">Tự động lưu</span>
       <input type="file" accept="image/*" class="tb-img-file" hidden>
