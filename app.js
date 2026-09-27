@@ -1518,9 +1518,8 @@ function renderProfileTab(m) {
 /* ── Modal tạo / sửa map ──────────────────────────────── */
 // ── Chạm avatar → char lên tiếng. Lời thoại cài sẵn trong CHAR_LINES (Claude nhập theo list bạn đưa) ──
 // Khoá = tên cổng đã chuẩn hoá. Mỗi câu: { t: "lời", w: "sang"|"trua"|"chieu"|"toi"|"khuya"|"any" }.
-const CHAR_LINES = {
-  // ví dụ: "tô thần vũ": [ { t: "Lại là ngươi.", w: "any" }, { t: "Sáng sớm mà đã tới.", w: "sang" } ],
-};
+// Dữ liệu thoại nạp từ char-lines.js (window.THVG_CHAR_LINES) — thêm cổng thì sửa file đó, khỏi đụng logic.
+const CHAR_LINES = (typeof window !== "undefined" && window.THVG_CHAR_LINES) || {};
 function normKey(s) { return String(s || "").trim().toLowerCase().replace(/\s+/g, " "); }
 function getLinesFor(m) {
   const coded = CHAR_LINES[normKey(m.title)] || [];
@@ -3360,6 +3359,12 @@ $("#sticker-grid")?.addEventListener("change", async (e) => {
     toast("🖼️ Sticker mới đã vào kho.");
   } catch (err) { toast("Không thêm được sticker: " + err.message, true); }
 });
+
+/* Footer tự lấy số version từ chính app.js?v=N — khỏi phải sửa tay, không lệch nữa */
+try {
+  const v = new URL(import.meta.url).searchParams.get("v");
+  if (v) { const el = $(".app-version"); if (el) el.textContent = "v" + v; }
+} catch {}
 
 /* Khởi động sau khi toàn bộ module đã được khai báo */
 wireScrollbar();
