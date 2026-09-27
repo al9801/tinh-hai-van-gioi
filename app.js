@@ -1261,7 +1261,7 @@ function updateMapMeta({ id }) {
   // avatar char: hiện nếu có ảnh, chạm → bốc thoại theo giờ (cả chủ lẫn cá ghé thăm)
   const av = $("#mv-avatar");
   if (av) {
-    const hasLines = (m.charLines || []).some((l) => l && l.t && l.t.trim());
+    const hasLines = getLinesFor(m).length > 0;
     av.classList.toggle("hidden", !m.hasAvatar);
     if (m.hasAvatar && av.dataset.for !== id) {
       av.dataset.for = id;
@@ -1516,8 +1516,17 @@ function renderProfileTab(m) {
 }
 
 /* ── Modal tạo / sửa map ──────────────────────────────── */
-// ── Chạm avatar → char lên tiếng (thoại soạn sẵn, bốc theo khung giờ) ──
-const WHEN_OPTS = [["any", "Mọi lúc"], ["sang", "Sáng"], ["trua", "Trưa"], ["chieu", "Chiều"], ["toi", "Tối"], ["khuya", "Khuya"]];
+// ── Chạm avatar → char lên tiếng. Lời thoại cài sẵn trong CHAR_LINES (Claude nhập theo list bạn đưa) ──
+// Khoá = tên cổng đã chuẩn hoá. Mỗi câu: { t: "lời", w: "sang"|"trua"|"chieu"|"toi"|"khuya"|"any" }.
+const CHAR_LINES = {
+  // ví dụ: "tô thần vũ": [ { t: "Lại là ngươi.", w: "any" }, { t: "Sáng sớm mà đã tới.", w: "sang" } ],
+};
+function normKey(s) { return String(s || "").trim().toLowerCase().replace(/\s+/g, " "); }
+function getLinesFor(m) {
+  const coded = CHAR_LINES[normKey(m.title)] || [];
+  const doc = Array.isArray(m.charLines) ? m.charLines : [];
+  return [...coded, ...doc].filter((l) => l && l.t && String(l.t).trim());
+}
 function bucketNow() {
   const h = new Date().getHours();
   if (h >= 5 && h < 11) return "sang";
@@ -1527,7 +1536,7 @@ function bucketNow() {
   return "khuya";
 }
 function pickCharLine(m) {
-  const all = (m.charLines || []).filter((l) => l && l.t && l.t.trim());
+  const all = getLinesFor(m);
   if (!all.length) return null;
   const b = bucketNow();
   let pool = all.filter((l) => l.w === b || l.w === "any" || !l.w);
@@ -1548,19 +1557,6 @@ function showCharBubble(text) {
   clearTimeout(bubbleTimer);
   bubbleTimer = setTimeout(() => b.classList.add("hidden"), 6000);
 }
-function lineRowHtml(text = "", when = "any") {
-  return `<div class="line-row">
-    <input type="text" class="line-text" maxlength="300" placeholder="Câu char nói…" value="${esc(text)}">
-    <select class="line-when">${WHEN_OPTS.map(([v, l]) => `<option value="${v}" ${v === when ? "selected" : ""}>${l}</option>`).join("")}</select>
-    <button type="button" class="btn-icon line-del" title="Xoá câu">✕</button>
-  </div>`;
-}
-function readLineRows() {
-  return $$("#lines-edit .line-row").map((r) => ({
-    t: r.querySelector(".line-text").value.trim(),
-    w: r.querySelector(".line-when").value,
-  })).filter((l) => l.t);
-}
 function setAvatarPreview(dataUrl) {
   const prev = $("#avatar-prev");
   if (!prev) return;
@@ -1580,13 +1576,12 @@ function openMapModal(mapId) {
   $("#inp-map-wip").checked = !!m?.wip;
   $("#inp-map-noh").checked = !!m?.noH;
   $("#btn-map-delete").classList.toggle("hidden", !m);
-  // avatar + thoại
+  // avatar (ảnh chân dung char)
   pendingAvatar = undefined;
   setAvatarPreview(null);
   if (m?.hasAvatar) {
     store.getImage(`${m.id}__avatar`).then((d) => { if (d && editingMapId === mapId && pendingAvatar === undefined) setAvatarPreview(d); }).catch(() => {});
   }
-  $("#lines-edit").innerHTML = (m?.charLines || []).map((l) => lineRowHtml(l.t, l.w)).join("");
   $("#modal-map").classList.remove("hidden");
   setTimeout(() => $("#inp-map-title").focus(), 60);
 }
@@ -1602,119 +1597,6 @@ $("#inp-map-avatar").addEventListener("change", async (e) => {
   catch { toast("Không xử lý được ảnh.", true); }
 });
 $("#btn-avatar-clear").addEventListener("click", () => { pendingAvatar = ""; setAvatarPreview(null); });
-$("#btn-line-add").addEventListener("click", () => {
-  $("#lines-edit").insertAdjacentHTML("beforeend", lineRowHtml());
-  $("#lines-edit").lastElementChild.querySelector(".line-text").focus();
-});
-$("#lines-edit").addEventListener("click", (e) => {
-  if (e.target.closest(".line-del")) e.target.closest(".line-row").remove();
-});
-$("#btn-gen-key").addEventListener("click", () => askGeminiKey());
-$("#btn-gen-lines").addEventListener("click", generateCharLines);
-
-// ── Tự sinh thoại theo tính cách char (Gemini, key free-tier lưu tại máy) ──
-function getGeminiKey() { try { return localStorage.getItem("thvg-gemini-key") || ""; } catch { return ""; } }
-function askGeminiKey() {
-  const k = prompt("Dán Gemini API key (free tier — lấy ở aistudio.google.com/apikey).\nLưu trên máy này thôi, không chia sẻ, không tính tiền ở free tier:", getGeminiKey());
-  if (k === null) return getGeminiKey();
-  try { localStorage.setItem("thvg-gemini-key", k.trim()); localStorage.removeItem("thvg-gemini-model"); } catch {}
-  return k.trim();
-}
-// Google hay khai tử tên model (kể cả bản ListModels vẫn liệt kê) → lấy cả danh sách,
-// xếp theo ưu tiên, rồi THỬ LẦN LƯỢT tới khi cái nào chạy thật (bỏ qua 404).
-async function listGeminiModels(key) {
-  const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${encodeURIComponent(key)}`);
-  if (!r.ok) throw new Error(r.status === 400 ? "Key sai" : `Không lấy được danh sách model (${r.status})`);
-  const d = await r.json();
-  const names = (d.models || [])
-    .filter((m) => (m.supportedGenerationMethods || []).includes("generateContent"))
-    .map((m) => m.name.replace(/^models\//, ""))
-    .filter((n) => !/(vision|embedding|aqa|image|tts|learnlm)/i.test(n));
-  // ưu tiên phiên bản CAO NHẤT key có (3.0 → 2.5 → …), flash trước pro, tránh exp/preview
-  const ver = (n) => { const m = n.match(/gemini-(\d+)\.(\d+)/); return m ? +m[1] * 10 + +m[2] : /latest/.test(n) ? 5 : 0; };
-  const fam = (n) => /flash-lite/.test(n) ? 1 : /flash/.test(n) ? 0 : /pro/.test(n) ? 3 : 2;
-  const exp = (n) => /(exp|preview)/i.test(n) ? 1 : 0;
-  return names.sort((a, b) => ver(b) - ver(a) || fam(a) - fam(b) || exp(a) - exp(b) || a.length - b.length);
-}
-function geminiGenerate(model, key, ask) {
-  return fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(key)}`, {
-    method: "POST", headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      contents: [{ parts: [{ text: ask }] }],
-      generationConfig: { temperature: 1.0, responseMimeType: "application/json" },
-      safetySettings: ["HARM_CATEGORY_HARASSMENT", "HARM_CATEGORY_HATE_SPEECH", "HARM_CATEGORY_SEXUALLY_EXPLICIT", "HARM_CATEGORY_DANGEROUS_CONTENT"]
-        .map((c) => ({ category: c, threshold: "BLOCK_NONE" })),
-    }),
-  });
-}
-async function gatherCharContext() {
-  const title = $("#inp-map-title").value.trim();
-  const world = $("#inp-map-world").value.trim();
-  let prompt = "", content = "";
-  if (editingMapId) {
-    const m = findMap(editingMapId) || {};
-    try { prompt = (m.promptChunks ? await store.loadDocField("maps", editingMapId, "prompt") : m.prompt) || ""; } catch {}
-    try { content = (m.contentChunks ? await store.loadDocField("maps", editingMapId, "content") : m.content) || ""; } catch {}
-  }
-  const strip = (h) => stripHtml(h).replace(/\s+/g, " ").trim();
-  return { title, world, prompt: strip(prompt).slice(0, 4000), content: strip(content).slice(0, 2000) };
-}
-function parseLinesJson(txt) {
-  let s = String(txt || "").trim().replace(/^```(json)?/i, "").replace(/```$/, "").trim();
-  const a = s.indexOf("["), b = s.lastIndexOf("]");
-  if (a >= 0 && b > a) s = s.slice(a, b + 1);
-  let arr; try { arr = JSON.parse(s); } catch { return []; }
-  const ok = new Set(["sang", "trua", "chieu", "toi", "khuya", "any"]);
-  return (Array.isArray(arr) ? arr : [])
-    .map((o) => ({ t: String(o?.t || o?.text || "").trim(), w: ok.has(o?.w) ? o.w : "any" }))
-    .filter((o) => o.t).slice(0, 20);
-}
-async function generateCharLines() {
-  const key = getGeminiKey() || askGeminiKey();
-  if (!key) { toast("Chưa có Gemini API key.", true); return; }
-  const ctx = await gatherCharContext();
-  if (!ctx.prompt && !ctx.content && !ctx.world) {
-    toast("Cổng chưa có thông tin nhân vật (Prompt/nội dung/mô tả) để dựa vào.", true); return;
-  }
-  const btn = $("#btn-gen-lines"); const old = btn.textContent;
-  btn.disabled = true; btn.textContent = "Đang nghĩ…";
-  const ask = `Bạn viết lời thoại nhàn cho một nhân vật roleplay, bằng tiếng Việt, ĐÚNG giọng và tính cách nhân vật dưới đây. Viết 12 câu NGẮN (mỗi câu ≤ 20 từ) mà nhân vật tự nói khi người chơi ghé vào — chào hỏi, càu nhàu, quan tâm, trêu ghẹo… đa dạng, đúng chất nhân vật. Mỗi câu gắn một khung giờ hợp lý: "sang","trua","chieu","toi","khuya", hoặc "any" (mọi lúc). Vài câu theo giờ, phần còn lại "any".
-CHỈ trả JSON thuần: mảng [{"t":"câu thoại","w":"khung giờ"}]. Không giải thích, không markdown.
-
---- NHÂN VẬT / THẾ GIỚI (chỉ dùng thông tin này) ---
-Tên cổng: ${ctx.title || "(chưa đặt)"}
-Mô tả thế giới: ${ctx.world || "(không có)"}
-Prompt nhân vật: ${ctx.prompt || "(không có)"}
-Bối cảnh thêm: ${ctx.content || "(không có)"}`;
-  try {
-    let models = await listGeminiModels(key);
-    const cached = (() => { try { return localStorage.getItem("thvg-gemini-model"); } catch { return null; } })();
-    if (cached && models.includes(cached)) models = [cached, ...models.filter((m) => m !== cached)];
-    let res = null, used = null;
-    for (const model of models.slice(0, 8)) {
-      const r = await geminiGenerate(model, key, ask);
-      if (r.status === 404) continue; // model chết → thử cái kế
-      res = r; used = model; break;
-    }
-    if (!res) throw new Error(`Không model nào chạy được. Key có: ${models.slice(0, 6).join(", ") || "(trống)"}`);
-    if (!res.ok) {
-      const t = await res.text().catch(() => "");
-      throw new Error(res.status === 400 ? `Bị từ chối (model ${used}): ${t.slice(0, 80)}` : res.status === 429 ? "Hết hạn mức free tier — thử lại sau" : `Lỗi ${res.status}: ${t.slice(0, 100)}`);
-    }
-    try { localStorage.setItem("thvg-gemini-model", used); } catch {}
-    const data = await res.json();
-    const txt = data?.candidates?.[0]?.content?.parts?.map((p) => p.text).join("") || "";
-    if (!txt) throw new Error("Gemini không trả nội dung (có thể bị lọc an toàn).");
-    const arr = parseLinesJson(txt);
-    if (!arr.length) throw new Error("Không đọc được câu nào từ phản hồi.");
-    const box = $("#lines-edit");
-    arr.forEach((l) => box.insertAdjacentHTML("beforeend", lineRowHtml(l.t, l.w)));
-    toast(`✨ Đã thêm ${arr.length} câu — xem lại rồi Lưu.`);
-  } catch (e) {
-    const msg = /Failed to fetch|NetworkError/i.test(e.message) ? "Không gọi được Gemini từ trình duyệt (có thể bị chặn CORS/mạng)." : e.message;
-    toast("Tự sinh lỗi: " + msg, true);
-  } finally { btn.disabled = false; btn.textContent = old; }
-}
 
 let savingMap = false; // chống bấm Lưu nhiều lần tạo map trùng
 $("#btn-map-save").addEventListener("click", async () => {
@@ -1726,14 +1608,13 @@ $("#btn-map-save").addEventListener("click", async () => {
   const nsfw = $("#inp-map-nsfw").checked;
   const wip = $("#inp-map-wip").checked;
   const noH = $("#inp-map-noh").checked;
-  const charLines = readLineRows();
   const btn = $("#btn-map-save");
   savingMap = true;
   btn.disabled = true;
   btn.textContent = "Đang lưu…";
   try {
     if (editingMapId) {
-      const patch = { title, world, gasLink, nsfw, wip, noH, charLines };
+      const patch = { title, world, gasLink, nsfw, wip, noH };
       if (pendingAvatar !== undefined) {
         if (pendingAvatar) { await store.saveImage(`${editingMapId}__avatar`, pendingAvatar); patch.hasAvatar = true; }
         else patch.hasAvatar = false;
@@ -1744,7 +1625,7 @@ $("#btn-map-save").addEventListener("click", async () => {
     } else {
       const maxOrder = maps.reduce((mx, m) => Math.max(mx, m.order || 0), 0);
       const newId = await store.addMap({
-        title, world, gasLink, nsfw, wip, noH, charLines,
+        title, world, gasLink, nsfw, wip, noH,
         order: maxOrder + 1,
         content: "", prompt: "", ideas: "",
         recommends: {},
