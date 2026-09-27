@@ -1574,6 +1574,49 @@ function setAvatarPreview(dataUrl) {
   $("#btn-avatar-clear").classList.toggle("hidden", !dataUrl);
 }
 
+// ── Cắt ảnh vào khung tròn (kéo để dịch, thanh trượt để phóng) ──
+let cropState = null;
+function openCropper(dataUrl) {
+  const img = new Image();
+  img.onload = () => {
+    $("#crop-modal").classList.remove("hidden");
+    const stage = $("#crop-stage");
+    const S = stage.getBoundingClientRect().width || 280;
+    const nw = img.naturalWidth, nh = img.naturalHeight;
+    const base = S / Math.min(nw, nh); // zoom=1 phủ kín khung
+    $("#crop-img").src = dataUrl;
+    cropState = { img, S, nw, nh, base, zoom: 1, tx: 0, ty: 0 };
+    $("#crop-zoom").value = 1;
+    layoutCrop();
+  };
+  img.onerror = () => toast("Không mở được ảnh.", true);
+  img.src = dataUrl;
+}
+function layoutCrop() {
+  const s = cropState; if (!s) return;
+  const scale = s.base * s.zoom;
+  const w = s.nw * scale, h = s.nh * scale;
+  const mx = Math.max(0, (w - s.S) / 2), my = Math.max(0, (h - s.S) / 2);
+  s.tx = Math.max(-mx, Math.min(mx, s.tx));
+  s.ty = Math.max(-my, Math.min(my, s.ty));
+  const el = $("#crop-img");
+  el.style.width = w + "px"; el.style.height = h + "px";
+  el.style.left = (s.S / 2 - w / 2 + s.tx) + "px";
+  el.style.top = (s.S / 2 - h / 2 + s.ty) + "px";
+}
+function cropResult() {
+  const s = cropState; const scale = s.base * s.zoom;
+  const w = s.nw * scale, h = s.nh * scale;
+  const imgLeft = s.S / 2 - w / 2 + s.tx, imgTop = s.S / 2 - h / 2 + s.ty;
+  const sx = (0 - imgLeft) / scale, sy = (0 - imgTop) / scale, ss = s.S / scale;
+  const out = 256;
+  const c = document.createElement("canvas"); c.width = out; c.height = out;
+  c.getContext("2d").drawImage(s.img, sx, sy, ss, ss, 0, 0, out, out);
+  let d = c.toDataURL("image/webp", 0.85);
+  if (!d.startsWith("data:image/webp")) d = c.toDataURL("image/jpeg", 0.85);
+  return d;
+}
+
 function openMapModal(mapId) {
   editingMapId = mapId;
   const m = mapId ? findMap(mapId) : null;
@@ -1599,13 +1642,39 @@ function closeMapModal() { $("#modal-map").classList.add("hidden"); }
 $("#btn-map-cancel").addEventListener("click", closeMapModal);
 $("#modal-map").addEventListener("click", (e) => { if (e.target.id === "modal-map") closeMapModal(); });
 
-$("#inp-map-avatar").addEventListener("change", async (e) => {
+$("#inp-map-avatar").addEventListener("change", (e) => {
   const f = e.target.files[0]; e.target.value = "";
   if (!f) return;
-  try { const data = await shrinkImage(f, 256, 40000); pendingAvatar = data; setAvatarPreview(data); }
-  catch { toast("Không xử lý được ảnh.", true); }
+  const r = new FileReader();
+  r.onload = () => openCropper(r.result);
+  r.onerror = () => toast("Không đọc được ảnh.", true);
+  r.readAsDataURL(f);
 });
 $("#btn-avatar-clear").addEventListener("click", () => { pendingAvatar = ""; setAvatarPreview(null); });
+
+// cropper: kéo dịch + phóng + xác nhận
+$("#crop-zoom").addEventListener("input", (e) => { if (cropState) { cropState.zoom = +e.target.value; layoutCrop(); } });
+(function wireCropper() {
+  const stage = $("#crop-stage"); if (!stage) return;
+  let drag = false, lx = 0, ly = 0;
+  stage.addEventListener("pointerdown", (e) => { if (!cropState) return; drag = true; lx = e.clientX; ly = e.clientY; stage.setPointerCapture(e.pointerId); });
+  stage.addEventListener("pointermove", (e) => { if (!drag || !cropState) return; cropState.tx += e.clientX - lx; cropState.ty += e.clientY - ly; lx = e.clientX; ly = e.clientY; layoutCrop(); });
+  const end = () => { drag = false; };
+  stage.addEventListener("pointerup", end); stage.addEventListener("pointercancel", end);
+  stage.addEventListener("wheel", (e) => {
+    if (!cropState) return; e.preventDefault();
+    cropState.zoom = Math.max(1, Math.min(4, cropState.zoom * (e.deltaY < 0 ? 1.08 : 0.92)));
+    $("#crop-zoom").value = cropState.zoom; layoutCrop();
+  }, { passive: false });
+})();
+$("#crop-cancel").addEventListener("click", () => { $("#crop-modal").classList.add("hidden"); cropState = null; });
+$("#crop-modal").addEventListener("click", (e) => { if (e.target.id === "crop-modal") { $("#crop-modal").classList.add("hidden"); cropState = null; } });
+$("#crop-ok").addEventListener("click", () => {
+  if (!cropState) return;
+  const d = cropResult();
+  pendingAvatar = d; setAvatarPreview(d);
+  $("#crop-modal").classList.add("hidden"); cropState = null;
+});
 
 let savingMap = false; // chống bấm Lưu nhiều lần tạo map trùng
 $("#btn-map-save").addEventListener("click", async () => {
