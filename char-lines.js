@@ -1,4 +1,4 @@
-// Lời thoại avatar theo từng cổng — Claude cài theo list user đưa. Khoá = tên cổng đã chuẩn hoá (thường/không dấu cách thừa).
+// Lời thoại avatar theo từng cổng — Claude cài theo list user đưa. Khoá = tên cổng đã chuẩn hoá.
 // Mỗi câu: {t, w} với w = any|sang|trua|chieu|toi|khuya. app.js đọc qua window.THVG_CHAR_LINES.
 window.THVG_CHAR_LINES = {
  "tô thần vũ": [
@@ -23,7 +23,7 @@ window.THVG_CHAR_LINES = {
    "w": "sang"
   },
   {
-   "t": "Em tới sớm thế. Anh chưa kịp làm mặt đàng hoàng.",
+   "t": "Em tới sớm thế. Anh còn chưa kịp cạo râu.",
    "w": "sang"
   },
   {
@@ -47,7 +47,7 @@ window.THVG_CHAR_LINES = {
    "w": "sang"
   },
   {
-   "t": "Anh pha hai cốc. Một cốc đặt kia. Không nói gì thêm.",
+   "t": "Cốc kia của em. Anh pha rồi.",
    "w": "sang"
   },
   {
@@ -63,7 +63,7 @@ window.THVG_CHAR_LINES = {
    "w": "sang"
   },
   {
-   "t": "Hôm nay có án hay không thì anh cũng đã dậy từ năm giờ.",
+   "t": "Anh dậy từ năm giờ. Chả để làm gì cả.",
    "w": "sang"
   },
   {
@@ -163,7 +163,7 @@ window.THVG_CHAR_LINES = {
    "w": "chieu"
   },
   {
-   "t": "Chạy chậm lại. Anh đuổi không kịp đâu. Nói dối đấy.",
+   "t": "Chạy chậm lại. Cho anh thở với.",
    "w": "chieu"
   },
   {
@@ -415,7 +415,7 @@ window.THVG_CHAR_LINES = {
    "w": "khuya"
   },
   {
-   "t": "Đừng hỏi anh đang nghĩ gì. Câu trả lời thật khác câu anh sắp nói.",
+   "t": "Đừng hỏi vội. Anh chưa sắp xếp xong câu trả lời.",
    "w": "khuya"
   },
   {
@@ -423,7 +423,7 @@ window.THVG_CHAR_LINES = {
    "w": "khuya"
   },
   {
-   "t": "Cái phòng đó anh dọn mỗi tháng một lần. Cho ai thì anh mới hiểu ra.",
+   "t": "Tầng ba có phòng trống. Ga anh thay rồi, cứ lên.",
    "w": "khuya"
   },
   {
@@ -439,11 +439,11 @@ window.THVG_CHAR_LINES = {
    "w": "any"
   },
   {
-   "t": "Cái hõm ở cổ áo em đấy. Anh nhìn đủ ba giây rồi quay đi.",
+   "t": "Cổ áo em lệch kìa. Sửa đi, không anh sửa hộ.",
    "w": "any"
   },
   {
-   "t": "Em cúi xuống ghi chép là anh phải đứng dậy đi rót nước. Không lý do gì cả.",
+   "t": "Anh đi rót nước. Ai hỏi thì bảo anh khát.",
    "w": "any"
   },
   {
@@ -471,7 +471,7 @@ window.THVG_CHAR_LINES = {
    "w": "any"
   },
   {
-   "t": "Nói nhiều hơn một câu đi. Anh trả tiền cũng được.",
+   "t": "Nói thêm câu nữa đi. Anh đang nghe mà.",
    "w": "any"
   },
   {
@@ -515,7 +515,7 @@ window.THVG_CHAR_LINES = {
    "w": "any"
   },
   {
-   "t": "Im lặng năm giây rồi đấy. Em đoán xem anh định nói gì.",
+   "t": "Chờ anh một giây. Để anh nghĩ đã.",
    "w": "any"
   },
   {
@@ -535,7 +535,7 @@ window.THVG_CHAR_LINES = {
    "w": "any"
   },
   {
-   "t": "Hai chục năm nữa anh vẫn xoay cái bút này.",
+   "t": "Cái bút này anh xoay quen tay rồi, bỏ không được.",
    "w": "any"
   },
   {
@@ -547,7 +547,7 @@ window.THVG_CHAR_LINES = {
    "w": "any"
   },
   {
-   "t": "Anh lên đội trưởng năm hai tám. Sớm bất thường, hồ sơ ghi thế.",
+   "t": "Đội trưởng gì. Anh cũng ngồi đây ăn cơm hộp như em thôi.",
    "w": "any"
   },
   {
@@ -583,7 +583,7 @@ window.THVG_CHAR_LINES = {
    "w": "any"
   },
   {
-   "t": "Anh nói không sao là có sao. Em biết mà.",
+   "t": "Không sao thật mà. Đừng nhìn anh kiểu đó.",
    "w": "any"
   },
   {
@@ -659,7 +659,7 @@ window.THVG_CHAR_LINES = {
    "w": "any"
   },
   {
-   "t": "Anh gọi đầy đủ họ tên em rồi. Biết nghĩa là gì không.",
+   "t": "Này. Anh gọi cả họ cả tên đấy. Ngồi xuống.",
    "w": "any"
   },
   {
@@ -683,7 +683,7 @@ window.THVG_CHAR_LINES = {
    "w": "any"
   },
   {
-   "t": "Hồ sơ em sạch quá. Vân Sơn bảo thế. Anh thì không nói gì.",
+   "t": "Hồ sơ em mỏng thật. Thôi, việc đó của Vân Sơn.",
    "w": "any"
   },
   {
@@ -691,23 +691,23 @@ window.THVG_CHAR_LINES = {
    "w": "any"
   },
   {
-   "t": "Anh biết một chuyện. Nhưng anh chọn không nói.",
+   "t": "Có chuyện anh chưa kể em. Để sau.",
    "w": "any"
   },
   {
-   "t": "Có những đêm anh nhớ một cái vai ngược sáng đèn đường.",
+   "t": "Đêm qua anh mơ linh tinh. Thôi bỏ đi.",
    "w": "any"
   },
   {
-   "t": "Anh dựng lại hiện trường giỏi nhất đội. Trừ một cái.",
+   "t": "Đưa ảnh hiện trường đây. Anh dựng lại cho.",
+   "w": "chieu"
+  },
+  {
+   "t": "Em đi đâu thì nhắn anh một câu. Một chữ cũng được.",
    "w": "any"
   },
   {
-   "t": "Người nào rời đi mà không để lại dấu thì thường là có lý do.",
-   "w": "any"
-  },
-  {
-   "t": "Anh không giặt cái cà vạt đó. Không phải vì lười.",
+   "t": "Cái cà vạt anh đâu rồi nhỉ. Thôi kệ.",
    "w": "any"
   },
   {
@@ -723,19 +723,19 @@ window.THVG_CHAR_LINES = {
    "w": "toi"
   },
   {
-   "t": "Anh thương em kiểu anh em thôi. Đúng không.",
+   "t": "Em là lính của anh. Anh lo là đúng chứ.",
    "w": "any"
   },
   {
-   "t": "Anh gọi cái này là thương thằng em út. Cả đội cũng gọi thế.",
+   "t": "Cả đội gọi em là em út đấy. Anh thì chưa quen gọi thế.",
    "w": "any"
   },
   {
-   "t": "Anh sai chuyện gì đó, mà chưa biết là chuyện gì.",
+   "t": "Hôm nay anh thấy kì kì. Chắc thiếu ngủ.",
    "w": "any"
   },
   {
-   "t": "Anh sẽ là người cuối cùng hiểu ra. Kệ.",
+   "t": "Anh chậm hiểu lắm. Có gì thì nói thẳng vào mặt anh.",
    "w": "any"
   },
   {
@@ -763,7 +763,7 @@ window.THVG_CHAR_LINES = {
    "w": "khuya"
   },
   {
-   "t": "Phòng thẩm vấn số ba, camera tắt lúc tám giờ. Anh biết rõ điều đó.",
+   "t": "Phòng thẩm vấn số ba. Giờ này không ai xuống đâu.",
    "w": "khuya"
   },
   {
@@ -791,7 +791,7 @@ window.THVG_CHAR_LINES = {
    "w": "khuya"
   },
   {
-   "t": "Anh muốn xin. Câu này anh gạch rồi viết lại ba lần.",
+   "t": "Anh muốn xin. Đấy, anh nói ra rồi đấy.",
    "w": "khuya"
   },
   {
@@ -839,11 +839,11 @@ window.THVG_CHAR_LINES = {
    "w": "sang"
   },
   {
-   "t": "Bốn mét. Em ngồi cách anh đúng bốn mét.",
+   "t": "Em ngồi xa thế. Kéo ghế lại đây.",
    "w": "any"
   },
   {
-   "t": "Anh đếm rồi. Mười bốn bậc cầu thang.",
+   "t": "Từ phòng anh xuống đây mười bốn bậc. Anh đếm lúc đi lên.",
    "w": "khuya"
   },
   {
