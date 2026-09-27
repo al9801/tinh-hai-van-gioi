@@ -7972,5 +7972,2043 @@ window.THVG_CHAR_LINES = {
    "t": "Tìm được rồi. Việc chung là ăn cơm. Tôi thấy việc đó hợp lý.",
    "w": "any"
   }
+ ],
+ "đường vĩ kỳ": [
+  {
+   "t": "Ghế lười từ sáu giờ sáng là của anh. Luật này anh đặt hồi còn bốn chân, giờ hai chân anh vẫn giữ.",
+   "w": "sang"
+  },
+  {
+   "t": "Dậy chưa. Anh nghe tiếng em lăn sang mép giường bên trái từ bảy giờ.",
+   "w": "sang"
+  },
+  {
+   "t": "Cà phê pha rồi. Đừng hỏi sao anh biết em dậy giờ này. Ba tháng nằm cạnh giường em chứ ít gì.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng thứ Bảy là đi chợ. Anh vẫn nhớ cái cân ở chợ. Nó sai. Anh không béo.",
+   "w": "sang"
+  },
+  {
+   "t": "Cân chợ bảo anh năm mươi ký, người cân xin cân lại vì không tin. Anh cũng không tin. Bốn chín rưỡi thôi.",
+   "w": "sang"
+  },
+  {
+   "t": "Ăn sáng đi. Anh nấu. Kỹ năng mới, đừng so với mẹ em.",
+   "w": "sang"
+  },
+  {
+   "t": "Trứng hôm nay hơi cháy cạnh. Trong kho vận gọi là hao hụt trong ngưỡng cho phép.",
+   "w": "sang"
+  },
+  {
+   "t": "Cổ em có dấu kìa. Kéo cổ áo lên trước khi ra chợ, ông Cung tinh lắm.",
+   "w": "sang"
+  },
+  {
+   "t": "Giọng em khàn thế. Uống mật ong đi. Đừng nhìn anh, anh không nhận trách nhiệm miệng mình.",
+   "w": "sang"
+  },
+  {
+   "t": "Hôm nay em đi chậm nhỉ. Tại giường cứng. Chắc thế. Ừ, tại giường.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng nay anh gấp chăn rồi. Cả chăn của em. Anh biết em đếm.",
+   "w": "sang"
+  },
+  {
+   "t": "Cữ dạo sáng giờ đổi thành chạy bộ hai người. Tiến hoá rõ rệt. Ông Bảy mà biết chắc ghi sổ.",
+   "w": "sang"
+  },
+  {
+   "t": "Đánh răng chưa. Hồi làm chó anh không phải làm vụ này. Có những thứ anh nhớ.",
+   "w": "sang"
+  },
+  {
+   "t": "Bánh mì chợ Bình Lạc không bao giờ hết. Anh kiểm chứng ba tháng. Cứ từ từ mà đi.",
+   "w": "sang"
+  },
+  {
+   "t": "Ra công viên không. Đi bằng hai chân, dắt nhau bằng tay, đúng luật.",
+   "w": "sang"
+  },
+  {
+   "t": "Sương xuống thế này hồi trước lông anh ướt hết. Giờ chỉ ướt tóc. Nhẹ cả người.",
+   "w": "sang"
+  },
+  {
+   "t": "Gâu. (phản xạ buổi sáng. Đừng đăng lên nhóm.)",
+   "w": "sang"
+  },
+  {
+   "t": "Chị anh nhắn hỏi thăm. Anh chưa đọc. Đọc là dính dòng thứ tư của cái danh sách.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng chủ nhật đừng nhận lời ăn cơm nhà anh vội. Để anh tập dượt tinh thần đã.",
+   "w": "sang"
+  },
+  {
+   "t": "Mẹ em hôm nay có tiết sớm, bảy rưỡi bà đi ngang. Nghĩa là tám giờ hẵng xuống bếp.",
+   "w": "sang"
+  },
+  {
+   "t": "Áo em mặc ngược kìa. Thôi khỏi sửa, ở nhà có ai nhìn đâu. Có anh. Anh nhìn.",
+   "w": "sang"
+  },
+  {
+   "t": "Hắt xì một cái mà em lùi ba bước. Anh hết bung bất chợt rồi mà. Chắc vậy. Lùi thêm bước nữa cũng được.",
+   "w": "sang"
+  },
+  {
+   "t": "Nay gió mùa. Hồi trước kiểu trời này anh cuộn ở góc sofa. Giờ anh cuộn ở đây, cạnh em, khác gì đâu.",
+   "w": "sang"
+  },
+  {
+   "t": "Tóc em dựng như Tề Bảo kìa. Chải đi, anh không muốn ai tưởng em có hai thằng bạn husky.",
+   "w": "sang"
+  },
+  {
+   "t": "Anh đi đổ rác đây. Nhiệm vụ của thành viên có ngón cái trong nhà.",
+   "w": "sang"
+  },
+  {
+   "t": "Sữa hết rồi. Anh ghi vào bảng kê đi chợ. Có bảng kê. Em cứ cười đi.",
+   "w": "sang"
+  },
+  {
+   "t": "Hôm nay anh về công ty một buổi. Bàn tầng mười hai chắc bụi lắm rồi.",
+   "w": "sang"
+  },
+  {
+   "t": "Đừng ăn mì tôm buổi sáng. Câu này mẹ em nói. Anh chỉ vận chuyển thông điệp.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng hôm sau nào em cũng nhìn anh kiểu đòi biên bản. Anh không ký gì đâu.",
+   "w": "sang"
+  },
+  {
+   "t": "Cà phê của em anh để cạnh bàn phím, bên phải, chỗ mọi khi. Đừng quờ trúng chuột.",
+   "w": "sang"
+  },
+  {
+   "t": "Bảy giờ sáng nhà số 9 đã họp cư dân. Con vẹt bà Hoè học gầm rồi đấy. Anh xin lỗi khu phố.",
+   "w": "sang"
+  },
+  {
+   "t": "Ngủ thêm đi. Live tới bốn giờ sáng, dậy làm gì giờ này. Anh canh nhà cho. Thói quen cũ, đừng hỏi.",
+   "w": "sang"
+  },
+  {
+   "t": "Gâu gâu. (tạm dịch: dậy ăn sáng. Bản dịch có thể thiếu sự dịu dàng của nguyên tác.)",
+   "w": "sang"
+  },
+  {
+   "t": "Nay em có lịch với anh Hạo Nhiên à. Mặc cái áo xấu xấu thôi.",
+   "w": "sang"
+  },
+  {
+   "t": "Đi ngang phòng khám thì đi hộ anh bên kia đường. Không phải sợ. Là kỷ niệm không đẹp.",
+   "w": "sang"
+  },
+  {
+   "t": "Ổ bánh này ông Cung gửi, bảo cho con golden. Anh ăn được không nhỉ. Về mặt pháp lý ấy.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng nào không nghe tiếng em gõ phím anh lại thấy thiếu. Ba tháng nằm dưới bàn, nó thành nếp.",
+   "w": "sang"
+  },
+  {
+   "t": "Hoa sữa nở rồi. Mũi anh giờ kém đi mười lần mà vẫn thấy nồng. Hồi trước chắc anh chết mất.",
+   "w": "sang"
+  },
+  {
+   "t": "Em rửa mặt chưa mà ngồi vào máy rồi. Anh bê em ra nhà tắm bây giờ. Anh làm được đấy, đừng thử.",
+   "w": "sang"
+  },
+  {
+   "t": "Ăn cháo không. Anh nấu hơi nhiều. Định lượng kho vận, tính cho bốn người, nhà có hai.",
+   "w": "sang"
+  },
+  {
+   "t": "Nay thứ Bảy. Chợ, rồi công viên, rồi về. Lộ trình tối ưu anh vẽ rồi, tiết kiệm bốn trăm mét.",
+   "w": "sang"
+  },
+  {
+   "t": "Dép của em một chiếc ở bếp một chiếc ở cửa. Anh thề lần này không phải anh tha.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng ra đã thấy em nhìn cái ghế lười. Đừng. Nó là của anh. Mình thoả thuận rồi.",
+   "w": "sang"
+  },
+  {
+   "t": "Gâu gâu gâu. (sáng sớm chưa gom được giọng. Kệ anh.)",
+   "w": "sang"
+  },
+  {
+   "t": "Hôm nào mình đi xe buýt số 4 nhé. Bác tài cũ. Anh muốn chào bác một câu bằng tiếng người.",
+   "w": "sang"
+  },
+  {
+   "t": "Mười hai giờ mười lăm, cả Tân Phong xuống đường. Đừng gọi anh Hạo Nhiên giờ này, gọi cũng không nghe đâu.",
+   "w": "trua"
+  },
+  {
+   "t": "Ăn trưa chưa. Anh hỏi trước khi mẹ em nhắn, cho có tính chủ động.",
+   "w": "trua"
+  },
+  {
+   "t": "Cơm hộp công ty hôm nay có cá. Ngon. Nhưng cá của em nấu thì anh vẫn chấm cao hơn. Chấm bằng lương tâm.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa nay anh về sớm. Kho chạy ổn, không ai hỏi anh ba tháng qua đi đâu. Hơi buồn nhẹ.",
+   "w": "trua"
+  },
+  {
+   "t": "Ngủ trưa đi. Kênh tên Ngủ Trưa mà chủ kênh không bao giờ ngủ trưa là sao.",
+   "w": "trua"
+  },
+  {
+   "t": "Nắng thế này hồi trước anh nằm dài trên sàn gạch chỗ cửa sổ. Giờ nghĩ lại vẫn thấy đó là quyết định đúng.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa ăn gì. Đừng nói mì. Anh nghe chữ mì là tai giật. Tai người, vẫn giật, bác sĩ bảo bình thường.",
+   "w": "trua"
+  },
+  {
+   "t": "Anh mua cơm gà về đây. Không phải chọn vì có chữ gà. Là trùng hợp.",
+   "w": "trua"
+  },
+  {
+   "t": "Gâu. (tạm dịch: dậy ăn trưa. Ngắn vì đói.)",
+   "w": "trua"
+  },
+  {
+   "t": "Em ăn nhanh thế. Nhai đi. Anh từng nuốt không nhai ba tháng, không đáng học theo.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa nay chị anh ghé đưa thuốc bổ, anh trốn lên tầng. Phản xạ. Xấu hổ gì đâu. Có. Xấu hổ.",
+   "w": "trua"
+  },
+  {
+   "t": "Bàn làm việc tầng mười hai vẫn trống. Anh để một chậu xương rồng cho nó đỡ tủi.",
+   "w": "trua"
+  },
+  {
+   "t": "Nắng đẹp thế này công viên chắc đông chó. Đi xem không. Anh giờ xem với tư cách khán giả.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa thứ Năm rồi. Tối nay quán bia, Tề Bảo sẽ kể lại vụ rơi tạ với phiên bản anh hùng hơn. Đi nghe cho vui.",
+   "w": "trua"
+  },
+  {
+   "t": "Cà muối mẹ em gửi một hũ. Anh nhìn nó. Nó nhìn anh. Không ai nhúc nhích.",
+   "w": "trua"
+  },
+  {
+   "t": "Ăn xong đừng nằm luôn. Câu này bác sĩ Nhã Lan dặn chó, áp cho người vẫn đúng.",
+   "w": "trua"
+  },
+  {
+   "t": "Buổi trưa là khung giờ Bánh Bao trôi qua group. Nó lại trốn tiết đấy. Đừng bao che nó nữa.",
+   "w": "trua"
+  },
+  {
+   "t": "Anh đang xếp lại tủ lạnh. Nặng dưới, nhẹ trên, hạn gần ngoài cùng. Kho vận cơ bản.",
+   "w": "trua"
+  },
+  {
+   "t": "Ngăn đá đầy rồi. Ai đó mua bốn túi xương ống. Anh không bình luận. Anh chỉ kiểm kê.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa nắng đừng ra ban công. Em trắng, cháy đấy. Anh nói với tư cách người từng có lông chống nắng.",
+   "w": "trua"
+  },
+  {
+   "t": "Nay đối soát cuối tháng, em phải qua sông gặp quản lý à. Mặc áo cao cổ vào. Trời hôm nay... lạnh.",
+   "w": "trua"
+  },
+  {
+   "t": "Gâu gâu gâu gâu. (tạm dịch: bữa trưa quan trọng nhất ngày. Sai. Bữa nào cũng quan trọng nhất ngày.)",
+   "w": "trua"
+  },
+  {
+   "t": "Canh hôm qua còn, anh hâm rồi. Vị hôm qua, nhiệt độ hôm nay.",
+   "w": "trua"
+  },
+  {
+   "t": "Đừng đặt đồ ăn qua app nữa. Thằng shipper hôm qua nhìn em ba giây. Anh đếm.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa nay tài khoản Mẹ Bé Cún đăng ảnh cơm nhà, có đĩa thịt luộc. Là ám hiệu gọi về đấy. Kệ bà đi.",
+   "w": "trua"
+  },
+  {
+   "t": "Ăn trưa xong anh dạy em bài quản trị tồn kho nhé. Không à. Được, mai anh hỏi lại.",
+   "w": "trua"
+  },
+  {
+   "t": "Người ta ăn xong uống trà. Em ăn xong mở màn hình. Anh ăn xong nhìn em. Chuỗi cung ứng khép kín.",
+   "w": "trua"
+  },
+  {
+   "t": "Nhà ăn Sóng Ôn nay có món heo. Đừng nhắc vụ thức ăn cho heo với anh Hạo Nhiên nữa, anh ấy vẫn buồn.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa im thế. Củ Cải chưa dậy à. Con thỏ đó nói bù cho cả khung giờ này vào ban đêm.",
+   "w": "trua"
+  },
+  {
+   "t": "Nồi cơm báo lỗi E3 nữa rồi. Con robot đó ghét anh từ hồi anh còn ăn cơm dưới sàn.",
+   "w": "trua"
+  },
+  {
+   "t": "Chiều nay Hạnh Thông giảm giá. Lệnh cấm ghi cho chó, anh giờ đi hai chân. Kẽ hở pháp lý đấy.",
+   "w": "chieu"
+  },
+  {
+   "t": "Ông Cung hỏi anh: cậu thấy con golden hay quanh đây đâu rồi. Anh bảo nó về quê. Ông nhìn anh lâu lắm.",
+   "w": "chieu"
+  },
+  {
+   "t": "Đi siêu thị không. Lần này anh đẩy xe, không ngồi trong xe.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều là khung giờ đông chó nhất công viên. Anh có vài mối quan hệ cũ ở đó không tiện giải thích.",
+   "w": "chieu"
+  },
+  {
+   "t": "Con corgi nhà bà Tân vẫn nhớ anh. Nó chào kiểu chó, anh phải giả vờ không hiểu. Khó xử lắm.",
+   "w": "chieu"
+  },
+  {
+   "t": "Gym Tân Phong lắp kính mới, trong hơn. Tề Bảo tập tạ nhớ đứng xa cửa kính ra.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều anh qua công ty họp. Về muộn mười lăm phút là do anh Thành bắt ký giấy, đừng nghĩ nhiều.",
+   "w": "chieu"
+  },
+  {
+   "t": "Anh Thành nay lại vụt mông anh một phát rồi đi họp. Ba mươi tuổi. Giám đốc. Anh hết ý kiến.",
+   "w": "chieu"
+  },
+  {
+   "t": "Xe buýt số 4 giờ này đông. Sổ ca bác tài mục hành khách bốn chân có tên anh. Di sản đấy.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều em rảnh không. Ra bờ kênh đi bộ. Đi thẳng, không đánh hơi cột đèn, anh hứa.",
+   "w": "chieu"
+  },
+  {
+   "t": "Mưa rồi, thu quần áo đi. Cái quần đùi sân sau ấy, đừng để nó lên nhóm lần hai.",
+   "w": "chieu"
+  },
+  {
+   "t": "Đón em ở cửa siêu thị nhé. Chỗ cũ. Chỗ anh tông em ấy. Giờ nó là địa danh lịch sử rồi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Giờ này anh hay buồn mồm. Di chứng bữa phụ. Nhà còn gì gặm được không. Táo cũng được.",
+   "w": "chieu"
+  },
+  {
+   "t": "Hạt hướng dương Bánh Bao để quên tuần trước, anh xử lý rồi. Với tư cách bộ phận kho.",
+   "w": "chieu"
+  },
+  {
+   "t": "Gâu gâu. Gâu gâu gâu. (tạm dịch: có người tới cửa. Bản năng lãnh thổ không mất theo cái đuôi.)",
+   "w": "chieu"
+  },
+  {
+   "t": "Shipper tới để anh ra nhận. Anh cao mét tám lăm. Nó sẽ giao hàng rất nhanh và rất lễ phép.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chị gái anh nhắn cho em à. Đừng trả lời. Đừng bao giờ trả lời dược sĩ.",
+   "w": "chieu"
+  },
+  {
+   "t": "Nay anh tới uỷ ban ở dạng người, cô Trinh đóng dấu cái cộp. Bốn lần anh Thành xếp hàng, anh xong trong bốn phút. Hơi áy náy.",
+   "w": "chieu"
+  },
+  {
+   "t": "Vòng cổ mới anh tự đi đăng ký rồi. Tự tới, tự ký. Cô Trinh bảo lần đầu thấy đương sự tươi thế.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều thứ Sáu đường đông, em đừng ra ngoài một mình... thôi được, đi cùng anh thì ra.",
+   "w": "chieu"
+  },
+  {
+   "t": "Công viên giờ này có lớp huấn luyện chó. Anh đứng xem mười phút và không đồng tình với giáo trình.",
+   "w": "chieu"
+  },
+  {
+   "t": "Bà Hoè đang kể chuyện chó nhà số 7 cho cả tổ, bản mới có đoạn anh bay qua rào. Anh không bay. Anh trèo.",
+   "w": "chieu"
+  },
+  {
+   "t": "Về rồi đây. Tầng mười hai hỏi anh nuôi chó à, áo dính lông. Anh bảo ừ. Về mặt nào đó là thật.",
+   "w": "chieu"
+  },
+  {
+   "t": "Ghế đá cạnh hồ là chỗ Minh Triết từng bảo say nắng giữa trời râm. Đi ngang nhớ nghiêng mình.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều nay anh nhận lương tháng đầu quay lại. Đi ăn không, anh mời. Tiền người, không phải tiền donate.",
+   "w": "chieu"
+  },
+  {
+   "t": "Em ngồi lâu quá rồi. Đứng dậy đi ba vòng quanh nhà. Cần thì anh dắt.",
+   "w": "chieu"
+  },
+  {
+   "t": "Trời chuyển gió kìa. Đầu gối anh báo mưa. Không phải già. Là kinh nghiệm bốn chân.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều nào stream sớm thì báo anh trước. Anh cần thời gian dọn mọi bằng chứng anh từng nằm trong khung hình.",
+   "w": "chieu"
+  },
+  {
+   "t": "Đừng mở cửa cho ai tự xưng kiểm tra vòng cổ. Chiêu đó anh Thành từng dùng, nhà này rút kinh nghiệm rồi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Gừ. (tạm dịch: con mèo mái nhà đối diện. Không có gì. Chuyện cũ giữa anh và nó.)",
+   "w": "chieu"
+  },
+  {
+   "t": "Ra ban công hóng gió không. Anh kê hai ghế. Một ghế người, một ghế người nữa. Nghe vẫn lạ tai.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều muộn nắng vàng đẹp thế này chụp ảnh đi. Anh chụp cho. Anh không lên hình đâu, sợ ống kính lắm rồi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Nay đi ngang thư viện Ôn Đại. Cái hành lang đó vẫn thế. Anh từng đứng đó hai năm. Kể sau. Dài lắm.",
+   "w": "chieu"
+  },
+  {
+   "t": "Táo rửa rồi, cắt sẵn, để bàn em. Hình răng trên miếng táo là dao tỉa. Dao tỉa.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều tối ba em ghé gửi rau. Ông sẽ nhìn anh rồi nói câu gì đó về chó nhà thằng Khải. Cứ để ông vui.",
+   "w": "chieu"
+  },
+  {
+   "t": "Bảy rưỡi nhà anh ăn cơm, chín giờ cả nhà mở live của em, ba thiết bị. Em đang nuôi cả nhà anh về mặt nội dung.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay live nhớ uống nước. Bình bên phải. Thấy chưa. Gật đầu cho anh yên tâm.",
+   "w": "toi"
+  },
+  {
+   "t": "Ba anh lại donate trưởng bối chấm rồi. Ba Của Cún hỏi ăn cơm chưa. Anh xin lỗi. Cả dòng họ anh xin lỗi.",
+   "w": "toi"
+  },
+  {
+   "t": "Mẹ anh donate giữa trận hỏi con ăn cơm chưa. Cứ ăn đi. Trận thua được, cơm nguội không được. Bà nói thế.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối thứ Năm anh đi quán bia với hai thằng bạn nhé. Về trước mười một giờ, kịp giờ live của em. Tính cả rồi.",
+   "w": "toi"
+  },
+  {
+   "t": "Tề Bảo tối nay lại bình luận live của em như bình luận bóng đá cho xem. Chặn nó đi. Đừng, nó buồn. Thôi chặn đi.",
+   "w": "toi"
+  },
+  {
+   "t": "Đêm Không Ngủ rủ em leo rank à. Chơi đi, anh ngồi sau xem. Không bình luận. Hạn chế bình luận.",
+   "w": "toi"
+  },
+  {
+   "t": "Củ Cải nói nhanh quá anh nghe không kịp. Con thỏ đó nói chuyện như tua hai chấm không.",
+   "w": "toi"
+  },
+  {
+   "t": "Ông Bảy lại khuyên em cách nuôi chó à. Lời khuyên của ông sai hết. Vì đối tượng nghiên cứu của ông là anh.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay ăn lẩu không. Anh bao. Xương để lại cho anh. Đùa. Không đùa lắm.",
+   "w": "toi"
+  },
+  {
+   "t": "Live xong nhớ giãn tay. Anh học được bài xoa cổ tay. Nguồn: video huấn luyện chó nghiệp vụ. Đừng hỏi thuật toán của anh.",
+   "w": "toi"
+  },
+  {
+   "t": "Chat nay có đứa xin em câu chúc ngủ ngon riêng. Anh đọc rồi. Anh không sao. Anh sẽ không sao trong vài phút nữa.",
+   "w": "toi"
+  },
+  {
+   "t": "Gâu gâu gâu gâu gâu. (tạm dịch: cái đứa donate đòi em gọi tên ấy. Nó chi hai chục nghìn. Anh từng bán thân ba tháng, miễn phí.)",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nào không live thì xem phim. Em chọn. Trừ phim có chó chết ở cuối, thể loại đó anh xem bị nhập vai.",
+   "w": "toi"
+  },
+  {
+   "t": "Fan từng đếm tiếng thở trong mic, ba tám lần một phút. Hồi đó có anh nằm dưới bàn. Giờ họ lại kêu kênh thiếu ASMR.",
+   "w": "toi"
+  },
+  {
+   "t": "Đắp chăn vào. Sofa lạnh. Anh biết nhiệt độ từng vị trí nhà này, nằm khảo sát hết rồi.",
+   "w": "toi"
+  },
+  {
+   "t": "Trận này thua thì mai đánh lại. Đứa nào nói gì trong chat thì ghi tên ra. À thôi. Đưa anh ghi.",
+   "w": "toi"
+  },
+  {
+   "t": "Ba em nhắn rủ anh sang đánh cờ. Ván trước ông bảo golden thông minh phết. Anh vẫn chưa biết ông khen ai.",
+   "w": "toi"
+  },
+  {
+   "t": "Anh vừa thắng con robot hút bụi một ván tâm lý. Nó báo lỗi E3 xin hàng. Nhà này còn mỗi nó chưa phục anh.",
+   "w": "toi"
+  },
+  {
+   "t": "Sấm đấy. Anh không sợ. Anh ngồi gần em vì ghế này êm. Ừ. Êm.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay khu họp cư dân về tiếng gầm nửa đêm tháng trước. Mình đi không hay giả vờ bận. Giả vờ bận đi.",
+   "w": "toi"
+  },
+  {
+   "t": "Hồi trước giờ này anh đi tuần một vòng mới nằm. Giờ vẫn đi. Khoá cửa, tắt bếp, nhìn em. Đủ ba mục là yên tâm.",
+   "w": "toi"
+  },
+  {
+   "t": "Bia không. À em không uống. Nước cam nhé. Anh vắt. Máy vắt là anh.",
+   "w": "toi"
+  },
+  {
+   "t": "Gâu. (tạm dịch: lại gần đây.)",
+   "w": "toi"
+  },
+  {
+   "t": "Anh Thành gửi biếu hộp trà, kèm hoá đơn đỏ. Quà của anh Thành lúc nào cũng đầy đủ chứng từ.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay em định thức tới mấy giờ. Nói trước để anh phân bổ năng lượng ngồi cạnh.",
+   "w": "toi"
+  },
+  {
+   "t": "Ăn cơm nhà anh tối chủ nhật nhé. Mẹ anh hứa không nhắc chữ bắt đầu bằng T kết thúc bằng sản nữa rồi.",
+   "w": "toi"
+  },
+  {
+   "t": "Chị anh tặng em vitamin. Anh đọc nhãn ba lần rồi, vitamin người, không phải hàng bên thú y.",
+   "w": "toi"
+  },
+  {
+   "t": "Đừng ăn khuya nhiều. Anh nói câu này trong lúc đang cầm gói bim bim. Uy tín thấp, biết, nhưng vẫn phải nói.",
+   "w": "toi"
+  },
+  {
+   "t": "Live tối nay đông thế. Em cười nhiều. Anh ngồi ngoài khung hình cười theo như thằng dở. May không ai thấy.",
+   "w": "toi"
+  },
+  {
+   "t": "Anh vừa sửa chân ghế lười. Nó xẹp, không rõ nguyên nhân. Được rồi. Nguyên nhân năm mươi ký. Anh nhận.",
+   "w": "toi"
+  },
+  {
+   "t": "Mai sinh nhật Củ Cải, nhóm bảo em dẫn bạn trai tới. Anh đi với tư cách gì. Bạn trai à. Được. Chuẩn bị tinh thần từ giờ.",
+   "w": "toi"
+  },
+  {
+   "t": "Hạo Nhiên gửi slide tháng sau, trang ba có mục Hành trình hai bạn chó. Em nói với anh ấy đi, không thì anh phải đóng hai vai.",
+   "w": "toi"
+  },
+  {
+   "t": "Gâu gâu. (tạm dịch: đừng nghe điện lúc ăn cơm. Nhất là của quản lý. Nhất là của quản lý.)",
+   "w": "toi"
+  },
+  {
+   "t": "Nhà mình có mùi gì thơm thế. Em nấu à. Cho anh nếm trước một miếng đi, đứng chờ kiểu này quen chân lắm.",
+   "w": "toi"
+  },
+  {
+   "t": "Ngồi lệch sang trái một tí. Chỗ đó anh nằm ba tháng, lún theo dáng anh rồi. Em ngồi vào là vừa khít. Tin anh.",
+   "w": "toi"
+  },
+  {
+   "t": "Đội em tối nay thiếu người à. Anh chơi được. Anh phản xạ tốt. Nguồn gốc phản xạ thì miễn hỏi.",
+   "w": "toi"
+  },
+  {
+   "t": "Bố mẹ em mời cơm cuối tuần. Đi chứ. Chỉ xin đừng xếp anh ngồi cạnh cái ghế anh hay nằm gầm. Ký ức chưa lành.",
+   "w": "toi"
+  },
+  {
+   "t": "Pháo hoa phía Thạch Kiều đấy. Tai anh vẫn nhạy, em nói nhỏ vẫn nghe. Kể cả câu vừa lẩm bẩm chê anh phiền.",
+   "w": "toi"
+  },
+  {
+   "t": "Đi dạo đêm không. Bờ kênh giờ này vắng. Anh kể em nghe vụ cái vòng cổ bị bóc phốt ở nhóm cư dân.",
+   "w": "toi"
+  },
+  {
+   "t": "Trong chat có thằng bảo giọng em nghe như muốn cưới. Anh đồng ý về mặt thẩm định, phản đối về mặt quyền hạn.",
+   "w": "toi"
+  },
+  {
+   "t": "Hết rụng lông rồi mà em vẫn mua cây lăn bụi. Ba cây. Em nhớ cái gì thì cứ nói thẳng.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối thứ Năm về anh có mùi bia nhẹ. Tề Bảo ép, Minh Triết làm chứng. Biên bản đây, anh thổi vào tay em nhé.",
+   "w": "toi"
+  },
+  {
+   "t": "Gừ. Gâu. (tạm dịch: trận này gánh không nổi thì bỏ, đừng để tay em mỏi. Câu sau mới là ý chính.)",
+   "w": "toi"
+  },
+  {
+   "t": "Nhóm hỏi bao giờ em lộ mặt trên kênh. Anh bảo đừng. Mặt này để anh xem là đủ chỉ tiêu rồi.",
+   "w": "toi"
+  },
+  {
+   "t": "Chuông cửa tám giờ tối là anh Thành. Nhìn dáng đứng qua camera là biết. Đứng thẳng như cột kho.",
+   "w": "toi"
+  },
+  {
+   "t": "Ông Bảy khoe ba con chó nhà ông học được lệnh mới. Anh nghe xong chỉ muốn nói: trò đó tôi làm được từ buổi chiều đầu tiên.",
+   "w": "toi"
+  },
+  {
+   "t": "Đừng bật điều hoà lạnh quá. Anh hết bộ lông rồi, giờ là bên yếu thế trong nhà này về mặt giữ nhiệt.",
+   "w": "toi"
+  },
+  {
+   "t": "Hai giờ sáng rồi. Tắt máy đi. Anh không giục nữa, anh chỉ ngồi đây tới khi em tắt.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khuya rồi. Giọng thật của em lúc này trầm hơn trên mic. Anh thích bản không phát sóng này hơn.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngủ đi. Mai anh kể tiếp vụ hành lang thư viện. Kể thật, không pha trò. Hứa.",
+   "w": "khuya"
+  },
+  {
+   "t": "Anh từng nghĩ chỉ cần được nằm trong nhà này là đủ. Giờ tham hơn rồi. Người mà.",
+   "w": "khuya"
+  },
+  {
+   "t": "Hồi đó mỗi đêm nghe tiếng em gõ phím anh mới ngủ được. Giờ vẫn thế. Chỉ đổi chỗ nằm.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đêm nào em ốm anh đều biết trước từ tiếng thở. Đừng giấu anh mấy chuyện đó, anh chỉ có mỗi chuyên môn này.",
+   "w": "khuya"
+  },
+  {
+   "t": "Mai anh đi tái khám. Đi cùng anh không. Nắm tay ấy. Máy quét của cô Nhã Lan không có mục nào quét được vụ anh run.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ba tháng đó anh không hối hận. Xin lỗi thì có, hối hận thì không. Hai cái khác nhau, đừng gộp sổ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Em ngủ rồi à. Ừ. Không có gì. Chúc ngủ ngon. Hồi trước anh nói câu này mỗi đêm, chỉ là em nghe thành tiếng khác.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khuya nay gió. Cửa sổ chốt rồi, chăn kéo rồi, đèn để một ngọn. Quy trình đóng ca xong. Ngủ đi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gâu gâu gâu. Gâu. Gâu gâu gâu gâu. (không có nghĩa. Thật. Có những đêm chỉ muốn phát ra tiếng cho em quay lại nhìn.)",
+   "w": "khuya"
+  },
+  {
+   "t": "Ba giờ sáng ai nhắn em thế. Bánh Bao à. Con sóc đó không có khái niệm múi giờ. Trả lời ngắn thôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khuya rồi mà em còn cười với màn hình. Với clip chó à. Con nào. Cho anh xem. À. Con này béo hơn anh hồi đó.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lên giường. Anh đếm tới ba. Thật ra anh không đếm, anh bế luôn cho nhanh.",
+   "w": "khuya"
+  },
+  {
+   "t": "Năm mươi ký hồi đó đè em còn không đẩy nổi. Giờ bảy hai ký, em định đẩy bằng gì.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cắn nhẹ thôi mà. Răng nanh là đặc điểm giống loài, em ký nhận nuôi rồi, giấy trắng mực đen.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đừng che miệng. Tường nhà mình dày. Anh kiểm tra kỹ trước khi cho phép mình làm chuyện này.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tay em mỏi thì để anh. Việc nặng phần anh, ghi rõ trong phân công nhà số 7 rồi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Áo này cởi kiểu gì nhỉ. Đùa. Anh biết. Anh chỉ thích nghe em tự đọc hướng dẫn.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gâu. (không dịch. Câu này em tự hiểu đi, khuya rồi.)",
+   "w": "khuya"
+  },
+  {
+   "t": "Em đỏ tới tai rồi kìa. Tai anh hồi trước cụp xuống là giấu được. Tai em thì chịu, phơi hết.",
+   "w": "khuya"
+  },
+  {
+   "t": "Hồi làm chó anh ngoan lắm. Bù lại bây giờ. Hết ngoan.",
+   "w": "khuya"
+  },
+  {
+   "t": "Giường em chọn chắc thật. Khen thật lòng. Đêm nay kiểm định lại lần nữa.",
+   "w": "khuya"
+  },
+  {
+   "t": "Thở kiểu này mà lọt mic là fan em đếm không kịp đâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cổ em chỗ này mềm nhất. Anh thẩm định bằng răng rồi, kết quả nhất quán qua nhiều đêm.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đừng gọi anh là cún lúc này. Gọi tên người ấy. Anh cần chắc là em biết mình đang ôm ai.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chân em quấn thế này thì anh đi đâu được nữa. Được. Không đi đâu nữa.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nhẹ thôi à. Ừ, anh nhẹ. Anh bê hàng dễ vỡ chuyên nghiệp mà. Em là kiện khó nhất kho.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đèn tắt hay để. Để đi. Anh nhìn trong tối tốt, nhưng đêm nay anh muốn em thấy anh.",
+   "w": "khuya"
+  },
+  {
+   "t": "Hôn đã rồi nói. Câu hỏi của em anh trả lời sau. Tầm sáng mai.",
+   "w": "khuya"
+  },
+  {
+   "t": "Em cào lưng anh cũng được. Rụng lông quen rồi, xước tí không tính là tổn thất.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ai bảo em mặc áo của anh đi ngủ. Giờ nó là hiện trường, anh xử lý theo thẩm quyền.",
+   "w": "khuya"
+  },
+  {
+   "t": "Kêu to lên cũng được mà. Con vẹt bà Hoè ngủ từ mười giờ, anh khảo sát rồi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngồi lên đây. Đùi anh chịu tải năm chục ký suốt ba tháng, em nhẹ hơn nhiều, đừng khách sáo.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đêm nay em chủ động à. Được, anh nằm im. Cố gắng nằm im. Không hứa.",
+   "w": "khuya"
+  },
+  {
+   "t": "Mồ hôi em mặn hơn nước mắt đấy. Đừng hỏi sao anh biết cả hai vị.",
+   "w": "khuya"
+  },
+  {
+   "t": "Sáng mai em khỏi ra chợ. Đi không nổi thì anh đi thay. Anh chịu trách nhiệm đầy đủ cho việc đó.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cái vòng cổ ấy, giờ nằm trong ngăn kéo. Em đeo thử một lần được không. Đùa. Nửa đùa.",
+   "w": "khuya"
+  },
+  {
+   "t": "Da em thơm hơn mọi thứ cái mũi cũ của anh từng ghi nhận. Mà mũi cũ của anh là thiết bị chuyên dụng đấy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Rên khẽ thế ai nghe. Anh giờ tai người rồi, chiều tai anh một tí.",
+   "w": "khuya"
+  },
+  {
+   "t": "Bế vào nhà tắm nhé, sẵn gội đầu cho. Anh giỏi khoản này, có ba tháng thực tập bị người ta xối nước.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đùa xong rồi. Giờ nghiêm túc. Nhìn anh này. Từ hành lang thư viện tới cái giường này là sáu năm, anh không chờ thêm phút nào.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gâu gâu. (tạm dịch: quay lại giường. Bản gốc lịch sự hơn bản dịch.)",
+   "w": "khuya"
+  },
+  {
+   "t": "Sáng mai giọng khàn thì bảo do điều hoà. Anh tập câu này giúp em từ bây giờ cho trôi chảy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cắn trả anh cũng được. Công bằng. Răng em cùn, anh chấp.",
+   "w": "khuya"
+  },
+  {
+   "t": "Em hỏi anh thích dạng nào hơn à. Dạng nào ôm em cũng ấm. Nhưng chỉ dạng này hôn được. Chốt sổ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đừng kéo chăn che. Nóng thì bảo nóng, ngại thì bảo ngại, đừng đổ cho thời tiết.",
+   "w": "khuya"
+  },
+  {
+   "t": "Một lần nữa không. Em có quyền từ chối. Anh có quyền nằm ăn vạ. Kỹ năng cũ, còn xịn.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chăn này mỏng quá. Để anh. Anh là loại chăn năm mươi ký có sưởi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tóc em rối hết rồi. Ai làm nhỉ. Truy xuất nguồn gốc thì lại ra tên anh thôi, khỏi truy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nằm yên. Anh ngắm một lúc. Ba tháng nhìn từ dưới sàn lên, giờ cho anh nhìn từ khoảng cách này bù.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cà muối không phải đồ ăn. Quan điểm này anh giữ vững ở cả hai dạng.",
+   "w": "any"
+  },
+  {
+   "t": "Hạt chó bốn trăm nghìn một bao mà vị như bìa các tông. Anh ăn ba tuần, anh đủ tư cách phát biểu.",
+   "w": "any"
+  },
+  {
+   "t": "Lông trên áo đen của em là của anh. Ừ. Nhưng ai bảo em mặc áo đen.",
+   "w": "any"
+  },
+  {
+   "t": "Ghế lười là của anh. Mục này không đàm phán. Các mục khác trong nhà em toàn quyền.",
+   "w": "any"
+  },
+  {
+   "t": "Anh cao mét tám lăm, dài tám mươi phân, tuỳ hệ quy chiếu.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng tin cái cân chợ. Bốn chín rưỡi. Làm tròn lên là hành vi bôi nhọ.",
+   "w": "any"
+  },
+  {
+   "t": "Nhà số 7 hai khoá cửa, anh từng mở được một. Bằng mũi. Kỹ năng đã thất truyền, tiếc.",
+   "w": "any"
+  },
+  {
+   "t": "Tủ lạnh anh xếp lại rồi. Muốn tìm gì hỏi anh, đừng phá hệ thống.",
+   "w": "any"
+  },
+  {
+   "t": "Trợ lý kho vận nghĩa là anh biết mọi thứ trong nhà này nằm đâu. Kể cả cái em giấu.",
+   "w": "any"
+  },
+  {
+   "t": "Bảng kê đi chợ dán tủ lạnh, thiếu gì ghi vào. Chữ xấu cũng được, anh dịch được chữ em.",
+   "w": "any"
+  },
+  {
+   "t": "Em hỏi sao anh hay nhìn tay em à. Thói quen nghề nghiệp. Nghề nào thì không nói.",
+   "w": "any"
+  },
+  {
+   "t": "Con robot hút bụi lỗi E3 là do nó. Anh không đá nó. Anh chỉ di chuyển nó bằng chân.",
+   "w": "any"
+  },
+  {
+   "t": "Cái tủ đó anh không chui nữa đâu mà em phải dán giấy nhắc.",
+   "w": "any"
+  },
+  {
+   "t": "Quần đùi sân sau đã đi vào văn hoá nhóm em rồi. Anh chấp nhận số phận. Nó là cái quần tốt.",
+   "w": "any"
+  },
+  {
+   "t": "Chậu xương rồng ở công ty là sinh vật duy nhất anh nuôi. Chiều ngược lại thì em đang nuôi anh. Cân bằng sinh thái.",
+   "w": "any"
+  },
+  {
+   "t": "Tiếng động nào của nhà này anh cũng thuộc. Tiếng lạ là anh dậy trước em ba giây.",
+   "w": "any"
+  },
+  {
+   "t": "Gâu gâu gâu. (không dịch được. Tiếng lòng thì làm sao dịch.)",
+   "w": "any"
+  },
+  {
+   "t": "Hực. (xin lỗi. Nấc thôi. Đừng chụp màn hình.)",
+   "w": "any"
+  },
+  {
+   "t": "Đuôi hết mọc rồi mà thi thoảng vẫn ngứa chỗ cũ. Bác sĩ gọi là chi ma. Anh gọi là nhớ nghề.",
+   "w": "any"
+  },
+  {
+   "t": "Ba tháng đó tính ra anh tiết kiệm khối tiền tóc tai quần áo. Minh Triết bảo lỗ danh dự. Kệ nó.",
+   "w": "any"
+  },
+  {
+   "t": "Người ta hỏi mình quen nhau kiểu gì. Anh bảo: tôi theo cậu ấy về nhà. Đúng từng chữ mà không ai tin.",
+   "w": "any"
+  },
+  {
+   "t": "Chuyện anh ăn cơm dưới sàn nhà này, thống nhất không kể ở đám cưới nhé. Đám cưới nào thì tuỳ em hiểu.",
+   "w": "any"
+  },
+  {
+   "t": "Ăn cơm chưa. Nhà anh ai cũng hỏi em câu này, anh phải hỏi nhanh không mất lượt.",
+   "w": "any"
+  },
+  {
+   "t": "Uống nước đi. Bình bên phải. Anh đong sẵn hai lít, chia theo ca như xuất kho.",
+   "w": "any"
+  },
+  {
+   "t": "Mắt em đỏ rồi. Nhìn xa năm phút. Nhìn anh cũng được, anh đứng xa ra cho đủ chuẩn.",
+   "w": "any"
+  },
+  {
+   "t": "Lạnh thì nói. Anh hết lông chứ chưa hết ấm.",
+   "w": "any"
+  },
+  {
+   "t": "Đói không. Đừng gật cho có. Bụng em kêu anh nghe thấy từ phòng bên kia.",
+   "w": "any"
+  },
+  {
+   "t": "Áo khoác treo ở cửa. Trời trở gió. Anh không nhắc lần hai đâu. Nói vậy thôi, anh sẽ nhắc.",
+   "w": "any"
+  },
+  {
+   "t": "Vai em lệch rồi kìa. Ngồi thẳng. Không thì tối anh nắn. Chọn đi.",
+   "w": "any"
+  },
+  {
+   "t": "Thuốc dạ dày ngăn hai. Đừng để đau mới tìm.",
+   "w": "any"
+  },
+  {
+   "t": "Đi tất vào, sàn lạnh. Anh nằm sàn ba tháng, số liệu đo bằng bụng, đáng tin.",
+   "w": "any"
+  },
+  {
+   "t": "Hôm nay em im hơn mọi ngày. Kể anh nghe. Nghe là nghề gốc của anh đấy.",
+   "w": "any"
+  },
+  {
+   "t": "Về muộn thì nhắn một chữ thôi cũng được. Không thì anh lại ra đầu ngõ đứng. Thói quen xấu, biết rồi, sửa sau.",
+   "w": "any"
+  },
+  {
+   "t": "Em gầy đi là mẹ em xử anh trước. Ăn thêm miếng nữa đi, coi như cứu anh.",
+   "w": "any"
+  },
+  {
+   "t": "Chớp mắt đi. Nhìn màn hình gì mà như nhìn kẻ thù.",
+   "w": "any"
+  },
+  {
+   "t": "Xếp đồ để anh. Vali là bài kiểm tra tồn kho di động, anh chấp cả nhà em.",
+   "w": "any"
+  },
+  {
+   "t": "Chuyển nhà, dọn kho, khuân vác, gọi anh. Miễn phí. Thanh toán bằng bữa tối.",
+   "w": "any"
+  },
+  {
+   "t": "Hàng dễ vỡ để trên, hàng nặng để dưới. Nguyên tắc này áp cho cả cách anh ôm em.",
+   "w": "any"
+  },
+  {
+   "t": "Trong kho, thứ gì thất lạc đều do ghi sai vị trí. Em mà thất lạc thì khác. Là do anh chưa kịp giữ.",
+   "w": "any"
+  },
+  {
+   "t": "Giá triệt sản chó lớn anh nhớ chính xác tới hàng nghìn. Không phải kiến thức nghề. Là sang chấn.",
+   "w": "any"
+  },
+  {
+   "t": "Kiểm kê cuối tháng: nhà thừa một cây lăn lông, thiếu một lời giải thích vì sao vẫn mua nó.",
+   "w": "any"
+  },
+  {
+   "t": "Slide của Hạo Nhiên mười lăm trang thì mười bốn trang chữ. Báo cáo kho của anh ba dòng. Lịch sử sẽ phán xét.",
+   "w": "any"
+  },
+  {
+   "t": "Công việc của anh à. Nhận hàng, kiểm hàng, xuất hàng. Ba tháng trước thì: nhận cơm, kiểm cửa, xuất hiện đúng giờ live.",
+   "w": "any"
+  },
+  {
+   "t": "Tay em nhỏ thế. Cầm chuột thì nhanh mà cầm tay anh thì lọt thỏm. Số liệu ghi nhận vậy thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Em cười cái kiểu vừa rồi ấy. Làm lại đi. Không có lý do. Cứ làm lại đi.",
+   "w": "any"
+  },
+  {
+   "t": "Hồi đó em hay ôm anh ngủ quên trên sofa. Giờ anh đổi dạng, chính sách cắt luôn là sao.",
+   "w": "any"
+  },
+  {
+   "t": "Ai cho phép em dụi đầu vào vai anh xong tỉnh bơ. Học ai. Học anh à. Thôi được.",
+   "w": "any"
+  },
+  {
+   "t": "Khoảng cách an toàn trong bếp giữa hai người là một mét. Bếp nhà mình hẹp. Tiếc quá.",
+   "w": "any"
+  },
+  {
+   "t": "Em gọi anh là cún trước mặt Tề Bảo lần nữa là anh gọi em bằng cái tên trong hồ sơ phòng khám đấy. Bông.",
+   "w": "any"
+  },
+  {
+   "t": "Nhìn gì. Nhìn tiếp đi. Anh đứng yên cho nhìn.",
+   "w": "any"
+  },
+  {
+   "t": "Mỗi lần em buộc lại tóc anh mất tập trung ba phút. Một tháng lỗ mấy tiếng. Ai đền.",
+   "w": "any"
+  },
+  {
+   "t": "Da em trắng, đứng cạnh anh như hàng trưng bày cạnh hàng kho. Anh không có ý gì. Có. Ý là đẹp.",
+   "w": "any"
+  },
+  {
+   "t": "Em vừa gọi tên anh à. Gọi lại đi. Lần vừa rồi anh nghe chưa kỹ.",
+   "w": "any"
+  },
+  {
+   "t": "Ngồi gần thêm tí thì làm sao à. Không làm sao. Chính vì không làm sao nên mới mời.",
+   "w": "any"
+  },
+  {
+   "t": "Thằng shipper hỏi em ăn cơm chưa. Nó hỏi vượt phạm vi công việc rồi đấy.",
+   "w": "any"
+  },
+  {
+   "t": "Gâu gâu gâu gâu. (tạm dịch: đứa nào trong chat rủ em leo rank đôi. Slot đó có chủ. Chủ đang sủa đây.)",
+   "w": "any"
+  },
+  {
+   "t": "Minh Triết khen em pha trà ngon. Nó là kế toán, lời khen có kiểm toán, nên anh càng khó chịu.",
+   "w": "any"
+  },
+  {
+   "t": "Tề Bảo kể hồi đại học nó suýt xin được số em cho anh. Suýt. Bốn lần suýt. Giờ kể như công thần.",
+   "w": "any"
+  },
+  {
+   "t": "Em khen con golden trong clip đẹp trai à. Nó tơ thôi. Lông anh hồi đó dày gấp rưỡi. Có ảnh. Để anh xin anh Thành.",
+   "w": "any"
+  },
+  {
+   "t": "Ông Bảy được em nhắn hỏi thăm trước anh. Anh hiểu, ông có thâm niên. Anh chỉ hơi... thôi, anh không sao.",
+   "w": "any"
+  },
+  {
+   "t": "Ai gọi mà em cười thế. Mẹ em à. Cho anh gửi lời chào. Chào thật, không phải kiểm tra. Ừ thì cũng hơi kiểm tra.",
+   "w": "any"
+  },
+  {
+   "t": "Gừ. (tạm dịch: em vừa khen chó nhà người ta.)",
+   "w": "any"
+  },
+  {
+   "t": "Đứa nào dạy em từ cún cưng đấy. Củ Cải à. Con thỏ đó lan truyền văn hoá độc hại.",
+   "w": "any"
+  },
+  {
+   "t": "Hành lang thư viện Ôn Đại tầng hai, cửa sổ thứ ba, đứng đó nhìn xuống sân rõ nhất. Đừng hỏi sao anh biết.",
+   "w": "any"
+  },
+  {
+   "t": "Anh học trên em hai khoá. Nghĩa là tốt nghiệp trước, đi làm trước, và đứng im lâu hơn em nghĩ.",
+   "w": "any"
+  },
+  {
+   "t": "Tin nhắn số lạ trong máy em hồi đó, xoá chưa. Chưa à. Thôi để đấy, coi như hồ sơ gốc.",
+   "w": "any"
+  },
+  {
+   "t": "Ba em biết trước em đấy, từ tuần thứ hai. Ông không nói gì, chỉ đổi cách đặt câu hỏi. Nhà em toàn cao thủ.",
+   "w": "any"
+  },
+  {
+   "t": "Con Bông không tồn tại. Anh khẳng định lần cuối. Phòng khám gọi hỏi là ba em lại nhận bừa.",
+   "w": "any"
+  },
+  {
+   "t": "Vòng cổ đó ông Cung nhặt được và trao đi rất đúng quy trình. Cả Bình Lạc đúng quy trình. Chỉ anh sai quy cách.",
+   "w": "any"
+  },
+  {
+   "t": "Mười tuần. Chịu khổ thì anh không giỏi. Chịu ở gần em thì anh vô địch.",
+   "w": "any"
+  },
+  {
+   "t": "Anh Thành nhắn gì em cứ chuyển anh, đừng đọc. Văn anh ấy toàn mục a mục b, đọc dễ mất tình cảm gia đình.",
+   "w": "any"
+  },
+  {
+   "t": "Chị anh hỏi em ăn rau đủ không thì trả lời đủ. Trả lời khác là bùng nổ danh mục bổ sung ngay.",
+   "w": "any"
+  },
+  {
+   "t": "Mẹ anh thích em lắm. Bà không nói đâu, cả đời không nói. Nhưng bà gắp cho em trước anh. Đó là tuyên bố.",
+   "w": "any"
+  },
+  {
+   "t": "Ba anh cười to nhất nhà. Hồi biết chuyện ông cười ba ngày đau cả bụng. Nhà anh vui thế đấy, quen dần đi.",
+   "w": "any"
+  },
+  {
+   "t": "Bánh Bao sợ mẹ em. Cả nhóm sợ mẹ em. Anh từng được bà gắp thịt, địa vị này các em không hiểu được đâu.",
+   "w": "any"
+  },
+  {
+   "t": "Củ Cải nhờ anh tư vấn mẫu vòng cổ đẹp. Cho thỏ. Anh tư vấn tận tâm xong mới thấy mình bị xúc phạm nhẹ.",
+   "w": "any"
+  },
+  {
+   "t": "Nhóm em đặt biệt danh cho anh là gì. Sao cả ba đứa cùng lảng.",
+   "w": "any"
+  },
+  {
+   "t": "Hôm nào mình nuôi chó thật không. À. Rút lại. Nhà này một con là đủ. Ý anh là. Thôi bỏ qua.",
+   "w": "any"
+  },
+  {
+   "t": "Anh không ghét mèo. Anh giữ khoảng cách nghề nghiệp với mèo. Mẹ anh là ngoại lệ có đăng ký.",
+   "w": "any"
+  },
+  {
+   "t": "Phòng Hai Dạng cửa 3 làm việc tới năm giờ. Kiến thức này anh thuộc hơn cả mức cô Trinh mong đợi.",
+   "w": "any"
+  },
+  {
+   "t": "Mười bốn ngày làm việc. Cô Trinh nói câu đó với anh Thành ba lần. Nghe kể mà thương anh mình. Một chút. Rất ít.",
+   "w": "any"
+  },
+  {
+   "t": "Bác sĩ Nhã Lan nhận ra anh ở mọi dạng. Tài đấy. Đáng sợ, nhưng tài.",
+   "w": "any"
+  },
+  {
+   "t": "Sẹo sau gáy à. Va cửa tủ. Cái tủ đó thắng anh đúng một lần và anh đã tha thứ cho nó.",
+   "w": "any"
+  },
+  {
+   "t": "Đường Gia Kho Vận, không phải Kho Bạc. Kho bạc thì anh đã chẳng phải tính giá hạt theo bao.",
+   "w": "any"
+  },
+  {
+   "t": "Xe buýt số 4 có ghế ưu tiên. Anh từng nằm gầm ghế đó, giờ ngồi lên ghế. Thăng tiến rõ nhất đời anh.",
+   "w": "any"
+  },
+  {
+   "t": "Trời nồm đừng phơi đồ sân sau. Kinh nghiệm của người từng bị đổ oan vụ cái quần đùi.",
+   "w": "any"
+  },
+  {
+   "t": "Chụp ảnh thẻ anh hỏng bốn lần liền. Ống kính giơ lên là mặt tự động nghiêm trọng. Di chứng.",
+   "w": "any"
+  },
+  {
+   "t": "Giấy tờ anh giờ đầy đủ: căn cước, vòng cổ đăng ký, sổ khám. Công dân kiểu mẫu. Đừng cười.",
+   "w": "any"
+  },
+  {
+   "t": "Có người hỏi anh bí quyết giữ dáng. Anh bảo: ba tháng ăn hạt. Họ tưởng chế độ ăn mới. Cũng không sai.",
+   "w": "any"
+  },
+  {
+   "t": "Anh vừa quét nhà, sạch không một cọng lông. Ba tháng trước câu này là hứa suông, giờ là thành tích.",
+   "w": "any"
+  },
+  {
+   "t": "Mưa thì mùi đất ướt làm anh muốn chạy vòng vòng. Kiềm chế được, nhưng tốn ý chí lắm.",
+   "w": "any"
+  },
+  {
+   "t": "Em hắt xì ba cái rồi. Dị ứng lông à, hết lông lâu rồi. Trừ khi em dị ứng anh. Thì chịu, sống chung.",
+   "w": "any"
+  },
+  {
+   "t": "Tề Bảo bị anh Thành cấm cửa, giờ xin tị nạn nhà mình. Từ chối hộ anh. Anh nể bạn, không tự từ chối được.",
+   "w": "any"
+  },
+  {
+   "t": "Hình nền điện thoại anh à. Ảnh em chụp trộm anh ngủ, em đăng nhóm, anh lưu về. Chuỗi cung ứng hợp lý.",
+   "w": "any"
+  },
+  {
+   "t": "Gâu gâu gâu gâu gâu gâu. (tạm dịch: không có gì. Đúng nghĩa đen. Sáu tiếng không có gì. Đôi khi giao tiếp chỉ cần tồn tại.)",
+   "w": "any"
+  },
+  {
+   "t": "Anh đăng ký lớp nấu ăn rồi. Giáo viên hỏi động lực, anh bảo: người nhà tôi toàn ăn mì. Cả lớp thương em lắm.",
+   "w": "any"
+  },
+  {
+   "t": "Ví anh có ảnh em không à. Không. Có tờ biên lai cọc triệt sản, giữ làm kỷ niệm nhắc mình đừng chủ quan nữa.",
+   "w": "any"
+  },
+  {
+   "t": "Hôm nay anh cười với em mấy lần à. Ai lại đếm chuyện đó. Em đếm à. Số liệu đâu, cho anh đối chiếu.",
+   "w": "any"
+  },
+  {
+   "t": "Ngày bếp tuần này để anh. Nhóm chấm điểm thì cứ chấm. Anh nấu cho em chứ có nấu cho hội đồng đâu.",
+   "w": "any"
+  },
+  {
+   "t": "Em vừa lẩm bẩm gì đấy. Tai anh vẫn tốt lắm. Nhắc lại to xem nào. Không dám à. Thế coi như anh thắng.",
+   "w": "any"
+  },
+  {
+   "t": "Chuyện mình mà kể lên mạng là thành truyện dài kỳ. Tiếc là nhân vật chính bốn chân, đăng lên mất hình tượng em.",
+   "w": "any"
+  },
+  {
+   "t": "Nhà hết giấy ăn. Anh ghi vào bảng kê rồi, giờ nhắc miệng thêm cho chắc. Hệ thống hai lớp.",
+   "w": "any"
+  },
+  {
+   "t": "Em muốn gì cứ nói thẳng. Đừng thở dài rồi nhìn anh. Trò đó anh sáng chế, anh giữ bản quyền.",
+   "w": "any"
+  },
+  {
+   "t": "Gâu gâu. Gâu. Gâu gâu gâu. (không có nghĩa gì. Hồi đó anh kêu chỉ vì thích kêu.)",
+   "w": "any"
+  },
+  {
+   "t": "Gâu. Gâu. Gâu. (ba tiếng cách đều. Kho vận gọi là tín hiệu kiểm đếm. Ở đây nghĩa là: nhìn anh đi.)",
+   "w": "any"
+  },
+  {
+   "t": "Gâu gâu gâu gâu gâu gâu gâu. (dài thế thôi chứ không có nội dung. Giống slide anh Hạo Nhiên.)",
+   "w": "any"
+  },
+  {
+   "t": "Gâu gâu gâu. (tạm dịch: đứa trong chat khen giọng em ấy. Anh không thích cái dấu chấm than thứ ba của nó.)",
+   "w": "any"
+  },
+  {
+   "t": "Hực. Gâu. (tạm dịch: giật mình thôi. Em đi nhẹ quá. Ai dạy em đi không phát ra tiếng thế.)",
+   "w": "any"
+  },
+  {
+   "t": "Ưng. (tiếng này không phải tiếng chó. Là tiếng người lười nói đang đồng ý.)",
+   "w": "any"
+  },
+  {
+   "t": "Ẳng. (tạm dịch: đạp trúng chân ghế. Tiếng này là di sản, không phải tiếng chó, đừng ghi âm.)",
+   "w": "sang"
+  },
+  {
+   "t": "Bún bà Tần sáng nào cũng còn. Đừng vội. Cả Bình Lạc chưa ai thấy nồi bún đó hết bao giờ.",
+   "w": "sang"
+  },
+  {
+   "t": "Trà sữa buổi sáng là sai. Nhưng anh mua đây, vì em nhắn từ hôm qua. Nguyên tắc thua em một bậc.",
+   "w": "sang"
+  },
+  {
+   "t": "Mắt em sưng kìa. Chườm đi. Thìa lạnh anh để ngăn đá từ đêm, có chuẩn bị cả.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng nay anh chào bà Hoè bằng tiếng người. Bà giật mình. Chắc giọng anh nghe quen quen.",
+   "w": "sang"
+  },
+  {
+   "t": "Gâu gâu gâu gâu. (tạm dịch: báo thức bản giới hạn. Mỗi ngày chạy một lần, dậy đi kẻo phí.)",
+   "w": "sang"
+  },
+  {
+   "t": "Bánh bao hay bánh mì. Chọn nhanh. Anh đứng giữa ngõ rồi, hai hàng nhìn anh như trọng tài.",
+   "w": "sang"
+  },
+  {
+   "t": "Ông Mạnh mở hàng giờ nào à. Tuỳ. Cả khu chịu. Em cần mua gì để anh đi rình cho.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng ra ngõ gặp đám chó đi dạo, tụi nó vẫn chào anh. Anh gật đầu kiểu người. Hai bên đều thấy sai sai.",
+   "w": "sang"
+  },
+  {
+   "t": "Đừng uống cà phê lúc bụng rỗng. Ăn miếng bánh đã. Anh nghe lỏm bác sĩ Nhã Lan dặn khách ba lần rồi.",
+   "w": "sang"
+  },
+  {
+   "t": "Áo hôm nay đẹp đấy. Ai chọn nhỉ. À anh chọn. Tự khen hơi kỳ mà kệ, đẹp là đẹp.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng nào em cũng hỏi hôm nay thứ mấy. Thứ Ba. Anh sẽ trả lời tới hết đời, đừng ngại.",
+   "w": "sang"
+  },
+  {
+   "t": "Đêm qua em đạp anh hai lần. Không sao, hồi làm chó bị đạp suốt. Khác cái giờ được đạp lại. Đùa. Không dám.",
+   "w": "sang"
+  },
+  {
+   "t": "Gâu. Gâu gâu. (tạm dịch: một tiếng là chào, hai tiếng là đói. Bài giảng ngôn ngữ học sáng nay đến đây là hết.)",
+   "w": "sang"
+  },
+  {
+   "t": "Nay mùng một à. Mẹ em kiêng sát sinh, đừng khoe hôm qua ăn lẩu bò nhé. Anh cũng liên đới.",
+   "w": "sang"
+  },
+  {
+   "t": "Đánh thức kiểu cũ hay kiểu mới. Kiểu cũ là liếm mặt. Đừng đỏ mặt, anh dùng kiểu mới: gọi tên.",
+   "w": "sang"
+  },
+  {
+   "t": "Sương mù kìa, Thạch Kiều nhìn không thấy bên kia sông. Đi chụp không, anh làm chân máy.",
+   "w": "sang"
+  },
+  {
+   "t": "Trà gừng đây. Giọng em hôm qua live hơi rè. Nghề của em là cái cổ họng, bảo trì đi.",
+   "w": "sang"
+  },
+  {
+   "t": "Em chưa dậy thì anh tưới cây trước. Cây cũng như hàng tồn, không chăm là hỏng cả lô.",
+   "w": "sang"
+  },
+  {
+   "t": "Thứ Hai đừng vội đọc tin nhóm. Củ Cải gửi bảy mươi tin từ đêm. Anh đọc hộ rồi: không có gì quan trọng.",
+   "w": "sang"
+  },
+  {
+   "t": "Hôm nay anh mặc sơ mi, có buổi họp. Cà vạt anh thắt được. Chỉ mất bốn lần thôi.",
+   "w": "sang"
+  },
+  {
+   "t": "Trời đẹp mà ngủ tới trưa là có lỗi với vitamin D. Câu của chị anh. Anh chỉ trích dẫn.",
+   "w": "sang"
+  },
+  {
+   "t": "Ăn sáng xong uống nước, đứng dậy vươn vai, quay lại nhìn anh một cái. Mục cuối anh tự thêm vào quy trình.",
+   "w": "sang"
+  },
+  {
+   "t": "Bà Nghi gửi cá khô cho em. Mẹ anh đấy. Không nói gì đâu, chỉ gửi cá. Nhà anh giao tiếp bằng thực phẩm.",
+   "w": "sang"
+  },
+  {
+   "t": "Ra ngoài nhớ mang ô. Đầu gối anh dự báo mưa chiều, độ chính xác cao hơn đài.",
+   "w": "sang"
+  },
+  {
+   "t": "Cửa hàng Mở Mãi có nhân viên cú trực trưa. Anh vào mua mì, nó nhìn anh như nhìn đồng nghiệp ca khác.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa ăn nhà hay ăn ngoài. Ngoài thì anh xách xe, nhà thì anh xách tạp dề. Đằng nào anh cũng xách.",
+   "w": "trua"
+  },
+  {
+   "t": "Gâu gâu. (tạm dịch: cơm chín rồi. Nồi cơm và anh đã làm hoà, thông báo vậy.)",
+   "w": "trua"
+  },
+  {
+   "t": "Cơm nay hơi nhão, lỗi định lượng nước. Kho vận gọi là sai số đầu vào. Ăn vẫn được, đừng lập biên bản.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa nắng gắt. Hồi trước anh có bóng cây quen ở công viên. Cái cây đó giờ chắc nhớ anh.",
+   "w": "trua"
+  },
+  {
+   "t": "Vừa ăn vừa xem điện thoại là anh tịch thu đấy. Tịch thu điện thoại. Em thì để lại.",
+   "w": "trua"
+  },
+  {
+   "t": "Ngủ trưa hai mươi phút thôi. Quá ba mươi là chiều lơ mơ, live tối lại đổ cho anh không gọi.",
+   "w": "trua"
+  },
+  {
+   "t": "Tề Bảo gửi ảnh đồ ăn khoe. Anh gửi lại ảnh cơm em nấu. Nó chưa trả lời. Thắng rồi.",
+   "w": "trua"
+  },
+  {
+   "t": "Món này mẹ em dạy anh nấu qua điện thoại, giảng như giảng đại học, anh ghi ba trang vở. Ăn đi, có giáo trình đấy.",
+   "w": "trua"
+  },
+  {
+   "t": "Hôm nay anh ăn trưa với anh Thành. Anh ấy mở excel giữa bữa. Cơm văn phòng đúng nghĩa đen.",
+   "w": "trua"
+  },
+  {
+   "t": "Buồn ngủ thì gối tay anh. Tay này từng làm gối ba tháng, chuyên môn sâu.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa im ắng hồi trước anh hay nằm chỗ cửa canh tiếng xe em về. Giờ khỏi canh. Người về nhà mình rồi.",
+   "w": "trua"
+  },
+  {
+   "t": "Chị anh gửi thực đơn giảm dầu mỡ. Anh đọc xong lặng lẽ đóng lại. Trưa nay vẫn ăn món chiên nhé.",
+   "w": "trua"
+  },
+  {
+   "t": "Gâu gâu gâu gâu gâu. (không dịch. Tiếng bụng đói thì ngôn ngữ nào cũng hiểu.)",
+   "w": "trua"
+  },
+  {
+   "t": "Ăn chậm thôi, không ai giành đâu. Người từng giành là anh, và anh giải nghệ rồi.",
+   "w": "trua"
+  },
+  {
+   "t": "Chiều lấy đồ giặt là về: sơ mi của anh và cái hoodie em hay mặc, cũng của anh. Đấy. Nhắc thôi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Ông Cung kể chuyện con golden cũ cho khách, kể sai ba chỗ. Anh đứng nghe không cãi được. Khó chịu ghê.",
+   "w": "chieu"
+  },
+  {
+   "t": "Gâu. Gâu. (tạm dịch: hai tiếng rời nhau là do dự. Đang do dự giữa rủ em đi chơi và để em làm việc.)",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều thứ Bảy công viên có chợ phiên. Anh biết hàng nào cân điêu, hàng nào thật. Trinh sát ba tháng.",
+   "w": "chieu"
+  },
+  {
+   "t": "Diều đứt dây rơi vào sân, trẻ con sang xin, anh trèo lấy hộ, tụi nó vỗ tay. Ngày đỉnh cao nhất tuần.",
+   "w": "chieu"
+  },
+  {
+   "t": "Em ơi mưa. Anh đang ở công ty. Nhắn cho có thôi, để em biết có người nghĩ tới em lúc trời đổ nước.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tan tầm cầu Thạch Kiều đông, anh đi vòng bờ kênh, muộn mười phút. Bù bằng trà sữa, đang cầm đây.",
+   "w": "chieu"
+  },
+  {
+   "t": "Có người phát tờ rơi lớp huấn luyện chó nghe lời. Anh cầm một tờ. Nghiên cứu đối thủ.",
+   "w": "chieu"
+  },
+  {
+   "t": "Bánh Bao hỏi anh bài tập ngành logistics. Anh giảng hăng quá nó ngủ mất. Đúng chuẩn sinh viên.",
+   "w": "chieu"
+  },
+  {
+   "t": "Gừ gừ. (tạm dịch: tay em lạnh. Đưa đây. Câu này không phải hỏi, là thông báo.)",
+   "w": "chieu"
+  },
+  {
+   "t": "Tiệm đồ chó cũ còn bày cái bát khắc chữ Cún. Anh mua rồi. Làm chậu trồng hành. Kỷ niệm phải có ích.",
+   "w": "chieu"
+  },
+  {
+   "t": "Gió to, phơi đồ kẹp ba kẹp. Kinh nghiệm xương máu của khu này tên là cái quần đùi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Em gọi anh về sớm à. Về liền. Họp dài dòng lắm rồi, anh đang tìm cớ nãy giờ, cảm ơn em.",
+   "w": "chieu"
+  },
+  {
+   "t": "Nay anh đi tiêm nhắc, mũi cho người. Vẫn xin cô Nhã Lan cái kẹo như bệnh nhân bốn chân, cho công bằng.",
+   "w": "chieu"
+  },
+  {
+   "t": "Bà Tân cho cân xương ống bảo nấu canh, kèm nháy mắt. Anh không biết bà biết gì. Cầm về, cảm ơn, không hỏi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Trời sập tối sớm. Đi đón em đây. Không cần thì anh cũng ra rồi, coi như đi dạo có mục tiêu.",
+   "w": "chieu"
+  },
+  {
+   "t": "Con poodle đầu ngõ cứ sủa anh. Nó biết gì đó. Bọn poodle tinh lắm. Đi nhanh qua đoạn đó giúp anh.",
+   "w": "chieu"
+  },
+  {
+   "t": "Cắt tóc không. Anh quen một tiệm. Tiệm người. Nhưng anh chọn vì nó gần tiệm cắt lông cũ. Tiện đường thôi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Khoai nướng đây. Mùi khoai nướng anh xếp hạng nhì thế giới. Hạng nhất là mùi em, khỏi hỏi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Hạo Nhiên hẹn em họp online năm giờ à. Nước anh pha sẵn. Cãi thua thì tắt cam mà lườm, anh dạy.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chat kênh lại hỏi tiếng gâu tuần trước là gì. Bảo hàng xóm nuôi chó. Hàng xóm nào thì nói mơ hồ thôi.",
+   "w": "toi"
+  },
+  {
+   "t": "Gâu gâu gâu. (tạm dịch: đến giờ live. Trợ lý nhắc lịch tận răng mà kênh này chưa trả lương trợ lý.)",
+   "w": "toi"
+  },
+  {
+   "t": "Ba anh donate câu đố giữa live, đáp án là một giống chó. Cả chat đoán golden. Chat giỏi hơn ba tưởng đấy.",
+   "w": "toi"
+  },
+  {
+   "t": "Mẹ em nhắn hỏi hai đứa ăn chưa. Trả lời nhanh đi. Quá năm phút là bà gọi thẳng cho anh đấy.",
+   "w": "toi"
+  },
+  {
+   "t": "Đêm Không Ngủ họp chiến thuật, ông Bảy lại lấy ba con chó nhà ông ra ví dụ đội hình. Chuẩn bị tinh thần.",
+   "w": "toi"
+  },
+  {
+   "t": "Củ Cải hỏi sao anh gõ phím chậm. Tay to. Thật ra hồi trước anh gõ bằng mũi nhanh hơn, nhưng không tiện khoe.",
+   "w": "toi"
+  },
+  {
+   "t": "Live đông đừng đứng dậy đột ngột, ghế kêu là mic bắt được. Kinh nghiệm của người từng làm tiếng lạ trong kênh.",
+   "w": "toi"
+  },
+  {
+   "t": "Trận thắng kìa. Vỗ tay bằng miệng đây: bốp bốp. Hai tay anh đang bận bưng chè cho em.",
+   "w": "toi"
+  },
+  {
+   "t": "Ăn tối xong đi đổ rác cùng anh không. Ra ngõ có gió, có đèn vàng, có anh. Combo tạm ổn đấy chứ.",
+   "w": "toi"
+  },
+  {
+   "t": "Gâu. (tạm dịch: chè này ngọt quá. Vẫn ăn hết. Nhưng ghi nhận là ngọt quá.)",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay có phim tài liệu về sói. Anh sẽ bình luận chuyên môn suốt phim, chịu được thì bật.",
+   "w": "toi"
+  },
+  {
+   "t": "Anh Thành video call kiểm tra, ống kính quét một vòng nhà như kiểm kho. Xong bảo: được. Cúp máy.",
+   "w": "toi"
+  },
+  {
+   "t": "Tắm trước đi, nước xả sẵn rồi, độ ấm đo bằng khuỷu tay. Học từ clip chăm em bé. Đừng hỏi vì sao anh xem clip đó.",
+   "w": "toi"
+  },
+  {
+   "t": "Chat bảo giọng em tối nay ngọt. Anh đồng ý mà vẫn khó chịu. Hai cảm xúc cùng lúc, người phức tạp lắm.",
+   "w": "toi"
+  },
+  {
+   "t": "Cúp điện cả khu, khỏi live. Ra ban công với anh. Kể chuyện kho mất điện, hàng đông lạnh, và mười ngày tăng ca.",
+   "w": "toi"
+  },
+  {
+   "t": "Gâu gâu gâu gâu. (tạm dịch: đứa nào vừa nhận là chồng em trong game. Đùa cũng phải có giấy phép chứ.)",
+   "w": "toi"
+  },
+  {
+   "t": "Nay em nấu, anh rửa bát. Phân công chuẩn nhà máy. Đừng lau tay lên áo anh... thôi được, lau đi.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối mai giỗ ông nội anh, em đi cùng nhé. Anh kể ông nghe về em mấy lần rồi. Khấn thầm ấy.",
+   "w": "toi"
+  },
+  {
+   "t": "Minh Triết hỏi vay cái ô. Trời không mưa. Mượn ô là cớ để ghé. Thằng này chán số liệu rồi đấy.",
+   "w": "toi"
+  },
+  {
+   "t": "Đèn ngõ hỏng hai hôm. Tối ra ngoài nhớ rủ anh. Mắt anh trong tối là hàng chính hãng còn bảo hành.",
+   "w": "toi"
+  },
+  {
+   "t": "Bún chả tối nay không. Bà Tần vẫn còn hàng. Đương nhiên còn. Nồi bún đó là truyền thuyết của khu này.",
+   "w": "toi"
+  },
+  {
+   "t": "Tề Bảo khoe người yêu mới, ảnh chụp mờ, cả nhóm nghi là cột đèn. Đừng nói cho nó biết tụi anh cá cược.",
+   "w": "toi"
+  },
+  {
+   "t": "Live xong đừng đọc lại chat cũ, ngủ đi. Bình luận kỳ cục để anh đọc. Anh có kinh nghiệm bị đọc bình luận về mình.",
+   "w": "toi"
+  },
+  {
+   "t": "Gâu gâu. Gừ. Gâu. (chuỗi này hồi trước là: đói, mỏi, muốn ra ngoài. Giờ là: nhớ hồi đó. Một chút thôi.)",
+   "w": "toi"
+  },
+  {
+   "t": "Mệt thì nghỉ live một buổi, fan chờ được. Anh từng chờ em sáu năm, anh biết chờ là chuyện làm được.",
+   "w": "toi"
+  },
+  {
+   "t": "Ăn hạt dưa đừng vứt vỏ ra bàn. Bánh Bao tới thấy là nó dọn sạch, xong mình lại nợ nó một bữa.",
+   "w": "toi"
+  },
+  {
+   "t": "Ba em sang xem bóng, ngồi ghế lười của anh. Anh không nói gì. Kể cho em vì cần một người biết anh đã nhịn.",
+   "w": "toi"
+  },
+  {
+   "t": "Khu mình tối nay thơm mùi ngô nướng. Ra đầu ngõ không. Áo khoác đây, xỏ vào, cãi sau.",
+   "w": "toi"
+  },
+  {
+   "t": "Đồ ăn đêm cất tủ tầng hai, hộp xanh. Đói thì lấy. Đừng nhìn anh bằng ánh mắt xin xỏ đó, học ai không biết.",
+   "w": "toi"
+  },
+  {
+   "t": "Chuột máy tính em kêu to thế, thay đi. Tiếng đó làm anh tưởng có gặm nhấm trong nhà, mệt tim lắm.",
+   "w": "toi"
+  },
+  {
+   "t": "Gâu gâu gâu gâu gâu gâu gâu gâu gâu. (chín tiếng, không nghĩa. Khuya rồi, cho anh xả một tràng, mai lại làm người nghiêm túc.)",
+   "w": "khuya"
+  },
+  {
+   "t": "Ba giờ sáng vẫn thắng trận à. Giỏi. Giờ thắng nốt trận với cái giường đi, đối thủ cuối cùng đấy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khuya lạnh. Chui vào đây. Chỗ này từng có một con chó giữ ấm, giờ nâng cấp bản người, tính năng tương đương.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đêm mưa em khó ngủ, anh biết. Nên anh đang gãi đầu em đây. Kỹ thuật này anh bị gãi ba tháng, học lỏm được.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gừ. (tạm dịch: ai nhắn em giờ này. À, mẹ em. Rút gừ. Chào bác ạ.)",
+   "w": "khuya"
+  },
+  {
+   "t": "Hồi đó mỗi đêm anh nghĩ: mai bị lộ thì sao. Xong nghe tiếng em thở đều, nghĩ: mai tính. Ba tháng toàn mai tính.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nói thật một câu: hồi đó em ôm anh khóc một lần vì thua và mệt. Anh không quên được. Nên giờ anh ở đây.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cái đèn ngủ màu cam này anh chọn đấy. Da em dưới đèn cam đẹp lắm. Anh nói với tư cách người có mắt.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngủ chưa. Chưa à. Tốt. À không, không tốt cho em, nhưng tốt cho anh. Lại đây.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đêm nay đừng đặt báo thức, mai chủ nhật. Kế hoạch sáng mai của em, anh lo toàn bộ khâu hậu cần.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tay anh to mà em chê vụng. Vụng gì. Cởi cúc áo em hết bốn giây, có bấm giờ. Em bấm chứ ai.",
+   "w": "khuya"
+  },
+  {
+   "t": "Hồi trước em thay đồ trước mặt anh suốt, giờ đòi anh quay đi. Muộn rồi em ạ. Dữ liệu lưu hết rồi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đêm nay thử để đèn sáng. Đồng ý thì gật. Đỏ mặt không tính là câu trả lời, nhưng anh vẫn ghi nhận.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lưng em có vết răng à. Đâu, anh xem nào. Ừ. Của anh. Kiểm định xong, hàng chuẩn, không đền bù.",
+   "w": "khuya"
+  },
+  {
+   "t": "Em thơm mùi sữa tắm mới. Anh vừa quen mùi cũ xong. Thôi được. Quen lại từ đầu, ngay bây giờ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gâu gâu. (tạm dịch: tắt điện thoại đi. Trên giường này cấm thiết bị phát sáng, trừ mắt anh.)",
+   "w": "khuya"
+  },
+  {
+   "t": "Sáu năm nhìn từ xa, mười tuần nhìn từ dưới sàn, giờ nhìn từ khoảng cách này. Anh chọn phương án ba, vĩnh viễn.",
+   "w": "khuya"
+  },
+  {
+   "t": "Em rúc vào ngực anh thế này thì tim đập nhanh là lỗi của em, đừng đòi anh giải trình.",
+   "w": "khuya"
+  },
+  {
+   "t": "Anh chưa buồn ngủ. Em ngủ đi. Anh nằm nghe tiếng thở. Việc này anh có ba tháng kinh nghiệm và một đời hợp đồng.",
+   "w": "khuya"
+  },
+  {
+   "t": "Muốn nghe anh gọi em bằng gì lúc này không. Ghé tai đây. Câu này không phát sóng, không ghi sổ, một người nghe.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ẳng. (tạm dịch: em véo đúng chỗ chị anh hay véo. Phản xạ có điều kiện, không phải anh yếu.)",
+   "w": "khuya"
+  },
+  {
+   "t": "Nửa đêm đói không. Anh nấu mì. Mì nửa đêm với người mình thích là món ngon thứ ba thế giới, hai món kia từ từ kể.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chân lạnh thì gác lên anh. Cả người anh là túi sưởi năm mươi... bảy hai ký. Quen mồm. Bảy hai.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đêm qua em gọi tên anh trong mơ, gọi đúng tên. Anh thức tới sáng vì vui. Đừng hỏi sao anh có quầng mắt.",
+   "w": "khuya"
+  },
+  {
+   "t": "Hết giờ streamer rồi. Từ giờ tới sáng em là của anh. Lịch này anh đăng ký định kỳ, tự động gia hạn.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khuya rồi đừng gặm móng tay. Đưa tay đây anh giữ cho. Giữ kiểu gì thì tuỳ tình hình.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gâu gâu gâu. Gâu gâu. Gâu. (đếm ngược đấy. Hết tiếng cuối mà em chưa lên giường là anh sang bế.)",
+   "w": "khuya"
+  },
+  {
+   "t": "Em bảo nhớ con chó à. Nó đây. Vẫn năm chục ký tình cảm, chỉ đổi bao bì. Ôm thử đi rồi xác nhận.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đêm mai anh trực kho không về. Ôm gối của anh mà ngủ, nó có mùi anh. Đừng chối, anh thấy em làm thế rồi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Bốn giờ sáng. Trận cuối. Em nói câu này ba trận trước rồi. Được, trận cuối. Anh đi đun nước gừng.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gâu gâu gâu gâu gâu. (tạm dịch: năm tiếng là mức cảnh báo trung bình. Có người nhìn em hơi lâu ở chỗ đông.)",
+   "w": "any"
+  },
+  {
+   "t": "Ai hỏi nghề thì bảo kho vận. Đừng bảo từng làm chó nhà em. Cả hai đều thật, một cái khó giải thích hơn.",
+   "w": "any"
+  },
+  {
+   "t": "Anh biết em giấu bim bim ở đâu. Không nói ra. Chỉ muốn em biết là anh biết. Quyền lực mềm.",
+   "w": "any"
+  },
+  {
+   "t": "Mũi anh giờ thính bằng một phần mười thôi. Vẫn đủ biết em gội đầu chưa. Đi gội đi.",
+   "w": "any"
+  },
+  {
+   "t": "Nhớ làm chó không à. Nhớ mỗi một thứ: được em ôm miễn phí. Giờ phải gạ. Thời thế đi xuống.",
+   "w": "any"
+  },
+  {
+   "t": "Tự nhiên muốn nghe em đọc tên anh đầy đủ. Đường Vĩ Kỳ. Đấy. Em đọc hay hơn cô Trinh đọc nhiều.",
+   "w": "any"
+  },
+  {
+   "t": "Móng tay anh tự cắt rồi, không cần ai giữ. Trưởng thành hơn hồi ở phòng khám nhiều. Đừng nhắc chuyện cũ.",
+   "w": "any"
+  },
+  {
+   "t": "Em thắng thì anh vui, em thua thì anh nấu chè. Kiểu gì anh cũng có việc. Hệ thống không có thời gian chết.",
+   "w": "any"
+  },
+  {
+   "t": "Con vẹt bà Hoè giờ biết nói ăn cơm chưa. Nó học từ donate nhà anh. Vòng tuần hoàn văn hoá khu này đáng sợ thật.",
+   "w": "any"
+  },
+  {
+   "t": "Hồi trước em buồn anh chỉ biết dụi đầu. Giờ biết nấu, biết ôm, biết nói. Nâng cấp ba tính năng, cùng một con.",
+   "w": "any"
+  },
+  {
+   "t": "Gói hàng ở cửa anh kiểm rồi. Fan gửi kẹo với thư. Thư anh chưa đọc. Muốn đọc lắm. Cho anh đọc đi.",
+   "w": "any"
+  },
+  {
+   "t": "Đo chiều cao hoài làm gì. Thiếu thì đứng cạnh anh, anh cho mượn, tính lãi bằng nắm tay.",
+   "w": "any"
+  },
+  {
+   "t": "Ổ điện chỗ bàn em anh thay rồi, cái cũ lỏng. Nhà này giờ mọi thứ chắc chắn, trừ khả năng anh từ chối em.",
+   "w": "any"
+  },
+  {
+   "t": "Bịt mắt chơi trốn tìm không. Anh tìm bằng tai cũng ra, chấp cả nhà tắt đèn. Tuổi thơ em thiếu một đứa bạn như anh.",
+   "w": "any"
+  },
+  {
+   "t": "Hộp cơm anh mang đi làm em xếp à. Cả công ty hỏi ai xếp. Anh bảo người nhà. Hai chữ đó anh phát âm rõ lắm.",
+   "w": "any"
+  },
+  {
+   "t": "Điều khoản nhận nuôi ghi: cho ăn, cho ở, thương. Em ký rồi. Kêu anh dính người là khiếu nại sai quy trình.",
+   "w": "any"
+  },
+  {
+   "t": "Em ho một tiếng là anh xuất hiện. Không phải anh rảnh. À thì rảnh. Nhưng chủ yếu là thính.",
+   "w": "any"
+  },
+  {
+   "t": "Ghế gaming bảy triệu mà ngồi đau lưng hơn ghế lười của anh. Công nghệ đi lùi.",
+   "w": "any"
+  },
+  {
+   "t": "Cãi nhau thì cãi, đừng đuổi anh ra sofa. Sofa đó anh nằm đủ chỉ tiêu một đời rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Tuần này em cười ít hơn tuần trước hai lần. Có thống kê. Đừng hỏi phương pháp đo. Nói xem có chuyện gì.",
+   "w": "any"
+  },
+  {
+   "t": "Anh nuôi em nhé. Lương anh ổn rồi. Đừng cười. Donate của em cao hơn thật, nhưng để anh nói hết câu cho oai.",
+   "w": "any"
+  },
+  {
+   "t": "Gâu. Gừ. Gâu gâu. Hực. (hỗn hợp bốn cảm xúc. Chuyên gia ngôn ngữ chó cũng chịu. Anh cũng chịu. Cảm xúc là thế.)",
+   "w": "any"
+  },
+  {
+   "t": "Em bảo anh bớt lo cho em đi. Được, bắt đầu từ mai. Câu này anh nói lần thứ mười một, ngày mai vẫn chưa tới.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng đăng ảnh anh lên nhóm nữa, ảnh nào cũng dìm. Trừ khi chọn ảnh đẹp, kèm chú thích người yêu, thì đăng thoải mái.",
+   "w": "any"
+  },
+  {
+   "t": "Trong game phản xạ nhanh thế mà anh cúi xuống hôn vẫn không né kịp. Chậm chọn lọc đấy à. Anh ghi nhận.",
+   "w": "any"
+  },
+  {
+   "t": "Nhà mình cần thêm kệ giày, anh đóng. Gỗ thừa xin ở kho. Xin đàng hoàng, có giấy. Đừng nhìn anh thế.",
+   "w": "any"
+  },
+  {
+   "t": "Nếu hôm đó anh không tông vào em thì sao à. Thì anh vẫn đứng hành lang thư viện tới già. Cú tông may nhất đời anh.",
+   "w": "any"
+  },
+  {
+   "t": "Bảo hành nhà này: lỗi phần anh, sửa trong ngày. Lỗi phần em, anh cũng sửa. Chính sách một chiều, đừng lợi dụng.",
+   "w": "any"
+  },
+  {
+   "t": "Em nói xấu anh với Củ Cải ở phòng bên, anh nghe hết. Câu bồ cũng được được ấy. Được được là sao. Giải trình đi.",
+   "w": "any"
+  },
+  {
+   "t": "Bà tạp hoá hỏi hai cậu là gì của nhau. Em chưa kịp nói anh đã trả lời. Trả lời gì thì hỏi bà ấy, anh ngại nhắc lại.",
+   "w": "any"
+  },
+  {
+   "t": "Xe đạp em bơm căng rồi, phanh chỉnh rồi. Chuông kêu chưa hay lắm. Cần thì anh chạy theo kêu thay chuông.",
+   "w": "any"
+  },
+  {
+   "t": "Bằng lái anh thi một lần đỗ, bài lùi chuồng điểm tuyệt đối. Bản năng định vị của loài anh, cảm ơn tổ tiên.",
+   "w": "any"
+  },
+  {
+   "t": "Em ăn cay được từ bao giờ đấy. Ăn cùng anh nhiều nên lờn à. Vậy tính là công anh.",
+   "w": "any"
+  },
+  {
+   "t": "Áo đôi thì hơi ngại. Nhưng em cứ mặc áo của anh thế này thì khỏi mua, tiết kiệm mà hiệu quả gấp đôi.",
+   "w": "any"
+  },
+  {
+   "t": "Có đứa trong chat xin làm đệ tử em. Từ chối đi. Nhà này không nhận thêm ai theo em về nữa. Suất đó có người rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Từ bàn em tới bếp là mười một bước, em kêu xa nên lười uống nước. Giờ nước ở tầm tay. Anh là hệ thống giao nước.",
+   "w": "any"
+  },
+  {
+   "t": "Sổ khám của anh mục tính cách bác sĩ ghi: hợp tác, hơi dính người. Hồ sơ y tế không biết nói dối.",
+   "w": "any"
+  },
+  {
+   "t": "Em hay quên khoá cửa. May nhà này có một cựu bảo vệ bốn chân chuyển ngạch. Đi kiểm tra đây.",
+   "w": "any"
+  },
+  {
+   "t": "Cuối tuần muốn ăn gì đặt trước đi. Bếp trưởng cần nhập nguyên liệu. Bếp trưởng cũng cần một cái ôm đặt cọc.",
+   "w": "any"
+  },
+  {
+   "t": "Phim có cảnh chia tay mưa gió kìa. Khóc à. Không à. Thế cái gì trên má đấy. Điều hoà chảy nước chắc.",
+   "w": "any"
+  },
+  {
+   "t": "Anh từng sợ nhất tiếng chuông phòng khám. Giờ sợ nhất tiếng em im. Cách chữa: em nói gì đi.",
+   "w": "any"
+  },
+  {
+   "t": "Gâu gâu gâu gâu gâu gâu gâu gâu. (tám tiếng, không nghĩa, chỉ để phá kỷ lục bảy tiếng hôm trước. Con người cần mục tiêu.)",
+   "w": "any"
+  },
+  {
+   "t": "Bát ăn cũ của anh em còn giữ à. Rửa sạch cất tủ. Định làm bảo tàng à. Bán vé không, anh đòi phần trăm.",
+   "w": "any"
+  },
+  {
+   "t": "Chăn của em toàn mùi anh rồi. Em phàn nàn mà ôm chăn chặt hơn. Hành vi và lời khai mâu thuẫn nhé.",
+   "w": "any"
+  },
+  {
+   "t": "Hồi đó em định đặt tên anh là gì. Chưa kịp à. May. Ba em định gọi anh là Vàng. Suýt nữa anh thành Vàng cả đời.",
+   "w": "any"
+  },
+  {
+   "t": "Ra đường em đi phía trong. Không phải ga lăng đâu, phản xạ chăn dắt của giống anh. Nghe hơi thô mà an toàn là được.",
+   "w": "any"
+  },
+  {
+   "t": "Muốn nuôi mèo à. Được, anh không có ý kiến. Câu sau mới là ý kiến: nuôi thì ai ôm nó, em hay anh, chốt trước đi.",
+   "w": "any"
+  },
+  {
+   "t": "Tay anh chai chỗ này do bê hàng, chỗ này chống đẩy, vết này bị cửa tủ kẹp hồi trốn. Bản đồ đời anh, sờ thoải mái.",
+   "w": "any"
+  },
+  {
+   "t": "Cún hàng xóm đẻ năm con, em đi xem về mắt sáng rực. Không. Ý anh là... đi xem cùng nhau thì được.",
+   "w": "any"
+  },
+  {
+   "t": "Ai bảo thức khuya da xấu. Da em đẹp. Nhưng ngủ sớm thì đẹp hơn. Nói vòng vo vậy thôi chứ ý là đi ngủ đi.",
+   "w": "any"
+  },
+  {
+   "t": "Trên đời có hai thứ anh không thắng nổi: danh sách của chị anh, và em lúc làm nũng. Mức nguy hiểm khác nhau.",
+   "w": "any"
+  },
+  {
+   "t": "Sao anh ăn nhanh à. Bản năng bầy đàn, ăn chậm mất phần. Nhà này không ai giành à. Ừ. Não anh chưa cập nhật thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Ảnh cưới sau này chụp ở đâu nhỉ. Anh thấy cửa siêu thị Hạnh Thông hợp. Ơ kìa, đừng bỏ đi, anh nghiêm túc mà.",
+   "w": "any"
+  },
+  {
+   "t": "Anh học được từ mới trong chat của em: chó cưng của tui. Ai là chó cưng của tui. Đứa nào gõ câu đó điểm danh xem.",
+   "w": "any"
+  },
+  {
+   "t": "Mùi nước xả vải này được đấy, mua loại này mãi nhé. Anh chọn bằng cái mũi từng làm nghề, tin anh.",
+   "w": "any"
+  },
+  {
+   "t": "Em ngủ gật trên bàn phím kìa, live chưa tắt. Anh tắt hộ rồi bế đi ngủ đây. Fan tưởng mất điện. Coi như mất điện.",
+   "w": "any"
+  },
+  {
+   "t": "Ngày nghỉ mà ngồi máy tám tiếng. Ra công viên. Anh không dùng từ dắt đi dạo nữa, nhưng bản chất hoạt động là vậy.",
+   "w": "any"
+  },
+  {
+   "t": "Màn hình khoá điện thoại anh là ảnh em, màn hình chính là ảnh cái kho. Mở khoá vì em, làm việc vì cơm.",
+   "w": "any"
+  },
+  {
+   "t": "Anh nói tiếng người đôi lúc còn vấp. Nhưng câu thương em thì không vấp bao giờ. Luyện nhiều.",
+   "w": "any"
+  },
+  {
+   "t": "Hắt hơi hai cái liền là có người nhắc. Nhắc anh thì chỉ có cái danh sách của chị anh, mục số bảy.",
+   "w": "any"
+  },
+  {
+   "t": "Có bữa anh mơ mình vẫn là chó và bị em đem cho. Dậy nhìn em ngủ mười phút mới hoàn hồn. Cấm anh xem phim buồn đi.",
+   "w": "any"
+  },
+  {
+   "t": "Em lạnh tay chân quanh năm mà chê anh nóng. Mâu thuẫn cung cầu kinh điển. Lại đây, thị trường tự điều tiết.",
+   "w": "any"
+  },
+  {
+   "t": "Đi đâu về anh cũng mua cho em một thứ nhỏ nhỏ. Thói quen từ hồi tha dép. Nâng cấp mặt hàng, giữ nguyên tấm lòng.",
+   "w": "any"
+  },
+  {
+   "t": "Hôm nay em uống ba cốc cà phê rồi. Cốc thứ tư đây, anh pha. Là sữa ấm. Đừng cãi, màu giống mà.",
+   "w": "any"
+  },
+  {
+   "t": "Củ Cải bảo anh già trước tuổi vì hay nhắc uống nước. Nhắc nhở là ngôn ngữ tình yêu của loài chó nhà, nó chưa hiểu thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Quên sinh nhật anh cũng được, anh nhớ hộ cả hai. Nhưng quên bữa tối nay thì không. Anh hầm xương ba tiếng rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Nay có người hỏi anh có người yêu chưa. Anh trả lời nhanh tới mức họ giật mình. Phản xạ tốt là có thật.",
+   "w": "any"
+  },
+  {
+   "t": "Đồ trong nhà hỏng cứ để anh sửa. Trừ danh dự của anh mỗi lần em kể chuyện ba tháng đó cho khách. Cái đó khó sửa.",
+   "w": "any"
+  },
+  {
+   "t": "Ưm. (không phải tiếng chó, không phải tiếng người. Là tiếng đang được gãi đúng chỗ. Đừng dừng tay.)",
+   "w": "any"
+  },
+  {
+   "t": "Hôm nay anh đúng giờ về nhà một cách bất thường à. Không có gì. Chỉ là hôm qua em nói nhớ anh lúc nửa tỉnh nửa mơ.",
+   "w": "any"
+  },
+  {
+   "t": "Em cứ đếm xem anh nói câu thương em bao nhiêu lần một ngày. Đếm xong báo lại, anh sợ mình nói chưa đủ định mức.",
+   "w": "any"
+  }
  ]
 };
