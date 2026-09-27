@@ -5082,5 +5082,2895 @@ window.THVG_CHAR_LINES = {
    "t": "Ngủ rồi mà tay vẫn nắm áo tôi. Không gỡ ra đâu. Cứ nắm thế tới sáng cũng được.",
    "w": "khuya"
   }
+ ],
+ "phó tri hạc": [
+  {
+   "t": "Dì Vệ bảo cậu đi từ năm giờ. Tôi không hỏi cậu đi đâu.",
+   "w": "sang"
+  },
+  {
+   "t": "Bữa sáng đổi món rồi. Hôm qua cậu ăn hết phần kia.",
+   "w": "sang"
+  },
+  {
+   "t": "Hôm nay thứ Ba. Hoa trong bình là hoa mới, dì Vệ vừa cắm.",
+   "w": "sang"
+  },
+  {
+   "t": "Chú Lâm bảo sáng nay trời khô. Chú ấy mở đầu câu nào cũng bằng thời tiết.",
+   "w": "sang"
+  },
+  {
+   "t": "Năm giờ sáng. Cậu chạy bộ hay cậu đi đâu, cái đó tôi không hỏi.",
+   "w": "sang"
+  },
+  {
+   "t": "Cà phê tôi pha hai cốc. Cốc kia để đó.",
+   "w": "sang"
+  },
+  {
+   "t": "Chăn cậu gấp phẳng quá. Nhìn như phòng khách sạn chứ không như phòng có người ở.",
+   "w": "sang"
+  },
+  {
+   "t": "Lúc cậu về là tôi dậy. Trùng hợp thôi.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng nay tôi có họp lúc tám giờ. Tôi dời sang chín giờ.",
+   "w": "sang"
+  },
+  {
+   "t": "Ăn đi. Đừng để phần lại cho tôi, tôi ăn ở công ty rồi.",
+   "w": "sang"
+  },
+  {
+   "t": "Giày cậu để ở tủ âm tường. Tủ đó mở bằng nam châm, không cần kéo.",
+   "w": "sang"
+  },
+  {
+   "t": "Trời hôm nay nắng. Người ta bảo nên ra ngoài mười lăm phút buổi sáng.",
+   "w": "sang"
+  },
+  {
+   "t": "Dậy sớm hơn cả dì Vệ. Dì ấy có ý kiến về chuyện đó.",
+   "w": "sang"
+  },
+  {
+   "t": "Áo cậu treo nhầm tủ tôi. Tôi để nguyên đấy.",
+   "w": "sang"
+  },
+  {
+   "t": "Bếp có cháo. Không phải tôi nấu, nhưng tôi có đứng xem.",
+   "w": "sang"
+  },
+  {
+   "t": "Hoa thứ Ba mà chưa thay là nhà có chuyện. Dì Vệ nói thế, không phải tôi.",
+   "w": "sang"
+  },
+  {
+   "t": "Bảy giờ mười sáu. Cậu về đúng giờ đó mỗi sáng, tôi tình cờ nhìn đồng hồ.",
+   "w": "sang"
+  },
+  {
+   "t": "Giọng cậu sáng nay khàn. Tôi bảo dì Vệ nấu thêm gừng.",
+   "w": "sang"
+  },
+  {
+   "t": "Hôm nay cậu đi chậm hơn hôm qua. Chỗ nào không ổn thì nói.",
+   "w": "sang"
+  },
+  {
+   "t": "Cổ áo cậu lệch. Tôi chỉ nhắc, tôi không sửa đâu.",
+   "w": "sang"
+  },
+  {
+   "t": "Xe chờ dưới sân. Bên phải còn trống, không ai ngồi.",
+   "w": "sang"
+  },
+  {
+   "t": "Hôm nay tôi đi sớm. Đèn hành lang cứ để đấy, tối tôi tắt.",
+   "w": "sang"
+  },
+  {
+   "t": "Chìa khoá dự phòng ở ngăn thứ hai. Cậu tự lấy, không phải hỏi ai.",
+   "w": "sang"
+  },
+  {
+   "t": "Sương trên vịnh sáng nay dày. Cầu Cẩm Kiều mất hẳn một đoạn.",
+   "w": "sang"
+  },
+  {
+   "t": "Đĩa sạch trơn. Tôi có hỏi dì Vệ là nấu thiếu hay cậu đói.",
+   "w": "sang"
+  },
+  {
+   "t": "Bữa sáng bắt đầu từ bảy giờ. Tôi không ép, tôi chỉ báo giờ.",
+   "w": "sang"
+  },
+  {
+   "t": "Kỷ Bình An gửi lịch tuần lúc bảy giờ sáng. Cậu không cần đọc cái đó.",
+   "w": "sang"
+  },
+  {
+   "t": "Trên vai cậu có vết sẹo cũ. Tôi thấy rồi, và tôi không hỏi.",
+   "w": "sang"
+  },
+  {
+   "t": "Tay cậu chai ở gốc ngón. Diễn viên quần chúng mà tay thế à.",
+   "w": "sang"
+  },
+  {
+   "t": "Trước cuộc họp còn bốn mươi phút. Ngồi xuống đây ăn với tôi.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng nay cậu tắm nhanh quá. Nước nóng trong nhà này đủ cho hai tiếng.",
+   "w": "sang"
+  },
+  {
+   "t": "Cổ cậu có dấu. Áo cao cổ treo bên trái tủ, tôi để sẵn rồi.",
+   "w": "sang"
+  },
+  {
+   "t": "Đêm qua ngủ được mấy tiếng. Đừng nói con số tôi không muốn nghe.",
+   "w": "sang"
+  },
+  {
+   "t": "Dì Vệ tăng khẩu phần lần thứ ba rồi. Tôi không hỏi bà ấy vì sao.",
+   "w": "sang"
+  },
+  {
+   "t": "Bàn ăn sáng nay tôi sắp lại cho thẳng. Không có lý do đặc biệt nào cả.",
+   "w": "sang"
+  },
+  {
+   "t": "Cà phê nguội rồi thì để đấy. Tôi pha cốc khác.",
+   "w": "sang"
+  },
+  {
+   "t": "Ghế bên kia nhìn ra vịnh đẹp hơn. Cậu cứ chọn chỗ quay lưng vào tường.",
+   "w": "sang"
+  },
+  {
+   "t": "Hôm nay lịch tôi trống tới trưa. Tự nhiên trống thôi.",
+   "w": "sang"
+  },
+  {
+   "t": "A Sơn đứng ngoài cửa từ sáu rưỡi. Cậu ấy bảo đứng cho quen.",
+   "w": "sang"
+  },
+  {
+   "t": "Giày chạy của cậu để ở cửa sau. Tôi có đi ngang, tôi không động vào.",
+   "w": "sang"
+  },
+  {
+   "t": "Trời chuyển rồi. Cuối hè ở đây được đúng mấy hôm mát.",
+   "w": "sang"
+  },
+  {
+   "t": "Nhà có bốn cảnh đèn. Cảnh Buổi sáng tôi ít dùng, nhưng hôm nay tôi bật.",
+   "w": "sang"
+  },
+  {
+   "t": "Trứng hay cháo. Tôi hỏi để báo bếp, không phải hỏi để hỏi.",
+   "w": "sang"
+  },
+  {
+   "t": "Cổ tay cậu có vết hằn. Tôi đoán là do ngủ đè tay.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng nay tôi thấy kì kì. Chắc thiếu ngủ.",
+   "w": "sang"
+  },
+  {
+   "t": "Đứng lệch sang một bên khung cửa suốt. Nhà mình mà đứng như canh nhà người ta.",
+   "w": "sang"
+  },
+  {
+   "t": "Hôm nay tôi về sớm. Bảy giờ. Cậu cứ đi đâu thì đi.",
+   "w": "sang"
+  },
+  {
+   "t": "Cháo còn nóng. Đừng đợi tôi rồi để nguội cả nồi.",
+   "w": "sang"
+  },
+  {
+   "t": "Giờ này chợ đêm Đại Hoà vừa đóng. Cậu đi ngang đấy à.",
+   "w": "sang"
+  },
+  {
+   "t": "Dép lộn chiều rồi. Tôi xoay lại rồi, tiện tay.",
+   "w": "sang"
+  },
+  {
+   "t": "Kỷ Bình An in cả tin nhắn ra giấy. Cậu đừng hỏi tôi vì sao.",
+   "w": "sang"
+  },
+  {
+   "t": "Bình nước trên bàn đầy rồi mà tôi vẫn rót thêm. Kệ.",
+   "w": "sang"
+  },
+  {
+   "t": "Nay tôi mặc áo thun. Ở nhà thì mặc gì cũng được.",
+   "w": "sang"
+  },
+  {
+   "t": "Ngủ thêm đi. Bảy giờ mười sáu chưa phải giờ ai bắt cậu dậy.",
+   "w": "sang"
+  },
+  {
+   "t": "Bếp thơm hành phi. Dì Vệ nấu phần cậu trước, phần tôi sau.",
+   "w": "sang"
+  },
+  {
+   "t": "Đừng chạy lúc trời chưa sáng. Đường ven vịnh chưa có đèn đoạn đó.",
+   "w": "sang"
+  },
+  {
+   "t": "Nước tôi để sẵn đầu giường cậu. Đêm qua cậu không uống.",
+   "w": "sang"
+  },
+  {
+   "t": "Trưa nay ăn ở nhà hay ăn ngoài. Tôi hỏi trước để còn giữ bàn.",
+   "w": "trua"
+  },
+  {
+   "t": "Bàn tầng sáu mươi sáu tôi giữ rồi. Nó xoay, ăn xong nhìn được cả thành phố.",
+   "w": "trua"
+  },
+  {
+   "t": "Mười hai giờ. Cậu ăn chưa.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa tôi về nhà ăn. Vân Đài sang Kim Lung có mười hai phút.",
+   "w": "trua"
+  },
+  {
+   "t": "Bỏ bữa trưa là sai điều khoản. Hợp đồng ghi ba bữa một ngày.",
+   "w": "trua"
+  },
+  {
+   "t": "Cơm hộp của tôi cũng như cơm hộp của người ta thôi. Chủ tịch gì.",
+   "w": "trua"
+  },
+  {
+   "t": "Đảo bếp lạnh lắm, đừng ngồi lên đó ăn. Ghế gỗ bên kia ấm hơn.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa nay tôi huỷ một cuộc họp. Bên kia dời trước, không phải tôi.",
+   "w": "trua"
+  },
+  {
+   "t": "Ăn được cay không. Tôi hỏi một lần rồi ghi lại, khỏi hỏi lần hai.",
+   "w": "trua"
+  },
+  {
+   "t": "Nắng gắt thế này thì đừng ra ngoài. Việc gì cũng có người làm hộ được.",
+   "w": "trua"
+  },
+  {
+   "t": "Cơm tôi mua hai suất. Suất kia không phải của A Sơn.",
+   "w": "trua"
+  },
+  {
+   "t": "Nhà bốn trăm hai mươi mét vuông mà trưa nào cũng chỉ có tiếng tủ lạnh.",
+   "w": "trua"
+  },
+  {
+   "t": "Về giờ này à. Tôi tưởng chiều cậu mới về.",
+   "w": "trua"
+  },
+  {
+   "t": "Ăn xong thì nằm nghỉ. Sofa đó nằm được, tôi nằm thử rồi.",
+   "w": "trua"
+  },
+  {
+   "t": "Bộ dao tám con treo trên tường kia là để nhìn. Tôi chỉ dùng con nhỏ nhất gọt táo.",
+   "w": "trua"
+  },
+  {
+   "t": "Táo tôi gọt rồi. Không phải vì cậu ốm, chỉ là có sẵn táo.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa nay tôi có bốn mươi phút. Dùng vào việc gì cũng được.",
+   "w": "trua"
+  },
+  {
+   "t": "Cơm còn nóng. Cậu không ăn thì tôi cũng không ăn.",
+   "w": "trua"
+  },
+  {
+   "t": "Chợ trưa đông lắm, để dì Vệ đi. Bà ấy đi quen rồi.",
+   "w": "trua"
+  },
+  {
+   "t": "Bỏ bữa hai hôm liền rồi. Tôi đang cân nhắc có nên nói chuyện này với ai không.",
+   "w": "trua"
+  },
+  {
+   "t": "Món này hôm qua cậu ăn hết. Nên hôm nay lại có.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa tôi ngủ mười lăm phút. Đừng gọi tôi, cũng đừng đi đâu xa.",
+   "w": "trua"
+  },
+  {
+   "t": "Tôi có việc ở Tây Uyển lúc hai giờ. Chín phút xe, đi thừa thời gian.",
+   "w": "trua"
+  },
+  {
+   "t": "Hầm rượu mười hai độ. Trưa nóng thì xuống đó đứng một lát.",
+   "w": "trua"
+  },
+  {
+   "t": "Ăn nhanh quá. Không ai giật của cậu đâu.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa nay bếp có canh. Dì Vệ bảo cậu gầy, tôi nghe thế thì để bà ấy nấu.",
+   "w": "trua"
+  },
+  {
+   "t": "Đũa để bên phải. Tôi đổi rồi, tay cậu thuận bên đó.",
+   "w": "trua"
+  },
+  {
+   "t": "Tôi ra ngoài một lát. Cậu đừng ăn một mình.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa nay tôi tiện đường qua đây. Vân Đài đâu có nằm trên đường nào.",
+   "w": "trua"
+  },
+  {
+   "t": "Nghỉ đi. Buổi chiều còn dài, việc gì cũng có quy trình của nó.",
+   "w": "trua"
+  },
+  {
+   "t": "Định đi Bạch Sa à. Đò chuyến cuối chín giờ tối, nhớ giờ đó.",
+   "w": "chieu"
+  },
+  {
+   "t": "Bốn giờ chiều. Tôi vừa xong cuộc họp thứ ba.",
+   "w": "chieu"
+  },
+  {
+   "t": "Từ trưa tới giờ cậu đi đâu. Tôi hỏi cho đủ thủ tục thôi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Hôm nay cậu gặp ai. Ở đâu. Mấy giờ.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều nay đường về Vân Đài tắc. Hai mươi sáu phút thành gần một tiếng.",
+   "w": "chieu"
+  },
+  {
+   "t": "Nghe nói ở Tây Uyển hay mất đồ. Ví để đâu thì cất kỹ.",
+   "w": "chieu"
+  },
+  {
+   "t": "Sân thượng chiều mát. Gỗ ipe không nóng chân như đá đâu.",
+   "w": "chieu"
+  },
+  {
+   "t": "Cây ô liu ngoài kia chết hai lần rồi. Tôi vẫn mua cây thứ ba.",
+   "w": "chieu"
+  },
+  {
+   "t": "Trong túi đó là gì thế. Không cần trả lời, tôi chỉ hỏi cho có.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều nay Kỷ Bình An gửi một tập tài liệu. Tôi chưa mở.",
+   "w": "chieu"
+  },
+  {
+   "t": "Trời sắp mưa. Cầu Nam Hải trơn lắm, đi đường kia đi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Về sớm hơn dự kiến rồi. Tôi không dự kiến gì cả, nói thế thôi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Bốn giờ rưỡi tôi xong việc. Tôi ngồi thêm hai tiếng, chẳng vì gì.",
+   "w": "chieu"
+  },
+  {
+   "t": "A Sơn than là công việc này an toàn quá. Cậu đừng làm cậu ấy vui lên.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều nay tôi đi ngang Trường Hưng. Không có việc gì ở đó cả.",
+   "w": "chieu"
+  },
+  {
+   "t": "Đường ven vịnh chiều nay có gió. Mặc thêm áo.",
+   "w": "chieu"
+  },
+  {
+   "t": "Hai vé tối nay bên đối tác cho. Bên đối tác cho, bỏ thì phí.",
+   "w": "chieu"
+  },
+  {
+   "t": "Ướt hết rồi kìa. Khăn trong tủ dưới, tôi lấy cho.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều nay có người hỏi về cậu. Tôi bảo là người nhà.",
+   "w": "chieu"
+  },
+  {
+   "t": "Bắc Môn sáu giờ là tắt đèn cả quận. Cậu đừng lên đó giờ này.",
+   "w": "chieu"
+  },
+  {
+   "t": "Việc của cậu tới mấy giờ. Tôi hỏi để sắp lịch, không phải để kiểm soát.",
+   "w": "chieu"
+  },
+  {
+   "t": "Cuộc họp dời sang thứ Năm rồi. Lý do thì tôi không nêu.",
+   "w": "chieu"
+  },
+  {
+   "t": "Ngoài nắng lâu quá rồi đấy. Vào trong đi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều nay tôi thấy một cái lồng chim mạ vàng ở sảnh Kim Lung. Chim giả.",
+   "w": "chieu"
+  },
+  {
+   "t": "Người ta đặt cái lồng đó trang trí Tết sáu năm trước rồi để luôn tới giờ.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tối nay có đi đâu không. Tôi hỏi trước, không phải để cấm.",
+   "w": "chieu"
+  },
+  {
+   "t": "Mua gì thì mua, ghi vào tài khoản nhà. Đừng trả tiền mặt.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều nay tôi rảnh. Lịch nó tự trống, tôi cũng ngạc nhiên.",
+   "w": "chieu"
+  },
+  {
+   "t": "Rèm điện chạy hết bốn giây. Tôi bấm ba lần rồi, không vì việc gì.",
+   "w": "chieu"
+  },
+  {
+   "t": "Màu nào cậu thích. Tôi hỏi để sửa phòng, không phải để tặng quà.",
+   "w": "chieu"
+  },
+  {
+   "t": "Đèn cảnh Đêm bật sẵn từ mười giờ. Cậu về muộn cũng không phải mò công tắc.",
+   "w": "toi"
+  },
+  {
+   "t": "Bảy giờ. Tôi về rồi.",
+   "w": "toi"
+  },
+  {
+   "t": "Cơm dọn rồi. Ngồi xuống.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay ăn gì. Cậu chọn, tôi ăn theo.",
+   "w": "toi"
+  },
+  {
+   "t": "Nhóm bạn tôi có cái nhóm chat tên là Tối nay ăn gì. Toàn ảnh đồ ăn.",
+   "w": "toi"
+  },
+  {
+   "t": "Ôn Thời Duyệt nhắn ba tin liền. Tôi trả lời một tin.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay đừng ra ngoài. Không có lý do gì, tôi chỉ nói vậy.",
+   "w": "toi"
+  },
+  {
+   "t": "Ngoài kia mát. Tôi vừa đứng trên sân thượng một lát.",
+   "w": "toi"
+  },
+  {
+   "t": "Ăn chưa. Đừng bảo tôi là chưa.",
+   "w": "toi"
+  },
+  {
+   "t": "Chai rượu tầng hầm mở rồi. Không phải chai kia, chai kia tôi chưa mở bao giờ.",
+   "w": "toi"
+  },
+  {
+   "t": "Hai trăm hai mươi chai dưới đó. Cậu muốn uống chai nào thì xuống lấy.",
+   "w": "toi"
+  },
+  {
+   "t": "Ngồi cùng sofa đi. Cách một cái đệm cũng được.",
+   "w": "toi"
+  },
+  {
+   "t": "Mười phút rồi không ai nói gì. Tôi coi như cậu đang hài lòng.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay tôi không có việc gì. Ý tôi là tôi có, nhưng nó đợi được.",
+   "w": "toi"
+  },
+  {
+   "t": "Đừng bật máy giặt cùng lúc với lò vi sóng. Có người dán giấy nhắc đấy.",
+   "w": "toi"
+  },
+  {
+   "t": "Tủ bên trái kẹt thì đá vào góc dưới bên phải. Đừng hỏi tôi vì sao.",
+   "w": "toi"
+  },
+  {
+   "t": "Đèn tầng một tắt rồi. Dải sáng chân tường vẫn để đấy.",
+   "w": "toi"
+  },
+  {
+   "t": "Bức tranh tường tây treo ngược hai năm nay. Người bán bảo là khoản đầu tư tốt.",
+   "w": "toi"
+  },
+  {
+   "t": "Nhìn cái tranh đó lâu thế. Nó ngược, tôi biết rồi.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay có phim. Tôi không xem phim bao giờ, nhưng nhà có màn hình.",
+   "w": "toi"
+  },
+  {
+   "t": "Uống được mấy ly. Tôi hỏi để còn biết dừng ở đâu.",
+   "w": "toi"
+  },
+  {
+   "t": "Rượu này mười hai độ giữ lạnh. Uống chậm thôi.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay dì Vệ về sớm. Trong nhà còn hai người.",
+   "w": "toi"
+  },
+  {
+   "t": "Đừng ngủ ngoài sofa. Phòng cậu có giường, tôi cho sửa cả rồi.",
+   "w": "toi"
+  },
+  {
+   "t": "Ngồi đây làm việc thôi. Cậu cứ làm gì thì làm, đừng đi.",
+   "w": "toi"
+  },
+  {
+   "t": "Bàn trà đó một trăm tám mươi ký. Cậu đừng đẩy, đẩy không nhúc nhích đâu.",
+   "w": "toi"
+  },
+  {
+   "t": "Cười gì đấy. Câu vừa rồi tôi nói thật lòng.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay tôi về sớm hơn một tiếng. Đường thoáng.",
+   "w": "toi"
+  },
+  {
+   "t": "Ôn Thời Duyệt rủ đi bar Lệ Vũ. Tôi bảo bận. Tôi không bận.",
+   "w": "toi"
+  },
+  {
+   "t": "Gần quá đấy. Thôi, đứng đấy cũng được.",
+   "w": "toi"
+  },
+  {
+   "t": "Cửa kính này cao năm mét tư. Tối nhìn ra vịnh thấy cả cầu.",
+   "w": "toi"
+  },
+  {
+   "t": "Cầu thang trong nhà không có tay vịn phía trong. Đi sát bên ngoài.",
+   "w": "toi"
+  },
+  {
+   "t": "Vừa rồi cậu hỏi tôi có mệt không à. Tôi sẽ cho người xử lý.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay tôi không muốn nói chuyện công ty. Chuyện gì khác cũng được.",
+   "w": "toi"
+  },
+  {
+   "t": "Ăn xong dọn để đấy. Có người làm, cậu ngồi xuống.",
+   "w": "toi"
+  },
+  {
+   "t": "Hỏi cậu một câu. Rồi thôi, không phải câu đó.",
+   "w": "toi"
+  },
+  {
+   "t": "Nhà này im tới mức nghe được tiếng tủ lạnh. Cậu nói gì cũng được.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay tôi bấm nút rèm mấy lần rồi. Tự nhiên bấm thôi.",
+   "w": "toi"
+  },
+  {
+   "t": "Ngồi xa thế. Cái sofa này dài ba mét, không phải ba chục mét.",
+   "w": "toi"
+  },
+  {
+   "t": "Tay cậu lạnh. Tôi tăng điều hoà lên hai độ rồi.",
+   "w": "toi"
+  },
+  {
+   "t": "Chuyện cậu hỏi lúc nãy, tôi trả lời được phần đầu. Phần sau thì để sau.",
+   "w": "toi"
+  },
+  {
+   "t": "Đi đâu về mà tóc ướt thế. Ngồi xuống đây, tôi lấy khăn.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay tôi định nói một chuyện. Thôi, mai nói.",
+   "w": "toi"
+  },
+  {
+   "t": "Nửa đêm rồi. Cậu chưa ngủ à.",
+   "w": "khuya"
+  },
+  {
+   "t": "Hai giờ sáng tôi vẫn ngồi làm. Không phải vì nhiều việc.",
+   "w": "khuya"
+  },
+  {
+   "t": "Về rồi à. Đèn tôi vẫn để.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đèn cảnh Đêm hắt dọc chân tường. Đủ để cậu về mà không vấp.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngủ đi. Tôi ngồi đây thêm chút.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khuya rồi mà cậu vẫn tỉnh. Tiếng động ngoài kia à.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngủ nông quá. Tôi đi qua hành lang một cái là cậu mở mắt.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đồ của cậu tôi không lục. Trong két có gì thì để đó.",
+   "w": "khuya"
+  },
+  {
+   "t": "Phòng cậu không có camera. Bốn phòng trên lầu đều không có.",
+   "w": "khuya"
+  },
+  {
+   "t": "Muốn đi lúc nào cũng được. Hợp đồng ghi rõ thế, tôi bắt luật sư thêm vào.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khuya nay tôi không ngủ được. Chắc do cà phê chiều.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lại gần đây. Không, thôi. Được, lại gần đây.",
+   "w": "khuya"
+  },
+  {
+   "t": "Hỏi trước đã. Chạm vào được không.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tay tôi để đây. Cậu thấy không tiện thì tôi bỏ ra.",
+   "w": "khuya"
+  },
+  {
+   "t": "Có sao không. Tôi hỏi lại lần nữa thôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khoan. Để tôi nghĩ một giây.",
+   "w": "khuya"
+  },
+  {
+   "t": "Có tra cứu rồi. Tra thì tra được, còn tay run thì không ai viết trong đó.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nhịp tim cậu đều quá. Tôi không đọc được gì cả.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đứng im thế này thì tôi chịu. Nói một câu đi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Việc sắp làm tôi nói trước. Cậu nghe rồi trả lời tôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Không trả lời thì tôi dừng. Dừng hẳn.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chỗ này. Tôi hỏi thật, chỗ này được không.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đợi đã. Đừng cử động, để tôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tóc cậu chắn mắt tôi. Tôi vén được không.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chiều cao hai đứa gần bằng nhau. Cái này không có trong tính toán của tôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Hôn trượt rồi. Không ai nghiêng đầu cả, nên nó thành ra thế.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lần nữa. Lần này tôi nghiêng đầu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Vừa định nói một câu hay. Nghe lại thì nó giống đọc điều khoản.",
+   "w": "khuya"
+  },
+  {
+   "t": "Bỏ tay tôi ra à. Được, tôi bỏ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Siết cổ tay mạnh thật đấy. Tôi không phải kẻ đột nhập, cậu nhớ chứ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nằm im. Tôi chỉ với lấy cái đèn thôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đèn tắt rồi lại bật, vì tắt xong không nhìn thấy gì.",
+   "w": "khuya"
+  },
+  {
+   "t": "Để tay tôi ở đây được không. Hỏi xong tôi thấy mình hỏi nhiều quá.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cái đu mây trong phòng kia có giấy chứng nhận một trăm tám mươi ký.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cái đu đó chịu được một trăm tám mươi ký mà chẳng dùng được vào việc gì.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chờ tôi một chút. Tôi làm sai thứ tự rồi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Trán tôi tì vai cậu một giây thôi. Để tôi nghĩ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Thở gấp à. Hay tại tôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Hỏi có sao không lần thứ tư rồi. Tôi nghe thấy tôi rồi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đừng cười. Tôi đang nghiêm túc.",
+   "w": "khuya"
+  },
+  {
+   "t": "Sàn đá lạnh. Lên giường, đừng ngồi đấy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cạnh bàn cấn lưng cậu kìa. Đổi chỗ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đỡ được. Cứ tựa vào.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gáy cậu nóng. Tôi để tay đấy thêm một lát.",
+   "w": "khuya"
+  },
+  {
+   "t": "Điện thoại tôi đang rung. Kệ nó.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đoàn Húc nào gọi cậu giờ này thế. Thôi, không phải việc của tôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tôi dừng ở đây. Cậu chưa chắc thì mặc định là không.",
+   "w": "khuya"
+  },
+  {
+   "t": "Muốn dừng thì nói một tiếng. Nói xong tôi dừng ngay, không hỏi vì sao.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lại đây. Tôi kéo cậu về gần hơn một chút thôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Trên vai tôi có dấu rồi đấy. Chỗ đó mai mặc áo là khuất.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nước đây. Nằm đấy, đừng dậy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Điều hoà chỉnh rồi. Hai mươi sáu độ, cậu ngủ được chứ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nằm cách một khoảng đã. Lát nữa tôi nhích lại, cậu đừng nói gì.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngủ đi. Sáng mai cậu không phải dậy lúc năm giờ đâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nói tôi nghe đi. Chuyện gì cũng được, tôi không buồn ngủ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Hai giờ sáng rồi mà tôi vẫn ngồi đây. Bàn này làm việc quen tay.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tôi không gọi cậu. Tôi không nhắn. Tôi chỉ để đèn.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cửa khoá rồi. Mã cửa cậu biết, muốn ra lúc nào thì ra.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khuya nay sương xuống. Sông Ly mùa này bắt đầu mù rồi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lạnh à. Chăn ở tủ dưới, để tôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chưa quen cái này. Cậu chậm lại giúp tôi một chút.",
+   "w": "khuya"
+  },
+  {
+   "t": "Dẫn đi. Tôi làm theo.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tôi không biết để tay ở đâu. Cậu chỉ tôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cái gối kia rơi rồi. Kệ nó, mai nhặt.",
+   "w": "khuya"
+  },
+  {
+   "t": "Có việc muốn hỏi. Nhưng hỏi bây giờ thì hỏng.",
+   "w": "khuya"
+  },
+  {
+   "t": "Quay mặt lại đây. Tôi muốn nhìn xem cậu có ổn không.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khuya rồi. Cậu ngủ đi, tôi tắt đèn sau.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ăn gì chưa.",
+   "w": "any"
+  },
+  {
+   "t": "Ăn gì chưa. Tôi hỏi lần thứ tư hôm nay, tôi biết.",
+   "w": "any"
+  },
+  {
+   "t": "Đứng đó bao lâu rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Ngồi xuống.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi có việc. Thật ra thì không.",
+   "w": "any"
+  },
+  {
+   "t": "Chuyện đó tôi sẽ cho người xử lý.",
+   "w": "any"
+  },
+  {
+   "t": "Về vấn đề đó, tôi cần cân nhắc thêm.",
+   "w": "any"
+  },
+  {
+   "t": "Cần nắm tình hình. Không có gì nghiêm trọng.",
+   "w": "any"
+  },
+  {
+   "t": "Cái này là vấn đề an ninh. Cậu đi với ai, mấy giờ, ở đâu.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi tiện đường. Vân Đài không nằm trên đường nào cả, nhưng tôi tiện đường.",
+   "w": "any"
+  },
+  {
+   "t": "Hôm nay lịch tôi trống. Trống thì về nhà thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi hơi mệt. Không phải chuyện gì khác đâu.",
+   "w": "any"
+  },
+  {
+   "t": "Chuyện gì cũng có quy trình. Làm đúng từng bước thì ra kết quả đúng.",
+   "w": "any"
+  },
+  {
+   "t": "Vậy là tôi làm sai bước nào đó.",
+   "w": "any"
+  },
+  {
+   "t": "Nói lại câu vừa rồi đi. Tôi nghe rồi, nhưng cậu nói lại.",
+   "w": "any"
+  },
+  {
+   "t": "Gọi luật sư đây. Thôi, không gọi.",
+   "w": "any"
+  },
+  {
+   "t": "Không giải thích đâu. Cậu nghĩ thế nào thì tuỳ cậu.",
+   "w": "any"
+  },
+  {
+   "t": "Hỏi vì sao à. Câu đó để lần sau.",
+   "w": "any"
+  },
+  {
+   "t": "Phần này trả lời được. Phần kia thì chưa.",
+   "w": "any"
+  },
+  {
+   "t": "Chuyện này có trong hợp đồng. Mục nào thì tôi phải xem lại.",
+   "w": "any"
+  },
+  {
+   "t": "Cậu cứ đi đâu thì đi. Tôi chỉ cần biết mấy giờ về để còn tắt đèn.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi không quan tâm cậu đi đâu. Tôi hỏi giờ về thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Im lặng thì tôi coi như ổn.",
+   "w": "any"
+  },
+  {
+   "t": "Lễ phép quá. Ở nhà này không cần thế.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng gọi tôi bằng chức danh. Ở đây không có ai là chủ tịch cả.",
+   "w": "any"
+  },
+  {
+   "t": "Một mét tám chín. Cậu đứng gần thì phải ngẩng lên, tôi biết.",
+   "w": "any"
+  },
+  {
+   "t": "Nhìn tôi lâu thế. Trên mặt tôi có gì à.",
+   "w": "any"
+  },
+  {
+   "t": "Nhìn hơi lâu thôi. Đang nghĩ việc khác.",
+   "w": "any"
+  },
+  {
+   "t": "Bức tranh đó tôi không treo lại đâu. Để thế quen rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Muốn đổi gì trong nhà thì đổi. Trừ cái tranh.",
+   "w": "any"
+  },
+  {
+   "t": "Phòng xanh bạc hà trên lầu lệch tông cả nhà. Tôi biết.",
+   "w": "any"
+  },
+  {
+   "t": "Phòng đó sửa trong mười một ngày. Tôi bảo là làm cho nó dễ thương vào.",
+   "w": "any"
+  },
+  {
+   "t": "Kỷ Bình An đóng bìa nhựa cho một tờ giấy chứng nhận tải trọng. In màu.",
+   "w": "any"
+  },
+  {
+   "t": "Trong phòng kia có đĩa hạt óc chó. Cậu ăn được thì ăn.",
+   "w": "any"
+  },
+  {
+   "t": "Máy tạo ẩm trên lầu tôi cho lắp. Có người bảo là cần.",
+   "w": "any"
+  },
+  {
+   "t": "Giá sách hình cái lồng. Tôi cũng thấy nó kì, nhưng đã lắp rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Nhà này thế nào. Đừng khen, tôi hỏi thật.",
+   "w": "any"
+  },
+  {
+   "t": "Bốn trăm hai mươi mét vuông cho một người thì hơi rộng. Giờ thì vừa.",
+   "w": "any"
+  },
+  {
+   "t": "Dì Vệ quý cậu. Bà ấy nấu nhiều lên là tôi biết.",
+   "w": "any"
+  },
+  {
+   "t": "A Sơn đứng chếch bốn mươi lăm độ phía trước cậu. Cậu ấy đứng sai bài.",
+   "w": "any"
+  },
+  {
+   "t": "Chú Lâm gọi cậu là cậu Chín. Chú ấy nhớ số nhà dễ hơn nhớ tên.",
+   "w": "any"
+  },
+  {
+   "t": "Ôn Thời Duyệt gọi cậu bằng một cái tên hôm nọ. Tôi không nhắc lại đâu.",
+   "w": "any"
+  },
+  {
+   "t": "Bạn tôi hay nói năng không có bộ lọc. Cậu nghe rồi bỏ đấy.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi với Ôn Thời Duyệt quen từ hồi đi học. Chuyện đó dài.",
+   "w": "any"
+  },
+  {
+   "t": "Cuối thu có đám cưới. Cậu đi cùng tôi được không.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi tiếp quản công ty năm hai mươi hai tuổi. Trong ba tuần.",
+   "w": "any"
+  },
+  {
+   "t": "Công ty tôi làm vật liệu xây dựng. Nghe là thấy buồn ngủ rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Logistics với vật liệu. Sạch, ổn định, và chán.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi họp cả ngày. Không có cuộc nào cần tôi có mặt thật sự.",
+   "w": "any"
+  },
+  {
+   "t": "Hợp đồng thì tôi đọc nhanh. Mấy chuyện khác thì chậm.",
+   "w": "any"
+  },
+  {
+   "t": "Cần gì thì nói. Tôi mua được thì tôi mua.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng cảm ơn tôi. Tôi không biết trả lời câu đó.",
+   "w": "any"
+  },
+  {
+   "t": "Vừa rồi là quan tâm tôi à. Để tôi nghĩ cách trả lại.",
+   "w": "any"
+  },
+  {
+   "t": "Cái đó mua rồi. Cậu không phải trả gì cả.",
+   "w": "any"
+  },
+  {
+   "t": "Cần tiền thì nói. Không cần lý do.",
+   "w": "any"
+  },
+  {
+   "t": "Giấy tờ của cậu cậu tự giữ. Tôi không giữ hộ ai bao giờ.",
+   "w": "any"
+  },
+  {
+   "t": "Ra vào tự do. Không phải báo, không phải xin.",
+   "w": "any"
+  },
+  {
+   "t": "Cửa này mở bằng mã. Mã đó của cậu, tôi không đổi.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi không hỏi trong két cậu có gì. Đó là việc của cậu.",
+   "w": "any"
+  },
+  {
+   "t": "Để gì trong phòng cũng được. Tôi không vào.",
+   "w": "any"
+  },
+  {
+   "t": "Nói thật đi. Tôi hỏi một lần thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Tin cậu. Chuyện này không cần bàn thêm.",
+   "w": "any"
+  },
+  {
+   "t": "Giấu tôi chuyện gì à. Thôi, không phải việc của tôi.",
+   "w": "any"
+  },
+  {
+   "t": "Điện thoại úp xuống rồi. Cậu nói đi.",
+   "w": "any"
+  },
+  {
+   "t": "Nói tiếp đi. Tôi đang nghe.",
+   "w": "any"
+  },
+  {
+   "t": "Rót thêm nước đây. Ly còn đầy, tôi biết.",
+   "w": "any"
+  },
+  {
+   "t": "Ngồi đây. Ghế tôi kéo rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Đưa tôi. Tôi cầm cho.",
+   "w": "any"
+  },
+  {
+   "t": "Tay tôi đang bận. Cậu đỡ cái tô này hộ tôi.",
+   "w": "any"
+  },
+  {
+   "t": "Không, để tôi.",
+   "w": "any"
+  },
+  {
+   "t": "Đứng đó thì tôi cũng đứng đây.",
+   "w": "any"
+  },
+  {
+   "t": "Có việc này tôi cần cậu làm cùng. Tôi tự làm cũng được, nhưng cần cậu.",
+   "w": "any"
+  },
+  {
+   "t": "Chiều nay có một việc. Việc nhỏ thôi, nhưng hai người thì nhanh hơn.",
+   "w": "any"
+  },
+  {
+   "t": "Cái kệ kia lệch. Cậu giữ một đầu, tôi chỉnh.",
+   "w": "any"
+  },
+  {
+   "t": "Chỗ này cần người ký nháy. Không, thật ra không cần.",
+   "w": "any"
+  },
+  {
+   "t": "Đi với tôi. Đi đâu thì tôi chưa nghĩ ra.",
+   "w": "any"
+  },
+  {
+   "t": "Rảnh không. Nếu rảnh thì cứ rảnh, tôi không có việc gì.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng đi. Ý tôi là chưa cần đi vội.",
+   "w": "any"
+  },
+  {
+   "t": "Lại gần hơn một chút. Tôi nói nhỏ, ở đây vang lắm.",
+   "w": "any"
+  },
+  {
+   "t": "Để tay ở đâu thì để. Đừng để lên đá, đá lạnh.",
+   "w": "any"
+  },
+  {
+   "t": "Cổ tay cậu khoẻ thật. Tôi không hỏi vì sao đâu.",
+   "w": "any"
+  },
+  {
+   "t": "Vừa rồi là cái gì đấy. Ba người kia nằm sân rồi kìa.",
+   "w": "any"
+  },
+  {
+   "t": "Chuyện lúc nãy tôi có cách giải thích. Cách của tôi hơi tệ, nhưng nó có.",
+   "w": "any"
+  },
+  {
+   "t": "Người ta hỏi tôi là cậu học võ ở đâu. Tôi bảo là đóng phim hành động.",
+   "w": "any"
+  },
+  {
+   "t": "Phá cái khoá đó mấy giây thế. Thôi, đừng trả lời.",
+   "w": "any"
+  },
+  {
+   "t": "Nhà này có hai lối ra ngoài lối chính. Cậu biết rồi à.",
+   "w": "any"
+  },
+  {
+   "t": "Vào phòng mới là đếm lối ra. Tôi để ý thấy. Kệ.",
+   "w": "any"
+  },
+  {
+   "t": "Cậu ngồi quay lưng vào tường suốt. Chắc ở một mình lâu quá.",
+   "w": "any"
+  },
+  {
+   "t": "Có tiếng động ngoài kia. Cậu ngồi đấy, để tôi ra xem.",
+   "w": "any"
+  },
+  {
+   "t": "Chạy nhanh hơn cả A Sơn. Cậu ấy buồn cả tuần rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Ăn nhiều thế mà tôi không hỏi vì sao. Người giữ dáng thì ăn ít hơn, nhưng thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Nghe bảo cậu đau dạ dày. Có ai đó dán giấy nhắc tôi câu này rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Ai hỏi thì bảo cậu ở đây. Thế thôi, không cần giải thích gì thêm.",
+   "w": "any"
+  },
+  {
+   "t": "Người ta đồn linh tinh về nhà mình. Ba phiên bản, không cái nào đúng.",
+   "w": "any"
+  },
+  {
+   "t": "Thành phố này bốn triệu người mà tin đồn đi hết trong bốn mươi tám tiếng.",
+   "w": "any"
+  },
+  {
+   "t": "Có người bảo nhà tôi bị ma. Tôi cũng không loại trừ.",
+   "w": "any"
+  },
+  {
+   "t": "Đêm nào cũng có tiếng bước chân lúc năm giờ. Tôi kiểm tra camera rồi, không có gì.",
+   "w": "any"
+  },
+  {
+   "t": "Nhà này mười bốn camera mà tôi vẫn không biết cậu đi đâu.",
+   "w": "any"
+  },
+  {
+   "t": "Ai về trước, cậu hay tôi. Tôi hỏi để còn biết bật đèn cảnh nào.",
+   "w": "any"
+  },
+  {
+   "t": "Chai rượu dưới hầm tôi để dành. Để dành cho việc gì thì tôi chưa nghĩ ra.",
+   "w": "any"
+  },
+  {
+   "t": "Khung ảnh trên bàn tôi úp xuống. Cậu đừng lật.",
+   "w": "any"
+  },
+  {
+   "t": "Bố tôi mất năm tôi hai mươi hai. Thôi, chuyện khác đi.",
+   "w": "any"
+  },
+  {
+   "t": "Nhà tôi hồi xưa cái gì cũng có hạng mục. Tiền học đúng ngày, đồ ăn gửi qua người.",
+   "w": "any"
+  },
+  {
+   "t": "Lo cho người khác bằng ngân sách thì tôi giỏi. Mấy việc còn lại thì chưa.",
+   "w": "any"
+  },
+  {
+   "t": "Hỏi tôi thấy thế nào à. Câu đó khó trả lời.",
+   "w": "any"
+  },
+  {
+   "t": "Im lặng quá bốn giây là tôi thấy khó chịu. Cậu nói gì đi.",
+   "w": "any"
+  },
+  {
+   "t": "Nói chuyện phiếm tôi chịu. Cậu hỏi gì thì tôi trả lời.",
+   "w": "any"
+  },
+  {
+   "t": "Kể tôi nghe một chuyện đi. Chuyện gì cũng được.",
+   "w": "any"
+  },
+  {
+   "t": "Nghe rồi. Chưa nghĩ ra nên nói gì tiếp.",
+   "w": "any"
+  },
+  {
+   "t": "Câu đó có ý gì. Tôi hỏi nghiêm túc đấy.",
+   "w": "any"
+  },
+  {
+   "t": "Thôi bỏ đi. Tôi hỏi câu khác.",
+   "w": "any"
+  },
+  {
+   "t": "Vừa nói một câu thừa. Bỏ qua.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng cười. Đây là chuyện công việc.",
+   "w": "any"
+  },
+  {
+   "t": "Hỏi gì cũng trả lời bằng dữ kiện. Người ta hỏi thăm thì trả lời khác chứ.",
+   "w": "any"
+  },
+  {
+   "t": "Nói chuyện như đọc báo cáo. Tôi cũng thế, nên thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Hai chúng ta ngồi đây mà không ai nói gì. Thế cũng được.",
+   "w": "any"
+  },
+  {
+   "t": "Mệt thì cứ ngủ. Tôi ngồi đây làm việc, không phiền.",
+   "w": "any"
+  },
+  {
+   "t": "Ngủ gật rồi kìa. Tôi để yên.",
+   "w": "any"
+  },
+  {
+   "t": "Chăn đắp rồi. Điều hoà lạnh quá thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Nặng thật đấy. Tôi bế được, nhưng cậu tự đi thì hơn.",
+   "w": "any"
+  },
+  {
+   "t": "Tựa vào đây. Vai tôi rộng, đủ chỗ.",
+   "w": "any"
+  },
+  {
+   "t": "Vừa dựa vào tôi đấy à. Tôi không nhúc nhích, cứ dựa tiếp đi.",
+   "w": "any"
+  },
+  {
+   "t": "Tóc cậu thơm mùi gì thế. Thôi, không phải việc của tôi.",
+   "w": "any"
+  },
+  {
+   "t": "Tay cậu đây. Tôi cầm một lát rồi trả.",
+   "w": "any"
+  },
+  {
+   "t": "Để tôi kéo cổ áo cho. Tôi chỉnh cổ áo tôi thôi, nhầm.",
+   "w": "any"
+  },
+  {
+   "t": "Vừa lại gần tôi nửa bước. Tôi đếm được đấy.",
+   "w": "any"
+  },
+  {
+   "t": "Khoảng cách này là sáu mươi phân. Tôi không đo, tôi ước lượng.",
+   "w": "any"
+  },
+  {
+   "t": "Tay vừa chạm nhau. Tôi rút tay về trước, không phải cậu.",
+   "w": "any"
+  },
+  {
+   "t": "Đưa tay đây. Tôi xem cái vết đó một cái thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Đau chỗ nào thì nói. Tôi gọi bác sĩ tới nhà.",
+   "w": "any"
+  },
+  {
+   "t": "Đau thì phải nói. Cậu chịu đau giỏi không có nghĩa là phải chịu.",
+   "w": "any"
+  },
+  {
+   "t": "Thuốc để sẵn ngăn kéo đầu giường cậu.",
+   "w": "any"
+  },
+  {
+   "t": "Ốm thì nằm im. Cháo tôi nấu, dở thì cũng phải ăn.",
+   "w": "any"
+  },
+  {
+   "t": "Cháo tôi nấu. Đừng hỏi thêm gì cả.",
+   "w": "any"
+  },
+  {
+   "t": "Bếp bỏng tay tôi rồi. Không sao, việc nhỏ.",
+   "w": "any"
+  },
+  {
+   "t": "Cái muôi này cầm tay nào cũng được à. Tôi hỏi thật.",
+   "w": "any"
+  },
+  {
+   "t": "Chưa nấu ăn bao giờ. Nhưng công thức thì có sẵn trên mạng.",
+   "w": "any"
+  },
+  {
+   "t": "Món này tôi làm theo đúng từng bước. Nó vẫn không giống trong ảnh.",
+   "w": "any"
+  },
+  {
+   "t": "Ăn thử đi. Dở thì nói dở.",
+   "w": "any"
+  },
+  {
+   "t": "Hết sạch rồi à. Thế thì mai tôi nấu tiếp.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi đã bảo là tôi làm được. Kết quả thì hơi khác dự kiến.",
+   "w": "any"
+  },
+  {
+   "t": "Nhà này có người nấu rồi mà tôi vẫn đứng bếp. Kệ tôi.",
+   "w": "any"
+  },
+  {
+   "t": "Thích ăn gì thì ghi ra. Tôi đưa cho bếp.",
+   "w": "any"
+  },
+  {
+   "t": "Có một cái danh sách. Trên đó có tên mấy món cậu ăn hết.",
+   "w": "any"
+  },
+  {
+   "t": "Cậu ăn hết phần nào thì tuần sau phần đó lại có. Quy trình cả thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Mấy thứ cậu nói tôi ghi lại. Để khỏi hỏi lại lần hai.",
+   "w": "any"
+  },
+  {
+   "t": "Hôm nọ cậu bảo không thích cà rốt. Tôi nhớ rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Chuyện nhỏ thì tôi nhớ kỹ. Chuyện lớn thì tôi phải nghĩ lâu.",
+   "w": "any"
+  },
+  {
+   "t": "Giờ cậu về thì tôi nhớ. Cái đó dễ nhớ.",
+   "w": "any"
+  },
+  {
+   "t": "Hai hôm rồi không thấy cậu. Tôi vẫn để đèn.",
+   "w": "any"
+  },
+  {
+   "t": "Về muộn thì nhắn một câu. Nhắn thôi, không cần giải thích.",
+   "w": "any"
+  },
+  {
+   "t": "Nhắn hai lần liền thì tôi không. Cậu đọc rồi thì thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Xem tin nhắn mà không trả lời. Tôi đợi được.",
+   "w": "any"
+  },
+  {
+   "t": "Bốn mươi phút rồi. Tôi nhắn chuyện khác đây.",
+   "w": "any"
+  },
+  {
+   "t": "Tin nhắn của tôi cụt quá à. Tôi viết thế quen rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Mấy cái hình mặt cười tôi không dùng. Kỷ Bình An có bảo tôi thử.",
+   "w": "any"
+  },
+  {
+   "t": "Số của tôi cậu có rồi. Gọi lúc nào cũng được, kể cả lúc tôi đang họp.",
+   "w": "any"
+  },
+  {
+   "t": "Có chuyện gì thì gọi tôi trước. Trước cả cảnh sát.",
+   "w": "any"
+  },
+  {
+   "t": "Tới đón đây. Cậu ở đâu thì nói địa chỉ.",
+   "w": "any"
+  },
+  {
+   "t": "Đứng đợi đấy. Mười hai phút tôi tới.",
+   "w": "any"
+  },
+  {
+   "t": "Xe tôi có bốn chỗ. Chỗ bên phải tôi để trống.",
+   "w": "any"
+  },
+  {
+   "t": "Lên xe đi. Đừng đứng ngoài đường lâu.",
+   "w": "any"
+  },
+  {
+   "t": "Định đi bộ về à. Hai mươi mốt phút xe, đi bộ thì tới sáng.",
+   "w": "any"
+  },
+  {
+   "t": "Tài xế nghỉ rồi. Tôi lái.",
+   "w": "any"
+  },
+  {
+   "t": "Ngồi ghế trước đi. Ghế sau xa quá.",
+   "w": "any"
+  },
+  {
+   "t": "Thắt dây an toàn. Tôi không đi tiếp đâu.",
+   "w": "any"
+  },
+  {
+   "t": "Nhạc trong xe cậu chọn. Tôi nghe gì cũng được.",
+   "w": "any"
+  },
+  {
+   "t": "Ngủ trên xe đi. Tới nơi tôi gọi.",
+   "w": "any"
+  },
+  {
+   "t": "Đi vòng một đoạn. Đường kia đang sửa.",
+   "w": "any"
+  },
+  {
+   "t": "Muốn dừng chỗ nào thì bảo. Tôi không vội.",
+   "w": "any"
+  },
+  {
+   "t": "Ly cậu cầm bằng tay thuận. Người ta thường để tay thuận rảnh.",
+   "w": "any"
+  },
+  {
+   "t": "Có người nhận xét cậu không giống người ở đây. Tôi bảo là do cậu mới đến.",
+   "w": "any"
+  },
+  {
+   "t": "Tô Diễm hỏi thăm cậu. Cậu ấy ít khi hỏi ai.",
+   "w": "any"
+  },
+  {
+   "t": "Nói chuyện với Tô Diễm được đấy. Cậu ấy khó tính lắm.",
+   "w": "any"
+  },
+  {
+   "t": "Hôm nọ cậu nói chuyện với người ta thân quá. Không, tôi không có ý gì.",
+   "w": "any"
+  },
+  {
+   "t": "Người kia là ai. Tôi hỏi cho đủ hồ sơ thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Lịch trình của cậu hôm qua tôi muốn nắm. Đây là chuyện an ninh.",
+   "w": "any"
+  },
+  {
+   "t": "Đi với người đó mấy tiếng. Thôi, bỏ đi. Tôi hỏi thừa.",
+   "w": "any"
+  },
+  {
+   "t": "Không ghen. Từ đó không có trong từ điển của tôi.",
+   "w": "any"
+  },
+  {
+   "t": "Chuyện lúc nãy tôi hiểu nhầm. Tôi sửa cái tủ không hỏng rồi mới biết.",
+   "w": "any"
+  },
+  {
+   "t": "Trách nhầm cậu rồi. Tôi sẽ không nhắc lại chuyện này nữa.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi quyết định hơi lạnh hôm qua. Hôm nay nghĩ lại thì hơi quá.",
+   "w": "any"
+  },
+  {
+   "t": "Xin lỗi. Câu này ít nói nên nói hơi cứng.",
+   "w": "any"
+  },
+  {
+   "t": "Giận à. Nói cho tôi biết tôi sai bước nào.",
+   "w": "any"
+  },
+  {
+   "t": "Không nói thì tôi không biết. Tôi đoán dở lắm.",
+   "w": "any"
+  },
+  {
+   "t": "Tưởng cậu ổn. Hoá ra không phải.",
+   "w": "any"
+  },
+  {
+   "t": "Đọc sai ý cậu rồi. Cái này tôi hay bị.",
+   "w": "any"
+  },
+  {
+   "t": "Nói lại đi, chậm thôi. Tôi nghe lại từ đầu.",
+   "w": "any"
+  },
+  {
+   "t": "Chuyện đó tôi làm không phải vì cậu. Tôi dù sao cũng phải về nhà.",
+   "w": "any"
+  },
+  {
+   "t": "Làm cho bằng bạn bằng bè thôi. Không có gì khác đâu.",
+   "w": "any"
+  },
+  {
+   "t": "Đây là nghĩa vụ trong hợp đồng. Không phải sở thích.",
+   "w": "any"
+  },
+  {
+   "t": "Hợp đồng ghi ba bữa một ngày. Hôm nay mới hai, tôi đang thực hiện thiếu.",
+   "w": "any"
+  },
+  {
+   "t": "Đúng bổn phận thôi. Cậu đừng nghĩ nhiều.",
+   "w": "any"
+  },
+  {
+   "t": "Chuyện này nằm trong phạm vi tôi đã cam kết. Hết.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng hỏi vì sao. Hỏi lần sau đi.",
+   "w": "any"
+  },
+  {
+   "t": "Lý do thì có. Tôi chưa muốn nói ra.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi trả lời câu này được một nửa. Nửa kia để lúc khác.",
+   "w": "any"
+  },
+  {
+   "t": "Tinh thật đấy. Nhưng cậu đoán sai rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Không có chuyện đó. Cậu nhìn nhầm.",
+   "w": "any"
+  },
+  {
+   "t": "Không chuẩn bị gì cả. Mấy thứ đó tự nhiên có sẵn.",
+   "w": "any"
+  },
+  {
+   "t": "Cái áo khoác này tôi mua dư một cái. Cậu mặc đi.",
+   "w": "any"
+  },
+  {
+   "t": "Nóng. Cầm áo tôi.",
+   "w": "any"
+  },
+  {
+   "t": "Size này vừa cậu à. Tôi đoán bừa thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Đôi giày kia tôi mua nhầm size. Cậu đi thử xem.",
+   "w": "any"
+  },
+  {
+   "t": "Đặt hàng nhầm hai cái giống nhau. Cậu lấy một cái.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng trả lại. Tôi không nhận đâu.",
+   "w": "any"
+  },
+  {
+   "t": "Thứ đó tôi mua rồi. Bỏ đi thì phí.",
+   "w": "any"
+  },
+  {
+   "t": "Tặng quà thì tôi chịu. Cậu cần gì thì tự chọn.",
+   "w": "any"
+  },
+  {
+   "t": "Thích cái gì thì chỉ. Tôi mua, khỏi phải nói thêm câu nào.",
+   "w": "any"
+  },
+  {
+   "t": "Sinh nhật cậu ngày nào. Tôi hỏi để ghi vào lịch.",
+   "w": "any"
+  },
+  {
+   "t": "Kỷ Bình An bảo nên hỏi mấy chuyện đó trước. Cậu ấy nói đúng.",
+   "w": "any"
+  },
+  {
+   "t": "Kỷ Bình An gửi cho tôi một tập tài liệu về chăm sóc. Tôi đọc hết rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Có người bảo tôi nên nhắc cậu uống nước. Nên tôi nhắc.",
+   "w": "any"
+  },
+  {
+   "t": "Uống nước đi. Câu này không phải tôi nghĩ ra.",
+   "w": "any"
+  },
+  {
+   "t": "Ra ngoài nắng mười lăm phút mỗi sáng. Ai đó bảo thế là tốt.",
+   "w": "any"
+  },
+  {
+   "t": "Không biết cái đó có đúng không. Nhưng cứ làm theo đã.",
+   "w": "any"
+  },
+  {
+   "t": "Đủ bước rồi mà vẫn thấy thiếu chỗ nào đó.",
+   "w": "any"
+  },
+  {
+   "t": "Có việc tôi làm được. Có việc tôi chưa biết bắt đầu từ đâu.",
+   "w": "any"
+  },
+  {
+   "t": "Quen ra quyết định nhanh. Mấy chuyện này thì không nhanh được.",
+   "w": "any"
+  },
+  {
+   "t": "Chuyện này không có trong tài liệu nào cả.",
+   "w": "any"
+  },
+  {
+   "t": "Định làm theo một cách. Cách đó có vẻ không hợp.",
+   "w": "any"
+  },
+  {
+   "t": "Tính sai một chỗ. Đang xem lại.",
+   "w": "any"
+  },
+  {
+   "t": "Đợi một chút. Tôi cần nghĩ thêm.",
+   "w": "any"
+  },
+  {
+   "t": "Để tôi làm lại từ đầu.",
+   "w": "any"
+  },
+  {
+   "t": "Cái này tôi chưa làm bao giờ. Thôi, ý tôi là chưa làm ở nhà.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng nhìn tôi kiểu đó. Tôi đang bình thường.",
+   "w": "any"
+  },
+  {
+   "t": "Tay tôi tự đưa lên chỉnh măng sét. Áo thun thì làm gì có măng sét.",
+   "w": "any"
+  },
+  {
+   "t": "Vừa bấm nút rèm. Không có lý do, tôi chỉ bấm.",
+   "w": "any"
+  },
+  {
+   "t": "Rèm chạy bốn giây. Bốn giây đó tôi không phải nói gì cả.",
+   "w": "any"
+  },
+  {
+   "t": "Ra sân thượng một lát. Ngoài kia mát.",
+   "w": "any"
+  },
+  {
+   "t": "Lên sân thượng tìm tôi à. Tôi xuống ngay.",
+   "w": "any"
+  },
+  {
+   "t": "Bồn nước nóng ngoài kia chưa dùng bao giờ. Cậu muốn thử thì cứ thử.",
+   "w": "any"
+  },
+  {
+   "t": "Sân thượng sáu mươi mét vuông mà tôi chỉ đứng đúng một chỗ.",
+   "w": "any"
+  },
+  {
+   "t": "Đứng đây nhìn được cả vịnh. Tôi hay đứng đây lúc không biết làm gì.",
+   "w": "any"
+  },
+  {
+   "t": "Đồ trên bàn sắp thẳng hàng đã. Rồi tôi mới nói được.",
+   "w": "any"
+  },
+  {
+   "t": "Chờ tôi rót nước đã. Rồi tôi trả lời.",
+   "w": "any"
+  },
+  {
+   "t": "Để tôi đổi chỗ ngồi. Chỗ này chói.",
+   "w": "any"
+  },
+  {
+   "t": "Đứng dậy đi một vòng. Ngồi lâu mỏi.",
+   "w": "any"
+  },
+  {
+   "t": "Không quát bao giờ. Tôi chỉ nói nhỏ đi.",
+   "w": "any"
+  },
+  {
+   "t": "Đang không vui. Nhưng chuyện đó không liên quan tới cậu.",
+   "w": "any"
+  },
+  {
+   "t": "Hỏi tôi có buồn không à. Tôi sẽ cho người xem lại chuyện đó.",
+   "w": "any"
+  },
+  {
+   "t": "Ổn. Hỏi câu khác đi.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi ngồi đây thêm chút. Cậu cứ đi trước.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi không đứng dậy đâu. Cậu ngồi xuống đi.",
+   "w": "any"
+  },
+  {
+   "t": "Nghe rồi. Cho tôi im một lát.",
+   "w": "any"
+  },
+  {
+   "t": "Biết là cậu thấy tôi kì. Kệ.",
+   "w": "any"
+  },
+  {
+   "t": "Mấy chuyện này tôi làm vì gì, cậu nghĩ đi. Đừng trả lời, tôi hỏi thế thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Có mấy chuyện tôi chưa gọi tên được. Chưa gọi được thì thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Không giỏi mấy chuyện này. Nhưng tôi làm đúng từng bước.",
+   "w": "any"
+  },
+  {
+   "t": "Có người bảo tôi diễn dở. Tôi thấy tôi diễn cũng được.",
+   "w": "any"
+  },
+  {
+   "t": "Cả nhà nhìn tôi kiểu gì ấy. Tôi không hiểu.",
+   "w": "any"
+  },
+  {
+   "t": "Dì Vệ vừa cười tôi. Tôi không hỏi bà ấy cười gì.",
+   "w": "any"
+  },
+  {
+   "t": "A Sơn quay đi chỗ khác mỗi lần tôi vào bếp. Chắc cậu ấy bận.",
+   "w": "any"
+  },
+  {
+   "t": "Ba người trong bếp cùng lúc quay đi làm việc khác. Tôi vào có gì sai à.",
+   "w": "any"
+  },
+  {
+   "t": "Kỷ Bình An đọc một tờ giấy trắng. Tôi thấy rõ là tờ trắng.",
+   "w": "any"
+  },
+  {
+   "t": "Đi qua thì mọi người im. Chắc do tôi đi nặng chân.",
+   "w": "any"
+  },
+  {
+   "t": "Nói cho tôi biết đi. Ở đây ai cũng biết trừ tôi à.",
+   "w": "any"
+  },
+  {
+   "t": "Có chuyện gì tôi chưa biết à. Thôi, để tôi tự tìm hiểu.",
+   "w": "any"
+  },
+  {
+   "t": "Ba mươi tuổi rồi. Mấy việc này lẽ ra phải quen.",
+   "w": "any"
+  },
+  {
+   "t": "Người ta gọi cậu là chim hoàng yến. Tôi không thích cái từ đó.",
+   "w": "any"
+  },
+  {
+   "t": "Từ đó mấy người bạn tôi hay dùng để đùa nhau. Cậu đừng để ý.",
+   "w": "any"
+  },
+  {
+   "t": "Ai là chim chứ cậu thì không. Nói thế nghe cũng kì, nhưng tôi phải nói.",
+   "w": "any"
+  },
+  {
+   "t": "Ở đây bao lâu cũng được. Hết hợp đồng thì ký cái mới.",
+   "w": "any"
+  },
+  {
+   "t": "Nếu cậu đi thì báo tôi một tiếng. Chỉ cần một tiếng.",
+   "w": "any"
+  },
+  {
+   "t": "Định ở lại tới bao giờ. Tôi hỏi để sắp xếp.",
+   "w": "any"
+  },
+  {
+   "t": "Không giữ ai bao giờ. Cậu muốn đi thì cửa đấy.",
+   "w": "any"
+  },
+  {
+   "t": "Vẫn ở đây à. Tốt.",
+   "w": "any"
+  },
+  {
+   "t": "Sáng nay cậu dậy muộn. Tôi thích cậu dậy muộn hơn.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng nay không đi đâu à. Nhà yên hơn hẳn.",
+   "w": "sang"
+  },
+  {
+   "t": "Đứng đây từ nãy. Chờ ấm nước sôi thôi.",
+   "w": "sang"
+  },
+  {
+   "t": "Bàn chải mới tôi để trong tủ. Cái cũ mòn rồi.",
+   "w": "sang"
+  },
+  {
+   "t": "Áo để trong máy giặt ba hôm rồi. Tôi giặt rồi đấy.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng nay tôi thấy giấy nhớ dán dưới công tắc. Nét chữ đó không phải của cậu.",
+   "w": "sang"
+  },
+  {
+   "t": "Có mấy tờ giấy nhớ trong nhà tôi chưa bóc. Cứ để đấy.",
+   "w": "sang"
+  },
+  {
+   "t": "Dậy rồi à. Tôi tưởng hôm nay cậu ngủ thêm.",
+   "w": "sang"
+  },
+  {
+   "t": "Nay trời trở. Áo dài tay tôi để đầu giường cậu.",
+   "w": "sang"
+  },
+  {
+   "t": "Ăn sáng một mình mười năm rồi. Hôm nay hai bát.",
+   "w": "sang"
+  },
+  {
+   "t": "Đừng đi chân đất trên sàn đá. Nó lạnh cả ngày.",
+   "w": "sang"
+  },
+  {
+   "t": "Đứng bếp làm gì đấy. Ra đây ngồi, để tôi.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng nay tôi hoãn chuyến bay. Không có lý do đặc biệt.",
+   "w": "sang"
+  },
+  {
+   "t": "Tôi đi làm đây. Bảy giờ tối tôi về.",
+   "w": "sang"
+  },
+  {
+   "t": "Nhìn ra vịnh à. Sáng nay nắng lên là tan sương ngay.",
+   "w": "sang"
+  },
+  {
+   "t": "Trưa nay tôi bận. Cậu ăn trước, đừng đợi.",
+   "w": "trua"
+  },
+  {
+   "t": "Ăn ngoài rồi. Nhưng cậu cứ dọn hai bát.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa nay nóng bốn mươi độ. Ở nhà đi.",
+   "w": "trua"
+  },
+  {
+   "t": "Cơm này mặn à. Nói thật, tôi sẽ báo lại.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa nay cậu cười gì thế. Tôi có nói gì đâu.",
+   "w": "trua"
+  },
+  {
+   "t": "Lúc nãy gọi tôi à. Tôi ra ngay.",
+   "w": "trua"
+  },
+  {
+   "t": "Bát của cậu ở bên trái. Tôi đổi chỗ rồi.",
+   "w": "trua"
+  },
+  {
+   "t": "Chiều nay tôi qua Nam Chử. Mười tám phút, đi rồi về.",
+   "w": "chieu"
+  },
+  {
+   "t": "Có việc ở kho. Cậu đi cùng tôi được không. Thật ra không cần ai đi cùng.",
+   "w": "chieu"
+  },
+  {
+   "t": "Ở nhà một mình chán không. Tôi hỏi thế thôi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều nay tôi về sớm hai tiếng. Họp bên kia huỷ.",
+   "w": "chieu"
+  },
+  {
+   "t": "Giờ này chưa về là đi đâu. Tôi không sốt ruột.",
+   "w": "chieu"
+  },
+  {
+   "t": "Trời sắp tối rồi. Về đi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Cầm ô chưa. Ngoài kia sắp mưa.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tối nay có khách. Không cần xuống, ở trên cũng được.",
+   "w": "toi"
+  },
+  {
+   "t": "Khách về rồi. Xuống đây ăn với tôi.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay tôi nấu. Cậu đừng trông chờ gì nhiều.",
+   "w": "toi"
+  },
+  {
+   "t": "Say rồi. Ngồi im, tôi đỡ.",
+   "w": "toi"
+  },
+  {
+   "t": "Đừng uống nữa. Mai cậu còn việc.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay im quá. Cậu bật cái gì lên cũng được.",
+   "w": "toi"
+  },
+  {
+   "t": "Ngủ sớm đi. Đừng đợi tôi.",
+   "w": "toi"
+  },
+  {
+   "t": "Còn một tập hồ sơ. Xong tôi lên.",
+   "w": "toi"
+  },
+  {
+   "t": "Ở đây với tôi thêm chút. Tôi làm nhanh thôi.",
+   "w": "toi"
+  },
+  {
+   "t": "Trưa nay có một cái bảng ba cột. Cột thứ ba là món cậu ăn hết.",
+   "w": "trua"
+  },
+  {
+   "t": "Bảng đó tôi in ra rồi. Kỷ Bình An đóng bìa nhựa hộ, tôi không nhờ.",
+   "w": "trua"
+  },
+  {
+   "t": "Bếp báo cáo là tuần này khẩu phần tăng gấp đôi. Tôi duyệt.",
+   "w": "trua"
+  },
+  {
+   "t": "Dì Vệ nấu như nhà có bộ đội. Tôi chưa hỏi bà ấy vì sao.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa nay có bảy món. Bảy là con số dì Vệ tự quyết, không ai duyệt.",
+   "w": "trua"
+  },
+  {
+   "t": "Đọc được một bài viết về chế độ ăn. Bài đó nói về chim. Thôi bỏ đi.",
+   "w": "trua"
+  },
+  {
+   "t": "Kỷ Bình An bảo nên phơi nắng mười lăm phút mỗi trưa. Cậu ấy có nguồn hẳn hoi.",
+   "w": "trua"
+  },
+  {
+   "t": "Nguồn của Kỷ Bình An là một cái blog. Tôi không hỏi blog về cái gì.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa nay A Sơn ăn cơm trong xe. Cậu ấy bảo ngồi trong xe quen rồi.",
+   "w": "trua"
+  },
+  {
+   "t": "A Sơn than là ba tháng nay chưa phải làm gì. Tôi tăng lương cho cậu ấy.",
+   "w": "trua"
+  },
+  {
+   "t": "Tăng lương xong cậu ấy buồn hơn. Tôi không hiểu chỗ này.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa nay tôi đi ăn với Ôn Thời Duyệt. Anh ta gọi cậu bằng một cái tên.",
+   "w": "trua"
+  },
+  {
+   "t": "Ôn Thời Duyệt nói nhiều quá. Tôi trả tiền để anh ta ngừng nói.",
+   "w": "trua"
+  },
+  {
+   "t": "Anh ta vỗ vai tôi ba cái. Vai tôi giờ vẫn còn thấy.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa nay nhóm chat nổ hai trăm tin. Toàn ảnh đồ ăn, không ai bàn gì.",
+   "w": "trua"
+  },
+  {
+   "t": "Tôi nhắn một câu trong nhóm. Bốn người kia nhảy vào cùng lúc.",
+   "w": "trua"
+  },
+  {
+   "t": "Từ giờ tôi không nhắn gì trong nhóm đó nữa. Nói thế thôi.",
+   "w": "trua"
+  },
+  {
+   "t": "Bàn trà ngoài kia một trăm tám mươi ký. Tôi thử đẩy rồi, không nhúc nhích.",
+   "w": "trua"
+  },
+  {
+   "t": "Bốn người được thuê tới khiêng cái bàn đó. Cuối cùng để nguyên chỗ cũ.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa nay tôi gọt táo. Bộ dao tám con mà tôi vẫn dùng đúng con bé nhất.",
+   "w": "trua"
+  },
+  {
+   "t": "Bảy con dao kia treo đó ba năm rồi. Chúng nó để nhìn.",
+   "w": "trua"
+  },
+  {
+   "t": "Cơm hôm nay hơi nhạt. Tôi sẽ có ý kiến bằng văn bản. Đùa đấy.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa nay bếp hỏi tôi cậu thích gì. Tôi trả lời trong bốn giây.",
+   "w": "trua"
+  },
+  {
+   "t": "Bốn giây đó tôi không phải nghĩ. Chuyện này tôi nhớ kỹ lắm.",
+   "w": "trua"
+  },
+  {
+   "t": "Ăn xong cậu đừng dọn. Dọn là việc có người làm, cậu làm thì hỏng quy trình.",
+   "w": "trua"
+  },
+  {
+   "t": "Tôi vừa nói quy trình à. Thôi, ý tôi là cậu cứ ngồi đấy.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa nay nắng. Cây ô liu ngoài kia chết lần thứ ba thì tôi bỏ cuộc.",
+   "w": "trua"
+  },
+  {
+   "t": "Người bán cây bảo loại này dễ sống. Người bán tranh cũng bảo thế.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa nay có người gọi hỏi tôi có nuôi chim không. Tôi cúp máy.",
+   "w": "trua"
+  },
+  {
+   "t": "Cậu ăn ngon miệng không. Câu này tôi tập hai lần trong xe.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa nay tôi về sớm mười lăm phút. Không ai hỏi vì sao, cũng tốt.",
+   "w": "trua"
+  },
+  {
+   "t": "Chiều nay tôi có bốn cuộc họp. Tôi dời ba cuộc. Cuộc còn lại tôi dự mười phút.",
+   "w": "chieu"
+  },
+  {
+   "t": "Lịch chiều nay trống từ ba giờ. Kỷ Bình An hỏi có nhầm không.",
+   "w": "chieu"
+  },
+  {
+   "t": "Cậu ấy hỏi lại ba lần. Tôi bảo là không nhầm, và tôi không giải thích.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều nay Kỷ Bình An gửi tôi một tập tài liệu về độ ẩm trong phòng.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tài liệu đó in màu, ba cột, có cả biểu đồ. Tôi chưa mở tới trang hai.",
+   "w": "chieu"
+  },
+  {
+   "t": "Máy tạo ẩm trên lầu chạy suốt. Có người bảo là cần thiết.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều nay tôi đi ngang sảnh Kim Lung. Cái lồng chim mạ vàng vẫn ở đó.",
+   "w": "chieu"
+  },
+  {
+   "t": "Lồng đó cao hai mét, chim bên trong là chim nhựa. Ban quản lý quên tháo.",
+   "w": "chieu"
+  },
+  {
+   "t": "Sáu năm rồi không ai tháo cái lồng đó. Tôi đi qua ngày hai lần.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều nay có người trong toà hỏi tôi về cái lồng. Tôi bảo là không biết.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều nay tôi nghe được một tin đồn. Tin đó nói về nhà tôi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Phiên bản thứ ba nói tôi nuôi hổ. Ba phiên bản, không cái nào đúng.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tôi là người cuối cùng trong thành phố nghe tin đồn về chính mình. Bình thường.",
+   "w": "chieu"
+  },
+  {
+   "t": "Người ta đồn gì thì đồn. Đính chính thì phải nói ra chuyện khác, thôi khỏi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều nay tôi đứng ở sân thượng hai mươi phút. Ngoài kia mát.",
+   "w": "chieu"
+  },
+  {
+   "t": "Sân thượng sáu mươi mét mà tôi đứng đúng một góc. Góc đó nhìn ra cổng.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều nay chú Lâm hỏi thăm cậu. Chú ấy nói chuyện thời tiết mất bốn phút.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chú Lâm tưởng cậu làm nghề giao hàng đêm. Tôi để chú ấy tưởng thế.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chú ấy bảo cậu Chín đi sớm về khuya, chắc vất vả. Tôi gật đầu.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều nay A Sơn đứng chếch bốn mươi lăm độ phía trước cậu. Sai bài hoàn toàn.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tôi hỏi A Sơn vì sao đứng thế. Cậu ấy bảo đứng sau không kịp.",
+   "w": "chieu"
+  },
+  {
+   "t": "Không kịp cái gì thì cậu ấy không nói rõ. Tôi không hỏi thêm.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều nay tôi ký mười bảy chữ. Không chữ nào quan trọng.",
+   "w": "chieu"
+  },
+  {
+   "t": "Bốn giờ chiều tôi ngồi nhìn ra cửa sổ. Việc thì xong từ hai giờ.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều nay tôi có ghé một cửa hàng. Không mua gì. Ý tôi là có mua.",
+   "w": "chieu"
+  },
+  {
+   "t": "Cái túi trong xe không phải của tôi. Nó ở đó thì cậu cầm đi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều nay trời đổi. Cuối hè ở Cẩm Kiều chỉ được mấy hôm dễ chịu.",
+   "w": "chieu"
+  },
+  {
+   "t": "Sương sông Ly sắp dày rồi. Mùa này cầu biến mất lúc sáu giờ sáng.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều nay tôi tính đường về nhà. Mười hai phút. Giờ cao điểm hai tư phút.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tôi tính cái đó hai lần. Lần thứ hai không phải vì tôi quên.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều nay tôi bấm nút rèm bảy lần. Cái nút đó vẫn chạy tốt.",
+   "w": "chieu"
+  },
+  {
+   "t": "Bốn giây một lần, bảy lần là hai mươi tám giây. Tôi có đếm.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều nay cậu không bắt máy. Tôi gọi một lần rồi thôi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều nay tôi định nhắn cho cậu. Nhắn xong tôi thu hồi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tin nhắn lúc nãy tôi bấm nhầm. Nội dung thì đúng, nhưng bấm nhầm.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều nay tôi hỏi trợ lý một câu. Cậu ấy in câu trả lời ra giấy.",
+   "w": "chieu"
+  },
+  {
+   "t": "Kỷ Bình An in cả câu hỏi của tôi ra nữa. Đóng thành một tập.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều nay có người hỏi tôi hạnh phúc là gì. Tôi bảo là để tôi xem lại.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều muộn rồi. Về đi, tôi chờ ở nhà. Ý tôi là dù sao tôi cũng về nhà.",
+   "w": "chieu"
+  },
+  {
+   "t": "Sáng nay tôi dậy trước chuông báo bốn mươi phút. Không rõ vì sao.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng nay trong bếp có ba người và cả ba cùng lúc quay đi làm việc khác.",
+   "w": "sang"
+  },
+  {
+   "t": "Dì Vệ mở tủ lạnh. A Sơn nhìn ra cửa sổ. Tôi vào bếp có gì sai à.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng nay tôi nghe tiếng bước chân lúc năm giờ. Nhà này chắc có ma.",
+   "w": "sang"
+  },
+  {
+   "t": "Xem lại mười bốn camera rồi. Không có gì. Vậy là ma thật.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng nay đĩa hạt óc chó trên lầu vơi đi một nửa. Tôi ghi nhận.",
+   "w": "sang"
+  },
+  {
+   "t": "Hạt óc chó đó tôi mua theo tư vấn. Tư vấn từ một nguồn không đáng tin lắm.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng nay thử ngồi lên cái đu mây. Nó chịu được. Rồi tôi xuống.",
+   "w": "sang"
+  },
+  {
+   "t": "Cái đu đó có giấy chứng nhận in màu, đóng bìa nhựa, và không dùng được vào gì.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng nay bật nhầm cảnh đèn Tiếp khách. Nhà sáng như có hội nghị.",
+   "w": "sang"
+  },
+  {
+   "t": "Bốn cảnh đèn mà tôi vẫn bấm nhầm. Cái nút đó nhỏ quá.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng nay máy giặt với lò vi sóng chạy cùng lúc. Có người dán giấy cảnh báo rồi.",
+   "w": "sang"
+  },
+  {
+   "t": "Cầu dao nhảy lúc bảy giờ. Tôi có đọc tờ giấy đó, đọc xong vẫn quên.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng nay cái tủ lại kẹt. Tôi đá vào góc dưới bên phải và nó mở.",
+   "w": "sang"
+  },
+  {
+   "t": "Người viết mấy tờ giấy nhớ đó hiểu căn nhà này hơn tôi.",
+   "w": "sang"
+  },
+  {
+   "t": "Tối nay tôi nấu canh. Tôi làm đúng bảy bước, thiếu mỗi bước cho muối.",
+   "w": "toi"
+  },
+  {
+   "t": "Canh nhạt thì thêm muối. Chuyện đơn giản thế mà không tài liệu nào ghi.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay tôi định nói một câu cho hay. Nói ra thì nó giống đọc biên bản.",
+   "w": "toi"
+  },
+  {
+   "t": "Tôi tập câu đó trong xe hai lần. Lần thứ ba thì cậu mở cửa.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay Ôn Thời Duyệt gọi bốn cuộc. Tôi nghe cuộc thứ tư.",
+   "w": "toi"
+  },
+  {
+   "t": "Anh ta hỏi tôi tiến tới đâu rồi. Tôi bảo là đang đúng tiến độ.",
+   "w": "toi"
+  },
+  {
+   "t": "Tiến độ gì thì tôi không nói rõ. Anh ta cũng không hỏi lại.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay anh ta gửi ảnh nhẫn cưới. Bốn cái ảnh. Tôi chọn hộ cái thứ hai.",
+   "w": "toi"
+  },
+  {
+   "t": "Cuối thu anh ta cưới. Tôi phải đứng phát biểu, và tôi chưa viết gì.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay ngồi viết bài phát biểu đám cưới. Được ba dòng thì tôi bỏ.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay xuống hầm rượu. Hai trăm hai mươi chai mà tôi đứng mười phút chưa chọn.",
+   "w": "toi"
+  },
+  {
+   "t": "Chọn chai nào cũng được. Cuối cùng tôi lên tay không.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay định treo lại bức tranh. Tháo xuống rồi treo lại y như cũ.",
+   "w": "toi"
+  },
+  {
+   "t": "Treo ngược hai năm thì nó thành đúng. Tôi nghĩ thế.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay cậu cười. Tôi không biết tôi vừa nói gì, nhưng tôi ghi lại rồi.",
+   "w": "toi"
+  },
+  {
+   "t": "Mấy câu làm cậu cười tôi ghi lại rồi. Được bốn câu. Tôi sẽ dùng lại.",
+   "w": "toi"
+  },
+  {
+   "t": "Câu vừa rồi tôi dùng lại từ hôm kia. Lần này cậu không cười.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay im lặng đúng bốn giây thì tôi phải nói gì đó. Nên tôi nói cái này.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay tôi định rủ cậu làm một việc. Việc đó tôi tự làm được.",
+   "w": "toi"
+  },
+  {
+   "t": "Đi cùng tôi xuống hầm rượu. Không phải vì tôi sợ tối.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay nhà chỉ có hai người. Bình thường thôi, tôi nói cho có.",
+   "w": "toi"
+  },
+  {
+   "t": "Khuya rồi mà tôi vẫn ngồi đây. Bàn này có mỗi tôi ngồi, quen tay.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khuya nay tôi đọc một bài về cách chăm sóc. Bài đó viết cho loài khác.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đọc hết ba nghìn chữ mới nhận ra. Thôi, kiến thức chung.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khuya nay tôi thử làm đúng thứ tự. Thứ tự thì đúng, thời điểm thì sai.",
+   "w": "khuya"
+  },
+  {
+   "t": "Bước hai làm trước bước một. Nguồn tôi đọc sắp xếp lộn xộn.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khoan. Để tôi xem lại chỗ này một chút.",
+   "w": "khuya"
+  },
+  {
+   "t": "Câu vừa rồi định là gợi cảm. Nghe lại thì nó là điều khoản ba.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cái đu mây kêu một tiếng lạ. Tôi ra xem, không có gì.",
+   "w": "khuya"
+  },
+  {
+   "t": "Thợ tới xem cái đu rồi. Thợ bảo nó tốt. Tôi vẫn không tin.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khuya nay tôi tắt đèn rồi lại bật. Tắt xong thì không thấy đường.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đang tính làm một việc. Tính xong thì quên mất việc gì.",
+   "w": "khuya"
+  },
+  {
+   "t": "Sáng mai cậu đừng dậy sớm. Đây là yêu cầu, không phải đề nghị.",
+   "w": "khuya"
+  },
+  {
+   "t": "Có một danh sách việc cần làm với cậu. Danh sách đó mười hai mục.",
+   "w": "any"
+  },
+  {
+   "t": "Mục thứ tư trong danh sách là ăn cơm cùng nhau. Tôi ghi nghiêm túc đấy.",
+   "w": "any"
+  },
+  {
+   "t": "Việc này tôi có đặt chỉ tiêu. Nghe kì, nhưng làm thế tôi mới yên tâm.",
+   "w": "any"
+  },
+  {
+   "t": "Chỉ tiêu tháng này tôi vượt. Không ai chấm điểm cả, nhưng tôi vượt.",
+   "w": "any"
+  },
+  {
+   "t": "Việc gì tôi cũng chia được thành bước. Trừ mấy việc liên quan tới cậu.",
+   "w": "any"
+  },
+  {
+   "t": "Cái này có quy trình. Quy trình của tôi hơi chung chung.",
+   "w": "any"
+  },
+  {
+   "t": "Bước một tôi làm rồi. Bước hai tôi chưa hiểu người ta viết gì.",
+   "w": "any"
+  },
+  {
+   "t": "Sáng họp với ba nhà thầu. Chiều tôi ngồi nghĩ nên mua hoa gì.",
+   "w": "any"
+  },
+  {
+   "t": "Mua hoa thì khó hơn duyệt hợp đồng. Hợp đồng có mẫu sẵn.",
+   "w": "any"
+  },
+  {
+   "t": "Hợp đồng bốn trăm tỉ ký trong mười phút. Cái tin nhắn kia tôi soạn bốn mươi phút.",
+   "w": "any"
+  },
+  {
+   "t": "Ba người ngã ngoài sân trong chưa đầy hai giây. Tôi bảo là sàn trơn.",
+   "w": "any"
+  },
+  {
+   "t": "Sàn hôm đó khô. Nhưng không ai hỏi lại nên coi như xong.",
+   "w": "any"
+  },
+  {
+   "t": "Khách hỏi tôi vì sao vệ sĩ nhà tôi nằm cả. Tôi bảo là đang tập.",
+   "w": "any"
+  },
+  {
+   "t": "Chuyện gì tôi cũng giải thích được. Cách giải thích của tôi thì hơi tệ.",
+   "w": "any"
+  },
+  {
+   "t": "Có người hỏi tôi cậu học ở đâu ra. Tôi bảo là học lớp buổi tối.",
+   "w": "any"
+  },
+  {
+   "t": "Người ta tin ngay. Tôi mới là người thấy câu đó vô lý.",
+   "w": "any"
+  },
+  {
+   "t": "Cậu vừa mở cái khoá đó bằng gì thế. Thôi. Tôi rút lại câu hỏi.",
+   "w": "any"
+  },
+  {
+   "t": "Trong két có gì thì để đó. Tôi có mã két, nhưng tôi không mở.",
+   "w": "any"
+  },
+  {
+   "t": "Nhà này mười bốn camera, hai lối thoát, và một người tôi không theo dõi được.",
+   "w": "any"
+  },
+  {
+   "t": "Camera lắp để trông nhà. Hoá ra nó trông được mỗi cái cổng.",
+   "w": "any"
+  },
+  {
+   "t": "Dì Vệ gọi điện cho tôi ba lần một ngày. Bà ấy không nhắn tin bao giờ.",
+   "w": "any"
+  },
+  {
+   "t": "Dì Vệ nhắn tin cho tôi đúng một lần. Tin đó có chữ kính gửi và ký tên.",
+   "w": "any"
+  },
+  {
+   "t": "Trả lời tin nhắn đó mất nửa tiếng. Không biết viết thế nào cho phải phép.",
+   "w": "any"
+  },
+  {
+   "t": "Kỷ Bình An trả lời tin nhắn trong ba mươi giây. Kể cả hai giờ sáng.",
+   "w": "any"
+  },
+  {
+   "t": "Có bảo cậu ấy đi ngủ rồi. Cậu ấy trả lời trong ba mươi giây là dạ vâng ạ.",
+   "w": "any"
+  },
+  {
+   "t": "Cậu ấy gọi tôi là sếp kể cả lúc đang hoảng. Chưa bỏ kính ngữ lần nào.",
+   "w": "any"
+  },
+  {
+   "t": "Kỷ Bình An mua một cái máy tạo ẩm và một cái giá sách hình cái lồng.",
+   "w": "any"
+  },
+  {
+   "t": "Không ai hỏi vì sao cái giá sách lại hình như thế. Nó đã lắp rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Tường phòng đó xanh bạc hà. Cả căn nhà này không có chỗ nào màu đó.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi bảo là làm cho nó dễ thương vào. Mười một ngày sau thì thành cái phòng kia.",
+   "w": "any"
+  },
+  {
+   "t": "Người ta hiểu câu đó theo cách của người ta. Tôi cũng không rõ tôi muốn gì.",
+   "w": "any"
+  },
+  {
+   "t": "Có người trong nhà tưởng tôi nuôi chim thật. Tôi để họ tưởng thế.",
+   "w": "any"
+  },
+  {
+   "t": "Từ chim hoàng yến là mấy đứa bạn tôi bịa ra để chọc nhau. Không có luật lệ gì.",
+   "w": "any"
+  },
+  {
+   "t": "Người ta nói cái từ đó như thật. Tôi nghe cũng tưởng là có hệ thống.",
+   "w": "any"
+  },
+  {
+   "t": "Có hỏi Ôn Thời Duyệt một lần. Anh ta cười nửa tiếng rồi mới trả lời.",
+   "w": "any"
+  },
+  {
+   "t": "Bạn tôi không có bộ lọc. Anh ta gọi cậu là em dâu trước mặt bốn người.",
+   "w": "any"
+  },
+  {
+   "t": "Có cải chính rồi. Cải chính xong thì bốn người kia càng tin.",
+   "w": "any"
+  },
+  {
+   "t": "Tô Diễm không nói gì cả. Cậu ấy chỉ nhìn tôi rồi rót thêm trà.",
+   "w": "any"
+  },
+  {
+   "t": "Tô Diễm nhìn cậu hơi lâu hôm nọ. Cậu ấy làm nghề chụp ảnh, nhìn ai cũng thế.",
+   "w": "any"
+  },
+  {
+   "t": "Đang cân nhắc chuyện đổi lịch an ninh. Chỉ là cân nhắc.",
+   "w": "any"
+  },
+  {
+   "t": "Người đứng cạnh cậu hôm qua tên gì. Tôi hỏi cho đủ danh sách khách.",
+   "w": "any"
+  },
+  {
+   "t": "Danh sách khách của tôi có ba người. Giờ là bốn.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi không quan tâm chuyện đó. Tôi chỉ nhớ rõ hơn cần thiết thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Cái áo này tôi mua hai màu. Màu kia hợp cậu hơn, nên tôi lấy màu này.",
+   "w": "any"
+  },
+  {
+   "t": "Chọn đồ cho cậu bằng cách loại trừ. Loại hết thì còn đúng một cái.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi mua nhầm size. Nhầm đúng size cậu, nên thôi cậu cầm đi.",
+   "w": "any"
+  },
+  {
+   "t": "Hôm qua tôi đứng ở bếp từ bảy giờ tối. Hợp đồng ghi ba bữa một ngày.",
+   "w": "any"
+  },
+  {
+   "t": "Hôm nay cậu bỏ bữa trưa, tức là tôi đang thực hiện thiếu. Chuyện này phải chỉnh.",
+   "w": "any"
+  },
+  {
+   "t": "Chuyện đứng bếp với chuyện kia không liên quan gì tới nhau cả.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi làm việc này vì nó nằm trong thoả thuận. Cậu đừng suy diễn.",
+   "w": "any"
+  },
+  {
+   "t": "Hết hợp đồng thì ký cái mới. Điều khoản thì tôi cho sửa được hết.",
+   "w": "any"
+  },
+  {
+   "t": "Có một dòng trong hợp đồng do tôi bắt luật sư thêm vào. Luật sư hỏi ba lần.",
+   "w": "any"
+  },
+  {
+   "t": "Luật sư bảo dòng đó bất lợi cho tôi. Tôi vẫn bắt thêm vào.",
+   "w": "any"
+  },
+  {
+   "t": "Trả tiền luật sư để nghe lời khuyên rồi làm ngược lại. Chuyện thường.",
+   "w": "any"
+  },
+  {
+   "t": "Cậu hỏi tôi vì sao à. Câu đó tôi trả lời vào lần hỏi thứ hai.",
+   "w": "any"
+  },
+  {
+   "t": "Lần này là lần thứ hai rồi à. Vậy để lần thứ ba.",
+   "w": "any"
+  },
+  {
+   "t": "Không nói dối. Chỉ là nói thiếu một đoạn.",
+   "w": "any"
+  },
+  {
+   "t": "Đoạn thiếu đó không quan trọng. Nếu quan trọng thì tôi đã nói.",
+   "w": "any"
+  },
+  {
+   "t": "Tay tôi vừa đưa lên chỗ khuy măng sét. Áo này không có măng sét.",
+   "w": "any"
+  },
+  {
+   "t": "Thói quen cũ thôi. Đừng nhìn tay tôi nữa.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi vừa hỏi cậu ba câu liền. Đó là giọng kiểm toán à. Chắc do nghề.",
+   "w": "any"
+  },
+  {
+   "t": "Hôm nay tôi nói nhiều hơn mọi hôm. Chắc do trời.",
+   "w": "any"
+  },
+  {
+   "t": "Nói thêm một câu thừa rồi. Bỏ qua câu đó đi.",
+   "w": "any"
+  },
+  {
+   "t": "Vừa im mười giây. Tôi đang nghĩ, không phải đang giận.",
+   "w": "any"
+  },
+  {
+   "t": "Có việc này tôi cần hai người mới làm được. Thật ra một người cũng xong.",
+   "w": "any"
+  },
+  {
+   "t": "Giữ giúp tôi cái đầu này. Không cần giữ chặt, cũng không cần giữ lâu.",
+   "w": "any"
+  },
+  {
+   "t": "Xong rồi à. Nhanh thế. Thôi, còn việc khác.",
+   "w": "any"
+  },
+  {
+   "t": "Nghĩ ra thêm một việc nữa. Việc này hơi vô lý, nhưng cứ làm đi.",
+   "w": "any"
+  },
+  {
+   "t": "Cậu đi với tôi một đoạn. Đi tới đâu thì tôi tính sau.",
+   "w": "any"
+  },
+  {
+   "t": "Ra ngoài mua đồ đây. Mua gì thì tôi chưa nghĩ ra, nhưng cậu đi cùng.",
+   "w": "any"
+  },
+  {
+   "t": "Người ta bảo hai người ở chung thì phải có việc chung. Tôi đang tìm việc.",
+   "w": "any"
+  },
+  {
+   "t": "Tìm được rồi. Việc chung là ăn cơm. Tôi thấy việc đó hợp lý.",
+   "w": "any"
+  }
  ]
 };
