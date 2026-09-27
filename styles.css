@@ -1698,9 +1698,11 @@ body.guest .doc-page { user-select: none; }
 }
 .pgn-btn:hover { color: var(--gold-bright); background: rgba(255, 255, 255, 0.06); }
 .pgn-label {
+  display: inline-flex; align-items: center; gap: 3px;
   font-size: 0.78rem; color: var(--gold-bright);
-  padding: 0 3px; white-space: nowrap;
+  padding: 0 4px; white-space: nowrap;
 }
+.pgn-label .ic { width: 1em; height: 1em; opacity: 0.85; }
 .pgn-sep { width: 1px; height: 16px; background: var(--line-strong); margin: 0 3px; }
 .pgn-del { color: var(--danger); }
 .pgn-del:hover { color: #f0a5a5; background: rgba(224, 133, 133, 0.1); }

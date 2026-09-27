@@ -1378,6 +1378,8 @@ const ICN = {
   chevR: '<path d="m9 18 6-6-6-6"/>',
   chevsL: '<path d="m11 17-5-5 5-5"/><path d="m18 17-5-5 5-5"/>',
   chevsR: '<path d="m13 17 5-5-5-5"/><path d="m6 17 5-5-5-5"/>',
+  file: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/>',
+  plus: '<path d="M5 12h14"/><path d="M12 5v14"/>',
 };
 const ic = (n, cls) => `<svg class="ic${cls ? " " + cls : ""}" viewBox="0 0 24 24" aria-hidden="true">${ICN[n] || ""}</svg>`;
 const hfPageMem = {}; // fileId gốc → trang đang xem (quay lại tab khỏi về trang 1)
@@ -2006,16 +2008,16 @@ function mountPagedEditor(slot, opts) {
 
     slot.innerHTML = `
       ${(total > 1 || canEdit) ? `<div class="page-nav-wrap"><div class="page-nav-chip">
-        <button class="pgn-btn" data-pgn="prev" title="Trang trước">‹</button>
-        <span class="pgn-label" title="Trang ${cur + 1} / ${total}">📄${cur + 1}/${total}</span>
-        <button class="pgn-btn" data-pgn="next" title="Trang sau — hết trang thì quay về đầu">›</button>
+        <button class="pgn-btn" data-pgn="prev" title="Trang trước">${ic("chevL")}</button>
+        <span class="pgn-label" title="Trang ${cur + 1} / ${total}">${ic("file")} ${cur + 1}/${total}</span>
+        <button class="pgn-btn" data-pgn="next" title="Trang sau — hết trang thì quay về đầu">${ic("chevR")}</button>
         ${canEdit ? `<span class="pgn-sep"></span>
-        <button class="pgn-btn" data-pgn="add" title="Trải thêm một trang giấy mới">＋</button>
-        ${total > 1 ? `<button class="pgn-btn pgn-del" data-pgn="del" title="Xoá trang đang mở (các trang sau dồn lên)">🗑</button>` : ""}` : ""}
+        <button class="pgn-btn" data-pgn="add" title="Trải thêm một trang giấy mới">${ic("plus")}</button>
+        ${total > 1 ? `<button class="pgn-btn pgn-del" data-pgn="del" title="Xoá trang đang mở (các trang sau dồn lên)">${ic("trash")}</button>` : ""}` : ""}
       </div></div>` : ""}
       ${total > 1 ? `
-      <button class="page-side page-side-left" data-pgn="prev" title="Trang trước">‹</button>
-      <button class="page-side page-side-right" data-pgn="next" title="Trang sau">›</button>` : ""}
+      <button class="page-side page-side-left" data-pgn="prev" title="Trang trước">${ic("chevL")}</button>
+      <button class="page-side page-side-right" data-pgn="next" title="Trang sau">${ic("chevR")}</button>` : ""}
       <div class="paged-editor-slot"></div>`;
 
     const field = fieldForPage(opts.base, cur);
