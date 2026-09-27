@@ -1630,18 +1630,11 @@ async function listGeminiModels(key) {
     .filter((m) => (m.supportedGenerationMethods || []).includes("generateContent"))
     .map((m) => m.name.replace(/^models\//, ""))
     .filter((n) => !/(vision|embedding|aqa|image|tts|learnlm)/i.test(n));
-  const rank = (n) => {
-    if (/2\.5-flash-lite/.test(n)) return 1;
-    if (/2\.5-flash/.test(n)) return 2;
-    if (/flash-latest/.test(n)) return 3;
-    if (/2\.0-flash-lite/.test(n)) return 4;
-    if (/2\.0-flash/.test(n)) return 5;
-    if (/flash/.test(n)) return 6;
-    if (/2\.5-pro|pro-latest/.test(n)) return 8;
-    if (/pro/.test(n)) return 9;
-    return 7;
-  };
-  return names.sort((a, b) => rank(a) - rank(b) || a.length - b.length);
+  // ưu tiên phiên bản CAO NHẤT key có (3.0 → 2.5 → …), flash trước pro, tránh exp/preview
+  const ver = (n) => { const m = n.match(/gemini-(\d+)\.(\d+)/); return m ? +m[1] * 10 + +m[2] : /latest/.test(n) ? 5 : 0; };
+  const fam = (n) => /flash-lite/.test(n) ? 1 : /flash/.test(n) ? 0 : /pro/.test(n) ? 3 : 2;
+  const exp = (n) => /(exp|preview)/i.test(n) ? 1 : 0;
+  return names.sort((a, b) => ver(b) - ver(a) || fam(a) - fam(b) || exp(a) - exp(b) || a.length - b.length);
 }
 function geminiGenerate(model, key, ask) {
   return fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(key)}`, {
