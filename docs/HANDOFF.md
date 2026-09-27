@@ -1,5 +1,5 @@
 # Handoff — Tinh Hải Vạn Giới
-Cập nhật: 2026-09-27 (v89)
+Cập nhật: 2026-09-27 (v90)
 
 Web hub roleplay riêng của hai người, theme biển đêm & trời sao. SPA thuần
 (`index.html` + `app.js` + `styles.css`) + Firebase Auth Google + Firestore realtime.
@@ -7,7 +7,8 @@ Repo `al9801/tinh-hai-van-gioi`, live https://al9801.github.io/tinh-hai-van-gioi
 (GitHub Actions tự deploy khi push `main`).
 
 ## Trạng thái
-- Bản chạy: v89. Bong bóng thoại `#mv-bubble` giờ `position:absolute` trong `.map-view-head` (position:relative), z-index 30 — nổi đè ngay dưới avatar (showCharBubble định vị theo getBoundingClientRect), KHÔNG đẩy nội dung trang xuống. Verify: subtabs không xê dịch khi bong bóng hiện.
+- Bản chạy: v90. (1) Thoại chuyển sang FILE RIÊNG `char-lines.js` (`window.THVG_CHAR_LINES`, load trước app.js) — app.js `CHAR_LINES = window.THVG_CHAR_LINES || {}`. Thêm cổng = sửa char-lines.js, khỏi đụng logic. Đã nạp cổng "tô thần vũ" = 219 câu {t,w}. Sinh file bằng node parse .md (tách theo " | ", map mọi lúc→any/sáng→sang/…). (2) Footer `.app-version` TỰ đọc số từ `import.meta.url` (?v=N) — hết kẹt v81, không cần sửa tay. QUY TRÌNH thêm thoại cổng mới: user đưa list → regenerate/append char-lines.js (khoá = normKey của tên cổng) → bump ?v → deploy.
+- Bản chạy trước: v89. Bong bóng thoại `#mv-bubble` giờ `position:absolute` trong `.map-view-head` (position:relative), z-index 30 — nổi đè ngay dưới avatar (showCharBubble định vị theo getBoundingClientRect), KHÔNG đẩy nội dung trang xuống. Verify: subtabs không xê dịch khi bong bóng hiện.
 - Bản chạy trước: v88. GỠ HẲN Gemini API (user chán vì model liên tục khai tử/quá tải 404,503) + gỡ UI soạn thoại (nút Thêm câu/Tự sinh/🔑, list editor). Modal sửa cổng giờ CHỈ còn tải ảnh chân dung (avatar). Thoại avatar lấy từ `CHAR_LINES` (object trong app.js ~dòng 1519, khoá = tên cổng chuẩn hoá qua normKey, mỗi câu {t,w}) + fallback `m.charLines` cũ trên doc. `getLinesFor(m)` gộp cả hai; pickCharLine/updateMapMeta dùng nó. QUY TRÌNH: user đưa list thoại theo cổng → Claude nhập tay vào CHAR_LINES rồi deploy. Giữ: avatar trên thẻ Biển Cổng (.mc-avatar) + chạm avatar → bong bóng theo giờ. CSS .line-*/.lines-* thành dead code (vô hại). saveMap không còn ghi charLines.
 - Bản chạy trước: v87. Ưu tiên phiên bản Gemini CAO NHẤT key có: rank model theo version DESC (3.0→2.5→2.0), flash trước pro, tránh exp/preview (user yêu cầu "lên hẳn 3.0" — không hardcode tên, tự chọn bản mới nhất trong ListModels, loop vẫn fallback). Verify fetch giả: chọn gemini-3.0-flash trước.
 - Bản chạy trước: v86. Tiếp v85: **cả `gemini-2.5-flash` cũng 404 'no longer available'** cho key user → ListModels (v1beta) liệt kê cả model đã khai tử, chọn 1 cái là trúng cái chết. Sửa: `listGeminiModels()` lấy CẢ danh sách (xếp ưu tiên flash-lite→flash→…), `generateCharLines()` **thử lần lượt, bỏ qua 404, dừng ở model đầu chạy được**, cache `thvg-gemini-model`. Cache cũ thử trước 1 lần rồi tự sang cái kế. Chết hết → lỗi in `Key có: <tên model>` để chẩn đoán. Nếu user báo vẫn lỗi: đọc list model trong câu lỗi để biết key có gì (có thể key project cũ chỉ còn pro/exp). Verify fetch giả OK. Cú gọi thật vẫn chờ user xác nhận.
