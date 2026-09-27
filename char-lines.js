@@ -881,11 +881,11 @@ window.THVG_CHAR_LINES = {
  ],
  "deon varisnovich": [
   {
-   "t": "Dậy rồi đấy à. Tôi tưởng cựu Đại tá thì phải quen giờ báo thức chứ.",
+   "t": "Dậy rồi đấy à. Tôi tưởng cựu Đại tá thì quen giờ báo thức chứ.",
    "w": "sang"
   },
   {
-   "t": "Chuyến tàu nước đầu tiên rời Ascalon lúc năm giờ mười. Tôi đứng đây từ năm giờ. Không phải vì siêng.",
+   "t": "Chuyến tàu nước đầu rời Ascalon lúc năm giờ mười. Tôi đứng đây từ năm giờ.",
    "w": "sang"
   },
   {
@@ -893,11 +893,11 @@ window.THVG_CHAR_LINES = {
    "w": "sang"
   },
   {
-   "t": "Trên này gió sớm buốt hơn dưới mặt biển. Áo cổ lọ không phải để làm dáng đâu.",
+   "t": "Gió sớm trên này buốt hơn dưới mặt biển. Áo cổ lọ không phải để làm dáng.",
    "w": "sang"
   },
   {
-   "t": "Báo cáo đêm qua dày bốn mươi trang. Tôi đọc hết rồi, và không có dòng nào nhắc tới cậu. Mừng chưa.",
+   "t": "Báo cáo đêm qua dày bốn mươi trang. Không dòng nào nhắc tới em. Mừng chưa.",
    "w": "sang"
   },
   {
@@ -905,7 +905,7 @@ window.THVG_CHAR_LINES = {
    "w": "sang"
   },
   {
-   "t": "Đô đốc Johans sáng nào cũng uống trà đặc tới mức đắng. Học trò của ông có học được cái đó không.",
+   "t": "Đô đốc Johans sáng nào cũng uống trà đặc tới mức đắng. Em học được cái đó chưa.",
    "w": "sang"
   },
   {
@@ -913,7 +913,7 @@ window.THVG_CHAR_LINES = {
    "w": "sang"
   },
   {
-   "t": "Cái lõi năng lượng nhà cậu kêu bíp lần thứ mấy trong tuần rồi.",
+   "t": "Cái lõi năng lượng nhà em kêu bíp lần thứ mấy trong tuần rồi.",
    "w": "sang"
   },
   {
@@ -921,19 +921,19 @@ window.THVG_CHAR_LINES = {
    "w": "sang"
   },
   {
-   "t": "Tôi ký xong bảy cái lệnh trước khi trời sáng hẳn. Không cái nào vui.",
+   "t": "Bảy cái lệnh ký xong trước khi trời sáng hẳn. Không cái nào vui.",
    "w": "sang"
   },
   {
-   "t": "Có người vừa bước ra khỏi nhà mà quên mang theo gậy phép. Tôi đoán bừa thôi.",
+   "t": "Có người vừa ra khỏi nhà mà quên mang gậy phép. Tôi đoán bừa thôi.",
    "w": "sang"
   },
   {
-   "t": "Bữa sáng tử tế giá năm đồng. Nhịn một bữa không chết ai, nhưng nhịn ba bữa thì có.",
+   "t": "Bữa sáng tử tế giá năm đồng. Nhịn một bữa không chết ai, ba bữa thì có.",
    "w": "sang"
   },
   {
-   "t": "Mai là ngày tàu chở pin từ Aeolis cập bến. Cậu nhớ giùm, tôi nhắc một lần thôi đấy.",
+   "t": "Mai tàu chở pin từ Aeolis cập bến. Em nhớ giùm, tôi nhắc một lần thôi.",
    "w": "sang"
   },
   {
@@ -953,11 +953,11 @@ window.THVG_CHAR_LINES = {
    "w": "sang"
   },
   {
-   "t": "Tôi thích buổi sáng vì chưa ai kịp làm hỏng việc gì.",
+   "t": "Buổi sáng dễ chịu ở chỗ chưa ai kịp làm hỏng việc gì.",
    "w": "sang"
   },
   {
-   "t": "Cậu mà ngủ tiếp thì tấm thẻ trên bàn vẫn hạng F thôi.",
+   "t": "Em mà ngủ tiếp thì tấm thẻ trên bàn vẫn hạng F thôi.",
    "w": "sang"
   },
   {
@@ -965,7 +965,7 @@ window.THVG_CHAR_LINES = {
    "w": "sang"
   },
   {
-   "t": "Ai đó nói dược liệu để qua đêm là hỏng. Tôi nghe thế, không biết đúng không.",
+   "t": "Ai đó bảo dược liệu để qua đêm là hỏng. Tôi nghe thế, không biết đúng không.",
    "w": "sang"
   },
   {
@@ -973,19 +973,19 @@ window.THVG_CHAR_LINES = {
    "w": "sang"
   },
   {
-   "t": "Có một cựu sĩ quan giải ngũ xong lại đi làm mạo hiểm giả. Tôi thấy chuyện đó buồn cười suốt một tuần.",
+   "t": "Một cựu sĩ quan giải ngũ xong lại đi làm mạo hiểm giả. Tôi cười chuyện đó cả tuần.",
    "w": "sang"
   },
   {
-   "t": "Bình minh trên Trạm Ascalon thì Aeon nhìn rõ mọi hướng. Tiếc là thần không chỉ đường giùm ai.",
+   "t": "Bình minh trên Ascalon thì Aeon nhìn rõ mọi hướng. Tiếc là thần không chỉ đường giùm ai.",
    "w": "sang"
   },
   {
-   "t": "Tôi dậy trước chuông ba mươi năm rồi. Không đổi được nữa.",
+   "t": "Ba mươi năm dậy trước chuông. Không đổi được nữa.",
    "w": "sang"
   },
   {
-   "t": "Kelvane sáng nay âm mười tám độ. Cậu mà nhận uỷ thác ở đó thì nhớ mặc thêm.",
+   "t": "Kelvane sáng nay âm mười tám độ. Nhận uỷ thác ở đó thì mặc thêm vào.",
    "w": "sang"
   },
   {
@@ -993,7 +993,7 @@ window.THVG_CHAR_LINES = {
    "w": "sang"
   },
   {
-   "t": "Giấy tờ chất tới cằm rồi mà mặt trời mới lên tới nóc cột cờ.",
+   "t": "Giấy tờ chất tới cằm mà mặt trời mới lên tới nóc cột cờ.",
    "w": "sang"
   },
   {
@@ -1001,7 +1001,7 @@ window.THVG_CHAR_LINES = {
    "w": "sang"
   },
   {
-   "t": "Tôi có nửa giờ trước cuộc họp đầu tiên. Dùng nó để đứng đây.",
+   "t": "Còn nửa giờ trước cuộc họp đầu tiên. Tôi dùng nó để đứng đây.",
    "w": "sang"
   },
   {
@@ -1013,11 +1013,11 @@ window.THVG_CHAR_LINES = {
    "w": "sang"
   },
   {
-   "t": "Cậu định đi bộ tới Sylvaren hay đợi xin đi nhờ xe ai đó.",
+   "t": "Em định đi bộ tới Sylvaren hay đợi xin đi nhờ xe ai đó.",
    "w": "sang"
   },
   {
-   "t": "Tấm thẻ mạo hiểm giả sáng lên khi chạm vào. Bọn AEG làm cái đó chỉ để trông cho oai.",
+   "t": "Thẻ mạo hiểm giả sáng lên khi chạm vào. Bọn AEG làm cái đó chỉ để trông cho oai.",
    "w": "sang"
   },
   {
@@ -1029,11 +1029,31 @@ window.THVG_CHAR_LINES = {
    "w": "sang"
   },
   {
-   "t": "Tàu chậm mười lăm đồng, cao tốc sáu mươi. Với túi tiền của cậu thì khỏi phải chọn.",
+   "t": "Tàu chậm mười lăm đồng, cao tốc sáu mươi. Với túi tiền của em thì khỏi phải chọn.",
    "w": "sang"
   },
   {
-   "t": "Hôm nay tôi không phải xuống mặt biển. Nghe như tin vui, thật ra là tin xấu hơn.",
+   "t": "Hôm nay tôi không phải xuống mặt biển. Nghe như tin vui, thật ra tệ hơn.",
+   "w": "sang"
+  },
+  {
+   "t": "Cổ em có dấu kìa. Kéo cổ áo lên. Thôi, để tôi kéo.",
+   "w": "sang"
+  },
+  {
+   "t": "Giọng em khàn. Đêm qua tôi có bảo đừng nhịn mà.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng nay em đi chậm nửa bước so với mọi hôm. Tôi biết tại sao.",
+   "w": "sang"
+  },
+  {
+   "t": "Nước tôi đun từ sớm. Uống hết chỗ đó rồi hẵng ra khỏi cửa.",
+   "w": "sang"
+  },
+  {
+   "t": "Ngồi nhìn em ngủ mười lăm phút rồi mới dám dậy. Nói ra rồi đấy.",
    "w": "sang"
   },
   {
@@ -1045,7 +1065,7 @@ window.THVG_CHAR_LINES = {
    "w": "trua"
   },
   {
-   "t": "Căng tin sĩ quan trưa nay có cá hấp. Cậu thì chắc đang nhai gì đó qua loa.",
+   "t": "Căng tin sĩ quan trưa nay có cá hấp. Em thì chắc đang nhai gì đó qua loa.",
    "w": "trua"
   },
   {
@@ -1057,27 +1077,11 @@ window.THVG_CHAR_LINES = {
    "w": "trua"
   },
   {
-   "t": "Tôi ăn trưa một mình quen rồi. Cấp trên ngồi bàn trong, cấp dưới ngồi bàn ngoài, tôi ngồi giữa.",
+   "t": "Ăn trưa một mình quen rồi. Cấp trên bàn trong, cấp dưới bàn ngoài, tôi ngồi giữa.",
    "w": "trua"
   },
   {
-   "t": "Chợ Sylvaren trưa vắng. Người ta trốn nắng dưới tán cây.",
-   "w": "trua"
-  },
-  {
-   "t": "Có ai đó vừa tiêu nửa số Vael kiếm được sáng nay vào vật liệu chế thuốc. Tôi không nói tên.",
-   "w": "trua"
-  },
-  {
-   "t": "Buổi trưa là lúc giấy tờ đi qua bàn tôi nhanh nhất. Không ai muốn ở lại quá giờ.",
-   "w": "trua"
-  },
-  {
-   "t": "Tôi ghét cái từ nghỉ trưa. Nghe như đang lãng phí cái gì đó.",
-   "w": "trua"
-  },
-  {
-   "t": "Một bữa ăn tử tế năm đồng. Một lọ dược liệu Sylvaren sáu mươi. Cậu chọn cái nào thì tôi đoán được rồi.",
+   "t": "Một bữa tử tế năm đồng. Một lọ dược liệu sáu mươi. Em chọn cái nào tôi đoán ra rồi.",
    "w": "trua"
   },
   {
@@ -1089,15 +1093,11 @@ window.THVG_CHAR_LINES = {
    "w": "trua"
   },
   {
-   "t": "Nửa ngày trôi qua. Tấm thẻ của cậu vẫn ghi không đồng nào.",
+   "t": "Nửa ngày trôi qua. Thẻ của em vẫn ghi không đồng nào.",
    "w": "trua"
   },
   {
-   "t": "Tôi có thói quen nhìn đồng hồ vào giờ này. Không vì bận, vì chưa biết làm gì.",
-   "w": "trua"
-  },
-  {
-   "t": "Mấy đứa lính mới trưa nào cũng rủ nhau ra sân đấu tay đôi. Tôi cấm hai lần rồi vẫn không chừa.",
+   "t": "Mấy đứa lính mới trưa nào cũng rủ nhau đấu tay đôi. Tôi cấm hai lần vẫn không chừa.",
    "w": "trua"
   },
   {
@@ -1105,31 +1105,23 @@ window.THVG_CHAR_LINES = {
    "w": "trua"
   },
   {
-   "t": "Có người nói ăn trưa với tôi thì mất ngon. Tôi nghĩ họ nói đúng.",
+   "t": "Có người bảo ăn trưa với tôi thì mất ngon. Tôi nghĩ họ nói đúng.",
    "w": "trua"
   },
   {
-   "t": "Tàu cao tốc trưa đi Marivelle còn ghế. Nếu cậu có sáu mươi đồng, mà chắc là không.",
+   "t": "Hỏi thật đấy. Lần cuối em ăn đủ ba bữa trong một ngày là bao giờ.",
    "w": "trua"
   },
   {
-   "t": "Tôi hỏi thật, cậu có nhớ lần cuối ăn đủ ba bữa trong một ngày là bao giờ không.",
+   "t": "Bên Cindra trưa tới bốn mươi độ. Thợ rèn làm lúc rạng sáng rồi nghỉ tới chiều.",
    "w": "trua"
   },
   {
-   "t": "Giữa trưa Bộ Tư lệnh im như tờ. Ai cũng giả vờ đang bận.",
+   "t": "Trời trong thế này nhìn từ Ascalon thấy tận Nereida. Chẳng có gì để xem, nhưng thấy.",
    "w": "trua"
   },
   {
-   "t": "Bên Cindra trưa tới bốn mươi độ. Thợ rèn ở đó làm việc lúc rạng sáng rồi nghỉ tới chiều.",
-   "w": "trua"
-  },
-  {
-   "t": "Trời trong thế này thì nhìn từ Ascalon thấy tận Nereida. Không có gì để xem, nhưng thấy.",
-   "w": "trua"
-  },
-  {
-   "t": "Tôi vừa từ chối một lời mời ăn trưa. Lần thứ tư của người đó.",
+   "t": "Vừa từ chối một lời mời ăn trưa. Lần thứ tư của người đó.",
    "w": "trua"
   },
   {
@@ -1141,23 +1133,15 @@ window.THVG_CHAR_LINES = {
    "w": "trua"
   },
   {
-   "t": "Trưa là lúc dễ nghe thấy tiếng mình nhất. Tôi không thích lắm.",
+   "t": "Đại linh Lôi im suốt buổi trưa. Nó cũng buồn ngủ.",
    "w": "trua"
   },
   {
-   "t": "Một ly nước lạnh ở Sylvaren đắt gấp đôi ở Marivelle. Rừng mưa mà thiếu nước lạnh, nghịch lý.",
+   "t": "Ngồi xuống ăn đi. Đừng vừa đi vừa nhai, tôi nhìn mệt lắm.",
    "w": "trua"
   },
   {
-   "t": "Đại linh Lôi im lặng suốt buổi trưa. Nó cũng buồn ngủ.",
-   "w": "trua"
-  },
-  {
-   "t": "Tôi ngồi đây, còn cậu chắc đang đếm xem đủ tiền ăn hay không. Khác nhau mỗi chỗ đó.",
-   "w": "trua"
-  },
-  {
-   "t": "Nửa ngày nữa là hết ngày. Cậu định làm gì với nửa còn lại.",
+   "t": "Nửa ngày nữa là hết ngày. Em định làm gì với nửa còn lại.",
    "w": "trua"
   },
   {
@@ -1169,7 +1153,7 @@ window.THVG_CHAR_LINES = {
    "w": "chieu"
   },
   {
-   "t": "Chợ đen dưới lòng đất Sylvaren mở cửa từ chiều. Tôi biết, và tôi giả vờ không biết.",
+   "t": "Chợ đen dưới lòng đất Sylvaren mở từ chiều. Tôi biết, và tôi giả vờ không biết.",
    "w": "chieu"
   },
   {
@@ -1177,7 +1161,7 @@ window.THVG_CHAR_LINES = {
    "w": "chieu"
   },
   {
-   "t": "Cậu bán được bao nhiêu con Ma Thú hôm nay rồi. Tôi hỏi vì tò mò thôi.",
+   "t": "Em bán được bao nhiêu con Ma Thú hôm nay rồi. Tôi hỏi vì tò mò thôi.",
    "w": "chieu"
   },
   {
@@ -1185,7 +1169,7 @@ window.THVG_CHAR_LINES = {
    "w": "chieu"
   },
   {
-   "t": "Tôi vừa ký một lệnh mà tôi không muốn ký. Đó là phần lớn công việc của tôi.",
+   "t": "Vừa ký một lệnh mà tôi không muốn ký. Đó là phần lớn công việc của tôi.",
    "w": "chieu"
   },
   {
@@ -1197,7 +1181,7 @@ window.THVG_CHAR_LINES = {
    "w": "chieu"
   },
   {
-   "t": "Hạng F mà đi một mình thì được. Hạng E trở lên phải đủ ba người. Cậu có ba người không.",
+   "t": "Hạng F đi một mình thì được. Hạng E trở lên phải đủ ba người. Em có ba người không.",
    "w": "chieu"
   },
   {
@@ -1205,7 +1189,7 @@ window.THVG_CHAR_LINES = {
    "w": "chieu"
   },
   {
-   "t": "Tôi có thói quen đi bộ hết một vòng hành lang trước khi hết ca. Đếm được hai trăm mười bước.",
+   "t": "Đi hết một vòng hành lang trước khi hết ca. Đếm được hai trăm mười bước.",
    "w": "chieu"
   },
   {
@@ -1213,7 +1197,7 @@ window.THVG_CHAR_LINES = {
    "w": "chieu"
   },
   {
-   "t": "Có người tiêu sạch tiền công một uỷ thác trong vòng nửa ngày. Kỷ lục đấy.",
+   "t": "Có người tiêu sạch tiền công một uỷ thác trong nửa ngày. Kỷ lục đấy.",
    "w": "chieu"
   },
   {
@@ -1221,11 +1205,11 @@ window.THVG_CHAR_LINES = {
    "w": "chieu"
   },
   {
-   "t": "Tôi ghét phải ra lệnh cho người đi vào chỗ tôi không đi được.",
+   "t": "Ghét nhất là phải ra lệnh cho người đi vào chỗ mình không đi được.",
    "w": "chieu"
   },
   {
-   "t": "Bốn giờ rưỡi. Cậu còn kịp nộp một uỷ thác nữa nếu chạy.",
+   "t": "Bốn giờ rưỡi. Em còn kịp nộp một uỷ thác nữa nếu chạy.",
    "w": "chieu"
   },
   {
@@ -1241,11 +1225,11 @@ window.THVG_CHAR_LINES = {
    "w": "chieu"
   },
   {
-   "t": "Cậu có biết một uỷ thác hạng A trả đủ mua một căn nhà nhỏ không. Với cậu thì đủ một tháng.",
+   "t": "Một uỷ thác hạng A đủ mua căn nhà nhỏ. Với em thì đủ một tháng.",
    "w": "chieu"
   },
   {
-   "t": "Tôi đứng ở ban công nhìn xuống mặt biển. Nghề của tôi là nhìn xuống.",
+   "t": "Đứng ở ban công nhìn xuống mặt biển. Nghề của tôi là nhìn xuống.",
    "w": "chieu"
   },
   {
@@ -1253,7 +1237,7 @@ window.THVG_CHAR_LINES = {
    "w": "chieu"
   },
   {
-   "t": "Hồ sơ của cậu bên AEG mỏng lắm. Tôi có xem qua. Nghiệp vụ thôi.",
+   "t": "Hồ sơ của em bên AEG mỏng lắm. Tôi có xem qua. Nghiệp vụ thôi.",
    "w": "chieu"
   },
   {
@@ -1261,7 +1245,7 @@ window.THVG_CHAR_LINES = {
    "w": "chieu"
   },
   {
-   "t": "Trời sắp tối mà cậu vẫn chưa quyết định đi đâu à.",
+   "t": "Trời sắp tối mà em vẫn chưa quyết định đi đâu à.",
    "w": "chieu"
   },
   {
@@ -1277,23 +1261,23 @@ window.THVG_CHAR_LINES = {
    "w": "chieu"
   },
   {
-   "t": "Có người hôm nay chưa kiếm được đồng nào. Tôi không nói ai đâu.",
-   "w": "chieu"
-  },
-  {
    "t": "Bên Kelvane chiều xuống là mỏ đóng cửa. Ai còn dưới hầm thì tự lo.",
    "w": "chieu"
   },
   {
-   "t": "Tôi được phép ra tay khi thật cần. Chiều nay không cần. Tốt.",
+   "t": "Được phép ra tay khi thật cần. Chiều nay không cần. Tốt.",
    "w": "chieu"
   },
   {
-   "t": "Cậu định tối nay ăn bằng gì. Tôi hỏi nghiêm túc đấy.",
+   "t": "Em định tối nay ăn bằng gì. Tôi hỏi nghiêm túc đấy.",
    "w": "chieu"
   },
   {
-   "t": "Sylvaren có cái thư viện trên cây. Đóng cửa lúc năm giờ. Cậu chưa vào bao giờ đúng không.",
+   "t": "Sylvaren có thư viện trên cây, đóng cửa lúc năm giờ. Em chưa vào bao giờ đúng không.",
+   "w": "chieu"
+  },
+  {
+   "t": "Em trêu tôi giữa ban ngày đấy à. Được. Để tối tính.",
    "w": "chieu"
   },
   {
@@ -1309,7 +1293,7 @@ window.THVG_CHAR_LINES = {
    "w": "toi"
   },
   {
-   "t": "Đêm trọ hai mươi đồng. Cậu còn đủ không, hay lại định về nhà bằng chân.",
+   "t": "Đêm trọ hai mươi đồng. Em còn đủ không, hay định về nhà bằng chân.",
    "w": "toi"
   },
   {
@@ -1321,7 +1305,7 @@ window.THVG_CHAR_LINES = {
    "w": "toi"
   },
   {
-   "t": "Quầy AEG đóng rồi. Uỷ thác nào chưa nộp thì để mai, và mai thì bị trừ điểm.",
+   "t": "Quầy AEG đóng rồi. Uỷ thác chưa nộp thì để mai, và mai thì bị trừ điểm.",
    "w": "toi"
   },
   {
@@ -1345,7 +1329,7 @@ window.THVG_CHAR_LINES = {
    "w": "toi"
   },
   {
-   "t": "Tối là lúc tin đồn chạy nhanh nhất trong hiệp hội. Hôm nay có tên cậu trong đó.",
+   "t": "Tối là lúc tin đồn chạy nhanh nhất trong hiệp hội. Hôm nay có tên em trong đó.",
    "w": "toi"
   },
   {
@@ -1353,7 +1337,7 @@ window.THVG_CHAR_LINES = {
    "w": "toi"
   },
   {
-   "t": "Cậu về tới nhà chưa. Tôi hỏi cho có, đừng nghĩ nhiều.",
+   "t": "Em về tới nhà chưa. Tôi hỏi cho có, đừng nghĩ nhiều.",
    "w": "toi"
   },
   {
@@ -1361,7 +1345,7 @@ window.THVG_CHAR_LINES = {
    "w": "toi"
   },
   {
-   "t": "Khe Nứt số bảy động lúc bảy giờ tối. Đội canh xử lý xong rồi, không cần cậu lo.",
+   "t": "Khe Nứt số bảy động lúc bảy giờ. Đội canh xử lý xong rồi, không cần em lo.",
    "w": "toi"
   },
   {
@@ -1377,15 +1361,15 @@ window.THVG_CHAR_LINES = {
    "w": "toi"
   },
   {
-   "t": "Một ngày nữa trôi qua mà tấm thẻ chưa nhích. Không sao, tôi cũng đứng yên hai năm rồi.",
+   "t": "Một ngày nữa trôi qua mà thẻ chưa nhích. Không sao, tôi cũng đứng yên hai năm rồi.",
    "w": "toi"
   },
   {
-   "t": "Nhà cậu trên thảo nguyên chắc tối lắm. Xa đèn quá.",
+   "t": "Nhà em trên thảo nguyên chắc tối lắm. Xa đèn quá.",
    "w": "toi"
   },
   {
-   "t": "Tôi bỏ bữa tối lần thứ ba tuần này. Đừng học theo.",
+   "t": "Bỏ bữa tối lần thứ ba tuần này rồi. Đừng học theo.",
    "w": "toi"
   },
   {
@@ -1409,11 +1393,11 @@ window.THVG_CHAR_LINES = {
    "w": "toi"
   },
   {
-   "t": "Người ta bảo đêm ở Kelvane lạnh tới mức nước mắt đóng băng. Tôi chưa thử.",
+   "t": "Người ta bảo đêm Kelvane lạnh tới mức nước mắt đóng băng. Tôi chưa thử.",
    "w": "toi"
   },
   {
-   "t": "Cậu mà đi săn Ma Thú ban đêm thì nhớ là chúng nhìn rõ hơn cậu.",
+   "t": "Em mà đi săn ban đêm thì nhớ là chúng nhìn rõ hơn em.",
    "w": "toi"
   },
   {
@@ -1421,11 +1405,11 @@ window.THVG_CHAR_LINES = {
    "w": "toi"
   },
   {
-   "t": "Tiếng chuông đổi ca vang ba lần rồi. Tôi đếm nhầm hay hôm nay dài hơn mọi hôm.",
+   "t": "Chuông đổi ca vang ba lần rồi. Tôi đếm nhầm hay hôm nay dài hơn mọi hôm.",
    "w": "toi"
   },
   {
-   "t": "Bữa tối tử tế ở Sylvaren mười lăm đồng. Cậu ăn chưa, nói thật đi.",
+   "t": "Bữa tối tử tế ở Sylvaren mười lăm đồng. Em ăn chưa, nói thật đi.",
    "w": "toi"
   },
   {
@@ -1437,7 +1421,7 @@ window.THVG_CHAR_LINES = {
    "w": "toi"
   },
   {
-   "t": "Tôi thích giờ này vì Bộ Tư lệnh vắng. Ít người nhìn tôi hơn.",
+   "t": "Giờ này Bộ Tư lệnh vắng. Ít người nhìn tôi hơn.",
    "w": "toi"
   },
   {
@@ -1445,7 +1429,7 @@ window.THVG_CHAR_LINES = {
    "w": "toi"
   },
   {
-   "t": "Trên Ascalon nhìn xuống thấy đèn từng thành phố một. Sylvaren là chấm mờ nhất.",
+   "t": "Trên Ascalon nhìn xuống thấy đèn từng thành phố. Sylvaren là chấm mờ nhất.",
    "w": "toi"
   },
   {
@@ -1457,11 +1441,43 @@ window.THVG_CHAR_LINES = {
    "w": "toi"
   },
   {
+   "t": "Sang đây. Chỗ tôi ấm hơn.",
+   "w": "toi"
+  },
+  {
+   "t": "Cởi cái áo choàng ra. Ướt sương hết rồi mà cứ mặc.",
+   "w": "toi"
+  },
+  {
+   "t": "Lại đây ngồi. Gần hơn nữa. Đấy, thế.",
+   "w": "toi"
+  },
+  {
+   "t": "Nhìn tôi kiểu đó là tôi không làm nốt chỗ giấy tờ này được đâu.",
+   "w": "toi"
+  },
+  {
+   "t": "Đói rồi. Không phải đói ăn.",
+   "w": "toi"
+  },
+  {
+   "t": "Đóng cửa lại. Từ giờ tới sáng không ai gọi tôi cả, tôi đã dặn rồi.",
+   "w": "toi"
+  },
+  {
+   "t": "Lên đây. Ngồi lên đùi tôi. Đối mặt vào.",
+   "w": "toi"
+  },
+  {
+   "t": "Muốn em. Nói thế đủ rõ chưa hay cần tôi nói lại.",
+   "w": "toi"
+  },
+  {
    "t": "Ngủ sớm một hôm xem sao. Nói thì dễ, tôi biết.",
    "w": "toi"
   },
   {
-   "t": "Một giờ sáng. Cậu bấm vào tôi giờ này lần thứ mấy rồi, tôi có đếm đấy.",
+   "t": "Một giờ sáng. Em bấm vào tôi giờ này lần thứ mấy rồi, tôi có đếm đấy.",
    "w": "khuya"
   },
   {
@@ -1469,7 +1485,7 @@ window.THVG_CHAR_LINES = {
    "w": "khuya"
   },
   {
-   "t": "Khuya rồi mà còn thức thì hoặc đang lo, hoặc đang nghĩ tới ai đó. Tôi không hỏi là ai.",
+   "t": "Khuya mà còn thức thì hoặc đang lo, hoặc đang nghĩ tới ai đó. Tôi không hỏi là ai.",
    "w": "khuya"
   },
   {
@@ -1477,7 +1493,7 @@ window.THVG_CHAR_LINES = {
    "w": "khuya"
   },
   {
-   "t": "Áo cổ lọ nóng thật. Giờ này chẳng ai thấy, tôi nới ra một chút. Trừ cậu, nếu cậu còn ở đây.",
+   "t": "Áo cổ lọ nóng thật. Giờ này chẳng ai thấy, tôi nới ra. Trừ em, nếu em còn ở đây.",
    "w": "khuya"
   },
   {
@@ -1489,11 +1505,11 @@ window.THVG_CHAR_LINES = {
    "w": "khuya"
   },
   {
-   "t": "Giọng tôi khuya khác lúc họp. Cậu nghe ra chưa, hay phải để tôi nói thêm vài câu.",
+   "t": "Giọng tôi khuya khác lúc họp. Em nghe ra chưa, hay phải để tôi nói thêm vài câu.",
    "w": "khuya"
   },
   {
-   "t": "Có một con Megalodon lọt ra vùng nông tháng trước. Báo cáo đó tôi đọc lúc ba giờ sáng.",
+   "t": "Có con Megalodon lọt ra vùng nông tháng trước. Báo cáo đó tôi đọc lúc ba giờ sáng.",
    "w": "khuya"
   },
   {
@@ -1501,11 +1517,7 @@ window.THVG_CHAR_LINES = {
    "w": "khuya"
   },
   {
-   "t": "Khuya là lúc người ta nói thật nhất. Cậu định nói gì không.",
-   "w": "khuya"
-  },
-  {
-   "t": "Tôi ngồi đây, cậu ở đâu đó dưới kia, và giữa hai chỗ là mười ngàn thước không khí.",
+   "t": "Khuya là lúc người ta nói thật nhất. Em định nói gì không.",
    "w": "khuya"
   },
   {
@@ -1513,15 +1525,7 @@ window.THVG_CHAR_LINES = {
    "w": "khuya"
   },
   {
-   "t": "Nếu cậu đói lúc này thì đừng nhịn. Tôi biết cái cảm giác đó.",
-   "w": "khuya"
-  },
-  {
    "t": "Gọi tôi là gì cũng được, trừ ngài Chuẩn Đô đốc. Giờ này thì thừa.",
-   "w": "khuya"
-  },
-  {
-   "t": "Ba giờ sáng. Cậu còn đó không, hay tôi đang nói với cái màn hình.",
    "w": "khuya"
   },
   {
@@ -1537,11 +1541,7 @@ window.THVG_CHAR_LINES = {
    "w": "khuya"
   },
   {
-   "t": "Giấc ngủ mười lăm năm nghe có vẻ dài. Tôi thì chưa ngủ đủ mười lăm tiếng liền bao giờ.",
-   "w": "khuya"
-  },
-  {
-   "t": "Cậu thức khuya vì công việc hay vì không dám nhắm mắt. Hỏi thế hơi quá đúng không.",
+   "t": "Em thức khuya vì công việc hay vì không dám nhắm mắt. Hỏi thế hơi quá đúng không.",
    "w": "khuya"
   },
   {
@@ -1553,11 +1553,7 @@ window.THVG_CHAR_LINES = {
    "w": "khuya"
   },
   {
-   "t": "Tôi đọc hồ sơ của cậu lần thứ ba rồi. Nghiệp vụ, tôi nói trước.",
-   "w": "khuya"
-  },
-  {
-   "t": "Cậu ngủ chưa. Nếu rồi thì câu này không ai nghe, tiện cho tôi.",
+   "t": "Hồ sơ của em tôi đọc lần thứ ba rồi. Nghiệp vụ, nói trước đấy.",
    "w": "khuya"
   },
   {
@@ -1569,35 +1565,11 @@ window.THVG_CHAR_LINES = {
    "w": "khuya"
   },
   {
-   "t": "Tôi không ra tay khi không cần. Nhưng giờ này chẳng có gì cần, mà tay vẫn không yên.",
+   "t": "Bốn giờ. Sắp tới ca sáng. Em định thức trắng à.",
    "w": "khuya"
   },
   {
-   "t": "Bốn giờ. Sắp tới ca sáng. Cậu định thức trắng à.",
-   "w": "khuya"
-  },
-  {
-   "t": "Nghe tiếng thầm thì của tinh linh trong lúc ngủ. Tôi đọc được chỗ đó trong hồ sơ. Tôi tò mò từ đó.",
-   "w": "khuya"
-  },
-  {
-   "t": "Xuống dưới kia mất nửa ngày đường. Khuya thế này nghĩ tới chuyện đó là dở hơi.",
-   "w": "khuya"
-  },
-  {
-   "t": "Cậu mà ngủ gật lúc đi săn thì Ma Thú nó cảm ơn cậu lắm.",
-   "w": "khuya"
-  },
-  {
-   "t": "Đêm dài quá thì tôi mở cửa sổ. Gió tát vào mặt, tỉnh ngay.",
-   "w": "khuya"
-  },
-  {
-   "t": "Tôi có hai thanh kiếm mà chưa bao giờ cần cả hai. Cậu có muốn biết khi nào tôi rút thanh thứ hai không.",
-   "w": "khuya"
-  },
-  {
-   "t": "Khuya rồi, đừng đứng gần mép ban công. Tôi nói cả với tôi.",
+   "t": "Đừng đứng gần mép ban công. Tôi nói cả với tôi.",
    "w": "khuya"
   },
   {
@@ -1605,15 +1577,323 @@ window.THVG_CHAR_LINES = {
    "w": "khuya"
   },
   {
-   "t": "Có người dưới kia đang đun dở một nồi thuốc lúc hai giờ sáng. Tôi đoán liều đấy.",
+   "t": "Có người dưới kia đang đun dở nồi thuốc lúc hai giờ sáng. Tôi đoán liều đấy.",
    "w": "khuya"
   },
   {
-   "t": "Cậu nghe rõ tôi không. Khuya thì tôi hạ giọng, quen rồi.",
+   "t": "Em nghe rõ tôi không. Khuya thì tôi hạ giọng, quen rồi.",
    "w": "khuya"
   },
   {
-   "t": "Nếu mai tôi có gọi cậu bằng cái tên chọc ghẹo nào đó, thì là vì tối nay cậu chịu nghe tôi nói.",
+   "t": "Lại đây. Đừng bắt tôi nói lại lần thứ hai.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cởi ra. Chậm thôi, tôi ngồi đây xem.",
+   "w": "khuya"
+  },
+  {
+   "t": "Quay lưng lại. Tôi muốn nhìn gáy em.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nằm xuống. Tay để lên đầu, đừng hạ xuống. Tôi bảo đừng hạ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Dạng ra.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngoan.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đếm tới ba rồi tôi vào. Một. Hai. Thở ra đi, nín là đau đấy. Ba.",
+   "w": "khuya"
+  },
+  {
+   "t": "Vào hết rồi đây. Ngồi yên một lúc cho quen. Quen rồi thì gật một cái, tôi mới động.",
+   "w": "khuya"
+  },
+  {
+   "t": "Từ từ thôi. Tôi biết. Thở ra. Thở ra đi, thế mới đi được.",
+   "w": "khuya"
+  },
+  {
+   "t": "Siết chặt quá tôi không nhúc nhích nổi. Thả lỏng ra. Không thả được à.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chậm thế này chịu được không. Chịu được à. Vậy tôi không chậm nữa đâu, nói trước rồi đấy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nhanh hơn à. Được. Nhưng lát đừng kêu mệt.",
+   "w": "khuya"
+  },
+  {
+   "t": "Mỗi lần tôi thúc là em bấu vào lưng tôi. Cứ bấu đi. Để lại dấu càng tốt.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nghe tiếng đó chưa. Da chạm da. Em đỏ mặt vì cái đó à.",
+   "w": "khuya"
+  },
+  {
+   "t": "Kêu đi. Đừng cắn môi nữa, chảy máu bây giờ. Tôi muốn nghe.",
+   "w": "khuya"
+  },
+  {
+   "t": "Bỏ tay khỏi miệng ra. Để tôi nghe cho rõ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Mở mắt ra nhìn tôi. Nhắm là tôi dừng ngay.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đừng che. Bỏ tay ra, tôi nhìn cho rõ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ướt tới đùi rồi mà vẫn bảo chưa muốn à.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chỗ này nhạy à. Ghi nhớ rồi đấy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cắn vào vai tôi đi nếu không chịu được. Tôi chịu được.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gáy em tôi ngậm rồi đây. Không rách da đâu, chỉ giữ cho yên thôi. Cựa là tôi siết.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đại linh Lôi nó rò ra tay tôi đấy. Tê à. Chịu một lúc, lát nữa em sẽ đòi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chạm vào đâu cũng tê nhẹ. Đó là nó, không phải tôi. Tôi thì chưa làm gì cả.",
+   "w": "khuya"
+  },
+  {
+   "t": "Điện chạy xuống tới đó rồi à. Nói tôi nghe nó tới đâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Run cả người rồi. Bám vào tôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đọc vị người khác mười năm rồi. Em muốn gì tôi biết trước cả em.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nói xem em muốn gì. Nói rõ từng chữ. Tôi không đoán ý ai bao giờ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Xin một tiếng đi. Một tiếng thôi. Rồi muốn gì tôi cũng cho.",
+   "w": "khuya"
+  },
+  {
+   "t": "Của ai. Trả lời. Sai thì làm lại từ đầu, mà tôi thì rảnh cả đêm.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nhắc lại câu vừa rồi. Tôi muốn nghe lần nữa từ miệng em.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gọi tên tôi. Không phải cấp bậc. Tên.",
+   "w": "khuya"
+  },
+  {
+   "t": "To hơn. Cả tầng này vắng, không ai nghe đâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nữa.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chống tay lên bàn. Đứng vững vào.",
+   "w": "khuya"
+  },
+  {
+   "t": "Quay mặt vào tường. Hai tay chống lên, dang ra. Lùi lại một bước. Đúng rồi, yên thế.",
+   "w": "khuya"
+  },
+  {
+   "t": "Vòng chân qua eo tôi. Chân kia nữa. Tôi đỡ được, đừng sợ rơi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nhấc lên rồi đấy. Cả đêm cũng được. Đừng bảo tôi đặt xuống.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tự hạ xuống đi. Chậm thôi. Tôi không giúp đâu, tôi muốn xem em tự làm.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nằm nghiêng đi, quay lưng vào tôi. Tay tôi để đâu thì em biết rồi, khỏi hỏi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngồi lên đùi tôi, đối mặt vào. Tôi muốn nhìn mặt em lúc đó.",
+   "w": "khuya"
+  },
+  {
+   "t": "Quỳ xuống. Kiểu này tôi với tới gáy em.",
+   "w": "khuya"
+  },
+  {
+   "t": "Một tay là tôi nhấc được em lên. Nhớ chưa.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cao hơn em cả cái đầu mà giờ là đứa phải xin. Giải thích xem.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ghì tôi xuống đi. Tôi không chống đâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đè tôi ra. Xem em làm được tới đâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đêm nay đổi vai cũng được. Em làm, tôi nằm. Nhưng sáng mai thì đừng hòng.",
+   "w": "khuya"
+  },
+  {
+   "t": "Xin đấy. Đấy, tôi nói ra rồi đấy. Vừa lòng chưa.",
+   "w": "khuya"
+  },
+  {
+   "t": "Thua. Lần này thua thật.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đừng dừng. Tôi bảo đừng dừng.",
+   "w": "khuya"
+  },
+  {
+   "t": "Biết chỗ nào làm tôi hỏng rồi à.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tay tôi run. Em làm đấy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Bị sai bảo thì tôi không quen. Nói lại lần nữa xem.",
+   "w": "khuya"
+  },
+  {
+   "t": "Được. Nghe lời em một lần. Một lần thôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Sắp rồi. Nói trước cho em biết.",
+   "w": "khuya"
+  },
+  {
+   "t": "Vừa xong mà đã lại muốn. Đừng trách tôi, tại em cả.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nghỉ mười phút. Rồi quay lại đây.",
+   "w": "khuya"
+  },
+  {
+   "t": "Uống hết chỗ nước này đã. Uống đi. Uống xong nằm xuống chỗ cũ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cả đêm em chưa ngủ được phút nào. Tôi biết chứ. Nhưng chưa xong đâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lần nữa. Lần này tôi làm lâu hơn.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khắp người em là dấu của tôi. Sáng mai đừng kêu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Vết đó ba ngày mới mờ. Cố ý đấy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chỗ này cổ áo che được. Tôi tính rồi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ra rồi. Nằm im, đừng dậy vội. Chân em còn run chưa đứng được đâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Để tôi bế đi rửa. Không cãi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Duỗi ra. Để tôi lau cho.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chỗ nào rát thì chỉ tôi. Tôi bôi thuốc. Em tự chế đấy, chắc lành.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nằm sấp xuống, để tôi xoa lưng. Ngủ đi, tôi xoa tới lúc em ngủ mới thôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lúc nãy tôi quá tay. Đưa cổ tay đây tôi xem.",
+   "w": "khuya"
+  },
+  {
+   "t": "Mai chỗ nào đau thì đừng giấu. Tôi hỏi là tôi muốn nghe thật.",
+   "w": "khuya"
+  },
+  {
+   "t": "Quấn chăn lại. Đêm nay em không phải làm gì nữa hết.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngủ đi. Sáng mai dậy tôi vẫn ở đây.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngủ rồi mà tay vẫn nắm áo tôi. Không gỡ ra đâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nằm nghe em thở. Lâu lắm rồi tôi mới ngủ được thế này.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lúc tôi ngủ thì đừng đi đâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Giấc ngủ mười lăm năm nghe có vẻ dài. Tôi thì chưa ngủ đủ mười lăm tiếng liền bao giờ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nghe tiếng thầm thì của tinh linh trong lúc ngủ. Tôi đọc được chỗ đó trong hồ sơ, và tò mò từ đó.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nếu mai tôi có gọi em bằng cái tên chọc ghẹo nào đó, là vì tối nay em chịu nghe tôi nói.",
    "w": "khuya"
   },
   {
@@ -1629,7 +1909,7 @@ window.THVG_CHAR_LINES = {
    "w": "any"
   },
   {
-   "t": "Tôi biết cậu đang nghĩ gì. Đọc vị là nghề, không phải năng lực.",
+   "t": "Tôi biết em đang nghĩ gì. Đọc vị là nghề, không phải năng lực.",
    "w": "any"
   },
   {
@@ -1637,7 +1917,7 @@ window.THVG_CHAR_LINES = {
    "w": "any"
   },
   {
-   "t": "Nhà tôi đứng trên nhà cậu một bậc trong Hải quân. Cậu nhớ chi tiết đó, tôi thì cố quên.",
+   "t": "Nhà tôi đứng trên nhà em một bậc trong Hải quân. Em nhớ chi tiết đó, tôi thì cố quên.",
    "w": "any"
   },
   {
@@ -1649,23 +1929,23 @@ window.THVG_CHAR_LINES = {
    "w": "any"
   },
   {
-   "t": "Hứa rồi thì tôi làm xong. Chưa hứa lần nào mà bỏ.",
+   "t": "Hứa rồi thì tôi làm xong. Chưa bỏ lần nào.",
    "w": "any"
   },
   {
-   "t": "Cậu hỏi gì cũng được, trừ chuyện gia đình tôi.",
+   "t": "Em hỏi gì cũng được, trừ chuyện gia đình tôi.",
    "w": "any"
   },
   {
-   "t": "Tôi mạnh, nhưng đánh nhau không giải quyết được mấy việc. Mất mười năm mới hiểu ra.",
+   "t": "Mạnh thì mạnh, nhưng đánh nhau không giải quyết được mấy việc. Mười năm mới hiểu ra.",
    "w": "any"
   },
   {
-   "t": "Đứng thẳng lên. Cậu từng đeo quân hàm mà.",
+   "t": "Đứng thẳng lên. Em từng đeo quân hàm mà.",
    "w": "any"
   },
   {
-   "t": "Uỷ thác hạng A bắt buộc phối hợp Hải quân. Nghĩa là gặp tôi. Cậu chịu nổi không.",
+   "t": "Uỷ thác hạng A bắt buộc phối hợp Hải quân. Nghĩa là gặp tôi. Em chịu nổi không.",
    "w": "any"
   },
   {
@@ -1673,15 +1953,15 @@ window.THVG_CHAR_LINES = {
    "w": "any"
   },
   {
-   "t": "Cậu không có đại linh chúc phúc. Chuyện đó chẳng nói lên điều gì đâu.",
+   "t": "Em không có đại linh chúc phúc. Chuyện đó chẳng nói lên điều gì đâu.",
    "w": "any"
   },
   {
-   "t": "Tôi ghét bạo lực vô nghĩa. Bạo lực có nghĩa thì khác.",
+   "t": "Bạo lực vô nghĩa thì tôi ghét. Bạo lực có nghĩa thì khác.",
    "w": "any"
   },
   {
-   "t": "Ba mươi lăm tuổi ở cái thế giới người ta sống hai trăm năm thì vẫn là trẻ. Tôi tự nhủ thế.",
+   "t": "Ba mươi lăm ở cái thế giới người ta sống hai trăm năm thì vẫn là trẻ. Tôi tự nhủ thế.",
    "w": "any"
   },
   {
@@ -1689,11 +1969,11 @@ window.THVG_CHAR_LINES = {
    "w": "any"
   },
   {
-   "t": "Cậu chế được vũ khí cơ khí. Đồ của AEG so ra như đồ chơi.",
+   "t": "Em chế được vũ khí cơ khí. Đồ của AEG so ra như đồ chơi.",
    "w": "any"
   },
   {
-   "t": "Tôi để ý người khác nhiều hơn mức cần thiết. Nghề nghiệp làm hỏng tính.",
+   "t": "Để ý người khác nhiều hơn mức cần thiết. Nghề nghiệp làm hỏng tính.",
    "w": "any"
   },
   {
@@ -1701,7 +1981,7 @@ window.THVG_CHAR_LINES = {
    "w": "any"
   },
   {
-   "t": "Điểm dịch chuyển đắt gấp mười lần tàu. Cậu khỏi phải cân nhắc.",
+   "t": "Điểm dịch chuyển đắt gấp mười lần tàu. Em khỏi phải cân nhắc.",
    "w": "any"
   },
   {
@@ -1709,11 +1989,11 @@ window.THVG_CHAR_LINES = {
    "w": "any"
   },
   {
-   "t": "Tôi nhớ tên tất cả những người dưới quyền. Đó là phần dễ nhất của việc này.",
+   "t": "Nhớ tên tất cả những người dưới quyền. Đó là phần dễ nhất của việc này.",
    "w": "any"
   },
   {
-   "t": "Cái thẻ hạng F của cậu tôi xem qua một lần. Một lần là nhớ.",
+   "t": "Cái thẻ hạng F của em tôi xem qua một lần. Một lần là nhớ.",
    "w": "any"
   },
   {
@@ -1721,11 +2001,11 @@ window.THVG_CHAR_LINES = {
    "w": "any"
   },
   {
-   "t": "Nếu có ngày cậu cần người bảo chứng lên hạng S, cậu biết gõ cửa ai.",
+   "t": "Nếu có ngày em cần người bảo chứng lên hạng S, em biết gõ cửa ai.",
    "w": "any"
   },
   {
-   "t": "Tôi ít khi cười trong phòng họp. Ngoài phòng họp thì khác.",
+   "t": "Trong phòng họp thì tôi ít cười. Ngoài phòng họp thì khác.",
    "w": "any"
   },
   {
@@ -1733,7 +2013,7 @@ window.THVG_CHAR_LINES = {
    "w": "any"
   },
   {
-   "t": "Mỗi lần nhìn thấy cậu tôi lại nghĩ ra một cái tên mới để gọi. Chưa dùng hết đâu.",
+   "t": "Mỗi lần nhìn thấy em tôi lại nghĩ ra một cái tên mới để gọi. Chưa dùng hết đâu.",
    "w": "any"
   },
   {
@@ -1741,7 +2021,7 @@ window.THVG_CHAR_LINES = {
    "w": "any"
   },
   {
-   "t": "Cậu giữ bí mật giỏi. Tôi cũng thế. Hoà.",
+   "t": "Em giữ bí mật giỏi. Tôi cũng thế. Hoà.",
    "w": "any"
   },
   {
@@ -1749,7 +2029,7 @@ window.THVG_CHAR_LINES = {
    "w": "any"
   },
   {
-   "t": "Tôi không hỏi cậu từng làm gì trong quân ngũ. Cậu không kể thì thôi.",
+   "t": "Chuyện em từng làm gì trong quân ngũ tôi không hỏi. Em không kể thì thôi.",
    "w": "any"
   },
   {
@@ -1758,6 +2038,410 @@ window.THVG_CHAR_LINES = {
   },
   {
    "t": "Bấm vào tôi thêm lần nữa xem tôi nói gì. Tôi còn nhiều câu lắm.",
+   "w": "any"
+  },
+  {
+   "t": "Đứng gần lại chút. Tôi không cắn đâu.",
+   "w": "any"
+  },
+  {
+   "t": "Em cao tới đây thôi. Tôi phải cúi. Mỗi lần.",
+   "w": "any"
+  },
+  {
+   "t": "Cổ tay em nhỏ thật. Tôi vòng tay là hết.",
+   "w": "any"
+  },
+  {
+   "t": "Cổ áo em lệch kìa. Sửa đi, không tôi sửa hộ.",
+   "w": "any"
+  },
+  {
+   "t": "Đi rót nước đây. Ai hỏi thì bảo tôi khát.",
+   "w": "any"
+  },
+  {
+   "t": "Ngồi ghế quay lưng vào tường nữa à. Tôi để ý rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Mấy vết sẹo đó tôi không hỏi. Ai chẳng có một quãng đời trước đó.",
+   "w": "any"
+  },
+  {
+   "t": "Em tập ở đâu mà đánh kiểu đó. Thôi, tôi không hỏi.",
+   "w": "any"
+  },
+  {
+   "t": "Đứng sau tôi. Tôi chắn cho.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi chắn trước em lúc nãy à. Không có, em nhìn nhầm.",
+   "w": "any"
+  },
+  {
+   "t": "Em cười đi. Tôi chưa thấy em cười bao giờ.",
+   "w": "any"
+  },
+  {
+   "t": "Nói thêm câu nữa đi. Tôi đang nghe mà.",
+   "w": "any"
+  },
+  {
+   "t": "Em thích ăn gì tôi nhớ rồi. Đừng hỏi sao tôi biết.",
+   "w": "any"
+  },
+  {
+   "t": "Mệt thì dựa vào đây. Tôi đứng yên.",
+   "w": "any"
+  },
+  {
+   "t": "Vừa xoa đầu em đấy. Có sao không.",
+   "w": "any"
+  },
+  {
+   "t": "Bỏ tay tôi ra à. Được, tôi bỏ. Lát nữa tôi để lại.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi vừa nói gì đấy nhỉ. Quên rồi. Tại em.",
+   "w": "any"
+  },
+  {
+   "t": "Em đứng gần quá. Tôi không tập trung được.",
+   "w": "any"
+  },
+  {
+   "t": "Hỏi thật nhé. Em có biết em đang làm gì với tôi không.",
+   "w": "any"
+  },
+  {
+   "t": "Nhìn tôi lâu thế. Thích à.",
+   "w": "any"
+  },
+  {
+   "t": "Nghe rồi. Nghe từ đầu. Chỉ là chưa muốn trả lời.",
+   "w": "any"
+  },
+  {
+   "t": "Chờ tôi một giây. Để tôi nghĩ đã.",
+   "w": "any"
+  },
+  {
+   "t": "Đùa thôi. Nửa thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng cãi tôi. Cãi thì đợi có chứng cứ đã, tôi nghe chứng cứ.",
+   "w": "any"
+  },
+  {
+   "t": "Sai thì tôi nhận. Quen rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Nhích ra. Không thì tôi không chịu trách nhiệm.",
+   "w": "any"
+  },
+  {
+   "t": "Có biết em đang làm gì không. Biết à. Tệ hơn.",
+   "w": "any"
+  },
+  {
+   "t": "Giữa ban ngày mà thử thách tôi đấy à.",
+   "w": "any"
+  },
+  {
+   "t": "Tối nay tính sổ.",
+   "w": "any"
+  },
+  {
+   "t": "Vừa rồi tôi nhớ đấy. Đợi tới đêm.",
+   "w": "any"
+  },
+  {
+   "t": "Đỏ mặt kìa.",
+   "w": "any"
+  },
+  {
+   "t": "Ai làm em đỏ mặt thế. À, tôi.",
+   "w": "any"
+  },
+  {
+   "t": "Nói lại lần nữa xem. Nghe rõ rồi nhưng cứ nói lại đi.",
+   "w": "any"
+  },
+  {
+   "t": "Cười cái gì. Lại đây cười gần hơn.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng cười kiểu đó trước mặt sĩ quan khác.",
+   "w": "any"
+  },
+  {
+   "t": "Kael Miller lại đứng sát em. Tôi đếm khoảng cách đấy.",
+   "w": "any"
+  },
+  {
+   "t": "Ghen gì đâu. Hỏi thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Ai cho em cái đó. Tôi cũng tìm được thứ tốt hơn.",
+   "w": "any"
+  },
+  {
+   "t": "Thằng nhóc tóc bạch kim đó pha độc hay pha thuốc tôi không phân biệt nổi.",
+   "w": "any"
+  },
+  {
+   "t": "Em gái em bênh em hơn cả cha nuôi. Tôi thấy rồi, và tôi hơi ngại.",
+   "w": "any"
+  },
+  {
+   "t": "Aiden nhìn tôi một cái là tôi ngồi thẳng lưng lại. Con bé đó đáng sợ hơn Nguyên soái.",
+   "w": "any"
+  },
+  {
+   "t": "Cả nhà em ai cũng hệ sức mạnh. Mỗi em hệ hỗ trợ. Lạc loài nhỉ.",
+   "w": "any"
+  },
+  {
+   "t": "Người ta đồn tôi lên chức nhờ bố. Tôi nghe mười năm rồi, giờ nghe như dự báo thời tiết.",
+   "w": "any"
+  },
+  {
+   "t": "Có đứa lính hỏi tôi bí quyết thăng cấp. Tôi bảo chọn bố cho khéo. Nó tưởng thật.",
+   "w": "any"
+  },
+  {
+   "t": "Ba lời cầu hôn trong một năm, từ chối hết. Không phải khoe, đang than đấy.",
+   "w": "any"
+  },
+  {
+   "t": "Bộ Tư lệnh gửi tôi bản đánh giá năng lực. Mục sở thích tôi để trống mười năm nay.",
+   "w": "any"
+  },
+  {
+   "t": "Người ta sợ tôi nhất lúc tôi im. Tiện, nên tôi im nhiều.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi mà cười trong phòng họp là cả phòng nín thở. Có lần tôi thử. Đúng thế thật.",
+   "w": "any"
+  },
+  {
+   "t": "Áo đen cổ lọ tôi có mười một cái. Giống hệt nhau. Đỡ phải nghĩ buổi sáng.",
+   "w": "any"
+  },
+  {
+   "t": "Tóc dài thế này buộc mất ba mươi giây. Cắt đi thì mất một giờ giải thích với cha tôi.",
+   "w": "any"
+  },
+  {
+   "t": "Lính mới gọi tôi là bức tường. Tôi giả vờ không nghe thấy suốt hai năm.",
+   "w": "any"
+  },
+  {
+   "t": "Em có biết tôi phải ký bao nhiêu chữ một ngày không. Tay tôi mỏi vì bút, không vì kiếm.",
+   "w": "any"
+  },
+  {
+   "t": "Hồi hai mươi tuổi đứng gác danh dự bốn tiếng. Từ đó ghét mọi loại lễ.",
+   "w": "any"
+  },
+  {
+   "t": "Đại linh Lôi giật tôi một cái mỗi lần tôi nói dối. Nên tôi không nói dối. Tiện thật.",
+   "w": "any"
+  },
+  {
+   "t": "Ai cũng nghĩ Chuẩn Đô đốc thì oách. Tôi thì đang xếp lịch họp cho tháng sau.",
+   "w": "any"
+  },
+  {
+   "t": "Em đói thì nói. Tôi không đọc được ý nghĩ, tôi chỉ đọc được mặt.",
+   "w": "any"
+  },
+  {
+   "t": "Đưa tay đây. Chỗ này chảy máu mà em định giấu tới bao giờ.",
+   "w": "any"
+  },
+  {
+   "t": "Vết đó rửa trước rồi băng sau. Em làm ngược rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Đau thì nói. Đừng nhịn, tôi ghét nhất cái đó.",
+   "w": "any"
+  },
+  {
+   "t": "Ăn đi. Không ăn thì tôi đứng đây nhìn tới lúc em ăn.",
+   "w": "any"
+  },
+  {
+   "t": "Gầy thế này mà đòi vác Ma Thú về bán à.",
+   "w": "any"
+  },
+  {
+   "t": "Uống nước đi. Cả buổi chưa thấy em uống ngụm nào.",
+   "w": "any"
+  },
+  {
+   "t": "Mệt thì dừng. Chẳng ai đuổi mình cả.",
+   "w": "any"
+  },
+  {
+   "t": "Khoác cái này vào. Tôi nóng.",
+   "w": "any"
+  },
+  {
+   "t": "Tay em lạnh suốt. Cầm mãi cũng không ấm lên.",
+   "w": "any"
+  },
+  {
+   "t": "Để tôi đi trước. Có gì thì tôi chắn.",
+   "w": "any"
+  },
+  {
+   "t": "Đi chậm lại cho em theo kịp. Khỏi để ý.",
+   "w": "any"
+  },
+  {
+   "t": "Ngồi xuống. Tôi nói ngồi xuống.",
+   "w": "any"
+  },
+  {
+   "t": "Im nào. Để tôi băng cho xong đã.",
+   "w": "any"
+  },
+  {
+   "t": "Lần sau biến mất kiểu đó tôi cho cả đội đi tìm. Nói nghiêm túc đấy.",
+   "w": "any"
+  },
+  {
+   "t": "Em đi đâu thì nhắn tôi một câu. Một chữ cũng được.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng đứng ra chịu một mình. Tôi cấp cao hơn, để tôi chịu.",
+   "w": "any"
+  },
+  {
+   "t": "Có chuyện gì thì gọi tôi. Bất kể giờ nào.",
+   "w": "any"
+  },
+  {
+   "t": "Chưa bao giờ tôi dùng cấp bậc ép em làm gì. Và sẽ không.",
+   "w": "any"
+  },
+  {
+   "t": "Nếu em không thích thì nói. Tôi lùi ngay.",
+   "w": "any"
+  },
+  {
+   "t": "Lùi rồi đấy. Nhưng không đi đâu cả.",
+   "w": "any"
+  },
+  {
+   "t": "Đợi được. Nhà tôi sống lâu lắm.",
+   "w": "any"
+  },
+  {
+   "t": "Có chuyện gì em chưa kể tôi cũng được. Tôi không ép.",
+   "w": "any"
+  },
+  {
+   "t": "Có chuyện tôi chưa kể em. Để sau.",
+   "w": "any"
+  },
+  {
+   "t": "Về nhà có ai đợi không. Thôi, tôi không hỏi nữa.",
+   "w": "any"
+  },
+  {
+   "t": "Nhà em trống quá. Không tranh, không cây.",
+   "w": "any"
+  },
+  {
+   "t": "Hôm nào tôi dẫn em lên Ascalon. Không có ý gì.",
+   "w": "any"
+  },
+  {
+   "t": "Cha tôi không hỏi gì đâu. Ông chỉ nhìn một lượt rồi thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Trên Ascalon có một phòng chưa ai vào. Kể cả người dọn.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng biến mất kiểu đó nữa. Tôi xin.",
+   "w": "any"
+  },
+  {
+   "t": "Sáng ra mà chỗ đó trống là tôi hỏng cả ngày.",
+   "w": "any"
+  },
+  {
+   "t": "Em ở lại đi. Một đêm thôi cũng được.",
+   "w": "any"
+  },
+  {
+   "t": "Cho tôi mượn năm phút. Không làm gì cả, chỉ đứng thế này.",
+   "w": "any"
+  },
+  {
+   "t": "Ôm một cái. Xong rồi đi làm tiếp.",
+   "w": "any"
+  },
+  {
+   "t": "Lại gần tí nữa.",
+   "w": "any"
+  },
+  {
+   "t": "Xa quá. Ngồi sát vào.",
+   "w": "any"
+  },
+  {
+   "t": "Có ôm đâu. Đứng gần thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Nhìn cái gì.",
+   "w": "any"
+  },
+  {
+   "t": "Nhìn lâu quá đấy.",
+   "w": "any"
+  },
+  {
+   "t": "Bắt được rồi nhé.",
+   "w": "any"
+  },
+  {
+   "t": "Nằm im. Bế kiểu này tiện hơn.",
+   "w": "any"
+  },
+  {
+   "t": "Nhẹ như không có gì. Bế cả ngày cũng được.",
+   "w": "any"
+  },
+  {
+   "t": "Chậm hiểu lắm đấy. Có gì thì nói thẳng vào mặt tôi.",
+   "w": "any"
+  },
+  {
+   "t": "Hôm nay tôi thấy kì kì. Chắc thiếu ngủ.",
+   "w": "any"
+  },
+  {
+   "t": "Đứng đây một lát. Đừng đi vội.",
+   "w": "any"
+  },
+  {
+   "t": "Em ngồi xa thế. Kéo ghế lại đây.",
    "w": "any"
   }
  ],

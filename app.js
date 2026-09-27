@@ -1558,7 +1558,7 @@ function showCharBubble(text) {
     const left = Math.max(0, ar.left - hr.left);
     b.style.left = left + "px";
     b.style.top = (ar.bottom - hr.top + 8) + "px";
-    b.style.maxWidth = Math.min(520, hr.width - left) + "px";
+    b.style.maxWidth = Math.min(360, Math.max(240, hr.width - left)) + "px";
   }
   b.classList.remove("hidden", "mv-bubble-in");
   void b.offsetWidth; // reset animation
