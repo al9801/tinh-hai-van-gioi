@@ -1620,10 +1620,9 @@ function askGeminiKey() {
   try { localStorage.setItem("thvg-gemini-key", k.trim()); localStorage.removeItem("thvg-gemini-model"); } catch {}
   return k.trim();
 }
-// Google hay khai tử tên model → hỏi danh sách model của key rồi tự chọn bản flash mới nhất (cache lại)
-async function resolveGeminiModel(key) {
-  const cached = (() => { try { return localStorage.getItem("thvg-gemini-model"); } catch { return null; } })();
-  if (cached) return cached;
+// Google hay khai tử tên model (kể cả bản ListModels vẫn liệt kê) → lấy cả danh sách,
+// xếp theo ưu tiên, rồi THỬ LẦN LƯỢT tới khi cái nào chạy thật (bỏ qua 404).
+async function listGeminiModels(key) {
   const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${encodeURIComponent(key)}`);
   if (!r.ok) throw new Error(r.status === 400 ? "Key sai" : `Không lấy được danh sách model (${r.status})`);
   const d = await r.json();
@@ -1631,15 +1630,18 @@ async function resolveGeminiModel(key) {
     .filter((m) => (m.supportedGenerationMethods || []).includes("generateContent"))
     .map((m) => m.name.replace(/^models\//, ""))
     .filter((n) => !/(vision|embedding|aqa|image|tts|learnlm)/i.test(n));
-  const pick = names.find((n) => /2\.5-flash$/.test(n))
-    || names.find((n) => /flash-latest$/.test(n))
-    || names.find((n) => /2\.5-flash/.test(n) && !/lite/.test(n))
-    || names.find((n) => /flash/.test(n) && !/exp|preview/i.test(n))
-    || names.find((n) => /flash/.test(n))
-    || names.find((n) => /gemini/.test(n));
-  if (!pick) throw new Error("Key này không có model nào khả dụng");
-  try { localStorage.setItem("thvg-gemini-model", pick); } catch {}
-  return pick;
+  const rank = (n) => {
+    if (/2\.5-flash-lite/.test(n)) return 1;
+    if (/2\.5-flash/.test(n)) return 2;
+    if (/flash-latest/.test(n)) return 3;
+    if (/2\.0-flash-lite/.test(n)) return 4;
+    if (/2\.0-flash/.test(n)) return 5;
+    if (/flash/.test(n)) return 6;
+    if (/2\.5-pro|pro-latest/.test(n)) return 8;
+    if (/pro/.test(n)) return 9;
+    return 7;
+  };
+  return names.sort((a, b) => rank(a) - rank(b) || a.length - b.length);
 }
 function geminiGenerate(model, key, ask) {
   return fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(key)}`, {
@@ -1692,17 +1694,21 @@ Mô tả thế giới: ${ctx.world || "(không có)"}
 Prompt nhân vật: ${ctx.prompt || "(không có)"}
 Bối cảnh thêm: ${ctx.content || "(không có)"}`;
   try {
-    let model = await resolveGeminiModel(key);
-    let res = await geminiGenerate(model, key, ask);
-    if (res.status === 404) { // model bị khai tử → dò lại danh sách rồi thử một lần nữa
-      try { localStorage.removeItem("thvg-gemini-model"); } catch {}
-      model = await resolveGeminiModel(key);
-      res = await geminiGenerate(model, key, ask);
+    let models = await listGeminiModels(key);
+    const cached = (() => { try { return localStorage.getItem("thvg-gemini-model"); } catch { return null; } })();
+    if (cached && models.includes(cached)) models = [cached, ...models.filter((m) => m !== cached)];
+    let res = null, used = null;
+    for (const model of models.slice(0, 8)) {
+      const r = await geminiGenerate(model, key, ask);
+      if (r.status === 404) continue; // model chết → thử cái kế
+      res = r; used = model; break;
     }
+    if (!res) throw new Error(`Không model nào chạy được. Key có: ${models.slice(0, 6).join(", ") || "(trống)"}`);
     if (!res.ok) {
       const t = await res.text().catch(() => "");
-      throw new Error(res.status === 400 ? "Key sai hoặc yêu cầu bị từ chối" : res.status === 429 ? "Hết hạn mức free tier — thử lại sau" : `Lỗi ${res.status}: ${t.slice(0, 100)}`);
+      throw new Error(res.status === 400 ? `Bị từ chối (model ${used}): ${t.slice(0, 80)}` : res.status === 429 ? "Hết hạn mức free tier — thử lại sau" : `Lỗi ${res.status}: ${t.slice(0, 100)}`);
     }
+    try { localStorage.setItem("thvg-gemini-model", used); } catch {}
     const data = await res.json();
     const txt = data?.candidates?.[0]?.content?.parts?.map((p) => p.text).join("") || "";
     if (!txt) throw new Error("Gemini không trả nội dung (có thể bị lọc an toàn).");
