@@ -35,6 +35,8 @@ let maps = [];              // danh sách map (realtime)
 let drafts = [];            // danh sách nháp Thư Phòng (realtime)
 let unsubMaps = null, unsubDrafts = null, unsubChat = null;
 let editingMapId = null;    // map đang mở trong modal (null = tạo mới)
+let pendingAvatar = undefined; // avatar đang sửa: undefined=không đổi, ''=bỏ, string=ảnh mới (dataURL)
+const lastLineIdx = {};     // map.id → câu vừa hiện (tránh lặp liền khi chạm avatar)
 let mountedRoute = "";      // route đã dựng DOM (tránh re-mount editor khi snapshot về)
 
 // trạng thái ghi chú 💧 + truyền âm 🫧 (khai báo sớm vì dùng ngay lúc khởi động)
@@ -1160,6 +1162,7 @@ function renderMapView({ id, tab }) {
       <a class="breadcrumb" href="#/">← Biển Cổng</a>
       <div class="mv-gate" id="mv-gate"></div>
       <div class="map-title-row">
+        <button class="mv-avatar hidden" id="mv-avatar" title="Chạm để char lên tiếng" aria-label="Chạm để char lên tiếng"></button>
         <div style="flex:1; min-width: 240px;">
           <h1 class="map-view-title" id="mv-title"></h1>
           <p class="map-view-world" id="mv-world"></p>
@@ -1169,6 +1172,7 @@ function renderMapView({ id, tab }) {
         <span id="mv-nsfw" class="nsfw-sticker nsfw-inline hidden" title="Cổng thiên về NSFW">🔥</span>
         ${isGuest ? "" : `<button class="btn-icon" id="btn-edit-map" title="Sửa tên / mô tả / link GAS / nhãn">✎</button>`}
       </div>
+      <div class="mv-bubble hidden" id="mv-bubble" aria-live="polite"></div>
       <div class="map-actions">
         <a class="btn gas-btn" id="mv-gas" target="_blank" rel="noopener">🌀 Mở Google AI Studio</a>
         ${isGuest
@@ -1245,6 +1249,20 @@ function updateMapMeta({ id }) {
   $("#mv-gas").href = gasHref;
   const fab = $("#gas-fab");
   if (fab) { fab.href = gasHref; fab.classList.remove("hidden"); }
+
+  // avatar char: hiện nếu có ảnh, chạm → bốc thoại theo giờ (cả chủ lẫn cá ghé thăm)
+  const av = $("#mv-avatar");
+  if (av) {
+    const hasLines = (m.charLines || []).some((l) => l && l.t && l.t.trim());
+    av.classList.toggle("hidden", !m.hasAvatar);
+    if (m.hasAvatar && av.dataset.for !== id) {
+      av.dataset.for = id;
+      av.style.backgroundImage = "";
+      store.getImage(`${id}__avatar`).then((d) => { if (d && $("#mv-avatar")?.dataset.for === id) av.style.backgroundImage = `url("${d}")`; }).catch(() => {});
+    }
+    av.classList.toggle("mv-avatar-mute", !hasLines); // có ảnh mà chưa soạn câu → chạm không ra gì
+    av.onclick = () => { const line = pickCharLine(m); if (line) showCharBubble(line); else showCharBubble("…"); };
+  }
 
   if (me.guest) {
     const fm = m.fishMarks || {};
@@ -1490,6 +1508,59 @@ function renderProfileTab(m) {
 }
 
 /* ── Modal tạo / sửa map ──────────────────────────────── */
+// ── Chạm avatar → char lên tiếng (thoại soạn sẵn, bốc theo khung giờ) ──
+const WHEN_OPTS = [["any", "Mọi lúc"], ["sang", "Sáng"], ["trua", "Trưa"], ["chieu", "Chiều"], ["toi", "Tối"], ["khuya", "Khuya"]];
+function bucketNow() {
+  const h = new Date().getHours();
+  if (h >= 5 && h < 11) return "sang";
+  if (h >= 11 && h < 14) return "trua";
+  if (h >= 14 && h < 17) return "chieu";
+  if (h >= 17 && h < 22) return "toi";
+  return "khuya";
+}
+function pickCharLine(m) {
+  const all = (m.charLines || []).filter((l) => l && l.t && l.t.trim());
+  if (!all.length) return null;
+  const b = bucketNow();
+  let pool = all.filter((l) => l.w === b || l.w === "any" || !l.w);
+  if (!pool.length) pool = all;
+  let pick = pool[Math.floor(Math.random() * pool.length)];
+  if (pool.length > 1 && pick.t === lastLineIdx[m.id]) pick = pool[(pool.indexOf(pick) + 1) % pool.length];
+  lastLineIdx[m.id] = pick.t;
+  return pick.t;
+}
+let bubbleTimer = null;
+function showCharBubble(text) {
+  const b = $("#mv-bubble");
+  if (!b) return;
+  b.textContent = text;
+  b.classList.remove("hidden", "mv-bubble-in");
+  void b.offsetWidth; // reset animation
+  b.classList.add("mv-bubble-in");
+  clearTimeout(bubbleTimer);
+  bubbleTimer = setTimeout(() => b.classList.add("hidden"), 6000);
+}
+function lineRowHtml(text = "", when = "any") {
+  return `<div class="line-row">
+    <input type="text" class="line-text" maxlength="300" placeholder="Câu char nói…" value="${esc(text)}">
+    <select class="line-when">${WHEN_OPTS.map(([v, l]) => `<option value="${v}" ${v === when ? "selected" : ""}>${l}</option>`).join("")}</select>
+    <button type="button" class="btn-icon line-del" title="Xoá câu">✕</button>
+  </div>`;
+}
+function readLineRows() {
+  return $$("#lines-edit .line-row").map((r) => ({
+    t: r.querySelector(".line-text").value.trim(),
+    w: r.querySelector(".line-when").value,
+  })).filter((l) => l.t);
+}
+function setAvatarPreview(dataUrl) {
+  const prev = $("#avatar-prev");
+  if (!prev) return;
+  prev.style.backgroundImage = dataUrl ? `url("${dataUrl}")` : "";
+  prev.classList.toggle("avatar-prev-empty", !dataUrl);
+  $("#btn-avatar-clear").classList.toggle("hidden", !dataUrl);
+}
+
 function openMapModal(mapId) {
   editingMapId = mapId;
   const m = mapId ? findMap(mapId) : null;
@@ -1501,6 +1572,13 @@ function openMapModal(mapId) {
   $("#inp-map-wip").checked = !!m?.wip;
   $("#inp-map-noh").checked = !!m?.noH;
   $("#btn-map-delete").classList.toggle("hidden", !m);
+  // avatar + thoại
+  pendingAvatar = undefined;
+  setAvatarPreview(null);
+  if (m?.hasAvatar) {
+    store.getImage(`${m.id}__avatar`).then((d) => { if (d && editingMapId === mapId && pendingAvatar === undefined) setAvatarPreview(d); }).catch(() => {});
+  }
+  $("#lines-edit").innerHTML = (m?.charLines || []).map((l) => lineRowHtml(l.t, l.w)).join("");
   $("#modal-map").classList.remove("hidden");
   setTimeout(() => $("#inp-map-title").focus(), 60);
 }
@@ -1508,6 +1586,21 @@ function closeMapModal() { $("#modal-map").classList.add("hidden"); }
 
 $("#btn-map-cancel").addEventListener("click", closeMapModal);
 $("#modal-map").addEventListener("click", (e) => { if (e.target.id === "modal-map") closeMapModal(); });
+
+$("#inp-map-avatar").addEventListener("change", async (e) => {
+  const f = e.target.files[0]; e.target.value = "";
+  if (!f) return;
+  try { const data = await shrinkImage(f, 256, 40000); pendingAvatar = data; setAvatarPreview(data); }
+  catch { toast("Không xử lý được ảnh.", true); }
+});
+$("#btn-avatar-clear").addEventListener("click", () => { pendingAvatar = ""; setAvatarPreview(null); });
+$("#btn-line-add").addEventListener("click", () => {
+  $("#lines-edit").insertAdjacentHTML("beforeend", lineRowHtml());
+  $("#lines-edit").lastElementChild.querySelector(".line-text").focus();
+});
+$("#lines-edit").addEventListener("click", (e) => {
+  if (e.target.closest(".line-del")) e.target.closest(".line-row").remove();
+});
 
 let savingMap = false; // chống bấm Lưu nhiều lần tạo map trùng
 $("#btn-map-save").addEventListener("click", async () => {
@@ -1519,23 +1612,31 @@ $("#btn-map-save").addEventListener("click", async () => {
   const nsfw = $("#inp-map-nsfw").checked;
   const wip = $("#inp-map-wip").checked;
   const noH = $("#inp-map-noh").checked;
+  const charLines = readLineRows();
   const btn = $("#btn-map-save");
   savingMap = true;
   btn.disabled = true;
   btn.textContent = "Đang lưu…";
   try {
     if (editingMapId) {
-      await store.updateMap(editingMapId, { title, world, gasLink, nsfw, wip, noH });
+      const patch = { title, world, gasLink, nsfw, wip, noH, charLines };
+      if (pendingAvatar !== undefined) {
+        if (pendingAvatar) { await store.saveImage(`${editingMapId}__avatar`, pendingAvatar); patch.hasAvatar = true; }
+        else patch.hasAvatar = false;
+      }
+      await store.updateMap(editingMapId, patch);
+      const av = $("#mv-avatar"); if (av) av.dataset.for = ""; // buộc nạp lại ảnh mới ở header
       toast("Đã lưu cánh cổng.");
     } else {
       const maxOrder = maps.reduce((mx, m) => Math.max(mx, m.order || 0), 0);
       const newId = await store.addMap({
-        title, world, gasLink, nsfw, wip, noH,
+        title, world, gasLink, nsfw, wip, noH, charLines,
         order: maxOrder + 1,
         content: "", prompt: "", ideas: "",
         recommends: {},
         createdBy: me.email,
       });
+      if (pendingAvatar) { await store.saveImage(`${newId}__avatar`, pendingAvatar); await store.updateMap(newId, { hasAvatar: true }); }
       toast("✦ Một cánh cổng mới vừa hiện ra giữa biển sao.");
       location.hash = `#/map/${newId}`;
     }
