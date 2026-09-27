@@ -1579,7 +1579,10 @@ function pickCharLine(m) {
   const all = getLinesFor(m);
   if (!all.length) return null;
   const b = bucketNow();
-  let pool = all.filter((l) => l.w === b || l.w === "any" || !l.w);
+  // khuya: chỉ bốc câu khuya (không trộn "mọi lúc"); các khung khác = câu hợp giờ + "mọi lúc"
+  let pool = b === "khuya"
+    ? all.filter((l) => l.w === "khuya")
+    : all.filter((l) => l.w === b || l.w === "any" || !l.w);
   if (!pool.length) pool = all;
   const texts = pool.map((l) => l.t);
   const key = m.id + ":" + b;

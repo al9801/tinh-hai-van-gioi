@@ -1447,123 +1447,123 @@ window.THVG_CHAR_LINES = {
    "w": "any"
   },
   {
-   "t": "Còng tay lại sau lưng đi. Chìa anh giữ, ngoan hết đêm thì sáng anh mở. Không ngoan thì đeo tới lúc anh thấy đủ.",
+   "t": "Cặc anh cương từ lúc em bước vào phòng. Sờ đi, cứng thế này là tại em cả buổi tối.",
    "w": "khuya"
   },
   {
-   "t": "Phòng thẩm vấn số ba camera tắt lúc tám giờ. Anh khoá cửa rồi, giờ khai đi, em muốn anh làm gì.",
+   "t": "Há miệng ra. Ngậm cho anh, liếm từ gốc lên, đừng dùng răng.",
    "w": "khuya"
   },
   {
-   "t": "Kê gối dưới hông cho cao lên. Kiểu này anh vào tới chỗ làm em quên cả họ tên mình.",
+   "t": "Lồn em ướt nhẹp rồi, nước chảy xuống tay anh. Còn bảo chưa muốn nữa không.",
    "w": "khuya"
   },
   {
-   "t": "Ướt hết đùi rồi còn cãi. Chứng cứ sờ sờ ra đây, anh không cần lời khai.",
+   "t": "Anh nhét vào từ từ nhé. Nghe tiếng chưa, ướt tới mức trơn tuột luôn.",
    "w": "khuya"
   },
   {
-   "t": "Cắn khăn vào. Tầng sáu vắng thật, nhưng anh không thích ai gõ cửa lúc em đang gọi tên anh.",
+   "t": "Kẹp lấy hai ngón tay anh trong đó. Chật thế này thì lát cặc anh vào em rên cho coi.",
    "w": "khuya"
   },
   {
-   "t": "Dạng ra. Rộng nữa. Anh muốn nhìn rõ chỗ anh sắp vào.",
+   "t": "Anh liếm cho tới lúc em chảy ra đầy miệng anh. Không được khép chân lại.",
    "w": "khuya"
   },
   {
-   "t": "Ba lần em siết quanh anh rồi, anh đếm. Lần thứ tư là anh thôi giữ ý.",
+   "t": "Ngồi xuống, tự nhét cặc anh vào lồn em. Chậm thôi, cho anh xem nó nuốt hết vào.",
    "w": "khuya"
   },
   {
-   "t": "Ngồi lên anh, tự đút vào. Chậm thôi, anh muốn nghe em hít vào lúc nó lấp đầy.",
+   "t": "Anh đút sâu tới cùng rồi. Cảm thấy nó chạm tới đâu không, ưỡn lên đón đi.",
    "w": "khuya"
   },
   {
-   "t": "Quỳ trên giường, chống hai tay xuống, ưỡn lưng lên cho anh. Đúng tư thế đó, đừng nhúc nhích.",
+   "t": "Lồn em siết chặt quá, anh rút ra là nó níu lại. Tham thật.",
    "w": "khuya"
   },
   {
-   "t": "Gọi anh là đội trưởng nữa đi. Gọi lúc này thì anh càng không tha em đâu.",
+   "t": "Anh đóng mạnh vào, nghe tiếng da đập vào da chưa. Rên to lên, cửa khoá rồi.",
    "w": "khuya"
   },
   {
-   "t": "Cấm ra trước anh. Nhịn tới lúc anh cho phép, ngoan thì anh thưởng.",
+   "t": "Vú em cương hết, đầu ti cứng lên. Để anh mút một bên, tay bóp bên kia.",
    "w": "khuya"
   },
   {
-   "t": "Chảy ra rồi kìa. Nằm im, để anh liếm sạch, anh không lấy khăn.",
+   "t": "Anh xoạc chân em ra rồi vục mặt vào liếm. Cong lưng lên mà đẩy vào miệng anh.",
    "w": "khuya"
   },
   {
-   "t": "Kẹp eo anh bằng hai chân, siết vào. Đừng để anh trượt ra khỏi em.",
+   "t": "Nhìn cặc anh ra vào lồn em đi. Ướt bóng cả thân, đầy nước của em.",
    "w": "khuya"
   },
   {
-   "t": "Anh vừa vào một cái là biết em đợi lâu rồi. Nóng ran, mà còn giả bộ bình tĩnh.",
+   "t": "Quỳ lên, chổng mông ra. Anh vào từ sau, tay giữ gáy ấn mặt em xuống gối.",
    "w": "khuya"
   },
   {
-   "t": "Rên to lên. Cửa khoá, tầng vắng, đêm còn dài. Anh muốn nghe hết, không giấu tiếng nào.",
+   "t": "Cấm ra trước. Nhịn tới lúc anh cho, lồn em co giật anh cũng biết em sắp rồi.",
    "w": "khuya"
   },
   {
-   "t": "Nằm ngửa ra, mở cho anh. Đêm nay anh ở trên, em chỉ việc bám lấy anh.",
+   "t": "Anh sắp xuất rồi, bắn hết vào trong cho em. Kẹp lại, đừng để trào ra.",
    "w": "khuya"
   },
   {
-   "t": "Vừa xong hiệp một đã cứng lại vì em cứ cọ vào. Trách em, không trách anh.",
+   "t": "Miệng em ngậm cặc anh, tay em bóp trứng anh, đúng bài rồi đấy. Ngoan.",
    "w": "khuya"
   },
   {
-   "t": "Đưa hai tay lên đầu giường, anh ghì lại. Bỏ tay che mặt ra, anh muốn nhìn.",
+   "t": "Cưỡi lên anh đi, tự nhún cho cặc anh cọ đúng chỗ sướng của em.",
    "w": "khuya"
   },
   {
-   "t": "Sâu tới đây chịu được không. Gật một cái là anh không còn nhẹ tay nữa đâu.",
+   "t": "Ướt tới mức anh trượt ra ngoài hai lần rồi. Nhét lại vào, giữ chặt hông.",
    "w": "khuya"
   },
   {
-   "t": "Cong người lên nữa. Đúng chỗ đó. Chỗ làm em run bần bật ấy, anh nhớ từ lần trước.",
+   "t": "Lồn em nóng ran, bó lấy anh. Anh thúc từng nhịp cho em rên đứt hơi.",
    "w": "khuya"
   },
   {
-   "t": "Anh cắn một dấu trên gáy em. Cổ áo che được, anh tính rồi, nhưng em thì biết nó ở đó cả ngày.",
+   "t": "Ngậm sâu vào, tới cổ họng. Chảy nước mắt cũng ráng, anh giữ đầu em.",
    "w": "khuya"
   },
   {
-   "t": "Đầy chưa. Anh còn, để anh dồn hết vào trong, đừng để rớt ra ngoài giọt nào.",
+   "t": "Anh ngoáy trong em, tìm cái chỗ làm em rú lên ấy. Đây rồi phải không.",
    "w": "khuya"
   },
   {
-   "t": "Mở chân ra, anh nếm một lúc cho em ướt hẳn rồi mới vào.",
+   "t": "Nứng chưa. Lồn em nhểu nước xuống đùi rồi còn hỏi. Dạng rộng ra.",
    "w": "khuya"
   },
   {
-   "t": "Ngậm ngón tay anh đi. Ngoan. Anh thích cái miệng này lúc không cãi.",
+   "t": "Anh bú lồn em tới khi hai chân em run bần bật kẹp đầu anh mới thôi.",
    "w": "khuya"
   },
   {
-   "t": "Em run hết cả người rồi, bám chặt vai anh vào. Sắp tới rồi, anh giữ em.",
+   "t": "Cặc anh trong họng em, cặc anh trong lồn em, tối nay chỗ nào của em cũng của anh.",
    "w": "khuya"
   },
   {
-   "t": "Úp mặt xuống gối, chổng lên. Anh vào từ sau, tay kia anh vòng ra trước lo cho em.",
+   "t": "Đầy chưa. Bụng em căng tinh anh rồi đấy. Anh còn một đợt nữa.",
    "w": "khuya"
   },
   {
-   "t": "Đừng gồng nữa. Thở ra, thả lỏng, anh mới trượt vào hết được. Ngoan nào.",
+   "t": "Đóng em sát tường, chân em quặp eo anh. Cặc anh không rút ra tới sáng đâu.",
    "w": "khuya"
   },
   {
-   "t": "Cái bàn làm việc này anh đóng, chịu được sức nặng hai đứa. Anh thử rồi, lên đây.",
+   "t": "Anh xuất trong em rồi, nằm im cho nó chảy ngược ra từ từ. Đẹp thật.",
    "w": "khuya"
   },
   {
-   "t": "Đêm nay anh giữ hông em, không cho đi đâu tới sáng. Có án cũng để người khác chạy.",
+   "t": "Liếm sạch cặc anh đi. Có vị của em với anh trộn vào, ngoan thì nuốt.",
    "w": "khuya"
   },
   {
-   "t": "Ra trong anh đi. Anh đỡ hết, em không rơi đâu, cứ buông ra cho anh.",
+   "t": "Hiệp ba. Cặc anh chưa mềm, lồn em còn ướt, ngại gì.",
    "w": "khuya"
   }
  ],
@@ -3133,123 +3133,123 @@ window.THVG_CHAR_LINES = {
    "w": "any"
   },
   {
-   "t": "Cởi áo cổ lọ tôi ra. Cả ngày phải kín cổ, đêm nay em là người duy nhất được chạm vào đó.",
+   "t": "Cặc tôi cương lên rồi. Quỳ xuống, há miệng, tôi cho em ngậm.",
    "w": "khuya"
   },
   {
-   "t": "Đại linh Lôi nó rò xuống tay tôi rồi. Tôi vuốt tới đâu em tê tới đó, chịu một lúc là em sẽ đòi.",
+   "t": "Liếm từ gốc lên đầu. Chậm. Tôi muốn nhìn lưỡi em làm việc.",
    "w": "khuya"
   },
   {
-   "t": "Nói tôi nghe điện chạy tới đâu rồi. Tới đùi chưa. Đừng nói dối, tay tôi biết trước cả em.",
+   "t": "Đại linh Lôi rò xuống, tôi luồn hai ngón có điện vào lồn em. Tê tới xương chưa.",
    "w": "khuya"
   },
   {
-   "t": "Ngồi lên bàn, tôi kéo em ra sát mép. Dạng chân ra, tôi đứng vừa tầm.",
+   "t": "Ướt hết tay tôi. Nước em chảy ra nhểu xuống sàn, còn cố ngồi thẳng lưng à.",
    "w": "khuya"
   },
   {
-   "t": "Của ai. Trả lời to. Sai một chữ thì tôi rút ra, làm lại từ đầu, mà tôi thì rảnh cả đêm.",
+   "t": "Ngồi lên bàn, dạng ra. Tôi nhét cặc vào từ từ cho em quen độ to.",
    "w": "khuya"
   },
   {
-   "t": "Chỗ này nhạy, tôi đọc ra từ lâu rồi, chỉ chưa có dịp. Đêm nay có dịp.",
+   "t": "Lồn em bó chặt lấy tôi. Thở ra, thả lỏng, không thì rách.",
    "w": "khuya"
   },
   {
-   "t": "Đừng nín. Rên đi, cả tầng chỉ có phòng tôi còn sáng đèn, không ai nghe đâu.",
+   "t": "Tôi thúc tới tận cùng. Cảm thấy đầu cặc tôi chạm chỗ đó không. Rên đi.",
    "w": "khuya"
   },
   {
-   "t": "Vòng chân qua eo tôi, bám cho chắc. Tôi nhấc em lên, cả đêm tôi cũng đỡ được.",
+   "t": "Của ai. Vừa nói vừa để tôi đóng vào lồn em từng nhịp. Sai là tôi rút ra.",
    "w": "khuya"
   },
   {
-   "t": "Ướt đẫm tay tôi rồi mà mặt còn cố bình tĩnh. Bỏ cái vẻ nghiêm đó xuống với tôi đi.",
+   "t": "Vú em cứng lên rồi. Tôi kẹp đầu ti bằng ngón có điện, em giật cả người.",
    "w": "khuya"
   },
   {
-   "t": "Ngoài cửa em là gì tôi không quan tâm. Vào đây, lên giường tôi, thì em nghe tôi.",
+   "t": "Xin đi. Nói cho em ra một tiếng, tôi mới cho lồn em được ra.",
    "w": "khuya"
   },
   {
-   "t": "Chậm lại. Tôi không vội. Tôi muốn kéo dài tới đúng lúc em phải mở miệng xin.",
+   "t": "Cặc tôi trơn bóng nước của em rồi. Nhìn nó ra vào đi, đừng nhắm mắt.",
    "w": "khuya"
   },
   {
-   "t": "Xin một tiếng đi. Một tiếng thôi. Xin xong thì muốn ra lúc nào tôi cho lúc đó.",
+   "t": "Quay lưng, chổng lên. Tôi cắn gáy, một tay bóp vú, tay kia thúc vào.",
    "w": "khuya"
   },
   {
-   "t": "Em siết chặt thế thì tôi rút không nổi. Tốt. Cứ giữ tôi trong đó.",
+   "t": "Điện chạy dọc theo cặc tôi vào trong em. Lồn em co giật quanh tôi đấy.",
    "w": "khuya"
   },
   {
-   "t": "Quay lưng lại. Tôi ngậm gáy em, không cắn rách đâu, chỉ giữ cho yên. Cựa là tôi siết.",
+   "t": "Ngậm sâu vào. Tới cổ họng. Tôi giữ đầu em, nuốt cho hết.",
    "w": "khuya"
   },
   {
-   "t": "Hai tay để yên trên đầu. Hạ xuống một lần nữa là tôi trói lại bằng dây đeo kiếm.",
+   "t": "Tôi liếm lồn em tới khi đùi em kẹp chặt tai tôi. Cong lên đón đi.",
    "w": "khuya"
   },
   {
-   "t": "Vào hết rồi. Ngồi yên cho quen đã, gật một cái tôi mới bắt đầu động.",
+   "t": "Cưỡi lên tôi, tự đút vào, tự nhún. Tôi muốn xem em tự làm mình sướng.",
    "w": "khuya"
   },
   {
-   "t": "Mở mắt nhìn tôi. Nhắm mắt là tôi dừng ngay giữa chừng, để em nằm đó mà thèm.",
+   "t": "Chậm lại. Tôi giữ hông không cho em nhún nhanh. Chưa tới lúc.",
    "w": "khuya"
   },
   {
-   "t": "Đại linh Lôi giật nhẹ mỗi lần em rướn lên. Cái đó không phải tôi làm, mà em thích, tôi thấy.",
+   "t": "Lồn em nứng tới mức nuốt trọn cặc tôi trong một nhịp. Tham lam.",
    "w": "khuya"
   },
   {
-   "t": "Mỗi cú tôi thúc là em bấu vào lưng tôi. Cứ bấu, để lại dấu, mai tôi soi gương còn nhớ đêm nay.",
+   "t": "Tôi bắn vào trong em. Kẹp lại, giữ hết, đừng để trào ra ngoài.",
    "w": "khuya"
   },
   {
-   "t": "Cởi hết ra, chậm thôi. Tôi ngồi đây nhìn cho hết, mười năm chưa ai được tôi nhìn kiểu này.",
+   "t": "Nằm ngửa, gác chân lên vai tôi. Tôi đóng thẳng xuống cho sâu.",
    "w": "khuya"
   },
   {
-   "t": "Ngồi lên tôi, tự nhún. Tôi muốn xem em tự lo cho mình tới đâu trước khi tôi ra tay.",
+   "t": "Miệng em còn dính tinh tôi kìa. Liếm sạch đi, rồi mở chân ra tiếp.",
    "w": "khuya"
   },
   {
-   "t": "Đầy tới đâu thì nói. Tôi còn, đêm còn dài, chưa hết đâu.",
+   "t": "Điện tê ở đầu cặc tôi, em thấy chưa. Mỗi lần tôi vào là em rùng mình.",
    "w": "khuya"
   },
   {
-   "t": "Da em nóng lên rồi. Điện của tôi, nhiệt của em, hoá ra hợp nhau tới thế.",
+   "t": "Ướt nhẹp cả đùi rồi. Tôi lấy ngón quẹt lên, đưa cho em nếm.",
    "w": "khuya"
   },
   {
-   "t": "Sâu quá à. Thở ra đi, thở ra thì nó vừa. Tôi biết em, nghe tôi.",
+   "t": "Đầy chưa. Bụng dưới em căng lên rồi. Tôi còn, chưa xong.",
    "w": "khuya"
   },
   {
-   "t": "Hiệp hai tôi ở trên. Em nằm ngửa, nhìn thẳng vào mặt tôi lúc tôi làm.",
+   "t": "Tôi ngoáy tìm chỗ làm em rú. Đây. Tôi ghi nhớ toạ độ rồi, khỏi đổi.",
    "w": "khuya"
   },
   {
-   "t": "Đừng để chảy ra ngoài. Kẹp lại, giữ hết trong người cho tôi tới sáng.",
+   "t": "Bú cặc tôi trong khi tay tôi vọc lồn em. Hai đầu cùng lúc, chịu được không.",
    "w": "khuya"
   },
   {
-   "t": "Cắn vai tôi nếu chịu không nổi. Tôi chịu đau quen rồi, để em bấu víu được là tôi vui.",
+   "t": "Cắn vai tôi mà rên. Tôi thúc mạnh hơn cho em cắn cho đã.",
    "w": "khuya"
   },
   {
-   "t": "Ra đi. Tôi đếm tới ba. Một. Hai. Đấy, không đợi tới ba, tôi biết mà.",
+   "t": "Ra đi. Lồn em siết một cái là tôi biết. Ra cho tôi xem.",
    "w": "khuya"
   },
   {
-   "t": "Xong rồi nằm im, đừng dậy vội, chân em còn run. Để tôi bế đi rửa, không cãi tôi.",
+   "t": "Xong rồi nằm im, tinh tôi còn trong em. Để tôi lau, rồi bế đi rửa.",
    "w": "khuya"
   },
   {
-   "t": "Vết này mai cổ áo che được, tôi đã tính chỗ cắn từ trước. Yên tâm mà ngủ.",
+   "t": "Cặc tôi lại cương rồi. Tại em nằm hớ hênh thế. Hiệp hai.",
    "w": "khuya"
   }
  ],
@@ -5323,123 +5323,123 @@ window.THVG_CHAR_LINES = {
    "w": "khuya"
   },
   {
-   "t": "Đang cơn rồi. Ba ngày tới tôi không tử tế được đâu. Cởi ra, hoặc chạy đi ngay bây giờ, lát nữa là muộn.",
+   "t": "Cặc tôi thò ra khỏi bao rồi, ướt sẵn. Cơn tới rồi, cậu sờ xem nó giật thế nào.",
    "w": "khuya"
   },
   {
-   "t": "Dạng ra cho tôi. Rộng hơn. Đuôi tôi quấn đùi cậu rồi, khỏi khép lại.",
+   "t": "Dạng ra. Lồn cậu chảy nước thơm lừng, mũi tôi nghe từ nãy. Đừng giả vờ.",
    "w": "khuya"
   },
   {
-   "t": "Tôi gừ suốt là bản năng, canh bạn tình, tắt không được. Cậu nằm im mà nghe cũng được.",
+   "t": "Tôi liếm lồn cậu bằng cái lưỡi dài này. Rùng mình chưa. Còn dài đêm.",
    "w": "khuya"
   },
   {
-   "t": "Gốc nó phình lên rồi. Cậu muốn khoá không, nói nhanh, lát nữa là không kịp rút ra nữa đâu.",
+   "t": "Nhét vào rồi. Cặc thú to hơn người đấy, cậu nuốt hết được mà, ngoan.",
    "w": "khuya"
   },
   {
-   "t": "Khoá rồi. Từ giờ tới lúc nó xẹp là hai đứa dính nhau, không ai đi đâu. Ngồi lên đùi tôi cho đỡ mỏi.",
+   "t": "Gốc nó phình lên trong lồn cậu rồi. Sắp khoá, muốn dính với tôi không.",
    "w": "khuya"
   },
   {
-   "t": "Đừng kéo, kéo là đau cả hai. Nó vẫn đang bơm đấy, từng đợt một, cậu cảm thấy không.",
+   "t": "Khoá rồi. Cặc tôi kẹt trong cậu, không rút ra được nửa canh giờ đâu.",
    "w": "khuya"
   },
   {
-   "t": "Căng bụng rồi à. Còn mấy đợt nữa mới hết. Không chảy ra được đâu, cậu giữ hết trong người cho tôi.",
+   "t": "Nó đang bơm tinh vào từng đợt. Bụng cậu căng lên chưa, còn nhiều lắm.",
    "w": "khuya"
   },
   {
-   "t": "Bay lên là tôi kéo xuống. Giữ đúng độ cao đó, vừa tầm tôi rồi, đừng lên nữa.",
+   "t": "Lồn cậu nóng bó chặt gốc cặc tôi. Cựa là tôi bắn thêm đợt nữa đấy.",
    "w": "khuya"
   },
   {
-   "t": "Răng tôi trên gáy cậu rồi. Không rách da đâu, chỉ giữ cho yên. Cựa là tôi siết chặt hơn đấy.",
+   "t": "Răng tôi ngậm gáy cậu, cặc tôi đóng vào từ sau. Đúng tư thế thú, chịu đi.",
    "w": "khuya"
   },
   {
-   "t": "Hít một hơi vào cổ cậu là tôi biết cậu muốn gì, muốn tới mức nào, còn chịu được bao lâu.",
+   "t": "Ngửi thấy chưa, cả người cậu sực mùi tôi rồi. Trong lồn cũng đầy tinh tôi.",
    "w": "khuya"
   },
   {
-   "t": "Mùi tôi phải ở khắp người cậu. Cọ chỗ này. Cả chỗ này nữa. Ba ngày mới hết, tôi tính rồi.",
+   "t": "Cắn vào tai cậu là lồn cậu siết cái. Nhạy thật, để tôi cắn tiếp.",
    "w": "khuya"
   },
   {
-   "t": "Tai cậu nhọn thật. Cắn nhẹ vào đó là cậu run cả người. Tôi ghi nhớ chỗ đó rồi.",
+   "t": "Chống tay vào thân cây, chổng mông ra. Tôi vào tới gốc, sâu hơn nữa.",
    "w": "khuya"
   },
   {
-   "t": "Quay mặt vào thân cây, hai tay chống lên, dang ra. Lùi lại một bước nữa. Ngoan. Đứng yên đúng thế.",
+   "t": "Ướt tới đùi rồi mà miệng bảo chưa muốn. Lồn cậu nói thật hơn cậu.",
    "w": "khuya"
   },
   {
-   "t": "Vào từ từ. Thở ra đi, nín thở là đau. Vào hết rồi, ngồi yên cho quen, gật thì tôi động.",
+   "t": "Ngồi lên đùi tôi, tự thả xuống cho cặc tôi ghim vào. Từ từ nuốt hết.",
    "w": "khuya"
   },
   {
-   "t": "Ướt tới đùi rồi mà miệng còn bảo chưa muốn. Mùi cậu nói thật hơn cái miệng đấy.",
+   "t": "Bú đi. Ngậm cặc thú vào miệng, liếm chỗ gốc sắp phình ấy.",
    "w": "khuya"
   },
   {
-   "t": "Ngồi lên đùi tôi, tự hạ xuống, chậm thôi. Tôi không giúp đâu, tôi muốn xem cậu tự làm.",
+   "t": "Đuôi tôi luồn ra trước vọc lồn cậu trong lúc cặc tôi đóng vào. Hai chỗ cùng lúc.",
    "w": "khuya"
   },
   {
-   "t": "Một tay tôi nhấc được cậu lên. Vòng hai chân qua eo tôi, tôi đỡ, đừng sợ rơi.",
+   "t": "Cả rừng nghe cũng kệ. Rú lên, tôi thích nghe cậu rú lúc tôi thúc.",
    "w": "khuya"
   },
   {
-   "t": "Cắn đi. Vai tôi chứ đâu. Để lại dấu càng tốt, ai lại gần cậu cũng phải thấy.",
+   "t": "Gừ trong ngực tôi là lúc tôi sắp bắn. Nghe chưa, chuẩn bị hứng đi.",
    "w": "khuya"
   },
   {
-   "t": "Gừ trong ngực tôi là tại cậu đấy. Nghe thấy chưa. Cả đêm nay rồi, không tắt được.",
+   "t": "Lồn cậu co bóp quanh cặc tôi từng nhịp. Tôi ngửi ra cậu sắp ra rồi.",
    "w": "khuya"
   },
   {
-   "t": "Ghì tôi xuống thử xem. Tôi nằm im cho cậu làm. Cậu nhẹ bằng nửa tôi mà tôi chịu thua, tự hiểu.",
+   "t": "Lơ lửng xuống vừa tầm, tôi đóng từ dưới lên cho cặc ghim sâu.",
    "w": "khuya"
   },
   {
-   "t": "Sâu chịu được không. Gật thì tôi không chậm nữa đâu, nói trước cho cậu biết.",
+   "t": "Tinh tôi trào ngược ra mép lồn cậu rồi kìa. Nhét ngón vào giữ lại.",
    "w": "khuya"
   },
   {
-   "t": "Của tôi. Nói to lên cho cả rừng nghe, cậu là của ai.",
+   "t": "Của tôi. Vừa rú vừa nói, cặc tôi trong lồn cậu là bằng chứng.",
    "w": "khuya"
   },
   {
-   "t": "Đầy chưa. Tôi còn. Nằm im, đừng cựa, để nó ngấm hết.",
+   "t": "Đầy chưa. Khoá kín rồi, không chảy ra được đâu, giữ hết trong bụng cho tôi.",
    "w": "khuya"
   },
   {
-   "t": "Rễ cây quấn cổ tay tôi lúc nào thế. Cậu điều khiển được cả rừng mà còn để tôi ghì. Chịu thua đi.",
+   "t": "Rễ cây trói tay cậu, tôi rảnh hai tay banh lồn cậu ra liếm.",
    "w": "khuya"
   },
   {
-   "t": "Cả rừng nghe cũng kệ cả rừng. Rên đi, đừng cắn môi, tôi muốn nghe.",
+   "t": "Vào hết chưa. Gật thì tôi đóng nhanh, cho cậu chảy nước tung toé.",
    "w": "khuya"
   },
   {
-   "t": "Rướn lên nữa. Đúng chỗ đó. Tôi ngửi ra cậu sắp rồi, đừng nín lại.",
+   "t": "Mút hai hòn của tôi trong khi tay cậu vuốt thân cặc. Bản năng cậu giỏi đấy.",
    "w": "khuya"
   },
   {
-   "t": "Lơ lửng lên vừa tầm miệng tôi, giữ độ cao đó. Cậu bay được nên tôi khỏi phải cúi, tiện thật.",
+   "t": "Sắp khoá lần nữa rồi. Ba ngày cơn kỳ, cậu đếm nổi mấy lần tôi bắn không.",
    "w": "khuya"
   },
   {
-   "t": "Vừa xong đã lại muốn. Cơn nó thế, đừng trách tôi. Nằm xuống, lần này tôi làm lâu hơn.",
+   "t": "Vừa tháo khoá xong đã lại cương. Nằm im, cặc tôi vào lại đây.",
    "w": "khuya"
   },
   {
-   "t": "Ra rồi. Nằm im, đừng dậy vội, để tôi liếm sạch cho cậu.",
+   "t": "Ra rồi hả. Lồn cậu phun nước ướt hết đùi tôi. Để tôi liếm sạch.",
    "w": "khuya"
   },
   {
-   "t": "Đùi cậu run chưa đứng nổi đâu. Tôi bế ra suối, nước lạnh thì ôm tôi cho ấm.",
+   "t": "Đùi cậu run nhểu tinh tôi xuống sàn. Bế ra suối, rửa xong làm tiếp.",
    "w": "khuya"
   }
  ],
@@ -8333,123 +8333,123 @@ window.THVG_CHAR_LINES = {
    "w": "any"
   },
   {
-   "t": "Hỏi trước đã: chạm vào cậu được không. Gật hay lắc đều được, tôi nghe cả hai.",
+   "t": "Chạm vào được không. Cặc tôi cương rồi, tôi muốn cậu nắm, nhưng cậu gật đã.",
    "w": "khuya"
   },
   {
-   "t": "Không trả lời thì tôi dừng, dừng hẳn. Cậu chưa chắc thì mặc định là không.",
+   "t": "Lồn cậu ướt rồi đây. Vậy là tôi làm đúng chứ. Tôi cho ngón vào thêm nhé.",
    "w": "khuya"
   },
   {
-   "t": "Chậm lại giúp tôi. Cái này tôi chưa quen, tra cứu thì được, còn tay run thì không tài liệu nào viết.",
+   "t": "Tôi ngậm vú cậu thế này đúng không. Đầu ti cứng lên là thích à, tôi ghi nhớ.",
    "w": "khuya"
   },
   {
-   "t": "Sàn đá lạnh lắm, lên giường. Cạnh bàn cấn lưng cậu kìa, đổi chỗ đi.",
+   "t": "Tôi nhét vào từ từ. Đau thì nói ngay, tôi rút ra liền, không hỏi vì sao.",
    "w": "khuya"
   },
   {
-   "t": "Hôn trượt rồi. Tại cả hai đứa cùng không nghiêng đầu. Lần nữa. Lần này tôi nghiêng.",
+   "t": "Lồn cậu bó chặt quá tôi không nhúc nhích nổi. Thở ra giúp tôi, thế mới vào được.",
    "w": "khuya"
   },
   {
-   "t": "Chiều cao hai đứa gần bằng nhau. Cái này không có trong tính toán của tôi, tôi phải nghĩ lại tư thế.",
+   "t": "Vào hết rồi. Cặc tôi tới tận trong cậu. Quen chưa, gật thì tôi động nhẹ.",
    "w": "khuya"
   },
   {
-   "t": "Cởi giúp tôi cái nút này. Tay tôi run, gỡ mãi không ra, đừng cười.",
+   "t": "Tôi liếm chỗ này cậu run. Đây là chỗ đúng phải không, cậu chỉ tôi tiếp.",
    "w": "khuya"
   },
   {
-   "t": "Để tôi thở một giây. Trán tôi tì vai cậu chút thôi. Nhanh quá tôi không giữ được.",
+   "t": "Cậu tự cưỡi lên đi. Tôi vụng, cậu nhún cho cặc tôi cọ đúng chỗ cậu thích.",
    "w": "khuya"
   },
   {
-   "t": "Ướt rồi đây. Vậy là tôi làm đúng chứ. Cậu gật thì tôi mới yên tâm làm tiếp.",
+   "t": "Rên to hơn được không. Tôi cần nghe để biết mình đang làm cậu sướng hay đau.",
    "w": "khuya"
   },
   {
-   "t": "Nhịp tim cậu đều quá, tôi đọc không ra gì cả. Nên cậu phải nói, tôi không đoán được cậu.",
+   "t": "Ngậm cặc tôi thử xem. Nếu không thích thì nhả ra, tôi không ép.",
    "w": "khuya"
   },
   {
-   "t": "Tôi vào chưa đúng chỗ à. Cậu cầm tay tôi đặt vào đúng chỗ đi, tôi làm theo.",
+   "t": "Tôi ngoáy tìm chỗ làm cậu rú nãy giờ. Đây à. Để tôi đánh dấu lại trong đầu.",
    "w": "khuya"
   },
   {
-   "t": "Ôm tôi một cái. Tôi vụng lắm, cậu dẫn tôi, đêm nay cậu chỉ đâu tôi tới đó.",
+   "t": "Cái đu mây kia chịu một trăm tám mươi ký. Tôi treo cậu lên, banh chân ra liếm được không.",
    "w": "khuya"
   },
   {
-   "t": "Vào hết rồi. Cậu quen chưa. Quen thì gật, tôi động nhẹ trước đã.",
+   "t": "Nước cậu chảy ra tay tôi nhiều thế. Tôi đưa lên nếm thử, cho biết vị cậu.",
    "w": "khuya"
   },
   {
-   "t": "Rên thế là thích à. Tôi nghe cho quen, lần sau đỡ lóng ngóng. Ghi nhớ chỗ này rồi.",
+   "t": "Cậu siết quanh cặc tôi từng nhịp. Cái này sách không viết, tôi phải học từ cậu.",
    "w": "khuya"
   },
   {
-   "t": "Đèn để mờ một ngọn thôi. Tôi ngại, nhưng đêm nay tôi muốn cậu thấy rõ là tôi.",
+   "t": "Tôi đóng nhanh hơn nhé. Cậu bảo dừng là tôi dừng giữa chừng ngay được.",
    "w": "khuya"
   },
   {
-   "t": "Đừng cắn môi. Kêu ra thì tôi mới biết mình làm cậu đau hay cậu thích. Tôi chưa phân biệt được.",
+   "t": "Sâu quá à. Tôi lùi ra một đốt. Vừa chưa, cậu điều chỉnh giúp tôi.",
    "w": "khuya"
   },
   {
-   "t": "Cậu siết chặt quá, tôi nhúc nhích không nổi. Thở ra giúp tôi, thế mới đi được.",
+   "t": "Cắn vai tôi mà chịu. Tôi để lại cho cậu cắn, đừng nhịn tiếng.",
    "w": "khuya"
   },
   {
-   "t": "Sâu quá à. Tôi lùi ra một chút. Cậu bảo dừng là tôi dừng ngay, không hỏi vì sao.",
+   "t": "Camera bốn phòng đều tắt, tôi kiểm rồi. Cậu cứ rú, không ai nghe ngoài tôi.",
    "w": "khuya"
   },
   {
-   "t": "Ngồi lên tôi đi. Cậu tự làm, tôi vụng, cậu chủ động thì đêm nay đỡ hỏng hơn.",
+   "t": "Tôi sắp ra rồi. Bắn vào trong hay ngoài, cậu quyết, nói nhanh giúp tôi.",
    "w": "khuya"
   },
   {
-   "t": "Cái đu mây trong phòng kia chịu được một trăm tám mươi ký. Tôi nghĩ tới nó cả tối rồi. Thử không.",
+   "t": "Lồn cậu nuốt hết tinh tôi rồi. Tôi để yên trong đó một lúc được không.",
    "w": "khuya"
   },
   {
-   "t": "Điện thoại tôi đang rung, kệ nó. Đoàn Húc nào nhắn cậu giờ này thì để sáng mai. Giờ nhìn tôi.",
+   "t": "Miệng cậu ngậm cặc tôi lúc nãy, tôi suýt không kìm được. Xin lỗi, tôi thô quá à.",
    "w": "khuya"
   },
   {
-   "t": "Quay lại đây, tôi muốn nhìn mặt cậu xem có ổn không. Có sao thì nói, tôi hỏi lần nữa thôi.",
+   "t": "Cặc tôi còn cương. Cậu mệt thì mình nghỉ, không mệt thì tôi làm cậu ra lần nữa.",
    "w": "khuya"
   },
   {
-   "t": "Cậu thơm thật. Tôi cứ dụi vào cổ cậu mãi. Xin lỗi, tôi biết tôi hỏi và làm hơi nhiều.",
+   "t": "Tay tôi run lúc banh lồn cậu ra. Không phải sợ, là tôi muốn quá thôi.",
    "w": "khuya"
   },
   {
-   "t": "Gáy cậu nóng. Tôi để tay đấy thêm một lát nữa. Tay tôi lạnh, để lâu là cậu ấm cho tôi.",
+   "t": "Gáy cậu nóng, tôi liếm dọc xuống lưng. Tới đây cậu cong người lên, tôi thấy rồi.",
    "w": "khuya"
   },
   {
-   "t": "Trên vai tôi có dấu cậu để rồi đấy. Chỗ đó mai mặc áo là khuất, tôi kiểm rồi.",
+   "t": "Ngồi lên mặt tôi đi. Nặng không sao, tôi thở bằng mũi được, để tôi liếm cho.",
    "w": "khuya"
   },
   {
-   "t": "Cắn vai tôi cũng được, tôi chịu được. Đừng nhịn, tôi thà cậu để dấu còn hơn cậu im.",
+   "t": "Cậu ra chưa. Lồn cậu co bóp mạnh là ra đúng không. Tôi làm đúng rồi chứ.",
    "w": "khuya"
   },
   {
-   "t": "Lần nữa được không. Cậu có quyền từ chối, hợp đồng ghi rõ, tôi bắt luật sư thêm điều đó vào.",
+   "t": "Đoàn Húc nhắn kệ nó. Giờ chỉ có cặc tôi trong cậu thôi, tập trung vào tôi.",
    "w": "khuya"
   },
   {
-   "t": "Tôi sắp rồi. Nói trước cho cậu kịp. Muốn tôi rút ra hay không, cậu quyết, nhanh.",
+   "t": "Nhét lại vào giúp tôi, nó trượt ra rồi. Cậu ướt trơn quá tôi giữ không quen.",
    "w": "khuya"
   },
   {
-   "t": "Nằm im, để tôi lau cho cậu. Việc này tôi làm được, không cần tra cứu.",
+   "t": "Nằm im, tinh tôi còn trong cậu. Để tôi lau, việc này tôi làm được, khỏi tra cứu.",
    "w": "khuya"
   },
   {
-   "t": "Nước đây, uống đi rồi ngủ. Sáng mai cậu không phải dậy lúc năm giờ đâu, tôi lo hết.",
+   "t": "Lần nữa không. Cậu có quyền từ chối. Nhưng cặc tôi thì đang xin, cậu nghe nó không.",
    "w": "khuya"
   }
  ],
@@ -10491,123 +10491,123 @@ window.THVG_CHAR_LINES = {
    "w": "any"
   },
   {
-   "t": "Lên giường. Anh đếm tới ba. Thật ra anh không đếm, anh bế luôn cho nhanh. Kiện khó nhất kho mà.",
+   "t": "Cặc anh dựng đứng từ lúc em cởi áo. Đặc tính giống loài đấy, sờ thử xem giật không.",
    "w": "khuya"
   },
   {
-   "t": "Dạng ra cho anh. Ngoan thì anh thưởng, hư thì cũng thưởng, nhà số 7 phân công anh khoản chiều em.",
+   "t": "Lồn em ướt nhẹp rồi, mũi anh xịn lắm, ngửi phát biết ngay. Đừng giấu cún.",
    "w": "khuya"
   },
   {
-   "t": "Gâu gâu gâu. (dịch: đừng nhúc nhích, anh sắp vào. Bản gốc lịch sự hơn bản dịch.)",
+   "t": "Há miệng ngoan. Ngậm cặc anh vào, liếm như liếm kem ấy, anh dạy rồi mà.",
    "w": "khuya"
   },
   {
-   "t": "Cào lưng anh thoải mái. Rụng lông quen rồi, xước tí không tính là tổn thất, ghi vào biên bản cũng được.",
+   "t": "Anh nhét vào nhé. Từ từ thôi, cún nhà em nuốt hết được, giấy nhận nuôi ghi rõ.",
    "w": "khuya"
   },
   {
-   "t": "Em ướt rồi kìa, đừng giấu. Mũi anh giờ là tai người, nhưng khứu giác vẫn hàng xịn.",
+   "t": "Lồn em bó chặt cặc anh quá. Kho anh chưa gặp kiện nào khít thế này.",
    "w": "khuya"
   },
   {
-   "t": "Ngồi lên đùi anh. Đùi này chịu tải năm chục ký suốt ba tháng, em nhẹ hơn nhiều, đừng khách sáo.",
+   "t": "Anh liếm lồn em bằng lưỡi chó, nhanh và dai. Run chưa, còn cả đêm chủ nhật.",
    "w": "khuya"
   },
   {
-   "t": "Sâu chịu được không. Gật một cái là anh không phanh nữa đâu, phanh anh dở lắm.",
+   "t": "Cưỡi lên anh đi, tự thả cặc anh vào. Đùi anh chịu tải năm chục ký, em nhẹ hều.",
    "w": "khuya"
   },
   {
-   "t": "Tai anh cụp hết rồi. Hồi làm chó cụp tai là giấu được, giờ tai người, em làm anh lộ hết.",
+   "t": "Anh đóng từ sau, đuôi quấn eo em cho khỏi trượt. Chổng cao lên nào.",
    "w": "khuya"
   },
   {
-   "t": "Đừng dừng. Anh xin đấy. Kỹ năng ăn vạ cũ của anh còn xịn, đừng thử.",
+   "t": "Gâu. (dịch: lồn em nuốt trọn cặc anh rồi, ngoan, cắn nhẹ gáy thưởng.)",
    "w": "khuya"
   },
   {
-   "t": "Kêu to lên cũng được. Con vẹt bà Hoè ngủ từ mười giờ, tường nhà mình dày, anh khảo sát kỹ rồi.",
+   "t": "Vú em cứng lên, anh mút một bên gừ gừ. Đầu ti này của anh, đăng ký rồi.",
    "w": "khuya"
   },
   {
-   "t": "Quay lưng lại, chổng lên. Anh liếm gáy em một cái đã, thẩm định bằng răng, kết quả nhất quán nhiều đêm.",
+   "t": "Nước em phun ra tay anh nhiều thế. Anh liếm sạch, vị em ngon hơn cả xương gặm.",
    "w": "khuya"
   },
   {
-   "t": "Đầy chưa. Anh còn, để anh dồn hết vào, không rơi giọt nào, anh bê hàng dễ vỡ chuyên nghiệp.",
+   "t": "Đừng che miệng. Con vẹt bà Hoè ngủ rồi, tường dày, anh khảo sát, cứ rên to.",
    "w": "khuya"
   },
   {
-   "t": "Em cưỡi lên đi, anh nằm ngắm, tóc em xổ xuống mặt anh luôn. Ba tháng nhìn từ dưới sàn, giờ bù.",
+   "t": "Anh ngoáy tìm chỗ làm em rú. Đây rồi. Truy xuất nguồn gốc tiếng rú ra tên anh.",
    "w": "khuya"
   },
   {
-   "t": "Ba giờ sáng ai nhắn em thế. Bánh Bao à. Con sóc đó không có khái niệm múi giờ. Tắt máy giúp anh.",
+   "t": "Cặc anh ra vào bóng nhẫy nước em. Nhìn đi, hiện trường đẹp, anh xử theo thẩm quyền.",
    "w": "khuya"
   },
   {
-   "t": "Cắn vai anh để dấu đi, mai anh soi gương còn khoe. Truy xuất nguồn gốc thì ra tên em, khỏi truy.",
+   "t": "Sắp bắn rồi. Anh dồn hết vào trong, không rơi giọt, anh bê hàng dễ vỡ chuyên nghiệp.",
    "w": "khuya"
   },
   {
-   "t": "Mùi sữa tắm mới của em. Anh vừa quen mùi cũ xong. Thôi được, quen lại từ đầu, liếm cho thành mùi anh.",
+   "t": "Ngậm sâu vào cổ họng, anh giữ đầu em. Chảy nước mắt thì anh liếm cho.",
    "w": "khuya"
   },
   {
-   "t": "Chậm thôi, đêm chủ nhật dài, mai khỏi báo thức. Kế hoạch sáng mai của em anh lo toàn bộ khâu hậu cần.",
+   "t": "Ngồi lên mặt anh. Nặng gì đâu, anh nằm dưới sàn ba tháng quen rồi, ngồi đi.",
    "w": "khuya"
   },
   {
-   "t": "Cái vòng cổ ấy giờ nằm trong ngăn kéo. Em đeo thử một lần được không. Đùa. Nửa đùa thôi.",
+   "t": "Bú hai hòn của anh trong lúc tay vuốt thân. Kỹ năng này em học nhanh phết.",
    "w": "khuya"
   },
   {
-   "t": "Em siết anh chặt quá. Thả ra tí, không anh mất nết ngay, mà mất rồi thì đừng trách.",
+   "t": "Lồn em co giật quanh cặc anh rồi. Đánh hơi phát biết em sắp ra, ưỡn lên.",
    "w": "khuya"
   },
   {
-   "t": "Ngậm ngón tay anh đi. Ngoan thì thêm. Răng em cùn, cắn anh cũng chả sao, anh chấp.",
+   "t": "Bắn đầy trong em rồi, kẹp lại. Cún đánh dấu lãnh thổ, nguyên tắc giống loài.",
    "w": "khuya"
   },
   {
-   "t": "Đừng gọi anh là cún lúc này. Gọi tên người ấy cơ. Anh cần chắc là em biết mình đang ôm ai.",
+   "t": "Đừng gọi anh là cún lúc cặc anh trong em. Gọi tên người ấy cơ.",
    "w": "khuya"
   },
   {
-   "t": "Đùi em run rồi, bám cổ anh vào, sắp tới nơi. Anh là loại chăn năm mươi ký có sưởi, ôm chặt vào.",
+   "t": "Nằm ngửa banh chân ra, anh vục mặt liếm tới lúc em kẹp đầu anh mới thôi.",
    "w": "khuya"
   },
   {
-   "t": "Ra trong anh đi, anh hứng hết. Rên khẽ thế ai nghe, anh giờ tai người rồi, chiều tai anh một tí.",
+   "t": "Cặc anh còn cứng, đuôi còn vẫy. Một hiệp nữa nhé, anh nằm im cho em cưỡi.",
    "w": "khuya"
   },
   {
-   "t": "Vừa xong đã đòi nữa. Cún nhà em hư thật. Mà một lần nữa không thì em quyết, anh nằm ăn vạ chờ.",
+   "t": "Cắn vai anh để dấu đi. Mai anh soi gương khoe, ai hỏi bảo bị chó cắn, cũng đúng.",
    "w": "khuya"
   },
   {
-   "t": "Lật lại đi, anh vào từ sau, đuôi anh quấn eo em cho chắc. Chân em quấn anh thế thì anh đi đâu được.",
+   "t": "Anh thúc mạnh cho tiếng da đập vang. Fan em nghe qua mic là đếm không kịp.",
    "w": "khuya"
   },
   {
-   "t": "Đèn để hay tắt. Để đi. Anh nhìn trong tối tốt, nhưng đêm nay anh muốn em thấy rõ là anh.",
+   "t": "Nước em chảy ướt cả đùi anh. Kho anh gọi đây là hàng ẩm, phải xử lý ngay.",
    "w": "khuya"
   },
   {
-   "t": "Xong rồi anh bế đi tắm, gội đầu cho. Anh giỏi khoản này, có ba tháng thực tập bị người ta xối nước.",
+   "t": "Vào lại đi, trượt ra rồi. Em ướt trơn quá, cặc anh khó bám, giữ hông nào.",
    "w": "khuya"
   },
   {
-   "t": "Ngủ đi, anh nằm canh. Đêm mưa em khó ngủ anh biết, nên anh gãi đầu em đây, học lỏm ba tháng.",
+   "t": "Ra trong anh đi, anh hứng bằng miệng. Không phí giọt nào, vị em anh ghiền rồi.",
    "w": "khuya"
   },
   {
-   "t": "Đừng che miệng. Anh tai người rồi, nghe rõ lắm. Tường nhà số 7 dày, anh khảo sát rồi, cứ để anh nghe.",
+   "t": "Xong anh bế đi tắm, xối nước gội đầu. Ba tháng bị người ta tắm, giờ anh tắm lại.",
    "w": "khuya"
   },
   {
-   "t": "Đêm nay em chủ động à. Được, anh nằm im. Cố nằm im thôi, không hứa được lâu, đặc tính giống loài mà.",
+   "t": "Ngủ đi, cặc anh mềm rồi. À chưa mềm hẳn. Thôi kệ, mai chủ nhật, làm tiếp.",
    "w": "khuya"
   }
  ],
@@ -12481,123 +12481,123 @@ window.THVG_CHAR_LINES = {
    "w": "chieu"
   },
   {
-   "t": "Tháo chuỗi hạt gỗ đào rồi, thả vào bát đầu giường. Không có gì của nghề lên cái giường này. Chỉ có anh.",
+   "t": "Cặc anh cương từ lúc vợ tháo dây lưng. Sờ đi, nóng ran, chỉ chờ lồn vợ làm dịu.",
    "w": "khuya"
   },
   {
-   "t": "Cởi lớp gấm ngoài ra đã, sột soạt cả phòng. Để anh cởi cho, tay vợ lạnh gỡ nút lâu.",
+   "t": "Da vợ mát, anh úp mặt liếm dọc xuống bụng, tới giữa hai chân thì mát rượi.",
    "w": "khuya"
   },
   {
-   "t": "Dây rút quần lụa ai thắt nút kép thế này. Vợ cố tình đúng không. Tay anh vụng, gỡ mãi.",
+   "t": "Lồn vợ mát mà ướt. Anh cho ngón vào, trơn tuột, nước vợ lạnh như nước giếng.",
    "w": "khuya"
   },
   {
-   "t": "Da vợ mát rượi như nước giếng buổi trưa. Anh úp mặt vào vai vợ nằm cả đêm cũng được.",
+   "t": "Ngồi lên anh đi. Tự thả cho cặc anh vào lồn vợ, anh giữ hông kẻo vợ trôi mất.",
    "w": "khuya"
   },
   {
-   "t": "Ngồi lên anh đi. Tay anh giữ chặt hông, vợ nhẹ quá, không giữ là trôi mất.",
+   "t": "Cặc anh vào tới đâu mát tới đấy. Cả người anh nóng, chỉ trong vợ là dịu.",
    "w": "khuya"
   },
   {
-   "t": "Vợ ở trên, tóc xổ xuống ngực anh. Thích nhất là nằm dưới nhìn vợ từ dưới lên, nói thẳng thế đấy.",
+   "t": "Vợ cưỡi lên, tóc xổ xuống, nhún cho cặc anh cọ. Anh nằm nhìn từ dưới, thích lắm.",
    "w": "khuya"
   },
   {
-   "t": "Cứng từ lúc vợ tháo dây lưng anh ra rồi. Vợ thương anh thì ngồi xuống đi.",
+   "t": "Lồn vợ bó chặt anh từng nhịp. Mát mà siết thế này thì anh chịu được bao lâu.",
    "w": "khuya"
   },
   {
-   "t": "Nhúc nhích đi. Anh không kéo đâu, vợ tự làm. Anh nằm đây ngắm cũng đủ hỏng cả người.",
+   "t": "Há miệng ngậm cặc anh đi. Miệng vợ mát, ngậm vào là anh rùng cả người.",
    "w": "khuya"
   },
   {
-   "t": "Bên trong vợ mát. Anh vào tới đâu mát tới đấy. Cả người anh nóng ran, chỉ chỗ đó là dịu.",
+   "t": "Anh liếm lồn vợ tới lúc vợ cong người. Mát lạnh trên lưỡi, anh nghiện mất rồi.",
    "w": "khuya"
   },
   {
-   "t": "Siết anh thế này thì anh chịu được bao lâu. Vợ đừng cười, anh nghiêm túc đấy.",
+   "t": "Anh đóng vào từ sau, một tay vòng ra trước vọc lồn vợ. Chổng cao lên nào.",
    "w": "khuya"
   },
   {
-   "t": "Chậm thôi. Anh muốn lâu. Cả đêm nay điện thoại úp xuống, không việc nào gọi anh.",
+   "t": "Vú vợ mát trong tay anh, đầu ti cứng lên. Anh mút một bên, bóp một bên.",
    "w": "khuya"
   },
   {
-   "t": "Gọi anh đi. Không phải thầy, không phải cháu cả họ Mạc. Gọi chồng. Đêm nay anh chỉ là chồng vợ.",
+   "t": "Nhìn cặc anh ra vào lồn vợ đi. Bóng nhẫy nước vợ, mát cả thân cặc anh.",
    "w": "khuya"
   },
   {
-   "t": "Rên to quá à. Kệ ông Lưu. Ông ghi sổ trực mười lăm linh bảy ồn thì ông ghi, nhà mình mà.",
+   "t": "Rên to quá à. Kệ ông Lưu, ông ghi sổ mười lăm linh bảy ồn thì ông ghi.",
    "w": "khuya"
   },
   {
-   "t": "Ban công tầng mười lăm cao lắm, không ai nhìn lên đâu. Ra đó không. Gió hồ mát, hợp da vợ.",
+   "t": "Anh sắp bắn rồi. Vợ không cần, anh biết. Nhưng để anh xuất trong lồn vợ, giữ lại nhé.",
    "w": "khuya"
   },
   {
-   "t": "Bàn bếp anh đóng ba năm, chắc lắm. Anh bế vợ đặt lên đó, chân vợ vòng qua eo anh.",
+   "t": "Bàn bếp anh đóng chắc. Anh bế vợ đặt lên, banh chân, đóng đứng luôn tại đó.",
    "w": "khuya"
   },
   {
-   "t": "Vợ chọn tư thế, anh làm theo. Nhà này vợ là luật, anh chỉ có việc nghe.",
+   "t": "Cặc anh trong họng vợ, mát tới gốc. Anh giữ đầu, vợ nuốt cho hết nhé.",
    "w": "khuya"
   },
   {
-   "t": "Cắn vai anh để lại dấu đi. Vợ không hiện trong gương, thì để anh còn cái dấu mà ngắm sáng mai.",
+   "t": "Ban công tầng mười lăm gió lùa, không ai nhìn lên. Anh đóng vợ tựa lan can.",
    "w": "khuya"
   },
   {
-   "t": "Mồ hôi anh ướt đẫm, vợ không đổ giọt nào. Công bằng không. Thôi, anh chịu thiệt quen rồi.",
+   "t": "Lồn vợ nuốt trọn cặc anh trong một nhịp. Mát lạnh ôm lấy anh, đã thật.",
    "w": "khuya"
   },
   {
-   "t": "Vào hết rồi. Vợ quen chưa. Gật một cái anh mới dám động, anh sợ làm vợ khó chịu.",
+   "t": "Anh ngoáy tìm chỗ làm vợ rùng mình. Đây phải không. Anh nhớ chỗ này rồi.",
    "w": "khuya"
   },
   {
-   "t": "Sâu quá à. Anh lùi tí. Vợ bảo dừng là anh dừng, nhà mình không có chuyện anh không nghe vợ.",
+   "t": "Tinh anh nóng bắn vào lồn mát của vợ. Nằm im cho nó ngấm, đừng để trào ra.",
    "w": "khuya"
   },
   {
-   "t": "Đầy chưa. Anh còn. Vợ giữ hết trong người cho anh, đừng để rớt ra, phí.",
+   "t": "Vợ ngồi lên mặt anh đi. Vợ nhẹ, anh thở được, để anh liếm cho vợ chảy nước.",
    "w": "khuya"
   },
   {
-   "t": "Lớp trong cùng anh chỉ kéo khỏi vai thôi, không cởi hẳn. Để vợ còn một lớp che, anh biết ý.",
+   "t": "Cặc anh còn cương, mát lồn vợ chưa đủ. Hiệp hai, anh ở trên, vợ nằm nhìn anh.",
    "w": "khuya"
   },
   {
-   "t": "Xương vai vợ lộ ra rồi. Anh hôn chỗ đấy lâu tí. Mát lạnh, anh nghiện cái mát này mất rồi.",
+   "t": "Anh thúc mạnh cho tiếng da đập vào da. Da vợ mát, va vào người anh nóng, đã.",
    "w": "khuya"
   },
   {
-   "t": "Hiệp hai anh ở trên. Vợ nằm ngửa nhìn anh làm, đừng nhắm mắt, anh muốn thấy vợ.",
+   "t": "Nước vợ chảy ướt đùi anh, lạnh cả một mảng. Anh liếm sạch, nghiện cái lạnh này.",
    "w": "khuya"
   },
   {
-   "t": "Tay anh mát theo da vợ rồi. Sang chỗ khác cho nó nóng lại, rồi anh quay về chỗ này.",
+   "t": "Cắn vai anh để dấu đi. Vợ không hiện trong gương, thì để anh còn dấu mà ngắm sáng mai.",
    "w": "khuya"
   },
   {
-   "t": "Vợ cưỡi lên, anh nằm ngắm, tóc vợ phủ xuống. Nói thẳng: anh thích kiểu này nhất.",
+   "t": "Lồn vợ co giật quanh cặc anh. Vợ tới rồi phải không, anh cảm được cái siết đó.",
    "w": "khuya"
   },
   {
-   "t": "Ra trong anh đi. À, vợ không cần. Vậy để anh ra trong vợ. Giữ lại cho anh nhé.",
+   "t": "Xương vai vợ lộ ra, anh hôn rồi cắn nhẹ. Mát rượi, anh liếm dọc xuống ngực vợ.",
    "w": "khuya"
   },
   {
-   "t": "Nằm im, đừng dậy vội. Anh lau cho vợ, rồi đắp chăn. Vợ không lạnh anh vẫn đắp, anh thích thế.",
+   "t": "Nhét lại vào giúp anh, trượt ra rồi. Vợ ướt trơn quá, tay anh giữ không quen.",
    "w": "khuya"
   },
   {
-   "t": "Sổ Cầu Khế tối nay ghi một dòng thôi: đêm nay không xin ký. Đêm nay chỉ có hai đứa.",
+   "t": "Xong rồi nằm im. Tinh anh còn trong vợ, anh lau nhẹ rồi đắp chăn dù vợ không lạnh.",
    "w": "khuya"
   },
   {
-   "t": "Sáng mai anh nấu cháo đặt cạnh gối. Giờ ngủ đã, vợ nằm sát vào anh, luật nhà này.",
+   "t": "Tháo chuỗi hạt gỗ đào rồi mới lên giường. Đêm nay không có nghề, chỉ có cặc anh với vợ.",
    "w": "khuya"
   }
  ]
