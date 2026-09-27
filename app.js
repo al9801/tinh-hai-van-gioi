@@ -1613,13 +1613,44 @@ $("#btn-gen-key").addEventListener("click", () => askGeminiKey());
 $("#btn-gen-lines").addEventListener("click", generateCharLines);
 
 // ── Tự sinh thoại theo tính cách char (Gemini, key free-tier lưu tại máy) ──
-const GEMINI_MODEL = "gemini-2.0-flash";
 function getGeminiKey() { try { return localStorage.getItem("thvg-gemini-key") || ""; } catch { return ""; } }
 function askGeminiKey() {
   const k = prompt("Dán Gemini API key (free tier — lấy ở aistudio.google.com/apikey).\nLưu trên máy này thôi, không chia sẻ, không tính tiền ở free tier:", getGeminiKey());
   if (k === null) return getGeminiKey();
-  try { localStorage.setItem("thvg-gemini-key", k.trim()); } catch {}
+  try { localStorage.setItem("thvg-gemini-key", k.trim()); localStorage.removeItem("thvg-gemini-model"); } catch {}
   return k.trim();
+}
+// Google hay khai tử tên model → hỏi danh sách model của key rồi tự chọn bản flash mới nhất (cache lại)
+async function resolveGeminiModel(key) {
+  const cached = (() => { try { return localStorage.getItem("thvg-gemini-model"); } catch { return null; } })();
+  if (cached) return cached;
+  const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${encodeURIComponent(key)}`);
+  if (!r.ok) throw new Error(r.status === 400 ? "Key sai" : `Không lấy được danh sách model (${r.status})`);
+  const d = await r.json();
+  const names = (d.models || [])
+    .filter((m) => (m.supportedGenerationMethods || []).includes("generateContent"))
+    .map((m) => m.name.replace(/^models\//, ""))
+    .filter((n) => !/(vision|embedding|aqa|image|tts|learnlm)/i.test(n));
+  const pick = names.find((n) => /2\.5-flash$/.test(n))
+    || names.find((n) => /flash-latest$/.test(n))
+    || names.find((n) => /2\.5-flash/.test(n) && !/lite/.test(n))
+    || names.find((n) => /flash/.test(n) && !/exp|preview/i.test(n))
+    || names.find((n) => /flash/.test(n))
+    || names.find((n) => /gemini/.test(n));
+  if (!pick) throw new Error("Key này không có model nào khả dụng");
+  try { localStorage.setItem("thvg-gemini-model", pick); } catch {}
+  return pick;
+}
+function geminiGenerate(model, key, ask) {
+  return fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(key)}`, {
+    method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      contents: [{ parts: [{ text: ask }] }],
+      generationConfig: { temperature: 1.0, responseMimeType: "application/json" },
+      safetySettings: ["HARM_CATEGORY_HARASSMENT", "HARM_CATEGORY_HATE_SPEECH", "HARM_CATEGORY_SEXUALLY_EXPLICIT", "HARM_CATEGORY_DANGEROUS_CONTENT"]
+        .map((c) => ({ category: c, threshold: "BLOCK_NONE" })),
+    }),
+  });
 }
 async function gatherCharContext() {
   const title = $("#inp-map-title").value.trim();
@@ -1661,15 +1692,13 @@ Mô tả thế giới: ${ctx.world || "(không có)"}
 Prompt nhân vật: ${ctx.prompt || "(không có)"}
 Bối cảnh thêm: ${ctx.content || "(không có)"}`;
   try {
-    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${encodeURIComponent(key)}`, {
-      method: "POST", headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: ask }] }],
-        generationConfig: { temperature: 1.0, responseMimeType: "application/json" },
-        safetySettings: ["HARM_CATEGORY_HARASSMENT", "HARM_CATEGORY_HATE_SPEECH", "HARM_CATEGORY_SEXUALLY_EXPLICIT", "HARM_CATEGORY_DANGEROUS_CONTENT"]
-          .map((c) => ({ category: c, threshold: "BLOCK_NONE" })),
-      }),
-    });
+    let model = await resolveGeminiModel(key);
+    let res = await geminiGenerate(model, key, ask);
+    if (res.status === 404) { // model bị khai tử → dò lại danh sách rồi thử một lần nữa
+      try { localStorage.removeItem("thvg-gemini-model"); } catch {}
+      model = await resolveGeminiModel(key);
+      res = await geminiGenerate(model, key, ask);
+    }
     if (!res.ok) {
       const t = await res.text().catch(() => "");
       throw new Error(res.status === 400 ? "Key sai hoặc yêu cầu bị từ chối" : res.status === 429 ? "Hết hạn mức free tier — thử lại sau" : `Lỗi ${res.status}: ${t.slice(0, 100)}`);
