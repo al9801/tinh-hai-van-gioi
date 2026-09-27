@@ -1061,7 +1061,7 @@ function renderHomeGrid() {
       <div class="map-card-num">✦ Cánh cổng ${posNo[m.id]} ✦</div>
       <div class="map-card-title">${esc(m.title)}</div>
       <div class="map-card-world">${esc(m.world || "Thế giới chưa được mô tả…")}</div>
-      <div class="map-card-foot" title="${m.updatedAt ? "Chạm gần nhất: " + fmtTime(m.updatedAt) : ""}">${m.hasHtml ? `<span class="has-map-chip">🧭 có bản đồ</span> · ` : ""}${m.updatedAt ? `<span class="mcf-lbl">Chạm gần nhất: </span><span class="mcf-time">${fmtTime(m.updatedAt)}</span>` : ""}</div>
+      <div class="map-card-foot" title="${m.updatedAt ? "Chạm gần nhất: " + fmtTime(m.updatedAt) : ""}">${m.hasHtml ? `<span class="has-map-chip">${ic("compass")} có bản đồ</span> · ` : ""}${m.updatedAt ? `<span class="mcf-lbl">Chạm gần nhất: </span><span class="mcf-time">${fmtTime(m.updatedAt)}</span>` : ""}</div>
       ${fishRow(m)}
     </a>`).join("");
 
@@ -1441,13 +1441,13 @@ async function renderHtmlFileTab(m, cfg) {
     if (curHtml) {
       body.innerHTML = `<iframe class="htmlmap-frame" sandbox="allow-scripts" title="${esc(pageName(cur))}"></iframe>`;
       body.querySelector("iframe").srcdoc = curHtml;
-      info.textContent = `${cfg.icon} ${pages[cur]?.name || Name} · ${Math.round(curHtml.length / 1024)}KB`;
+      info.innerHTML = `${ic(cfg.iconKey)} ${esc(pages[cur]?.name || Name)} · ${Math.round(curHtml.length / 1024)}KB`;
       info.title = pageName(cur);
     } else if (has) {
-      body.innerHTML = `<div class="htmlmap-empty"><div style="font-size:2.2rem">${cfg.icon}</div><p>Trang ${cur + 1} trống hoặc đã bị gỡ.</p></div>`;
-      info.textContent = `${cfg.icon} Trang ${cur + 1}`;
+      body.innerHTML = `<div class="htmlmap-empty"><div class="hf-empty-ic">${ic(cfg.iconKey)}</div><p>Trang ${cur + 1} trống hoặc đã bị gỡ.</p></div>`;
+      info.innerHTML = `${ic(cfg.iconKey)} Trang ${cur + 1}`;
     } else {
-      body.innerHTML = `<div class="htmlmap-empty"><div style="font-size:2.2rem">${cfg.icon}</div><p>${cfg.emptyText}</p>
+      body.innerHTML = `<div class="htmlmap-empty"><div class="hf-empty-ic">${ic(cfg.iconKey)}</div><p>${cfg.emptyText}</p>
         ${guest ? "" : `<button class="btn btn-gold icon-btn" id="hf-first"><span class="ib-ic">${hfIcon("upload")}</span><span class="ib-tx">Tải HTML lên</span></button>`}</div>`;
       body.querySelector("#hf-first")?.addEventListener("click", () => { pendingMode = "add"; fileInp.click(); });
       info.textContent = `Chưa có ${cfg.name}.`;
@@ -1539,7 +1539,7 @@ async function renderHtmlFileTab(m, cfg) {
 
 function renderMapHtmlTab(m) {
   renderHtmlFileTab(m, {
-    fileId: m.id, flag: "hasHtml", listField: "htmlPages", name: "bản đồ", icon: "🧭",
+    fileId: m.id, flag: "hasHtml", listField: "htmlPages", name: "bản đồ", icon: "🧭", iconKey: "compass",
     emptyText: "Cánh cổng này chưa có bản đồ HTML.",
   });
 }
@@ -1547,7 +1547,7 @@ function renderMapHtmlTab(m) {
 // 🎭 Hồ sơ: file HTML theme tự do theo từng thế giới (nhờ Claude thiết kế → tải lên)
 function renderProfileTab(m) {
   renderHtmlFileTab(m, {
-    fileId: `${m.id}__hoso`, flag: "hasProfile", listField: "profilePages", name: "hồ sơ", icon: "🎭",
+    fileId: `${m.id}__hoso`, flag: "hasProfile", listField: "profilePages", name: "hồ sơ", icon: "🎭", iconKey: "mask",
     emptyText: "Thế giới này chưa có hồ sơ nhân vật.",
   });
 }
@@ -1816,7 +1816,7 @@ function renderDraftsList() {
         <h1 class="page-title">Thư Phòng <span class="accent">San Hô</span></h1>
         <p class="page-sub">Nơi cất những trang nháp ý tưởng.</p>
       </div>
-      <input id="draft-search" class="search-inp" type="search" placeholder="🔍 Tìm nháp…" value="${esc(draftQ)}" autocomplete="off">
+      <span class="search-wrap">${ic("search", "search-ic")}<input id="draft-search" class="search-inp" type="search" placeholder="Tìm nháp…" value="${esc(draftQ)}" autocomplete="off"></span>
       <button class="btn btn-gold icon-btn" id="btn-new-draft" title="Trải trang giấy mới"><span class="ib-ic">✎</span><span class="ib-tx">Trải trang giấy mới</span></button>
     </div>
     <div class="drafts-grid">${cards}</div>

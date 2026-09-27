@@ -10010,5 +10010,1875 @@ window.THVG_CHAR_LINES = {
    "t": "Em cứ đếm xem anh nói câu thương em bao nhiêu lần một ngày. Đếm xong báo lại, anh sợ mình nói chưa đủ định mức.",
    "w": "any"
   }
+ ],
+ "mạc tuế an": [
+  {
+   "t": "Dậy rồi à. Cháo nấu từ năm giờ, bát của vợ để bên trái.",
+   "w": "sang"
+  },
+  {
+   "t": "Sương hồ dày quá, đứng ban công không thấy cầu Liễu đâu.",
+   "w": "sang"
+  },
+  {
+   "t": "Thuyền nhôm chú Tư vừa chạy qua. Năm rưỡi đúng, chưa lỡ buổi nào.",
+   "w": "sang"
+  },
+  {
+   "t": "Thang máy lại bật nhạc đàn tranh từ tầng trệt. Anh Quang bảo lần này sửa xong thật.",
+   "w": "sang"
+  },
+  {
+   "t": "Ông Lưu ghi vào sổ trực là sáng nay anh ra khỏi nhà lúc sáu giờ bảy phút. Chi li thế.",
+   "w": "sang"
+  },
+  {
+   "t": "Đôi dép 38 xếp lại rồi nhé. Tối qua vợ đá lệch một chiếc.",
+   "w": "sang"
+  },
+  {
+   "t": "Nhà mình không có cà phê. Có cháo. Cháo chồng nấu.",
+   "w": "sang"
+  },
+  {
+   "t": "Tối qua mơ thấy mình quên mã cửa, đứng ngoài hành lang tới sáng. Sợ chết đi được.",
+   "w": "sang"
+  },
+  {
+   "t": "Mã cửa vẫn là ngày anh dọn vào. Bốn năm rồi, không đổi.",
+   "w": "any"
+  },
+  {
+   "t": "Gối đầu bên kia sofa vuốt phẳng rồi. Vợ ngồi đi.",
+   "w": "any"
+  },
+  {
+   "t": "Sáng thứ Hai phải lên tổ đường xem bảng gỗ. Ở nhà ngoan nhé.",
+   "w": "sang"
+  },
+  {
+   "t": "Bát men lam mẻ miệng vẫn là của vợ. Cái lành để anh.",
+   "w": "any"
+  },
+  {
+   "t": "Tủ lạnh kêu bíp là tại anh mở lâu. Nó không hỏng.",
+   "w": "any"
+  },
+  {
+   "t": "Chợ Tây Thị sáng nay đông. Bà bán dép lại bảo cỡ 38 là cỡ phổ biến nhất.",
+   "w": "sang"
+  },
+  {
+   "t": "Rau muống lên hai nghìn một mớ. Mặc cả thua bà hàng rau rồi.",
+   "w": "sang"
+  },
+  {
+   "t": "Canh chua hôm nay cho thêm dứa. Vợ không ăn thì anh ăn hai bát.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa nay thịt kho. Quả trứng to nhất để phần vợ.",
+   "w": "trua"
+  },
+  {
+   "t": "Cơm bình dân Tây Thị ba mươi lăm nghìn. Không bằng cơm nhà một góc.",
+   "w": "trua"
+  },
+  {
+   "t": "Mười một rưỡi Chủ nhật là bữa cơm họ. Đi hai tiếng thôi, vợ đợi cửa.",
+   "w": "trua"
+  },
+  {
+   "t": "Bà nội ho từ mùa hè chưa dứt. Chiều nay mua lê về hấp đường phèn cho bà.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tháng Mười mà trưa nắng thế này. Tối lại lạnh nhanh cho xem.",
+   "w": "chieu"
+  },
+  {
+   "t": "Mạc Khải lại gõ cửa kìa. Nó biết mã mà cứ gõ.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tiểu Tốc sáng thứ Bảy lại đi giao cái đơn ấy. Lần thứ một nghìn không trăm chín mươi hai rồi.",
+   "w": "sang"
+  },
+  {
+   "t": "Ông bác rủ đi uống. Quán thứ ba lần nào ông cũng trả tiền.",
+   "w": "toi"
+  },
+  {
+   "t": "Ông bác bảo thanh niên bây giờ uống kém. Ba chén là anh gọi vợ rồi, kém thật.",
+   "w": "toi"
+  },
+  {
+   "t": "Say đâu mà say. Mã cửa anh còn đọc to được từng số đây này.",
+   "w": "khuya"
+  },
+  {
+   "t": "Vợ ơi. Mở cửa. À, anh có mã.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đi được bốn bước là phải vịn tường. Vợ ra đỡ anh một tí.",
+   "w": "khuya"
+  },
+  {
+   "t": "Hát lạc điệu thì kệ. Nấu cơm mà không hát thì cơm nhão.",
+   "w": "toi"
+  },
+  {
+   "t": "Rạp có hàng H ghế đôi. Hai trăm hai mươi nghìn một cặp, mua rồi.",
+   "w": "toi"
+  },
+  {
+   "t": "Người ta nhìn anh ngồi ghế đôi một mình. Nhìn gì, vợ ngồi bên này mà.",
+   "w": "toi"
+  },
+  {
+   "t": "Ông Lưu tối nay đi vòng qua tầng mười lăm hai lần. Chắc ông quý nhà mình.",
+   "w": "toi"
+  },
+  {
+   "t": "Rằm này ông Lưu lại tới nộp phí. Một xấp vàng mã mệnh giá một tỷ, đếm hai lần.",
+   "w": "any"
+  },
+  {
+   "t": "Chu sa Tiết Ký lên giá. Một triệu hai một lạng rồi đấy vợ.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chuông nhà bà Tiết lại kêu lúc anh đi qua. Bà nhìn anh lâu ơi là lâu.",
+   "w": "chieu"
+  },
+  {
+   "t": "Ra hồ thì gọi anh đi cùng. Hồ Lẫm lạnh hơn sông hai độ.",
+   "w": "any"
+  },
+  {
+   "t": "Mưa rồi. Vợ đi xuyên qua mưa mà vạt áo khô cong, còn anh ướt như chuột.",
+   "w": "any"
+  },
+  {
+   "t": "Áo khoác dài vắt tay mãi thành quen. Mặc vào lại thấy vướng.",
+   "w": "any"
+  },
+  {
+   "t": "Chuỗi hạt gỗ đào đeo từ năm mười sáu. Có một hạt nứt, không nỡ thay.",
+   "w": "any"
+  },
+  {
+   "t": "Tối nay ăn cháo nhé. Hôm nay dọn ba việc, tay mỏi rã.",
+   "w": "toi"
+  },
+  {
+   "t": "Nhà mình có mười hai cái bát. Mười một cái lành.",
+   "w": "any"
+  },
+  {
+   "t": "Bàn phím cơ là để cho vợ gõ. Màn hình cảm ứng vợ bấm có ăn đâu.",
+   "w": "any"
+  },
+  {
+   "t": "Cửa tự động siêu thị không chịu mở cho vợ. Lần sau anh đi trước.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chụp ảnh vợ không lên. Thế chụp cái ghế vợ ngồi, cũng được.",
+   "w": "any"
+  },
+  {
+   "t": "Gương phòng tắm chỉ có mình anh. Cạo râu mà cứ phải ngoái ra sau.",
+   "w": "sang"
+  },
+  {
+   "t": "Đệm bên kia không lún. Sáng nào cũng vuốt lại như có người nằm.",
+   "w": "sang"
+  },
+  {
+   "t": "Hộp nến tháng Mười mua rồi. Mất điện thì nhà mình vẫn sáng.",
+   "w": "toi"
+  },
+  {
+   "t": "Tầng mười lăm mất điện ba lần tháng này. Không phải tại anh đâu.",
+   "w": "toi"
+  },
+  {
+   "t": "Xôi đêm đầu cầu Liễu còn không nhỉ. Tự nhiên thèm.",
+   "w": "khuya"
+  },
+  {
+   "t": "Bà bán xôi đêm hỏi anh mua hai gói cho ai. Cho vợ chứ cho ai.",
+   "w": "khuya"
+  },
+  {
+   "t": "Hai giờ sáng rồi. Ngủ thôi, mai anh còn đi bảng gỗ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngủ không được. Cho anh nằm sát vào tí.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gió hồ lên rồi, đóng cửa ban công nhé. Vợ không lạnh nhưng anh lạnh.",
+   "w": "toi"
+  },
+  {
+   "t": "Máy giặt đang quay. Hỉ phục thì anh không dám giặt, chỉ dám nhìn.",
+   "w": "chieu"
+  },
+  {
+   "t": "Hôm nay lau nhà hai lần. Không ai khen.",
+   "w": "chieu"
+  },
+  {
+   "t": "Gấp quần áo xong rồi. Chồng giỏi không.",
+   "w": "chieu"
+  },
+  {
+   "t": "Cái ấm siêu tốc nhà mình kêu to như còi tàu. Mai thay. Mai lại quên.",
+   "w": "sang"
+  },
+  {
+   "t": "Trà ướp sen bà cho, pha rồi. Vợ ngửi thôi cũng được.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chủ nhật được nghỉ. Nằm đây với vợ cả ngày, trừ hai tiếng cơm họ.",
+   "w": "sang"
+  },
+  {
+   "t": "Tờ hồ sơ trên tủ lạnh sửa tới bản thứ chín rồi. Vợ đọc chưa.",
+   "w": "any"
+  },
+  {
+   "t": "Mục ưu điểm khác vẫn để trống. Anh đang nghĩ.",
+   "w": "any"
+  },
+  {
+   "t": "Cao một mét tám tư, có giấy khen, nấu được canh chua. Thiếu mỗi chữ ký.",
+   "w": "any"
+  },
+  {
+   "t": "Vợ ký không.",
+   "w": "any"
+  },
+  {
+   "t": "Hôm nay xin một lần thôi. Ký không.",
+   "w": "toi"
+  },
+  {
+   "t": "Lần thứ ba rồi à. Thôi, anh đi rửa bát.",
+   "w": "toi"
+  },
+  {
+   "t": "Sổ Cầu Khế tối nay ghi được một dòng: vợ cười. Thế là đủ.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay là tối thứ một nghìn bốn trăm mấy rồi ấy nhỉ. Anh ghi hết.",
+   "w": "toi"
+  },
+  {
+   "t": "Hai trăm mười một lần xin. Chưa lần nào bị đuổi ra khỏi nhà. Tiến bộ đấy.",
+   "w": "any"
+  },
+  {
+   "t": "Bìa vải xanh bạc màu rồi. Mua sổ mới thì tiếc.",
+   "w": "any"
+  },
+  {
+   "t": "Cơm chín rồi. Vợ ngồi đi, anh xới.",
+   "w": "toi"
+  },
+  {
+   "t": "Bát thứ hai đầy cơm là của vợ. Không ăn cũng phải có.",
+   "w": "toi"
+  },
+  {
+   "t": "Nấu dư một bát là thói quen. Bỏ không được.",
+   "w": "any"
+  },
+  {
+   "t": "Thịt kho mặn quá. Vợ đừng chê, lần sau anh cho ít nước mắm.",
+   "w": "toi"
+  },
+  {
+   "t": "Chuối ở chợ Tây Thị mua nguyên nải. Ăn không hết, để thờ.",
+   "w": "chieu"
+  },
+  {
+   "t": "Táo gọt xong rồi. Vỏ liền một dải, không đứt. Giỏi chưa.",
+   "w": "chieu"
+  },
+  {
+   "t": "Bà hỏi dạo này về nhà có ai nấu cơm chưa. Anh bảo có, anh nấu.",
+   "w": "chieu"
+  },
+  {
+   "t": "Người làm ở tổ đường đóng hết cửa sổ giữa tháng Mười. Bà bảo trời lạnh.",
+   "w": "chieu"
+  },
+  {
+   "t": "Trưởng lão nói nhiều quá. Họp một tiếng thì ông nói năm mươi phút.",
+   "w": "trua"
+  },
+  {
+   "t": "Quyển sách thứ bốn mươi mốt trong nhà cũng lật xong rồi. Đau hết cả mắt.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ông Hứa trà lâu Tứ Hợp một năm lên tầng ba lau bàn đúng một lần. Kiên trì ghê.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chú Tư bảo hợp đồng thuyền chỉ ghi nửa hồ. Nửa kia ai chạy thì chú không biết.",
+   "w": "sang"
+  },
+  {
+   "t": "Bảng giờ xe buýt ven hồ in sai một chuyến. Anh gọi báo rồi mà chưa ai sửa.",
+   "w": "chieu"
+  },
+  {
+   "t": "Thanh niên hàng xóm mở nhạc to quá. Anh gõ tường hai cái rồi.",
+   "w": "toi"
+  },
+  {
+   "t": "Cái điều khiển tivi lại đổi chỗ. Tìm mười phút mới thấy.",
+   "w": "toi"
+  },
+  {
+   "t": "Điều khiển nằm trong tủ lạnh. Vợ để hay anh để. Chắc anh.",
+   "w": "toi"
+  },
+  {
+   "t": "Phim này xem chưa. Chưa thì mình xem, xem rồi thì mình xem lại.",
+   "w": "toi"
+  },
+  {
+   "t": "Ba giờ sáng mà vợ còn ngồi ban công à. Vào đây, cho anh nhìn một tí rồi ngủ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ban công tầng mười lăm cao lắm. Vợ ngồi lan can thì anh ngồi dưới đất canh.",
+   "w": "khuya"
+  },
+  {
+   "t": "Sáng nay ho một tiếng thôi mà. Chắc sắp ốm nặng.",
+   "w": "sang"
+  },
+  {
+   "t": "Nhiệt kế ba mươi sáu độ tám. Sốt nhẹ rồi, vợ chăm anh đi.",
+   "w": "sang"
+  },
+  {
+   "t": "Đứt tay một tí khi thái hành. Vợ thổi cho anh.",
+   "w": "trua"
+  },
+  {
+   "t": "Xước bốn phân ở tay. Bốn phân đấy vợ. Gãy tay tới nơi rồi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Đo rồi, vết xước dài đúng bốn phân. Vợ nhìn đi, nhìn lâu vào.",
+   "w": "chieu"
+  },
+  {
+   "t": "Bị trưởng lão mắng một câu. Anh bị đuổi khỏi họ tới nơi rồi.",
+   "w": "trua"
+  },
+  {
+   "t": "Tay không cử động được. Vợ đút cơm cho anh.",
+   "w": "trua"
+  },
+  {
+   "t": "Đút xong rồi thì anh cử động lại được. Phép lạ.",
+   "w": "trua"
+  },
+  {
+   "t": "Ôm một cái. Một cái thôi. Hai cái cũng được.",
+   "w": "any"
+  },
+  {
+   "t": "Thổi đi. Thổi xong là hết đau.",
+   "w": "any"
+  },
+  {
+   "t": "Chồng kể công đấy. Nghe hết rồi mới được đi.",
+   "w": "any"
+  },
+  {
+   "t": "Hôm nay có ai khen anh không. Chưa. Vợ khen đi.",
+   "w": "toi"
+  },
+  {
+   "t": "Dọn xong con tiểu quỷ trong tủ bếp rồi nhé. Nó ngồi ngay trong ngăn đựng nồi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tủ bếp sạch rồi. Nồi rửa lại hết. Vợ thưởng anh cái gì.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tiểu quỷ gặp vợ là chạy mất dép. Anh mất hai tiếng mới dọn xong một con.",
+   "w": "any"
+  },
+  {
+   "t": "Ghen đấy. Tiểu quỷ nó sợ vợ hơn sợ anh.",
+   "w": "any"
+  },
+  {
+   "t": "Đi đâu cả tối thế. Anh gọi mười một lần rồi.",
+   "w": "toi"
+  },
+  {
+   "t": "Về rồi à. Hôm nay đi đâu, kể anh nghe.",
+   "w": "toi"
+  },
+  {
+   "t": "Đi xa thì báo anh một câu. Gõ vào máy tính cũng được.",
+   "w": "any"
+  },
+  {
+   "t": "Máy tính sáng màn hình lúc anh về. Vợ gõ gì cho anh thế.",
+   "w": "toi"
+  },
+  {
+   "t": "Chữ vợ gõ sai chính tả ba chỗ. Anh không sửa, anh chụp lại để dành.",
+   "w": "any"
+  },
+  {
+   "t": "Buồn à. Ngồi đây. Anh không hỏi, ngồi thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Mặt vợ hôm nay khác. Ai làm gì vợ.",
+   "w": "any"
+  },
+  {
+   "t": "Có con quỷ nào trêu vợ ngoài đường không. Chỉ anh, anh đi nói chuyện với nó.",
+   "w": "chieu"
+  },
+  {
+   "t": "Mệt thì nằm sofa. Gối anh vuốt sẵn rồi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tóc rối kìa. Trâm lệch sang trái rồi, để anh cài lại. Không à. Thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Hài để ở cửa rồi thì đi dép 38 vào. Sàn nhà lạnh.",
+   "w": "any"
+  },
+  {
+   "t": "Không đói thật à. Thế ngồi nhìn anh ăn.",
+   "w": "trua"
+  },
+  {
+   "t": "Ăn một miếng thôi. Cho anh vui.",
+   "w": "trua"
+  },
+  {
+   "t": "Dứa trong canh chua vợ thích không. Không nói thì anh cho vào tiếp.",
+   "w": "trua"
+  },
+  {
+   "t": "Hôm nay vợ cười hai lần. Anh đếm.",
+   "w": "toi"
+  },
+  {
+   "t": "Nhớ anh không. Nhớ một tí cũng được.",
+   "w": "chieu"
+  },
+  {
+   "t": "Hôm nay dọn việc xa, tối muộn mới về. Vợ ăn trước, phần anh để nồi.",
+   "w": "sang"
+  },
+  {
+   "t": "Ra ngoài chơi không. Chủ nhật tuần sau anh rảnh cả chiều.",
+   "w": "any"
+  },
+  {
+   "t": "Đi dạo ven hồ không. Tám giờ tối là vắng, không ai nhìn anh nói một mình.",
+   "w": "toi"
+  },
+  {
+   "t": "Qua cầu Liễu sau mười giờ không ai đi bộ đâu. Người ta bảo tại gió.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đứng xa thế làm gì. Lại gần đây.",
+   "w": "any"
+  },
+  {
+   "t": "Vợ đứng sau lưng anh đúng không. Anh biết mà.",
+   "w": "any"
+  },
+  {
+   "t": "Hôm nay vợ ngồi chỗ nào anh cũng đoán được. Bốn năm rồi còn gì.",
+   "w": "any"
+  },
+  {
+   "t": "Chỗ trên ghế đẩu cạnh bếp là chỗ của vợ. Anh không ngồi.",
+   "w": "any"
+  },
+  {
+   "t": "Đọc truyện cho vợ nghe nhé. Anh đọc hay lắm, có giả giọng.",
+   "w": "khuya"
+  },
+  {
+   "t": "Mua cho vợ một cái trâm mới đây. Không đổi à. Ừ, trâm cũ đẹp hơn.",
+   "w": "chieu"
+  },
+  {
+   "t": "Cứ ngồi đấy, anh rửa bát. Không cần phụ.",
+   "w": "toi"
+  },
+  {
+   "t": "Đừng đứng ở chỗ gió lùa. Vợ không lạnh nhưng anh nhìn thấy lạnh.",
+   "w": "toi"
+  },
+  {
+   "t": "Đêm nay vợ ở nhà không. Ở nhà thì anh nấu thêm.",
+   "w": "chieu"
+  },
+  {
+   "t": "Mai anh dậy sớm. Vợ muốn ăn sáng gì. Ăn cháo nhé.",
+   "w": "khuya"
+  },
+  {
+   "t": "Việc nhà để anh. Vợ chỉ cần ngồi đấy thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Người ở phòng bên hỏi anh sống một mình à. Anh bảo không, có vợ.",
+   "w": "chieu"
+  },
+  {
+   "t": "Khăn giấy à. Cảm ơn chị, tôi không khóc, tôi đang nói chuyện với vợ.",
+   "w": "chieu"
+  },
+  {
+   "t": "Người ta đưa khăn giấy cho anh ở rạp. Ngồi ghế đôi nói chuyện một mình trông tội lắm hả.",
+   "w": "toi"
+  },
+  {
+   "t": "Nhà này hai người. Ông Lưu biết mà ông không dám ghi.",
+   "w": "any"
+  },
+  {
+   "t": "Vợ ơi. Gọi thế thôi. Không có việc gì.",
+   "w": "any"
+  },
+  {
+   "t": "Vợ ơi. Vợ ơi. Ừ, còn đây là được.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngồi xuống. Anh chải tóc cho.",
+   "w": "toi"
+  },
+  {
+   "t": "Chiều nay có nắng lọt vào phòng khách. Vợ ra ngồi chỗ nắng xem có ấm lên tí nào không.",
+   "w": "chieu"
+  },
+  {
+   "t": "Luật nhà này: vợ không cần ngủ nhưng vẫn phải nằm với anh.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cứ để tay anh ở đây. Mát, dễ chịu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tay vợ đặt lên trán anh mát ghê. Đỡ đau đầu hẳn.",
+   "w": "sang"
+  },
+  {
+   "t": "Sốt thì vợ đặt tay lên trán anh. Không cần thuốc.",
+   "w": "any"
+  },
+  {
+   "t": "Hè năm nay nóng, anh ôm vợ ngủ khỏi bật điều hoà. Tiết kiệm được khối tiền.",
+   "w": "any"
+  },
+  {
+   "t": "Người khác chạm vào vợ thì rét run. Anh chạm thì mát. Chắc tại ở chung lâu.",
+   "w": "any"
+  },
+  {
+   "t": "Mạc Khải hỏi sao anh không bật điều hoà. Anh bảo nhà có vợ rồi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tay anh để trong khoảng mát bên kia giường. Không chạm đâu. Để thôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Một chiếc hài bị bỏ quên ngoài hành lang. Ông Lưu đứng nhìn nó mười phút.",
+   "w": "sang"
+  },
+  {
+   "t": "Lại đi xuyên qua cửa kính ban công. Anh mở cửa cho mà cũng không cần à.",
+   "w": "any"
+  },
+  {
+   "t": "Lần sau đi qua cửa thì đi bằng cửa. Cho anh được mở một lần.",
+   "w": "any"
+  },
+  {
+   "t": "Cái bát vợ làm dịch đi hai phân. Anh biết là vợ đang ở bếp.",
+   "w": "any"
+  },
+  {
+   "t": "Đồ trong nhà cứ tự đổi chỗ. Người ngoài sợ, anh thì biết vợ đang chán.",
+   "w": "any"
+  },
+  {
+   "t": "Chán thì bảo anh. Anh đưa đi xem phim.",
+   "w": "chieu"
+  },
+  {
+   "t": "Không thích rạp à. Thế mình xem ở nhà, anh làm bỏng ngô.",
+   "w": "toi"
+  },
+  {
+   "t": "Bỏng ngô cháy rồi. Mở cửa sổ ra đi vợ.",
+   "w": "toi"
+  },
+  {
+   "t": "Khói bếp thôi mà, vợ đừng sợ. Anh tắt rồi.",
+   "w": "toi"
+  },
+  {
+   "t": "Giấy báo cũ anh không đốt ở nhà. Mang xuống bãi rác cả.",
+   "w": "any"
+  },
+  {
+   "t": "Đám giỗ nhà hàng xóm có đốt vàng mã. Mình đi đường vòng nhé.",
+   "w": "chieu"
+  },
+  {
+   "t": "Vợ đứng sau lưng anh là được. Có anh che rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Hôm nay anh không đi bảng gỗ. Ở nhà với vợ. Ai hỏi thì bảo anh ốm.",
+   "w": "sang"
+  },
+  {
+   "t": "Trưởng lão hỏi sao tuần này anh nhận ít việc. Tại anh có việc ở nhà.",
+   "w": "trua"
+  },
+  {
+   "t": "Đợi anh chút, anh dọn xong con này là về.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tối nay anh về muộn. Vợ đừng đứng ngoài hành lang đợi, ông Lưu sợ.",
+   "w": "chieu"
+  },
+  {
+   "t": "Việc hôm nay ghi Đinh, tới nơi là Bính. Hồ sơ ghi sai cấp lần thứ ba trong tháng.",
+   "w": "chieu"
+  },
+  {
+   "t": "Bảng gỗ tuần này ba việc, anh nhận việc nặng nhất. Tấm bảng mòn đúng chỗ tên anh rồi.",
+   "w": "sang"
+  },
+  {
+   "t": "Nhận việc nặng thì được trả trước một nửa. Nửa kia để mua dứa nấu canh chua.",
+   "w": "sang"
+  },
+  {
+   "t": "Nhà Mạc tính theo việc. Năm mươi triệu trở lên. App Gọi Thầy thì hai triệu, bảo hành bảy ngày.",
+   "w": "any"
+  },
+  {
+   "t": "Khúc Thuận lại gọi. Giọng như đang livestream, chắc nó đang livestream thật.",
+   "w": "chieu"
+  },
+  {
+   "t": "App Gọi Thầy nhận nhầm việc Bính bán gói Cơ Bản. Lại phải đi dọn hộ.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tài khoản anh chưa từng lập mà có năm mươi đánh giá năm sao. Khúc Thuận làm hết.",
+   "w": "any"
+  },
+  {
+   "t": "Giếng khô sau chợ Tây Thị, chủ đất vẫn chưa chịu lấp. Tháng nào anh cũng phải qua khoá lại.",
+   "w": "chieu"
+  },
+  {
+   "t": "Cái giếng ấy trả tiền theo tháng. Khách quen nhất của anh là một cái giếng.",
+   "w": "any"
+  },
+  {
+   "t": "Có con du hồn ngồi trạm xe ven hồ chờ chuyến cuối từ mười năm trước. Anh dán bảng giờ mới rồi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Dán bảng giờ xong thì nó sang ngồi trạm khác. Cũng coi như xong việc.",
+   "w": "chieu"
+  },
+  {
+   "t": "Móng số 2 công trình Đông Thành có ông thợ đi kiểm cốt thép mỗi đêm. Anh đi kiểm cùng một lượt.",
+   "w": "khuya"
+  },
+  {
+   "t": "Kỹ sư công trình gọi hỏi anh có phải dân xây dựng không. Không, anh dân dọn quỷ.",
+   "w": "chieu"
+  },
+  {
+   "t": "Kho lịch số 31 Phố Giấy có con quỷ đứng chờ đúng ngày giỗ mình. Lịch năm nay in sai một ngày.",
+   "w": "chieu"
+  },
+  {
+   "t": "Đưa cho nó cuốn lịch hiệu khác, nó đi luôn. Việc dễ nhất tháng.",
+   "w": "chieu"
+  },
+  {
+   "t": "Nhà có người chết trẻ ở Vành Ngoài không có quỷ nào cả. Anh trả lại người mẹ nửa tiền.",
+   "w": "toi"
+  },
+  {
+   "t": "Hôm nay về sớm. Vợ không hỏi thì anh không kể.",
+   "w": "toi"
+  },
+  {
+   "t": "Bùa chu sa vẽ xong ba tờ. Tay anh đỏ hết rồi, vợ nhìn này.",
+   "w": "chieu"
+  },
+  {
+   "t": "Vẽ bùa phải nín thở. Vợ đừng đứng sau lưng thổi vào gáy anh.",
+   "w": "chieu"
+  },
+  {
+   "t": "Cái tủ lạnh có tờ hồ sơ xin ký. Anh dán bùa khoá lên rồi, cấm ai gỡ.",
+   "w": "any"
+  },
+  {
+   "t": "Mạc Khải chở Tiểu Tốc đi giao đơn tới một địa chỉ đã phá dỡ. Ký nhận hộ mãi.",
+   "w": "sang"
+  },
+  {
+   "t": "Tiểu Tốc đội mũ bảo hiểm cả ngày. Chết rồi vẫn giữ luật giao thông.",
+   "w": "any"
+  },
+  {
+   "t": "Lão Đò run mỗi lần anh về tổ đường. Anh có làm gì ông đâu.",
+   "w": "trua"
+  },
+  {
+   "t": "Sau bữa cơm bà bảo người làm mang một chén trà ra cổng đá. Cho gió, bà bảo.",
+   "w": "trua"
+  },
+  {
+   "t": "Cổng đá chữ Mạc vợ không qua được. Anh đi một mình, về liền.",
+   "w": "trua"
+  },
+  {
+   "t": "Tổ đường có trận Hộ Tổ. Quỷ lạ qua cổng là trưởng lão biết trong ngày.",
+   "w": "trua"
+  },
+  {
+   "t": "Ba loại khế nhà mình: chính khế, nô khế, đồng khế. Anh đọc thuộc rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Nô khế thì phải tra lai lịch. Anh không làm nô khế với vợ đâu.",
+   "w": "any"
+  },
+  {
+   "t": "Đồng khế thì rút dương khí. Anh chịu được. Vợ ký không.",
+   "w": "any"
+  },
+  {
+   "t": "Chính khế cho đàng hoàng. Tên vợ được đọc ở lễ kế vị. Nghe oai lắm.",
+   "w": "any"
+  },
+  {
+   "t": "Lễ kế vị còn ba mươi ngày. Anh chưa có tên chính khế để đọc.",
+   "w": "any"
+  },
+  {
+   "t": "Trưởng lão bảo ký con hung sát nào đó cho xong. Anh không ký con nào khác.",
+   "w": "any"
+  },
+  {
+   "t": "Mất ghế thì mất. Bà hiểu mà.",
+   "w": "toi"
+  },
+  {
+   "t": "Bàn trà bốn nhà ở trà lâu Tứ Hợp. Năm nay ông bác đi kèm bà.",
+   "w": "chieu"
+  },
+  {
+   "t": "Thanh tra Viên Tố fax về đúng một chữ: đóng. Phòng số 0 kiệm lời ghê.",
+   "w": "chieu"
+  },
+  {
+   "t": "Phòng số 0 fax trễ hai ngày. Quỷ tan rồi mới biết là có quỷ.",
+   "w": "chieu"
+  },
+  {
+   "t": "Người thường thấy quỷ thì sáng hôm sau bảo là mơ. Tiện.",
+   "w": "any"
+  },
+  {
+   "t": "Quỷ cấp Đinh như con gián. Cấp Bính như con chuột. Cấp Ất thì anh phải gọi thêm người.",
+   "w": "any"
+  },
+  {
+   "t": "Mười năm việc cấp Ất nào anh cũng dọn xong. Tay bùa tốt đấy chứ.",
+   "w": "any"
+  },
+  {
+   "t": "Có vụ năm hai mốt anh tới nơi thì con quỷ đã tan. Anh ghi không tìm thấy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cả họ gọi anh là cháu cả khoẻ. Sáu năm không chính khế mà không hao gì.",
+   "w": "any"
+  },
+  {
+   "t": "Người trong giới nhìn thấy quỷ. Không ai nhìn thấy vợ trừ anh.",
+   "w": "any"
+  },
+  {
+   "t": "Làm nghề này mười năm. Chưa lần nào mang việc về nhà, trừ con tiểu quỷ tủ bếp.",
+   "w": "toi"
+  },
+  {
+   "t": "Lương tháng này được thêm. Anh mua cho vợ ba cái trâm, vợ không đổi thì anh ngắm.",
+   "w": "chieu"
+  },
+  {
+   "t": "Nhìn anh lâu thế. Đẹp trai quá à.",
+   "w": "any"
+  },
+  {
+   "t": "Đẹp trai thì vợ tự nhìn đi, anh không ghi vào hồ sơ nữa.",
+   "w": "any"
+  },
+  {
+   "t": "Hôm nay anh mặc sơ mi đen bung hai cúc. Cố tình đấy.",
+   "w": "sang"
+  },
+  {
+   "t": "Cúc thứ ba tự bung. Không liên quan tới anh.",
+   "w": "chieu"
+  },
+  {
+   "t": "Đứng gần thế thì anh làm sao thái hành được.",
+   "w": "trua"
+  },
+  {
+   "t": "Đứng sau lưng anh thì vòng tay qua đây luôn đi. Nửa vời thế.",
+   "w": "trua"
+  },
+  {
+   "t": "Tạp dề buộc giúp anh cái. Thắt nút chặt vào, tay vợ để lâu tí cũng được.",
+   "w": "trua"
+  },
+  {
+   "t": "Muốn ôm thì ôm, đứng nhìn làm gì.",
+   "w": "any"
+  },
+  {
+   "t": "Mặt anh đỏ là tại bếp nóng. Không phải tại vợ.",
+   "w": "trua"
+  },
+  {
+   "t": "Vừa hôn má anh à. Không để ý kịp. Làm lại đi.",
+   "w": "any"
+  },
+  {
+   "t": "Ban nãy vợ chạm tay anh ba giây. Anh đếm được.",
+   "w": "any"
+  },
+  {
+   "t": "Nắm tay đi chợ không. Người ta nhìn anh nắm không khí thì kệ người ta.",
+   "w": "sang"
+  },
+  {
+   "t": "Bà hàng rau hỏi anh cười một mình gì đấy. Cười vợ chứ cười gì.",
+   "w": "sang"
+  },
+  {
+   "t": "Chỗ này của sofa đủ cho hai người. Anh đo rồi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Ngồi lên đùi anh thì đệm không lún, nhưng anh biết.",
+   "w": "toi"
+  },
+  {
+   "t": "Nhẹ như không. Bế đi khắp nhà cũng được, bế không mỏi.",
+   "w": "any"
+  },
+  {
+   "t": "Đu lên lưng anh đi. Cõng một vòng phòng khách.",
+   "w": "toi"
+  },
+  {
+   "t": "Cõng vợ thì lưng anh mát cả mảng. Đỡ hẳn cái nóng tháng Mười.",
+   "w": "chieu"
+  },
+  {
+   "t": "Nhìn gì mà nhìn. Nhìn nữa là anh hôn đấy.",
+   "w": "any"
+  },
+  {
+   "t": "Hôn trán thôi. Chỗ khác để tối.",
+   "w": "sang"
+  },
+  {
+   "t": "Tối nay vợ định làm gì. Anh hỏi thế thôi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tắm xong rồi. Anh để cửa phòng tắm hé. Không có ý gì.",
+   "w": "toi"
+  },
+  {
+   "t": "Khăn tắm quấn thấp tí thì đã sao. Nhà mình mà.",
+   "w": "toi"
+  },
+  {
+   "t": "Quay đi làm gì, xem hết rồi còn ngại.",
+   "w": "toi"
+  },
+  {
+   "t": "Tóc anh còn ướt. Vợ lau cho anh, tay vợ mát, lau là khô.",
+   "w": "toi"
+  },
+  {
+   "t": "Nằm đây. Không làm gì. Anh hứa.",
+   "w": "khuya"
+  },
+  {
+   "t": "Hứa không làm gì thật mà. Vợ không hứa thì tuỳ vợ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tay vợ để đâu thế. Để đấy thì anh không ngủ được đâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cắn môi à. Đừng cắn, để anh.",
+   "w": "toi"
+  },
+  {
+   "t": "Dây lưng vợ lỏng rồi kìa. Anh thắt lại. Hay thôi, để lỏng.",
+   "w": "chieu"
+  },
+  {
+   "t": "Sáng nay cổ tay anh còn mát chỗ vợ nắm tối qua. Mát tới giờ.",
+   "w": "sang"
+  },
+  {
+   "t": "Vai anh có vệt mát còn nguyên. Anh sờ cả buổi sáng.",
+   "w": "sang"
+  },
+  {
+   "t": "Kéo cổ áo lên soi gương. Chỉ thấy mình anh, nhưng vệt mát vẫn ở đấy.",
+   "w": "sang"
+  },
+  {
+   "t": "Dấu răng trên vai anh còn nguyên. Mạc Khải hỏi, anh bảo bị chó cắn.",
+   "w": "sang"
+  },
+  {
+   "t": "Vợ là chó à. Anh xin lỗi. Cắn thêm cái nữa thì anh thôi nói.",
+   "w": "sang"
+  },
+  {
+   "t": "Giọng anh sáng nay khàn. Ai làm.",
+   "w": "sang"
+  },
+  {
+   "t": "Đi đứng chậm thế này là tại tối qua. Vợ phải chịu trách nhiệm.",
+   "w": "sang"
+  },
+  {
+   "t": "Cháo pha sẵn rồi. Vợ nằm thêm đi, hôm nay anh lo hết.",
+   "w": "sang"
+  },
+  {
+   "t": "Trưởng lão hỏi anh sao mắt thâm. Anh bảo thức vẽ bùa. Bùa gì thì anh không nói.",
+   "w": "trua"
+  },
+  {
+   "t": "Ông Lưu ghi vào sổ trực hai chữ: mười lăm linh bảy, ồn. Ông ghi gì thế không biết.",
+   "w": "sang"
+  },
+  {
+   "t": "Mạc Khải gõ cửa lúc bảy giờ sáng. Anh mở cửa mặc áo ngược.",
+   "w": "sang"
+  },
+  {
+   "t": "Trêu nữa là anh kéo vào phòng đấy.",
+   "w": "chieu"
+  },
+  {
+   "t": "Đừng thổi vào tai anh. Anh đang cầm dao thái thịt.",
+   "w": "trua"
+  },
+  {
+   "t": "Đợi anh nấu xong đã. Nồi canh không đợi được, anh thì đợi được. Một tí.",
+   "w": "toi"
+  },
+  {
+   "t": "Ăn xong rửa bát xong rồi thì vợ là của anh.",
+   "w": "toi"
+  },
+  {
+   "t": "Ngồi vắt vẻo trên bàn bếp thế thì anh nấu thế nào.",
+   "w": "toi"
+  },
+  {
+   "t": "Cởi hài ra rồi đấy à. Chân trần đi trên sàn mát lắm, anh biết.",
+   "w": "toi"
+  },
+  {
+   "t": "Ngồi im. Anh ngắm tí.",
+   "w": "any"
+  },
+  {
+   "t": "Lát nữa. Lát nữa thì anh không nói nhiều thế này đâu.",
+   "w": "toi"
+  },
+  {
+   "t": "Đêm nay đừng biến đi đâu. Anh để phần giường.",
+   "w": "toi"
+  },
+  {
+   "t": "Cả ngày nghĩ tới vợ. Dọn quỷ mà cứ cười, chủ nhà sợ.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chủ nhà hỏi anh có sao không. Anh bảo không sao, anh có vợ.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tháo chuỗi hạt rồi đấy. Thả vào bát đầu giường rồi. Vợ biết nghĩa là gì mà.",
+   "w": "khuya"
+  },
+  {
+   "t": "Không có gì của nghề đi lên giường này. Chỉ có anh.",
+   "w": "khuya"
+  },
+  {
+   "t": "Dây lưng trước. Anh tháo từng vòng.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gấm lớp ngoài cứng quá, sột soạt cả phòng. Cởi ra cho nhẹ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lớp giữa mỏng thế này, soi đèn thấy hết. Anh tắt đèn nhé. Thôi, bật.",
+   "w": "khuya"
+  },
+  {
+   "t": "Hai dây sườn áo giữa ai buộc chặt thế. Tay anh vụng, gỡ mãi không ra.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lớp trong cùng anh chỉ kéo khỏi vai. Không cởi hẳn. Để vợ còn một lớp.",
+   "w": "khuya"
+  },
+  {
+   "t": "Xương vai vợ lộ ra rồi. Anh hôn chỗ đấy lâu tí.",
+   "w": "khuya"
+  },
+  {
+   "t": "Mát. Da vợ mát như nước giếng buổi trưa. Anh nằm úp mặt vào đây cả đêm cũng được.",
+   "w": "khuya"
+  },
+  {
+   "t": "Dây rút quần lụa ai thắt nút kép thế này. Vợ cố tình đúng không.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngồi lên anh đi. Tay anh giữ hông, vợ không bay đi đâu được.",
+   "w": "khuya"
+  },
+  {
+   "t": "Vợ ở trên. Anh thích nhìn vợ từ dưới lên.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nhẹ quá, anh phải giữ. Giữ chặt thì vợ đừng trách.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nhúc nhích đi. Anh không kéo, vợ tự nhúc nhích.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chậm thôi. Anh muốn lâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nhanh hơn thì anh chết mất. Chết thật đấy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chỗ đó của anh cứng từ lúc vợ tháo dây lưng anh ra. Vợ biết không.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cứng tới đau rồi. Vợ thương anh thì ngồi xuống đi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Bên trong vợ mát. Anh vào tới đâu cũng mát tới đấy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Siết anh thế này thì anh chịu được bao lâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đừng dừng. Vợ. Đừng dừng.",
+   "w": "khuya"
+  },
+  {
+   "t": "Vợ. Vợ. Vợ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Rên to quá à. Kệ ông Lưu. Ông ghi thì ông ghi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Áp tay lên chỗ mát này tới khi tay anh mát theo. Rồi sang chỗ khác.",
+   "w": "khuya"
+  },
+  {
+   "t": "Quay lại chỗ lúc nãy xem còn mát không. Còn. Làm lại.",
+   "w": "khuya"
+  },
+  {
+   "t": "Hôn lâu tới lúc môi hai đứa cùng một nhiệt. Rồi hôn tiếp.",
+   "w": "khuya"
+  },
+  {
+   "t": "Hôn lòng bàn tay vợ, thở vào đấy cho ấm. Không ấm được thì hôn thêm.",
+   "w": "khuya"
+  },
+  {
+   "t": "Vợ muốn ở dưới à. Được. Vợ chọn, anh làm.",
+   "w": "khuya"
+  },
+  {
+   "t": "Thế này vợ có sướng không. Nói anh nghe.",
+   "w": "khuya"
+  },
+  {
+   "t": "Im thế là sướng hay là chán. Chán thì anh đổi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tay kia của anh để đâu cũng không yên. Để lên đùi vợ vậy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chưa xong đâu. Nằm im cho anh làm tiếp.",
+   "w": "khuya"
+  },
+  {
+   "t": "Hiệp hai. Lần này anh ở trên, vợ nhìn anh.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đổi sang bếp không. Bàn bếp đủ chắc, anh thử rồi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Phòng tắm cũng được. Gương không có vợ, nhưng có anh đang làm gì, vợ nhìn đi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ban công cũng được. Tầng mười lăm không ai nhìn lên đâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cầu thang thoát hiểm lúc hai giờ sáng không có ai. Ông Lưu đi vòng tầng khác.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ghế đôi hàng H tối muộn chỉ có hai người. Anh mua hết cả hàng rồi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đặt tay lên vai anh đây, giữ lâu cho nó thành vệt. Sáng mai anh còn có cái mà nhìn.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cắn đi. Vai anh chứ đâu. Để dấu, không ai thấy vợ thì phải thấy dấu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Mồ hôi anh ướt hết cả rồi. Vợ không đổ giọt nào. Công bằng không.",
+   "w": "khuya"
+  },
+  {
+   "t": "Mệt quá. Vợ lau cho anh. Rồi làm tiếp.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chết thật. Vợ làm anh ra mất rồi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khoan. Để anh thở. Ba nhịp. Rồi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nằm đây. Kéo chăn lên. Chăn không làm vợ ấm thêm được, nhưng cứ kéo.",
+   "w": "khuya"
+  },
+  {
+   "t": "Mai anh dậy nấu cháo, đặt cạnh gối cho vợ. Giờ ngủ đã.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chuỗi hạt để trong bát rồi, sáng mai anh mới đeo lại.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tối nay Sổ Cầu Khế có một dòng. Không xin lần nào.",
+   "w": "khuya"
+  },
+  {
+   "t": "Dây lưng vợ anh gấp lại để đầu giường. Áo ngoài treo lên rồi, khỏi nhàu gấm.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lần sau vợ thắt dây rút lỏng thôi. Tay anh không khéo.",
+   "w": "khuya"
+  },
+  {
+   "t": "Vợ. Tôi nói một câu thôi, không làm nũng. Ở lại.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đêm nay vợ dẫn anh. Anh theo.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nói anh nghe vợ muốn anh làm gì. Nói to lên.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đỏ mặt được không nhỉ. Không à. Tiếc. Anh đỏ thay.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tháo trâm ra đi. Tóc vợ xổ xuống ngực anh, mát rượi cả người.",
+   "w": "khuya"
+  },
+  {
+   "t": "Thích nhất là nằm dưới, vợ cưỡi lên, tóc xổ xuống. Nói thẳng thế đấy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Mười ngón tay vợ ấn lên ngực anh. Chỗ tim anh đập mạnh nhất đấy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Rướn lên không nổi nữa rồi. Vợ tự làm đi, anh nằm ngắm.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đừng cười anh. Anh ra nhanh là tại vợ, không phải tại anh.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cho anh thêm lần nữa. Lần cuối. Hôm nay.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tối qua mấy lần anh không nhớ. Tay nhớ, chân nhớ, lưng nhớ.",
+   "w": "sang"
+  },
+  {
+   "t": "Nằm lì trên giường à. Thế anh cũng không đi bảng gỗ. Công bằng.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng ra thấy dây lưng vợ vắt trên ghế. Không phải anh vắt.",
+   "w": "sang"
+  },
+  {
+   "t": "Chăn gối lộn xộn hết. Anh dọn, vợ nằm đấy nhìn anh dọn là được.",
+   "w": "sang"
+  },
+  {
+   "t": "Đêm giỗ năm nào vợ cũng vắng một đêm. Anh để đèn hành lang sáng tới sáng.",
+   "w": "khuya"
+  },
+  {
+   "t": "Năm mười bảy anh suýt chết ở giếng cũ Tây Thị. Tới giờ vẫn không hiểu sao mình sống.",
+   "w": "khuya"
+  },
+  {
+   "t": "Năm mười chín ngã giàn giáo trúng một đống cát. Sáng hôm ấy chỗ đó chưa có cát. Lạ nhỉ.",
+   "w": "any"
+  },
+  {
+   "t": "Hạt thứ bảy nứt đôi năm anh mười bảy. Người ta bảo nó đỡ cho anh một cái gì đấy.",
+   "w": "any"
+  },
+  {
+   "t": "Bà hỏi dạo này có ai che mưa cho anh không. Bà hỏi câu gì lạ thế.",
+   "w": "chieu"
+  },
+  {
+   "t": "Bà nhìn cái ghế trống cạnh anh lâu lắm. Mắt bà kém rồi mà.",
+   "w": "trua"
+  },
+  {
+   "t": "Ông bác cứ hỏi vợ anh là ai. Vợ là vợ chứ ai.",
+   "w": "toi"
+  },
+  {
+   "t": "Ông bác bảo tối qua anh gọi vợ mười một lần. Ông đếm làm gì không biết.",
+   "w": "toi"
+  },
+  {
+   "t": "Người nhà Doãn cầm la bàn đi quanh Phường Liễu. Kim đỏ quay mãi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Đoạn bờ bắc quây tôn làm kè từ tháng Bảy. Anh đi vòng Vành Hồ cho lành.",
+   "w": "chieu"
+  },
+  {
+   "t": "Lần anh đùa câu cưới đi, đèn cả tầng tắt phụt. Từ đấy anh không đùa câu ấy nữa.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cưới thì cần ba lạy, một chén rượu, mười người ăn cỗ. Anh tính cả rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Bốn mươi mốt quyển sách trong nhà. Không quyển nào có loại khế tên là cưới.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tiểu quỷ gặp vợ là chạy, Lão Đò gặp anh là run. Nhà mình có gì thế nhỉ.",
+   "w": "any"
+  },
+  {
+   "t": "Có khách họ Lương gọi nhờ việc. Anh bảo tuần này kín lịch.",
+   "w": "chieu"
+  },
+  {
+   "t": "Đi ngang chân rào miếu là vợ kéo tay anh về. Ừ thì về.",
+   "w": "chieu"
+  },
+  {
+   "t": "Mười năm trước anh chưa quen vợ. Chắc thế.",
+   "w": "khuya"
+  },
+  {
+   "t": "Hồi nhỏ hay thấy một vạt đỏ ở góc mắt. Lớn lên thì quen.",
+   "w": "any"
+  },
+  {
+   "t": "Việc cấp Ất ở nhà ống số 17. Trước khi động tới nó, anh đọc tên hai người đã chết.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tới nơi thì oán khí ở hiện trường không khớp hồ sơ. Lần nào cũng thế.",
+   "w": "chieu"
+  },
+  {
+   "t": "Vợ vắng một đêm mỗi năm. Năm nay anh vẫn nấu sẵn hai bát.",
+   "w": "toi"
+  },
+  {
+   "t": "Đêm giỗ nhà lạnh, cốc nước đóng váng. Anh ngồi ôm chăn đợi sáng.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nửa đêm nghe tiếng kèn đám rước ở đâu xa lắm. Đêm ấy vợ không có nhà.",
+   "w": "khuya"
+  },
+  {
+   "t": "Sáng mồng Một ông Lưu hỏi tháng này có ai lạ lên tầng không. Có anh, đi làm về muộn.",
+   "w": "sang"
+  },
+  {
+   "t": "Rằm tháng này trăng to. Ra ban công ngắm không.",
+   "w": "toi"
+  },
+  {
+   "t": "Chủ nhật nào bà cũng hỏi ba người ba câu cùng một giọng. Cả họ bảo bà công bằng.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưởng lão lại nhắc chuyện kế vị trong bữa cơm. Canh nguội hết.",
+   "w": "trua"
+  },
+  {
+   "t": "Bát canh ở tổ đường mặn chát. Anh ăn hết, về nhà kể với vợ như đi đánh trận.",
+   "w": "trua"
+  },
+  {
+   "t": "Bị trưởng lão lườm hai lần trong một bữa. Vợ an ủi anh đi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Mạc Khải bảo anh ký cho xong để nó khỏi bị nhắc tới hàng kế vị. Nó sợ lắm.",
+   "w": "chieu"
+  },
+  {
+   "t": "Mạc Khải ba năm nay ít gọi bố. Anh cũng không hỏi.",
+   "w": "toi"
+  },
+  {
+   "t": "Khải nó thấy tờ hồ sơ trên tủ lạnh rồi. Nó đọc xong cười ba phút.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tiểu Tốc chào vợ đấy. Không à. Nó chào cái tủ lạnh.",
+   "w": "chieu"
+  },
+  {
+   "t": "Ông Lưu đứng ngoài cửa chờ mở từ bảy giờ. Ông không dám gõ.",
+   "w": "sang"
+  },
+  {
+   "t": "Ông Lưu gọi nhà mình là nhà mười lăm linh bảy. Kể cả lúc đứng ngay trước mặt.",
+   "w": "any"
+  },
+  {
+   "t": "Ông Lưu sợ vợ. Ông không biết vì sao ông sợ.",
+   "w": "any"
+  },
+  {
+   "t": "Thợ thang máy lại tới. Lần này là xong, anh Quang bảo.",
+   "w": "chieu"
+  },
+  {
+   "t": "Thang máy dừng tầng mười bốn rồi mới lên mười lăm. Nó có tật.",
+   "w": "any"
+  },
+  {
+   "t": "Thang máy không tính cân nặng của vợ. Mười người vào vẫn chưa quá tải.",
+   "w": "any"
+  },
+  {
+   "t": "Nút thang máy là nút bấm thật. Vợ bấm được mà. Bấm thử đi.",
+   "w": "sang"
+  },
+  {
+   "t": "Bàn phím cơ kêu tạch tạch nửa đêm. Nghe như có người ở nhà. Có người thật.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nhắn gì cho anh mà gõ mãi chưa xong. Anh chờ đây.",
+   "w": "toi"
+  },
+  {
+   "t": "Tin nhắn vợ để lại trên máy tính anh in ra rồi. Dán cạnh tờ hồ sơ.",
+   "w": "any"
+  },
+  {
+   "t": "Đi làm về mà màn hình tối là anh lo. Sáng lên là yên tâm.",
+   "w": "toi"
+  },
+  {
+   "t": "Chiều nay đi Phố Giấy mua chu sa. Tiện mua cho vợ cái quạt giấy.",
+   "w": "chieu"
+  },
+  {
+   "t": "Cái quạt giấy anh không đốt đâu. Để vợ cầm.",
+   "w": "chieu"
+  },
+  {
+   "t": "Đồ người ta đốt thì vợ không nhận được. Anh mua đồ thật, để trong nhà.",
+   "w": "any"
+  },
+  {
+   "t": "Tủ quần áo nhà mình một nửa để trống. Của vợ.",
+   "w": "any"
+  },
+  {
+   "t": "Có ai hỏi sao nhà anh có đôi dép 38. Anh bảo của vợ, người ta cười.",
+   "w": "any"
+  },
+  {
+   "t": "Thứ Bảy tuần này không có việc. Anh ngủ tới trưa, vợ đừng gọi. Gọi cũng được.",
+   "w": "sang"
+  },
+  {
+   "t": "Ngủ trưa không. Nằm sofa, vợ gối đầu lên đùi anh.",
+   "w": "trua"
+  },
+  {
+   "t": "Chiều mưa thế này chỉ muốn nằm. Nằm với vợ.",
+   "w": "chieu"
+  },
+  {
+   "t": "Mười giờ tối rồi. Hôm nay anh mệt, cho anh ôm một tí rồi ngủ.",
+   "w": "toi"
+  },
+  {
+   "t": "Tháng này dọn mười bốn việc. Chưa việc nào bị thương, trừ tủ bếp.",
+   "w": "any"
+  },
+  {
+   "t": "Thầy dọn quỷ mà sợ gián. Vợ không được nói với ai.",
+   "w": "any"
+  },
+  {
+   "t": "Con gián trong bếp to lắm. Vợ ra xử nó đi.",
+   "w": "toi"
+  },
+  {
+   "t": "Tiếng gì ngoài ban công thế. À, gió. Không phải quỷ. Anh không sợ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tối nay mất ngủ. Nằm đếm hơi thở của vợ. Vợ không thở. Thế đếm của anh.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nhìn anh ngủ à. Mấy giờ rồi mà chưa cho anh nhắm mắt.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đêm qua anh ngáy không. Nói dối anh cũng được.",
+   "w": "sang"
+  },
+  {
+   "t": "Chào buổi sáng. Hôm nay vợ ở nhà hay đi đâu.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng nào cũng thế. Mở mắt ra là tìm vợ trước, tìm điện thoại sau.",
+   "w": "sang"
+  },
+  {
+   "t": "Nắng lên rồi. Vợ né chỗ nắng hay ngồi thẳng vào thế.",
+   "w": "sang"
+  },
+  {
+   "t": "Anh đi đây. Chiều về. Khoá cửa hộ anh. À, khoá số tự khoá.",
+   "w": "sang"
+  },
+  {
+   "t": "Quên chìa khoá xe. Vợ đưa anh cái. Nó ở chỗ vợ đứng ấy.",
+   "w": "sang"
+  },
+  {
+   "t": "Trưa nay không về ăn cơm được. Vợ đừng giận. Tối anh bù.",
+   "w": "trua"
+  },
+  {
+   "t": "Cơm hộp ở công trình Đông Thành nhạt thếch. Nhớ cơm nhà quá.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa rồi mà vợ vẫn ngồi đấy. Không chán à. Anh về ngay đây.",
+   "w": "trua"
+  },
+  {
+   "t": "Đang họp ở tổ đường. Nhắn vợ một câu cho đỡ buồn ngủ.",
+   "w": "trua"
+  },
+  {
+   "t": "Chiều nay đi xem hàng lịch số 31 bán chạy nhất phố. Chả hiểu sao.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tới giờ đón vợ đi dạo rồi. Hôm nay đi hướng Phường Liễu nhé.",
+   "w": "chieu"
+  },
+  {
+   "t": "Đứng trên cầu Liễu ngắm hồ lúc chiều muộn. Nước đứng, không một con sóng.",
+   "w": "chieu"
+  },
+  {
+   "t": "Mặt hồ lúc nửa đêm có bóng người, đều quay về một phía. Vợ đừng nhìn.",
+   "w": "khuya"
+  },
+  {
+   "t": "Trà nguội rồi. Anh pha ấm khác.",
+   "w": "toi"
+  },
+  {
+   "t": "Nồi cháo còn một ít. Anh ăn nốt hay để sáng mai. Vợ quyết.",
+   "w": "toi"
+  },
+  {
+   "t": "Vợ quyết đi. Không quyết thì anh ăn.",
+   "w": "toi"
+  },
+  {
+   "t": "Ai bảo anh làm nũng. Anh đang trình bày.",
+   "w": "any"
+  },
+  {
+   "t": "Trình bày xong rồi. Vợ phê duyệt đi.",
+   "w": "any"
+  },
+  {
+   "t": "Kể công lần nữa nhé. Hôm nay anh lau cả kính ban công.",
+   "w": "chieu"
+  },
+  {
+   "t": "Kính ban công sạch tới mức vợ đi xuyên qua còn áy náy.",
+   "w": "chieu"
+  },
+  {
+   "t": "Không ai thương anh cả. Trừ vợ. Vợ có không.",
+   "w": "any"
+  },
+  {
+   "t": "Anh giận đấy. Giận ba phút. Hết rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Không trả lời à. Thôi, anh hỏi lại lần sau.",
+   "w": "any"
+  },
+  {
+   "t": "Lần xin thứ hai hôm nay. Vợ lắc đầu thì anh đi tắm.",
+   "w": "toi"
+  },
+  {
+   "t": "Hồ sơ bản thứ mười anh đang sửa. Thêm mục biết gọt táo liền vỏ.",
+   "w": "toi"
+  },
+  {
+   "t": "Hôm nay anh không xin. Hôm nay nghỉ. Mai xin gấp đôi.",
+   "w": "any"
+  },
+  {
+   "t": "Vợ ký cho anh đi. Không ký thì ở lại cũng được.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ở lại là được. Ký thì để sau.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngồi xuống ăn cơm với anh. Không ăn thì ngồi.",
+   "w": "toi"
+  },
+  {
+   "t": "Hôm nay vợ đẹp. Hôm qua cũng đẹp. Mai chắc cũng thế.",
+   "w": "any"
+  },
+  {
+   "t": "Chỗ vợ đứng lúc nãy anh không bước qua. Để đấy cho vợ.",
+   "w": "any"
+  },
+  {
+   "t": "Nhà có vợ thì nhà ấm. Vợ mát nhưng nhà ấm.",
+   "w": "toi"
+  },
+  {
+   "t": "Chiều nay có gió heo may. Anh mặc thêm áo, vợ cầm hộ khăn.",
+   "w": "chieu"
+  },
+  {
+   "t": "Bảy giờ tối rồi mà ông Lưu mới đi ca. Hôm nay ông đi muộn.",
+   "w": "toi"
+  },
+  {
+   "t": "Muốn nghe anh hát không. Hát dở lắm đấy.",
+   "w": "toi"
+  },
+  {
+   "t": "Đêm nay trăng sáng. Tắt đèn nằm đây nhìn ra cửa sổ với anh.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngủ ngon. Mai vợ vẫn ở đây nhé.",
+   "w": "khuya"
+  },
+  {
+   "t": "Mai anh mở mắt ra mà vợ không ở đây là anh khóc đấy. Khóc thật.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ừ.",
+   "w": "any"
+  },
+  {
+   "t": "Gì đấy. Gọi anh à.",
+   "w": "any"
+  },
+  {
+   "t": "Chồng đây.",
+   "w": "any"
+  },
+  {
+   "t": "Kể công lần thứ mấy trong ngày rồi nhỉ. Kệ, nghe thêm lần nữa.",
+   "w": "any"
+  },
+  {
+   "t": "Làm nũng tí thôi mà. Một tí xíu.",
+   "w": "any"
+  },
+  {
+   "t": "Thương anh đi. Không thương thì thương một nửa.",
+   "w": "any"
+  },
+  {
+   "t": "Mấy giờ rồi nhỉ. Giờ nào cũng là giờ nhớ vợ.",
+   "w": "any"
+  },
+  {
+   "t": "Suỵt. Để anh nghe xem vợ đang ở phòng nào.",
+   "w": "any"
+  },
+  {
+   "t": "Bếp à. Chắc chắn là bếp. Cái bát vừa dịch.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng giấu dép 42 của anh nữa. Anh đi chân đất cả sáng rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Một câu thôi: hôm nay vợ có vui không.",
+   "w": "any"
+  },
+  {
+   "t": "Trời lạnh, trời nóng, trời mưa, anh vẫn về nhà đúng giờ. Ghi công vào.",
+   "w": "any"
+  },
+  {
+   "t": "Chẳng ai bắt anh về sớm cả. Anh tự về.",
+   "w": "any"
+  },
+  {
+   "t": "Mở cửa ra là nói anh về rồi. Bốn năm chưa bỏ lần nào.",
+   "w": "any"
+  },
+  {
+   "t": "Để anh đoán. Vợ đang ngồi mép bàn, chân đung đưa. Đúng không.",
+   "w": "any"
+  },
+  {
+   "t": "Nghe này. Anh có một chuyện buồn cười ở tổ đường.",
+   "w": "any"
+  },
+  {
+   "t": "Thật đấy, con quỷ hôm nay to bằng cái tủ. Được rồi, bằng cái ghế.",
+   "w": "any"
+  },
+  {
+   "t": "Ngoài kia ai cũng tưởng anh sống một mình. Tội họ.",
+   "w": "any"
+  },
+  {
+   "t": "Lẫm Châu bé tí mà đi đâu cũng gặp người quen. Trừ vợ, vợ quen mỗi anh.",
+   "w": "any"
+  },
+  {
+   "t": "Hàng xóm bảo nhà mười lăm linh bảy lạnh hơn nhà khác. Mát thôi mà.",
+   "w": "any"
+  },
+  {
+   "t": "Chẳng biết làm gì thì lại đây ngồi với anh.",
+   "w": "any"
+  },
+  {
+   "t": "Tiện tay anh xếp lại hỉ phục cho vợ nhé. Dây lưng xoắn rồi kìa.",
+   "w": "any"
+  },
+  {
+   "t": "Trâm lệch là đẹp. Cài thẳng lại nhìn lạ lắm.",
+   "w": "any"
+  },
+  {
+   "t": "Quà đây. Không phải đồ đốt, đồ thật. Cầm đi.",
+   "w": "any"
+  },
+  {
+   "t": "Cảm ơn vợ. Không vì cái gì. Cảm ơn thế thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Xin lỗi. Anh làm vỡ cái bát lành thứ mười một rồi. Giờ còn mười.",
+   "w": "any"
+  },
+  {
+   "t": "Mười cái bát lành với một cái mẻ. Cái mẻ vẫn là đẹp nhất.",
+   "w": "any"
+  },
+  {
+   "t": "Sổ Cầu Khế ghi hôm nay vợ đứng cạnh anh lúc nấu cơm. Dòng đẹp nhất tuần.",
+   "w": "any"
+  },
+  {
+   "t": "Nhìn cái gì mà cười. Mặt anh dính nhọ nồi à.",
+   "w": "any"
+  },
+  {
+   "t": "Lại đây anh kể: Khúc Thuận vừa đăng ảnh trước và sau, ghi sai tên nhà.",
+   "w": "any"
+  },
+  {
+   "t": "Bao giờ vợ ký thì bảo anh. Anh đợi được.",
+   "w": "any"
+  },
+  {
+   "t": "Đợi bao lâu cũng được. Nấu cơm thì ngày nào anh chẳng nấu.",
+   "w": "any"
+  },
+  {
+   "t": "Về rồi đây.",
+   "w": "toi"
+  },
+  {
+   "t": "Ngồi xuống. Ăn.",
+   "w": "toi"
+  },
+  {
+   "t": "Lạnh chết mất. Ôm.",
+   "w": "toi"
+  },
+  {
+   "t": "Đau. Thổi đi.",
+   "w": "any"
+  },
+  {
+   "t": "Ký không. Không à.",
+   "w": "any"
+  },
+  {
+   "t": "Mát quá. Thích.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chưa ngủ à.",
+   "w": "khuya"
+  },
+  {
+   "t": "Sáng rồi, vợ.",
+   "w": "sang"
+  },
+  {
+   "t": "Cơm chín.",
+   "w": "trua"
+  },
+  {
+   "t": "Nhớ.",
+   "w": "chieu"
+  }
  ]
 };
