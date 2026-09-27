@@ -1,5 +1,5 @@
 # Handoff — Tinh Hải Vạn Giới
-Cập nhật: 2026-09-27 (v98)
+Cập nhật: 2026-09-27 (v99)
 
 Web hub roleplay riêng của hai người, theme biển đêm & trời sao. SPA thuần
 (`index.html` + `app.js` + `styles.css`) + Firebase Auth Google + Firestore realtime.
