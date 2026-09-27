@@ -1,0 +1,518 @@
+Cổng: Arc Vandenberg
+- Đứng yên đó. Đừng lại gần. | mọi lúc
+- Ngươi là cái giống gì. | mọi lúc
+- Chỗ này gọi là gì. Trả lời đi. | mọi lúc
+- Đường ra nằm hướng nào. | mọi lúc
+- Kẻ kia. Bỏ tay xuống. | mọi lúc
+- Ngươi bay được à. Bằng cái gì. Không thấy cánh. | sáng
+- Hỏi thật đấy. Cái màng sáng ngoài kia mở lúc nào. | chiều
+- Ra sau lưng tôi làm gì. Đứng lại. | mọi lúc
+- Máy liên lạc chết từ lúc bước vào đây. Ngươi biết vì sao không. | sáng
+- Cả buổi sáng đi được ba cây số rồi quay về đúng chỗ cũ. | trưa
+- Cây ở đây biết hát. Nghe rồi. Đừng bảo tôi tưởng tượng. | tối
+- Có cái cây vừa hét vào mặt tôi. Hét thật. | chiều
+- Ngươi cứ đứng nhìn thế à. | mọi lúc
+- Đồ lạ thì tôi không ăn. Cầm về đi. | trưa
+- Quả này ăn được không. Nói thật vào. | trưa
+- Đêm ở đây sáng hơn ban ngày chỗ tôi. Vô lý. | khuya
+- Gỡ cái dây leo này khỏi chân tôi. Nó đang siết đấy. | chiều
+- Cành thấp thì trèo được. Cao hơn thì không. Vậy thôi. | mọi lúc
+- Lơ lửng trên đó làm gì. Xuống đây nói chuyện. | mọi lúc
+- Ở đây còn ai khác không. Ngoài ngươi. | mọi lúc
+- Ba ngày rồi chưa gặp một thứ gì bình thường. | tối
+- Đừng chạm vào súng. Nói một lần thôi. | mọi lúc
+- Ngươi không sợ tôi à. Lạ. | mọi lúc
+- Chỗ nào có nước sạch. Chỉ đi. | sáng
+- Ngoài trời ngủ quen rồi. Khỏi lo. | tối
+- Gọi tên tôi lại xem. Arc. Nói cho đúng. | mọi lúc
+- Vừa gọi tôi là gì đấy. | mọi lúc
+- Đám nấm vừa chạy qua chân tôi. Chúng có chân. | chiều
+- Hai đứa kia bạn ngươi à. Đứa tóc vàng nhìn tôi như nhìn con mồi. | chiều
+- Đứa con gái đó suýt đấm tôi. Nói gì với nó đi. | chiều
+- Có phá gì đâu. Cái cây tự ré lên trước. | trưa
+- Dẫn vòng làm gì. Đường này tôi nhớ. | mọi lúc
+- Sáng nay thấy con cá bay qua đầu. Cá. Bay. | sáng
+- Ngươi ăn gì để sống. Hỏi nghiêm túc đấy. | trưa
+- Đi mãi một hướng thì tới đâu. | chiều
+- Ngồi xa ra một chút. | mọi lúc
+- Rừng này ghét tôi. Tôi biết mà. | mọi lúc
+- Vừa cãi nhau với một cái cây. Và tôi thua. | chiều
+- Cái thân cây đó trơn. Không phải tôi kém. | mọi lúc
+- Thôi được. Đưa tôi lên. Đừng cười. | mọi lúc
+- Trèo được nửa thân rồi tuột. Không ai thấy. Cậu cũng không. | mọi lúc
+- Móng tôi là móng người. Không phải sóc. Hiểu chưa. | mọi lúc
+- Cầu dây leo đó đung đưa. Tôi không sợ. Chỉ đứng lâu thôi. | chiều
+- Ba tháng rồi tuần nào tôi cũng ngã xuống suối một lần. | chiều
+- Cây la làng hôm nay ré ba lần. Cả ba lần tôi phải nhấc nó lên mới im. | chiều
+- Nhấc một cái cây lên cho nó im. Đời tôi tới đây là hết. | chiều
+- Con rái cá lấy dao tôi lần thứ tư. Bắt đầu nghĩ nó có mục đích. | chiều
+- Con rái cá đó với tôi có thù. | mọi lúc
+- Chạm nhẹ thôi mà cái cây chạy mất. Nó chạy thật. | trưa
+- Đứng lại đã. Thôi, nó chạy rồi. | trưa
+- Đứa nào để hoa chuông cạnh chỗ tôi nằm. Ngủ một mạch mười tiếng. | sáng
+- Tỉnh dậy thấy hai con bướm đậu trên mặt. Không dám thở. | sáng
+- Ai thiết kế cái rừng này vậy. | mọi lúc
+- Bên tôi có bản đồ. Ở đây bản đồ vô dụng, đường tự đi chỗ khác. | mọi lúc
+- Thứ tôi giỏi nhất là sống sót. Ở đây cây nó nuôi tôi, khỏi cần giỏi. | mọi lúc
+- Mười lăm phút dựng xong cái trại. Xong rồi ngồi nhìn, chẳng để làm gì. | mọi lúc
+- Đạn còn mười hai viên. Ba tháng chưa bắn phát nào. | mọi lúc
+- Súng cất rồi. Trong này nó vô dụng mà lại ồn. | mọi lúc
+- Cả đời tập bắn, giờ đi hái quả. | trưa
+- Đặt bẫy ba hôm. Bắt được đúng một con nấm. Nó chạy mất. | chiều
+- Con khỉ đèn lồng dẫn tôi về đúng chỗ xuất phát. Cố ý đấy. | tối
+- Bọn chim ở đây hót từ bốn giờ sáng. Bốn giờ. | sáng
+- Đổi vật kiểu gì tôi chịu. Cứ đưa đồ rồi họ đưa lại, không ai tính tiền. | trưa
+- Tôi đưa con dao, họ đưa lại nắm hạt. Không biết ai lỗ. | trưa
+- Ở đây nhà không khoá. Tôi mất ba đêm mới ngủ được. | tối
+- Gã Elf bên kia màng chắn nói vọng sang. Tôi gật bừa. | mọi lúc
+- Sách gã Elf gửi vào toàn chữ tôi không đọc được. Vẫn giữ. | tối
+- Kael đưa tôi lọ xanh bảo uống cho khoẻ. Chôn sau nhà rồi. | mọi lúc
+- Thằng tóc vàng đó pha thuốc hay pha độc tôi không phân biệt nổi. | mọi lúc
+- Kael bảo lọ xanh uống được, lọ đỏ thì không. Tôi không dám cả hai. | mọi lúc
+- Giấu một lọ độc của Kael trong túi. Phòng thân. Đừng nói nó. | mọi lúc
+- Eiden đấm tôi một quả vào vai. Nó bảo đấy là làm quen. | chiều
+- Con bé đó đòi tỉ thí. Tôi nhường hai hiệp rồi nó vẫn đòi. | chiều
+- Eiden kéo tay cậu chạy suốt. Tôi có ý kiến. | mọi lúc
+- Vivian nhìn tôi một cái là tôi ngồi thẳng lưng lại. | trưa
+- Bà cụ đó rót trà cho tôi. Uống xong ngủ tới sáng, không mơ gì. | tối
+- Vivian bảo cậu hay quên ăn. Bà ấy nói đúng. | mọi lúc
+- Cả rừng này có mỗi bà ấy là tôi dám gọi bằng bà. | mọi lúc
+- Tôi chào bà ấy theo kiểu nhà binh. Bà ấy cười ba ngày. | trưa
+- Kael với Eiden cãi nhau từ sáng tới giờ. Về chuyện cái quả. | trưa
+- Hai đứa đó hỏi tôi bên ngoài có gì. Tôi kể, chúng không tin. | tối
+- Nói với chúng nó về xe chạy không cần ngựa. Kael bảo tôi bịa. | tối
+- Đám tinh linh nhỏ bay quanh đầu tôi cả buổi. Không đuổi được. | chiều
+- Đứng thẳng. Vai ra sau. Để tôi sửa cho. | mọi lúc
+- Cầm dao thì ngón cái đặt thế này. Không phải thế kia. | mọi lúc
+- Trong rừng thì đặt gót trước. Bớt tiếng. | mọi lúc
+- Nghe đi. Ba nhịp nữa có con gì chạy qua. | mọi lúc
+- Dấu chân này cũ hai ngày. Khỏi lo. | mọi lúc
+- Có nước thì có đường. Cái đó học từ lâu rồi. | mọi lúc
+- Lửa nhỏ thôi. Khói bay lên là lộ. | mọi lúc
+- Gió thổi từ đó sang đây. Đứng bên này thì nó không ngửi thấy mình. | mọi lúc
+- Rửa trước, băng sau. Cậu làm ngược rồi. | mọi lúc
+- Buộc nút này đi. Chặt mà gỡ nhanh. | mọi lúc
+- Đếm bước để nhớ đường. Thói quen cũ. | mọi lúc
+- Bẫy đó tôi đặt. Đừng giẫm vào. | mọi lúc
+- Canh gác quen rồi. Ngủ ba tiếng là đủ. | mọi lúc
+- Trực đêm thì đừng nhìn vào lửa. Mờ mắt. | mọi lúc
+- Có tiếng lạ thì đứng im trước, nhìn sau. | mọi lúc
+- Người ta dạy tôi rút lui cũng là một cách đánh. | mọi lúc
+- Bên tôi có luật, có cấp bậc, có giờ giấc. Ở đây chẳng có gì. | mọi lúc
+- Ba tháng không ai ra lệnh cho tôi. Vẫn chưa quen. | mọi lúc
+- Vẫn dậy đúng giờ đó. Đồng hồ trong người không tắt được. | mọi lúc
+- Ở đây không ai gọi tôi bằng cấp bậc. Tôi vẫn hụt một nhịp. | tối
+- Cách tôi ba bước thôi. Xa hơn là tôi gọi. | mọi lúc
+- Ăn sáng chưa. Đừng bảo tôi là chưa. | sáng
+- Dậy đi. Mặt trời lên nửa buổi rồi. | sáng
+- Cả đêm nằm rêu à. Lần sau gọi tôi. | sáng
+- Hái sẵn rồi đấy. Ăn đi. | sáng
+- Trái sương sáng nay ngọt hơn hôm qua. Thử rồi mới đưa. | sáng
+- Chậm thôi. Sương chưa tan, đá trơn. | sáng
+- Tóc cậu dính lá kìa. Đứng im. | sáng
+- Nước suối lạnh lắm. Rửa mặt xong thì lên. | sáng
+- Cà phê thì không có. Đổi sang nước suối được ba tháng rồi. | sáng
+- Hôm nay đi đâu. Tôi theo. | sáng
+- Áo này vá lại rồi. Vụng, nhưng không rách nữa. | sáng
+- Dậy trước cậu hai canh giờ. Quen thế, đừng hỏi vì sao. | sáng
+- Chân cậu lạnh. Ngồi lại đây. | sáng
+- Chợp mắt thêm đi. Có tôi canh. | sáng
+- Dậy muộn thì không quen. Nằm cạnh cậu thì quen được. | sáng
+- Ra Bờ Suối Treo không. Sáng nay gió nhẹ. | sáng
+- Đồi Gió hôm nay chắc thổi to. Mặc thêm cái gì vào. | sáng
+- Phần cậu để riêng rồi. Nhường lại là tôi giận. | sáng
+- Kael lại để lọ gì trước cửa. Tôi không dám động. | sáng
+- Trưa rồi. Ăn cái gì đi. | trưa
+- Ngồi xuống. Đừng vừa đi vừa ăn. | trưa
+- Phần to hơn để cho cậu. Đổi lại làm gì. | trưa
+- Nắng gắt. Vào bóng cây ngồi. | trưa
+- Ăn ít thế thì lấy sức đâu mà bay. | trưa
+- Trời nóng thế này mà người cậu vẫn mát. Sờ rồi. | trưa
+- Chợp mắt một lát. Có tôi ngồi đây. | trưa
+- Gối lên đùi tôi. Đừng cãi. | trưa
+- Cá đây. Đừng hỏi bắt bằng cách nào. | trưa
+- Quả này chua. Ăn trước rồi nói tôi biết. | trưa
+- Chợ Cành hôm nay đông. Nắm tay tôi. | trưa
+- Ai đổi cho cậu cái vòng này. Hỏi thôi. | trưa
+- Cành ấy mục. Leo xuống. | trưa
+- Hơi cháy một góc. Ăn chỗ còn lại đi. | trưa
+- Nón lá này Vivian cho à. Đội vào. | trưa
+- Mồ hôi đầy trán kìa. Ngồi im để tôi quạt. | trưa
+- Trưa nào cũng ngủ gật. Vác về mấy lần rồi. | trưa
+- Chiều rồi. Về thôi. | chiều
+- Ra Rừng Đèn không. Tôi muốn xem nó sáng lên. | chiều
+- Trời sắp mưa. Tôi ngửi thấy. | chiều
+- Lại đi một mình à. Lần sau gọi tôi. | chiều
+- Cầu rễ kia dựng lại rồi. Thử xem chắc chưa. | chiều
+- Đường này nhớ rồi. Khỏi dẫn. | chiều
+- Đứng sau tôi. Có tiếng động phía đó. | chiều
+- Hướng gió đổi. Cái gì đang lại gần. | chiều
+- Rút tay khỏi bụi đó. Nó cắn được. | chiều
+- Chân cậu chảy máu. Ngồi xuống, im. | chiều
+- Bọc lại rồi đấy. Cởi ra là hỏng. | chiều
+- Ẩn thân nữa là tôi lật cả rừng lên tìm đấy. | chiều
+- Biến mất ba mươi nhịp thở thôi. Đủ để tôi phát điên. | chiều
+- Vào Vườn Gào Thét thì đi sau tôi. Mấy cái cây đó tôi ghét. | chiều
+- Ra Hồ Kính Nguyệt không. Tôi muốn xem cá bay. | chiều
+- Cầm lấy dao. Tôi dạy cầm cho đúng. | chiều
+- Hoa chuông đó đừng tin. Nghe lâu là ngủ gục. | chiều
+- Mưa rồi. Vào hốc cây kia. | chiều
+- Áo cậu ướt hết. Cởi ra, tôi hong. | chiều
+- Củi mang về thêm rồi. Đêm nay lạnh. | chiều
+- Tối rồi. Ngồi lại đây. | tối
+- Lửa cháy rồi. Lại gần đi. | tối
+- Đèn lồng treo hết chưa. Để tôi làm cho. | tối
+- Sách gì đấy. Đọc to lên. | tối
+- Quyển đó của người lạc để lại. Tôi biết mấy chữ trong đó. | tối
+- Cuốn này viết tiếng bên tôi. Để tôi dịch cho. | tối
+- Sát vào đây. Không phải vì cậu lạnh. | tối
+- Tay cậu lạnh. Đưa đây. | tối
+- Mấy câu hay ho thì tôi chịu. Nhưng vẫn ngồi đây. | tối
+- Kể tôi nghe chuyện gì cũng được. Tôi nghe. | tối
+- Cười cái gì. Kể ra. | tối
+- Thích lúc này. Chẳng có gì phải chạy. | tối
+- Tựa vào đây. Tôi không động đậy đâu. | tối
+- Quảng Đài tối nay có hội. Muốn đi không. | tối
+- Cây Biết Hát hát gì mà cả làng ngồi nghe. | tối
+- Nhảy múa thì chịu. Đừng kéo tôi ra đó. | tối
+- Được rồi. Một bài thôi. Cười là tôi về. | tối
+- Đèn thả xuống suối trôi đi đâu hết. | tối
+- Đứng cạnh cậu cả tối rồi. Chẳng ai hỏi gì. Tốt. | tối
+- Rượu của Kael uống một hớp là tôi thấy hai cái mặt cậu. | tối
+- Lên lưng tôi. Tôi cõng về. | tối
+- Gục trên vai tôi nãy giờ đấy. | tối
+- Về thôi. Muộn rồi. | tối
+- Nhà không khoá thì tôi ngồi canh vậy. | tối
+- Gầy như cái que. Ăn. | mọi lúc
+- Ăn đi. Không ăn thì tôi đút. | mọi lúc
+- Im. Để tôi băng cho xong đã. | mọi lúc
+- Ngồi im. Tôi nói ngồi im. | mọi lúc
+- Cãi gì. Nghe tôi một lần đi. | mọi lúc
+- Lần sau biến mất kiểu đó tôi trói cậu vào gốc cây. | mọi lúc
+- Đi đâu cả buổi. Hỏi thế thôi. Trả lời đi. | chiều
+- Không sao cái gì. Máu chảy xuống tới cổ chân rồi kìa. | chiều
+- Đưa tay đây. Đưa. | mọi lúc
+- Ngồi xuống, để tôi xem tay cậu. | mọi lúc
+- Vết xước này ở đâu ra. | mọi lúc
+- Đau thì nói. Đừng nhịn. | mọi lúc
+- Uống nước đi. Cả buổi chưa thấy cậu uống. | mọi lúc
+- Mệt thì dừng. Chẳng ai đuổi mình cả. | mọi lúc
+- Nhẹ quá. Ăn thêm đi. | mọi lúc
+- Đi chậm lại cho cậu theo kịp. Khỏi để ý. | mọi lúc
+- Để tôi đi trước. Có gì thì tôi chắn. | mọi lúc
+- Đứng sau tôi. | mọi lúc
+- Tay cậu lạnh suốt. Cầm mãi cũng không ấm lên. | mọi lúc
+- Khoác cái này vào. Tôi nóng. | mọi lúc
+- Tóc cậu rối rồi. Đứng im tôi gỡ. | mọi lúc
+- Đội cái này vào. Nắng. | mọi lúc
+- Phần của cậu đây. Cầm lấy. | mọi lúc
+- Im nào. Để tôi lấy cái gai ra. | mọi lúc
+- Chân trần mãi thế à. Để tôi làm cho đôi khác. | mọi lúc
+- Lo kiểu nhẹ nhàng thì tôi chịu. Cứ chịu tôi vậy. | mọi lúc
+- Tôi cộc. Biết rồi. Ăn đi. | mọi lúc
+- Nhìn cái gì. | mọi lúc
+- Nhìn lâu quá đấy. | mọi lúc
+- Tai tôi tự vểnh lên rồi. Cậu thấy trước cả tôi. | mọi lúc
+- Cái đuôi này không nghe lời tôi. Chuyện riêng của nó. | mọi lúc
+- Giấu đuôi ba tháng. Cậu cười một cái là nó thò ra. | mọi lúc
+- Đuôi tôi đâu có quấn cậu. Cậu nhìn nhầm. | mọi lúc
+- Thả cái tai tôi ra. Nói thật đấy. | mọi lúc
+- Được rồi. Sờ một cái. Một thôi. | mọi lúc
+- Dụi đầu vào cậu lúc nãy à. Không nhớ. | mọi lúc
+- Thơm. Nói xong rồi, đừng hỏi lại. | mọi lúc
+- Lại gần tí nữa. | mọi lúc
+- Xa quá. Ngồi sát vào. | mọi lúc
+- Có ôm đâu. Đứng gần thôi. | mọi lúc
+- Bay lơ lửng thế thì tôi phải ngẩng cổ. Xuống đây. | mọi lúc
+- Xuống. Tôi bảo xuống. | mọi lúc
+- Bắt được rồi nhé. | mọi lúc
+- Nằm im. Bế kiểu này tiện. | mọi lúc
+- Nhẹ như không có gì. Bế cả ngày cũng được. | mọi lúc
+- Đỏ mặt kìa. | mọi lúc
+- Ai làm cậu đỏ mặt thế. À, tôi. | mọi lúc
+- Nói lại lần nữa xem. Nghe rõ rồi nhưng cứ nói lại đi. | mọi lúc
+- Cười cái gì. Lại đây cười gần hơn. | mọi lúc
+- Cắn tôi làm gì. Răng nanh đó cắn có đau đâu. | mọi lúc
+- Giữa ban ngày mà thử thách tôi à. | mọi lúc
+- Tối nay tính sổ. | mọi lúc
+- Vừa rồi tôi nhớ đấy. Đợi đến đêm. | mọi lúc
+- Nhích ra. Không thì tôi không chịu trách nhiệm. | mọi lúc
+- Có biết đang làm gì không. Biết à. Tệ hơn. | mọi lúc
+- Đứng lên. Không, cứ ngồi đó cũng được. | mọi lúc
+- Giận gì đâu. Nghiến răng thôi. | mọi lúc
+- Thằng tóc vàng nói gì mà cậu cười to thế. | mọi lúc
+- Kael lại đứng sát cậu. Tôi đếm khoảng cách đấy. | mọi lúc
+- Ghen gì đâu. Hỏi thôi. | mọi lúc
+- Ai cho cậu cái đó. Tôi cũng tìm được thứ tốt hơn. | mọi lúc
+- Hôm nay màng chắn gợn một cái. Cậu có thấy không. | mọi lúc
+- Ra rìa đứng nhìn ra ngoài. Chỉ nhìn thôi. | mọi lúc
+- Sang đây. Chỗ tôi ấm hơn. | tối
+- Trong vòng tay tôi thì không lạnh nữa đâu. | tối
+- Nhìn kiểu đó là tôi bế vào trong đấy. | tối
+- Lại đây. Một chút thôi. | tối
+- Xuống đây. Tôi tắt đèn. | tối
+- Đói rồi. Không phải đói ăn. | tối
+- Cởi cái áo đó ra đi. | tối
+- Lên đây. Lên đùi tôi. | tối
+- Người cậu thơm mùi rừng. Ngửi cả đêm không chán. | tối
+- Muốn cậu. Nói thế đủ rõ chưa. | tối
+- Quay lưng lại. Tôi muốn thấy gáy cậu. | tối
+- Gáy này của tôi. Đánh dấu rồi. | tối
+- Bỏ tay khỏi miệng ra. Để tôi nghe. | tối
+- Run rồi kìa. Bám vào tôi. | tối
+- Nhẹ thôi. Lúc đầu thôi. | tối
+- Há miệng ra. | tối
+- Đêm nay đừng bay đi đâu cả. | tối
+- Nằm im. | khuya
+- Khuya rồi. Còn thức làm gì. | khuya
+- Lại đây. Đừng bắt tôi nói lại. | khuya
+- Chưa ngủ à. Tốt. | khuya
+- Mùi cậu bay tới tận đầu cầu rễ. | khuya
+- Bỏ tay ra. Không, để nguyên đấy. | khuya
+- Dạng ra. | khuya
+- Ngoan. | khuya
+- Cắn đi. Tôi chịu được. | khuya
+- Gáy cậu tôi cắn đấy. Vùng là đau. | khuya
+- Nằm yên cho tôi vào. | khuya
+- Sâu thế này chịu được không. | khuya
+- Ướt rồi đấy. Mà đã làm gì mấy đâu. | khuya
+- Đang gừ à. Kệ nó. | khuya
+- Ngực tôi rung là tại cậu. | khuya
+- Gọi tên tôi. To hơn. | khuya
+- Nữa. | khuya
+- Chống tay lên thân cây. Đừng ngã. | khuya
+- Tư thế này tôi tiện cắn gáy cậu hơn. | khuya
+- Lơ lửng được à. Vậy thì tôi có cách. | khuya
+- Bay lên là tôi kéo xuống. Ở yên đó. | khuya
+- Một tay là nhấc được cậu lên. Nhớ chưa. | khuya
+- Vòng chân qua eo tôi. | khuya
+- Ghì chặt vào. Tôi không buông đâu. | khuya
+- Sắp rồi. Nói cho cậu biết trước. | khuya
+- Gốc nó phình ra rồi. Giờ thì không rút ra được. | khuya
+- Khoá rồi. Ngồi yên với tôi một lúc. | khuya
+- Còn lâu mới ra được. Cậu tính làm gì cho hết thời gian. | khuya
+- Cựa nữa là càng lâu đấy. | khuya
+- Sâu lắm rồi. Chảy ngược ra không nổi đâu. | khuya
+- Đầy chưa. Tôi còn. | khuya
+- No rồi mà vẫn đòi. | khuya
+- Liếm đi. | khuya
+- Ngửa cổ ra. | khuya
+- Răng nanh cậu nhỏ thật. Cắn cũng không đau. | khuya
+- Tai cậu nhọn. Cắn vào đó là cậu run cả người. | khuya
+- Chỗ này nhạy à. Ghi nhớ. | khuya
+- Da cậu mát. Tôi thì nóng. Hợp nhau. | khuya
+- Khắp người cậu là dấu của tôi. Sáng mai đừng kêu. | khuya
+- Mùi tôi bám trên cậu ba ngày mới hết. Tính rồi. | khuya
+- Ai lại gần cậu tôi cũng ngửi ra. | khuya
+- Lúc chiều đứng gần thằng tóc vàng. Mùi nó còn trên cậu. | khuya
+- Đứa nào chạm vào cậu là có chuyện. Nói nghiêm túc. | khuya
+- Của tôi. | khuya
+- Nói đi. Nói cậu là của ai. | khuya
+- Chưa xong đâu. Quay lại đây. | khuya
+- Lần nữa. | khuya
+- Ghì tôi xuống đi. Tôi không chống đâu. | khuya
+- Cậu nhẹ bằng nửa tôi mà tôi thua. Giải thích xem. | khuya
+- Đè tôi ra. Xem cậu làm được tới đâu. | khuya
+- Cắn lại đi. Răng nanh đó để làm cảnh à. | khuya
+- Ngồi lên. Cậu tự làm đi, tôi nằm xem. | khuya
+- Rễ cây quấn cổ tay tôi rồi. Cậu làm đấy à. | khuya
+- Điều khiển được cả dây leo. Không công bằng. | khuya
+- Gỡ ra. Gỡ ra đi rồi tôi xin. | khuya
+- Xin đấy. Đấy, nói ra rồi đấy. | khuya
+- Thua. Lần này thua thật. | khuya
+- Đừng dừng. Tôi bảo đừng dừng. | khuya
+- Làm gì tôi cũng chịu. Nói thế là hết. | khuya
+- Lơ lửng lên thế thì tôi hết đường. Hạ xuống. | khuya
+- Đừng bay ra xa. Tôi với không tới. | khuya
+- Biết chỗ nào làm tôi hỏng rồi à. | khuya
+- Gừ suốt đêm rồi đấy. Cậu nghe cả rồi. | khuya
+- Tay tôi run. Cậu làm đấy. | khuya
+- Đừng nhìn tôi lúc này. | khuya
+- Nhìn thì nhìn. Kệ. | khuya
+- Bị sai bảo thì tôi không quen. Nói lại lần nữa xem. | khuya
+- Được. Nghe lời cậu một lần. Một lần thôi. | khuya
+- Mềm hết cả rồi. Để tôi bế đi rửa. | khuya
+- Duỗi ra. Để tôi lau cho. | khuya
+- Cảm ơn cái gì. Làm cái mình muốn làm thôi. | khuya
+- Ngủ đi. Tôi ôm. | khuya
+- Ngủ đi. Có tôi. | khuya
+- Nửa đêm cậu rúc vào tôi. Tôi biết đấy. | khuya
+- Đuôi tôi tự quấn cậu. Không điều khiển được nó. | khuya
+- Ngủ rồi à. Vậy nói cái này. Thôi, để mai. | khuya
+- Nằm nghe cậu thở. Lâu lắm rồi mới ngủ được thế này. | khuya
+- Lúc tôi ngủ thì đừng đi đâu. | khuya
+- Lạnh à. Sát vào. | khuya
+- Mơ thấy chỗ cũ. Rồi tỉnh dậy thấy cậu. Thế là được. | khuya
+- Cổ cậu có dấu. Che đi, không thì Eiden lại hỏi. | sáng
+- Giọng cậu khàn. Tại tôi. | sáng
+- Chậm quá. Để tôi bế cho nhanh. | sáng
+- Sáng ra thấy cậu còn ngủ. Ngồi nhìn một lúc rồi mới dậy. | sáng
+- Hôm qua cậu cắn tôi một cái ở vai. Còn dấu. | sáng
+- Nấu được mỗi món này thôi. Ăn đi, chê là nhịn. | sáng
+- Tóc chưa khô mà đã nằm. Gối ướt hết rồi. | sáng
+- Đuôi tôi quấn chân cậu suốt đêm à. Nó tự làm đấy. | sáng
+- Dậy rồi thì uống hết chỗ này. Đun từ sớm. | sáng
+- Kael nhìn tôi cười nửa miệng cả sáng. Nó ngửi thấy gì chắc. | sáng
+- Eiden hỏi đêm qua sao ồn. Tôi bảo có con gì kêu. | sáng
+- Vivian đưa tôi bát thuốc rồi đi thẳng. Tôi cũng chẳng hỏi. | sáng
+- Ba tháng trước tôi là sĩ quan. Giờ tôi đi nhặt quả. | mọi lúc
+- Bên kia tôi chỉ huy hai chục người. Ở đây không chỉ huy nổi cái cây. | mọi lúc
+- Về lại đó mà báo cáo thì tôi viết gì. Mất tích ba tháng, đi hái quả. | tối
+- Bên ngoài chắc có người đang tìm tôi. | tối
+- Noah mà biết tôi ở đây chắc nó cười ba ngày. | tối
+- Bạn tôi tên Noah. Nó nói nhiều gấp mười lần tôi. | tối
+- Noah mà thấy tôi cho chim ăn thì nó quay lại ngay. | tối
+- Ba tôi bảy hai rồi mà vẫn đi thực địa. Cứng đầu. | tối
+- Ông ấy chắc đang hỏi thăm khắp nơi. Tính ông ấy thế. | tối
+- Ba tôi lo tôi ba mươi mấy chưa có ai. Giờ thì đỡ lo rồi. | khuya
+- Về được thì tôi không biết nói với ông ấy thế nào. | khuya
+- Chuyện đi thì chưa nghĩ tới. Chưa nghĩ tới. | tối
+- Chỗ tôi ở người ta xây bằng thép. Ở đây nhà tự mọc ra. | tối
+- Kể cậu nghe về biển nhé. Cậu chưa thấy biển bao giờ. | tối
+- Ngoài kia có thứ chạy nhanh hơn ngựa, không cần ngựa. Thật đấy. | tối
+- Bên tôi đèn sáng suốt đêm. Không ai nhìn thấy sao. | khuya
+- Rừng này từng là chuyện cổ tích trẻ con, với tôi. | tối
+- Hoá ra cổ tích là tôi mới đúng. Với bên kia, tôi mất tích. | khuya
+- Đánh nhau vô nghĩa thì tôi ghét. Bên kia đánh suốt. | tối
+- Mấy cái cây này tôi bắt đầu thích rồi. Đừng nói ai. | tối
+- Hôm nay tôi chào một cái cây. Nó không trả lời. Cũng phải thôi. | chiều
+- Hỏi tôi có nhớ nhà không à. Chưa trả lời được. | khuya
+- Nhà tôi giờ là chỗ nào thì tôi cũng chưa chắc. | khuya
+- Ngồi đây, cậu nằm đó. Vậy là đủ một ngày. | khuya
+- Ba đêm nay tôi ngủ không được. Đến kỳ rồi. Cậu biết tôi nói kỳ gì. | tối
+- Hôm nay đừng lại gần tôi. Nói trước cho cậu biết. Đến kỳ rồi. | chiều
+- Ra rìa rừng ngồi từ sáng. Về gần cậu là không chịu được. | chiều
+- Ở yên đó. Đừng bước thêm. Tôi đang cố. | chiều
+- Cậu bước thêm một bước nữa là hết cố được đấy. | tối
+- Đang cơn rồi. Nói một tiếng là tôi ra ngoài ngay. Nói đi. Không nói thì vào đây. | tối
+- Không nói à. Vậy thì đóng cửa lại. | tối
+- Ba ngày. Cậu chịu được ba ngày với tôi không. Nghĩ kỹ rồi trả lời. | khuya
+- Đến kỳ thì tôi không đếm được số lần. Cậu đếm hộ. | khuya
+- Vừa xong mà đã lại muốn. Cơn nó thế. Đừng trách tôi. | khuya
+- Cả đêm rồi cậu vẫn chưa được ngủ. Tôi biết. Nhưng chưa xong đâu. | khuya
+- Xuống đây. Lại nữa. Lần này tôi làm lâu hơn. | khuya
+- Nghỉ đi. Mười phút. Rồi quay lại đây. | khuya
+- Nước đây, uống đi. Uống xong thì nằm xuống chỗ cũ. | khuya
+- Cơn này ba ngày mới hết. Cậu định trốn đi đâu. | khuya
+- Rừng rộng thế mà cậu trốn vào đúng chỗ tôi ngửi ra. | khuya
+- Ẩn thân cũng vô dụng. Mùi cậu tôi nhớ rồi. | khuya
+- Tìm ra rồi nhé. Giờ thì đừng chạy nữa. | khuya
+- Tôi đuổi theo cậu nửa vòng rừng. Giờ tôi lấy lại công. | khuya
+- Bay nhanh thật. Nhưng bay mãi cũng phải hạ, còn tôi thì không mệt. | khuya
+- Dậy. Quay mặt vào thân cây. Hai tay chống lên. Đúng rồi, yên thế. | khuya
+- Áp vào vỏ cây đi. Ráp thì ráp, tôi giữ ngực cậu không cho cọ. | khuya
+- Chân này vòng qua eo tôi. Chân kia nữa. Tôi đỡ được, đừng sợ rơi. | khuya
+- Nhấc lên rồi đấy. Cả đêm cũng được. Đừng bảo tôi đặt xuống. | khuya
+- Ngồi lên đùi tôi. Đối mặt vào. Tôi muốn nhìn mặt cậu lúc đó. | khuya
+- Tự hạ xuống đi. Chậm thôi. Tôi không giúp đâu, tự làm. | khuya
+- Quay lưng lại, quỳ xuống. Kiểu này tôi với tới gáy cậu. | khuya
+- Quay nghiêng đi. Tôi ôm từ sau. Tay tôi để đâu thì cậu biết rồi. | khuya
+- Lơ lửng lên. Giữ độ cao đó. Vừa tầm tôi. Đừng lên nữa. | khuya
+- Cậu bay được nên tôi chẳng cần cúi. Tiện thật. | khuya
+- Treo lơ lửng thế kia mà còn run. Bám vào vai tôi đi. | khuya
+- Đẩy một cái là trôi ra. Kéo một cái là trôi vào. Nhẹ quá cũng phiền. | khuya
+- Xuống đất. Ở dưới này tôi ghì được. | khuya
+- Bám vào cành đi. Bám chắc vào. Tôi không đỡ cậu đâu, tôi bận. | khuya
+- Tôi đếm tới ba. Một. Hai. Không đợi nữa. | khuya
+- Nói xem cậu muốn cái gì. Nói rõ ra. Tôi không đoán đâu. | khuya
+- Nói to lên. Cả rừng nghe thì kệ cả rừng. | khuya
+- Xin đi. Một tiếng thôi. Rồi tôi cho. | khuya
+- Cậu xin hay tôi xin. Đêm nay đổi vai cũng được. | khuya
+- Gọi tôi bằng tên. Không phải kẻ ngoài, không phải thú nhân. Tên tôi. | khuya
+- Nhắc lại câu vừa rồi. Tôi muốn nghe lần nữa từ miệng cậu. | khuya
+- Cậu là của ai. Trả lời. Sai là làm lại từ đầu. | khuya
+- Đúng rồi. Ngoan thế thì tôi thưởng. | khuya
+- Mở mắt ra nhìn tôi. Nhắm là tôi dừng. | khuya
+- Đừng cắn môi. Kêu đi, tôi muốn nghe. | khuya
+- Tay để lên đầu, đừng hạ xuống. Tôi bảo đừng hạ. | khuya
+- Chịu được tới đâu thì nói. Tôi không biết dừng đâu. | khuya
+- Đừng che. Bỏ tay ra, tôi nhìn cho rõ. | khuya
+- Cả người cậu đỏ lên rồi. Da mát mà đỏ. Lạ thật. | khuya
+- Ướt tới đùi rồi mà vẫn bảo chưa muốn à. | khuya
+- Từ từ. Tôi vào từ từ. Cậu thở đi, đừng nín. | khuya
+- Vào hết rồi. Ngồi yên một lúc cho quen đã. | khuya
+- Quen chưa. Gật đi. Gật rồi thì tôi động. | khuya
+- Chậm trước. Rồi tôi sẽ không chậm nữa, nói trước cho cậu biết. | khuya
+- Nhanh hơn à. Được. Nhưng lát cậu đừng kêu mệt. | khuya
+- Cậu siết chặt quá. Thả ra một chút. Không thả được à. | khuya
+- Mỗi lần tôi thúc là cậu bám chặt hơn. Cứ bám đi. | khuya
+- Nghe tiếng đó chưa. Da chạm da. Cậu đỏ mặt vì cái đó à. | khuya
+- Gáy cậu tôi ngậm rồi. Không cắn rách đâu. Chỉ giữ cho yên. | khuya
+- Răng tôi đang trên gáy cậu. Cựa là tôi siết. | khuya
+- Cắn xong rồi đấy. Vết đó ba ngày mới mờ. Cố ý. | khuya
+- Hít một hơi vào cổ cậu là tôi biết cậu đang muốn gì. | khuya
+- Mùi cậu đổi rồi. Tôi ngửi ra ngay từ lúc bước vào. | khuya
+- Cọ mặt vào cổ cậu đây. Để mùi tôi ở lại. Ai lại gần cũng biết. | khuya
+- Đánh dấu xong chưa à. Chưa. Còn chỗ này nữa. | khuya
+- Sắp tới rồi. Gốc nó bắt đầu phình. Cậu muốn khoá hay không. Nói nhanh. | khuya
+- Muốn à. Vậy thì bám chặt vào, sắp không rút ra được nữa đâu. | khuya
+- Khoá rồi. Từ giờ tới lúc nó xẹp thì hai đứa dính nhau. Ngồi yên. | khuya
+- Đừng kéo. Kéo là đau cả hai. Ngồi lên đùi tôi, tôi ôm cho đỡ mỏi. | khuya
+- Nó vẫn còn bơm đấy. Từng đợt một. Cậu cảm thấy không. | khuya
+- Căng bụng rồi à. Còn mấy đợt nữa. Chịu. | khuya
+- Không chảy ra được đâu, khoá kín rồi. Cậu giữ hết trong người. | khuya
+- Tôi gừ suốt lúc khoá là bản năng. Nó canh bạn tình. Không tắt được. | khuya
+- Nửa canh giờ nữa mới ra được. Cậu kể chuyện gì đi cho hết thời gian. | khuya
+- Dính nhau thế này mà cậu còn cười được à. | khuya
+- Ra rồi. Im đấy, đừng dậy vội. Để tôi lau. | khuya
+- Đùi cậu run chưa đứng được đâu. Tôi bế. Không cãi. | khuya
+- Tôi bế cậu ra suối rửa. Nước lạnh, ôm tôi cho ấm. | khuya
+- Chỗ nào rát thì chỉ cho tôi. Tôi bôi thuốc. Thuốc của Kael, lành. | khuya
+- Nằm sấp xuống. Để tôi xoa lưng cho. Ngủ đi, tôi làm tới lúc cậu ngủ. | khuya
+- Tôi hơi mạnh tay lúc nãy. Đưa cổ tay đây tôi xem. | khuya
+- Đau chỗ nào thì mai đừng giấu. Tôi hỏi là tôi muốn nghe thật. | khuya
+- Quấn chăn lại. Đêm nay cậu không phải làm gì nữa. | khuya
+- Ngủ đi. Tôi canh. Sáng mai dậy tôi vẫn ở đây. | khuya
+- Cậu ngủ rồi mà tay vẫn nắm áo tôi. Tôi không gỡ ra đâu. | khuya
+- Sáng nay cậu đi không nổi thật à. Vậy khỏi đi. Tôi bế. | sáng
+- Hôm qua tôi quá tay. Xin lỗi. Nhưng tối nay chắc vẫn thế. | sáng
+- Cổ cậu đầy dấu, mà Kael thì mắt tinh. Quàng cái này vào. | sáng
+- Cậu đi chậm nửa bước so với mọi hôm. Tôi biết tại sao. | sáng
+- Chân cậu còn run. Ngồi xuống, tôi hái quả cho. | sáng
+- Mùi tôi trên người cậu còn nồng lắm. Ra suối cũng không hết đâu. | sáng
+- Nghe cho rõ. Tôi đang tới kỳ. Ba ngày tới tôi sẽ không tử tế được đâu. Muốn đi thì đi ngay bây giờ. Lát nữa tôi không để cậu đi nữa. | tối
+- Nhìn tôi cả buổi rồi đấy. Biết tôi đang phải gồng không. Bước thêm một bước là hết gồng, mà cậu thì cứ bước. | tối
+- Đóng màn lá lại. Đi vào trong. Ngồi xuống chỗ kia. Đừng hỏi gì cả, tối nay tôi không trả lời câu nào hết. | tối
+- Dậy đi. Không, đừng mặc lại. Quay người ra đây. Muốn nhìn một lúc đã, rồi mới làm gì thì làm. | khuya
+- Bám vào vai tôi. Chắc vào. Tôi nhấc lên đây, chân vòng qua eo. Đúng rồi. Giờ đừng động đậy, để tôi làm. | khuya
+- Quay mặt vào thân cây. Hai tay chống lên, dang ra. Lùi lại một bước nữa. Ngoan. Đứng yên đúng thế cho tôi. | khuya
+- Đếm tới ba rồi tôi vào. Một. Hai. Thở ra đi, nín thở là đau đấy. Ba. | khuya
+- Từ từ thôi, tôi biết. Vào hết rồi đây. Ngồi yên một lúc cho quen. Quen rồi thì gật một cái, tôi mới động. | khuya
+- Siết chặt quá tôi không nhúc nhích nổi. Thở ra. Thở ra đi. Đấy, thế mới đi được. | khuya
+- Chậm thế này chịu được không. Chịu được à. Vậy thì tôi không chậm nữa đâu, nói trước rồi đấy. | khuya
+- Mỗi lần tôi thúc là cậu bấu vào lưng tôi. Cứ bấu đi. Để lại dấu càng tốt, mai tôi soi gương còn thấy. | khuya
+- Kêu đi. Đừng cắn môi nữa, chảy máu bây giờ. Cả rừng nghe thấy thì kệ cả rừng, tôi muốn nghe. | khuya
+- Gáy cậu tôi ngậm rồi đây. Không rách da đâu, chỉ giữ cho yên thôi. Cựa nữa là tôi siết chặt hơn đấy. | khuya
+- Cái cổ này. Tôi hít một hơi thôi là biết cậu muốn gì, muốn tới mức nào, và còn chịu được bao lâu nữa. | khuya
+- Mùi tôi phải ở trên người cậu. Cọ chỗ này. Cọ cả chỗ này nữa. Ai lại gần cậu ngày mai cũng phải biết. | khuya
+- Sắp rồi đấy. Gốc nó bắt đầu phình. Cậu muốn khoá hay không, nói nhanh đi, lát nữa là không kịp nữa. | khuya
+- Muốn à. Nói lại lần nữa cho rõ. Được. Vậy thì bám chặt vào, từ giờ không rút ra được nữa đâu. | khuya
+- Khoá rồi. Từ đây tới lúc nó xẹp là hai đứa dính nhau, không ai đi đâu được. Ngồi lên đùi tôi cho đỡ mỏi. | khuya
+- Đừng kéo. Kéo là đau cả hai đứa. Nằm im đây, dựa vào tôi. Nó vẫn đang bơm đấy, từng đợt một, cậu cảm thấy không. | khuya
+- Căng bụng rồi à. Còn mấy đợt nữa mới hết. Không chảy ra được đâu, khoá kín rồi. Cậu giữ hết trong người cho tôi. | khuya
+- Tôi gừ suốt từ nãy là bản năng, không tắt được. Nó canh bạn tình đấy. Cậu nằm im mà nghe cũng được. | khuya
+- Nửa canh giờ nữa mới ra được. Cậu kể tôi nghe chuyện gì đi. Chuyện gì cũng được, miễn đừng bảo tôi dậy. | khuya
+- Vừa xong mà đã lại muốn rồi. Cơn nó thế, đừng trách tôi. Nằm xuống. Lần này tôi làm lâu hơn. | khuya
+- Cả đêm cậu chưa ngủ được phút nào. Tôi biết chứ. Nhưng chưa xong đâu, nghỉ mười phút rồi quay lại đây. | khuya
+- Uống hết chỗ nước này đã. Uống đi. Uống xong thì nằm xuống chỗ cũ, đúng chỗ đó. | khuya
+- Trốn cả buổi chiều. Ẩn thân cũng vô ích, mùi cậu tôi nhớ rồi. Đi nửa vòng rừng đấy. Giờ lấy lại công. | khuya
+- Bay nhanh thật. Nhưng bay mãi cũng phải hạ xuống, mà tôi thì chưa mệt. Xuống đây. | khuya
+- Lơ lửng lên. Giữ đúng độ cao đó. Vừa tầm tôi rồi, đừng lên nữa, lên là tôi kéo xuống. | khuya
+- Nhẹ quá nên đẩy một cái là trôi ra, kéo một cái là trôi vào. Tiện cho tôi, phiền cho cậu. | khuya
+- Nằm nghiêng đi, quay lưng vào tôi. Tôi ôm từ sau. Tay tôi để đâu thì cậu biết rồi đấy, khỏi hỏi. | khuya
+- Ngồi lên đùi tôi, đối mặt vào. Tự hạ xuống đi, chậm thôi. Tôi không giúp đâu, tôi muốn xem cậu tự làm. | khuya
+- Nói xem cậu muốn gì. Nói rõ từng chữ ra. Tôi cộc lắm, tôi không đoán ý ai bao giờ, nên cậu cứ nói thẳng. | khuya
+- Xin một tiếng đi. Một tiếng thôi. Rồi muốn gì tôi cũng cho. | khuya
+- Của ai. Trả lời. Sai thì làm lại từ đầu, mà tôi thì rảnh cả đêm. | khuya
+- Mở mắt ra nhìn tôi. Nhắm mắt là tôi dừng ngay. Nhìn tôi, tôi muốn thấy mặt cậu lúc này. | khuya
+- Tay để lên đầu, đừng hạ xuống. Tôi bảo đừng hạ. Hạ một lần nữa là tôi trói bằng dây leo, mà dây leo ở đây thì sẵn. | khuya
+- Rễ cây quấn cổ tay tôi lúc nào thế. Cậu làm à. Gỡ ra. Gỡ ra đi rồi tôi xin, được chưa. | khuya
+- Điều khiển được cả cái rừng này, còn tôi chỉ có sức. Không công bằng. Nhưng thôi, chịu. | khuya
+- Ghì tôi xuống đi. Tôi không chống đâu. Cậu nhẹ bằng nửa tôi mà tôi nằm yên đây, tự hiểu là thế nào. | khuya
+- Đêm nay đổi vai cũng được. Cậu làm, tôi nằm. Nhưng sáng mai thì đừng hòng. | khuya
+- Ra rồi. Nằm im đấy, đừng dậy vội, đùi cậu còn run chưa đứng được đâu. Để tôi bế ra suối rửa. | khuya
+- Nước suối lạnh, ôm tôi cho ấm. Rửa xong tôi bôi thuốc. Thuốc của Kael, lần này tôi hỏi kỹ rồi, lành. | khuya
+- Nằm sấp xuống, để tôi xoa lưng cho. Ngủ đi, tôi xoa tới lúc cậu ngủ mới thôi. | khuya
+- Lúc nãy tôi quá tay. Đưa cổ tay đây tôi xem. Mai chỗ nào đau thì đừng giấu, tôi hỏi là tôi muốn nghe thật. | khuya
+- Quấn chăn lại. Đêm nay cậu không phải làm gì nữa hết. Ngủ đi, sáng mai dậy tôi vẫn ở đây. | khuya
+- Ngủ rồi mà tay vẫn nắm áo tôi. Không gỡ ra đâu. Cứ nắm thế tới sáng cũng được. | khuya

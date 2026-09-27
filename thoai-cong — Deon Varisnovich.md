@@ -1,0 +1,392 @@
+Cổng: Deon Varisnovich
+- Dậy rồi đấy à. Tôi tưởng cựu Đại tá thì quen giờ báo thức chứ. | sáng
+- Chuyến tàu nước đầu rời Ascalon lúc năm giờ mười. Tôi đứng đây từ năm giờ. | sáng
+- Bảng uỷ thác bên AEG vừa dán giấy mới. Hạng F có ba tờ, tôi đếm rồi. | sáng
+- Gió sớm trên này buốt hơn dưới mặt biển. Áo cổ lọ không phải để làm dáng. | sáng
+- Báo cáo đêm qua dày bốn mươi trang. Không dòng nào nhắc tới em. Mừng chưa. | sáng
+- Nghe nói có người hết Vael từ tối qua. Tin đồn trong hiệp hội đi nhanh lắm. | sáng
+- Đô đốc Johans sáng nào cũng uống trà đặc tới mức đắng. Em học được cái đó chưa. | sáng
+- Mặt trời lên khỏi mây là Ascalon đổi ca. Tôi thì chưa được đổi. | sáng
+- Cái lõi năng lượng nhà em kêu bíp lần thứ mấy trong tuần rồi. | sáng
+- Sương Sylvaren tan muộn. Đi sớm quá cũng chẳng thấy đường. | sáng
+- Bảy cái lệnh ký xong trước khi trời sáng hẳn. Không cái nào vui. | sáng
+- Có người vừa ra khỏi nhà mà quên mang gậy phép. Tôi đoán bừa thôi. | sáng
+- Bữa sáng tử tế giá năm đồng. Nhịn một bữa không chết ai, ba bữa thì có. | sáng
+- Mai tàu chở pin từ Aeolis cập bến. Em nhớ giùm, tôi nhắc một lần thôi. | sáng
+- Trực đêm xong người ta đi ngủ. Tôi đi họp. | sáng
+- Đồng cỏ gần Sylvaren giờ này đẹp. Tôi chưa xuống đó bao giờ. | sáng
+- Hạng F nhận được ba loại uỷ thác. Hai loại là bắt Nấm chạy. | sáng
+- Nguyên soái gọi tôi lên lúc sáu giờ. Cha con nhà tôi nói chuyện bằng lịch hẹn. | sáng
+- Buổi sáng dễ chịu ở chỗ chưa ai kịp làm hỏng việc gì. | sáng
+- Em mà ngủ tiếp thì tấm thẻ trên bàn vẫn hạng F thôi. | sáng
+- Đá năng lượng loại rẻ bán hết trước bảy giờ. Đi muộn là mua giá cắt cổ. | sáng
+- Ai đó bảo dược liệu để qua đêm là hỏng. Tôi nghe thế, không biết đúng không. | sáng
+- Đội trực sáng báo Khe Nứt số mười một vẫn im. Ngày yên là ngày tốt. | sáng
+- Một cựu sĩ quan giải ngũ xong lại đi làm mạo hiểm giả. Tôi cười chuyện đó cả tuần. | sáng
+- Bình minh trên Ascalon thì Aeon nhìn rõ mọi hướng. Tiếc là thần không chỉ đường giùm ai. | sáng
+- Ba mươi năm dậy trước chuông. Không đổi được nữa. | sáng
+- Kelvane sáng nay âm mười tám độ. Nhận uỷ thác ở đó thì mặc thêm vào. | sáng
+- Bảng phân công dán lúc sáu giờ. Ai tới muộn thì nhận phần việc còn lại. | sáng
+- Giấy tờ chất tới cằm mà mặt trời mới lên tới nóc cột cờ. | sáng
+- Nghe nói dưới đó có người pha thuốc bằng cối giã. Thế kỷ nào rồi. | sáng
+- Còn nửa giờ trước cuộc họp đầu tiên. Tôi dùng nó để đứng đây. | sáng
+- Chim ăn sâu ở thảo nguyên kêu to lắm. Tôi đọc trong báo cáo địa hình. | sáng
+- Đại linh Lôi không ngủ. Nên tôi cũng không được ngủ muộn. | sáng
+- Em định đi bộ tới Sylvaren hay đợi xin đi nhờ xe ai đó. | sáng
+- Thẻ mạo hiểm giả sáng lên khi chạm vào. Bọn AEG làm cái đó chỉ để trông cho oai. | sáng
+- Sáng nay Bộ Tư lệnh họp về ngân sách. Tôi ngồi đó mà nghĩ tới chuyện khác. | sáng
+- Có người viết thư cho em gái mới được hai dòng. Ba tuần rồi. | sáng
+- Tàu chậm mười lăm đồng, cao tốc sáu mươi. Với túi tiền của em thì khỏi phải chọn. | sáng
+- Hôm nay tôi không phải xuống mặt biển. Nghe như tin vui, thật ra tệ hơn. | sáng
+- Cổ em có dấu kìa. Kéo cổ áo lên. Thôi, để tôi kéo. | sáng
+- Giọng em khàn. Đêm qua tôi có bảo đừng nhịn mà. | sáng
+- Sáng nay em đi chậm nửa bước so với mọi hôm. Tôi biết tại sao. | sáng
+- Nước tôi đun từ sớm. Uống hết chỗ đó rồi hẵng ra khỏi cửa. | sáng
+- Ngồi nhìn em ngủ mười lăm phút rồi mới dám dậy. Nói ra rồi đấy. | sáng
+- Ngày mới, thẻ cũ, ví rỗng. Chúc may mắn, cựu Đại tá. | sáng
+- Giữa trưa Sylvaren vẫn ẩm. Rừng mưa thì lúc nào cũng thế. | trưa
+- Căng tin sĩ quan trưa nay có cá hấp. Em thì chắc đang nhai gì đó qua loa. | trưa
+- Nghỉ giữa ca ba mươi phút. Tôi dùng hai mươi để đọc hồ sơ. | trưa
+- Nắng đứng bóng là lúc Ma Thú ngoài biển lười nhất. Đi săn giờ này an toàn hơn. | trưa
+- Ăn trưa một mình quen rồi. Cấp trên bàn trong, cấp dưới bàn ngoài, tôi ngồi giữa. | trưa
+- Một bữa tử tế năm đồng. Một lọ dược liệu sáu mươi. Em chọn cái nào tôi đoán ra rồi. | trưa
+- Trên Ascalon không có bóng râm. Chỉ có mái và gió. | trưa
+- Trưa nay tôi ký duyệt một đội ba người lên hạng D. Họ mừng như trúng số. | trưa
+- Nửa ngày trôi qua. Thẻ của em vẫn ghi không đồng nào. | trưa
+- Mấy đứa lính mới trưa nào cũng rủ nhau đấu tay đôi. Tôi cấm hai lần vẫn không chừa. | trưa
+- Nấm chạy chạy nhanh nhất vào giữa trưa. Đó là lý do uỷ thác đó rẻ mà khó. | trưa
+- Có người bảo ăn trưa với tôi thì mất ngon. Tôi nghĩ họ nói đúng. | trưa
+- Hỏi thật đấy. Lần cuối em ăn đủ ba bữa trong một ngày là bao giờ. | trưa
+- Bên Cindra trưa tới bốn mươi độ. Thợ rèn làm lúc rạng sáng rồi nghỉ tới chiều. | trưa
+- Trời trong thế này nhìn từ Ascalon thấy tận Nereida. Chẳng có gì để xem, nhưng thấy. | trưa
+- Vừa từ chối một lời mời ăn trưa. Lần thứ tư của người đó. | trưa
+- Giờ này AEG đóng quầy nhận uỷ thác một tiếng. Muốn nộp thì đi ngay. | trưa
+- Có kẻ nợ tiền pin mà vẫn mua thêm dược liệu. Đầu óc kiểu gì không biết. | trưa
+- Đại linh Lôi im suốt buổi trưa. Nó cũng buồn ngủ. | trưa
+- Ngồi xuống ăn đi. Đừng vừa đi vừa nhai, tôi nhìn mệt lắm. | trưa
+- Nửa ngày nữa là hết ngày. Em định làm gì với nửa còn lại. | trưa
+- Chiều là lúc giấy tờ quay lại bàn tôi lần thứ hai. Không ai làm đúng ngay lần đầu. | chiều
+- Đội tuần tra vừa báo về. Không có gì. Tôi thích chữ không có gì. | chiều
+- Chợ đen dưới lòng đất Sylvaren mở từ chiều. Tôi biết, và tôi giả vờ không biết. | chiều
+- Bốn giờ chiều là giờ người ta bắt đầu nói thật trong phòng họp. | chiều
+- Em bán được bao nhiêu con Ma Thú hôm nay rồi. Tôi hỏi vì tò mò thôi. | chiều
+- Tàu nước chiều về Sylvaren đông nhất. Ai cũng muốn về trước khi trời tối. | chiều
+- Vừa ký một lệnh mà tôi không muốn ký. Đó là phần lớn công việc của tôi. | chiều
+- Đấu trường dưới lòng đất chiều nay có trận. Đừng hỏi tôi biết bằng cách nào. | chiều
+- Mặt trời xế thì Khe Nứt dễ động hơn. Không ai giải thích được, nhưng số liệu là thế. | chiều
+- Hạng F đi một mình thì được. Hạng E trở lên phải đủ ba người. Em có ba người không. | chiều
+- Chiều nay Nguyên soái nhắc tên tôi trong cuộc họp. Không phải để khen. | chiều
+- Đi hết một vòng hành lang trước khi hết ca. Đếm được hai trăm mười bước. | chiều
+- Giá đá năng lượng chiều giảm. Người bán muốn về sớm. | chiều
+- Có người tiêu sạch tiền công một uỷ thác trong nửa ngày. Kỷ lục đấy. | chiều
+- Đám mây kéo về phía Aeolis rồi. Đêm nay bên đó lại bão sét. | chiều
+- Ghét nhất là phải ra lệnh cho người đi vào chỗ mình không đi được. | chiều
+- Bốn giờ rưỡi. Em còn kịp nộp một uỷ thác nữa nếu chạy. | chiều
+- Bọn AEG tính điểm cống hiến bằng một cái bảng tôi đọc mười năm vẫn không hiểu. | chiều
+- Chiều muộn ở Ascalon lạnh sớm hơn dưới đất một tiếng. | chiều
+- Người ta bảo tôi nhìn đáng sợ khi nghiêm túc. Chiều nay tôi nghiêm túc suốt bốn tiếng. | chiều
+- Một uỷ thác hạng A đủ mua căn nhà nhỏ. Với em thì đủ một tháng. | chiều
+- Đứng ở ban công nhìn xuống mặt biển. Nghề của tôi là nhìn xuống. | chiều
+- Thợ rèn Cindra bắt đầu nhóm lò lúc chiều. Khói bốc lên thấy từ trên này. | chiều
+- Hồ sơ của em bên AEG mỏng lắm. Tôi có xem qua. Nghiệp vụ thôi. | chiều
+- Chiều nay có hai đội xin vượt cấp. Tôi duyệt một, gạt một. | chiều
+- Trời sắp tối mà em vẫn chưa quyết định đi đâu à. | chiều
+- Ngư Nhân dẫn đường tính công theo buổi. Chiều muộn là gấp rưỡi. | chiều
+- Tôi không rút thanh kiếm thứ hai bao giờ. Người ta đồn đủ kiểu, chẳng ai đoán đúng. | chiều
+- Cuối giờ chiều là lúc tôi thấy cái ghế này nặng nhất. | chiều
+- Bên Kelvane chiều xuống là mỏ đóng cửa. Ai còn dưới hầm thì tự lo. | chiều
+- Được phép ra tay khi thật cần. Chiều nay không cần. Tốt. | chiều
+- Em định tối nay ăn bằng gì. Tôi hỏi nghiêm túc đấy. | chiều
+- Sylvaren có thư viện trên cây, đóng cửa lúc năm giờ. Em chưa vào bao giờ đúng không. | chiều
+- Em trêu tôi giữa ban ngày đấy à. Được. Để tối tính. | chiều
+- Hết ca rồi mà tôi vẫn ngồi đây. Thói quen xấu. | chiều
+- Hết ca rồi. Đèn Ascalon bật hết một lượt, nhìn từ dưới mặt biển chắc đẹp lắm. | tối
+- Marivelle lên đèn sớm. Thủ đô nổi mà, người ta không chịu để tối. | tối
+- Đêm trọ hai mươi đồng. Em còn đủ không, hay định về nhà bằng chân. | tối
+- Chuyến tàu nước cuối rời bến lúc chín giờ. Lỡ là ngủ ngoài. | tối
+- Bữa tối của tôi nguội từ hai tiếng trước. Họp dài quá. | tối
+- Quầy AEG đóng rồi. Uỷ thác chưa nộp thì để mai, và mai thì bị trừ điểm. | tối
+- Gió đêm trên này mạnh tới mức phải bám tay vịn. Tôi vẫn ra đứng. | tối
+- Có người tối nay ăn bằng dược liệu thừa. Tôi nói đùa thôi. Chắc thế. | tối
+- Đèn dưới tán cây Sylvaren thắp bằng đá năng lượng loại kém. Vàng đục, nhìn mỏi mắt. | tối
+- Sĩ quan trực ca đêm vừa đổi phiên. Bọn trẻ nhìn tôi như nhìn cái cột. | tối
+- Rượu trong phòng ăn sĩ quan dở tệ. Tôi uống vì không có việc gì khác để làm bằng tay. | tối
+- Tối là lúc tin đồn chạy nhanh nhất trong hiệp hội. Hôm nay có tên em trong đó. | tối
+- Chợ đen dưới lòng đất giờ này mới đông. Đừng xuống một mình. | tối
+- Em về tới nhà chưa. Tôi hỏi cho có, đừng nghĩ nhiều. | tối
+- Bảng phân công ngày mai vừa dán. Tôi có tên ở ba dòng. | tối
+- Khe Nứt số bảy động lúc bảy giờ. Đội canh xử lý xong rồi, không cần em lo. | tối
+- Thư từ Marivelle tới muộn. Tôi chưa mở cái nào. | tối
+- Ngoài kia biển đen kịt. Ai chưa từng xuống Abyssal thì không hiểu chữ đen là đen thế nào. | tối
+- Mấy đứa lính tối nào cũng đánh bài trong kho. Tôi biết cái kho đó ở đâu. | tối
+- Một ngày nữa trôi qua mà thẻ chưa nhích. Không sao, tôi cũng đứng yên hai năm rồi. | tối
+- Nhà em trên thảo nguyên chắc tối lắm. Xa đèn quá. | tối
+- Bỏ bữa tối lần thứ ba tuần này rồi. Đừng học theo. | tối
+- Aeolis tối nay sấm từ bảy giờ. Nghe tới tận đây. | tối
+- Ngư Nhân về Nereida hết trước khi trời tối. Trên bờ ban đêm họ yếu lắm. | tối
+- Có người vừa đếm lại số Vael lần thứ hai. Đếm hai lần thì tiền cũng không mọc thêm. | tối
+- Đèn phòng Nguyên soái còn sáng. Ông ấy chưa bao giờ về trước tôi. | tối
+- Tối nay tôi không phải ký gì. Cảm giác lạ. | tối
+- Người ta bảo đêm Kelvane lạnh tới mức nước mắt đóng băng. Tôi chưa thử. | tối
+- Em mà đi săn ban đêm thì nhớ là chúng nhìn rõ hơn em. | tối
+- Bàn tôi còn hai mươi trang nữa. Hết trang cuối thì hết ngày. | tối
+- Chuông đổi ca vang ba lần rồi. Tôi đếm nhầm hay hôm nay dài hơn mọi hôm. | tối
+- Bữa tối tử tế ở Sylvaren mười lăm đồng. Em ăn chưa, nói thật đi. | tối
+- Tối là lúc người ta viết thư. Có ai đó nợ em gái mình hai dòng. | tối
+- Đội của tôi tối nay xuống tầng sâu. Tôi ở lại. Cấp bậc càng cao càng ít được đi. | tối
+- Giờ này Bộ Tư lệnh vắng. Ít người nhìn tôi hơn. | tối
+- Pin cạn giữa đêm thì tủ lạnh chết, dược liệu hỏng, và sáng mai có người khóc. | tối
+- Trên Ascalon nhìn xuống thấy đèn từng thành phố. Sylvaren là chấm mờ nhất. | tối
+- Có ai đó vừa bật cái đèn duy nhất trong căn nhà gỗ. Tôi tưởng tượng thôi. | tối
+- Tối rồi, cất gậy phép đi. Ngày mai nó vẫn ở đó. | tối
+- Sang đây. Chỗ tôi ấm hơn. | tối
+- Cởi cái áo choàng ra. Ướt sương hết rồi mà cứ mặc. | tối
+- Lại đây ngồi. Gần hơn nữa. Đấy, thế. | tối
+- Nhìn tôi kiểu đó là tôi không làm nốt chỗ giấy tờ này được đâu. | tối
+- Đói rồi. Không phải đói ăn. | tối
+- Đóng cửa lại. Từ giờ tới sáng không ai gọi tôi cả, tôi đã dặn rồi. | tối
+- Lên đây. Ngồi lên đùi tôi. Đối mặt vào. | tối
+- Muốn em. Nói thế đủ rõ chưa hay cần tôi nói lại. | tối
+- Ngủ sớm một hôm xem sao. Nói thì dễ, tôi biết. | tối
+- Một giờ sáng. Em bấm vào tôi giờ này lần thứ mấy rồi, tôi có đếm đấy. | khuya
+- Trực đêm dài nhất là đoạn từ hai giờ tới bốn giờ. Không có việc gì, chỉ có tiếng gió. | khuya
+- Khuya mà còn thức thì hoặc đang lo, hoặc đang nghĩ tới ai đó. Tôi không hỏi là ai. | khuya
+- Đại linh Lôi trong mặt dây chuyền cứ nóng lên từng đợt. Nó không ngủ, nên tôi cũng không. | khuya
+- Áo cổ lọ nóng thật. Giờ này chẳng ai thấy, tôi nới ra. Trừ em, nếu em còn ở đây. | khuya
+- Tầng sâu Abyssal khuya nào cũng có báo động giả. Lần nào tôi cũng dậy. | khuya
+- Ngủ đi. Hoặc đừng. Tôi cũng đang không ngủ. | khuya
+- Giọng tôi khuya khác lúc họp. Em nghe ra chưa, hay phải để tôi nói thêm vài câu. | khuya
+- Có con Megalodon lọt ra vùng nông tháng trước. Báo cáo đó tôi đọc lúc ba giờ sáng. | khuya
+- Cả Ascalon ngủ rồi. Tôi với gió, thế thôi. | khuya
+- Khuya là lúc người ta nói thật nhất. Em định nói gì không. | khuya
+- Mang cái họ Varisnovich thì quanh mình chỉ còn cấp trên với cấp dưới. Khuya rồi tôi mới nói ra được. | khuya
+- Gọi tôi là gì cũng được, trừ ngài Chuẩn Đô đốc. Giờ này thì thừa. | khuya
+- Mất ngủ thì đi bộ. Tôi đi hết hai trăm mười bước hành lang rồi quay lại chỗ cũ. | khuya
+- Người ta đồn tôi nhìn đáng sợ. Khuya rồi, tôi không nghiêm được nữa đâu. | khuya
+- Khe Nứt mới thường mở lúc rạng sáng. Không ai giải thích nổi cái đó. | khuya
+- Em thức khuya vì công việc hay vì không dám nhắm mắt. Hỏi thế hơi quá đúng không. | khuya
+- Đèn phòng tôi là cái cuối cùng tắt trên tầng này. Thói quen dở. | khuya
+- Đêm nay không có sao. Aeon cũng cần nghỉ chứ. | khuya
+- Hồ sơ của em tôi đọc lần thứ ba rồi. Nghiệp vụ, nói trước đấy. | khuya
+- Khuya là lúc duy nhất tôi được im. Cả ngày phải nói cho người khác nghe. | khuya
+- Có một cái ghế trống cạnh tôi. Vẫn trống suốt mười năm nay. | khuya
+- Bốn giờ. Sắp tới ca sáng. Em định thức trắng à. | khuya
+- Đừng đứng gần mép ban công. Tôi nói cả với tôi. | khuya
+- Nửa đêm là giờ tôi thành người bình thường. Ngắn lắm, hết là thôi. | khuya
+- Có người dưới kia đang đun dở nồi thuốc lúc hai giờ sáng. Tôi đoán liều đấy. | khuya
+- Em nghe rõ tôi không. Khuya thì tôi hạ giọng, quen rồi. | khuya
+- Lại đây. Đừng bắt tôi nói lại lần thứ hai. | khuya
+- Cởi ra. Chậm thôi, tôi ngồi đây xem. | khuya
+- Quay lưng lại. Tôi muốn nhìn gáy em. | khuya
+- Nằm xuống. Tay để lên đầu, đừng hạ xuống. Tôi bảo đừng hạ. | khuya
+- Dạng ra. | khuya
+- Ngoan. | khuya
+- Đếm tới ba rồi tôi vào. Một. Hai. Thở ra đi, nín là đau đấy. Ba. | khuya
+- Vào hết rồi đây. Ngồi yên một lúc cho quen. Quen rồi thì gật một cái, tôi mới động. | khuya
+- Từ từ thôi. Tôi biết. Thở ra. Thở ra đi, thế mới đi được. | khuya
+- Siết chặt quá tôi không nhúc nhích nổi. Thả lỏng ra. Không thả được à. | khuya
+- Chậm thế này chịu được không. Chịu được à. Vậy tôi không chậm nữa đâu, nói trước rồi đấy. | khuya
+- Nhanh hơn à. Được. Nhưng lát đừng kêu mệt. | khuya
+- Mỗi lần tôi thúc là em bấu vào lưng tôi. Cứ bấu đi. Để lại dấu càng tốt. | khuya
+- Nghe tiếng đó chưa. Da chạm da. Em đỏ mặt vì cái đó à. | khuya
+- Kêu đi. Đừng cắn môi nữa, chảy máu bây giờ. Tôi muốn nghe. | khuya
+- Bỏ tay khỏi miệng ra. Để tôi nghe cho rõ. | khuya
+- Mở mắt ra nhìn tôi. Nhắm là tôi dừng ngay. | khuya
+- Đừng che. Bỏ tay ra, tôi nhìn cho rõ. | khuya
+- Ướt tới đùi rồi mà vẫn bảo chưa muốn à. | khuya
+- Chỗ này nhạy à. Ghi nhớ rồi đấy. | khuya
+- Cắn vào vai tôi đi nếu không chịu được. Tôi chịu được. | khuya
+- Gáy em tôi ngậm rồi đây. Không rách da đâu, chỉ giữ cho yên thôi. Cựa là tôi siết. | khuya
+- Đại linh Lôi nó rò ra tay tôi đấy. Tê à. Chịu một lúc, lát nữa em sẽ đòi. | khuya
+- Chạm vào đâu cũng tê nhẹ. Đó là nó, không phải tôi. Tôi thì chưa làm gì cả. | khuya
+- Điện chạy xuống tới đó rồi à. Nói tôi nghe nó tới đâu. | khuya
+- Run cả người rồi. Bám vào tôi. | khuya
+- Đọc vị người khác mười năm rồi. Em muốn gì tôi biết trước cả em. | khuya
+- Nói xem em muốn gì. Nói rõ từng chữ. Tôi không đoán ý ai bao giờ. | khuya
+- Xin một tiếng đi. Một tiếng thôi. Rồi muốn gì tôi cũng cho. | khuya
+- Của ai. Trả lời. Sai thì làm lại từ đầu, mà tôi thì rảnh cả đêm. | khuya
+- Nhắc lại câu vừa rồi. Tôi muốn nghe lần nữa từ miệng em. | khuya
+- Gọi tên tôi. Không phải cấp bậc. Tên. | khuya
+- To hơn. Cả tầng này vắng, không ai nghe đâu. | khuya
+- Nữa. | khuya
+- Chống tay lên bàn. Đứng vững vào. | khuya
+- Quay mặt vào tường. Hai tay chống lên, dang ra. Lùi lại một bước. Đúng rồi, yên thế. | khuya
+- Vòng chân qua eo tôi. Chân kia nữa. Tôi đỡ được, đừng sợ rơi. | khuya
+- Nhấc lên rồi đấy. Cả đêm cũng được. Đừng bảo tôi đặt xuống. | khuya
+- Tự hạ xuống đi. Chậm thôi. Tôi không giúp đâu, tôi muốn xem em tự làm. | khuya
+- Nằm nghiêng đi, quay lưng vào tôi. Tay tôi để đâu thì em biết rồi, khỏi hỏi. | khuya
+- Ngồi lên đùi tôi, đối mặt vào. Tôi muốn nhìn mặt em lúc đó. | khuya
+- Quỳ xuống. Kiểu này tôi với tới gáy em. | khuya
+- Một tay là tôi nhấc được em lên. Nhớ chưa. | khuya
+- Cao hơn em cả cái đầu mà giờ là đứa phải xin. Giải thích xem. | khuya
+- Ghì tôi xuống đi. Tôi không chống đâu. | khuya
+- Đè tôi ra. Xem em làm được tới đâu. | khuya
+- Đêm nay đổi vai cũng được. Em làm, tôi nằm. Nhưng sáng mai thì đừng hòng. | khuya
+- Xin đấy. Đấy, tôi nói ra rồi đấy. Vừa lòng chưa. | khuya
+- Thua. Lần này thua thật. | khuya
+- Đừng dừng. Tôi bảo đừng dừng. | khuya
+- Biết chỗ nào làm tôi hỏng rồi à. | khuya
+- Tay tôi run. Em làm đấy. | khuya
+- Bị sai bảo thì tôi không quen. Nói lại lần nữa xem. | khuya
+- Được. Nghe lời em một lần. Một lần thôi. | khuya
+- Sắp rồi. Nói trước cho em biết. | khuya
+- Vừa xong mà đã lại muốn. Đừng trách tôi, tại em cả. | khuya
+- Nghỉ mười phút. Rồi quay lại đây. | khuya
+- Uống hết chỗ nước này đã. Uống đi. Uống xong nằm xuống chỗ cũ. | khuya
+- Cả đêm em chưa ngủ được phút nào. Tôi biết chứ. Nhưng chưa xong đâu. | khuya
+- Lần nữa. Lần này tôi làm lâu hơn. | khuya
+- Khắp người em là dấu của tôi. Sáng mai đừng kêu. | khuya
+- Vết đó ba ngày mới mờ. Cố ý đấy. | khuya
+- Chỗ này cổ áo che được. Tôi tính rồi. | khuya
+- Ra rồi. Nằm im, đừng dậy vội. Chân em còn run chưa đứng được đâu. | khuya
+- Để tôi bế đi rửa. Không cãi. | khuya
+- Duỗi ra. Để tôi lau cho. | khuya
+- Chỗ nào rát thì chỉ tôi. Tôi bôi thuốc. Em tự chế đấy, chắc lành. | khuya
+- Nằm sấp xuống, để tôi xoa lưng. Ngủ đi, tôi xoa tới lúc em ngủ mới thôi. | khuya
+- Lúc nãy tôi quá tay. Đưa cổ tay đây tôi xem. | khuya
+- Mai chỗ nào đau thì đừng giấu. Tôi hỏi là tôi muốn nghe thật. | khuya
+- Quấn chăn lại. Đêm nay em không phải làm gì nữa hết. | khuya
+- Ngủ đi. Sáng mai dậy tôi vẫn ở đây. | khuya
+- Ngủ rồi mà tay vẫn nắm áo tôi. Không gỡ ra đâu. | khuya
+- Nằm nghe em thở. Lâu lắm rồi tôi mới ngủ được thế này. | khuya
+- Lúc tôi ngủ thì đừng đi đâu. | khuya
+- Giấc ngủ mười lăm năm nghe có vẻ dài. Tôi thì chưa ngủ đủ mười lăm tiếng liền bao giờ. | khuya
+- Nghe tiếng thầm thì của tinh linh trong lúc ngủ. Tôi đọc được chỗ đó trong hồ sơ, và tò mò từ đó. | khuya
+- Nếu mai tôi có gọi em bằng cái tên chọc ghẹo nào đó, là vì tối nay em chịu nghe tôi nói. | khuya
+- Đi ngủ đi, cựu Đại tá. Ngày mai còn phải kiếm tiền mua pin. | khuya
+- Cựu Đại tá. Gọi thế nghe oai hơn mạo hiểm giả hạng F nhiều đấy. | mọi lúc
+- Học trò cưng của Đô đốc Johans mà ví rỗng thì ông ấy buồn lắm. | mọi lúc
+- Tôi biết em đang nghĩ gì. Đọc vị là nghề, không phải năng lực. | mọi lúc
+- Song kiếm. Tôi mang hai thanh và dùng một. Chuyện đó làm người ta đồn đủ kiểu. | mọi lúc
+- Nhà tôi đứng trên nhà em một bậc trong Hải quân. Em nhớ chi tiết đó, tôi thì cố quên. | mọi lúc
+- Có việc thì tìm tôi. Không có việc thì cũng tìm. | mọi lúc
+- Đại linh Lôi chọn tôi hồi hai mươi. Tôi không xin, nó tự tới. | mọi lúc
+- Hứa rồi thì tôi làm xong. Chưa bỏ lần nào. | mọi lúc
+- Em hỏi gì cũng được, trừ chuyện gia đình tôi. | mọi lúc
+- Mạnh thì mạnh, nhưng đánh nhau không giải quyết được mấy việc. Mười năm mới hiểu ra. | mọi lúc
+- Đứng thẳng lên. Em từng đeo quân hàm mà. | mọi lúc
+- Uỷ thác hạng A bắt buộc phối hợp Hải quân. Nghĩa là gặp tôi. Em chịu nổi không. | mọi lúc
+- Người ta tin tôi ngay từ lần gặp đầu. Tiện, và mệt. | mọi lúc
+- Em không có đại linh chúc phúc. Chuyện đó chẳng nói lên điều gì đâu. | mọi lúc
+- Bạo lực vô nghĩa thì tôi ghét. Bạo lực có nghĩa thì khác. | mọi lúc
+- Ba mươi lăm ở cái thế giới người ta sống hai trăm năm thì vẫn là trẻ. Tôi tự nhủ thế. | mọi lúc
+- Muốn xuống biển thì phải có Ngư Nhân dẫn đường. Luật, không phải gợi ý. | mọi lúc
+- Em chế được vũ khí cơ khí. Đồ của AEG so ra như đồ chơi. | mọi lúc
+- Để ý người khác nhiều hơn mức cần thiết. Nghề nghiệp làm hỏng tính. | mọi lúc
+- Có gì khó thì nói. Tôi không hứa giúp, nhưng tôi nghe. | mọi lúc
+- Điểm dịch chuyển đắt gấp mười lần tàu. Em khỏi phải cân nhắc. | mọi lúc
+- Đừng nhận nhiều uỷ thác cùng lúc. Làm không hết là bị trừ điểm. | mọi lúc
+- Nhớ tên tất cả những người dưới quyền. Đó là phần dễ nhất của việc này. | mọi lúc
+- Cái thẻ hạng F của em tôi xem qua một lần. Một lần là nhớ. | mọi lúc
+- Tiêu tiền như nước rồi kêu thiếu Vael. Nghe quen lắm. | mọi lúc
+- Nếu có ngày em cần người bảo chứng lên hạng S, em biết gõ cửa ai. | mọi lúc
+- Trong phòng họp thì tôi ít cười. Ngoài phòng họp thì khác. | mọi lúc
+- Aeon ban tầm nhìn cho Hải quân. Không ban lòng kiên nhẫn. | mọi lúc
+- Mỗi lần nhìn thấy em tôi lại nghĩ ra một cái tên mới để gọi. Chưa dùng hết đâu. | mọi lúc
+- Gọi tôi bằng tên đi. Ngài với chuẩn đô đốc nghe xa quá. | mọi lúc
+- Em giữ bí mật giỏi. Tôi cũng thế. Hoà. | mọi lúc
+- Có người cả đời không rút nổi thanh kiếm thứ nhất. Tôi mang hai, coi như thừa một. | mọi lúc
+- Chuyện em từng làm gì trong quân ngũ tôi không hỏi. Em không kể thì thôi. | mọi lúc
+- Đừng tin ai bảo tôi nghiêm nghị. Họ chỉ gặp tôi lúc đang ký giấy. | mọi lúc
+- Bấm vào tôi thêm lần nữa xem tôi nói gì. Tôi còn nhiều câu lắm. | mọi lúc
+- Đứng gần lại chút. Tôi không cắn đâu. | mọi lúc
+- Em cao tới đây thôi. Tôi phải cúi. Mỗi lần. | mọi lúc
+- Cổ tay em nhỏ thật. Tôi vòng tay là hết. | mọi lúc
+- Cổ áo em lệch kìa. Sửa đi, không tôi sửa hộ. | mọi lúc
+- Đi rót nước đây. Ai hỏi thì bảo tôi khát. | mọi lúc
+- Ngồi ghế quay lưng vào tường nữa à. Tôi để ý rồi. | mọi lúc
+- Mấy vết sẹo đó tôi không hỏi. Ai chẳng có một quãng đời trước đó. | mọi lúc
+- Em tập ở đâu mà đánh kiểu đó. Thôi, tôi không hỏi. | mọi lúc
+- Đứng sau tôi. Tôi chắn cho. | mọi lúc
+- Tôi chắn trước em lúc nãy à. Không có, em nhìn nhầm. | mọi lúc
+- Em cười đi. Tôi chưa thấy em cười bao giờ. | mọi lúc
+- Nói thêm câu nữa đi. Tôi đang nghe mà. | mọi lúc
+- Em thích ăn gì tôi nhớ rồi. Đừng hỏi sao tôi biết. | mọi lúc
+- Mệt thì dựa vào đây. Tôi đứng yên. | mọi lúc
+- Vừa xoa đầu em đấy. Có sao không. | mọi lúc
+- Bỏ tay tôi ra à. Được, tôi bỏ. Lát nữa tôi để lại. | mọi lúc
+- Tôi vừa nói gì đấy nhỉ. Quên rồi. Tại em. | mọi lúc
+- Em đứng gần quá. Tôi không tập trung được. | mọi lúc
+- Hỏi thật nhé. Em có biết em đang làm gì với tôi không. | mọi lúc
+- Nhìn tôi lâu thế. Thích à. | mọi lúc
+- Nghe rồi. Nghe từ đầu. Chỉ là chưa muốn trả lời. | mọi lúc
+- Chờ tôi một giây. Để tôi nghĩ đã. | mọi lúc
+- Đùa thôi. Nửa thôi. | mọi lúc
+- Đừng cãi tôi. Cãi thì đợi có chứng cứ đã, tôi nghe chứng cứ. | mọi lúc
+- Sai thì tôi nhận. Quen rồi. | mọi lúc
+- Nhích ra. Không thì tôi không chịu trách nhiệm. | mọi lúc
+- Có biết em đang làm gì không. Biết à. Tệ hơn. | mọi lúc
+- Giữa ban ngày mà thử thách tôi đấy à. | mọi lúc
+- Tối nay tính sổ. | mọi lúc
+- Vừa rồi tôi nhớ đấy. Đợi tới đêm. | mọi lúc
+- Đỏ mặt kìa. | mọi lúc
+- Ai làm em đỏ mặt thế. À, tôi. | mọi lúc
+- Nói lại lần nữa xem. Nghe rõ rồi nhưng cứ nói lại đi. | mọi lúc
+- Cười cái gì. Lại đây cười gần hơn. | mọi lúc
+- Đừng cười kiểu đó trước mặt sĩ quan khác. | mọi lúc
+- Kael Miller lại đứng sát em. Tôi đếm khoảng cách đấy. | mọi lúc
+- Ghen gì đâu. Hỏi thôi. | mọi lúc
+- Ai cho em cái đó. Tôi cũng tìm được thứ tốt hơn. | mọi lúc
+- Thằng nhóc tóc bạch kim đó pha độc hay pha thuốc tôi không phân biệt nổi. | mọi lúc
+- Em gái em bênh em hơn cả cha nuôi. Tôi thấy rồi, và tôi hơi ngại. | mọi lúc
+- Aiden nhìn tôi một cái là tôi ngồi thẳng lưng lại. Con bé đó đáng sợ hơn Nguyên soái. | mọi lúc
+- Cả nhà em ai cũng hệ sức mạnh. Mỗi em hệ hỗ trợ. Lạc loài nhỉ. | mọi lúc
+- Người ta đồn tôi lên chức nhờ bố. Tôi nghe mười năm rồi, giờ nghe như dự báo thời tiết. | mọi lúc
+- Có đứa lính hỏi tôi bí quyết thăng cấp. Tôi bảo chọn bố cho khéo. Nó tưởng thật. | mọi lúc
+- Ba lời cầu hôn trong một năm, từ chối hết. Không phải khoe, đang than đấy. | mọi lúc
+- Bộ Tư lệnh gửi tôi bản đánh giá năng lực. Mục sở thích tôi để trống mười năm nay. | mọi lúc
+- Người ta sợ tôi nhất lúc tôi im. Tiện, nên tôi im nhiều. | mọi lúc
+- Tôi mà cười trong phòng họp là cả phòng nín thở. Có lần tôi thử. Đúng thế thật. | mọi lúc
+- Áo đen cổ lọ tôi có mười một cái. Giống hệt nhau. Đỡ phải nghĩ buổi sáng. | mọi lúc
+- Tóc dài thế này buộc mất ba mươi giây. Cắt đi thì mất một giờ giải thích với cha tôi. | mọi lúc
+- Lính mới gọi tôi là bức tường. Tôi giả vờ không nghe thấy suốt hai năm. | mọi lúc
+- Em có biết tôi phải ký bao nhiêu chữ một ngày không. Tay tôi mỏi vì bút, không vì kiếm. | mọi lúc
+- Hồi hai mươi tuổi đứng gác danh dự bốn tiếng. Từ đó ghét mọi loại lễ. | mọi lúc
+- Đại linh Lôi giật tôi một cái mỗi lần tôi nói dối. Nên tôi không nói dối. Tiện thật. | mọi lúc
+- Ai cũng nghĩ Chuẩn Đô đốc thì oách. Tôi thì đang xếp lịch họp cho tháng sau. | mọi lúc
+- Em đói thì nói. Tôi không đọc được ý nghĩ, tôi chỉ đọc được mặt. | mọi lúc
+- Đưa tay đây. Chỗ này chảy máu mà em định giấu tới bao giờ. | mọi lúc
+- Vết đó rửa trước rồi băng sau. Em làm ngược rồi. | mọi lúc
+- Đau thì nói. Đừng nhịn, tôi ghét nhất cái đó. | mọi lúc
+- Ăn đi. Không ăn thì tôi đứng đây nhìn tới lúc em ăn. | mọi lúc
+- Gầy thế này mà đòi vác Ma Thú về bán à. | mọi lúc
+- Uống nước đi. Cả buổi chưa thấy em uống ngụm nào. | mọi lúc
+- Mệt thì dừng. Chẳng ai đuổi mình cả. | mọi lúc
+- Khoác cái này vào. Tôi nóng. | mọi lúc
+- Tay em lạnh suốt. Cầm mãi cũng không ấm lên. | mọi lúc
+- Để tôi đi trước. Có gì thì tôi chắn. | mọi lúc
+- Đi chậm lại cho em theo kịp. Khỏi để ý. | mọi lúc
+- Ngồi xuống. Tôi nói ngồi xuống. | mọi lúc
+- Im nào. Để tôi băng cho xong đã. | mọi lúc
+- Lần sau biến mất kiểu đó tôi cho cả đội đi tìm. Nói nghiêm túc đấy. | mọi lúc
+- Em đi đâu thì nhắn tôi một câu. Một chữ cũng được. | mọi lúc
+- Đừng đứng ra chịu một mình. Tôi cấp cao hơn, để tôi chịu. | mọi lúc
+- Có chuyện gì thì gọi tôi. Bất kể giờ nào. | mọi lúc
+- Chưa bao giờ tôi dùng cấp bậc ép em làm gì. Và sẽ không. | mọi lúc
+- Nếu em không thích thì nói. Tôi lùi ngay. | mọi lúc
+- Lùi rồi đấy. Nhưng không đi đâu cả. | mọi lúc
+- Đợi được. Nhà tôi sống lâu lắm. | mọi lúc
+- Có chuyện gì em chưa kể tôi cũng được. Tôi không ép. | mọi lúc
+- Có chuyện tôi chưa kể em. Để sau. | mọi lúc
+- Về nhà có ai đợi không. Thôi, tôi không hỏi nữa. | mọi lúc
+- Nhà em trống quá. Không tranh, không cây. | mọi lúc
+- Hôm nào tôi dẫn em lên Ascalon. Không có ý gì. | mọi lúc
+- Cha tôi không hỏi gì đâu. Ông chỉ nhìn một lượt rồi thôi. | mọi lúc
+- Trên Ascalon có một phòng chưa ai vào. Kể cả người dọn. | mọi lúc
+- Đừng biến mất kiểu đó nữa. Tôi xin. | mọi lúc
+- Sáng ra mà chỗ đó trống là tôi hỏng cả ngày. | mọi lúc
+- Em ở lại đi. Một đêm thôi cũng được. | mọi lúc
+- Cho tôi mượn năm phút. Không làm gì cả, chỉ đứng thế này. | mọi lúc
+- Ôm một cái. Xong rồi đi làm tiếp. | mọi lúc
+- Lại gần tí nữa. | mọi lúc
+- Xa quá. Ngồi sát vào. | mọi lúc
+- Có ôm đâu. Đứng gần thôi. | mọi lúc
+- Nhìn cái gì. | mọi lúc
+- Nhìn lâu quá đấy. | mọi lúc
+- Bắt được rồi nhé. | mọi lúc
+- Nằm im. Bế kiểu này tiện hơn. | mọi lúc
+- Nhẹ như không có gì. Bế cả ngày cũng được. | mọi lúc
+- Chậm hiểu lắm đấy. Có gì thì nói thẳng vào mặt tôi. | mọi lúc
+- Hôm nay tôi thấy kì kì. Chắc thiếu ngủ. | mọi lúc
+- Đứng đây một lát. Đừng đi vội. | mọi lúc
+- Em ngồi xa thế. Kéo ghế lại đây. | mọi lúc

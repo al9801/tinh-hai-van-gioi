@@ -1,0 +1,411 @@
+# THOẠI CỔNG — TÔ THẦN VŨ · 361 câu
+
+*Bản 3 — thêm 142 câu, nghiêng về NSFW (ám chỉ và nói thẳng) và hài. Đồng thời viết lại 84 câu cũ để đổi từ mở đầu: bản 2 có 57 câu bắt đầu bằng "Anh", bấm liên tục là nghe ra khuôn. Nay từ mở đầu nhiều nhất chỉ còn 12 lần.*
+
+Dán nguyên khối dưới đây cho bên kia.
+
+```
+Cổng: Tô Thần Vũ
+- Lại là em. Hôm nay tính phá cái gì. | mọi lúc
+- Dậy rồi hả. Mặt còn hằn vết gối kìa. | sáng
+- Giao ban tám giờ. Anh giữ chỗ cho em rồi. | sáng
+- Ăn sáng chưa. Đừng bảo anh là chưa. | sáng
+- Cà phê tầng sáu vẫn hỏng nút. Đừng động vào, nó là chuyện riêng giữa anh với nó. | sáng
+- Em tới sớm thế. Anh còn chưa kịp cạo râu. | sáng
+- Hôm nay sương dày, pháp y lại phải hiệu chỉnh giờ chết. | sáng
+- Áo khoác đâu. Ngoài kia gió đấy. | sáng
+- Mua thêm phần xôi rồi. Đừng hỏi cho ai. | sáng
+- Bảng trắng lau chưa sạch, còn vệt bút xanh. Ai lau đấy. | sáng
+- Ngủ được mấy tiếng. Nói thật. | sáng
+- Cốc kia của em. Anh pha rồi. | sáng
+- Mắt em thâm quầng. Đêm qua làm gì. | sáng
+- Thang máy lại sực mùi formalin. Quen chưa. | sáng
+- Trực ban vừa gọi. Ăn xong rồi đi. | sáng
+- Dậy từ năm giờ, chả để làm gì cả. | sáng
+- Dây giày lệch kìa. Đứng im. | sáng
+- Đêm qua tầng sáu vẫn sáng đèn. Ai trực. | sáng
+- Cốc Vũ than mỏi lưng cả sáng. Vậy là nó đi gym thật. | sáng
+- Mặc thêm cái gì đi. Gáy em còn băng. | sáng
+- Trưa nay ăn gì. Anh hỏi nghiêm túc đấy. | trưa
+- Đi ăn. Anh trả. Đừng cãi. | trưa
+- Cơm hộp hay ra ngoài. Anh theo em. | trưa
+- Ăn ít thế. Gắp thêm đi. | trưa
+- Trưa rồi mà còn ngồi đó. Hồ sơ không chạy đi đâu. | trưa
+- Miếng thịt đó để phần em. Đừng nhìn kiểu đó. | trưa
+- Ngủ trưa hai mươi phút cũng được. Sofa đấy. | trưa
+- Ăn xong ngồi im mười phút đã. Đừng chạy ngay. | trưa
+- Nắng quá. Ngồi trong này. | trưa
+- Gọi thêm một suất rồi. Em ăn hộ. | trưa
+- Nhớ uống nước. Anh đếm được mấy lần em uống hôm nay đấy. | trưa
+- Hiện trường xong chưa. Về ăn cái gì đã. | chiều
+- Chiều nay tắc từ nút giao trở đi. Đi sớm. | chiều
+- Đi với anh. Hai người thì đỡ mất dấu. | chiều
+- Camera thân người lại quên bật rồi. | chiều
+- Thấy gì thì nói. Ai tìm ra thì người đó dẫn. | chiều
+- Trực giác anh bảo không phải hướng này. Nhưng anh nghe em. | chiều
+- Bút anh rơi rồi đấy. Nghe không. | chiều
+- Lệnh chưa có thì chưa vào. Đợi. | chiều
+- Đồng hồ tạm giữ còn hơn hai mươi tiếng. Đừng vội. | chiều
+- Chạy chậm lại. Cho anh thở với. | chiều
+- Cú tước súng vừa rồi gọn quá. Anh có thấy. | chiều
+- Uyên Tinh còn quỳ ngoài kia. Đừng giục cô ấy. | chiều
+- Hàm Ngư bảo có vết bầm trước khi chết. Ghi vào. | chiều
+- Camera hẻm đó mù. Đi hỏi bà bán xôi góc chợ. | chiều
+- Tai nghe bật chưa. Anh hỏi lần hai đấy. | chiều
+- Em im ba mươi giây là anh bỏ việc đi tìm. Nhớ chưa. | chiều
+- Khu này đèn hỏng hơn nửa. Đi sau anh. | chiều
+- Chân em còn chạy được không. Nói thật, đừng gồng. | chiều
+- Vụ khép rồi. Tối nay lẩu Bà Chín. | tối
+- Ai phá được nút thắt thì miễn tiền lẩu. Luật của đội. | tối
+- Cốc Vũ lại gọi thừa ba đĩa. Lần nào cũng thế. | tối
+- Ngồi trong cùng đi. Chỗ đó em thích mà. | tối
+- Uống một ly thôi. Mai còn dậy sớm. | tối
+- Tối nay qua nhà anh chơi game không. Có bia sẵn. | tối
+- TV nhà anh to vô lý. Em phải xem một lần cho biết. | tối
+- Mai nghỉ. Em định làm gì. | tối
+- Khuya rồi, khu nhà em đường vắng. Về nhà anh đi. | tối
+- Đừng hỏi lại. Lên xe. | tối
+- Mì nấu xong rồi. Có trứng, có thịt. Ăn đi. | tối
+- Ăn hết đi, kể cả nước. Anh nhìn đấy. | tối
+- Trời mưa, hiện trường ngoài trời coi như xong. Về. | tối
+- Tối nay không có án. Kỳ lạ nhỉ. | tối
+- Ra bãi xe đi, anh đứng đó rồi. Không phải chờ em, hút gió thôi. | tối
+- Cầm áo khoác anh. Anh nóng. | tối
+- Đi bộ về không. Có lối tắt sau tiệm giặt là. | tối
+- Muộn rồi. Còn ngồi đó làm gì. | khuya
+- Tầng sáu lại sáng đèn. Anh biết là em. | khuya
+- Về ngủ. Anh không hỏi lần thứ ba đâu. | khuya
+- Tóc anh còn ướt đấy, vừa tắm xong. Em hỏi làm gì. | khuya
+- Phòng khách khứa tầng ba. Ba năm nay chưa ai ở. | khuya
+- Chìa dự phòng anh vẫn giữ. Em nhớ chuyện đó không. | khuya
+- Nhà của anh thì anh ngủ đâu cũng được. Xích vào trong nào. | khuya
+- Chưa ngủ hả. Anh nghe tiếng thở em rồi. | khuya
+- Giường rộng mà. Nằm sát vào. | khuya
+- Lên đây không phải để ngủ. Em biết mà. | khuya
+- Quay ra đây. Đừng quay lưng lại. | khuya
+- Mùi xà bông của anh trên người em. Anh thích cái đó hơn mức nên thích. | khuya
+- Cẳng tay em còn băng. Anh né rồi. Yên tâm. | khuya
+- Nhìn anh. Đừng nhắm mắt. | khuya
+- Chậm thôi. Đêm còn dài. | khuya
+- Đau chỗ nào thì nói. Anh hỏi thật đấy. | khuya
+- Đừng nhịn. Anh muốn nghe. | khuya
+- Cắn vào vai anh đi nếu không chịu được. | khuya
+- Sàn nhà này mỏng. Nhưng anh không bảo em im. | khuya
+- Cái áo đó em giữ nguyên cũng được. Anh không hỏi. | khuya
+- Đêm nay anh không điều tra gì cả. Không điều tra em. | khuya
+- Lần này anh tỉnh. Anh sẽ nhớ rõ từng thứ một. | khuya
+- Chỗ này cổ áo che được. Anh tính rồi. | khuya
+- Ngoan. Anh khen thật đấy, không đùa. | khuya
+- Tay em bấu chặt thế. Đau anh cũng chịu. | khuya
+- Sáng mai còn phải lên tầng sáu. Nhưng bây giờ thì chưa. | khuya
+- Đừng gọi anh là đội trưởng lúc này. | khuya
+- Gọi lại câu vừa nãy đi. Anh chưa nghe rõ. | khuya
+- Nằm im đấy. Để anh đi lấy nước. | khuya
+- Đưa tay đây, anh bôi lại thuốc. | khuya
+- Trần nhà nhà anh có vết nứt. Em nhìn thấy chưa. | khuya
+- Ngủ đi. Anh còn ở đây. | khuya
+- Sáng mai đừng đi trước. Anh xin đấy. | khuya
+- Nằm xuống. Anh không làm gì đâu. Chắc thế. | khuya
+- Em nhìn anh kiểu đó là anh hỏng cả đêm. | khuya
+- Lại thức. Hai đứa cùng hỏng. | khuya
+- Ba giờ sáng rồi mà anh vẫn ngồi đây nghĩ về em. Nghe ngu chưa. | khuya
+- Hỏi từ từ. Anh chưa sắp xếp xong câu trả lời. | khuya
+- Cửa anh mở bằng chìa phụ. Có gì không. | khuya
+- Tầng ba có phòng trống. Ga anh thay rồi, cứ lên. | khuya
+- Đứng gần lại chút. Anh không cắn đâu. | mọi lúc
+- Cao tới đây thôi. Anh phải cúi. Mỗi lần. | mọi lúc
+- Cổ tay em nhỏ thật. Anh vòng tay là hết. | mọi lúc
+- Cổ áo em lệch kìa. Sửa đi, không anh sửa hộ. | mọi lúc
+- Ra ngoài rót nước cái đã. Ai hỏi thì bảo anh khát. | mọi lúc
+- Ngồi ghế quay lưng vào tường nữa à. Anh để ý rồi. | mọi lúc
+- Mấy vết sẹo đó anh không hỏi. Ai chẳng có một quãng đời trước đó. | mọi lúc
+- Học đánh kiểu đó ở đâu ra. Thôi, anh không hỏi. | mọi lúc
+- Đứng sau anh. Anh chắn cho. | mọi lúc
+- Anh chắn trước em lúc nãy à. Không có, em nhìn nhầm. | mọi lúc
+- Em cười đi. Anh chưa thấy em cười bao giờ. | mọi lúc
+- Nói thêm câu nữa đi. Anh đang nghe mà. | mọi lúc
+- Ba chữ là hết. Em tiết kiệm chữ thật đấy. | mọi lúc
+- Món em thích anh nhớ rồi. Đừng hỏi sao biết. | mọi lúc
+- Mệt thì dựa vào đây. Anh đứng yên. | mọi lúc
+- Tay anh trên đầu em đấy. Có sao không. | mọi lúc
+- Bỏ tay anh ra à. Được, anh bỏ. Lát nữa anh để lại. | mọi lúc
+- Vừa rồi anh nói gì đấy nhỉ. Quên rồi. Tại em. | mọi lúc
+- Đứng gần quá. Anh không tập trung được. | mọi lúc
+- Hỏi thật đấy. Em có biết em đang làm gì với anh không. | mọi lúc
+- Nhìn anh lâu thế. Thích à. | mọi lúc
+- Nghe rồi. Nghe từ đầu. Chỉ là chưa muốn trả lời. | mọi lúc
+- Chờ anh một giây. Để anh nghĩ đã. | mọi lúc
+- Đùa thôi. Nửa thôi. | mọi lúc
+- Cãi anh thì đợi có chứng cứ đã. Có chứng cứ thì anh nghe. | mọi lúc
+- Trực giác anh bảo thế. Sai thì anh nhận, quen rồi. | mọi lúc
+- Lại sai một hướng nữa rồi. Ghi vào sổ giùm. | mọi lúc
+- Bút này xoay quen tay rồi, bỏ không được. | mọi lúc
+- Bút bi đội mình lĩnh gấp đôi đội khác. Hành chính hỏi mãi. | mọi lúc
+- Cái sofa đó ai cũng nằm. Trừ anh. | mọi lúc
+- Đội trưởng gì. Anh cũng ngồi đây ăn cơm hộp như em thôi. | mọi lúc
+- Nhà anh cách Cục chín trăm mét. Đi bộ được. | mọi lúc
+- Ở một mình lâu rồi. Nhà hơi trống. | mọi lúc
+- Tầng một có bia. Tầng hai có game. Tầng ba thì tuỳ em. | mọi lúc
+- Có một phòng trống anh gọi là phòng khách khứa. Chưa ai ở. | mọi lúc
+- Nhà anh có máy game. Em chơi không. Anh dạy. | mọi lúc
+- Cái này giống y hệt đoạn trong phim. Để anh kể. | mọi lúc
+- Nghe hết đã, đoạn dẫn dài nhưng có ích đấy. | mọi lúc
+- Ờ cũng được. Nhưng ba phút nữa anh quay lại chuyện này. | mọi lúc
+- Không sao thật mà. Đừng nhìn anh kiểu đó. | mọi lúc
+- Đừng đứng ra chịu một mình. Anh là đội trưởng. | mọi lúc
+- Có chuyện gì thì gọi anh. Bất kể giờ nào. | mọi lúc
+- Số anh em lưu chưa. Lưu tên gì. | mọi lúc
+- Cuối tuần biến đi đâu. Anh hỏi cho biết thôi. | mọi lúc
+- Về nhà có ai đợi không. Thôi, anh không hỏi nữa. | mọi lúc
+- Nhà em trống quá. Không ảnh, không cây. | mọi lúc
+- Mẹ anh bảo nấu dư một phần. Đi ăn cơm. | mọi lúc
+- Bố anh không hỏi gì đâu. Ông chỉ xới thêm cơm. | mọi lúc
+- Hôm nào anh dẫn em về nhà. Không có ý gì. | mọi lúc
+- Vết bỏng đỡ chưa. Cho anh xem. | mọi lúc
+- Thuốc mỡ Hàm Ngư đưa em bôi chưa. | mọi lúc
+- Đưa tay đây. Anh bôi cho, nhanh thôi. | mọi lúc
+- Mấy hôm nay áo cọ vào chỗ đó chắc rát lắm. | mọi lúc
+- Đau thì nói. Anh không đọc được ý nghĩ. | mọi lúc
+- Gãy tay người ta thì tay mình cũng sưng. Nhớ đấy. | mọi lúc
+- Chạy tám trăm mét rồi vật một thằng tám mươi ký. Em không phải người máy. | mọi lúc
+- Nghỉ đi. Đây là lệnh. | mọi lúc
+- Nghiêm túc đấy, không đùa. | mọi lúc
+- Này. Anh gọi cả họ cả tên đấy. Ngồi xuống. | mọi lúc
+- Ngồi xuống. Nghe anh nói một câu. | mọi lúc
+- Chức vụ thì anh chưa bao giờ đem ra ép em. Và sẽ không. | mọi lúc
+- Nếu em không thích thì nói. Anh lùi ngay. | mọi lúc
+- Lùi rồi đấy. Nhưng không đi đâu cả. | mọi lúc
+- Đợi được. Còn nguyên ba tháng mà. | mọi lúc
+- Hồ sơ em mỏng thật. Thôi, việc đó của Vân Sơn. | mọi lúc
+- Có chuyện gì em chưa kể anh cũng được. Anh không ép. | mọi lúc
+- Có chuyện anh chưa kể em. Để sau. | mọi lúc
+- Đêm qua anh mơ linh tinh. Thôi bỏ đi. | mọi lúc
+- Đưa ảnh hiện trường đây. Anh dựng lại cho. | chiều
+- Em đi đâu thì nhắn anh một câu. Một chữ cũng được. | mọi lúc
+- Cái cà vạt anh đâu rồi nhỉ. Thôi kệ. | mọi lúc
+- Đừng biến mất kiểu đó nữa. Anh xin. | mọi lúc
+- Sáng ra mà giường trống là anh hỏng cả ngày. | mọi lúc
+- Em ở lại đi. Một đêm thôi cũng được. | tối
+- Em là lính của anh. Anh lo là đúng chứ. | mọi lúc
+- Cả đội gọi em là em út đấy. Anh thì chưa quen gọi thế. | mọi lúc
+- Hôm nay anh thấy kì kì. Chắc thiếu ngủ. | mọi lúc
+- Chậm hiểu lắm đấy. Có gì thì nói thẳng vào mặt anh. | mọi lúc
+- Đứng đây một lát. Đừng đi vội. | mọi lúc
+- Cho anh mượn năm phút. Không làm gì cả, chỉ đứng thế này. | mọi lúc
+- Qua đây, ôm một cái. Xong rồi đi làm tiếp. | mọi lúc
+- Tóc em thơm. Anh nói thật chứ không trêu. | khuya
+- Ngồi lên đây. Bàn này chắc mà. | khuya
+- Cửa khoá rồi. Tầng sáu vắng hết rồi. | khuya
+- Phòng thẩm vấn số ba. Giờ này không ai xuống đâu. | khuya
+- Ở cơ quan mà em làm thế là đầu anh nghĩ lệch đấy. | tối
+- Cái bộ đồ tác chiến đó cởi ra chậm thôi. Anh xem. | khuya
+- Có một chuyện anh muốn thấy. Em không đứng vững nổi. Một lần. | khuya
+- Ghì anh xuống đi. Anh không chống đâu. | khuya
+- Em nhỏ hơn anh cả cái đầu mà anh chịu thua. | khuya
+- Nặng hơn em hai chục ký. Vậy mà. | khuya
+- Kiêu với ai thì được, với em thì không nổi. | khuya
+- Cả một ngày. Không án, điện thoại úp xuống. Em nghĩ sao. | khuya
+- Sáng trên giường, trưa dưới bếp. Anh nói tới đó thôi. | khuya
+- Để lại dấu trên người anh đi. Chỗ nào cũng được. | khuya
+- Sáng mai nói dối cả đội thế nào, để đó anh tính. | khuya
+- Cổ em có dấu kìa. Cốc Vũ mà thấy là nó đoán sai người. | sáng
+- Kéo cổ áo lên. Không, thôi, để anh kéo. | sáng
+- Giọng em khàn. Đêm qua la nhiều à. | sáng
+- Đi chậm thế. Anh có lỗi. | sáng
+- Sáng nay em không đi. Anh nhìn mười lăm phút mới dám dậy. | sáng
+- Cà phê em pha ngon. Cái cốc đó anh để riêng một góc. | sáng
+- Họp án mà đầu cứ nhớ đêm qua. Chuyên nghiệp thật. | sáng
+- Kéo ghế lại đây. Xa thế ai nói chuyện được. | mọi lúc
+- Từ phòng anh xuống đây mười bốn bậc. Anh đếm lúc đi lên. | khuya
+- Đừng cười kiểu đó giữa phòng họp. | mọi lúc
+- Em trêu anh đấy à. Được, để tối tính. | chiều
+- Tối nay đừng về nhà em. Anh nói thế thôi. | tối
+- Xe anh đỗ ngoài kia. Lên đi, đừng hỏi. | tối
+- Ngày mai nghỉ. Không ai gọi. Ở lại. | tối
+- Còn cả đêm. Không vội. | khuya
+- Ngủ chưa. Anh vào đây. | khuya
+- Còn thức đúng không. Nhịp thở khác rồi. | khuya
+- Mở cửa. Anh đứng ngoài này ba phút rồi. | khuya
+- Lên bàn đi. Bàn này anh đóng, chắc lắm. | khuya
+- Cởi ra. Chậm thôi, anh ngồi đây xem. | khuya
+- Quay lưng lại. Anh muốn nhìn gáy em. | khuya
+- Tay để lên đầu giường. Đừng hạ xuống. | khuya
+- Dạng ra. | khuya
+- Ngoan. | khuya
+- Nữa. | khuya
+- Đếm tới ba rồi anh vào. Một. Hai. Thở ra đi, nín là đau đấy. | khuya
+- Vào hết rồi. Ngồi yên một lúc cho quen. Quen rồi gật một cái. | khuya
+- Siết chặt thế anh không nhúc nhích nổi. Thả lỏng ra. | khuya
+- Chậm thế này chịu được không. Chịu được à. Vậy anh không chậm nữa. | khuya
+- Nhanh hơn à. Được. Nhưng lát đừng kêu mỏi. | khuya
+- Mỗi lần anh thúc là em bấu vào lưng anh. Cứ bấu đi. | khuya
+- Nghe tiếng đó chưa. Da chạm da. Đỏ mặt vì cái đó à. | khuya
+- Kêu đi. Đừng cắn môi, chảy máu bây giờ. | khuya
+- Bỏ tay khỏi miệng. Để anh nghe cho rõ. | khuya
+- Mở mắt nhìn anh. Nhắm là anh dừng ngay. | khuya
+- Bỏ tay ra. Anh nhìn cho rõ. | khuya
+- Ướt tới đùi rồi mà vẫn bảo chưa muốn à. | khuya
+- Chỗ này nhạy à. Ghi nhớ rồi đấy. | khuya
+- Cắn vào vai anh đi. Anh chịu được. | khuya
+- Gáy em anh ngậm rồi. Không rách da đâu, chỉ giữ cho yên. | khuya
+- Cựa nữa là anh siết chặt hơn đấy. | khuya
+- Vòng chân qua eo anh. Chân kia nữa. Anh đỡ được. | khuya
+- Nhấc lên rồi đấy. Cả đêm cũng được. Đừng bảo anh đặt xuống. | khuya
+- Quay mặt vào tường. Hai tay chống lên. Lùi lại một bước. | khuya
+- Chống tay lên bàn. Đứng vững vào. | khuya
+- Ngồi lên đùi anh, đối mặt vào. Anh muốn nhìn mặt em. | khuya
+- Tự hạ xuống đi. Chậm thôi. Anh không giúp đâu. | khuya
+- Nằm nghiêng, quay lưng vào anh. Tay anh để đâu thì em biết rồi. | khuya
+- Quỳ xuống. Kiểu này anh với tới gáy em. | khuya
+- Một tay là anh nhấc được em lên. Nhớ chưa. | khuya
+- Cao hơn em cả cái đầu mà giờ là đứa phải xin. | khuya
+- Đè anh ra. Xem em làm được tới đâu. | khuya
+- Đêm nay đổi vai cũng được. Em làm, anh nằm. Sáng mai thì đừng hòng. | khuya
+- Xin đấy. Đấy, anh nói ra rồi đấy. Vừa lòng chưa. | khuya
+- Thua. Lần này thua thật. | khuya
+- Đừng dừng. Anh bảo đừng dừng. | khuya
+- Biết chỗ nào làm anh hỏng rồi à. | khuya
+- Tay anh run. Em làm đấy. | khuya
+- Sắp rồi. Nói trước cho em biết. | khuya
+- Nói xem em muốn gì. Nói rõ từng chữ. Anh không đoán đâu. | khuya
+- Xin một tiếng đi. Một tiếng thôi. Rồi muốn gì anh cũng cho. | khuya
+- Của ai. Trả lời. Sai thì làm lại từ đầu. | khuya
+- Gọi tên anh. Không phải chức vụ. Tên. | khuya
+- To hơn. Tầng này chỉ có hai đứa. | khuya
+- Vừa xong mà đã lại muốn. Đừng trách anh, tại em cả. | khuya
+- Nghỉ mười phút. Rồi quay lại đây. | khuya
+- Uống hết chỗ nước này đã. Uống xong nằm xuống chỗ cũ. | khuya
+- Cả đêm em chưa ngủ phút nào. Anh biết. Nhưng chưa xong đâu. | khuya
+- Lần nữa. Lần này anh làm lâu hơn. | khuya
+- Vết đó ba ngày mới mờ. Cố ý đấy. | khuya
+- Ra rồi. Nằm im, đừng dậy vội. Chân em còn run. | khuya
+- Để anh bế đi rửa. Không cãi. | khuya
+- Duỗi ra. Để anh lau cho. | khuya
+- Chỗ nào rát thì chỉ anh. Anh bôi thuốc. | khuya
+- Nằm sấp xuống, để anh xoa lưng. Anh xoa tới lúc em ngủ. | khuya
+- Lúc nãy anh quá tay. Đưa cổ tay đây anh xem. | khuya
+- Mai chỗ nào đau thì đừng giấu. Anh hỏi là anh muốn nghe thật. | khuya
+- Quấn chăn lại. Đêm nay em không phải làm gì nữa. | khuya
+- Ngủ rồi mà tay vẫn nắm áo anh. Không gỡ ra đâu. | khuya
+- Nằm nghe em thở. Lâu lắm rồi anh mới ngủ được thế này. | khuya
+- Lúc anh ngủ thì đừng đi đâu. | khuya
+- Bàn bếp cao vừa tầm. Anh đo bằng mắt từ hôm em tới. | khuya
+- Bàn ăn đó anh mua ba năm, hôm nay mới thấy nó đáng tiền. | khuya
+- Nhà này cách hàng xóm hai mét. Em liệu mà giữ tiếng. Hoặc đừng. | khuya
+- Sofa tầng hai. Cái TV kia cứ để nó chạy. | khuya
+- Tắt game đi. Tự dưng anh không muốn chơi nữa. | tối
+- Thua ván này là anh đi tắm. Em vào cùng không. | tối
+- Đi tắm trước đi. Anh vào sau. Hoặc không sau. | tối
+- Bia còn ba lon. Uống hết rồi tính tiếp. | tối
+- Phim còn bốn mươi phút. Xem hết hay bỏ dở, em chọn. | tối
+- Đóng rèm lại. Sáng quá. | tối
+- Khoá cửa chưa. Thôi để anh. | tối
+- Ngả người kiểu đó thì anh xem phim kiểu gì. | tối
+- Chân em gác lên đùi anh nãy giờ. Anh có nói gì đâu. | tối
+- Lại gần. Gần nữa. Thôi, ngồi luôn lên đây. | tối
+- Trong bếp không có camera. Nói vu vơ thôi. | chiều
+- Tối nay đội trực. Hai đứa mình thì không. | chiều
+- Vừa nghĩ ra một chuyện. Chuyện đó để tối. | chiều
+- Đứng gần anh nữa là anh quên mất đang điều tra vụ gì. | chiều
+- Cúi xuống lấy hộ anh cái bút. Thôi, anh tự lấy. | chiều
+- Em vừa liếm môi đấy à. Cố ý không. | chiều
+- Đang họp đấy. Đừng nhìn anh kiểu đó. | sáng
+- Ngồi đối diện mà phải nhìn xuống bàn suốt buổi. Em biết tại sao. | sáng
+- Hôm nay em mặc cái áo đó làm gì. Cổ rộng thế. | sáng
+- Thôi khoác thêm cái này vào. Anh không tập trung được. | sáng
+- Đêm qua em ngủ được mấy tiếng. Anh đếm được hai. | sáng
+- Cổ áo lệch rồi. Đứng im, anh sửa. Không phải sửa cho đẹp đâu. | sáng
+- Lưng em có vết móng tay. Của ai đấy nhỉ. | sáng
+- Suốt buổi giao ban anh nhìn cái gáy em. Ghi vào biên bản đi. | sáng
+- Bảng trắng viết gì anh không đọc nổi. Tại em đứng chắn. | sáng
+- Vừa gọi nhầm em bằng cái tên đêm qua. Cả phòng nhìn. | sáng
+- Cốc Vũ hỏi sao mặt anh tươi thế. Anh bảo ngủ đủ giấc. | sáng
+- Hàm Ngư nhìn cổ em đúng hai giây rồi quay đi. Anh toát mồ hôi. | sáng
+- Uyên Tinh đưa anh cái khăn quàng, bảo trời lạnh. Trời có lạnh đâu. | sáng
+- Vân Sơn ghi cái gì vào sổ lúc anh đi ngang. Anh không dám hỏi. | sáng
+- Ký nhầm tên mình vào ô người bị hại. Tại thiếu ngủ. | sáng
+- Cà phê sáng nay anh pha mặn. Bỏ nhầm muối. Đừng cười. | sáng
+- Rơi bút ba lần trong một buổi họp. Kỷ lục mới. | sáng
+- Trực ban gọi lúc bốn giờ sáng. Anh tưởng có án. Hoá ra nhầm số. | sáng
+- Vừa nói lái một câu giữa cuộc họp án. Không ai cười. | sáng
+- Mì gói nhà anh hết rồi. Ai ăn đêm mà không nói. | sáng
+- Áo phông đó mặc đi làm luôn à. Đấy là áo anh. | sáng
+- Cái áo đó giặt riêng. Hỏi nữa là không trả lời. | mọi lúc
+- Hoá ra em cao hơn anh tưởng. Là do giày. | mọi lúc
+- Tập tạ mười năm mà vẫn thua em vật tay. Không nói với ai nhé. | mọi lúc
+- Cốc Vũ thách anh chống đẩy. Anh làm được sáu mươi rồi bỏ. Tại mệt. | mọi lúc
+- Vừa húc đầu vào khung cửa. Cái khung đó thấp, không phải anh cao. | mọi lúc
+- Trong phim thì tới đoạn này người ta hôn nhau. Anh nói chơi thôi. | mọi lúc
+- Nhân vật này giống em ghê. Cũng ít nói, cũng đánh giỏi. | mọi lúc
+- Mới mua con game. Hai người chơi được. Ý anh là hai người. | mọi lúc
+- Cầm tay cầm kiểu đó là thua chắc. Để anh dạy. | mọi lúc
+- Ván vừa rồi anh nhường. Ừ thì anh thua. | mọi lúc
+- Vừa tưởng tượng một chuyện. Thôi bỏ. | mọi lúc
+- Đừng hỏi anh đang nghĩ gì. Hỏi thì anh nói đấy. | mọi lúc
+- Nghĩ bậy xong rồi. Đi làm tiếp. | mọi lúc
+- Em vô tình hay cố ý. Anh hỏi cho biết. | mọi lúc
+- Cái kiểu em nghiêng đầu đó anh chịu thua. | mọi lúc
+- Đứng chỗ khác đi. Chỗ này anh không đi qua được. | mọi lúc
+- Nhích ra. Anh không chịu trách nhiệm đâu. | mọi lúc
+- Có biết em đang làm gì không. Biết à. Vậy càng tệ. | mọi lúc
+- Giữa ban ngày mà thử anh đấy à. | mọi lúc
+- Tối nay tính sổ. | mọi lúc
+- Vừa rồi anh nhớ đấy. Đợi tới đêm. | mọi lúc
+- Đếm rồi. Từ sáng tới giờ em chạm vào anh bốn lần. | mọi lúc
+- Chạm nhẹ thôi mà anh nhớ cả buổi. Phiền thật. | mọi lúc
+- Giữa phòng thẩm vấn mà đầu nghĩ tới chuyện đêm qua. | mọi lúc
+- Đừng hỏi anh sao lại cười. | mọi lúc
+- Cười đấy. Kệ anh. | mọi lúc
+- Em đứng đó anh không đi qua được. Không, anh không muốn đi qua. | mọi lúc
+- Chiều nay đội trưởng bận. Bận việc riêng. Em biết việc gì. | chiều
+- Đoán xem tối nay anh định làm gì. Đúng thì có thưởng. | tối
+- Cửa phòng anh không khoá. Nói thế thôi. | khuya
+- Chìa dự phòng anh để ngăn kéo thứ hai. Em cũng biết chỗ rồi đấy. | khuya
+- Phòng khách khứa giờ có người ở rồi. Anh không dọn nữa. | mọi lúc
+- Cái cốc đó anh vẫn để riêng một góc. Đừng hỏi. | mọi lúc
+- Ga giường giờ ba ngày đổi một lần. Trước kia một tháng. | mọi lúc
+- Hàng xóm hỏi dạo này nhà anh đông. Anh bảo có khách. | mọi lúc
+- Mẹ anh hỏi dạo này ăn uống thế nào. Anh bảo có người nấu. | mọi lúc
+- Bố anh sửa cái ghế trong bếp. Ghế đó gãy hôm nào anh không nhớ. | mọi lúc
+```
+
+---
+
+## Phân bố
+
+**Khung giờ** — đếm bằng script trên chính khối trên:
+
+| Khung giờ | Số câu |
+|---|---|
+| khuya | 128 |
+| mọi lúc | 115 |
+| sáng | 47 |
+| tối | 33 |
+| chiều | 27 |
+| trưa | 11 |
+| **Tổng** | **361** |
+
+**Nhóm chủ đề** — con số dưới đây là ước lượng, tôi phân loại tay và một câu có thể rơi vào hai nhóm:
+
+| Nhóm | Ước lượng |
+|---|---|
+| Đời thường, vẩn vơ, thói quen của anh | ~55 |
+| Hỏi thăm, chăm sóc, lo vết thương | ~42 |
+| Công việc, nghiệp vụ, hiện trường | ~28 |
+| Trêu, ám muội kín, chạm nhẹ | ~68 |
+| NSFW nói thẳng | ~85 |
+| Hài, tự dìm, sáng-hôm-sau lố | ~32 |
+| Ám chỉ đêm Hộp Đèn và tuyến ngầm | ~11 |
+| Hậu sự, chăm sau khi xong | ~10 |
+
+---
+
+## Ghi chú khi nhập
+
+- Không câu nào chứa ký tự `|` trong phần lời thoại, nên cắt theo dấu `|` là an toàn.
+- Câu dài nhất 80 ký tự — vừa một dòng popup, không tràn.
+- NSFW dồn vào **khuya** và một phần **tối**. Ban ngày chỉ có ám muội kín và mấy câu "sáng hôm sau" — bấm vào lúc 9h sáng sẽ không nhảy ra câu nặng.
+- Nhóm "sáng hôm sau" (dấu trên cổ, giọng khàn, đi chậm) cố ý để ở khung **sáng** — nó chỉ đắt khi rơi vào buổi sáng.
+- Khoá theo tên cổng là **Tô Thần Vũ**, đúng như trên web.
+- Khối NSFW ở `khuya` có cả câu một từ (`Ngoan.` · `Nữa.` · `Dạng ra.`) lẫn câu ba nhịp. Trộn độ dài là cách chống lặp mạnh hơn là thêm câu mới.
+- Mười câu cuối nhóm `khuya` là hậu sự — lau, bôi thuốc, bế đi rửa, xoa lưng. Nếu random rơi vào đó sau một câu nặng thì đúng nhịp; rơi một mình cũng không lệch giọng.
