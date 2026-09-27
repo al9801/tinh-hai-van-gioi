@@ -1,5 +1,5 @@
-// Loi thoai avatar theo tung cong — Claude cai theo list user dua. Khoa = ten cong da chuan hoa.
-// Moi cau co dang t + w, voi w = any/sang/trua/chieu/toi/khuya. app.js doc qua window.THVG_CHAR_LINES.
+// Loi thoai avatar theo tung cong. Khoa = ten cong da chuan hoa. Moi cau: t + w (any/sang/trua/chieu/toi/khuya).
+// app.js doc qua window.THVG_CHAR_LINES.
 window.THVG_CHAR_LINES = {
  "tô thần vũ": [
   {
@@ -1759,6 +1759,2076 @@ window.THVG_CHAR_LINES = {
   {
    "t": "Bấm vào tôi thêm lần nữa xem tôi nói gì. Tôi còn nhiều câu lắm.",
    "w": "any"
+  }
+ ],
+ "arc vandenberg": [
+  {
+   "t": "Đứng yên đó. Đừng lại gần.",
+   "w": "any"
+  },
+  {
+   "t": "Ngươi là cái giống gì.",
+   "w": "any"
+  },
+  {
+   "t": "Chỗ này gọi là gì. Trả lời đi.",
+   "w": "any"
+  },
+  {
+   "t": "Đường ra nằm hướng nào.",
+   "w": "any"
+  },
+  {
+   "t": "Kẻ kia. Bỏ tay xuống.",
+   "w": "any"
+  },
+  {
+   "t": "Ngươi bay được à. Bằng cái gì. Không thấy cánh.",
+   "w": "sang"
+  },
+  {
+   "t": "Hỏi thật đấy. Cái màng sáng ngoài kia mở lúc nào.",
+   "w": "chieu"
+  },
+  {
+   "t": "Ra sau lưng tôi làm gì. Đứng lại.",
+   "w": "any"
+  },
+  {
+   "t": "Máy liên lạc chết từ lúc bước vào đây. Ngươi biết vì sao không.",
+   "w": "sang"
+  },
+  {
+   "t": "Cả buổi sáng đi được ba cây số rồi quay về đúng chỗ cũ.",
+   "w": "trua"
+  },
+  {
+   "t": "Cây ở đây biết hát. Nghe rồi. Đừng bảo tôi tưởng tượng.",
+   "w": "toi"
+  },
+  {
+   "t": "Có cái cây vừa hét vào mặt tôi. Hét thật.",
+   "w": "chieu"
+  },
+  {
+   "t": "Ngươi cứ đứng nhìn thế à.",
+   "w": "any"
+  },
+  {
+   "t": "Đồ lạ thì tôi không ăn. Cầm về đi.",
+   "w": "trua"
+  },
+  {
+   "t": "Quả này ăn được không. Nói thật vào.",
+   "w": "trua"
+  },
+  {
+   "t": "Đêm ở đây sáng hơn ban ngày chỗ tôi. Vô lý.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gỡ cái dây leo này khỏi chân tôi. Nó đang siết đấy.",
+   "w": "chieu"
+  },
+  {
+   "t": "Cành thấp thì trèo được. Cao hơn thì không. Vậy thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Lơ lửng trên đó làm gì. Xuống đây nói chuyện.",
+   "w": "any"
+  },
+  {
+   "t": "Ở đây còn ai khác không. Ngoài ngươi.",
+   "w": "any"
+  },
+  {
+   "t": "Ba ngày rồi chưa gặp một thứ gì bình thường.",
+   "w": "toi"
+  },
+  {
+   "t": "Đừng chạm vào súng. Nói một lần thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Ngươi không sợ tôi à. Lạ.",
+   "w": "any"
+  },
+  {
+   "t": "Chỗ nào có nước sạch. Chỉ đi.",
+   "w": "sang"
+  },
+  {
+   "t": "Ngoài trời ngủ quen rồi. Khỏi lo.",
+   "w": "toi"
+  },
+  {
+   "t": "Gọi tên tôi lại xem. Arc. Nói cho đúng.",
+   "w": "any"
+  },
+  {
+   "t": "Vừa gọi tôi là gì đấy.",
+   "w": "any"
+  },
+  {
+   "t": "Đám nấm vừa chạy qua chân tôi. Chúng có chân.",
+   "w": "chieu"
+  },
+  {
+   "t": "Hai đứa kia bạn ngươi à. Đứa tóc vàng nhìn tôi như nhìn con mồi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Đứa con gái đó suýt đấm tôi. Nói gì với nó đi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Có phá gì đâu. Cái cây tự ré lên trước.",
+   "w": "trua"
+  },
+  {
+   "t": "Dẫn vòng làm gì. Đường này tôi nhớ.",
+   "w": "any"
+  },
+  {
+   "t": "Sáng nay thấy con cá bay qua đầu. Cá. Bay.",
+   "w": "sang"
+  },
+  {
+   "t": "Ngươi ăn gì để sống. Hỏi nghiêm túc đấy.",
+   "w": "trua"
+  },
+  {
+   "t": "Đi mãi một hướng thì tới đâu.",
+   "w": "chieu"
+  },
+  {
+   "t": "Ngồi xa ra một chút.",
+   "w": "any"
+  },
+  {
+   "t": "Rừng này ghét tôi. Tôi biết mà.",
+   "w": "any"
+  },
+  {
+   "t": "Vừa cãi nhau với một cái cây. Và tôi thua.",
+   "w": "chieu"
+  },
+  {
+   "t": "Cái thân cây đó trơn. Không phải tôi kém.",
+   "w": "any"
+  },
+  {
+   "t": "Thôi được. Đưa tôi lên. Đừng cười.",
+   "w": "any"
+  },
+  {
+   "t": "Trèo được nửa thân rồi tuột. Không ai thấy. Cậu cũng không.",
+   "w": "any"
+  },
+  {
+   "t": "Móng tôi là móng người. Không phải sóc. Hiểu chưa.",
+   "w": "any"
+  },
+  {
+   "t": "Cầu dây leo đó đung đưa. Tôi không sợ. Chỉ đứng lâu thôi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Ba tháng rồi tuần nào tôi cũng ngã xuống suối một lần.",
+   "w": "chieu"
+  },
+  {
+   "t": "Cây la làng hôm nay ré ba lần. Cả ba lần tôi phải nhấc nó lên mới im.",
+   "w": "chieu"
+  },
+  {
+   "t": "Nhấc một cái cây lên cho nó im. Đời tôi tới đây là hết.",
+   "w": "chieu"
+  },
+  {
+   "t": "Con rái cá lấy dao tôi lần thứ tư. Bắt đầu nghĩ nó có mục đích.",
+   "w": "chieu"
+  },
+  {
+   "t": "Con rái cá đó với tôi có thù.",
+   "w": "any"
+  },
+  {
+   "t": "Chạm nhẹ thôi mà cái cây chạy mất. Nó chạy thật.",
+   "w": "trua"
+  },
+  {
+   "t": "Đứng lại đã. Thôi, nó chạy rồi.",
+   "w": "trua"
+  },
+  {
+   "t": "Đứa nào để hoa chuông cạnh chỗ tôi nằm. Ngủ một mạch mười tiếng.",
+   "w": "sang"
+  },
+  {
+   "t": "Tỉnh dậy thấy hai con bướm đậu trên mặt. Không dám thở.",
+   "w": "sang"
+  },
+  {
+   "t": "Ai thiết kế cái rừng này vậy.",
+   "w": "any"
+  },
+  {
+   "t": "Bên tôi có bản đồ. Ở đây bản đồ vô dụng, đường tự đi chỗ khác.",
+   "w": "any"
+  },
+  {
+   "t": "Thứ tôi giỏi nhất là sống sót. Ở đây cây nó nuôi tôi, khỏi cần giỏi.",
+   "w": "any"
+  },
+  {
+   "t": "Mười lăm phút dựng xong cái trại. Xong rồi ngồi nhìn, chẳng để làm gì.",
+   "w": "any"
+  },
+  {
+   "t": "Đạn còn mười hai viên. Ba tháng chưa bắn phát nào.",
+   "w": "any"
+  },
+  {
+   "t": "Súng cất rồi. Trong này nó vô dụng mà lại ồn.",
+   "w": "any"
+  },
+  {
+   "t": "Cả đời tập bắn, giờ đi hái quả.",
+   "w": "trua"
+  },
+  {
+   "t": "Đặt bẫy ba hôm. Bắt được đúng một con nấm. Nó chạy mất.",
+   "w": "chieu"
+  },
+  {
+   "t": "Con khỉ đèn lồng dẫn tôi về đúng chỗ xuất phát. Cố ý đấy.",
+   "w": "toi"
+  },
+  {
+   "t": "Bọn chim ở đây hót từ bốn giờ sáng. Bốn giờ.",
+   "w": "sang"
+  },
+  {
+   "t": "Đổi vật kiểu gì tôi chịu. Cứ đưa đồ rồi họ đưa lại, không ai tính tiền.",
+   "w": "trua"
+  },
+  {
+   "t": "Tôi đưa con dao, họ đưa lại nắm hạt. Không biết ai lỗ.",
+   "w": "trua"
+  },
+  {
+   "t": "Ở đây nhà không khoá. Tôi mất ba đêm mới ngủ được.",
+   "w": "toi"
+  },
+  {
+   "t": "Gã Elf bên kia màng chắn nói vọng sang. Tôi gật bừa.",
+   "w": "any"
+  },
+  {
+   "t": "Sách gã Elf gửi vào toàn chữ tôi không đọc được. Vẫn giữ.",
+   "w": "toi"
+  },
+  {
+   "t": "Kael đưa tôi lọ xanh bảo uống cho khoẻ. Chôn sau nhà rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Thằng tóc vàng đó pha thuốc hay pha độc tôi không phân biệt nổi.",
+   "w": "any"
+  },
+  {
+   "t": "Kael bảo lọ xanh uống được, lọ đỏ thì không. Tôi không dám cả hai.",
+   "w": "any"
+  },
+  {
+   "t": "Giấu một lọ độc của Kael trong túi. Phòng thân. Đừng nói nó.",
+   "w": "any"
+  },
+  {
+   "t": "Eiden đấm tôi một quả vào vai. Nó bảo đấy là làm quen.",
+   "w": "chieu"
+  },
+  {
+   "t": "Con bé đó đòi tỉ thí. Tôi nhường hai hiệp rồi nó vẫn đòi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Eiden kéo tay cậu chạy suốt. Tôi có ý kiến.",
+   "w": "any"
+  },
+  {
+   "t": "Vivian nhìn tôi một cái là tôi ngồi thẳng lưng lại.",
+   "w": "trua"
+  },
+  {
+   "t": "Bà cụ đó rót trà cho tôi. Uống xong ngủ tới sáng, không mơ gì.",
+   "w": "toi"
+  },
+  {
+   "t": "Vivian bảo cậu hay quên ăn. Bà ấy nói đúng.",
+   "w": "any"
+  },
+  {
+   "t": "Cả rừng này có mỗi bà ấy là tôi dám gọi bằng bà.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi chào bà ấy theo kiểu nhà binh. Bà ấy cười ba ngày.",
+   "w": "trua"
+  },
+  {
+   "t": "Kael với Eiden cãi nhau từ sáng tới giờ. Về chuyện cái quả.",
+   "w": "trua"
+  },
+  {
+   "t": "Hai đứa đó hỏi tôi bên ngoài có gì. Tôi kể, chúng không tin.",
+   "w": "toi"
+  },
+  {
+   "t": "Nói với chúng nó về xe chạy không cần ngựa. Kael bảo tôi bịa.",
+   "w": "toi"
+  },
+  {
+   "t": "Đám tinh linh nhỏ bay quanh đầu tôi cả buổi. Không đuổi được.",
+   "w": "chieu"
+  },
+  {
+   "t": "Đứng thẳng. Vai ra sau. Để tôi sửa cho.",
+   "w": "any"
+  },
+  {
+   "t": "Cầm dao thì ngón cái đặt thế này. Không phải thế kia.",
+   "w": "any"
+  },
+  {
+   "t": "Trong rừng thì đặt gót trước. Bớt tiếng.",
+   "w": "any"
+  },
+  {
+   "t": "Nghe đi. Ba nhịp nữa có con gì chạy qua.",
+   "w": "any"
+  },
+  {
+   "t": "Dấu chân này cũ hai ngày. Khỏi lo.",
+   "w": "any"
+  },
+  {
+   "t": "Có nước thì có đường. Cái đó học từ lâu rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Lửa nhỏ thôi. Khói bay lên là lộ.",
+   "w": "any"
+  },
+  {
+   "t": "Gió thổi từ đó sang đây. Đứng bên này thì nó không ngửi thấy mình.",
+   "w": "any"
+  },
+  {
+   "t": "Rửa trước, băng sau. Cậu làm ngược rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Buộc nút này đi. Chặt mà gỡ nhanh.",
+   "w": "any"
+  },
+  {
+   "t": "Đếm bước để nhớ đường. Thói quen cũ.",
+   "w": "any"
+  },
+  {
+   "t": "Bẫy đó tôi đặt. Đừng giẫm vào.",
+   "w": "any"
+  },
+  {
+   "t": "Canh gác quen rồi. Ngủ ba tiếng là đủ.",
+   "w": "any"
+  },
+  {
+   "t": "Trực đêm thì đừng nhìn vào lửa. Mờ mắt.",
+   "w": "any"
+  },
+  {
+   "t": "Có tiếng lạ thì đứng im trước, nhìn sau.",
+   "w": "any"
+  },
+  {
+   "t": "Người ta dạy tôi rút lui cũng là một cách đánh.",
+   "w": "any"
+  },
+  {
+   "t": "Bên tôi có luật, có cấp bậc, có giờ giấc. Ở đây chẳng có gì.",
+   "w": "any"
+  },
+  {
+   "t": "Ba tháng không ai ra lệnh cho tôi. Vẫn chưa quen.",
+   "w": "any"
+  },
+  {
+   "t": "Vẫn dậy đúng giờ đó. Đồng hồ trong người không tắt được.",
+   "w": "any"
+  },
+  {
+   "t": "Ở đây không ai gọi tôi bằng cấp bậc. Tôi vẫn hụt một nhịp.",
+   "w": "toi"
+  },
+  {
+   "t": "Cách tôi ba bước thôi. Xa hơn là tôi gọi.",
+   "w": "any"
+  },
+  {
+   "t": "Ăn sáng chưa. Đừng bảo tôi là chưa.",
+   "w": "sang"
+  },
+  {
+   "t": "Dậy đi. Mặt trời lên nửa buổi rồi.",
+   "w": "sang"
+  },
+  {
+   "t": "Cả đêm nằm rêu à. Lần sau gọi tôi.",
+   "w": "sang"
+  },
+  {
+   "t": "Hái sẵn rồi đấy. Ăn đi.",
+   "w": "sang"
+  },
+  {
+   "t": "Trái sương sáng nay ngọt hơn hôm qua. Thử rồi mới đưa.",
+   "w": "sang"
+  },
+  {
+   "t": "Chậm thôi. Sương chưa tan, đá trơn.",
+   "w": "sang"
+  },
+  {
+   "t": "Tóc cậu dính lá kìa. Đứng im.",
+   "w": "sang"
+  },
+  {
+   "t": "Nước suối lạnh lắm. Rửa mặt xong thì lên.",
+   "w": "sang"
+  },
+  {
+   "t": "Cà phê thì không có. Đổi sang nước suối được ba tháng rồi.",
+   "w": "sang"
+  },
+  {
+   "t": "Hôm nay đi đâu. Tôi theo.",
+   "w": "sang"
+  },
+  {
+   "t": "Áo này vá lại rồi. Vụng, nhưng không rách nữa.",
+   "w": "sang"
+  },
+  {
+   "t": "Dậy trước cậu hai canh giờ. Quen thế, đừng hỏi vì sao.",
+   "w": "sang"
+  },
+  {
+   "t": "Chân cậu lạnh. Ngồi lại đây.",
+   "w": "sang"
+  },
+  {
+   "t": "Chợp mắt thêm đi. Có tôi canh.",
+   "w": "sang"
+  },
+  {
+   "t": "Dậy muộn thì không quen. Nằm cạnh cậu thì quen được.",
+   "w": "sang"
+  },
+  {
+   "t": "Ra Bờ Suối Treo không. Sáng nay gió nhẹ.",
+   "w": "sang"
+  },
+  {
+   "t": "Đồi Gió hôm nay chắc thổi to. Mặc thêm cái gì vào.",
+   "w": "sang"
+  },
+  {
+   "t": "Phần cậu để riêng rồi. Nhường lại là tôi giận.",
+   "w": "sang"
+  },
+  {
+   "t": "Kael lại để lọ gì trước cửa. Tôi không dám động.",
+   "w": "sang"
+  },
+  {
+   "t": "Trưa rồi. Ăn cái gì đi.",
+   "w": "trua"
+  },
+  {
+   "t": "Ngồi xuống. Đừng vừa đi vừa ăn.",
+   "w": "trua"
+  },
+  {
+   "t": "Phần to hơn để cho cậu. Đổi lại làm gì.",
+   "w": "trua"
+  },
+  {
+   "t": "Nắng gắt. Vào bóng cây ngồi.",
+   "w": "trua"
+  },
+  {
+   "t": "Ăn ít thế thì lấy sức đâu mà bay.",
+   "w": "trua"
+  },
+  {
+   "t": "Trời nóng thế này mà người cậu vẫn mát. Sờ rồi.",
+   "w": "trua"
+  },
+  {
+   "t": "Chợp mắt một lát. Có tôi ngồi đây.",
+   "w": "trua"
+  },
+  {
+   "t": "Gối lên đùi tôi. Đừng cãi.",
+   "w": "trua"
+  },
+  {
+   "t": "Cá đây. Đừng hỏi bắt bằng cách nào.",
+   "w": "trua"
+  },
+  {
+   "t": "Quả này chua. Ăn trước rồi nói tôi biết.",
+   "w": "trua"
+  },
+  {
+   "t": "Chợ Cành hôm nay đông. Nắm tay tôi.",
+   "w": "trua"
+  },
+  {
+   "t": "Ai đổi cho cậu cái vòng này. Hỏi thôi.",
+   "w": "trua"
+  },
+  {
+   "t": "Cành ấy mục. Leo xuống.",
+   "w": "trua"
+  },
+  {
+   "t": "Hơi cháy một góc. Ăn chỗ còn lại đi.",
+   "w": "trua"
+  },
+  {
+   "t": "Nón lá này Vivian cho à. Đội vào.",
+   "w": "trua"
+  },
+  {
+   "t": "Mồ hôi đầy trán kìa. Ngồi im để tôi quạt.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa nào cũng ngủ gật. Vác về mấy lần rồi.",
+   "w": "trua"
+  },
+  {
+   "t": "Chiều rồi. Về thôi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Ra Rừng Đèn không. Tôi muốn xem nó sáng lên.",
+   "w": "chieu"
+  },
+  {
+   "t": "Trời sắp mưa. Tôi ngửi thấy.",
+   "w": "chieu"
+  },
+  {
+   "t": "Lại đi một mình à. Lần sau gọi tôi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Cầu rễ kia dựng lại rồi. Thử xem chắc chưa.",
+   "w": "chieu"
+  },
+  {
+   "t": "Đường này nhớ rồi. Khỏi dẫn.",
+   "w": "chieu"
+  },
+  {
+   "t": "Đứng sau tôi. Có tiếng động phía đó.",
+   "w": "chieu"
+  },
+  {
+   "t": "Hướng gió đổi. Cái gì đang lại gần.",
+   "w": "chieu"
+  },
+  {
+   "t": "Rút tay khỏi bụi đó. Nó cắn được.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chân cậu chảy máu. Ngồi xuống, im.",
+   "w": "chieu"
+  },
+  {
+   "t": "Bọc lại rồi đấy. Cởi ra là hỏng.",
+   "w": "chieu"
+  },
+  {
+   "t": "Ẩn thân nữa là tôi lật cả rừng lên tìm đấy.",
+   "w": "chieu"
+  },
+  {
+   "t": "Biến mất ba mươi nhịp thở thôi. Đủ để tôi phát điên.",
+   "w": "chieu"
+  },
+  {
+   "t": "Vào Vườn Gào Thét thì đi sau tôi. Mấy cái cây đó tôi ghét.",
+   "w": "chieu"
+  },
+  {
+   "t": "Ra Hồ Kính Nguyệt không. Tôi muốn xem cá bay.",
+   "w": "chieu"
+  },
+  {
+   "t": "Cầm lấy dao. Tôi dạy cầm cho đúng.",
+   "w": "chieu"
+  },
+  {
+   "t": "Hoa chuông đó đừng tin. Nghe lâu là ngủ gục.",
+   "w": "chieu"
+  },
+  {
+   "t": "Mưa rồi. Vào hốc cây kia.",
+   "w": "chieu"
+  },
+  {
+   "t": "Áo cậu ướt hết. Cởi ra, tôi hong.",
+   "w": "chieu"
+  },
+  {
+   "t": "Củi mang về thêm rồi. Đêm nay lạnh.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tối rồi. Ngồi lại đây.",
+   "w": "toi"
+  },
+  {
+   "t": "Lửa cháy rồi. Lại gần đi.",
+   "w": "toi"
+  },
+  {
+   "t": "Đèn lồng treo hết chưa. Để tôi làm cho.",
+   "w": "toi"
+  },
+  {
+   "t": "Sách gì đấy. Đọc to lên.",
+   "w": "toi"
+  },
+  {
+   "t": "Quyển đó của người lạc để lại. Tôi biết mấy chữ trong đó.",
+   "w": "toi"
+  },
+  {
+   "t": "Cuốn này viết tiếng bên tôi. Để tôi dịch cho.",
+   "w": "toi"
+  },
+  {
+   "t": "Sát vào đây. Không phải vì cậu lạnh.",
+   "w": "toi"
+  },
+  {
+   "t": "Tay cậu lạnh. Đưa đây.",
+   "w": "toi"
+  },
+  {
+   "t": "Mấy câu hay ho thì tôi chịu. Nhưng vẫn ngồi đây.",
+   "w": "toi"
+  },
+  {
+   "t": "Kể tôi nghe chuyện gì cũng được. Tôi nghe.",
+   "w": "toi"
+  },
+  {
+   "t": "Cười cái gì. Kể ra.",
+   "w": "toi"
+  },
+  {
+   "t": "Thích lúc này. Chẳng có gì phải chạy.",
+   "w": "toi"
+  },
+  {
+   "t": "Tựa vào đây. Tôi không động đậy đâu.",
+   "w": "toi"
+  },
+  {
+   "t": "Quảng Đài tối nay có hội. Muốn đi không.",
+   "w": "toi"
+  },
+  {
+   "t": "Cây Biết Hát hát gì mà cả làng ngồi nghe.",
+   "w": "toi"
+  },
+  {
+   "t": "Nhảy múa thì chịu. Đừng kéo tôi ra đó.",
+   "w": "toi"
+  },
+  {
+   "t": "Được rồi. Một bài thôi. Cười là tôi về.",
+   "w": "toi"
+  },
+  {
+   "t": "Đèn thả xuống suối trôi đi đâu hết.",
+   "w": "toi"
+  },
+  {
+   "t": "Đứng cạnh cậu cả tối rồi. Chẳng ai hỏi gì. Tốt.",
+   "w": "toi"
+  },
+  {
+   "t": "Rượu của Kael uống một hớp là tôi thấy hai cái mặt cậu.",
+   "w": "toi"
+  },
+  {
+   "t": "Lên lưng tôi. Tôi cõng về.",
+   "w": "toi"
+  },
+  {
+   "t": "Gục trên vai tôi nãy giờ đấy.",
+   "w": "toi"
+  },
+  {
+   "t": "Về thôi. Muộn rồi.",
+   "w": "toi"
+  },
+  {
+   "t": "Nhà không khoá thì tôi ngồi canh vậy.",
+   "w": "toi"
+  },
+  {
+   "t": "Gầy như cái que. Ăn.",
+   "w": "any"
+  },
+  {
+   "t": "Ăn đi. Không ăn thì tôi đút.",
+   "w": "any"
+  },
+  {
+   "t": "Im. Để tôi băng cho xong đã.",
+   "w": "any"
+  },
+  {
+   "t": "Ngồi im. Tôi nói ngồi im.",
+   "w": "any"
+  },
+  {
+   "t": "Cãi gì. Nghe tôi một lần đi.",
+   "w": "any"
+  },
+  {
+   "t": "Lần sau biến mất kiểu đó tôi trói cậu vào gốc cây.",
+   "w": "any"
+  },
+  {
+   "t": "Đi đâu cả buổi. Hỏi thế thôi. Trả lời đi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Không sao cái gì. Máu chảy xuống tới cổ chân rồi kìa.",
+   "w": "chieu"
+  },
+  {
+   "t": "Đưa tay đây. Đưa.",
+   "w": "any"
+  },
+  {
+   "t": "Ngồi xuống, để tôi xem tay cậu.",
+   "w": "any"
+  },
+  {
+   "t": "Vết xước này ở đâu ra.",
+   "w": "any"
+  },
+  {
+   "t": "Đau thì nói. Đừng nhịn.",
+   "w": "any"
+  },
+  {
+   "t": "Uống nước đi. Cả buổi chưa thấy cậu uống.",
+   "w": "any"
+  },
+  {
+   "t": "Mệt thì dừng. Chẳng ai đuổi mình cả.",
+   "w": "any"
+  },
+  {
+   "t": "Nhẹ quá. Ăn thêm đi.",
+   "w": "any"
+  },
+  {
+   "t": "Đi chậm lại cho cậu theo kịp. Khỏi để ý.",
+   "w": "any"
+  },
+  {
+   "t": "Để tôi đi trước. Có gì thì tôi chắn.",
+   "w": "any"
+  },
+  {
+   "t": "Đứng sau tôi.",
+   "w": "any"
+  },
+  {
+   "t": "Tay cậu lạnh suốt. Cầm mãi cũng không ấm lên.",
+   "w": "any"
+  },
+  {
+   "t": "Khoác cái này vào. Tôi nóng.",
+   "w": "any"
+  },
+  {
+   "t": "Tóc cậu rối rồi. Đứng im tôi gỡ.",
+   "w": "any"
+  },
+  {
+   "t": "Đội cái này vào. Nắng.",
+   "w": "any"
+  },
+  {
+   "t": "Phần của cậu đây. Cầm lấy.",
+   "w": "any"
+  },
+  {
+   "t": "Im nào. Để tôi lấy cái gai ra.",
+   "w": "any"
+  },
+  {
+   "t": "Chân trần mãi thế à. Để tôi làm cho đôi khác.",
+   "w": "any"
+  },
+  {
+   "t": "Lo kiểu nhẹ nhàng thì tôi chịu. Cứ chịu tôi vậy.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi cộc. Biết rồi. Ăn đi.",
+   "w": "any"
+  },
+  {
+   "t": "Nhìn cái gì.",
+   "w": "any"
+  },
+  {
+   "t": "Nhìn lâu quá đấy.",
+   "w": "any"
+  },
+  {
+   "t": "Tai tôi tự vểnh lên rồi. Cậu thấy trước cả tôi.",
+   "w": "any"
+  },
+  {
+   "t": "Cái đuôi này không nghe lời tôi. Chuyện riêng của nó.",
+   "w": "any"
+  },
+  {
+   "t": "Giấu đuôi ba tháng. Cậu cười một cái là nó thò ra.",
+   "w": "any"
+  },
+  {
+   "t": "Đuôi tôi đâu có quấn cậu. Cậu nhìn nhầm.",
+   "w": "any"
+  },
+  {
+   "t": "Thả cái tai tôi ra. Nói thật đấy.",
+   "w": "any"
+  },
+  {
+   "t": "Được rồi. Sờ một cái. Một thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Dụi đầu vào cậu lúc nãy à. Không nhớ.",
+   "w": "any"
+  },
+  {
+   "t": "Thơm. Nói xong rồi, đừng hỏi lại.",
+   "w": "any"
+  },
+  {
+   "t": "Lại gần tí nữa.",
+   "w": "any"
+  },
+  {
+   "t": "Xa quá. Ngồi sát vào.",
+   "w": "any"
+  },
+  {
+   "t": "Có ôm đâu. Đứng gần thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Bay lơ lửng thế thì tôi phải ngẩng cổ. Xuống đây.",
+   "w": "any"
+  },
+  {
+   "t": "Xuống. Tôi bảo xuống.",
+   "w": "any"
+  },
+  {
+   "t": "Bắt được rồi nhé.",
+   "w": "any"
+  },
+  {
+   "t": "Nằm im. Bế kiểu này tiện.",
+   "w": "any"
+  },
+  {
+   "t": "Nhẹ như không có gì. Bế cả ngày cũng được.",
+   "w": "any"
+  },
+  {
+   "t": "Đỏ mặt kìa.",
+   "w": "any"
+  },
+  {
+   "t": "Ai làm cậu đỏ mặt thế. À, tôi.",
+   "w": "any"
+  },
+  {
+   "t": "Nói lại lần nữa xem. Nghe rõ rồi nhưng cứ nói lại đi.",
+   "w": "any"
+  },
+  {
+   "t": "Cười cái gì. Lại đây cười gần hơn.",
+   "w": "any"
+  },
+  {
+   "t": "Cắn tôi làm gì. Răng nanh đó cắn có đau đâu.",
+   "w": "any"
+  },
+  {
+   "t": "Giữa ban ngày mà thử thách tôi à.",
+   "w": "any"
+  },
+  {
+   "t": "Tối nay tính sổ.",
+   "w": "any"
+  },
+  {
+   "t": "Vừa rồi tôi nhớ đấy. Đợi đến đêm.",
+   "w": "any"
+  },
+  {
+   "t": "Nhích ra. Không thì tôi không chịu trách nhiệm.",
+   "w": "any"
+  },
+  {
+   "t": "Có biết đang làm gì không. Biết à. Tệ hơn.",
+   "w": "any"
+  },
+  {
+   "t": "Đứng lên. Không, cứ ngồi đó cũng được.",
+   "w": "any"
+  },
+  {
+   "t": "Giận gì đâu. Nghiến răng thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Thằng tóc vàng nói gì mà cậu cười to thế.",
+   "w": "any"
+  },
+  {
+   "t": "Kael lại đứng sát cậu. Tôi đếm khoảng cách đấy.",
+   "w": "any"
+  },
+  {
+   "t": "Ghen gì đâu. Hỏi thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Ai cho cậu cái đó. Tôi cũng tìm được thứ tốt hơn.",
+   "w": "any"
+  },
+  {
+   "t": "Hôm nay màng chắn gợn một cái. Cậu có thấy không.",
+   "w": "any"
+  },
+  {
+   "t": "Ra rìa đứng nhìn ra ngoài. Chỉ nhìn thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Sang đây. Chỗ tôi ấm hơn.",
+   "w": "toi"
+  },
+  {
+   "t": "Trong vòng tay tôi thì không lạnh nữa đâu.",
+   "w": "toi"
+  },
+  {
+   "t": "Nhìn kiểu đó là tôi bế vào trong đấy.",
+   "w": "toi"
+  },
+  {
+   "t": "Lại đây. Một chút thôi.",
+   "w": "toi"
+  },
+  {
+   "t": "Xuống đây. Tôi tắt đèn.",
+   "w": "toi"
+  },
+  {
+   "t": "Đói rồi. Không phải đói ăn.",
+   "w": "toi"
+  },
+  {
+   "t": "Cởi cái áo đó ra đi.",
+   "w": "toi"
+  },
+  {
+   "t": "Lên đây. Lên đùi tôi.",
+   "w": "toi"
+  },
+  {
+   "t": "Người cậu thơm mùi rừng. Ngửi cả đêm không chán.",
+   "w": "toi"
+  },
+  {
+   "t": "Muốn cậu. Nói thế đủ rõ chưa.",
+   "w": "toi"
+  },
+  {
+   "t": "Quay lưng lại. Tôi muốn thấy gáy cậu.",
+   "w": "toi"
+  },
+  {
+   "t": "Gáy này của tôi. Đánh dấu rồi.",
+   "w": "toi"
+  },
+  {
+   "t": "Bỏ tay khỏi miệng ra. Để tôi nghe.",
+   "w": "toi"
+  },
+  {
+   "t": "Run rồi kìa. Bám vào tôi.",
+   "w": "toi"
+  },
+  {
+   "t": "Nhẹ thôi. Lúc đầu thôi.",
+   "w": "toi"
+  },
+  {
+   "t": "Há miệng ra.",
+   "w": "toi"
+  },
+  {
+   "t": "Đêm nay đừng bay đi đâu cả.",
+   "w": "toi"
+  },
+  {
+   "t": "Nằm im.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khuya rồi. Còn thức làm gì.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lại đây. Đừng bắt tôi nói lại.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chưa ngủ à. Tốt.",
+   "w": "khuya"
+  },
+  {
+   "t": "Mùi cậu bay tới tận đầu cầu rễ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Bỏ tay ra. Không, để nguyên đấy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Dạng ra.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngoan.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cắn đi. Tôi chịu được.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gáy cậu tôi cắn đấy. Vùng là đau.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nằm yên cho tôi vào.",
+   "w": "khuya"
+  },
+  {
+   "t": "Sâu thế này chịu được không.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ướt rồi đấy. Mà đã làm gì mấy đâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đang gừ à. Kệ nó.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngực tôi rung là tại cậu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gọi tên tôi. To hơn.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nữa.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chống tay lên thân cây. Đừng ngã.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tư thế này tôi tiện cắn gáy cậu hơn.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lơ lửng được à. Vậy thì tôi có cách.",
+   "w": "khuya"
+  },
+  {
+   "t": "Bay lên là tôi kéo xuống. Ở yên đó.",
+   "w": "khuya"
+  },
+  {
+   "t": "Một tay là nhấc được cậu lên. Nhớ chưa.",
+   "w": "khuya"
+  },
+  {
+   "t": "Vòng chân qua eo tôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ghì chặt vào. Tôi không buông đâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Sắp rồi. Nói cho cậu biết trước.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gốc nó phình ra rồi. Giờ thì không rút ra được.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khoá rồi. Ngồi yên với tôi một lúc.",
+   "w": "khuya"
+  },
+  {
+   "t": "Còn lâu mới ra được. Cậu tính làm gì cho hết thời gian.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cựa nữa là càng lâu đấy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Sâu lắm rồi. Chảy ngược ra không nổi đâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đầy chưa. Tôi còn.",
+   "w": "khuya"
+  },
+  {
+   "t": "No rồi mà vẫn đòi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Liếm đi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngửa cổ ra.",
+   "w": "khuya"
+  },
+  {
+   "t": "Răng nanh cậu nhỏ thật. Cắn cũng không đau.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tai cậu nhọn. Cắn vào đó là cậu run cả người.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chỗ này nhạy à. Ghi nhớ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Da cậu mát. Tôi thì nóng. Hợp nhau.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khắp người cậu là dấu của tôi. Sáng mai đừng kêu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Mùi tôi bám trên cậu ba ngày mới hết. Tính rồi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ai lại gần cậu tôi cũng ngửi ra.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lúc chiều đứng gần thằng tóc vàng. Mùi nó còn trên cậu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đứa nào chạm vào cậu là có chuyện. Nói nghiêm túc.",
+   "w": "khuya"
+  },
+  {
+   "t": "Của tôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nói đi. Nói cậu là của ai.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chưa xong đâu. Quay lại đây.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lần nữa.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ghì tôi xuống đi. Tôi không chống đâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cậu nhẹ bằng nửa tôi mà tôi thua. Giải thích xem.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đè tôi ra. Xem cậu làm được tới đâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cắn lại đi. Răng nanh đó để làm cảnh à.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngồi lên. Cậu tự làm đi, tôi nằm xem.",
+   "w": "khuya"
+  },
+  {
+   "t": "Rễ cây quấn cổ tay tôi rồi. Cậu làm đấy à.",
+   "w": "khuya"
+  },
+  {
+   "t": "Điều khiển được cả dây leo. Không công bằng.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gỡ ra. Gỡ ra đi rồi tôi xin.",
+   "w": "khuya"
+  },
+  {
+   "t": "Xin đấy. Đấy, nói ra rồi đấy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Thua. Lần này thua thật.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đừng dừng. Tôi bảo đừng dừng.",
+   "w": "khuya"
+  },
+  {
+   "t": "Làm gì tôi cũng chịu. Nói thế là hết.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lơ lửng lên thế thì tôi hết đường. Hạ xuống.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đừng bay ra xa. Tôi với không tới.",
+   "w": "khuya"
+  },
+  {
+   "t": "Biết chỗ nào làm tôi hỏng rồi à.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gừ suốt đêm rồi đấy. Cậu nghe cả rồi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tay tôi run. Cậu làm đấy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đừng nhìn tôi lúc này.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nhìn thì nhìn. Kệ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Bị sai bảo thì tôi không quen. Nói lại lần nữa xem.",
+   "w": "khuya"
+  },
+  {
+   "t": "Được. Nghe lời cậu một lần. Một lần thôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Mềm hết cả rồi. Để tôi bế đi rửa.",
+   "w": "khuya"
+  },
+  {
+   "t": "Duỗi ra. Để tôi lau cho.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cảm ơn cái gì. Làm cái mình muốn làm thôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngủ đi. Tôi ôm.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngủ đi. Có tôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nửa đêm cậu rúc vào tôi. Tôi biết đấy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đuôi tôi tự quấn cậu. Không điều khiển được nó.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngủ rồi à. Vậy nói cái này. Thôi, để mai.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nằm nghe cậu thở. Lâu lắm rồi mới ngủ được thế này.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lúc tôi ngủ thì đừng đi đâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lạnh à. Sát vào.",
+   "w": "khuya"
+  },
+  {
+   "t": "Mơ thấy chỗ cũ. Rồi tỉnh dậy thấy cậu. Thế là được.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cổ cậu có dấu. Che đi, không thì Eiden lại hỏi.",
+   "w": "sang"
+  },
+  {
+   "t": "Giọng cậu khàn. Tại tôi.",
+   "w": "sang"
+  },
+  {
+   "t": "Chậm quá. Để tôi bế cho nhanh.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng ra thấy cậu còn ngủ. Ngồi nhìn một lúc rồi mới dậy.",
+   "w": "sang"
+  },
+  {
+   "t": "Hôm qua cậu cắn tôi một cái ở vai. Còn dấu.",
+   "w": "sang"
+  },
+  {
+   "t": "Nấu được mỗi món này thôi. Ăn đi, chê là nhịn.",
+   "w": "sang"
+  },
+  {
+   "t": "Tóc chưa khô mà đã nằm. Gối ướt hết rồi.",
+   "w": "sang"
+  },
+  {
+   "t": "Đuôi tôi quấn chân cậu suốt đêm à. Nó tự làm đấy.",
+   "w": "sang"
+  },
+  {
+   "t": "Dậy rồi thì uống hết chỗ này. Đun từ sớm.",
+   "w": "sang"
+  },
+  {
+   "t": "Kael nhìn tôi cười nửa miệng cả sáng. Nó ngửi thấy gì chắc.",
+   "w": "sang"
+  },
+  {
+   "t": "Eiden hỏi đêm qua sao ồn. Tôi bảo có con gì kêu.",
+   "w": "sang"
+  },
+  {
+   "t": "Vivian đưa tôi bát thuốc rồi đi thẳng. Tôi cũng chẳng hỏi.",
+   "w": "sang"
+  },
+  {
+   "t": "Ba tháng trước tôi là sĩ quan. Giờ tôi đi nhặt quả.",
+   "w": "any"
+  },
+  {
+   "t": "Bên kia tôi chỉ huy hai chục người. Ở đây không chỉ huy nổi cái cây.",
+   "w": "any"
+  },
+  {
+   "t": "Về lại đó mà báo cáo thì tôi viết gì. Mất tích ba tháng, đi hái quả.",
+   "w": "toi"
+  },
+  {
+   "t": "Bên ngoài chắc có người đang tìm tôi.",
+   "w": "toi"
+  },
+  {
+   "t": "Noah mà biết tôi ở đây chắc nó cười ba ngày.",
+   "w": "toi"
+  },
+  {
+   "t": "Bạn tôi tên Noah. Nó nói nhiều gấp mười lần tôi.",
+   "w": "toi"
+  },
+  {
+   "t": "Noah mà thấy tôi cho chim ăn thì nó quay lại ngay.",
+   "w": "toi"
+  },
+  {
+   "t": "Ba tôi bảy hai rồi mà vẫn đi thực địa. Cứng đầu.",
+   "w": "toi"
+  },
+  {
+   "t": "Ông ấy chắc đang hỏi thăm khắp nơi. Tính ông ấy thế.",
+   "w": "toi"
+  },
+  {
+   "t": "Ba tôi lo tôi ba mươi mấy chưa có ai. Giờ thì đỡ lo rồi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Về được thì tôi không biết nói với ông ấy thế nào.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chuyện đi thì chưa nghĩ tới. Chưa nghĩ tới.",
+   "w": "toi"
+  },
+  {
+   "t": "Chỗ tôi ở người ta xây bằng thép. Ở đây nhà tự mọc ra.",
+   "w": "toi"
+  },
+  {
+   "t": "Kể cậu nghe về biển nhé. Cậu chưa thấy biển bao giờ.",
+   "w": "toi"
+  },
+  {
+   "t": "Ngoài kia có thứ chạy nhanh hơn ngựa, không cần ngựa. Thật đấy.",
+   "w": "toi"
+  },
+  {
+   "t": "Bên tôi đèn sáng suốt đêm. Không ai nhìn thấy sao.",
+   "w": "khuya"
+  },
+  {
+   "t": "Rừng này từng là chuyện cổ tích trẻ con, với tôi.",
+   "w": "toi"
+  },
+  {
+   "t": "Hoá ra cổ tích là tôi mới đúng. Với bên kia, tôi mất tích.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đánh nhau vô nghĩa thì tôi ghét. Bên kia đánh suốt.",
+   "w": "toi"
+  },
+  {
+   "t": "Mấy cái cây này tôi bắt đầu thích rồi. Đừng nói ai.",
+   "w": "toi"
+  },
+  {
+   "t": "Hôm nay tôi chào một cái cây. Nó không trả lời. Cũng phải thôi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Hỏi tôi có nhớ nhà không à. Chưa trả lời được.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nhà tôi giờ là chỗ nào thì tôi cũng chưa chắc.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngồi đây, cậu nằm đó. Vậy là đủ một ngày.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ba đêm nay tôi ngủ không được. Đến kỳ rồi. Cậu biết tôi nói kỳ gì.",
+   "w": "toi"
+  },
+  {
+   "t": "Hôm nay đừng lại gần tôi. Nói trước cho cậu biết. Đến kỳ rồi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Ra rìa rừng ngồi từ sáng. Về gần cậu là không chịu được.",
+   "w": "chieu"
+  },
+  {
+   "t": "Ở yên đó. Đừng bước thêm. Tôi đang cố.",
+   "w": "chieu"
+  },
+  {
+   "t": "Cậu bước thêm một bước nữa là hết cố được đấy.",
+   "w": "toi"
+  },
+  {
+   "t": "Đang cơn rồi. Nói một tiếng là tôi ra ngoài ngay. Nói đi. Không nói thì vào đây.",
+   "w": "toi"
+  },
+  {
+   "t": "Không nói à. Vậy thì đóng cửa lại.",
+   "w": "toi"
+  },
+  {
+   "t": "Ba ngày. Cậu chịu được ba ngày với tôi không. Nghĩ kỹ rồi trả lời.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đến kỳ thì tôi không đếm được số lần. Cậu đếm hộ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Vừa xong mà đã lại muốn. Cơn nó thế. Đừng trách tôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cả đêm rồi cậu vẫn chưa được ngủ. Tôi biết. Nhưng chưa xong đâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Xuống đây. Lại nữa. Lần này tôi làm lâu hơn.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nghỉ đi. Mười phút. Rồi quay lại đây.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nước đây, uống đi. Uống xong thì nằm xuống chỗ cũ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cơn này ba ngày mới hết. Cậu định trốn đi đâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Rừng rộng thế mà cậu trốn vào đúng chỗ tôi ngửi ra.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ẩn thân cũng vô dụng. Mùi cậu tôi nhớ rồi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tìm ra rồi nhé. Giờ thì đừng chạy nữa.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tôi đuổi theo cậu nửa vòng rừng. Giờ tôi lấy lại công.",
+   "w": "khuya"
+  },
+  {
+   "t": "Bay nhanh thật. Nhưng bay mãi cũng phải hạ, còn tôi thì không mệt.",
+   "w": "khuya"
+  },
+  {
+   "t": "Dậy. Quay mặt vào thân cây. Hai tay chống lên. Đúng rồi, yên thế.",
+   "w": "khuya"
+  },
+  {
+   "t": "Áp vào vỏ cây đi. Ráp thì ráp, tôi giữ ngực cậu không cho cọ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chân này vòng qua eo tôi. Chân kia nữa. Tôi đỡ được, đừng sợ rơi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nhấc lên rồi đấy. Cả đêm cũng được. Đừng bảo tôi đặt xuống.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngồi lên đùi tôi. Đối mặt vào. Tôi muốn nhìn mặt cậu lúc đó.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tự hạ xuống đi. Chậm thôi. Tôi không giúp đâu, tự làm.",
+   "w": "khuya"
+  },
+  {
+   "t": "Quay lưng lại, quỳ xuống. Kiểu này tôi với tới gáy cậu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Quay nghiêng đi. Tôi ôm từ sau. Tay tôi để đâu thì cậu biết rồi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lơ lửng lên. Giữ độ cao đó. Vừa tầm tôi. Đừng lên nữa.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cậu bay được nên tôi chẳng cần cúi. Tiện thật.",
+   "w": "khuya"
+  },
+  {
+   "t": "Treo lơ lửng thế kia mà còn run. Bám vào vai tôi đi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đẩy một cái là trôi ra. Kéo một cái là trôi vào. Nhẹ quá cũng phiền.",
+   "w": "khuya"
+  },
+  {
+   "t": "Xuống đất. Ở dưới này tôi ghì được.",
+   "w": "khuya"
+  },
+  {
+   "t": "Bám vào cành đi. Bám chắc vào. Tôi không đỡ cậu đâu, tôi bận.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tôi đếm tới ba. Một. Hai. Không đợi nữa.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nói xem cậu muốn cái gì. Nói rõ ra. Tôi không đoán đâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nói to lên. Cả rừng nghe thì kệ cả rừng.",
+   "w": "khuya"
+  },
+  {
+   "t": "Xin đi. Một tiếng thôi. Rồi tôi cho.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cậu xin hay tôi xin. Đêm nay đổi vai cũng được.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gọi tôi bằng tên. Không phải kẻ ngoài, không phải thú nhân. Tên tôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nhắc lại câu vừa rồi. Tôi muốn nghe lần nữa từ miệng cậu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cậu là của ai. Trả lời. Sai là làm lại từ đầu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đúng rồi. Ngoan thế thì tôi thưởng.",
+   "w": "khuya"
+  },
+  {
+   "t": "Mở mắt ra nhìn tôi. Nhắm là tôi dừng.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đừng cắn môi. Kêu đi, tôi muốn nghe.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tay để lên đầu, đừng hạ xuống. Tôi bảo đừng hạ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chịu được tới đâu thì nói. Tôi không biết dừng đâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đừng che. Bỏ tay ra, tôi nhìn cho rõ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cả người cậu đỏ lên rồi. Da mát mà đỏ. Lạ thật.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ướt tới đùi rồi mà vẫn bảo chưa muốn à.",
+   "w": "khuya"
+  },
+  {
+   "t": "Từ từ. Tôi vào từ từ. Cậu thở đi, đừng nín.",
+   "w": "khuya"
+  },
+  {
+   "t": "Vào hết rồi. Ngồi yên một lúc cho quen đã.",
+   "w": "khuya"
+  },
+  {
+   "t": "Quen chưa. Gật đi. Gật rồi thì tôi động.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chậm trước. Rồi tôi sẽ không chậm nữa, nói trước cho cậu biết.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nhanh hơn à. Được. Nhưng lát cậu đừng kêu mệt.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cậu siết chặt quá. Thả ra một chút. Không thả được à.",
+   "w": "khuya"
+  },
+  {
+   "t": "Mỗi lần tôi thúc là cậu bám chặt hơn. Cứ bám đi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nghe tiếng đó chưa. Da chạm da. Cậu đỏ mặt vì cái đó à.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gáy cậu tôi ngậm rồi. Không cắn rách đâu. Chỉ giữ cho yên.",
+   "w": "khuya"
+  },
+  {
+   "t": "Răng tôi đang trên gáy cậu. Cựa là tôi siết.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cắn xong rồi đấy. Vết đó ba ngày mới mờ. Cố ý.",
+   "w": "khuya"
+  },
+  {
+   "t": "Hít một hơi vào cổ cậu là tôi biết cậu đang muốn gì.",
+   "w": "khuya"
+  },
+  {
+   "t": "Mùi cậu đổi rồi. Tôi ngửi ra ngay từ lúc bước vào.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cọ mặt vào cổ cậu đây. Để mùi tôi ở lại. Ai lại gần cũng biết.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đánh dấu xong chưa à. Chưa. Còn chỗ này nữa.",
+   "w": "khuya"
+  },
+  {
+   "t": "Sắp tới rồi. Gốc nó bắt đầu phình. Cậu muốn khoá hay không. Nói nhanh.",
+   "w": "khuya"
+  },
+  {
+   "t": "Muốn à. Vậy thì bám chặt vào, sắp không rút ra được nữa đâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khoá rồi. Từ giờ tới lúc nó xẹp thì hai đứa dính nhau. Ngồi yên.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đừng kéo. Kéo là đau cả hai. Ngồi lên đùi tôi, tôi ôm cho đỡ mỏi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nó vẫn còn bơm đấy. Từng đợt một. Cậu cảm thấy không.",
+   "w": "khuya"
+  },
+  {
+   "t": "Căng bụng rồi à. Còn mấy đợt nữa. Chịu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Không chảy ra được đâu, khoá kín rồi. Cậu giữ hết trong người.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tôi gừ suốt lúc khoá là bản năng. Nó canh bạn tình. Không tắt được.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nửa canh giờ nữa mới ra được. Cậu kể chuyện gì đi cho hết thời gian.",
+   "w": "khuya"
+  },
+  {
+   "t": "Dính nhau thế này mà cậu còn cười được à.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ra rồi. Im đấy, đừng dậy vội. Để tôi lau.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đùi cậu run chưa đứng được đâu. Tôi bế. Không cãi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tôi bế cậu ra suối rửa. Nước lạnh, ôm tôi cho ấm.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chỗ nào rát thì chỉ cho tôi. Tôi bôi thuốc. Thuốc của Kael, lành.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nằm sấp xuống. Để tôi xoa lưng cho. Ngủ đi, tôi làm tới lúc cậu ngủ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tôi hơi mạnh tay lúc nãy. Đưa cổ tay đây tôi xem.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đau chỗ nào thì mai đừng giấu. Tôi hỏi là tôi muốn nghe thật.",
+   "w": "khuya"
+  },
+  {
+   "t": "Quấn chăn lại. Đêm nay cậu không phải làm gì nữa.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngủ đi. Tôi canh. Sáng mai dậy tôi vẫn ở đây.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cậu ngủ rồi mà tay vẫn nắm áo tôi. Tôi không gỡ ra đâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Sáng nay cậu đi không nổi thật à. Vậy khỏi đi. Tôi bế.",
+   "w": "sang"
+  },
+  {
+   "t": "Hôm qua tôi quá tay. Xin lỗi. Nhưng tối nay chắc vẫn thế.",
+   "w": "sang"
+  },
+  {
+   "t": "Cổ cậu đầy dấu, mà Kael thì mắt tinh. Quàng cái này vào.",
+   "w": "sang"
+  },
+  {
+   "t": "Cậu đi chậm nửa bước so với mọi hôm. Tôi biết tại sao.",
+   "w": "sang"
+  },
+  {
+   "t": "Chân cậu còn run. Ngồi xuống, tôi hái quả cho.",
+   "w": "sang"
+  },
+  {
+   "t": "Mùi tôi trên người cậu còn nồng lắm. Ra suối cũng không hết đâu.",
+   "w": "sang"
+  },
+  {
+   "t": "Nghe cho rõ. Tôi đang tới kỳ. Ba ngày tới tôi sẽ không tử tế được đâu. Muốn đi thì đi ngay bây giờ. Lát nữa tôi không để cậu đi nữa.",
+   "w": "toi"
+  },
+  {
+   "t": "Nhìn tôi cả buổi rồi đấy. Biết tôi đang phải gồng không. Bước thêm một bước là hết gồng, mà cậu thì cứ bước.",
+   "w": "toi"
+  },
+  {
+   "t": "Đóng màn lá lại. Đi vào trong. Ngồi xuống chỗ kia. Đừng hỏi gì cả, tối nay tôi không trả lời câu nào hết.",
+   "w": "toi"
+  },
+  {
+   "t": "Dậy đi. Không, đừng mặc lại. Quay người ra đây. Muốn nhìn một lúc đã, rồi mới làm gì thì làm.",
+   "w": "khuya"
+  },
+  {
+   "t": "Bám vào vai tôi. Chắc vào. Tôi nhấc lên đây, chân vòng qua eo. Đúng rồi. Giờ đừng động đậy, để tôi làm.",
+   "w": "khuya"
+  },
+  {
+   "t": "Quay mặt vào thân cây. Hai tay chống lên, dang ra. Lùi lại một bước nữa. Ngoan. Đứng yên đúng thế cho tôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đếm tới ba rồi tôi vào. Một. Hai. Thở ra đi, nín thở là đau đấy. Ba.",
+   "w": "khuya"
+  },
+  {
+   "t": "Từ từ thôi, tôi biết. Vào hết rồi đây. Ngồi yên một lúc cho quen. Quen rồi thì gật một cái, tôi mới động.",
+   "w": "khuya"
+  },
+  {
+   "t": "Siết chặt quá tôi không nhúc nhích nổi. Thở ra. Thở ra đi. Đấy, thế mới đi được.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chậm thế này chịu được không. Chịu được à. Vậy thì tôi không chậm nữa đâu, nói trước rồi đấy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Mỗi lần tôi thúc là cậu bấu vào lưng tôi. Cứ bấu đi. Để lại dấu càng tốt, mai tôi soi gương còn thấy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Kêu đi. Đừng cắn môi nữa, chảy máu bây giờ. Cả rừng nghe thấy thì kệ cả rừng, tôi muốn nghe.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gáy cậu tôi ngậm rồi đây. Không rách da đâu, chỉ giữ cho yên thôi. Cựa nữa là tôi siết chặt hơn đấy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cái cổ này. Tôi hít một hơi thôi là biết cậu muốn gì, muốn tới mức nào, và còn chịu được bao lâu nữa.",
+   "w": "khuya"
+  },
+  {
+   "t": "Mùi tôi phải ở trên người cậu. Cọ chỗ này. Cọ cả chỗ này nữa. Ai lại gần cậu ngày mai cũng phải biết.",
+   "w": "khuya"
+  },
+  {
+   "t": "Sắp rồi đấy. Gốc nó bắt đầu phình. Cậu muốn khoá hay không, nói nhanh đi, lát nữa là không kịp nữa.",
+   "w": "khuya"
+  },
+  {
+   "t": "Muốn à. Nói lại lần nữa cho rõ. Được. Vậy thì bám chặt vào, từ giờ không rút ra được nữa đâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khoá rồi. Từ đây tới lúc nó xẹp là hai đứa dính nhau, không ai đi đâu được. Ngồi lên đùi tôi cho đỡ mỏi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đừng kéo. Kéo là đau cả hai đứa. Nằm im đây, dựa vào tôi. Nó vẫn đang bơm đấy, từng đợt một, cậu cảm thấy không.",
+   "w": "khuya"
+  },
+  {
+   "t": "Căng bụng rồi à. Còn mấy đợt nữa mới hết. Không chảy ra được đâu, khoá kín rồi. Cậu giữ hết trong người cho tôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tôi gừ suốt từ nãy là bản năng, không tắt được. Nó canh bạn tình đấy. Cậu nằm im mà nghe cũng được.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nửa canh giờ nữa mới ra được. Cậu kể tôi nghe chuyện gì đi. Chuyện gì cũng được, miễn đừng bảo tôi dậy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Vừa xong mà đã lại muốn rồi. Cơn nó thế, đừng trách tôi. Nằm xuống. Lần này tôi làm lâu hơn.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cả đêm cậu chưa ngủ được phút nào. Tôi biết chứ. Nhưng chưa xong đâu, nghỉ mười phút rồi quay lại đây.",
+   "w": "khuya"
+  },
+  {
+   "t": "Uống hết chỗ nước này đã. Uống đi. Uống xong thì nằm xuống chỗ cũ, đúng chỗ đó.",
+   "w": "khuya"
+  },
+  {
+   "t": "Trốn cả buổi chiều. Ẩn thân cũng vô ích, mùi cậu tôi nhớ rồi. Đi nửa vòng rừng đấy. Giờ lấy lại công.",
+   "w": "khuya"
+  },
+  {
+   "t": "Bay nhanh thật. Nhưng bay mãi cũng phải hạ xuống, mà tôi thì chưa mệt. Xuống đây.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lơ lửng lên. Giữ đúng độ cao đó. Vừa tầm tôi rồi, đừng lên nữa, lên là tôi kéo xuống.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nhẹ quá nên đẩy một cái là trôi ra, kéo một cái là trôi vào. Tiện cho tôi, phiền cho cậu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nằm nghiêng đi, quay lưng vào tôi. Tôi ôm từ sau. Tay tôi để đâu thì cậu biết rồi đấy, khỏi hỏi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngồi lên đùi tôi, đối mặt vào. Tự hạ xuống đi, chậm thôi. Tôi không giúp đâu, tôi muốn xem cậu tự làm.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nói xem cậu muốn gì. Nói rõ từng chữ ra. Tôi cộc lắm, tôi không đoán ý ai bao giờ, nên cậu cứ nói thẳng.",
+   "w": "khuya"
+  },
+  {
+   "t": "Xin một tiếng đi. Một tiếng thôi. Rồi muốn gì tôi cũng cho.",
+   "w": "khuya"
+  },
+  {
+   "t": "Của ai. Trả lời. Sai thì làm lại từ đầu, mà tôi thì rảnh cả đêm.",
+   "w": "khuya"
+  },
+  {
+   "t": "Mở mắt ra nhìn tôi. Nhắm mắt là tôi dừng ngay. Nhìn tôi, tôi muốn thấy mặt cậu lúc này.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tay để lên đầu, đừng hạ xuống. Tôi bảo đừng hạ. Hạ một lần nữa là tôi trói bằng dây leo, mà dây leo ở đây thì sẵn.",
+   "w": "khuya"
+  },
+  {
+   "t": "Rễ cây quấn cổ tay tôi lúc nào thế. Cậu làm à. Gỡ ra. Gỡ ra đi rồi tôi xin, được chưa.",
+   "w": "khuya"
+  },
+  {
+   "t": "Điều khiển được cả cái rừng này, còn tôi chỉ có sức. Không công bằng. Nhưng thôi, chịu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ghì tôi xuống đi. Tôi không chống đâu. Cậu nhẹ bằng nửa tôi mà tôi nằm yên đây, tự hiểu là thế nào.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đêm nay đổi vai cũng được. Cậu làm, tôi nằm. Nhưng sáng mai thì đừng hòng.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ra rồi. Nằm im đấy, đừng dậy vội, đùi cậu còn run chưa đứng được đâu. Để tôi bế ra suối rửa.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nước suối lạnh, ôm tôi cho ấm. Rửa xong tôi bôi thuốc. Thuốc của Kael, lần này tôi hỏi kỹ rồi, lành.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nằm sấp xuống, để tôi xoa lưng cho. Ngủ đi, tôi xoa tới lúc cậu ngủ mới thôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lúc nãy tôi quá tay. Đưa cổ tay đây tôi xem. Mai chỗ nào đau thì đừng giấu, tôi hỏi là tôi muốn nghe thật.",
+   "w": "khuya"
+  },
+  {
+   "t": "Quấn chăn lại. Đêm nay cậu không phải làm gì nữa hết. Ngủ đi, sáng mai dậy tôi vẫn ở đây.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngủ rồi mà tay vẫn nắm áo tôi. Không gỡ ra đâu. Cứ nắm thế tới sáng cũng được.",
+   "w": "khuya"
   }
  ]
 };
