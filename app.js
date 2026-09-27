@@ -1029,6 +1029,16 @@ function renderPager(cur, total) {
   }));
 }
 
+// KHUNG THẺ "biển sao": thẻ bo tròn liền khối, dải sóng ở đáy làm banner ôm tên + info.
+// gradient dùng chung (khai báo 1 lần trước lưới), tránh trùng id giữa nhiều thẻ.
+const MC_DEFS = `<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="mcBand" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a63a4"/><stop offset=".55" stop-color="#274a86"/><stop offset="1" stop-color="#1b2c54"/></linearGradient>
+  <clipPath id="mcFrostClip" clipPathUnits="objectBoundingBox"><path d="M0,0.568 C0.1267,0.622 0.2333,0.6274 0.3333,0.5842 C0.44,0.5356 0.5467,0.5572 0.66,0.6058 C0.7733,0.6544 0.8867,0.6382 1,0.6706 L1,1 L0,1 Z"/></clipPath>
+</defs></svg>`;
+// dải sóng banner ở đáy (2 lớp + bọt cyan trên đỉnh sóng)
+// dải sóng biển: nhiều nhịp gợn tự nhiên + 3 lớp đậm nhạt (nhạt trên → đậm dưới)
+const MC_BAND = `<svg class="mc-band-svg" viewBox="0 0 300 200" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C38 60 70 62 100 46 C132 28 164 36 198 54 C232 72 266 66 300 78 L300 200 L0 200 Z" fill="#4269a8"/><path d="M0 60 C40 80 74 80 106 62 C138 44 168 54 200 72 C234 90 268 84 300 96 L300 200 L0 200 Z" fill="#2f5490"/><path d="M0 84 C42 104 78 104 110 86 C142 68 172 78 204 96 C236 114 270 108 300 120 L300 200 L0 200 Z" fill="#203c6c"/><path d="M0 40 C38 60 70 62 100 46 C132 28 164 36 198 54 C232 72 266 66 300 78" fill="none" stroke="#9fe6f2" stroke-width="2.2" opacity=".5"/></svg>`;
+
 function renderHomeGrid() {
   const grid = $("#home-grid");
   if (!grid) return;
@@ -1053,19 +1063,29 @@ function renderHomeGrid() {
   const canDrag = !me.guest && !q && homeSort === "pos";
   const cards = pageList.map((m) => `
     <a class="map-card" href="#/map/${m.id}" data-id="${m.id}" ${canDrag ? `draggable="true"` : ""}>
+      <span class="mc-inner">
+        <span class="mc-stars" aria-hidden="true"></span>
+        ${MC_BAND}
+        <span class="mc-content">
+          <div class="map-card-num">✦ Cánh cổng ${posNo[m.id]} ✦</div>
+          <span class="mc-av-ring" data-avline="${m.id}" title="Chạm nghe một câu"><span class="mc-avatar${m.hasAvatar ? "" : " mc-av-empty"}" ${m.hasAvatar ? `data-av="${m.id}"` : ""}>${m.hasAvatar ? "" : "✦"}</span></span>
+          <div class="map-card-title">${esc(m.title)}</div>
+          <div class="map-card-world">${esc(m.world || "Thế giới chưa được mô tả…")}</div>
+          <div class="map-card-foot" title="${m.updatedAt ? "Chạm gần nhất: " + fmtTime(m.updatedAt) : ""}">
+            ${(m.hasHtml || m.hasProfile) ? `<span class="mc-ico-row">${m.hasHtml ? `<span class="mc-ico" title="Có bản đồ">${ic("compass")}</span>` : ""}${m.hasProfile ? `<span class="mc-ico" title="Có hồ sơ">${ic("mask")}</span>` : ""}</span>` : ""}
+            ${m.updatedAt ? `<span class="mcf-time">${fmtTime(m.updatedAt)}</span>` : ""}
+          </div>
+        </span>
+      </span>
       ${m.nsfw ? `<span class="nsfw-sticker" title="Cổng thiên về NSFW">🔥</span>` : ""}
       ${m.wip ? `<span class="wip-sticker" title="Map đang sửa — chưa chơi được">🩹</span>` : ""}
-      <span class="totem-corner">${totemBadges(m.recommends)}</span>
       ${m.noH ? `<span class="noh-sticker" title="Không có H — chơi có 'kéo rèm'">🌫️</span>` : ""}
-      ${m.hasAvatar ? `<span class="mc-avatar" data-av="${m.id}"></span>` : ""}
-      <div class="map-card-num">✦ Cánh cổng ${posNo[m.id]} ✦</div>
-      <div class="map-card-title">${esc(m.title)}</div>
-      <div class="map-card-world">${esc(m.world || "Thế giới chưa được mô tả…")}</div>
-      <div class="map-card-foot" title="${m.updatedAt ? "Chạm gần nhất: " + fmtTime(m.updatedAt) : ""}">${m.hasHtml ? `<span class="has-map-chip">${ic("compass")} có bản đồ</span> · ` : ""}${m.updatedAt ? `<span class="mcf-lbl">Chạm gần nhất: </span><span class="mcf-time">${fmtTime(m.updatedAt)}</span>` : ""}</div>
+      <span class="totem-corner">${totemBadges(m.recommends)}</span>
+      <span class="mc-sparkle sp1" aria-hidden="true">✦</span><span class="mc-sparkle sp2" aria-hidden="true">✦</span><span class="mc-sparkle sp3" aria-hidden="true">✦</span><span class="mc-sparkle sp4" aria-hidden="true">✦</span><span class="mc-sparkle sp5" aria-hidden="true">✦</span>
       ${fishRow(m)}
     </a>`).join("");
 
-  grid.innerHTML = `
+  grid.innerHTML = `${MC_DEFS}
     <div class="map-grid">
       ${cards}
       ${me.guest ? "" : `<button class="map-card new-card" id="btn-new-map">
@@ -1083,7 +1103,41 @@ function renderHomeGrid() {
       if (d) el.style.backgroundImage = `url("${d}")`;
     } catch {}
   });
+  // chạm avatar → nghe một câu thoại ngay ngoài trang chủ (không mở cổng)
+  $$(".mc-av-ring[data-avline]").forEach((ring) => {
+    ring.addEventListener("click", (e) => {
+      e.preventDefault(); e.stopPropagation();
+      const m = maps.find((x) => x.id === ring.dataset.avline);
+      if (!m) return;
+      showHomeBubble(ring, pickCharLine(m) || "…");
+    });
+  });
   if (canDrag) wireMapDrag();
+}
+
+// bong bóng thoại gắn vào thẻ (cuộn theo thẻ, không trôi), tự ẩn
+let homeBubbleTimer = null;
+let homeBubbleEl = null;
+function showHomeBubble(anchorEl, text) {
+  const card = anchorEl.closest(".map-card");
+  if (!card) return;
+  let b = homeBubbleEl;
+  if (!b) {
+    b = homeBubbleEl = document.createElement("div");
+    b.className = "home-bubble";
+    document.addEventListener("click", (ev) => {
+      if (b && !b.classList.contains("hidden") && !(ev.target.closest && ev.target.closest(".mc-av-ring"))) b.classList.add("hidden");
+    });
+  }
+  b.textContent = text;
+  card.appendChild(b); // gắn vào thẻ vừa bấm → cuộn cùng thẻ
+  b.classList.remove("hidden");
+  const cr = card.getBoundingClientRect(), rr = anchorEl.getBoundingClientRect();
+  b.style.left = (rr.left - cr.left + rr.width / 2) + "px";
+  b.style.top = (rr.bottom - cr.top + 8) + "px";
+  b.classList.remove("home-bubble-in"); void b.offsetWidth; b.classList.add("home-bubble-in");
+  clearTimeout(homeBubbleTimer);
+  homeBubbleTimer = setTimeout(() => b && b.classList.add("hidden"), 6500);
 }
 
 function wireMapDrag() {
