@@ -36,7 +36,8 @@ let drafts = [];            // danh sách nháp Thư Phòng (realtime)
 let unsubMaps = null, unsubDrafts = null, unsubChat = null;
 let editingMapId = null;    // map đang mở trong modal (null = tạo mới)
 let pendingAvatar = undefined; // avatar đang sửa: undefined=không đổi, ''=bỏ, string=ảnh mới (dataURL)
-const lastLineIdx = {};     // map.id → câu vừa hiện (tránh lặp liền khi chạm avatar)
+const lastLineIdx = {};     // map.id → câu vừa hiện (tránh lặp liền, kể cả khi vét hết rổ xáo lại)
+const lineBags = {};        // "id:khung giờ" → hàng đợi đã xáo; vét hết mới xáo lại (kiểu xáo bài)
 let mountedRoute = "";      // route đã dựng DOM (tránh re-mount editor khi snapshot về)
 
 // trạng thái ghi chú 💧 + truyền âm 🫧 (khai báo sớm vì dùng ngay lúc khởi động)
@@ -1568,16 +1569,28 @@ function bucketNow() {
   if (h >= 17 && h < 22) return "toi";
   return "khuya";
 }
+function shuffleArr(a) {
+  for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+  return a;
+}
 function pickCharLine(m) {
   const all = getLinesFor(m);
   if (!all.length) return null;
   const b = bucketNow();
   let pool = all.filter((l) => l.w === b || l.w === "any" || !l.w);
   if (!pool.length) pool = all;
-  let pick = pool[Math.floor(Math.random() * pool.length)];
-  if (pool.length > 1 && pick.t === lastLineIdx[m.id]) pick = pool[(pool.indexOf(pick) + 1) % pool.length];
-  lastLineIdx[m.id] = pick.t;
-  return pick.t;
+  const texts = pool.map((l) => l.t);
+  const key = m.id + ":" + b;
+  const sig = texts.length + "|" + texts[0] + "|" + texts[texts.length - 1]; // rổ đổi thì xáo lại
+  let bag = lineBags[key];
+  if (!bag || bag.sig !== sig || !bag.queue.length) {
+    const q = shuffleArr(texts.slice());
+    if (q.length > 1 && q[0] === lastLineIdx[m.id]) q.push(q.shift()); // đừng lặp câu vừa hiện ở đầu lượt mới
+    bag = lineBags[key] = { sig, queue: q };
+  }
+  const pick = bag.queue.shift();
+  lastLineIdx[m.id] = pick;
+  return pick;
 }
 let bubbleTimer = null;
 function showCharBubble(text) {
