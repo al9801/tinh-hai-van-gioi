@@ -1056,6 +1056,7 @@ function renderHomeGrid() {
       ${m.wip ? `<span class="wip-sticker" title="Map đang sửa — chưa chơi được">🩹</span>` : ""}
       <span class="totem-corner">${totemBadges(m.recommends)}</span>
       ${m.noH ? `<span class="noh-sticker" title="Không có H — chơi có 'kéo rèm'">🌫️</span>` : ""}
+      ${m.hasAvatar ? `<span class="mc-avatar" data-av="${m.id}"></span>` : ""}
       <div class="map-card-num">✦ Cánh cổng ${posNo[m.id]} ✦</div>
       <div class="map-card-title">${esc(m.title)}</div>
       <div class="map-card-world">${esc(m.world || "Thế giới chưa được mô tả…")}</div>
@@ -1074,6 +1075,13 @@ function renderHomeGrid() {
     ${list.length === 0 ? `<p class="empty-state">${q ? "Không cánh cổng nào khớp từ khoá." : "Biển sao còn tĩnh lặng — hãy mở cánh cổng đầu tiên."}</p>` : ""}`;
 
   $("#btn-new-map")?.addEventListener("click", () => openMapModal(null));
+  $$(".mc-avatar[data-av]").forEach(async (el) => {
+    const iid = `${el.dataset.av}__avatar`;
+    try {
+      const d = imgCache[iid] ?? (imgCache[iid] = await store.getImage(iid));
+      if (d) el.style.backgroundImage = `url("${d}")`;
+    } catch {}
+  });
   if (canDrag) wireMapDrag();
 }
 
@@ -1601,6 +1609,84 @@ $("#btn-line-add").addEventListener("click", () => {
 $("#lines-edit").addEventListener("click", (e) => {
   if (e.target.closest(".line-del")) e.target.closest(".line-row").remove();
 });
+$("#btn-gen-key").addEventListener("click", () => askGeminiKey());
+$("#btn-gen-lines").addEventListener("click", generateCharLines);
+
+// ── Tự sinh thoại theo tính cách char (Gemini, key free-tier lưu tại máy) ──
+const GEMINI_MODEL = "gemini-2.0-flash";
+function getGeminiKey() { try { return localStorage.getItem("thvg-gemini-key") || ""; } catch { return ""; } }
+function askGeminiKey() {
+  const k = prompt("Dán Gemini API key (free tier — lấy ở aistudio.google.com/apikey).\nLưu trên máy này thôi, không chia sẻ, không tính tiền ở free tier:", getGeminiKey());
+  if (k === null) return getGeminiKey();
+  try { localStorage.setItem("thvg-gemini-key", k.trim()); } catch {}
+  return k.trim();
+}
+async function gatherCharContext() {
+  const title = $("#inp-map-title").value.trim();
+  const world = $("#inp-map-world").value.trim();
+  let prompt = "", content = "";
+  if (editingMapId) {
+    const m = findMap(editingMapId) || {};
+    try { prompt = (m.promptChunks ? await store.loadDocField("maps", editingMapId, "prompt") : m.prompt) || ""; } catch {}
+    try { content = (m.contentChunks ? await store.loadDocField("maps", editingMapId, "content") : m.content) || ""; } catch {}
+  }
+  const strip = (h) => stripHtml(h).replace(/\s+/g, " ").trim();
+  return { title, world, prompt: strip(prompt).slice(0, 4000), content: strip(content).slice(0, 2000) };
+}
+function parseLinesJson(txt) {
+  let s = String(txt || "").trim().replace(/^```(json)?/i, "").replace(/```$/, "").trim();
+  const a = s.indexOf("["), b = s.lastIndexOf("]");
+  if (a >= 0 && b > a) s = s.slice(a, b + 1);
+  let arr; try { arr = JSON.parse(s); } catch { return []; }
+  const ok = new Set(["sang", "trua", "chieu", "toi", "khuya", "any"]);
+  return (Array.isArray(arr) ? arr : [])
+    .map((o) => ({ t: String(o?.t || o?.text || "").trim(), w: ok.has(o?.w) ? o.w : "any" }))
+    .filter((o) => o.t).slice(0, 20);
+}
+async function generateCharLines() {
+  const key = getGeminiKey() || askGeminiKey();
+  if (!key) { toast("Chưa có Gemini API key.", true); return; }
+  const ctx = await gatherCharContext();
+  if (!ctx.prompt && !ctx.content && !ctx.world) {
+    toast("Cổng chưa có thông tin nhân vật (Prompt/nội dung/mô tả) để dựa vào.", true); return;
+  }
+  const btn = $("#btn-gen-lines"); const old = btn.textContent;
+  btn.disabled = true; btn.textContent = "Đang nghĩ…";
+  const ask = `Bạn viết lời thoại nhàn cho một nhân vật roleplay, bằng tiếng Việt, ĐÚNG giọng và tính cách nhân vật dưới đây. Viết 12 câu NGẮN (mỗi câu ≤ 20 từ) mà nhân vật tự nói khi người chơi ghé vào — chào hỏi, càu nhàu, quan tâm, trêu ghẹo… đa dạng, đúng chất nhân vật. Mỗi câu gắn một khung giờ hợp lý: "sang","trua","chieu","toi","khuya", hoặc "any" (mọi lúc). Vài câu theo giờ, phần còn lại "any".
+CHỈ trả JSON thuần: mảng [{"t":"câu thoại","w":"khung giờ"}]. Không giải thích, không markdown.
+
+--- NHÂN VẬT / THẾ GIỚI (chỉ dùng thông tin này) ---
+Tên cổng: ${ctx.title || "(chưa đặt)"}
+Mô tả thế giới: ${ctx.world || "(không có)"}
+Prompt nhân vật: ${ctx.prompt || "(không có)"}
+Bối cảnh thêm: ${ctx.content || "(không có)"}`;
+  try {
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${encodeURIComponent(key)}`, {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: ask }] }],
+        generationConfig: { temperature: 1.0, responseMimeType: "application/json" },
+        safetySettings: ["HARM_CATEGORY_HARASSMENT", "HARM_CATEGORY_HATE_SPEECH", "HARM_CATEGORY_SEXUALLY_EXPLICIT", "HARM_CATEGORY_DANGEROUS_CONTENT"]
+          .map((c) => ({ category: c, threshold: "BLOCK_NONE" })),
+      }),
+    });
+    if (!res.ok) {
+      const t = await res.text().catch(() => "");
+      throw new Error(res.status === 400 ? "Key sai hoặc yêu cầu bị từ chối" : res.status === 429 ? "Hết hạn mức free tier — thử lại sau" : `Lỗi ${res.status}: ${t.slice(0, 100)}`);
+    }
+    const data = await res.json();
+    const txt = data?.candidates?.[0]?.content?.parts?.map((p) => p.text).join("") || "";
+    if (!txt) throw new Error("Gemini không trả nội dung (có thể bị lọc an toàn).");
+    const arr = parseLinesJson(txt);
+    if (!arr.length) throw new Error("Không đọc được câu nào từ phản hồi.");
+    const box = $("#lines-edit");
+    arr.forEach((l) => box.insertAdjacentHTML("beforeend", lineRowHtml(l.t, l.w)));
+    toast(`✨ Đã thêm ${arr.length} câu — xem lại rồi Lưu.`);
+  } catch (e) {
+    const msg = /Failed to fetch|NetworkError/i.test(e.message) ? "Không gọi được Gemini từ trình duyệt (có thể bị chặn CORS/mạng)." : e.message;
+    toast("Tự sinh lỗi: " + msg, true);
+  } finally { btn.disabled = false; btn.textContent = old; }
+}
 
 let savingMap = false; // chống bấm Lưu nhiều lần tạo map trùng
 $("#btn-map-save").addEventListener("click", async () => {
