@@ -411,7 +411,7 @@ body {
 }
 
 /* ── Trang map ────────────────────────────────────────── */
-.map-view-head { margin-bottom: 26px; }
+.map-view-head { margin-bottom: 26px; position: relative; }
 .breadcrumb {
   font-size: 0.82rem; color: var(--ink-faint); text-decoration: none;
   display: inline-flex; align-items: center; gap: 6px; margin-bottom: 14px;
@@ -434,8 +434,8 @@ body {
 .mv-avatar:active { transform: scale(0.96); }
 .mv-avatar.mv-avatar-mute { border-color: var(--line-strong); box-shadow: 0 4px 16px rgba(0,0,0,.45); }
 .mv-bubble {
-  position: relative; align-self: flex-start;
-  max-width: min(520px, 92%); margin: 4px 0 0 4px;
+  position: absolute; z-index: 30; left: 0; top: 0;
+  max-width: min(520px, 92%);
   background: var(--paper); color: var(--paper-ink);
   font-family: var(--font-body); font-size: 0.94rem; line-height: 1.5;
   padding: 11px 15px; border-radius: 4px 16px 16px 16px;

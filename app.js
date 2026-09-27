@@ -1551,6 +1551,16 @@ function showCharBubble(text) {
   const b = $("#mv-bubble");
   if (!b) return;
   b.textContent = text;
+  // nổi đè ngay dưới avatar, không đẩy nội dung trang xuống
+  const head = document.querySelector(".map-view-head");
+  const av = $("#mv-avatar");
+  if (head && av) {
+    const hr = head.getBoundingClientRect(), ar = av.getBoundingClientRect();
+    const left = Math.max(0, ar.left - hr.left);
+    b.style.left = left + "px";
+    b.style.top = (ar.bottom - hr.top + 8) + "px";
+    b.style.maxWidth = Math.min(520, hr.width - left) + "px";
+  }
   b.classList.remove("hidden", "mv-bubble-in");
   void b.offsetWidth; // reset animation
   b.classList.add("mv-bubble-in");
