@@ -328,16 +328,16 @@ body {
 }
 .map-card:hover { transform: translateY(-6px); filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.58)) drop-shadow(0 0 18px rgba(127, 212, 232, 0.18)); }
 
-/* số cổng — vùng trên, phía trên vòng avatar */
+/* số cổng — nằm trong thân, trên vòng avatar */
 .fc-num {
-  position: absolute; left: 57%; top: 10.5%; transform: translateX(-50%); z-index: 3;
+  position: absolute; left: 57.3%; top: 15%; transform: translateX(-50%); z-index: 3;
   font-family: var(--font-display); font-size: 0.62rem; letter-spacing: 0.14em;
   text-transform: uppercase; color: var(--glow); white-space: nowrap;
   text-shadow: 0 0 10px rgba(127, 212, 232, 0.5);
 }
-/* avatar tròn — đặt đúng vào vòng vàng đã vẽ sẵn trên khung */
+/* avatar tròn — khít vào vòng vàng của khung, thêm glow kiểu v105 */
 .mc-av-ring {
-  position: absolute; left: 57.3%; top: 44.4%; width: 32%; aspect-ratio: 1;
+  position: absolute; left: 57.3%; top: 44.4%; width: 33.5%; aspect-ratio: 1;
   transform: translate(-50%, -50%); z-index: 3; cursor: pointer; transition: transform 0.18s ease;
 }
 .mc-av-ring:hover { transform: translate(-50%, -50%) scale(1.05); }
@@ -345,11 +345,12 @@ body {
 .mc-avatar {
   position: absolute; inset: 0; border-radius: 50%; overflow: hidden;
   background: radial-gradient(circle at 40% 35%, #2a3d68, #131d38) center/cover no-repeat;
+  box-shadow: 0 0 0 2px rgba(230, 192, 120, 0.55), 0 0 16px rgba(217, 180, 111, 0.45), 0 6px 16px rgba(0, 0, 0, 0.45);
   display: grid; place-items: center; color: var(--gold-bright); font-size: 1.4rem;
 }
 /* tên + mô tả + info — vùng dưới vòng avatar */
 .fc-body {
-  position: absolute; left: 57%; top: 60%; transform: translateX(-50%); width: 74%; z-index: 3;
+  position: absolute; left: 57.3%; top: 59%; transform: translateX(-50%); width: 76%; z-index: 3;
   text-align: center;
 }
 .map-card-title {
@@ -389,9 +390,9 @@ body {
   to   { opacity: 1; transform: translate(-50%, 0) scale(1); }
 }
 
-/* huy hiệu tiến cử (dơi/cá voi trăng): góc trên-phải khung */
+/* huy hiệu tiến cử (dơi/cá voi trăng): sát góc trên-phải THÂN thẻ */
 .totem-corner {
-  position: absolute; top: -4%; right: 1%; z-index: 6;
+  position: absolute; top: 1%; right: -1%; z-index: 6;
   display: flex;
 }
 /* huy hiệu tiến cử = ảnh vẽ tay (dơi-trăng / cá voi-trăng) */
