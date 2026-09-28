@@ -935,6 +935,7 @@ function route(soft = false) {
   if (r.view !== "map") $("#gas-fab")?.classList.add("hidden");
 
   document.body.dataset.view = r.view; // để CSS nới riêng trang chủ (thẻ to mà vẫn thẳng hàng)
+  if (r.view !== "home") $("#header-tools").innerHTML = ""; // rời Biển Cổng → gỡ browse-bar khỏi header
   if (r.view === "home") renderHome();
   else if (r.view === "map") renderMapView(r);
   else if (r.view === "drafts") renderDraftsList();
@@ -977,12 +978,8 @@ function fishRow(m) {
 }
 
 function renderHome() {
-  $("#main").innerHTML = `
-    <div class="home-wide">
-    <div class="page-head">
-      <h1 class="page-title">Biển <span class="accent">Cổng</span></h1>
-      <p class="page-sub">Mỗi cánh cổng dẫn vào một thế giới.</p>
-    </div>
+  // browse-bar (tìm kiếm/sắp xếp/nút/pager) đưa LÊN HEADER (tầng dưới), chỉ hiện ở Biển Cổng
+  $("#header-tools").innerHTML = `
     <div class="browse-bar">
       <span class="search-wrap">${ic("search", "search-ic")}<input id="home-search" class="search-inp" type="search" placeholder="Tìm cánh cổng…" value="${esc(homeQ)}" autocomplete="off"></span>
       <span class="sort-wrap">
@@ -998,6 +995,12 @@ function renderHome() {
       ${me.guest ? "" : `<button class="btn btn-ghost icon-btn" id="btn-backup" title="Tải toàn bộ nội dung về máy để giữ ngoài"><span class="ib-ic">${ic("box")}</span><span class="ib-tx">Backup</span></button>`}
       <span class="spacer"></span>
       <div class="pager hidden" id="home-pager"></div>
+    </div>`;
+  $("#main").innerHTML = `
+    <div class="home-wide">
+    <div class="page-head">
+      <h1 class="page-title">Biển <span class="accent">Cổng</span></h1>
+      <p class="page-sub">Mỗi cánh cổng dẫn vào một thế giới.</p>
     </div>
     <div id="home-grid"></div>
     </div>`;
