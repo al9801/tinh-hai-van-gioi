@@ -337,8 +337,8 @@ body[data-view="home"] .main { max-width: 1440px; }
 
 /* số cổng — nằm trong thân, trên vòng avatar */
 .fc-num {
-  position: absolute; left: 57.3%; top: 15%; transform: translateX(-50%); z-index: 3;
-  font-family: var(--font-display); font-size: 0.62rem; letter-spacing: 0.14em;
+  position: absolute; left: 57.3%; top: 14%; transform: translateX(-50%); z-index: 3;
+  font-family: var(--font-display); font-size: 0.72rem; letter-spacing: 0.14em;
   text-transform: uppercase; color: var(--glow); white-space: nowrap;
   text-shadow: 0 0 10px rgba(127, 212, 232, 0.5);
 }
@@ -361,22 +361,22 @@ body[data-view="home"] .main { max-width: 1440px; }
   text-align: center;
 }
 .map-card-title {
-  font-family: var(--font-display); font-weight: 600; font-size: 1.02rem;
-  line-height: 1.14; color: #fff7ea; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  font-family: var(--font-display); font-weight: 600; font-size: 1.3rem;
+  line-height: 1.18; color: #fff7ea; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 .map-card-world {
-  font-size: 0.7rem; color: #d3e2f2; font-style: italic; margin-top: 4px;
+  font-size: 0.86rem; color: #d3e2f2; font-style: italic; margin-top: 6px; line-height: 1.4;
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
 }
 .map-card-foot {
-  margin-top: 7px; font-size: 0.62rem; color: #bcd0e8;
-  display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 9px;
+  margin-top: 9px; font-size: 0.76rem; color: #bcd0e8;
+  display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 10px;
 }
-.mc-ico-row { display: inline-flex; align-items: center; gap: 8px; }
+.mc-ico-row { display: inline-flex; align-items: center; gap: 9px; }
 .mc-ico { display: inline-grid; place-items: center; color: var(--gold-bright); }
-.mc-ico .ic { width: 16px; height: 16px; filter: drop-shadow(0 0 5px rgba(240, 212, 154, 0.65)); }
+.mc-ico .ic { width: 19px; height: 19px; filter: drop-shadow(0 0 5px rgba(240, 212, 154, 0.65)); }
 /* sao vàng vẽ tay — nằm trong hõm đuôi cá voi (chỉ hiện khi cả hai chủ tiến cử) */
-.fc-star { position: absolute; left: 16%; top: 11%; width: 7%; z-index: 4; pointer-events: none; filter: drop-shadow(0 0 6px rgba(240, 212, 154, 0.6)); }
+.fc-star { position: absolute; left: 21%; top: 13.5%; width: 6.5%; z-index: 4; pointer-events: none; filter: drop-shadow(0 0 6px rgba(240, 212, 154, 0.6)); }
 
 /* đốm sao lấp lánh blink quanh khung (như v105) */
 .mc-sparkle {
@@ -415,10 +415,9 @@ body[data-view="home"] .main { max-width: 1440px; }
 
 /* huy hiệu tiến cử (dơi/cá voi trăng): sát góc trên-phải THÂN thẻ */
 .totem-corner {
-  position: absolute; top: 1%; right: 2%; z-index: 6;
+  position: absolute; top: 8%; right: 3%; z-index: 6; /* ôm góc trên-phải THÂN cổng */
   display: flex;
 }
-.totem-badge { width: 44px; }
 /* huy hiệu tiến cử = ảnh vẽ tay (dơi-trăng / cá voi-trăng) */
 .totem-badge {
   width: 50px; height: auto; margin-left: -14px;
@@ -1465,7 +1464,7 @@ body:not(.guest) .gas-fab { bottom: 86px; }
 img.nsfw-sticker { width: 11%; }
 img.noh-sticker { width: 11%; }
 .nsfw-sticker {
-  position: absolute; top: auto; bottom: 2%; left: 1.5%;
+  position: absolute; top: auto; bottom: 7%; left: 5%;
   font-size: 1.5rem;
   transform: rotate(-14deg);
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 12px rgba(255, 130, 40, 0.55));
@@ -1758,7 +1757,7 @@ body.guest .doc-page { user-select: none; }
 
 /* dấu 🌫️ "không có H" — đậu góc DƯỚI bên phải thẻ cổng */
 .noh-sticker {
-  position: absolute; top: auto; bottom: 2%; right: 1.5%; left: auto;
+  position: absolute; top: auto; bottom: 7%; right: 5%; left: auto;
   font-size: 1.35rem;
   transform: rotate(-8deg);
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 10px rgba(160, 200, 235, 0.45));
