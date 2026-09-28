@@ -1009,6 +1009,7 @@ function renderHome() {
       </span>
       <button class="btn btn-ghost icon-btn" id="btn-fulltext" title="Tìm sâu trong toàn bộ nội dung mọi map/nháp"><span class="ib-ic">${ic("fileSearch")}</span><span class="ib-tx">Tìm toàn văn</span></button>
       ${me.guest ? "" : `<button class="btn btn-ghost icon-btn" id="btn-backup" title="Tải toàn bộ nội dung về máy để giữ ngoài"><span class="ib-ic">${ic("box")}</span><span class="ib-tx">Backup</span></button>`}
+      ${me.guest ? "" : `<button class="btn new-gate-btn" id="btn-new-map-hdr" title="Mở cánh cổng mới">${ic("plus")}<span class="ngb-tx">Cổng mới</span></button>`}
       <span class="spacer"></span>
       <div class="pager hidden" id="home-pager"></div>
     </div>`;
@@ -1025,6 +1026,7 @@ function renderHome() {
   $("#home-sort").addEventListener("change", (e) => { homeSort = e.target.value; homePage = 0; renderHomeGrid(); });
   $("#btn-fulltext").addEventListener("click", openFullTextSearch);
   $("#btn-backup")?.addEventListener("click", runBackup);
+  $("#btn-new-map-hdr")?.addEventListener("click", () => openMapModal(null));
   renderHomeGrid();
 }
 
@@ -1129,14 +1131,9 @@ function renderHomeGrid() {
   grid.innerHTML = `
     <div class="map-grid">
       ${cards}
-      ${me.guest ? "" : `<button class="map-card new-card" id="btn-new-map">
-        <span class="new-card-plus">✦</span>
-        <span class="new-card-label">Mở cánh cổng mới</span>
-      </button>`}
     </div>
-    ${list.length === 0 ? `<p class="empty-state">${q ? "Không cánh cổng nào khớp từ khoá." : "Biển sao còn tĩnh lặng — hãy mở cánh cổng đầu tiên."}</p>` : ""}`;
+    ${list.length === 0 ? `<p class="empty-state">${q ? "Không cánh cổng nào khớp từ khoá." : "Biển sao còn tĩnh lặng — hãy mở cánh cổng đầu tiên (nút Cổng mới ở trên)."}</p>` : ""}`;
 
-  $("#btn-new-map")?.addEventListener("click", () => openMapModal(null));
   $$(".mc-avatar[data-av]").forEach(async (el) => {
     const iid = `${el.dataset.av}__avatar`;
     try {

@@ -277,6 +277,16 @@ body {
 /* nút Tìm toàn văn / Backup → CHỈ ICON cho gọn (bỏ chữ) */
 .header-tools .browse-bar .icon-btn .ib-tx { display: none; }
 .header-tools .browse-bar .icon-btn { padding: 9px 11px; }
+/* nút "Cổng mới" nổi bật trên header (thay cho thẻ trống trong lưới) */
+.new-gate-btn {
+  display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;
+  color: #3a2a06; background: linear-gradient(120deg, var(--gold-bright), var(--gold));
+  border: none; border-radius: 999px; padding: 8px 16px; font-weight: 600; cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: filter 0.15s, box-shadow 0.15s;
+}
+.new-gate-btn .ic { width: 17px; height: 17px; stroke: currentColor; }
+.new-gate-btn:hover { filter: brightness(1.06); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35), 0 0 14px rgba(217, 180, 111, 0.4); }
 /* màn hẹp: header xuống dòng, tools về hàng riêng (khỏi tràn) */
 @media (max-width: 860px) {
   .app-header { flex-wrap: wrap; row-gap: 10px; }
