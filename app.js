@@ -928,6 +928,7 @@ function route(soft = false) {
   // bong bóng 🌀 chỉ nổi khi đang trong một cổng
   if (r.view !== "map") $("#gas-fab")?.classList.add("hidden");
 
+  document.body.dataset.view = r.view; // để CSS nới riêng trang chủ (thẻ to mà vẫn thẳng hàng)
   if (r.view === "home") renderHome();
   else if (r.view === "map") renderMapView(r);
   else if (r.view === "drafts") renderDraftsList();
@@ -971,6 +972,7 @@ function fishRow(m) {
 
 function renderHome() {
   $("#main").innerHTML = `
+    <div class="home-wide">
     <div class="page-head">
       <h1 class="page-title">Biển <span class="accent">Cổng</span></h1>
       <p class="page-sub">Mỗi cánh cổng dẫn vào một thế giới.</p>
@@ -991,7 +993,8 @@ function renderHome() {
       <span class="spacer"></span>
       <div class="pager hidden" id="home-pager"></div>
     </div>
-    <div id="home-grid"></div>`;
+    <div id="home-grid"></div>
+    </div>`;
   $("#home-sort").value = homeSort;
   $("#home-search").addEventListener("input", (e) => { homeQ = e.target.value; homePage = 0; renderHomeGrid(); });
   $("#home-sort").addEventListener("change", (e) => { homeSort = e.target.value; homePage = 0; renderHomeGrid(); });

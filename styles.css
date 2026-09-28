@@ -310,11 +310,11 @@ body {
 .page-sub { color: var(--ink-faint); font-size: 0.9rem; margin-top: 4px; }
 
 /* ── Lưới cổng (home) ─────────────────────────────────── */
-/* lưới trang chủ phá khung 1180 để 4 cột giãn TO trên màn rộng */
-#home-grid { width: min(1480px, calc(100vw - 40px)); margin-left: 50%; transform: translateX(-50%); }
+/* trang chủ nới rộng CẢ cột nội dung (tiêu đề + search + lưới cùng giãn, vẫn thẳng hàng) */
+body[data-view="home"] .main { max-width: 1440px; }
 .map-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr)); /* luôn 4 cổng/hàng */
+  grid-template-columns: repeat(4, minmax(0, 1fr)); /* luôn 4 cổng/hàng, khớp bề rộng trang */
   gap: 0;
 }
 /* cho khung chồng nhẹ lên nhau (đuôi cá voi sát rạt cổng bên cạnh) → dày & liền, thẻ trông to hơn */
