@@ -258,20 +258,32 @@ body {
 /* ── Header ứng dụng ──────────────────────────────────── */
 .app-header {
   position: sticky; top: 0; z-index: 20;
-  display: flex; flex-direction: column; gap: 0;
+  display: flex; align-items: center; gap: 22px;
   /* chừa lề an toàn phía trên khi cài PWA (status bar iPhone/notch) để đồng hồ khỏi đè logo */
-  padding: 14px 28px;
-  padding-top: max(14px, env(safe-area-inset-top));
+  padding: 12px 28px;
+  padding-top: max(12px, env(safe-area-inset-top));
   padding-left: max(28px, env(safe-area-inset-left));
   padding-right: max(28px, env(safe-area-inset-right));
   background: rgba(6, 12, 26, 0.82);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--line);
 }
-.app-header-main { display: flex; align-items: center; gap: 28px; }
-/* tầng dưới header = thanh công cụ Biển Cổng (search/sort/nút/pager); trống thì ẩn */
+/* thanh công cụ Biển Cổng nằm CÙNG HÀNG header (giữa nav và user); trống thì co lại */
+.header-tools { flex: 1 1 auto; min-width: 0; display: flex; }
 .header-tools:empty { display: none; }
-.header-tools .browse-bar { margin: 12px 0 0; padding-top: 12px; border-top: 1px solid var(--line); }
+.header-tools .browse-bar { margin: 0; flex: 1; flex-wrap: nowrap; gap: 8px; }
+.header-tools .browse-bar .search-wrap { flex: 1 1 auto; min-width: 120px; max-width: 380px; }
+.header-tools .browse-bar .spacer { flex: 1 1 auto; }
+/* nút Tìm toàn văn / Backup → CHỈ ICON cho gọn (bỏ chữ) */
+.header-tools .browse-bar .icon-btn .ib-tx { display: none; }
+.header-tools .browse-bar .icon-btn { padding: 9px 11px; }
+/* màn hẹp: header xuống dòng, tools về hàng riêng (khỏi tràn) */
+@media (max-width: 860px) {
+  .app-header { flex-wrap: wrap; row-gap: 10px; }
+  .header-tools { order: 3; flex-basis: 100%; }
+  .header-tools .browse-bar { flex-wrap: wrap; }
+  .header-tools .browse-bar .search-wrap { max-width: none; }
+}
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
 .brand-glyph { font-size: 1.4rem; filter: drop-shadow(0 0 8px rgba(127, 212, 232, 0.6)); }
 .brand-text { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; letter-spacing: 0.03em; }
@@ -379,7 +391,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 .mc-ico { display: inline-grid; place-items: center; color: var(--gold-bright); }
 .mc-ico .ic { width: 17px; height: 17px; filter: drop-shadow(0 0 5px rgba(240, 212, 154, 0.65)); }
 /* sao vàng vẽ tay — nằm trong hõm đuôi cá voi (chỉ hiện khi cả hai chủ tiến cử) */
-.fc-star { position: absolute; left: 14%; top: 9%; width: 7%; z-index: 4; pointer-events: none; filter: drop-shadow(0 0 6px rgba(240, 212, 154, 0.6)); }
+.fc-star { position: absolute; left: 21%; top: 8.5%; width: 7%; z-index: 4; pointer-events: none; filter: drop-shadow(0 0 6px rgba(240, 212, 154, 0.6)); }
 
 /* đốm sao lấp lánh blink quanh khung (như v105) */
 .mc-sparkle {
