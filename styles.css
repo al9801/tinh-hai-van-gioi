@@ -466,12 +466,12 @@ body[data-view="home"] .main { max-width: 1280px; }
 
 /* huy hiệu tiến cử (dơi/cá voi trăng): sát góc trên-phải THÂN thẻ */
 .totem-corner {
-  position: absolute; top: -2%; right: 0%; z-index: 6; /* cưỡi rìa trên góc phải, hở hẳn trên số cổng */
+  position: absolute; top: 6%; right: -3%; z-index: 6; /* cưỡi đúng góc trên-phải thân thẻ, né số cổng theo chiều ngang */
   display: flex;
 }
 /* huy hiệu tiến cử = ảnh vẽ tay (dơi-trăng / cá voi-trăng) */
 .totem-badge {
-  width: 56px; height: auto; margin-left: -16px;
+  width: 50px; height: auto; margin-left: -16px;
   filter: drop-shadow(0 3px 7px rgba(0, 0, 0, 0.5));
   animation: totem-pop 0.35s ease;
 }
