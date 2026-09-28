@@ -403,11 +403,14 @@ body[data-view="home"] .main { max-width: 1280px; }
 .mc-ico .ic { width: 17px; height: 17px; filter: drop-shadow(0 0 5px rgba(240, 212, 154, 0.65)); }
 /* tag thế giới = bookmark dọc DÍNH RÌA TRÁI thẻ (như khe vé) */
 .mc-tags {
-  position: absolute; left: 4.5%; top: 27%; z-index: 5;
-  display: flex; flex-direction: column; gap: 6px; align-items: flex-start;
-  transform: rotate(-17deg); transform-origin: left center;
+  position: absolute; left: 4.5%; top: 24%; z-index: 5;
+  display: flex; flex-direction: column; gap: 10px; align-items: flex-end;
 }
-.mc-tag { width: 60px; height: auto; display: block; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.55)); }
+.mc-tag {
+  width: 60px; height: auto; display: block;
+  transform: rotate(-17deg); transform-origin: right center;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.55));
+}
 /* bộ chọn tag thế giới trong modal */
 .tag-count { font-size: 0.78rem; color: var(--ink-dim); font-weight: 400; margin-left: 4px; }
 .tag-picker { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
