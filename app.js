@@ -1070,29 +1070,25 @@ function renderHomeGrid() {
   const canDrag = !me.guest && !q && homeSort === "pos";
   const cards = pageList.map((m) => `
     <a class="map-card" href="#/map/${m.id}" data-id="${m.id}" ${canDrag ? `draggable="true"` : ""}>
-      <span class="mc-inner">
-        <span class="mc-stars" aria-hidden="true"></span>
-        ${MC_BAND}
-        <span class="mc-content">
-          <div class="map-card-num">✦ Cánh cổng ${posNo[m.id]} ✦</div>
-          <span class="mc-av-ring" data-avline="${m.id}" title="Chạm nghe một câu"><span class="mc-avatar${m.hasAvatar ? "" : " mc-av-empty"}" ${m.hasAvatar ? `data-av="${m.id}"` : ""}>${m.hasAvatar ? "" : "✦"}</span></span>
-          <div class="map-card-title">${esc(m.title)}</div>
-          <div class="map-card-world">${esc(m.world || "Thế giới chưa được mô tả…")}</div>
-          <div class="map-card-foot" title="${m.updatedAt ? "Chạm gần nhất: " + fmtTime(m.updatedAt) : ""}">
-            ${(m.hasHtml || m.hasProfile) ? `<span class="mc-ico-row">${m.hasHtml ? `<span class="mc-ico" title="Có bản đồ">${ic("compass")}</span>` : ""}${m.hasProfile ? `<span class="mc-ico" title="Có hồ sơ">${ic("mask")}</span>` : ""}</span>` : ""}
-            ${m.updatedAt ? `<span class="mcf-time">${fmtTime(m.updatedAt)}</span>` : ""}
-          </div>
-        </span>
+      <span class="fc-num">✦ Cánh cổng ${posNo[m.id]} ✦</span>
+      <span class="mc-av-ring" data-avline="${m.id}" title="Chạm nghe một câu"><span class="mc-avatar${m.hasAvatar ? "" : " mc-av-empty"}" ${m.hasAvatar ? `data-av="${m.id}"` : ""}>${m.hasAvatar ? "" : "✦"}</span></span>
+      <span class="fc-body">
+        <div class="map-card-title">${esc(m.title)}</div>
+        <div class="map-card-world">${esc(m.world || "Thế giới chưa được mô tả…")}</div>
+        <div class="map-card-foot" title="${m.updatedAt ? "Chạm gần nhất: " + fmtTime(m.updatedAt) : ""}">
+          ${(m.hasHtml || m.hasProfile) ? `<span class="mc-ico-row">${m.hasHtml ? `<span class="mc-ico" title="Có bản đồ">${ic("compass")}</span>` : ""}${m.hasProfile ? `<span class="mc-ico" title="Có hồ sơ">${ic("mask")}</span>` : ""}</span>` : ""}
+          ${m.updatedAt ? `<span class="mcf-time">${fmtTime(m.updatedAt)}</span>` : ""}
+        </div>
       </span>
       ${m.nsfw ? `<img class="nsfw-sticker mc-stimg" src="assets/mark-sao.png" alt="NSFW" title="Cổng thiên về NSFW">` : ""}
       ${m.wip ? `<span class="wip-sticker" title="Map đang sửa — chưa chơi được">🩹</span>` : ""}
       ${m.noH ? `<img class="noh-sticker mc-stimg" src="assets/mark-so.png" alt="" title="Không có H — chơi có 'kéo rèm'">` : ""}
       <span class="totem-corner">${totemBadges(m.recommends)}</span>
-      <span class="mc-sparkle sp1" aria-hidden="true">✦</span><span class="mc-sparkle sp2" aria-hidden="true">✦</span><span class="mc-sparkle sp3" aria-hidden="true">✦</span><span class="mc-sparkle sp4" aria-hidden="true">✦</span><span class="mc-sparkle sp5" aria-hidden="true">✦</span>
+      <img class="fc-star" src="assets/star.png" alt="" aria-hidden="true">
       ${fishRow(m)}
     </a>`).join("");
 
-  grid.innerHTML = `${MC_DEFS}
+  grid.innerHTML = `
     <div class="map-grid">
       ${cards}
       ${me.guest ? "" : `<button class="map-card new-card" id="btn-new-map">
