@@ -1093,7 +1093,7 @@ function renderHomeGrid() {
       ${m.noH ? `<img class="noh-sticker mc-stimg" src="assets/mark-so.png" alt="" title="Không có H — chơi có 'kéo rèm'">` : ""}
       <span class="totem-corner">${totemBadges(m.recommends)}</span>
       ${bothRecommend(m.recommends) ? `<img class="fc-star" src="assets/star.png" alt="" title="Cả Dơi & Cá Voi Sao cùng tiến cử" aria-hidden="true">` : ""}
-      <span class="mc-sparkle sp1" aria-hidden="true">✦</span><span class="mc-sparkle sp2" aria-hidden="true">✦</span><span class="mc-sparkle sp3" aria-hidden="true">✦</span><span class="mc-sparkle sp4" aria-hidden="true">✦</span><span class="mc-sparkle sp5" aria-hidden="true">✦</span>
+      <span class="mc-sparkle sp1" aria-hidden="true">✦</span><span class="mc-sparkle sp2" aria-hidden="true">✦</span><span class="mc-sparkle sp3" aria-hidden="true">✦</span><span class="mc-sparkle sp4" aria-hidden="true">✦</span><span class="mc-sparkle sp5" aria-hidden="true">✦</span><span class="mc-sparkle sp6" aria-hidden="true">✦</span><span class="mc-sparkle sp7" aria-hidden="true">✦</span>
       ${fishRow(m)}
     </a>`).join("");
 

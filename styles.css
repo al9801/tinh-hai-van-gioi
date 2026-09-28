@@ -312,8 +312,8 @@ body {
 /* ── Lưới cổng (home) ─────────────────────────────────── */
 .map-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 16px 2px; /* khít ngang cho thẻ to & đuôi cá voi đè nhẹ lên thẻ bên cạnh */
+  grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+  gap: 18px 6px; /* 4 cổng/hàng; gap ngang khít để đuôi cá voi đè nhẹ thẻ bên cạnh */
 }
 
 /* ── THẺ CỔNG: liền khối, dải sóng banner ở đáy ──────── */
@@ -346,7 +346,7 @@ body {
 .mc-avatar {
   position: absolute; inset: 0; border-radius: 50%; overflow: hidden;
   background: radial-gradient(circle at 40% 35%, #2a3d68, #131d38) center/cover no-repeat;
-  box-shadow: 0 0 0 3px rgba(232, 196, 122, 0.95), 0 0 0 6px rgba(232, 196, 122, 0.22), 0 0 18px rgba(217, 180, 111, 0.5), 0 6px 16px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 3px rgba(232, 196, 122, 0.95), 0 0 0 5px rgba(232, 196, 122, 0.28), 0 0 16px rgba(217, 180, 111, 0.45);
   display: grid; place-items: center; color: var(--gold-bright); font-size: 1.4rem;
 }
 /* tên + mô tả + info — vùng dưới vòng avatar */
@@ -370,7 +370,7 @@ body {
 .mc-ico { display: inline-grid; place-items: center; color: var(--gold-bright); }
 .mc-ico .ic { width: 16px; height: 16px; filter: drop-shadow(0 0 5px rgba(240, 212, 154, 0.65)); }
 /* sao vàng vẽ tay — nằm trong hõm đuôi cá voi (chỉ hiện khi cả hai chủ tiến cử) */
-.fc-star { position: absolute; left: 15%; top: 7.5%; width: 10%; z-index: 4; pointer-events: none; filter: drop-shadow(0 0 6px rgba(240, 212, 154, 0.6)); }
+.fc-star { position: absolute; left: 18.5%; top: 7.5%; width: 7%; z-index: 4; pointer-events: none; filter: drop-shadow(0 0 6px rgba(240, 212, 154, 0.6)); }
 
 /* đốm sao lấp lánh blink quanh khung (như v105) */
 .mc-sparkle {
@@ -383,6 +383,9 @@ body {
 .mc-sparkle.sp3 { bottom: 16%; right: 8%; font-size: 0.78rem; animation-delay: 1.1s; }
 .mc-sparkle.sp4 { bottom: 22%; left: 4%; animation-delay: 1.6s; }
 .mc-sparkle.sp5 { top: 30%; left: 8%; font-size: 0.55rem; animation-delay: 0.9s; }
+/* điểm nhấn blink quanh đuôi cá voi (góc trên-trái) */
+.mc-sparkle.sp6 { top: 3%; left: 10%; font-size: 0.5rem; animation-delay: 0.3s; }
+.mc-sparkle.sp7 { top: 12.5%; left: 3.5%; font-size: 0.64rem; animation-delay: 1.35s; }
 @keyframes mc-twinkle { 0%, 100% { opacity: 0.18; transform: scale(0.6); } 50% { opacity: 1; transform: scale(1.15); } }
 
 /* bong bóng thoại gắn theo thẻ (cuộn cùng thẻ) */
@@ -406,9 +409,10 @@ body {
 
 /* huy hiệu tiến cử (dơi/cá voi trăng): sát góc trên-phải THÂN thẻ */
 .totem-corner {
-  position: absolute; top: 1%; right: -1%; z-index: 6;
+  position: absolute; top: 1%; right: 2%; z-index: 6;
   display: flex;
 }
+.totem-badge { width: 44px; }
 /* huy hiệu tiến cử = ảnh vẽ tay (dơi-trăng / cá voi-trăng) */
 .totem-badge {
   width: 50px; height: auto; margin-left: -14px;
@@ -1452,10 +1456,10 @@ body:not(.guest) .gas-fab { bottom: 86px; }
 /* nhãn sticker 🔥 NSFW dán lên thẻ cổng */
 /* sticker ảnh vẽ tay trên thẻ: sao biển (NSFW, góc dưới-trái) + sò (no-H, góc dưới-phải) */
 .mc-stimg { height: auto; display: block; }
-img.nsfw-sticker { width: 20%; }
-img.noh-sticker { width: 19%; }
+img.nsfw-sticker { width: 11%; }
+img.noh-sticker { width: 11%; }
 .nsfw-sticker {
-  position: absolute; top: auto; bottom: 1%; left: -1%;
+  position: absolute; top: auto; bottom: 2%; left: 1.5%;
   font-size: 1.5rem;
   transform: rotate(-14deg);
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 12px rgba(255, 130, 40, 0.55));
@@ -1748,7 +1752,7 @@ body.guest .doc-page { user-select: none; }
 
 /* dấu 🌫️ "không có H" — đậu góc DƯỚI bên phải thẻ cổng */
 .noh-sticker {
-  position: absolute; top: auto; bottom: 1%; right: 0%; left: auto;
+  position: absolute; top: auto; bottom: 2%; right: 1.5%; left: auto;
   font-size: 1.35rem;
   transform: rotate(-8deg);
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 10px rgba(160, 200, 235, 0.45));
