@@ -405,7 +405,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 .mc-tags {
   position: absolute; left: 4.5%; top: 27%; z-index: 5;
   display: flex; flex-direction: column; gap: 6px; align-items: flex-start;
-  transform: rotate(-9deg); transform-origin: left center;
+  transform: rotate(-17deg); transform-origin: left center;
 }
 .mc-tag { width: 60px; height: auto; display: block; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.55)); }
 /* bộ chọn tag thế giới trong modal */
