@@ -238,6 +238,12 @@ function setLineHeight(page, lh) {
 }
 // ảnh totem/avatar vẽ tay cho hai chủ (🦇 Dơi, ⭐ Cá Voi Sao); fallback emoji nếu thiếu
 const TOTEM_IMG = { "🦇": "av-doi", "⭐": "av-cavoi" };
+// sao vàng chỉ hiện khi CẢ hai chủ (Dơi + Cá Voi Sao) cùng tiến cử
+function bothRecommend(recommends) {
+  const rec = recommends || {};
+  const owners = Object.keys(ACCOUNTS);
+  return owners.length >= 2 && owners.every((e) => rec[e]);
+}
 function totemBadges(recommends) {
   const rec = recommends || {};
   return Object.entries(ACCOUNTS)
@@ -810,7 +816,9 @@ function teardown() {
 }
 
 function enterForest() {
-  $("#user-totem").textContent = me.icon;
+  const _ut = $("#user-totem"), _img = TOTEM_IMG[me.icon];
+  if (_img) _ut.innerHTML = `<img src="assets/${_img}.png" alt="${esc(me.name)}" class="user-totem-img">`;
+  else _ut.textContent = me.icon;
   $("#user-totem").title = `${me.name} — ${me.email}`;
   $("#user-name").textContent = me.name + (DEMO ? " (demo)" : "");
   document.body.classList.toggle("guest", !!me.guest);
@@ -1084,7 +1092,8 @@ function renderHomeGrid() {
       ${m.wip ? `<span class="wip-sticker" title="Map đang sửa — chưa chơi được">🩹</span>` : ""}
       ${m.noH ? `<img class="noh-sticker mc-stimg" src="assets/mark-so.png" alt="" title="Không có H — chơi có 'kéo rèm'">` : ""}
       <span class="totem-corner">${totemBadges(m.recommends)}</span>
-      <img class="fc-star" src="assets/star.png" alt="" aria-hidden="true">
+      ${bothRecommend(m.recommends) ? `<img class="fc-star" src="assets/star.png" alt="" title="Cả Dơi & Cá Voi Sao cùng tiến cử" aria-hidden="true">` : ""}
+      <span class="mc-sparkle sp1" aria-hidden="true">✦</span><span class="mc-sparkle sp2" aria-hidden="true">✦</span><span class="mc-sparkle sp3" aria-hidden="true">✦</span><span class="mc-sparkle sp4" aria-hidden="true">✦</span><span class="mc-sparkle sp5" aria-hidden="true">✦</span>
       ${fishRow(m)}
     </a>`).join("");
 
