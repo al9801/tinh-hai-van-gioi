@@ -310,11 +310,17 @@ body {
 .page-sub { color: var(--ink-faint); font-size: 0.9rem; margin-top: 4px; }
 
 /* ── Lưới cổng (home) ─────────────────────────────────── */
+/* lưới trang chủ phá khung 1180 để 4 cột giãn TO trên màn rộng */
+#home-grid { width: min(1480px, calc(100vw - 40px)); margin-left: 50%; transform: translateX(-50%); }
 .map-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
-  gap: 18px 6px; /* 4 cổng/hàng; gap ngang khít để đuôi cá voi đè nhẹ thẻ bên cạnh */
+  grid-template-columns: repeat(4, minmax(0, 1fr)); /* luôn 4 cổng/hàng */
+  gap: 0;
 }
+/* cho khung chồng nhẹ lên nhau (đuôi cá voi sát rạt cổng bên cạnh) → dày & liền, thẻ trông to hơn */
+.map-card { margin: -2.5% -2.5% 0; }
+.map-grid > .map-card:nth-child(-n + 4) { margin-top: 0; }
+.map-card:hover { z-index: 5; } /* thẻ đang hover nổi lên trên */
 
 /* ── THẺ CỔNG: liền khối, dải sóng banner ở đáy ──────── */
 /* dùng ẢNH KHUNG vẽ tay của user làm nền, chồng nội dung động lên đúng vị trí */
@@ -370,7 +376,7 @@ body {
 .mc-ico { display: inline-grid; place-items: center; color: var(--gold-bright); }
 .mc-ico .ic { width: 16px; height: 16px; filter: drop-shadow(0 0 5px rgba(240, 212, 154, 0.65)); }
 /* sao vàng vẽ tay — nằm trong hõm đuôi cá voi (chỉ hiện khi cả hai chủ tiến cử) */
-.fc-star { position: absolute; left: 18.5%; top: 7.5%; width: 7%; z-index: 4; pointer-events: none; filter: drop-shadow(0 0 6px rgba(240, 212, 154, 0.6)); }
+.fc-star { position: absolute; left: 16%; top: 11%; width: 7%; z-index: 4; pointer-events: none; filter: drop-shadow(0 0 6px rgba(240, 212, 154, 0.6)); }
 
 /* đốm sao lấp lánh blink quanh khung (như v105) */
 .mc-sparkle {
