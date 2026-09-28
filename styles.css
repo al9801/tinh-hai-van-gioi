@@ -403,8 +403,9 @@ body[data-view="home"] .main { max-width: 1280px; }
 .mc-ico .ic { width: 17px; height: 17px; filter: drop-shadow(0 0 5px rgba(240, 212, 154, 0.65)); }
 /* tag thế giới = bookmark dọc DÍNH RÌA TRÁI thẻ (như khe vé) */
 .mc-tags {
-  position: absolute; left: -1%; top: 30%; z-index: 5;
-  display: flex; flex-direction: column; gap: 5px; align-items: flex-start;
+  position: absolute; left: 4.5%; top: 27%; z-index: 5;
+  display: flex; flex-direction: column; gap: 6px; align-items: flex-start;
+  transform: rotate(-9deg); transform-origin: left center;
 }
 .mc-tag { width: 60px; height: auto; display: block; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.55)); }
 /* bộ chọn tag thế giới trong modal */
@@ -462,12 +463,12 @@ body[data-view="home"] .main { max-width: 1280px; }
 
 /* huy hiệu tiến cử (dơi/cá voi trăng): sát góc trên-phải THÂN thẻ */
 .totem-corner {
-  position: absolute; top: 8%; right: 2%; z-index: 6; /* dán đè lên rìa trên-phải thân */
+  position: absolute; top: 2.5%; right: 0%; z-index: 6; /* lùi lên góc trên-phải, tránh che số cổng */
   display: flex;
 }
 /* huy hiệu tiến cử = ảnh vẽ tay (dơi-trăng / cá voi-trăng) */
 .totem-badge {
-  width: 50px; height: auto; margin-left: -14px;
+  width: 46px; height: auto; margin-left: -14px;
   filter: drop-shadow(0 3px 7px rgba(0, 0, 0, 0.5));
   animation: totem-pop 0.35s ease;
 }
