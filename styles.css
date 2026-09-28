@@ -603,6 +603,25 @@ span.totem-badge-emoji:first-child { margin-left: 0; }
 .field-hint { font-size: 0.76rem; color: var(--ink-faint); margin-top: 6px; line-height: 1.5; }
 .map-view-world { color: var(--ink-dim); font-style: italic; margin-top: 4px; }
 
+/* tag thế giới trong trang chi tiết cổng — hàng vé nằm ngang dưới mô tả */
+.mv-tags { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 12px; }
+.mv-tags.hidden { display: none; }
+.mv-tag {
+  height: 30px; width: auto; display: block;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.5));
+}
+/* nhãn tình trạng (NSFW=sao biển, No-H=sò) — sticker vẽ tay, đồng bộ với thẻ ngoài */
+.mv-mark { width: 42px; height: auto; align-self: center; filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45)); }
+.mv-mark.mv-mark-emoji { width: auto; font-size: 1.5rem; line-height: 1; }
+.mv-mark.hidden { display: none; }
+/* huy hiệu tiến cử nhỏ inline (dơi/cá voi vẽ tay) trong nút & dòng trạng thái */
+.totem-mini { height: 1.45em; width: auto; vertical-align: -0.32em; }
+.totem-mini-emoji { font-style: normal; }
+.rec-status .totem-mini { height: 1.35em; vertical-align: -0.28em; }
+/* nhãn nhỏ trong checkbox modal */
+.lbl-mark { width: 22px; height: auto; vertical-align: -0.35em; }
+.lbl-mark.lbl-mark-emoji { width: auto; font-size: 1.05rem; vertical-align: baseline; }
+
 .map-actions {
   display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
   margin-top: 20px;
