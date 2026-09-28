@@ -312,8 +312,8 @@ body {
 /* ── Lưới cổng (home) ─────────────────────────────────── */
 .map-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px 2px; /* khít ngang cho thẻ to & đuôi cá voi đè nhẹ lên thẻ bên cạnh */
 }
 
 /* ── THẺ CỔNG: liền khối, dải sóng banner ở đáy ──────── */
@@ -336,9 +336,9 @@ body {
   text-transform: uppercase; color: var(--glow); white-space: nowrap;
   text-shadow: 0 0 10px rgba(127, 212, 232, 0.5);
 }
-/* avatar tròn — khít vào vòng vàng của khung, thêm glow kiểu v105 */
+/* vòng avatar VẼ BẰNG CSS (khung trống) — đặt cao cho cân, kiểu v105 */
 .mc-av-ring {
-  position: absolute; left: 57.3%; top: 44.4%; width: 33.5%; aspect-ratio: 1;
+  position: absolute; left: 57%; top: 40%; width: 34%; aspect-ratio: 1;
   transform: translate(-50%, -50%); z-index: 3; cursor: pointer; transition: transform 0.18s ease;
 }
 .mc-av-ring:hover { transform: translate(-50%, -50%) scale(1.05); }
@@ -346,7 +346,7 @@ body {
 .mc-avatar {
   position: absolute; inset: 0; border-radius: 50%; overflow: hidden;
   background: radial-gradient(circle at 40% 35%, #2a3d68, #131d38) center/cover no-repeat;
-  box-shadow: 0 0 0 2px rgba(230, 192, 120, 0.55), 0 0 16px rgba(217, 180, 111, 0.45), 0 6px 16px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 0 0 3px rgba(232, 196, 122, 0.95), 0 0 0 6px rgba(232, 196, 122, 0.22), 0 0 18px rgba(217, 180, 111, 0.5), 0 6px 16px rgba(0, 0, 0, 0.5);
   display: grid; place-items: center; color: var(--gold-bright); font-size: 1.4rem;
 }
 /* tên + mô tả + info — vùng dưới vòng avatar */
