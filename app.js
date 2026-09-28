@@ -236,12 +236,19 @@ function setLineHeight(page, lh) {
     page.style.lineHeight = lh; // không có khối nào → giãn cả trang
   }
 }
+// ảnh totem/avatar vẽ tay cho hai chủ (🦇 Dơi, ⭐ Cá Voi Sao); fallback emoji nếu thiếu
+const TOTEM_IMG = { "🦇": "av-doi", "⭐": "av-cavoi" };
 function totemBadges(recommends) {
   const rec = recommends || {};
   return Object.entries(ACCOUNTS)
     .filter(([email]) => rec[email])
-    .map(([email, a]) =>
-      `<span class="totem-badge" title="${esc(a.name)} (${esc(email)}) đã tiến cử">${a.icon}</span>`)
+    .map(([email, a]) => {
+      const img = TOTEM_IMG[a.icon];
+      const tip = `${esc(a.name)} (${esc(email)}) đã tiến cử`;
+      return img
+        ? `<img class="totem-badge" src="assets/${img}.png" alt="${esc(a.name)}" title="${tip}">`
+        : `<span class="totem-badge totem-badge-emoji" title="${tip}">${a.icon}</span>`;
+    })
     .join("");
 }
 /* nén ảnh phía client thành data-URL (Firestore giới hạn ~1MB/document) */
@@ -1077,9 +1084,9 @@ function renderHomeGrid() {
           </div>
         </span>
       </span>
-      ${m.nsfw ? `<span class="nsfw-sticker" title="Cổng thiên về NSFW">🔥</span>` : ""}
+      ${m.nsfw ? `<img class="nsfw-sticker mc-stimg" src="assets/mark-sao.png" alt="NSFW" title="Cổng thiên về NSFW">` : ""}
       ${m.wip ? `<span class="wip-sticker" title="Map đang sửa — chưa chơi được">🩹</span>` : ""}
-      ${m.noH ? `<span class="noh-sticker" title="Không có H — chơi có 'kéo rèm'">🌫️</span>` : ""}
+      ${m.noH ? `<img class="noh-sticker mc-stimg" src="assets/mark-so.png" alt="" title="Không có H — chơi có 'kéo rèm'">` : ""}
       <span class="totem-corner">${totemBadges(m.recommends)}</span>
       <span class="mc-sparkle sp1" aria-hidden="true">✦</span><span class="mc-sparkle sp2" aria-hidden="true">✦</span><span class="mc-sparkle sp3" aria-hidden="true">✦</span><span class="mc-sparkle sp4" aria-hidden="true">✦</span><span class="mc-sparkle sp5" aria-hidden="true">✦</span>
       ${fishRow(m)}
