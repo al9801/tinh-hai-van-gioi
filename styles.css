@@ -356,7 +356,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 }
 /* tên + mô tả + info — vùng dưới vòng avatar */
 .fc-body {
-  position: absolute; left: 57.3%; top: 59%; transform: translateX(-50%); width: 76%; z-index: 3;
+  position: absolute; left: 57.3%; top: 63%; transform: translateX(-50%); width: 76%; z-index: 3;
   text-align: center;
 }
 .map-card-title {
@@ -375,7 +375,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 .mc-ico { display: inline-grid; place-items: center; color: var(--gold-bright); }
 .mc-ico .ic { width: 17px; height: 17px; filter: drop-shadow(0 0 5px rgba(240, 212, 154, 0.65)); }
 /* sao vàng vẽ tay — nằm trong hõm đuôi cá voi (chỉ hiện khi cả hai chủ tiến cử) */
-.fc-star { position: absolute; left: 23%; top: 16%; width: 6.5%; z-index: 4; pointer-events: none; filter: drop-shadow(0 0 6px rgba(240, 212, 154, 0.6)); }
+.fc-star { position: absolute; left: 14%; top: 9%; width: 7%; z-index: 4; pointer-events: none; filter: drop-shadow(0 0 6px rgba(240, 212, 154, 0.6)); }
 
 /* đốm sao lấp lánh blink quanh khung (như v105) */
 .mc-sparkle {
@@ -414,7 +414,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 
 /* huy hiệu tiến cử (dơi/cá voi trăng): sát góc trên-phải THÂN thẻ */
 .totem-corner {
-  position: absolute; top: 15%; right: 4%; z-index: 6; /* NẰM TRONG thân (thân bắt đầu ~13%) */
+  position: absolute; top: 8%; right: 2%; z-index: 6; /* dán đè lên rìa trên-phải thân */
   display: flex;
 }
 /* huy hiệu tiến cử = ảnh vẽ tay (dơi-trăng / cá voi-trăng) */
@@ -1458,12 +1458,12 @@ body:not(.guest) .gas-fab { bottom: 86px; }
 }
 
 /* nhãn sticker 🔥 NSFW dán lên thẻ cổng */
-/* sticker ảnh vẽ tay trên thẻ: sao biển (NSFW, góc dưới-trái) + sò (no-H, góc dưới-phải) */
+/* sticker ảnh vẽ tay: DÁN ĐÈ LÊN RÌA thẻ (nửa trong nửa ngoài) — sao biển rìa trái, sò rìa phải */
 .mc-stimg { height: auto; display: block; }
-img.nsfw-sticker { width: 11%; }
-img.noh-sticker { width: 11%; }
+img.nsfw-sticker { width: 15%; }
+img.noh-sticker { width: 15%; }
 .nsfw-sticker {
-  position: absolute; top: auto; bottom: 13%; left: 7%;
+  position: absolute; top: auto; bottom: 13%; left: 9%;
   font-size: 1.5rem;
   transform: rotate(-14deg);
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 12px rgba(255, 130, 40, 0.55));
@@ -1756,7 +1756,7 @@ body.guest .doc-page { user-select: none; }
 
 /* dấu 🌫️ "không có H" — đậu góc DƯỚI bên phải thẻ cổng */
 .noh-sticker {
-  position: absolute; top: auto; bottom: 13%; right: 7%; left: auto;
+  position: absolute; top: auto; bottom: 13%; right: -5%; left: auto;
   font-size: 1.35rem;
   transform: rotate(-8deg);
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 10px rgba(160, 200, 235, 0.45));
