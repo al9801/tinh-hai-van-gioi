@@ -1110,10 +1110,10 @@ function renderHomeGrid() {
     <a class="map-card" href="#/map/${m.id}" data-id="${m.id}" ${canDrag ? `draggable="true"` : ""}>
       <span class="fc-num">✦ Cánh cổng ${posNo[m.id]} ✦</span>
       <span class="mc-av-ring" data-avline="${m.id}" title="Chạm nghe một câu"><span class="mc-avatar${m.hasAvatar ? "" : " mc-av-empty"}" ${m.hasAvatar ? `data-av="${m.id}"` : ""}>${m.hasAvatar ? "" : "✦"}</span></span>
+      ${tagsRow(m)}
       <span class="fc-body">
         <div class="map-card-title">${esc(m.title)}</div>
         <div class="map-card-world">${esc(m.world || "Thế giới chưa được mô tả…")}</div>
-        ${tagsRow(m)}
         <div class="map-card-foot" title="${m.updatedAt ? "Chạm gần nhất: " + fmtTime(m.updatedAt) : ""}">
           ${(m.hasHtml || m.hasProfile) ? `<span class="mc-ico-row">${m.hasHtml ? `<span class="mc-ico" title="Có bản đồ">${ic("compass")}</span>` : ""}${m.hasProfile ? `<span class="mc-ico" title="Có hồ sơ">${ic("mask")}</span>` : ""}</span>` : ""}
           ${m.updatedAt ? `<span class="mcf-time">${fmtTime(m.updatedAt)}</span>` : ""}

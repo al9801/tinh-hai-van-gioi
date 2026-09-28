@@ -401,9 +401,12 @@ body[data-view="home"] .main { max-width: 1280px; }
 .mc-ico-row { display: inline-flex; align-items: center; gap: 8px; }
 .mc-ico { display: inline-grid; place-items: center; color: var(--gold-bright); }
 .mc-ico .ic { width: 17px; height: 17px; filter: drop-shadow(0 0 5px rgba(240, 212, 154, 0.65)); }
-/* tag thế giới hiển thị trên thẻ cổng */
-.mc-tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 5px; margin: 5px 0 3px; }
-.mc-tag { height: 19px; width: auto; display: block; filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45)); }
+/* tag thế giới = bookmark dọc DÍNH RÌA TRÁI thẻ (như khe vé) */
+.mc-tags {
+  position: absolute; left: -1%; top: 30%; z-index: 5;
+  display: flex; flex-direction: column; gap: 5px; align-items: flex-start;
+}
+.mc-tag { width: 60px; height: auto; display: block; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.55)); }
 /* bộ chọn tag thế giới trong modal */
 .tag-count { font-size: 0.78rem; color: var(--ink-dim); font-weight: 400; margin-left: 4px; }
 .tag-picker { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
@@ -1508,7 +1511,7 @@ body:not(.guest) .gas-fab { bottom: 86px; }
 img.nsfw-sticker { width: 15%; }
 img.noh-sticker { width: 15%; }
 .nsfw-sticker {
-  position: absolute; top: auto; bottom: 13%; left: 9%;
+  position: absolute; top: auto; bottom: 7%; left: 9%;
   font-size: 1.5rem;
   transform: rotate(-14deg);
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 12px rgba(255, 130, 40, 0.55));
@@ -1801,7 +1804,7 @@ body.guest .doc-page { user-select: none; }
 
 /* dấu 🌫️ "không có H" — đậu góc DƯỚI bên phải thẻ cổng */
 .noh-sticker {
-  position: absolute; top: auto; bottom: 13%; right: -5%; left: auto;
+  position: absolute; top: auto; bottom: 7%; right: -5%; left: auto;
   font-size: 1.35rem;
   transform: rotate(-8deg);
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 10px rgba(160, 200, 235, 0.45));
