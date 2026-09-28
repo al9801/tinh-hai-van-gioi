@@ -315,11 +315,11 @@ body[data-view="home"] .main { max-width: 1440px; }
 .map-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr)); /* luôn 4 cổng/hàng, khớp bề rộng trang */
-  gap: 0;
+  gap: 6px 4px;
 }
-/* cho khung chồng nhẹ lên nhau (đuôi cá voi sát rạt cổng bên cạnh) → dày & liền, thẻ trông to hơn */
-.map-card { margin: -2.5% -2.5% 0; }
-.map-grid > .map-card:nth-child(-n + 4) { margin-top: 0; }
+/* XẾP SO LE (zigzag): cột chẵn tụt xuống → đuôi cá voi đan xen vào cổng bên có nhịp điệu, chồng nhẹ ngang */
+.map-card { margin-left: -1.5%; margin-right: -1.5%; }
+.map-grid > .map-card:nth-child(2n) { margin-top: 42px; }
 .map-card:hover { z-index: 5; } /* thẻ đang hover nổi lên trên */
 
 /* ── THẺ CỔNG: liền khối, dải sóng banner ở đáy ──────── */
@@ -376,7 +376,7 @@ body[data-view="home"] .main { max-width: 1440px; }
 .mc-ico { display: inline-grid; place-items: center; color: var(--gold-bright); }
 .mc-ico .ic { width: 19px; height: 19px; filter: drop-shadow(0 0 5px rgba(240, 212, 154, 0.65)); }
 /* sao vàng vẽ tay — nằm trong hõm đuôi cá voi (chỉ hiện khi cả hai chủ tiến cử) */
-.fc-star { position: absolute; left: 21%; top: 13.5%; width: 6.5%; z-index: 4; pointer-events: none; filter: drop-shadow(0 0 6px rgba(240, 212, 154, 0.6)); }
+.fc-star { position: absolute; left: 23%; top: 16%; width: 6.5%; z-index: 4; pointer-events: none; filter: drop-shadow(0 0 6px rgba(240, 212, 154, 0.6)); }
 
 /* đốm sao lấp lánh blink quanh khung (như v105) */
 .mc-sparkle {
@@ -415,7 +415,7 @@ body[data-view="home"] .main { max-width: 1440px; }
 
 /* huy hiệu tiến cử (dơi/cá voi trăng): sát góc trên-phải THÂN thẻ */
 .totem-corner {
-  position: absolute; top: 8%; right: 3%; z-index: 6; /* ôm góc trên-phải THÂN cổng */
+  position: absolute; top: 15%; right: 4%; z-index: 6; /* NẰM TRONG thân (thân bắt đầu ~13%) */
   display: flex;
 }
 /* huy hiệu tiến cử = ảnh vẽ tay (dơi-trăng / cá voi-trăng) */
@@ -1464,7 +1464,7 @@ body:not(.guest) .gas-fab { bottom: 86px; }
 img.nsfw-sticker { width: 11%; }
 img.noh-sticker { width: 11%; }
 .nsfw-sticker {
-  position: absolute; top: auto; bottom: 7%; left: 5%;
+  position: absolute; top: auto; bottom: 13%; left: 7%;
   font-size: 1.5rem;
   transform: rotate(-14deg);
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 12px rgba(255, 130, 40, 0.55));
@@ -1757,7 +1757,7 @@ body.guest .doc-page { user-select: none; }
 
 /* dấu 🌫️ "không có H" — đậu góc DƯỚI bên phải thẻ cổng */
 .noh-sticker {
-  position: absolute; top: auto; bottom: 7%; right: 5%; left: auto;
+  position: absolute; top: auto; bottom: 13%; right: 7%; left: auto;
   font-size: 1.35rem;
   transform: rotate(-8deg);
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 10px rgba(160, 200, 235, 0.45));

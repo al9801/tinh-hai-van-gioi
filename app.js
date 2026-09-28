@@ -53,24 +53,30 @@ let mapsLoaded = false, draftsLoaded = false, resumeDone = false;
 function noteLastEdit() {
   try { localStorage.setItem("thvg-last-edit", JSON.stringify({ hash: location.hash || "" })); } catch {}
 }
+function finishResume() {
+  resumeDone = true;
+  // đánh dấu đã resume cho PHIÊN tab này → RELOAD sẽ không nhảy lại (chỉ nhảy 1 lần khi mở web mới)
+  try { sessionStorage.setItem("thvg-resumed", "1"); } catch {}
+}
 function maybeResumeLastEdit() {
   if (resumeDone) return;
+  try { if (sessionStorage.getItem("thvg-resumed")) { resumeDone = true; return; } } catch {}
   const cur = location.hash || "";
-  if (cur && cur !== "#/") { resumeDone = true; return; } // đang mở link cụ thể → tôn trọng
+  if (cur && cur !== "#/") { finishResume(); return; } // đang mở link cụ thể → tôn trọng
   let le = null;
   try { le = JSON.parse(localStorage.getItem("thvg-last-edit") || "null"); } catch {}
-  if (!le || !le.hash) { if (mapsLoaded && draftsLoaded) resumeDone = true; return; }
+  if (!le || !le.hash) { if (mapsLoaded && draftsLoaded) finishResume(); return; }
   const id = le.hash.split("/")[2];
   if (le.hash.startsWith("#/map/")) {
     if (!mapsLoaded) return;               // chờ danh sách cổng về mới biết còn tồn tại không
-    resumeDone = true;
+    finishResume();
     if (maps.some((m) => m.id === id)) location.hash = le.hash;
   } else if (le.hash.startsWith("#/thu-phong/")) {
     if (!draftsLoaded) return;
-    resumeDone = true;
+    finishResume();
     if (drafts.some((d) => d.id === id)) location.hash = le.hash;
   } else {
-    resumeDone = true;
+    finishResume();
   }
 }
 
