@@ -372,7 +372,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 }
 /* tên + mô tả + info — vùng dưới vòng avatar */
 .fc-body {
-  position: absolute; left: 57.3%; top: 63%; transform: translateX(-50%); width: 76%; z-index: 3;
+  position: absolute; left: 57.3%; top: 63%; transform: translateX(-50%); width: 66%; z-index: 3;
   text-align: center;
 }
 .map-card-title {
@@ -390,6 +390,24 @@ body[data-view="home"] .main { max-width: 1280px; }
 .mc-ico-row { display: inline-flex; align-items: center; gap: 8px; }
 .mc-ico { display: inline-grid; place-items: center; color: var(--gold-bright); }
 .mc-ico .ic { width: 17px; height: 17px; filter: drop-shadow(0 0 5px rgba(240, 212, 154, 0.65)); }
+/* tag thế giới hiển thị trên thẻ cổng */
+.mc-tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 5px; margin: 5px 0 3px; }
+.mc-tag { height: 19px; width: auto; display: block; filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45)); }
+/* bộ chọn tag thế giới trong modal */
+.tag-count { font-size: 0.78rem; color: var(--ink-dim); font-weight: 400; margin-left: 4px; }
+.tag-picker { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.tag-opt {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  width: 94px; padding: 6px 5px; cursor: pointer;
+  background: rgba(13, 26, 50, 0.5); border: 1.5px solid var(--line); border-radius: 12px;
+  transition: border-color 0.15s, background 0.15s;
+}
+.tag-opt img { width: 100%; height: auto; display: block; opacity: 0.5; transition: opacity 0.15s; }
+.tag-opt .tag-nm { font-size: 0.72rem; color: var(--ink-dim); }
+.tag-opt:hover { border-color: var(--line-strong); }
+.tag-opt.on { border-color: var(--gold); background: rgba(217, 180, 111, 0.14); }
+.tag-opt.on img { opacity: 1; }
+.tag-opt.on .tag-nm { color: var(--gold-bright); }
 /* sao vàng vẽ tay — nằm trong hõm đuôi cá voi (chỉ hiện khi cả hai chủ tiến cử) */
 .fc-star { position: absolute; left: 21%; top: 8.5%; width: 7%; z-index: 4; pointer-events: none; filter: drop-shadow(0 0 6px rgba(240, 212, 154, 0.6)); }
 

@@ -20,6 +20,21 @@ const ACCOUNTS = window.ACCOUNTS || {};
 const GUEST_EMAILS = window.GUESTS || [];
 const SEA_CREATURES = window.SEA_CREATURES || [{ icon: "🐟", name: "Cá Lạ Không Tên" }];
 const DEFAULT_GAS = window.DEFAULT_GAS_LINK || "https://aistudio.google.com/";
+// tag thế giới (vé) — mỗi cổng chọn tối đa 3
+const WORLD_TAGS = [
+  { key: "hien-dai", name: "Hiện đại" }, { key: "mat-the", name: "Mạt thế" },
+  { key: "co-trang", name: "Cổ trang" }, { key: "than-thoai", name: "Thần thoại" },
+  { key: "gia-tuong", name: "Giả tưởng" }, { key: "trinh-tham", name: "Trinh thám" },
+  { key: "tu-tien", name: "Tu tiên" }, { key: "hai-huoc", name: "Hài hước" },
+  { key: "coi-am", name: "Cối âm" }, { key: "tra-xanh", name: "Trà xanh" },
+  { key: "tuong-lai", name: "Tương lai" },
+];
+const TAG_NAME = Object.fromEntries(WORLD_TAGS.map((t) => [t.key, t.name]));
+function tagsRow(m) {
+  const ts = (m.tags || []).filter((k) => TAG_NAME[k]).slice(0, 3);
+  if (!ts.length) return "";
+  return `<span class="mc-tags">${ts.map((k) => `<img class="mc-tag" src="assets/tag-${k}.png" alt="${esc(TAG_NAME[k])}" title="${esc(TAG_NAME[k])}">`).join("")}</span>`;
+}
 const DEMO = new URLSearchParams(location.search).has("demo");
 
 // gán danh tính sinh vật biển cho cá ghé thăm — băm email nên cố định, không đổi
@@ -36,6 +51,7 @@ let drafts = [];            // danh sách nháp Thư Phòng (realtime)
 let unsubMaps = null, unsubDrafts = null, unsubChat = null;
 let editingMapId = null;    // map đang mở trong modal (null = tạo mới)
 let pendingAvatar = undefined; // avatar đang sửa: undefined=không đổi, ''=bỏ, string=ảnh mới (dataURL)
+let pendingTags = [];          // tag thế giới đang chọn trong modal (tối đa 3)
 const lastLineIdx = {};     // map.id → câu vừa hiện (tránh lặp liền, kể cả khi vét hết rổ xáo lại)
 const lineBags = {};        // "id:khung giờ" → hàng đợi đã xáo; vét hết mới xáo lại (kiểu xáo bài)
 let mountedRoute = "";      // route đã dựng DOM (tránh re-mount editor khi snapshot về)
@@ -1095,6 +1111,7 @@ function renderHomeGrid() {
       <span class="fc-body">
         <div class="map-card-title">${esc(m.title)}</div>
         <div class="map-card-world">${esc(m.world || "Thế giới chưa được mô tả…")}</div>
+        ${tagsRow(m)}
         <div class="map-card-foot" title="${m.updatedAt ? "Chạm gần nhất: " + fmtTime(m.updatedAt) : ""}">
           ${(m.hasHtml || m.hasProfile) ? `<span class="mc-ico-row">${m.hasHtml ? `<span class="mc-ico" title="Có bản đồ">${ic("compass")}</span>` : ""}${m.hasProfile ? `<span class="mc-ico" title="Có hồ sơ">${ic("mask")}</span>` : ""}</span>` : ""}
           ${m.updatedAt ? `<span class="mcf-time">${fmtTime(m.updatedAt)}</span>` : ""}
@@ -1764,6 +1781,9 @@ function openMapModal(mapId) {
   if (m?.hasAvatar) {
     store.getImage(`${m.id}__avatar`).then((d) => { if (d && editingMapId === mapId && pendingAvatar === undefined) setAvatarPreview(d); }).catch(() => {});
   }
+  // tag thế giới
+  pendingTags = Array.isArray(m?.tags) ? m.tags.filter((k) => TAG_NAME[k]).slice(0, 3) : [];
+  renderTagPicker();
   $("#modal-map").classList.remove("hidden");
   setTimeout(() => $("#inp-map-title").focus(), 60);
 }
@@ -1781,6 +1801,22 @@ $("#inp-map-avatar").addEventListener("change", (e) => {
   r.readAsDataURL(f);
 });
 $("#btn-avatar-clear").addEventListener("click", () => { pendingAvatar = ""; setAvatarPreview(null); });
+
+// bộ chọn tag thế giới (tối đa 3)
+function renderTagPicker() {
+  const box = $("#tag-picker"); if (!box) return;
+  box.innerHTML = WORLD_TAGS.map((t) =>
+    `<button type="button" class="tag-opt${pendingTags.includes(t.key) ? " on" : ""}" data-tag="${t.key}" title="${esc(t.name)}"><img src="assets/tag-${t.key}.png" alt="${esc(t.name)}"><span class="tag-nm">${esc(t.name)}</span></button>`).join("");
+  const c = $("#tag-count"); if (c) c.textContent = `(${pendingTags.length}/3)`;
+}
+$("#tag-picker")?.addEventListener("click", (e) => {
+  const b = e.target.closest(".tag-opt"); if (!b) return;
+  const k = b.dataset.tag, i = pendingTags.indexOf(k);
+  if (i >= 0) pendingTags.splice(i, 1);
+  else if (pendingTags.length >= 3) { toast("Chỉ chọn tối đa 3 tag.", true); return; }
+  else pendingTags.push(k);
+  renderTagPicker();
+});
 
 // cropper: kéo dịch + phóng + xác nhận
 $("#crop-zoom").addEventListener("input", (e) => { if (cropState) { cropState.zoom = +e.target.value; layoutCrop(); } });
@@ -1822,7 +1858,7 @@ $("#btn-map-save").addEventListener("click", async () => {
   btn.textContent = "Đang lưu…";
   try {
     if (editingMapId) {
-      const patch = { title, world, gasLink, nsfw, wip, noH };
+      const patch = { title, world, gasLink, nsfw, wip, noH, tags: pendingTags.slice(0, 3) };
       if (pendingAvatar !== undefined) {
         if (pendingAvatar) { await store.saveImage(`${editingMapId}__avatar`, pendingAvatar); patch.hasAvatar = true; }
         else patch.hasAvatar = false;
@@ -1833,7 +1869,7 @@ $("#btn-map-save").addEventListener("click", async () => {
     } else {
       const maxOrder = maps.reduce((mx, m) => Math.max(mx, m.order || 0), 0);
       const newId = await store.addMap({
-        title, world, gasLink, nsfw, wip, noH,
+        title, world, gasLink, nsfw, wip, noH, tags: pendingTags.slice(0, 3),
         order: maxOrder + 1,
         content: "", prompt: "", ideas: "",
         recommends: {},
