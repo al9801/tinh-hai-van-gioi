@@ -330,7 +330,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 .map-card {
   position: relative; display: block;
   aspect-ratio: 640 / 693;
-  background: url("assets/card-frame.png?v=121") center / 100% 100% no-repeat;
+  background: url("assets/card-frame.png?v=122") center / 100% 100% no-repeat;
   text-decoration: none; color: var(--ink);
   overflow: visible;
   transition: transform 0.24s ease, filter 0.24s ease;
