@@ -346,10 +346,10 @@ body[data-view="home"] .main { max-width: 1280px; }
   text-decoration: none; color: var(--ink);
   overflow: visible;
   transition: transform 0.24s ease, filter 0.24s ease;
-  /* glow viền vàng nhạt (ôm theo silhouette gồm cả đuôi) + bóng đổ */
-  filter: drop-shadow(0 0 5px rgba(240, 208, 138, 0.4)) drop-shadow(0 12px 26px rgba(0, 0, 0, 0.5));
+  /* glow viền xanh nhẹ, đậm hơn xíu (ôm theo silhouette gồm cả đuôi) + bóng đổ */
+  filter: drop-shadow(0 0 6px rgba(140, 198, 240, 0.55)) drop-shadow(0 12px 26px rgba(0, 0, 0, 0.5));
 }
-.map-card:hover { transform: translateY(-6px); filter: drop-shadow(0 0 10px rgba(244, 214, 150, 0.6)) drop-shadow(0 20px 40px rgba(0, 0, 0, 0.58)); }
+.map-card:hover { transform: translateY(-6px); filter: drop-shadow(0 0 11px rgba(155, 210, 248, 0.72)) drop-shadow(0 20px 40px rgba(0, 0, 0, 0.58)); }
 
 /* số cổng — nằm trong thân, trên vòng avatar */
 .fc-num {
