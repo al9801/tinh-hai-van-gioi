@@ -351,8 +351,8 @@ body[data-view="home"] .main { max-width: 1280px; }
 /* dùng ẢNH KHUNG vẽ tay của user làm nền, chồng nội dung động lên đúng vị trí */
 .map-card {
   position: relative; display: block;
-  aspect-ratio: 640 / 693;
-  background: url("assets/card-frame.png?v=127") center / 100% 100% no-repeat;
+  aspect-ratio: 640 / 809;
+  background: url("assets/card-frame.png?v=140") center / 100% 100% no-repeat;
   text-decoration: none; color: var(--ink);
   overflow: visible;
   transition: transform 0.24s ease, filter 0.24s ease;
@@ -363,14 +363,14 @@ body[data-view="home"] .main { max-width: 1280px; }
 
 /* số cổng — nằm trong thân, trên vòng avatar */
 .fc-num {
-  position: absolute; left: 57.3%; top: 14%; transform: translateX(-50%); z-index: 3;
+  position: absolute; left: 57.3%; top: 15%; transform: translateX(-50%); z-index: 3;
   font-family: var(--font-display); font-size: 0.64rem; letter-spacing: 0.14em;
   text-transform: uppercase; color: var(--glow); white-space: nowrap;
   text-shadow: 0 0 10px rgba(127, 212, 232, 0.5);
 }
 /* vòng avatar VẼ BẰNG CSS (khung trống) — đặt cao cho cân, kiểu v105 */
 .mc-av-ring {
-  position: absolute; left: 57%; top: 40%; width: 34%; aspect-ratio: 1;
+  position: absolute; left: 57%; top: 42%; width: 30%; aspect-ratio: 1;
   transform: translate(-50%, -50%); z-index: 3; cursor: pointer; transition: transform 0.18s ease;
 }
 .mc-av-ring:hover { transform: translate(-50%, -50%) scale(1.05); }
@@ -383,7 +383,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 }
 /* tên + mô tả + info — vùng dưới vòng avatar */
 .fc-body {
-  position: absolute; left: 57.3%; top: 63%; transform: translateX(-50%); width: 66%; z-index: 3;
+  position: absolute; left: 57.3%; top: 61%; transform: translateX(-50%); width: 60%; z-index: 3;
   text-align: center;
 }
 .map-card-title {
@@ -403,7 +403,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 .mc-ico .ic { width: 17px; height: 17px; filter: drop-shadow(0 0 5px rgba(240, 212, 154, 0.65)); }
 /* tag thế giới = bookmark dọc DÍNH RÌA TRÁI thẻ (như khe vé) */
 .mc-tags {
-  position: absolute; left: 4.5%; top: 24%; z-index: 5;
+  position: absolute; left: 4.5%; top: 45%; z-index: 5;
   display: flex; flex-direction: column; gap: 10px; align-items: flex-end;
 }
 .mc-tag {
@@ -1531,10 +1531,10 @@ body:not(.guest) .gas-fab { bottom: 86px; }
 /* nhãn sticker 🔥 NSFW dán lên thẻ cổng */
 /* sticker ảnh vẽ tay: DÁN ĐÈ LÊN RÌA thẻ (nửa trong nửa ngoài) — sao biển rìa trái, sò rìa phải */
 .mc-stimg { height: auto; display: block; }
-img.nsfw-sticker { width: 15%; }
-img.noh-sticker { width: 15%; }
+img.nsfw-sticker { width: 13%; }
+img.noh-sticker { width: 13%; }
 .nsfw-sticker {
-  position: absolute; top: auto; bottom: 7%; left: 9%;
+  position: absolute; top: auto; bottom: 13%; left: 9%;
   font-size: 1.5rem;
   transform: rotate(-14deg);
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 12px rgba(255, 130, 40, 0.55));
@@ -1734,6 +1734,15 @@ img.noh-sticker { width: 15%; }
   z-index: 5;
   pointer-events: none;
 }
+/* chuông gió (thay nhãn 'đang sửa') — treo lủng lẳng ở đuôi cá, góc trên-trái, đè lên thẻ */
+.wip-chime {
+  position: absolute; top: 3%; left: 4.5%; width: 23%; height: auto;
+  z-index: 7; pointer-events: none;
+  transform-origin: 50% 8%;
+  filter: drop-shadow(0 3px 7px rgba(0, 0, 0, 0.5));
+  animation: chime-pop 0.4s ease;
+}
+@keyframes chime-pop { from { opacity: 0; transform: translateY(-6px) scale(0.9); } to { opacity: 1; transform: none; } }
 .nsfw-sticker.wip-inline {
   position: static; display: inline-block;
   font-size: 1.35rem; transform: rotate(8deg);
@@ -1827,7 +1836,7 @@ body.guest .doc-page { user-select: none; }
 
 /* dấu 🌫️ "không có H" — đậu góc DƯỚI bên phải thẻ cổng */
 .noh-sticker {
-  position: absolute; top: auto; bottom: 7%; right: -5%; left: auto;
+  position: absolute; top: auto; bottom: 13%; right: -5%; left: auto;
   font-size: 1.35rem;
   transform: rotate(-8deg);
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 10px rgba(160, 200, 235, 0.45));
