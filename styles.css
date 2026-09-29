@@ -352,7 +352,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 .map-card {
   position: relative; display: block;
   aspect-ratio: 640 / 809;
-  background: url("assets/card-frame.png?v=146") center / 100% 100% no-repeat;
+  background: url("assets/card-frame.png?v=147") center / 100% 100% no-repeat;
   text-decoration: none; color: var(--ink);
   overflow: visible;
   transition: transform 0.24s ease, filter 0.24s ease;
@@ -407,6 +407,22 @@ body[data-view="home"] .main { max-width: 1280px; }
   position: absolute; left: -2.5%; top: 27%; z-index: 5;
   display: flex; flex-direction: column; gap: 9px; align-items: flex-end;
 }
+.mc-tag-wrap { position: relative; display: block; line-height: 0; }
+/* tooltip tên thể loại — hiện ngay khi rê vào tag */
+.mc-tag-wrap::after {
+  content: attr(data-tip);
+  position: absolute; left: calc(100% + 7px); top: 50%;
+  transform: translate(-5px, -50%);
+  background: rgba(13, 21, 42, 0.97); color: #eaf3ff;
+  font-family: var(--font-body); font-size: 0.72rem; font-style: normal; font-weight: 500;
+  letter-spacing: 0.01em; white-space: nowrap;
+  padding: 4px 10px; border-radius: 9px;
+  border: 1px solid rgba(140, 190, 240, 0.38);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.55);
+  opacity: 0; pointer-events: none; z-index: 40;
+  transition: opacity 0.14s ease, transform 0.14s ease;
+}
+.mc-tag-wrap:hover::after { opacity: 1; transform: translate(0, -50%); }
 .mc-tag {
   width: 60px; height: auto; display: block;
   transform: rotate(-17deg); transform-origin: right center;
