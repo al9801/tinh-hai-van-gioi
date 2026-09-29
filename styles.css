@@ -341,10 +341,10 @@ body[data-view="home"] .main { max-width: 1280px; }
 .map-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr)); /* luôn 4 cổng/hàng */
-  gap: 6px 0;
+  gap: 6px 16px;
 }
-/* khung chồng nhẹ NGANG (đuôi cá voi đè xíu lên cổng bên) — đúng kiểu v113 thím thấy ổn */
-.map-card { margin: 0 -1.8%; }
+/* khung 04: đuôi vẽ thụt vào trong → không chồng ngang nữa, chừa khoảng cho thẻ tách rời */
+.map-card { margin: 0; }
 .map-card:hover { z-index: 5; }
 
 /* ── THẺ CỔNG: liền khối, dải sóng banner ở đáy ──────── */
@@ -352,7 +352,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 .map-card {
   position: relative; display: block;
   aspect-ratio: 640 / 809;
-  background: url("assets/card-frame.png?v=140") center / 100% 100% no-repeat;
+  background: url("assets/card-frame.png?v=141") center / 100% 100% no-repeat;
   text-decoration: none; color: var(--ink);
   overflow: visible;
   transition: transform 0.24s ease, filter 0.24s ease;
@@ -1736,7 +1736,7 @@ img.noh-sticker { width: 13%; }
 }
 /* chuông gió (thay nhãn 'đang sửa') — treo lủng lẳng ở đuôi cá, góc trên-trái, đè lên thẻ */
 .wip-chime {
-  position: absolute; top: 3%; left: 4.5%; width: 23%; height: auto;
+  position: absolute; top: 3%; left: 0%; width: 27%; height: auto;
   z-index: 7; pointer-events: none;
   transform-origin: 50% 8%;
   filter: drop-shadow(0 3px 7px rgba(0, 0, 0, 0.5));
