@@ -351,8 +351,8 @@ body[data-view="home"] .main { max-width: 1280px; }
 /* dùng ẢNH KHUNG vẽ tay của user làm nền, chồng nội dung động lên đúng vị trí */
 .map-card {
   position: relative; display: block;
-  aspect-ratio: 640 / 809;
-  background: url("assets/card-frame.png?v=141") center / 100% 100% no-repeat;
+  aspect-ratio: 640 / 719;
+  background: url("assets/card-frame.png?v=142") center / 100% 100% no-repeat;
   text-decoration: none; color: var(--ink);
   overflow: visible;
   transition: transform 0.24s ease, filter 0.24s ease;
@@ -370,7 +370,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 }
 /* vòng avatar VẼ BẰNG CSS (khung trống) — đặt cao cho cân, kiểu v105 */
 .mc-av-ring {
-  position: absolute; left: 57%; top: 42%; width: 30%; aspect-ratio: 1;
+  position: absolute; left: 57%; top: 44%; width: 25%; aspect-ratio: 1;
   transform: translate(-50%, -50%); z-index: 3; cursor: pointer; transition: transform 0.18s ease;
 }
 .mc-av-ring:hover { transform: translate(-50%, -50%) scale(1.05); }
@@ -381,14 +381,15 @@ body[data-view="home"] .main { max-width: 1280px; }
   box-shadow: 0 0 0 3px rgba(232, 196, 122, 0.95), 0 0 0 5px rgba(232, 196, 122, 0.28), 0 0 16px rgba(217, 180, 111, 0.45);
   display: grid; place-items: center; color: var(--gold-bright); font-size: 1.4rem;
 }
-/* tên + mô tả + info — vùng dưới vòng avatar */
+/* tên + mô tả + info — CĂN GIỮA trong vùng thân (dưới sóng, trên bệ) để trống chia đều 2 mép */
 .fc-body {
-  position: absolute; left: 57.3%; top: 61%; transform: translateX(-50%); width: 60%; z-index: 3;
+  position: absolute; left: 57.3%; top: 72%; transform: translate(-50%, -50%); width: 62%; z-index: 3;
   text-align: center;
 }
 .map-card-title {
-  font-family: var(--font-display); font-weight: 600; font-size: 1.12rem;
-  line-height: 1.16; color: #fff7ea; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  font-family: var(--font-display); font-weight: 600; font-size: 1.06rem;
+  line-height: 1.15; color: #fff7ea; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
 }
 .map-card-world {
   font-size: 0.78rem; color: #d3e2f2; font-style: italic; margin-top: 5px; line-height: 1.38;
@@ -403,7 +404,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 .mc-ico .ic { width: 17px; height: 17px; filter: drop-shadow(0 0 5px rgba(240, 212, 154, 0.65)); }
 /* tag thế giới = bookmark dọc DÍNH RÌA TRÁI thẻ (như khe vé) */
 .mc-tags {
-  position: absolute; left: 4.5%; top: 45%; z-index: 5;
+  position: absolute; left: 4.5%; top: 40%; z-index: 5;
   display: flex; flex-direction: column; gap: 10px; align-items: flex-end;
 }
 .mc-tag {
@@ -1534,7 +1535,7 @@ body:not(.guest) .gas-fab { bottom: 86px; }
 img.nsfw-sticker { width: 13%; }
 img.noh-sticker { width: 13%; }
 .nsfw-sticker {
-  position: absolute; top: auto; bottom: 13%; left: 9%;
+  position: absolute; top: auto; bottom: 9%; left: 9%;
   font-size: 1.5rem;
   transform: rotate(-14deg);
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 12px rgba(255, 130, 40, 0.55));
@@ -1836,7 +1837,7 @@ body.guest .doc-page { user-select: none; }
 
 /* dấu 🌫️ "không có H" — đậu góc DƯỚI bên phải thẻ cổng */
 .noh-sticker {
-  position: absolute; top: auto; bottom: 13%; right: -5%; left: auto;
+  position: absolute; top: auto; bottom: 9%; right: -5%; left: auto;
   font-size: 1.35rem;
   transform: rotate(-8deg);
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 10px rgba(160, 200, 235, 0.45));
