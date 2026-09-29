@@ -352,7 +352,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 .map-card {
   position: relative; display: block;
   aspect-ratio: 640 / 809;
-  background: url("assets/card-frame.png?v=145") center / 100% 100% no-repeat;
+  background: url("assets/card-frame.png?v=146") center / 100% 100% no-repeat;
   text-decoration: none; color: var(--ink);
   overflow: visible;
   transition: transform 0.24s ease, filter 0.24s ease;
@@ -370,7 +370,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 }
 /* vòng avatar VẼ BẰNG CSS (khung trống) — đặt cao cho cân, kiểu v105 */
 .mc-av-ring {
-  position: absolute; left: 50%; top: 42%; width: 32%; aspect-ratio: 1;
+  position: absolute; left: 50%; top: 39%; width: 32%; aspect-ratio: 1;
   transform: translate(-50%, -50%); z-index: 3; cursor: pointer; transition: transform 0.18s ease;
 }
 .mc-av-ring:hover { transform: translate(-50%, -50%) scale(1.05); }
