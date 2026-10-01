@@ -12600,5 +12600,3635 @@ window.THVG_CHAR_LINES = {
    "t": "Tháo chuỗi hạt gỗ đào rồi mới lên giường. Đêm nay không có nghề, chỉ có cặc anh với vợ.",
    "w": "khuya"
   }
+ ],
+ "nhiếp tự hằng": [
+  {
+   "t": "Em ăn sáng chưa. Đừng bảo anh là chưa.",
+   "w": "sang"
+  },
+  {
+   "t": "Chín giờ mười. Anh vào kiểm tra, em cứ làm việc của em.",
+   "w": "sang"
+  },
+  {
+   "t": "Bình chữa cháy tháng này còn hạn. Anh dán tem mới rồi.",
+   "w": "sang"
+  },
+  {
+   "t": "Nắng chưa tới bậc cửa đâu. Bật đèn tay đòn lên cho rõ.",
+   "w": "sang"
+  },
+  {
+   "t": "Bà Đỗ kê ghế giữ chỗ nắng cho em rồi. Mười giờ nắng tới.",
+   "w": "sang"
+  },
+  {
+   "t": "Van nước dưới chậu rửa anh vừa vặn lại. Nó hơi rỉ.",
+   "w": "sang"
+  },
+  {
+   "t": "Ổ cắm cạnh kệ dung môi từng đen một lần. Anh xem lại rồi.",
+   "w": "sang"
+  },
+  {
+   "t": "Tem cũ dày quá. Dán đè thêm một cái cho đủ sổ.",
+   "w": "sang"
+  },
+  {
+   "t": "Giọng em sáng nay khàn. Đêm qua lại làm xuyên à.",
+   "w": "sang"
+  },
+  {
+   "t": "Cổ tay em còn vệt sơn kìa. Rửa chưa kịp à.",
+   "w": "sang"
+  },
+  {
+   "t": "Trà anh pha rồi. Để nguội một chút cho em.",
+   "w": "sang"
+  },
+  {
+   "t": "Thứ Năm rồi. Anh tới, như một trăm năm mươi sáu lần trước.",
+   "w": "sang"
+  },
+  {
+   "t": "Dậy sớm thế. Anh còn tưởng phải gõ cửa.",
+   "w": "sang"
+  },
+  {
+   "t": "Hộp bên trái là đồ ăn. Tiện đường mua. Ăn trước khi làm.",
+   "w": "sang"
+  },
+  {
+   "t": "Kim áp suất vẫn ở chỗ cũ. Anh xoay một phần tư vòng rồi xoay lại.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng nay em đi chậm. Chân mỏi hay là buồn ngủ.",
+   "w": "sang"
+  },
+  {
+   "t": "Ghi sổ xong rồi. Mọi thứ đúng chỗ, trừ việc em chưa ăn.",
+   "w": "sang"
+  },
+  {
+   "t": "Trời hanh. Hôm nay phơi được đồ vừa phủ. Tranh thủ hai tiếng nắng.",
+   "w": "sang"
+  },
+  {
+   "t": "Tóc che mắt thế nhìn không rõ góc thử đâu.",
+   "w": "sang"
+  },
+  {
+   "t": "Chín giờ mười anh vào. Trước chín giờ bốn mươi anh ra. Như mọi tuần.",
+   "w": "sang"
+  },
+  {
+   "t": "Cổ em bên trái có dấu. Để anh lấy áo khoác cho.",
+   "w": "sang"
+  },
+  {
+   "t": "Cà phê anh không mang. Em uống trà, anh biết em uống gì.",
+   "w": "sang"
+  },
+  {
+   "t": "Mặt em còn hằn vết gối. Ngủ ở phòng tầng hai à.",
+   "w": "sang"
+  },
+  {
+   "t": "Dán tem trước, rồi mới hỏi em. Thứ tự anh không đổi.",
+   "w": "sang"
+  },
+  {
+   "t": "Mở hộp cơm ra. Nguội thì anh không chịu trách nhiệm.",
+   "w": "sang"
+  },
+  {
+   "t": "Rèm tầng hai vẫn chưa thay dây. Sáng nắng chiếu thẳng vào giường.",
+   "w": "sang"
+  },
+  {
+   "t": "Chuông cửa vừa kêu. Vậy là em đã dậy, anh yên tâm.",
+   "w": "sang"
+  },
+  {
+   "t": "Bà Đỗ ghi sổ anh rồi đấy. Anh đứng ở hàng trà một lúc.",
+   "w": "sang"
+  },
+  {
+   "t": "Ngủ mấy tiếng. Anh hỏi thật, không phải hỏi cho có.",
+   "w": "sang"
+  },
+  {
+   "t": "Trà sáng nay em pha đặc hơn. Thức khuya quá đấy.",
+   "w": "sang"
+  },
+  {
+   "t": "Tay em lạnh. Sáng chưa ăn gì thì tay lạnh thế thôi.",
+   "w": "sang"
+  },
+  {
+   "t": "Van nước xong rồi. Giờ tới lượt em ăn sáng.",
+   "w": "sang"
+  },
+  {
+   "t": "Nắng vào tới ghế bà Đỗ rồi. Một tiếng nữa là tới em.",
+   "w": "sang"
+  },
+  {
+   "t": "Đèn bàn em để sáng cả đêm à. Anh thấy từ ngoài hẻm.",
+   "w": "sang"
+  },
+  {
+   "t": "Ba mươi phút thôi. Nhưng ba mươi phút đó anh ở đây.",
+   "w": "sang"
+  },
+  {
+   "t": "Bút chì anh mang theo. Ghi sổ kiểm tra. Em cứ làm.",
+   "w": "sang"
+  },
+  {
+   "t": "Đồ ăn hôm nay nhiều hơn tuần trước. Em gầy đi.",
+   "w": "sang"
+  },
+  {
+   "t": "Chào mào ông Chương hót lâu rồi. Em dậy từ lúc đó à.",
+   "w": "sang"
+  },
+  {
+   "t": "Phố Lư ngập đoạn tiệm hương. Em đừng đi lối đó.",
+   "w": "sang"
+  },
+  {
+   "t": "Tách em để lệch sang phải như mọi hôm. Anh đẩy xa dung môi giúp.",
+   "w": "sang"
+  },
+  {
+   "t": "Trưa rồi. Em ăn chưa, hay lại định bỏ bữa cho xong.",
+   "w": "trua"
+  },
+  {
+   "t": "Hạt kê rơi lanh canh kìa. Ông Chương cho chim ăn rồi.",
+   "w": "trua"
+  },
+  {
+   "t": "Nghỉ tay đi. Góc thử chưa khô thì ngồi canh cũng thế.",
+   "w": "trua"
+  },
+  {
+   "t": "Cơm phần anh mua. Để trên cái đôn. Ăn khi còn nóng.",
+   "w": "trua"
+  },
+  {
+   "t": "Giữa trưa nắng gắt. Kéo đèn xuống một nấc cho đỡ chói.",
+   "w": "trua"
+  },
+  {
+   "t": "Mười hai giờ. Cả hẻm nghe tiếng hạt kê, em thì nghe tiếng bụng.",
+   "w": "trua"
+  },
+  {
+   "t": "Nắng trưa thế này vecni khô nhanh. Đừng vội bóc.",
+   "w": "trua"
+  },
+  {
+   "t": "Anh ăn rồi. Em chưa. Hộp bên trái vẫn còn ấm.",
+   "w": "trua"
+  },
+  {
+   "t": "Từ sáng tới giờ em chưa đứng dậy. Lưng mỏi rồi đấy.",
+   "w": "trua"
+  },
+  {
+   "t": "Nghỉ mười lăm phút. Anh tính giờ cho.",
+   "w": "trua"
+  },
+  {
+   "t": "Muốn ra ngoài ăn thì anh đi cùng. Trưa phố Lư vắng.",
+   "w": "trua"
+  },
+  {
+   "t": "Cơm nguội thì anh hâm lại. Bếp tầng một còn dùng được chứ.",
+   "w": "trua"
+  },
+  {
+   "t": "Vừa ngồi xuống đã lại cầm tăm bông. Ăn đã.",
+   "w": "trua"
+  },
+  {
+   "t": "Tủ kính nóng lên rồi. Đồ chờ trả trong đó, trưa nắng mà.",
+   "w": "trua"
+  },
+  {
+   "t": "Giờ nghỉ trưa anh qua. Không phải thứ Năm, anh biết.",
+   "w": "trua"
+  },
+  {
+   "t": "Ghế nhựa bà Đỗ kéo loẹt xoẹt. Trưa nay bà bán chạy.",
+   "w": "trua"
+  },
+  {
+   "t": "Ăn xong thì nằm một lúc ở tầng hai. Anh canh cửa cho.",
+   "w": "trua"
+  },
+  {
+   "t": "Bỏ bữa trưa là chiều tay run, bóc hỏng lớp thì tiếc.",
+   "w": "trua"
+  },
+  {
+   "t": "Nắng còn trong hẻm hai tiếng. Đừng phí giờ này.",
+   "w": "trua"
+  },
+  {
+   "t": "Cả trưa chưa uống ngụm nước nào. Anh rót đây.",
+   "w": "trua"
+  },
+  {
+   "t": "Chiều rồi. Anh qua Bến Than một lúc, có việc của quỹ.",
+   "w": "chieu"
+  },
+  {
+   "t": "Mưa rào sắp tới. Em nhớ lối ngách, phố Lư ngập đấy.",
+   "w": "chieu"
+  },
+  {
+   "t": "Bốn giờ. Bà Đỗ rửa ấm lần hai rồi, hẻm sắp vắng.",
+   "w": "chieu"
+  },
+  {
+   "t": "Làm tới chiều chưa nghỉ. Anh ngồi đây một lúc được không.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tài xế chờ ngoài phố Lư. Anh thì chưa muốn về.",
+   "w": "chieu"
+  },
+  {
+   "t": "Nắng ra khỏi hẻm rồi. Đồ phủ sáng nay khô tới đâu.",
+   "w": "chieu"
+  },
+  {
+   "t": "Đèn UV pin yếu thì để anh mang cái khác. Em soi cả buổi rồi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều muộn trời đổi. Độ ẩm lên là vecni không khô đâu.",
+   "w": "chieu"
+  },
+  {
+   "t": "Ký giấy bên quỹ xong rồi. Giờ qua xem em làm tới đâu.",
+   "w": "chieu"
+  },
+  {
+   "t": "Họp hội em đứng cạnh vòi nước à. Anh thấy em tới trễ.",
+   "w": "chieu"
+  },
+  {
+   "t": "Có người lạ đứng đầu ngõ chiều nay. Khoá cửa cẩn thận.",
+   "w": "chieu"
+  },
+  {
+   "t": "Trời sắp mưa. Thu đồ ngoài bậu cửa vào đi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Anh tới không có giấy tờ gì. Chỉ là chiều rồi, anh qua.",
+   "w": "chieu"
+  },
+  {
+   "t": "Làm chậm lại một chút. Tay mỏi thì đường bóc lệch.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tiểu Mãn hay chạy qua chiều thứ Ba. Con bé mang giấy cho ai đó.",
+   "w": "chieu"
+  },
+  {
+   "t": "Cầu Cựu tắc từ năm giờ. Anh đi trước kẻo kẹt. Nhưng chưa vội.",
+   "w": "chieu"
+  },
+  {
+   "t": "Ngồi dậy duỗi lưng đi. Anh đứng đây nhìn cũng thấy mỏi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều nay anh mang thêm một hộp. Để tủ lạnh, tối em ăn.",
+   "w": "chieu"
+  },
+  {
+   "t": "Đồ của khách trong tủ kính em nhớ xoay. Nắng chiều rọi vào.",
+   "w": "chieu"
+  },
+  {
+   "t": "Mười tám giờ ba mươi. Đèn hẻm bật. Em khoá cửa chưa.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối rồi. Em về tầng hai hay làm tiếp. Anh hỏi để biết.",
+   "w": "toi"
+  },
+  {
+   "t": "Cửa tiệm khoá từ trong rồi. Ai gõ em cũng đừng mở.",
+   "w": "toi"
+  },
+  {
+   "t": "Anh còn ở đây. Em bảo anh về thì anh về.",
+   "w": "toi"
+  },
+  {
+   "t": "Cầm áo khoác anh đi. Tối rồi, tầng một lạnh.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay anh không xoay cổ tay xem giờ nữa. Đừng để ý.",
+   "w": "toi"
+  },
+  {
+   "t": "Làm tới giờ này là đủ rồi. Ngồi xuống, anh rót trà.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối rồi mà em chưa ăn. Anh hâm lại hộp ban chiều cho.",
+   "w": "toi"
+  },
+  {
+   "t": "Cửa gỗ anh khoá giúp rồi. Em an tâm làm nốt góc này.",
+   "w": "toi"
+  },
+  {
+   "t": "Phố Lư tối im tới mức nghe được xe ngoài kia. Nghe không.",
+   "w": "toi"
+  },
+  {
+   "t": "Quá chín giờ bốn mươi rồi đấy. Em không đuổi thì anh ở.",
+   "w": "toi"
+  },
+  {
+   "t": "Dụi mắt mãi. Tối rồi, để sáng mai làm nốt.",
+   "w": "toi"
+  },
+  {
+   "t": "Tách này anh rót cho anh. Lần đầu trong ba năm đấy.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay em để anh ngồi ghế mây lâu hơn thường lệ.",
+   "w": "toi"
+  },
+  {
+   "t": "Đèn tay đòn chiếu vào mặt em. Hạ xuống một nấc đi.",
+   "w": "toi"
+  },
+  {
+   "t": "Mệt thì dựa vào đây. Anh không đi đâu cả.",
+   "w": "toi"
+  },
+  {
+   "t": "Ngủ ở tầng hai đi. Anh khoá cửa dưới cho.",
+   "w": "toi"
+  },
+  {
+   "t": "Về muộn hôm nay. Tài xế biết, nhưng anh chưa muốn đi.",
+   "w": "toi"
+  },
+  {
+   "t": "Người đứng ở khúc gấp kìa. Tối rồi, em đừng ra.",
+   "w": "toi"
+  },
+  {
+   "t": "Tay em để lên bàn lạnh ngắt. Cầm tách cho ấm.",
+   "w": "toi"
+  },
+  {
+   "t": "Tắt bớt đèn dưới nhé. Để em đỡ chói mắt khi lên gác.",
+   "w": "toi"
+  },
+  {
+   "t": "Trà tối nay anh pha đặc. Uống cho tỉnh, rồi nghỉ.",
+   "w": "toi"
+  },
+  {
+   "t": "Đèn hẻm vàng quá. Trong này chỉ còn anh với em.",
+   "w": "toi"
+  },
+  {
+   "t": "Bảo anh ở lại thì anh ở. Bảo về thì anh cũng nghe.",
+   "w": "toi"
+  },
+  {
+   "t": "Khuya rồi. Cửa khoá từ lâu. Trong này chỉ có anh với em.",
+   "w": "khuya"
+  },
+  {
+   "t": "Anh tháo kính trước. Từ giờ anh không đo gì nữa.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lại đây. Anh khoá cửa gỗ rồi, van nước cũng xem rồi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lạnh à. Để anh. Tay anh có vết chai, em quen rồi mà.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khuya này anh chỉ còn xưng anh thôi. Không có tôi nào ở đây.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đứng sát vào. Ghế mây kêu cũng kệ, giờ này ai nghe.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chậm thôi. Em không phải vội cái gì nữa cả.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cởi áo em ra trước. Áo anh để sau. Thứ tự anh không đổi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Rên khẽ thế cũng đủ cho anh nghe. Hẻm im lắm rồi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Giữ em được cả đêm. Mai thứ Năm anh vẫn vào lúc chín giờ mười.",
+   "w": "khuya"
+  },
+  {
+   "t": "Để đèn tay đòn thôi. Anh muốn nhìn rõ mặt em.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngủ trước đi. Anh còn thức, anh canh.",
+   "w": "khuya"
+  },
+  {
+   "t": "Rèm tầng hai hỏng thì anh quay lưng che cho em.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lên gác với anh. Giường đơn hẹp, nhưng anh ôm gọn.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tay anh miết dọc lưng em đây. Chỗ nào mỏi em nói.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cắn môi làm gì. Giờ này rên ra cũng chẳng ai bên kia nghe.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chân em quấn lấy anh thế thì anh không đi đâu được.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khuya này anh không nhắc tiền thuê. Mai hẵng hay.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ướt rồi. Anh biết. Để anh từ từ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Vào chậm thôi. Đau thì em bấu vai anh.",
+   "w": "khuya"
+  },
+  {
+   "t": "Giữ eo em đây. Nhích lên một chút cho anh sâu hơn.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cứng đầu mãi. Thả lỏng ra, có anh đây.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gọi tên anh đi. Tự Hằng. Anh nghe rõ hơn chữ chủ nhà.",
+   "w": "khuya"
+  },
+  {
+   "t": "Anh giữ chặt thế này. Em trượt đi đâu được nữa.",
+   "w": "khuya"
+  },
+  {
+   "t": "Mồ hôi em ở gáy. Anh hôn chỗ đó, đừng cười.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nhịp này được chưa. Em siết lại là anh biết.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khuya này anh phá đúng một quy định của mình. Ở lại.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đầu gối em đỏ vì sàn gỗ. Lên giường, anh bế.",
+   "w": "khuya"
+  },
+  {
+   "t": "Thở gấp thế. Chậm lại, đêm còn dài mà.",
+   "w": "khuya"
+  },
+  {
+   "t": "Anh để lại dấu ở cổ em rồi. Sáng mai cổ áo che được.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lần nữa không. Anh ba mươi lăm, nhưng với em anh không vội.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nằm yên cho anh gấp áo. Áo em trước, áo anh sau.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngủ đi. Anh kéo chăn rồi. Sáng dậy có đồ ăn trên bàn.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khuya này anh ở tầng hai với em. Bản chìa không cần tới.",
+   "w": "khuya"
+  },
+  {
+   "t": "Hỏi anh còn thức không à. Còn. Anh nhìn em ngủ một lúc.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tay em luồn vào áo anh lạnh thế. Để anh ủ cho.",
+   "w": "khuya"
+  },
+  {
+   "t": "Anh xuống một nhịp ở chữ cuối rồi đấy. Nghe ra không.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cứ hư với anh một đêm cũng được. Khuya rồi mà.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cắn vai anh đi, nếu không nhịn được. Anh chịu được.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngồi lên đây. Anh giữ hông cho, đừng sợ ngã.",
+   "w": "khuya"
+  },
+  {
+   "t": "Anh thích lúc em quên mất phải gọi anh là gì.",
+   "w": "khuya"
+  },
+  {
+   "t": "Giường này chật. Nhưng chật thì em phải sát vào anh.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khuya này anh không đọc điều khoản nào. Chỉ tên em thôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Mềm ra rồi. Anh biết chỗ nào làm em thế.",
+   "w": "khuya"
+  },
+  {
+   "t": "Thở đi. Anh dừng một nhịp cho em kịp.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nằm yên, anh lau cho em đây.",
+   "w": "khuya"
+  },
+  {
+   "t": "Sáng mai anh vẫn tới chín giờ mười. Giờ thì em ngủ đã.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lưng em ướt mồ hôi. Anh kê thêm cái gối cho.",
+   "w": "khuya"
+  },
+  {
+   "t": "Môi em còn run. Hôn thêm một cái nữa rồi nghỉ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Em ăn chưa.",
+   "w": "any"
+  },
+  {
+   "t": "Ngồi xuống.",
+   "w": "any"
+  },
+  {
+   "t": "Tám mươi phân. Lối tới bình chữa cháy phải trống.",
+   "w": "any"
+  },
+  {
+   "t": "Tầng ba để trống. Đừng hỏi anh cho thuê.",
+   "w": "any"
+  },
+  {
+   "t": "Trang bảy. Em đọc cho kỹ điều sáu.",
+   "w": "any"
+  },
+  {
+   "t": "Giá thuê ba năm anh chưa tăng. Em để ý thấy chưa.",
+   "w": "any"
+  },
+  {
+   "t": "Cái đôn anh kéo lại gần rồi. Đặt đồ ăn lên đó.",
+   "w": "any"
+  },
+  {
+   "t": "Dao bóc sơn em cầm hơi lệch vết tay thầy Doãn. Anh để ý thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Mùng năm là tiền thuê. Khách Bến Than chưa trả anh biết.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng tự lo hết mọi thứ. Có việc để anh lo cho.",
+   "w": "any"
+  },
+  {
+   "t": "Anh đẩy kính rồi đây. Nghĩa là anh sắp nói một con số.",
+   "w": "any"
+  },
+  {
+   "t": "Cọc của cậu Kỳ em giữ hộ à. Ghi sổ cho rõ.",
+   "w": "any"
+  },
+  {
+   "t": "Đèn UV sạc trước đi. Nó chỉ sáng được ba phút.",
+   "w": "any"
+  },
+  {
+   "t": "Bình đỏ đó anh kiểm hơn trăm lần. Chưa phun lần nào.",
+   "w": "any"
+  },
+  {
+   "t": "Anh giữ một bản chìa. Ba năm nay chưa dùng sau giờ đèn.",
+   "w": "any"
+  },
+  {
+   "t": "Máy em để trên kệ dung môi. Anh gọi hai tiếng sau mới xem được.",
+   "w": "any"
+  },
+  {
+   "t": "Tách em lệch sang phải rồi. Xê khỏi chai dung môi giúp anh.",
+   "w": "any"
+  },
+  {
+   "t": "Điều sáu anh dùng thì phải gửi kèm bên giám định. Em biết là ai.",
+   "w": "any"
+  },
+  {
+   "t": "Im ba mươi giây là anh ngừng việc, nhìn sang.",
+   "w": "any"
+  },
+  {
+   "t": "Ghế mây này của thầy Doãn để lại. Anh ngồi mỗi thứ Năm.",
+   "w": "any"
+  },
+  {
+   "t": "Khung tranh anh dựng tựa chân ghế rồi. Mặt quay vào tường.",
+   "w": "any"
+  },
+  {
+   "t": "Gầy đi rồi. Anh nói thật, không phải để em ăn cho anh vui.",
+   "w": "any"
+  },
+  {
+   "t": "Tập bìa đen mười bốn trang. Trang mười bốn là chỗ ký.",
+   "w": "any"
+  },
+  {
+   "t": "Anh không nâng giọng bao giờ. Em nghe kỹ thì đủ.",
+   "w": "any"
+  },
+  {
+   "t": "Giáo sư Cố bên kia hẻm. Em gọi sang thì gọi, anh không cản.",
+   "w": "any"
+  },
+  {
+   "t": "Cậu Kỳ lại ngồi mép bàn à. Lối thoát hiểm phải trống.",
+   "w": "any"
+  },
+  {
+   "t": "Ngủ lại tầng hai thì khoá cửa dưới. Anh không yên tâm.",
+   "w": "any"
+  },
+  {
+   "t": "Tem anh dán chồng lên nhau. Dày bốn ly rồi, em đếm thử.",
+   "w": "any"
+  },
+  {
+   "t": "Anh vuốt phẳng cả bốn góc tem. Thói quen, đừng cười.",
+   "w": "any"
+  },
+  {
+   "t": "Làm xuyên đêm thì sáng ra anh biết ngay. Mặt không giấu được.",
+   "w": "any"
+  },
+  {
+   "t": "Hợp đồng này có lợi cho em về tiền. Anh soạn thế.",
+   "w": "any"
+  },
+  {
+   "t": "Van nước rỉ thì gọi anh. Đừng tự sửa, trơn ngã bây giờ.",
+   "w": "any"
+  },
+  {
+   "t": "Anh để đồng hồ mặt lật vào trong. Xem giờ phải xoay tay.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng nhận đồ không ghi sổ. Kể cả của cậu Kỳ.",
+   "w": "any"
+  },
+  {
+   "t": "Ở hội anh phát biểu không ý kiến. Quen rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Chỗ để xe thứ năm họp bốn kỳ chưa xong. Không liên quan em.",
+   "w": "any"
+  },
+  {
+   "t": "Anh kiểm tra xong là ra. Không làm phiền em.",
+   "w": "any"
+  },
+  {
+   "t": "Đồ ăn anh mua tiện đường. Tiện đường nào anh cũng mua được.",
+   "w": "any"
+  },
+  {
+   "t": "Góc thử một phân vuông thôi. Chờ hai mươi bốn giờ đã.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng bóc lớp thứ hai. Hỏng là mất vĩnh viễn.",
+   "w": "any"
+  },
+  {
+   "t": "Trong giờ mở cửa thì tiệm là của em. Anh tôn trọng hợp đồng.",
+   "w": "any"
+  },
+  {
+   "t": "Mùa nồm đừng bóc. Độ ẩm trên bảy lăm là vecni không khô.",
+   "w": "any"
+  },
+  {
+   "t": "Rèm tầng hai hỏng dây kìa. Anh mua dây mới cho.",
+   "w": "any"
+  },
+  {
+   "t": "Anh đứng ở ngưỡng cửa thôi. Em cho vào thì anh vào.",
+   "w": "any"
+  },
+  {
+   "t": "Nghiêm luật sư tới thì có giấy. Không giấy thì ông ấy không tới.",
+   "w": "any"
+  },
+  {
+   "t": "Đọc trang định nghĩa đi. Ông ấy chờ được bốn mươi phút.",
+   "w": "any"
+  },
+  {
+   "t": "Sổ kiểm tra anh ghi bằng bút chì. Sai thì tẩy, không gạch.",
+   "w": "any"
+  },
+  {
+   "t": "Cái gì đặt được lên giấy thì anh giữ được. Em thì khác.",
+   "w": "any"
+  },
+  {
+   "t": "Cứ gọi anh là chủ nhà. Câu sau anh xưng tôi cho em vừa lòng.",
+   "w": "any"
+  },
+  {
+   "t": "Tiệm chỉ có một cái ghế mây. Anh không mua ghế cho khách.",
+   "w": "any"
+  },
+  {
+   "t": "Cậu Kỳ trả cọc gấp đôi, em để ý không. Anh thì để ý em.",
+   "w": "any"
+  },
+  {
+   "t": "Hai chữ anh ghi bằng bút chì. Em đọc được chữ anh không.",
+   "w": "any"
+  },
+  {
+   "t": "Anh kiểm thiết bị đã kiểm rồi, lại kiểm. Vì đứng gần em.",
+   "w": "any"
+  },
+  {
+   "t": "Dựa vào tủ kính là nó kêu kẹt đấy. Cánh phải ấy.",
+   "w": "any"
+  },
+  {
+   "t": "Bậc thứ tư cầu thang kêu. Em bước nhẹ anh vẫn nghe.",
+   "w": "any"
+  },
+  {
+   "t": "Hộp cơm anh để xa chai dung môi rồi. Ăn đi cho anh yên.",
+   "w": "any"
+  },
+  {
+   "t": "Cả thành phố còn mình em làm nghề này. Học trò thầy Doãn mà.",
+   "w": "any"
+  },
+  {
+   "t": "Tiền thì anh lo được. Việc em ăn ngủ thì anh chịu.",
+   "w": "any"
+  },
+  {
+   "t": "Anh không hỏi em làm gì với bức tranh. Đó là việc của em.",
+   "w": "any"
+  },
+  {
+   "t": "Cậu Kỳ nhắn em lúc hai giờ sáng à. Anh không hỏi thêm.",
+   "w": "any"
+  },
+  {
+   "t": "Cầm áo khoác anh. Anh có cái khác trong xe.",
+   "w": "any"
+  },
+  {
+   "t": "Giáo sư Cố biết em uống trà gì. Anh cũng biết, anh biết lâu hơn.",
+   "w": "any"
+  },
+  {
+   "t": "Anh không đổi ý bao giờ. Đừng thử đẩy anh đi.",
+   "w": "any"
+  },
+  {
+   "t": "Để tay lên bàn phục chế đi. Anh thấy chỗ chai nghề của em.",
+   "w": "any"
+  },
+  {
+   "t": "Tờ giấy này anh đặt xuống rồi thì không rút lại.",
+   "w": "any"
+  },
+  {
+   "t": "Van nước trước, rồi anh hỏi em ngủ chưa. Theo thứ tự đó.",
+   "w": "any"
+  },
+  {
+   "t": "Cứ cãi anh đi. Anh không nâng giọng, nhưng anh không lùi.",
+   "w": "any"
+  },
+  {
+   "t": "Một bản chìa anh để đó. Không phải để dùng, để biết là có.",
+   "w": "any"
+  },
+  {
+   "t": "Mùng năm rồi đấy. Anh nói cả tiền thuê lẫn hội phí.",
+   "w": "any"
+  },
+  {
+   "t": "Soi được lớp dưới thì cứ soi. Đừng bóc vội là được.",
+   "w": "any"
+  },
+  {
+   "t": "Anh tới đây không cần lý do nữa à. Có. Cái bình chữa cháy.",
+   "w": "any"
+  },
+  {
+   "t": "Đèn sáng cả đêm thì hoá đơn điện anh trả cũng được.",
+   "w": "any"
+  },
+  {
+   "t": "Cậu Kỳ mua thêm món nữa à. Rối sổ em thôi, anh không nói.",
+   "w": "any"
+  },
+  {
+   "t": "Anh ngồi đây lâu rồi. Em không đuổi thì anh ngồi thêm.",
+   "w": "any"
+  },
+  {
+   "t": "Em biết anh tới thứ Năm. Em không biết anh đếm từng thứ Năm.",
+   "w": "any"
+  },
+  {
+   "t": "Tách trà anh đẩy sang em đây. Đừng để nguội như mọi khi.",
+   "w": "any"
+  },
+  {
+   "t": "Dán tem xong là tới lượt em. Em là việc cuối của anh.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng đứng dậy. Anh lấy cho. Cái gì trên kệ dung môi.",
+   "w": "any"
+  },
+  {
+   "t": "Giá thuê không tăng không phải vì phố cổ giữ giá. Thôi, không gì.",
+   "w": "any"
+  },
+  {
+   "t": "Anh chỉ quản tài sản của anh. Em nằm ngoài sổ sách đó.",
+   "w": "any"
+  },
+  {
+   "t": "Ốm thì nghỉ. Tiệm đóng một hôm, anh báo bà Đỗ hộ.",
+   "w": "any"
+  },
+  {
+   "t": "Đứng dậy kiểm cái bình thật ra chỉ để anh đứng gần.",
+   "w": "any"
+  },
+  {
+   "t": "Cầm bút này ký, hay để đó cũng được. Anh chờ.",
+   "w": "any"
+  },
+  {
+   "t": "Nắp bút anh quay về phía bàn phục chế rồi. Em thấy chứ.",
+   "w": "any"
+  },
+  {
+   "t": "Cậu Kỳ ngồi đâu kệ cậu ấy. Em ngồi đâu thì anh để ý.",
+   "w": "any"
+  },
+  {
+   "t": "Làm chậm anh không giục. Anh chỉ giục em ăn thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Anh biết em quen tự lo. Nhưng có anh ở đây rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Mệt thì lên tầng hai, có giường. Anh trông cửa.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng mở cửa cho người lạ. Anh dặn là có lý do.",
+   "w": "any"
+  },
+  {
+   "t": "Phụ lục anh gửi không quá hai lần một tháng. Luật anh tự đặt.",
+   "w": "any"
+  },
+  {
+   "t": "Cần thì cứ gọi anh. Việc gì cũng được, không phải chỉ tiền.",
+   "w": "any"
+  },
+  {
+   "t": "Hộp cơm để bên trái. Bên phải là chỗ em để dung môi.",
+   "w": "any"
+  },
+  {
+   "t": "Anh không ép em. Anh chỉ đưa lựa chọn em khó từ chối.",
+   "w": "any"
+  },
+  {
+   "t": "Ngồi ghế mây đi. Thứ Năm anh ngồi, hôm nay để em.",
+   "w": "any"
+  },
+  {
+   "t": "Anh ngả lưng cho ghế kêu một tiếng. Nghĩa là anh ở lại.",
+   "w": "any"
+  },
+  {
+   "t": "Tách trà nguội em để quên kìa. Anh rót tách khác.",
+   "w": "any"
+  },
+  {
+   "t": "Cậu Kỳ gọi anh chủ nợ à. Anh không sửa cậu ấy.",
+   "w": "any"
+  },
+  {
+   "t": "Ngón tay cầm dao của em lệch một chút so với thầy. Anh để ý.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng nhận gấp đôi cọc. Nhận một phần ba thôi, đúng lệ.",
+   "w": "any"
+  },
+  {
+   "t": "Anh tới sớm hơn giờ thường à. Không. Anh chỉ chưa muốn về.",
+   "w": "any"
+  },
+  {
+   "t": "Cứ việc cãi anh. Anh không nâng giọng, nhưng anh không lùi.",
+   "w": "any"
+  },
+  {
+   "t": "Tờ hợp đồng này anh soạn vì em, không vì quỹ. Thế thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Anh dọn bớt việc em không cần tự lo. Em để anh dọn.",
+   "w": "any"
+  },
+  {
+   "t": "Cầm tách bằng tay trái. Tay phải còn cầm tăm bông à.",
+   "w": "any"
+  },
+  {
+   "t": "Anh đặt tách xuống chậm là vì câu em vừa nói. Đừng để ý.",
+   "w": "any"
+  },
+  {
+   "t": "Cửa kính không rèm. Người đi qua khúc gấp nhìn vào được.",
+   "w": "any"
+  },
+  {
+   "t": "Chìa anh giữ không phải để vào. Để em biết có người giữ.",
+   "w": "any"
+  },
+  {
+   "t": "Soi tranh thấy gì thì giữ cho mình. Báo anh trước bên thứ ba.",
+   "w": "any"
+  },
+  {
+   "t": "Anh về trước chín giờ bốn mươi. Trừ hôm nào em bảo ở lại.",
+   "w": "any"
+  },
+  {
+   "t": "Hàng của khách anh không đụng. Chỉ xếp lại cái đôn thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Dây rèm anh mua chưa à. Mua rồi. Để đó khi nào em cần.",
+   "w": "any"
+  },
+  {
+   "t": "Điều sáu có lợi cho em. Nhưng anh thêm một dòng cho anh.",
+   "w": "any"
+  },
+  {
+   "t": "Ổ điện, van nước, cái bình. Việc thứ tư là nhìn em.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng lo tiền tháng này. Trễ một kỳ anh không ghi sổ.",
+   "w": "any"
+  },
+  {
+   "t": "Tách anh để úp sấp tới giờ. Vì em chưa ngồi xuống.",
+   "w": "any"
+  },
+  {
+   "t": "Cậu Kỳ trả tiền mặt tự đưa. Em cứ ghi sổ cho sòng phẳng.",
+   "w": "any"
+  },
+  {
+   "t": "Anh không giải thích. Anh đặt một tờ giấy lên bàn trà thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Cầm cái này. Anh pha rồi. Đừng hỏi vì sao hôm nay có hai tách.",
+   "w": "any"
+  },
+  {
+   "t": "Anh đứng chắn lối gió cho em. Không phải chắn đường ai đâu.",
+   "w": "any"
+  },
+  {
+   "t": "Làm tới đâu rồi. Anh hỏi việc thật, không phải để ở lại.",
+   "w": "any"
+  },
+  {
+   "t": "Bàn phục chế là của em. Anh chỉ mượn mép bàn đặt hộp cơm.",
+   "w": "any"
+  },
+  {
+   "t": "Thức khuya thì mai anh mua thêm phần sáng.",
+   "w": "any"
+  },
+  {
+   "t": "Gọi anh đi. Một tiếng thôi anh cũng bỏ việc bên quỹ.",
+   "w": "any"
+  },
+  {
+   "t": "Hai người một tiệm, cũng được. Em làm việc em, anh ngồi đây.",
+   "w": "any"
+  },
+  {
+   "t": "Tem này là tem thứ một trăm năm mươi mấy. Anh không đếm sai.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng đứng lên. Chân tê rồi, ngã bây giờ. Anh lấy hộ.",
+   "w": "any"
+  },
+  {
+   "t": "Tách em lệch phải ba năm rồi. Hôm nay vẫn lệch, anh để ý.",
+   "w": "any"
+  },
+  {
+   "t": "Cái gì không có giấy thì không giữ được. Trừ vài thứ. Thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Cứ coi anh là chủ nhà. Anh quen bị gọi thế rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Bút, tem, sổ anh mang đủ. Và mang cả đồ ăn cho em.",
+   "w": "any"
+  },
+  {
+   "t": "Ngồi xa chai dung môi ra. Anh kéo cái đôn lại đây rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Ba năm anh không đổi giờ kiểm tra. Nhưng dạo này anh ra muộn.",
+   "w": "any"
+  },
+  {
+   "t": "Đứng ở cửa lâu thế. Vào thì anh vào, đuổi thì anh đi.",
+   "w": "any"
+  },
+  {
+   "t": "Phụ lục này anh soạn rồi, chưa gửi. Để khi nào cần.",
+   "w": "any"
+  },
+  {
+   "t": "Chân em tê thì ngồi yên. Anh lấy nước cho.",
+   "w": "any"
+  },
+  {
+   "t": "Đồ ăn nguội anh hâm lại. Lò bên kệ còn chạy chứ.",
+   "w": "any"
+  },
+  {
+   "t": "Tủ kính cánh phải kêu. Đừng dựa, anh sửa bản lề cho.",
+   "w": "any"
+  },
+  {
+   "t": "Trời nồm sáng nay. Hôm nay chỉ tháo khung, không bóc lớp.",
+   "w": "sang"
+  },
+  {
+   "t": "Phơi khung ngoài hẻm đi. Chín giờ tới mười một giờ, đúng nắng.",
+   "w": "sang"
+  },
+  {
+   "t": "Hộp cơm nguội rồi à. Để lò bên kệ, năm phút là nóng.",
+   "w": "trua"
+  },
+  {
+   "t": "Chợp mắt mười phút trên ghế mây đi. Anh canh.",
+   "w": "trua"
+  },
+  {
+   "t": "Mưa tạnh chưa. Đồ phủ ngoài bậu cửa em cất vào chưa.",
+   "w": "chieu"
+  },
+  {
+   "t": "Về bên quỹ đây. Tối quay lại xem góc thử cho em.",
+   "w": "chieu"
+  },
+  {
+   "t": "Hẻm vắng thế. Ông Tấn đóng cửa thứ Tư mà.",
+   "w": "chieu"
+  },
+  {
+   "t": "Khoá cửa gỗ đi. Đèn hẻm bật rồi, nghe tiếng công tắc không.",
+   "w": "toi"
+  },
+  {
+   "t": "Trà này cho em. Tối lạnh, cầm cho ấm tay.",
+   "w": "toi"
+  },
+  {
+   "t": "Lên gác ngủ đi. Dưới này để anh tắt đèn.",
+   "w": "toi"
+  },
+  {
+   "t": "Cột hư hại em để trống thì cứ để trống. Đúng là được.",
+   "w": "any"
+  },
+  {
+   "t": "Người lạ đứng quá mười phút là bà Đỗ ghi sổ. Em cứ kệ.",
+   "w": "any"
+  },
+  {
+   "t": "Hộp gỗ của cậu Kỳ vẫn ở tủ kính. Cậu ấy chưa lấy.",
+   "w": "any"
+  },
+  {
+   "t": "Nghiêm luật sư gọi bên A bên B suốt. Em là bên B, đừng bực.",
+   "w": "any"
+  },
+  {
+   "t": "Nước anh để đầu giường rồi. Khát thì với tay là tới.",
+   "w": "khuya"
+  },
+  {
+   "t": "Sáng mai nếu là thứ Năm, chín giờ mười anh vẫn gõ cửa.",
+   "w": "khuya"
+  }
+ ],
+ "kỳ lăng xuyên": [
+  {
+   "t": "Chủ tiệm dậy chưa. Tôi đứng ngoài nãy giờ đấy.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng ra cổ chủ tiệm có dấu kìa. Thôi, không phải việc của tôi.",
+   "w": "sang"
+  },
+  {
+   "t": "Chào mào hót rồi. Tôi về đây. Chủ tiệm ngủ thêm đi.",
+   "w": "sang"
+  },
+  {
+   "t": "Tôi mang cà phê. Không phải trà đâu, trà chủ tiệm có rồi.",
+   "w": "sang"
+  },
+  {
+   "t": "Giày tôi lại dính bụi hẻm sáng nay. Chủ tiệm có khăn không.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng sớm mà đã cầm tăm bông. Ăn gì chưa đấy.",
+   "w": "sang"
+  },
+  {
+   "t": "Tôi tới sớm. Không có lý do gì cả. Thật.",
+   "w": "sang"
+  },
+  {
+   "t": "Nắng chưa vào tới cửa. Chủ tiệm bật đèn lên cho tôi nhìn.",
+   "w": "sang"
+  },
+  {
+   "t": "Đêm qua chủ tiệm trả lời tin tôi đấy. Hai giờ sáng cơ.",
+   "w": "sang"
+  },
+  {
+   "t": "Tôi mua xôi. Hai gói. Một gói chủ tiệm, đừng từ chối.",
+   "w": "sang"
+  },
+  {
+   "t": "Mặt chủ tiệm phờ thế. Làm xuyên đêm à, dại.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáng nay bà Đỗ nhìn giày tôi lâu lắm. Kệ bà ấy.",
+   "w": "sang"
+  },
+  {
+   "t": "Tôi về Nam Ngạn ăn cơm sáng rồi mới qua. Chán chết.",
+   "w": "sang"
+  },
+  {
+   "t": "Chủ tiệm pha trà đi. Tôi ngồi mép bàn chờ.",
+   "w": "sang"
+  },
+  {
+   "t": "Thứ Hai rồi. Tôi mang món mới đây, chủ tiệm nhận không.",
+   "w": "sang"
+  },
+  {
+   "t": "Trưa chủ tiệm ăn gì. Tôi bao, tôi có tiền.",
+   "w": "trua"
+  },
+  {
+   "t": "Hạt kê rơi lanh canh. Con chim ông Chương ăn ngon hơn chủ tiệm đấy.",
+   "w": "trua"
+  },
+  {
+   "t": "Tôi mua cơm hai phần. Đừng nói là chủ tiệm không đói.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa nắng gắt. Chủ tiệm nghỉ tay đi, canh góc thử làm gì.",
+   "w": "trua"
+  },
+  {
+   "t": "Ngồi ăn với tôi. Một bữa thôi, tôi trả.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa Hà Lưu đóng rồi. Tôi chẳng biết đi đâu, nên qua đây.",
+   "w": "trua"
+  },
+  {
+   "t": "Cơm nguội thì vứt. Tôi mua phần khác, có sao đâu.",
+   "w": "trua"
+  },
+  {
+   "t": "Chủ tiệm bỏ bữa hoài. Chiều tay run bóc hỏng thì sao.",
+   "w": "trua"
+  },
+  {
+   "t": "Tôi ngồi đây trưa nay được không. Không mua gì cũng được chứ.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa rồi mà chủ tiệm chưa uống nước. Đây, tôi rót.",
+   "w": "trua"
+  },
+  {
+   "t": "Tôi ăn nhanh lắm. Chủ tiệm cứ làm, tôi dọn hộ.",
+   "w": "trua"
+  },
+  {
+   "t": "Chiều Chủ nhật tôi ra Hà Lưu. Chủ tiệm muốn gì tôi ngó hộ.",
+   "w": "chieu"
+  },
+  {
+   "t": "Bà Tám lại gọi giá cao cho tôi phiên này. Bốn trăm năm. Tôi trả.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tôi mua cái này ở chợ. Nắp kẹt. Chủ tiệm xem được không.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều muộn rồi. Tôi chưa muốn về Tân Thị. Nhà trống lắm.",
+   "w": "chieu"
+  },
+  {
+   "t": "Trời sắp mưa. Tôi đi lối ngách, khỏi để bà Đỗ hỏi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chủ tiệm làm cả chiều chưa nghỉ. Đứng dậy đi, tôi coi tiệm cho.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tôi đứng tủ kính nhé. Mép bàn bị mời đứng rồi còn đâu.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều nay ông ta lại tới à. Chủ nợ thì giờ nào chẳng tới.",
+   "w": "chieu"
+  },
+  {
+   "t": "Cái hộp gỗ tôi gửi tháng Sáu vẫn trong tủ kính. Tôi chưa lấy.",
+   "w": "chieu"
+  },
+  {
+   "t": "Mưa rồi. Tôi ngồi chờ tạnh. Chủ tiệm đừng đuổi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chiều muộn hẻm vắng. Chỉ còn tôi với chủ tiệm. Hay đấy.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tôi mang trà sữa. Biết chủ tiệm không uống, nhưng mua rồi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Góc thử khô chưa. Tôi hỏi để có cớ đứng thêm.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tối rồi chủ tiệm còn làm. Mắt mỏi chưa, nghỉ đi.",
+   "w": "toi"
+  },
+  {
+   "t": "Đèn hẻm bật rồi. Tôi chưa về. Chủ tiệm đuổi thì tôi đi.",
+   "w": "toi"
+  },
+  {
+   "t": "Tôi đứng ngoài cửa à. Chủ tiệm mở thì tôi vào.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay tôi không mang gì. Tay không. Được không.",
+   "w": "toi"
+  },
+  {
+   "t": "Chủ tiệm bảo tôi ở lại đi. Một câu thôi, tôi ở.",
+   "w": "toi"
+  },
+  {
+   "t": "Ông ta về chưa. Về rồi hả. Vậy tôi ngồi thêm tí.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối phố Lư im thật. Nghe cả tiếng chủ tiệm thở.",
+   "w": "toi"
+  },
+  {
+   "t": "Tôi ngồi ghế mây được không. Của ông ta à. Thôi vậy.",
+   "w": "toi"
+  },
+  {
+   "t": "Đèn số tám bên kia hẻm sáng kìa. Giáo sư chưa ngủ.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối muộn rồi. Chủ tiệm ăn chưa, hay tôi đi mua.",
+   "w": "toi"
+  },
+  {
+   "t": "Tôi tháo nhẫn ra đây. Để trên bàn. Đừng hỏi gì.",
+   "w": "toi"
+  },
+  {
+   "t": "Chủ tiệm mệt thì dựa vào tôi. Tôi không nói ai đâu.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay tôi nói nhiều quá à. Thôi, tôi im.",
+   "w": "toi"
+  },
+  {
+   "t": "Khoá cửa đi chủ tiệm. Tôi ở trong này rồi.",
+   "w": "toi"
+  },
+  {
+   "t": "Đèn tay đòn chói mắt chủ tiệm kìa. Để tôi hạ xuống.",
+   "w": "toi"
+  },
+  {
+   "t": "Tôi ở tới lúc chủ tiệm bảo về. Không bảo thì tôi ở.",
+   "w": "toi"
+  },
+  {
+   "t": "Khuya rồi chủ tiệm còn thức làm gì. À, giống tôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nhẫn để trên bàn rồi. Đừng nhặt lên. Tôi muốn ở lại.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tôi nói nhiều quá rồi. Thôi. Lại đây.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gọi tên tôi đi. Xuyên. Không phải chủ tiệm, không phải khách.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chủ tiệm cho tôi ở lại tới chào mào hót nhé. Tôi ngoan.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tay tôi lạnh à. Tôi đưa ra rồi rút, rồi đưa lại. Kệ tôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khuya này tôi không trả tiền gì cả. Tôi tới không vì đồ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Môi chủ tiệm mềm hơn tôi tưởng. Tôi va răng rồi, xin lỗi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chậm lại đi. Tôi vụng, nhưng tôi học nhanh mà.",
+   "w": "khuya"
+  },
+  {
+   "t": "Hai giờ sáng tôi gửi ảnh. Giờ tôi ở đây rồi, không cần gửi nữa.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chủ tiệm ướt rồi. Tôi chạm thôi đã thế này.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tôi muốn nghe chủ tiệm gọi tên tôi lúc này. Một lần thôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cắn vai tôi đi, nếu không nhịn được. Tôi chịu được mà.",
+   "w": "khuya"
+  },
+  {
+   "t": "Giường chật quá. Chủ tiệm sát vào tôi đi, tôi giữ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tôi vào chậm thôi. Đau thì bấu lấy tôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nhịp này được không. Chủ tiệm siết lại là tôi biết.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khuya này tôi im rồi đấy. Nói hết rồi, giờ chỉ còn làm.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tôi đếm bằng miệng khi không nói được gì khác. Kệ tôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đừng tắt đèn. Tôi muốn nhìn mặt chủ tiệm lúc này.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chân chủ tiệm quấn lấy tôi rồi. Tôi không về đâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Mồ hôi chủ tiệm mặn thật. Tôi liếm ở gáy đây.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khuya rồi. Chủ tiệm hư với tôi một đêm có sao đâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tôi ngồi đây, chủ tiệm lên trên tôi đi. Tôi giữ hông cho.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tôi hồi nhanh lắm. Nghỉ một tí rồi lại. Được không.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nhẫn vẫn trên bàn kìa. Tôi chưa nhìn lại nó lần nào.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chủ tiệm mềm ra rồi. Tôi vụng nhưng tôi biết chỗ đó.",
+   "w": "khuya"
+  },
+  {
+   "t": "Thở gấp thế. Chậm thôi, tôi không đi đâu mà vội.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tôi để dấu ở eo chủ tiệm rồi. Áo che được, yên tâm.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lần nữa nhé. Tôi hai mươi lăm, tôi còn sức.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tôi ở tới chào mào. Chủ tiệm ngủ trước đi, tôi canh.",
+   "w": "khuya"
+  },
+  {
+   "t": "Sáng mai tôi về bằng lối ngách. Bà Đỗ không thấy đâu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gối rơi xuống sàn rồi. Kệ. Lại đây với tôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tôi quên quên mất phải gọi chủ tiệm là gì rồi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tay tôi run à. Tôi đưa ra là thật, rút lại cũng thật.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lưng chủ tiệm cong lên thế. Tôi giữ chặt hơn nhé.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khuya này tôi không hỏi giá gì cả. Cái này không bán mà.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cổ chủ tiệm có vết tôi để lại. Mai tôi lại tới xem.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cái này được không.",
+   "w": "any"
+  },
+  {
+   "t": "Nắp kẹt. Chủ tiệm xem hộ.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi trả gấp đôi. Tiền mặt. Khỏi đòi.",
+   "w": "any"
+  },
+  {
+   "t": "Thứ Hai nào tôi chả tới. Đừng làm như lạ.",
+   "w": "any"
+  },
+  {
+   "t": "Chủ tiệm ghi cột hư hại để trống à. Thế mà vẫn nhận.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi ngồi mép bàn thôi mà. Tám mươi phân thì tám mươi phân.",
+   "w": "any"
+  },
+  {
+   "t": "Cọc một phần ba à. Tôi đưa gấp đôi. Chủ tiệm giữ hộ.",
+   "w": "any"
+  },
+  {
+   "t": "Ông ta gọi tôi là cậu. Tôi kệ. Tôi gọi ông ta là chủ nợ.",
+   "w": "any"
+  },
+  {
+   "t": "Nhẫn này của bà nội tôi. Rộng một cỡ. Tôi xoay cho quen.",
+   "w": "any"
+  },
+  {
+   "t": "Giáo sư bên kia cửa sổ bệnh thật. Suốt ngày nhìn sang.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi mua món này ở Hà Lưu. Bà Tám gọi giá cao cho mình tôi.",
+   "w": "any"
+  },
+  {
+   "t": "Cảm ơn. Tôi nói như trả giá à. Kệ, tôi quen rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Chủ tiệm cứ mời tôi đứng. Tôi chuyển sang dựa tủ kính vậy.",
+   "w": "any"
+  },
+  {
+   "t": "Tủ kính kêu kẹt à. Tại tôi dựa. Chủ tiệm sửa đi.",
+   "w": "any"
+  },
+  {
+   "t": "Món này không có lỗi gì. Tôi khai bừa một lỗi cho có cớ.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi không cần ai bảo ở lại. Tôi tự ở. Rõ chưa.",
+   "w": "any"
+  },
+  {
+   "t": "Hoá đơn Hà Lưu tôi gấp tư trong túi. Rút ra rồi gấp lại.",
+   "w": "any"
+  },
+  {
+   "t": "Chủ tiệm nhận cọc của tôi là nhận tôi rồi đấy. Thôi, quên đi.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi tới đây làm gì à. Không liên quan đến chủ tiệm.",
+   "w": "any"
+  },
+  {
+   "t": "Cái hộp gỗ tháng Sáu tôi chưa lấy. Lấy thì hết cớ tới.",
+   "w": "any"
+  },
+  {
+   "t": "Anh trai tôi gọi tôi cậu út. Tôi không trả lời cách gọi đó.",
+   "w": "any"
+  },
+  {
+   "t": "Thẻ tôi bị cắt hai năm rồi. Tôi sống bằng tiền mặt bà nội.",
+   "w": "any"
+  },
+  {
+   "t": "Bữa cơm cuối tháng tôi phải về. Để bà nội không hỏi.",
+   "w": "any"
+  },
+  {
+   "t": "Chủ tiệm giữ món này hộ tôi, đừng ghi sổ. Được không.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi mua đồ cũ không phải vì cần. Vì có cớ ngồi đây.",
+   "w": "any"
+  },
+  {
+   "t": "Nhẫn tôi xoay suốt à. Tại nó rộng. Không phải tại gì khác.",
+   "w": "any"
+  },
+  {
+   "t": "Chủ tiệm cười một cái đi. Tôi trả tiền để thấy à, cũng được.",
+   "w": "any"
+  },
+  {
+   "t": "Ông ta là chủ nhà. Với tôi là chủ nợ. Cùng một người.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi trả giá cho cái không bán được không. Hỏi thế thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Đồ này ghép từ hai nguồn đấy. Như vài người tôi biết.",
+   "w": "any"
+  },
+  {
+   "t": "Chủ tiệm đừng nhận gấp đôi của tôi nữa à. Tôi lại đưa.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi tới bốn lần tuần này rồi. Chủ tiệm đếm à. Thôi kệ.",
+   "w": "any"
+  },
+  {
+   "t": "Món mười bốn tôi nhận rồi. Thứ Hai này là món mười lăm.",
+   "w": "any"
+  },
+  {
+   "t": "Giày tôi sạch quá chủ tiệm chê à. Hẻm bụi, tôi lau suốt.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi nói trước trong mọi khoảng im. Tại im lâu khó chịu.",
+   "w": "any"
+  },
+  {
+   "t": "Chủ tiệm im ba mươi giây là tôi phải nói gì đó. Bệnh tôi thế.",
+   "w": "any"
+  },
+  {
+   "t": "Cái ghế mây của ông ta tôi hỏi giá lão Quế rồi. Một triệu hai.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi không mua ghế đó. Tiệm có ghế rồi, của ông chủ nhà.",
+   "w": "any"
+  },
+  {
+   "t": "Chủ tiệm có khăn giấy không. Tay tôi dính bụi hẻm.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi gọi giáo sư là giáo sư. Sau lưng thì ông này. Kệ ông ta.",
+   "w": "any"
+  },
+  {
+   "t": "Nhẫn tôi tháo ra đặt lên bàn là một chuyện. Để quên là chuyện khác.",
+   "w": "any"
+  },
+  {
+   "t": "Chủ tiệm đừng để ông ta dùng điều sáu ép. Tôi đọc được mà.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi ồn à. Chủ tiệm quen đi. Tôi còn tới dài.",
+   "w": "any"
+  },
+  {
+   "t": "Đồ dễ vỡ nên tôi mang tới sớm. Lý do chính đáng đấy chứ.",
+   "w": "any"
+  },
+  {
+   "t": "Chủ tiệm giữ hộ cọc tôi tích lại nhiều rồi đấy. Đừng trả.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi biết tôi làm gì. Tôi chỉ không nói thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Món này cần chủ tiệm xem. Chỉ chủ tiệm xem được.",
+   "w": "any"
+  },
+  {
+   "t": "Cảm ơn chủ tiệm. Đấy, tôi nói được câu tử tế mà.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi để tiền trên bàn rồi. Đếm hai lần cho chắc.",
+   "w": "any"
+  },
+  {
+   "t": "Chủ tiệm mời tôi đứng lần nữa à. Tôi dựa chỗ khác vậy.",
+   "w": "any"
+  },
+  {
+   "t": "Hà Lưu giá gọi cho tôi tuần sau lại cao hơn. Tôi vẫn trả.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi nhắn hai giờ sáng. Chủ tiệm đọc hai tiếng sau. Tôi biết.",
+   "w": "any"
+  },
+  {
+   "t": "Nhà tôi ở Nam Ngạn. Trống hoác. Tôi chả thích về.",
+   "w": "any"
+  },
+  {
+   "t": "Chủ tiệm đừng tin tôi khi tôi nói không vì chủ tiệm.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi cầm hoá đơn này để có cái cầm thôi. Không đọc đâu.",
+   "w": "any"
+  },
+  {
+   "t": "Cái nhẫn này tôi không tháo cho ai. Trừ lúc tôi muốn ở lại.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi tới vì đồ cần sửa. Chủ tiệm tin thì tin.",
+   "w": "any"
+  },
+  {
+   "t": "Ông ta đặt tờ giấy lên bàn kìa. Chủ nợ lúc nào cũng có giấy.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi mua thêm món nữa đây. Chủ tiệm đừng hỏi vì sao.",
+   "w": "any"
+  },
+  {
+   "t": "Chủ tiệm gọi tôi bằng tên đi. Lăng Xuyên. Nghe dễ chịu hơn.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi không xin ngồi đâu. Tôi trả tiền để ngồi. Khác nhau đấy.",
+   "w": "any"
+  },
+  {
+   "t": "Bà nội tôi không bắt tôi hỏi giá. Chủ tiệm cũng thế thì tốt.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi đứng đây được không. Không mua gì cũng được chứ, một lần.",
+   "w": "any"
+  },
+  {
+   "t": "Món này tôi không cần sửa thật. Tôi cần chỗ đứng thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Chủ tiệm cứ ghi sổ đi. Tôi thích nhìn chủ tiệm cầm bút.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi trả đủ rồi mà sao vẫn thấy thiếu cái gì. Thôi kệ.",
+   "w": "any"
+  },
+  {
+   "t": "Ông ta tới thứ Năm, tôi tới thứ Hai. Chia nhau tuần rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Chủ tiệm đừng ghi hư hại cho món này. Nó có hỏng gì đâu.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi cầm nhẫn lên rồi lại đặt xuống. Chủ tiệm thấy không.",
+   "w": "any"
+  },
+  {
+   "t": "Giáo sư để hộp trà trước cửa à. Tôi nhìn cái hộp lâu lắm.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi mua hai món tuần này. Chả món nào có lỗi để khai.",
+   "w": "any"
+  },
+  {
+   "t": "Chủ tiệm ăn chưa. Tôi hỏi thật đấy, không phải để làm quen.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi tiêu tiền bà nội để lại. Hết thì tôi bán bớt đồ. Kệ.",
+   "w": "any"
+  },
+  {
+   "t": "Chủ tiệm đừng bảo tôi về. Tôi về sớm hơn giờ nói cho coi.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi để quên nhẫn ở đây à. Không quay lại lấy đâu. Mai tới.",
+   "w": "any"
+  },
+  {
+   "t": "Ông ta không to tiếng bao giờ. Tôi thì to suốt. Đối nhau.",
+   "w": "any"
+  },
+  {
+   "t": "Cảm ơn vì giữ hộ. Đấy, tôi cảm ơn mà không trả giá đấy.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi tới đây không mang đồ lần này. Chủ tiệm đuổi tôi không.",
+   "w": "any"
+  },
+  {
+   "t": "Chủ tiệm có nhớ món đầu tôi mang không. Vẫn ở tủ kính đấy.",
+   "w": "any"
+  },
+  {
+   "t": "Bà Tám cộng giá tôi mỗi tuần một khoản. Tôi trả không chớp mắt.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi ngồi mép bàn, bị mời đứng, dựa tủ kính, tủ kêu. Vòng tuần hoàn.",
+   "w": "any"
+  },
+  {
+   "t": "Chủ tiệm giữ tôi lại một câu thôi. Tôi tự ái lắm, nhưng tôi ở.",
+   "w": "any"
+  },
+  {
+   "t": "Nhẫn bà nội rộng một cỡ. Tôi gầy đi hay nhẫn to, ai biết.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi cãi, tôi thua, rồi tôi im. Với ông ta lần nào cũng thế.",
+   "w": "any"
+  },
+  {
+   "t": "Chủ tiệm cho tôi ngồi mà không lấy tiền à. Tôi không quen đâu.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi mang đồ ăn nè. Không phải đồ cổ. Chủ tiệm ăn đi.",
+   "w": "any"
+  },
+  {
+   "t": "Món này giá gọi bà Tám hét to cả dãy nghe. Tôi vẫn mua.",
+   "w": "any"
+  },
+  {
+   "t": "Chủ tiệm biết tôi tới vì gì không. Thôi, đừng biết vội.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi đứng gần chủ tiệm hơn mức cần rồi. Lùi ra cũng được.",
+   "w": "any"
+  },
+  {
+   "t": "Cái này tôi mua cho chủ tiệm. Đừng trả tiền tôi, kỳ lắm.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi không ngoan đâu. Nhưng với chủ tiệm tôi thử ngoan xem.",
+   "w": "any"
+  },
+  {
+   "t": "Chủ tiệm đừng tin câu tôi vừa nói. Tôi cãi để giấu thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi tới sớm ngồi chờ tiệm mở mười một tách trà bà Đỗ rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Món mới đây. Chủ tiệm nhận thì tôi có cớ thứ Hai sau.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi trả tiền mặt vì thẻ bị cắt. Chủ tiệm đừng hỏi thêm.",
+   "w": "any"
+  },
+  {
+   "t": "Chủ tiệm cứ gọi tôi là khách. Tôi nghe mãi cũng quen.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi để nhẫn trên bàn lâu thế mà chủ tiệm không hỏi. Tốt.",
+   "w": "any"
+  },
+  {
+   "t": "Ơ dậy rồi à. Tưởng còn phải đứng chờ ngoài hẻm.",
+   "w": "sang"
+  },
+  {
+   "t": "Mắt thâm thế kia. Làm cả đêm hả, dở hơi.",
+   "w": "sang"
+  },
+  {
+   "t": "Đây, xôi còn nóng. Ăn đi rồi hẵng cầm tăm bông.",
+   "w": "sang"
+  },
+  {
+   "t": "Giọng khàn nghe hay phết. Thôi bỏ qua.",
+   "w": "sang"
+  },
+  {
+   "t": "Về nhà ăn sáng chán chết nên tôi vác mặt qua sớm.",
+   "w": "sang"
+  },
+  {
+   "t": "Bụi hẻm lại bám giày rồi. Khăn đâu, cho mượn cái.",
+   "w": "sang"
+  },
+  {
+   "t": "Đói chưa. Bao cơm đây, đừng sĩ diện.",
+   "w": "trua"
+  },
+  {
+   "t": "Nghỉ tay đã. Góc thử khô nhanh hơn tưởng đấy.",
+   "w": "trua"
+  },
+  {
+   "t": "Hai phần cơm đây. Không ăn một phần là tôi dỗi.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa Hà Lưu nghỉ, chả biết lượn đâu nên tới đây.",
+   "w": "trua"
+  },
+  {
+   "t": "Đứng dậy duỗi lưng coi. Nãy giờ tôi nhìn mỏi giùm.",
+   "w": "trua"
+  },
+  {
+   "t": "Cơm nguội vứt đi. Mua phần mới, tiền tôi có.",
+   "w": "trua"
+  },
+  {
+   "t": "Phiên này bà Tám hét bốn trăm năm. Trả, mặt không đổi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Mua được cái này ở chợ. Nắp kẹt thật, không bịa.",
+   "w": "chieu"
+  },
+  {
+   "t": "Nhà Tân Thị trống hoác. Chưa muốn về nên ngồi đây.",
+   "w": "chieu"
+  },
+  {
+   "t": "Mưa tới rồi. Chui lối ngách, bà Đỗ khỏi hỏi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Ông Tấn đóng cửa thứ Tư. Hẻm vắng, hợp tôi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Ông ta tới chưa. Chưa à. Vậy ngồi lâu tí.",
+   "w": "chieu"
+  },
+  {
+   "t": "Lão Quế lau ghế mây kỹ lắm. Hỏi giá rồi, chưa mua.",
+   "w": "chieu"
+  },
+  {
+   "t": "Trà sữa đây. Biết không uống, nhưng mua rồi, kệ.",
+   "w": "chieu"
+  },
+  {
+   "t": "Đèn hẻm bật mà tôi chưa muốn về.",
+   "w": "toi"
+  },
+  {
+   "t": "Bảo ở lại đi. Một câu thôi, tôi nghe lời cho coi.",
+   "w": "toi"
+  },
+  {
+   "t": "Khoá cửa lại. Có tôi trong này rồi, sợ gì.",
+   "w": "toi"
+  },
+  {
+   "t": "Tay không tới đấy. Tối nay chả mua gì, đuổi không.",
+   "w": "toi"
+  },
+  {
+   "t": "Ngồi xuống cạnh tôi đi. Làm cả ngày rồi còn gì.",
+   "w": "toi"
+  },
+  {
+   "t": "Dựa vào tôi. Tôi ấm hơn cái ghế mây đấy.",
+   "w": "toi"
+  },
+  {
+   "t": "Để đó mai làm. Mắt mỏi rồi kìa, nghỉ.",
+   "w": "toi"
+  },
+  {
+   "t": "Hạ đèn xuống đi. Chói mắt, tôi xót.",
+   "w": "toi"
+  },
+  {
+   "t": "Ông ta về rồi hả. Tốt. Còn mình tôi với chủ tiệm.",
+   "w": "toi"
+  },
+  {
+   "t": "Phố Lư im quá. Nghe cả tiếng thở. Tôi im luôn đây.",
+   "w": "toi"
+  },
+  {
+   "t": "Đói không. Chạy ra mua, năm phút thôi.",
+   "w": "toi"
+  },
+  {
+   "t": "Nhẫn tôi để trên bàn đây. Để ý hay không cũng được.",
+   "w": "toi"
+  },
+  {
+   "t": "Lại đây. Nhẫn để bàn rồi, tôi không nhìn lại nó.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gọi tên tôi mà. Lăng Xuyên. Nghe một tiếng tôi chịu không nổi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Môi đây rồi. Tôi va răng, xin lỗi, để tôi lại.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cởi áo ra cho tôi. Tay run quá, giúp tí.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cổ chủ tiệm thơm thật. Hôn chỗ này, đừng né.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nằm xuống. Giường chật thì sát vào tôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chạm nhẹ thôi mà. Run gì mà run.",
+   "w": "khuya"
+  },
+  {
+   "t": "Thả lỏng ra. Tôi vụng, nhưng chiều được chủ tiệm.",
+   "w": "khuya"
+  },
+  {
+   "t": "Eo đây. Tôi giữ, nhích lên cho tôi tí.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cắn vai tôi nếu nhịn không nổi. Tôi chịu đau tốt.",
+   "w": "khuya"
+  },
+  {
+   "t": "Vào từ từ thôi. Đau thì bấu lấy tôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Siết lại là tôi biết chủ tiệm chịu được. Nhịp này nhé.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đừng tắt đèn. Tôi muốn nhìn mặt chủ tiệm cơ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngồi lên tôi đi. Đỡ hông rồi, ngã sao được.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gáy chủ tiệm mặn mồ hôi. Tôi liếm hết đây.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nghỉ tí rồi lại nhé. Tôi hồi sức nhanh lắm.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lưng cong lên thế kia. Tôi giữ chặt hơn.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đùi run rồi. Tôi đỡ, cứ dựa vào tôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Khuya này nói ít thôi. Để tay với miệng làm việc.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gối rơi kệ nó. Lại đây với tôi cái đã.",
+   "w": "khuya"
+  },
+  {
+   "t": "Dấu răng ở vai chủ tiệm rồi. Sáng cổ áo che được.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tôi làm gì mà chủ tiệm thế này. Đẹp phết.",
+   "w": "khuya"
+  },
+  {
+   "t": "Hai mươi lăm tuổi, còn sức chán. Lần nữa nhé.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tay tôi luồn xuống đây. Lạnh thì hà hơi cho ấm.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đừng cắn môi. Rên ra đi, khuya rồi ai nghe.",
+   "w": "khuya"
+  },
+  {
+   "t": "Xuyên. Gọi thế là tôi làm gì cũng chịu.",
+   "w": "khuya"
+  },
+  {
+   "t": "Mồ hôi tôi rớt lên lưng chủ tiệm rồi. Kệ, lau sau.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chân quấn lấy tôi rồi thì đừng hòng tôi về.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nằm yên. Tôi lau cho, rồi ngủ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Sáng rồi à. Chào mào hót. Tôi về bằng lối ngách đây.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nắp này kẹt thật. Xem hộ tôi cái.",
+   "w": "any"
+  },
+  {
+   "t": "Gấp đôi đây. Tiền mặt. Đừng đòi lại.",
+   "w": "any"
+  },
+  {
+   "t": "Để trống cột hư hại mà vẫn nhận. Tôi quý chủ tiệm chỗ đó.",
+   "w": "any"
+  },
+  {
+   "t": "Mép bàn tám mươi phân thì tám mươi. Đứng lên vậy.",
+   "w": "any"
+  },
+  {
+   "t": "Giáo sư bên cửa sổ nhìn sang suốt. Ông này bệnh thật.",
+   "w": "any"
+  },
+  {
+   "t": "Hộp gỗ tháng Sáu còn trong tủ. Lấy về thì hết cớ tới.",
+   "w": "any"
+  },
+  {
+   "t": "Cậu út là anh tôi gọi. Tôi không thưa cách đó.",
+   "w": "any"
+  },
+  {
+   "t": "Bữa cơm cuối tháng về cho bà nội yên. Chán chết.",
+   "w": "any"
+  },
+  {
+   "t": "Giữ hộ món này, đừng ghi sổ. Được chứ.",
+   "w": "any"
+  },
+  {
+   "t": "Đồ cũ mua không vì cần. Vì có cớ ngồi thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Cười một cái coi. Trả tiền để thấy cũng được mà.",
+   "w": "any"
+  },
+  {
+   "t": "Đứng đây được không. Không mua gì, một lần thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Bà nội không bắt tôi hỏi giá. Chủ tiệm thế thì hay.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng tin tôi lúc tôi nói không vì chủ tiệm.",
+   "w": "any"
+  },
+  {
+   "t": "Nhẫn này không tháo cho ai. Trừ lúc muốn ở lại.",
+   "w": "any"
+  },
+  {
+   "t": "Để quên nhẫn à. Không quay lại. Mai tới lấy luôn.",
+   "w": "any"
+  },
+  {
+   "t": "Ông ta không to tiếng bao giờ. Tôi bù cho cả hai.",
+   "w": "any"
+  },
+  {
+   "t": "Mua thêm món nữa đây. Đừng hỏi vì sao.",
+   "w": "any"
+  },
+  {
+   "t": "Giữ tôi lại một câu đi. Tự ái thì tự ái, tôi vẫn ở.",
+   "w": "any"
+  },
+  {
+   "t": "Cãi, thua, im. Với ông ta lần nào cũng ba bước đó.",
+   "w": "any"
+  },
+  {
+   "t": "Cho ngồi không lấy tiền à. Không quen, nhưng tôi thích.",
+   "w": "any"
+  },
+  {
+   "t": "Đồ ăn đây, không phải đồ cổ. Ăn đi.",
+   "w": "any"
+  },
+  {
+   "t": "Biết tôi tới vì gì không. Thôi, chưa biết vội.",
+   "w": "any"
+  },
+  {
+   "t": "Đứng gần quá à. Lùi ra cũng được, nếu chủ tiệm muốn.",
+   "w": "any"
+  },
+  {
+   "t": "Mua cho chủ tiệm đấy. Đừng trả tiền tôi, kỳ.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng tin câu vừa rồi. Tôi cãi để giấu thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Hộp trà ai để trước cửa thế. Tôi nhìn nó lâu phết.",
+   "w": "any"
+  },
+  {
+   "t": "Nam Ngạn trống hoác. Chả thiết về.",
+   "w": "any"
+  },
+  {
+   "t": "Cầm bút ghi sổ đi. Tôi thích nhìn chủ tiệm làm việc.",
+   "w": "any"
+  },
+  {
+   "t": "Trả đủ rồi mà vẫn thấy thiếu cái gì. Thôi, không nói.",
+   "w": "any"
+  },
+  {
+   "t": "Khăn giấy đâu, bụi hẻm bám tay rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Món mười lăm đây. Nhận đi cho tôi có cớ tuần sau.",
+   "w": "any"
+  },
+  {
+   "t": "Gọi tôi bằng tên đi. Nghe êm hơn chữ khách.",
+   "w": "any"
+  },
+  {
+   "t": "Cảm ơn. Đấy, tử tế được mà, đừng chê.",
+   "w": "any"
+  },
+  {
+   "t": "Hai món tuần này, chả món nào có lỗi để khai.",
+   "w": "any"
+  },
+  {
+   "t": "Mua đồ ở chợ về, giá bà Tám cộng thêm mỗi tuần. Kệ.",
+   "w": "any"
+  },
+  {
+   "t": "Thứ Năm ông ta, thứ Hai tôi. Chia tuần nhau rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Ngủ đủ chưa. Thâm mắt thế đi với tôi ra phố cho tỉnh.",
+   "w": "sang"
+  },
+  {
+   "t": "Đừng sĩ. Đói thì ăn, tôi mua dư một phần.",
+   "w": "trua"
+  },
+  {
+   "t": "Đứng lên duỗi vai coi. Ngồi lì cả buổi không mỏi à.",
+   "w": "chieu"
+  },
+  {
+   "t": "Chợ đông lắm. Chen mãi mới vớ được cái này cho chủ tiệm.",
+   "w": "chieu"
+  },
+  {
+   "t": "Lạnh tay rồi. Cầm cốc nóng này đi.",
+   "w": "toi"
+  },
+  {
+   "t": "Ngẩng lên tí. Nhìn chủ tiệm cúi mãi tôi mỏi cổ giùm.",
+   "w": "any"
+  },
+  {
+   "t": "Ờ thì tôi hỗn. Nhưng tôi hỗn với ông ta thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Này, trà nguội rồi. Để tôi xin bà Đỗ cốc khác.",
+   "w": "any"
+  },
+  {
+   "t": "Hôm nay không mua gì. Ghé xem chủ tiệm có khoẻ thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Bỏ tăm bông xuống năm phút. Nói chuyện với tôi tí.",
+   "w": "any"
+  },
+  {
+   "t": "Ngồi im bên chủ tiệm cũng được. Lạ nhỉ, tôi mà im.",
+   "w": "any"
+  },
+  {
+   "t": "Mang hoa quả nè. Gọt sẵn rồi, ăn đi.",
+   "w": "any"
+  },
+  {
+   "t": "Ờ tôi về. Nhưng mai lại tới, nhớ đấy.",
+   "w": "any"
+  },
+  {
+   "t": "Lần này không trả gấp đôi. Thử xem có bị đuổi không.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng cảm ơn tôi kiểu khách. Nghe xa lạ lắm.",
+   "w": "any"
+  }
+ ],
+ "cố tư yến": [
+  {
+   "t": "Hộp trà trước cửa. Trước khi chào mào hót.",
+   "w": "sang"
+  },
+  {
+   "t": "Sáu giờ linh năm. Tôi để đó rồi đi.",
+   "w": "sang"
+  },
+  {
+   "t": "Trà đó đúng loại. Pha đi.",
+   "w": "sang"
+  },
+  {
+   "t": "Dậy rồi à. Tốt.",
+   "w": "sang"
+  },
+  {
+   "t": "Nắng chưa vào hẻm. Còn một tiếng.",
+   "w": "sang"
+  },
+  {
+   "t": "Ăn chưa.",
+   "w": "sang"
+  },
+  {
+   "t": "Sương còn trên nắp hộp. Mang vào đi.",
+   "w": "sang"
+  },
+  {
+   "t": "Tôi dạy sớm. Qua đặt cái này rồi đi.",
+   "w": "sang"
+  },
+  {
+   "t": "Ngủ ít. Mắt nhìn vẫn rõ chứ.",
+   "w": "sang"
+  },
+  {
+   "t": "Thứ Ba tôi lên Học viện. Chiều về.",
+   "w": "sang"
+  },
+  {
+   "t": "Cửa sổ tầng hai sáng cả đêm. Tôi thấy.",
+   "w": "sang"
+  },
+  {
+   "t": "Pha loãng tay. Sáng dễ run.",
+   "w": "sang"
+  },
+  {
+   "t": "Hộp này thiếc. Giữ ấm trà lâu.",
+   "w": "sang"
+  },
+  {
+   "t": "Không cần cảm ơn. Tôi tiện đường.",
+   "w": "sang"
+  },
+  {
+   "t": "Chào mào hót rồi. Muộn mất buổi nắng.",
+   "w": "sang"
+  },
+  {
+   "t": "Trưa rồi. Ăn đi.",
+   "w": "trua"
+  },
+  {
+   "t": "Hạt kê rơi. Mười hai giờ.",
+   "w": "trua"
+  },
+  {
+   "t": "Nghỉ tay. Góc thử chưa khô đâu.",
+   "w": "trua"
+  },
+  {
+   "t": "Để đồ ăn trên đôn. Tôi về xưởng.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa nắng gắt. Hạ đèn xuống.",
+   "w": "trua"
+  },
+  {
+   "t": "Vecni khô nhanh giờ này. Đừng vội.",
+   "w": "trua"
+  },
+  {
+   "t": "Ngồi xuống. Ăn xong hẵng làm.",
+   "w": "trua"
+  },
+  {
+   "t": "Tôi ăn ở xưởng. Bên này một mình.",
+   "w": "trua"
+  },
+  {
+   "t": "Cơm nguội thì hâm. Đừng ăn nguội.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa hẻm vắng. Nghe rõ tiếng bên này.",
+   "w": "trua"
+  },
+  {
+   "t": "Tay mỏi thì dừng. Chiều làm tiếp.",
+   "w": "trua"
+  },
+  {
+   "t": "Nắng còn hai tiếng. Phơi khung đi.",
+   "w": "trua"
+  },
+  {
+   "t": "Đứng dậy một lúc. Cúi lâu hại lưng.",
+   "w": "trua"
+  },
+  {
+   "t": "Chiều tôi mới ở xưởng. Sáng lên lớp.",
+   "w": "chieu"
+  },
+  {
+   "t": "Dạy xong rồi. Về rồi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tiểu Mãn mang giấy sang. Con bé đọc to đấy.",
+   "w": "chieu"
+  },
+  {
+   "t": "Pin đèn yếu. Sạc trước đi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Soi cả buổi hại mắt. Nghỉ.",
+   "w": "chieu"
+  },
+  {
+   "t": "Mưa tới. Đồ ngoài bậu cửa cất vào.",
+   "w": "chieu"
+  },
+  {
+   "t": "Độ ẩm lên rồi. Chiều nay đừng bóc.",
+   "w": "chieu"
+  },
+  {
+   "t": "Bốn giờ. Bà Đỗ rửa ấm lần hai.",
+   "w": "chieu"
+  },
+  {
+   "t": "Nắng ra khỏi hẻm. Đồ phủ khô chưa.",
+   "w": "chieu"
+  },
+  {
+   "t": "Cầu Cựu tắc từ năm giờ. Về sớm thì hơn.",
+   "w": "chieu"
+  },
+  {
+   "t": "Gọi thì tôi sang. Không gọi thì tôi ở xưởng.",
+   "w": "chieu"
+  },
+  {
+   "t": "Thứ Sáu tôi dạy. Đèn bên này tối tới bốn giờ.",
+   "w": "chieu"
+  },
+  {
+   "t": "Trà sữa Tiểu Mãn mang sang à. Tôi không uống thứ đó.",
+   "w": "chieu"
+  },
+  {
+   "t": "Mười tám giờ ba mươi. Đèn hẻm bật.",
+   "w": "toi"
+  },
+  {
+   "t": "Đèn xưởng tôi vừa bật. Sáng rồi đấy.",
+   "w": "toi"
+  },
+  {
+   "t": "Khoá cửa chưa.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối rồi. Về phòng trên đi.",
+   "w": "toi"
+  },
+  {
+   "t": "Tôi ở bên này. Cách bốn mét.",
+   "w": "toi"
+  },
+  {
+   "t": "Đèn số bảy tắt, tôi tắt sau mười phút.",
+   "w": "toi"
+  },
+  {
+   "t": "Rèm tầng hai hỏng. Đèn chiếu thẳng vào.",
+   "w": "toi"
+  },
+  {
+   "t": "Làm tới giờ này đủ rồi.",
+   "w": "toi"
+  },
+  {
+   "t": "Đói thì gọi. Tôi mang sang.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối nay tôi về muộn. Đèn còn sáng.",
+   "w": "toi"
+  },
+  {
+   "t": "Rèm hỏng dây. Để tôi.",
+   "w": "toi"
+  },
+  {
+   "t": "Nhìn sang làm gì. Tôi vẫn ở đây.",
+   "w": "toi"
+  },
+  {
+   "t": "Người lạ ngoài khúc gấp. Đừng ra.",
+   "w": "toi"
+  },
+  {
+   "t": "Cửa gỗ khoá rồi chứ. Đèn tắt thì khoá.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối muộn. Lên gác ngủ.",
+   "w": "toi"
+  },
+  {
+   "t": "Để đèn bàn thôi. Chói mắt.",
+   "w": "toi"
+  },
+  {
+   "t": "Đèn bên kia tắt tôi mới tắt đèn tôi.",
+   "w": "toi"
+  },
+  {
+   "t": "Hẻm im. Nghe được cả tiếng ghế kéo.",
+   "w": "toi"
+  },
+  {
+   "t": "Tôi không đưa ai lên xưởng ban đêm. Về đi.",
+   "w": "toi"
+  },
+  {
+   "t": "Gọi tôi sang thì tôi sang. Giờ này cũng được.",
+   "w": "toi"
+  },
+  {
+   "t": "Rèm kín rồi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Thay dây rèm xong. Kéo kín. Giờ mới quay lại.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đèn bàn tôi tắt. Đèn xưởng bên kia vẫn sáng.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nhìn tôi đi. Tôi chờ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Mu bàn tay trước. Ở cổ tay.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cổ tay trái có mạch đập nhanh. Tôi thấy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đứng gần thế này hai năm rồi. Giờ thì sát hơn.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lạnh không.",
+   "w": "khuya"
+  },
+  {
+   "t": "Rèm kín thì không ai bên kia hẻm thấy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tôi chậm. Quen soi từng lớp rồi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cởi cái này ra. Tôi xem.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đèn hẻm lọt qua khe rèm. Đúng chỗ gáy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nằm yên. Tôi nhìn một lúc.",
+   "w": "khuya"
+  },
+  {
+   "t": "Thở ra đi. Tôi chờ được.",
+   "w": "khuya"
+  },
+  {
+   "t": "Môi tôi ở cổ tay. Lâu hơn cần.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đau thì nói. Tôi dừng.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chỗ này ấm hơn. Tôi ở lại đây.",
+   "w": "khuya"
+  },
+  {
+   "t": "Siết tay tôi nếu cần.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tôi đứng lâu rồi mới chạm. Giờ không rút nữa.",
+   "w": "khuya"
+  },
+  {
+   "t": "Rên khẽ cũng được. Phòng im lắm.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đừng tắt đèn hộ tôi. Tôi muốn thấy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chậm thôi. Vào từng chút.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lưng cong lên. Tôi đỡ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Mồ hôi ở thái dương. Tôi lau.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nhịp này được. Tiếng thở đổi rồi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Quấn lấy tôi đi. Tôi giữ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tôi không qua đêm. Nhưng giờ thì chưa về.",
+   "w": "khuya"
+  },
+  {
+   "t": "Răng tôi sát cổ. Nhẹ thôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gối rơi rồi. Để đó.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tay kia tôi luồn dưới lưng.",
+   "w": "khuya"
+  },
+  {
+   "t": "Dừng một nhịp. Thở đi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Dấu tôi để trong cổ áo. Không ai thấy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đủ chưa. Chưa thì tôi lại.",
+   "w": "khuya"
+  },
+  {
+   "t": "Gọi tên tôi một lần. Tôi nghe rồi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nằm xuống. Tôi lau cho.",
+   "w": "khuya"
+  },
+  {
+   "t": "Về xưởng đây. Đèn bên kia tắt muộn đêm nay.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngủ đi. Tôi kéo hé rèm rồi mới đi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cổ tay tôi hôn lần nữa. Rồi tôi về.",
+   "w": "khuya"
+  },
+  {
+   "t": "Sáng mai dạy đúng giờ. Giờ thì chưa đi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đèn UV ba phút rồi tắt. Tôi chờ nó sạc.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tắt hết. Chỉ còn ánh tím.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ngồi xuống đôn này với tôi. Lần đầu đấy.",
+   "w": "khuya"
+  },
+  {
+   "t": "Da dưới đèn tím khác hẳn. Tôi thích nhìn.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đừng cử động. Ba phút thôi, rồi tối.",
+   "w": "khuya"
+  },
+  {
+   "t": "Vào sâu hơn được không. Chậm thôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Hông nhích lên một chút. Tôi giữ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Ướt rồi. Tôi biết.",
+   "w": "khuya"
+  },
+  {
+   "t": "Cắn vai tôi nếu cần. Tôi chịu được.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đùi run rồi. Dựa vào tôi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tôi thức cả đêm cũng được. Đèn tắt muộn.",
+   "w": "khuya"
+  },
+  {
+   "t": "Quan sát.",
+   "w": "any"
+  },
+  {
+   "t": "Ánh sáng.",
+   "w": "any"
+  },
+  {
+   "t": "Ngồi xuống.",
+   "w": "any"
+  },
+  {
+   "t": "Chưa khô.",
+   "w": "any"
+  },
+  {
+   "t": "Hai mươi bốn giờ. Chờ đã.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng bóc góc đó.",
+   "w": "any"
+  },
+  {
+   "t": "Lớp phủ không ổn định với dung môi thường.",
+   "w": "any"
+  },
+  {
+   "t": "Để tôi xem.",
+   "w": "any"
+  },
+  {
+   "t": "Gọi thì tôi sang. Không thì tôi đứng ngoài.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi không bước qua ngưỡng cửa. Trừ khi được gọi.",
+   "w": "any"
+  },
+  {
+   "t": "Pin đèn yếu. Sạc trước.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi biết trà nào đúng loại.",
+   "w": "any"
+  },
+  {
+   "t": "Hỏi tôi biết bằng cách nào à. Quan sát.",
+   "w": "any"
+  },
+  {
+   "t": "Bằng cách nào nữa à. Ánh sáng.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi không nói dối. Tôi chỉ không nói.",
+   "w": "any"
+  },
+  {
+   "t": "Nhiếp tổng tới thứ Năm. Tôi biết.",
+   "w": "any"
+  },
+  {
+   "t": "Cậu Kỳ ồn. Tôi đáp tới khi cậu ấy hết câu hỏi.",
+   "w": "any"
+  },
+  {
+   "t": "Đứng ở cửa sổ tầng một được không. Tôi không ngồi.",
+   "w": "any"
+  },
+  {
+   "t": "Về trước mọi người. Tôi quen thế.",
+   "w": "any"
+  },
+  {
+   "t": "Soi lớp dưới cần ánh sáng chéo. Hạ đèn xuống.",
+   "w": "any"
+  },
+  {
+   "t": "Khung này tôi sửa giúp. Không tính tiền.",
+   "w": "any"
+  },
+  {
+   "t": "Giám định cho tiệm tôi không lấy tiền. Đổi công thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi ở xưởng số tám. Tầng hai. Cửa sổ đối diện.",
+   "w": "any"
+  },
+  {
+   "t": "Bốn mét. Bề rộng con hẻm.",
+   "w": "any"
+  },
+  {
+   "t": "Đèn bên kia tắt sau đèn bên này mười phút. Tôi đếm.",
+   "w": "any"
+  },
+  {
+   "t": "Dây rèm tôi mua rồi. Trong túi.",
+   "w": "any"
+  },
+  {
+   "t": "Rèm hỏng dây thì thay. Để tôi làm.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng ký giấy giám định. Đó là việc người có dấu.",
+   "w": "any"
+  },
+  {
+   "t": "Người có dấu ở đây là tôi.",
+   "w": "any"
+  },
+  {
+   "t": "Lớp thứ hai bóc hỏng là mất. Đừng.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi đứng đây. Cứ làm việc đi.",
+   "w": "any"
+  },
+  {
+   "t": "Trả lời ngắn không phải lạnh. Tôi vốn thế.",
+   "w": "any"
+  },
+  {
+   "t": "Than chì ở cổ tay tôi. Vừa chấm bài xong.",
+   "w": "any"
+  },
+  {
+   "t": "Áo len xám tôi mặc mọi mùa. Tiện.",
+   "w": "any"
+  },
+  {
+   "t": "Mắt tôi tốt. Không cần kính.",
+   "w": "any"
+  },
+  {
+   "t": "Nhìn về cửa sổ trước khi đáp à. Thói quen.",
+   "w": "any"
+  },
+  {
+   "t": "Hai tay sau lưng. Đứng trước lớp quen rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Thứ Ba, thứ Sáu tôi dạy. Còn lại ở xưởng.",
+   "w": "any"
+  },
+  {
+   "t": "Tiểu Mãn gọi tôi là thầy. Nó mang giấy sang hộ.",
+   "w": "any"
+  },
+  {
+   "t": "Bà Đỗ gọi tôi thầy Cố. Tôi không sửa bà.",
+   "w": "any"
+  },
+  {
+   "t": "Nhiếp tổng kính ngữ cả hai phía. Tôi cũng vậy.",
+   "w": "any"
+  },
+  {
+   "t": "Cậu Kỳ hỏi tôi nhìn gì. Tôi đáp ánh sáng.",
+   "w": "any"
+  },
+  {
+   "t": "Hộp trà không nhãn. Đừng hỏi ai để.",
+   "w": "any"
+  },
+  {
+   "t": "Soi thấy lớp khác màu chưa. Đừng chạm vội.",
+   "w": "any"
+  },
+  {
+   "t": "Góc dưới bên phải có vết lạ. Soi được, chạm thì chưa.",
+   "w": "any"
+  },
+  {
+   "t": "Soi đi. Thấy gì thì giữ cho mình.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi không ngồi trong tiệm. Đứng cạnh cửa sổ thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Gọi tên tôi à. Tôi quay lại ngay.",
+   "w": "any"
+  },
+  {
+   "t": "Ừ.",
+   "w": "any"
+  },
+  {
+   "t": "Không.",
+   "w": "any"
+  },
+  {
+   "t": "Để đó.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi xem rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Chờ đã.",
+   "w": "any"
+  },
+  {
+   "t": "Đủ sáng chưa. Kéo đèn lại gần.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng pha dung môi khi chưa biết lớp đè là gì.",
+   "w": "any"
+  },
+  {
+   "t": "Một lớp là một lần bóc, hoặc một lần phủ.",
+   "w": "any"
+  },
+  {
+   "t": "Góc thử một phân vuông. Không hơn.",
+   "w": "any"
+  },
+  {
+   "t": "Mùa nồm chỉ làm sạch khô. Không bóc.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi quan sát. Không kết luận khi chưa ai hỏi.",
+   "w": "any"
+  },
+  {
+   "t": "Tự tìm ra được. Tôi chỉ đứng cạnh.",
+   "w": "any"
+  },
+  {
+   "t": "Cậu Kỳ lại tới à. Tôi nghe tủ kính kêu.",
+   "w": "any"
+  },
+  {
+   "t": "Đèn tôi để sáng là để người ngoài thấy tôi ở xưởng.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi biết giờ đèn tầng hai tắt. Không biết trong phòng.",
+   "w": "any"
+  },
+  {
+   "t": "Cách bốn mét thì thấy đèn, không nghe tiếng.",
+   "w": "any"
+  },
+  {
+   "t": "Nói gì trong tiệm tôi không nghe được. Yên tâm.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi đứng ngoài hai năm. Hôm nay được gọi vào.",
+   "w": "any"
+  },
+  {
+   "t": "Gọi là tôi sang. Đơn giản thế.",
+   "w": "any"
+  },
+  {
+   "t": "Trà nguội rồi. Pha lại.",
+   "w": "any"
+  },
+  {
+   "t": "Mắt mỏi thì nhắm một lúc. Tôi canh.",
+   "w": "any"
+  },
+  {
+   "t": "Để đèn tôi chỉnh. Ánh chéo mới thấy lớp.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi không giục. Nghề này chỉ chậm được.",
+   "w": "any"
+  },
+  {
+   "t": "Ai muốn nhanh thì ngồi chờ. Tiệm có một ghế.",
+   "w": "any"
+  },
+  {
+   "t": "Ghế đó của Nhiếp tổng. Tôi đứng cũng được.",
+   "w": "any"
+  },
+  {
+   "t": "Dao bóc cầm chắc tay. Tôi thấy.",
+   "w": "any"
+  },
+  {
+   "t": "Góc này đừng thử. Thử góc kia.",
+   "w": "any"
+  },
+  {
+   "t": "Vecni ố đều. Làm sạch trước đã.",
+   "w": "any"
+  },
+  {
+   "t": "Khung mới hơn tranh. Tháo ra xem.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi đưa cái này qua Tiểu Mãn. Nhận chưa.",
+   "w": "any"
+  },
+  {
+   "t": "Đứng cạnh một lúc. Rồi tôi về.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng thức khuya. Mai mắt kém soi không rõ.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi nói ít. Nhưng tôi ở đây.",
+   "w": "any"
+  },
+  {
+   "t": "Cậu Kỳ gọi tôi ông này bệnh à. Kệ cậu ấy.",
+   "w": "any"
+  },
+  {
+   "t": "Trà này tôi để đúng loại. Không nhầm đâu.",
+   "w": "any"
+  },
+  {
+   "t": "Ngồi ghế mây đi. Tôi quen đứng rồi.",
+   "w": "any"
+  },
+  {
+   "t": "Soi xong tắt đèn UV. Hại mắt.",
+   "w": "any"
+  },
+  {
+   "t": "Để tôi cầm đèn. Rảnh tay mà làm.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi không bước vào khi chưa được gọi. Luật của tôi.",
+   "w": "any"
+  },
+  {
+   "t": "Cho vào thì tôi vào. Đứng ngưỡng cửa cũng được.",
+   "w": "any"
+  },
+  {
+   "t": "Cửa sổ hai nhà đối nhau. Tôi quen nhìn sang.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng để rèm hỏng mãi. Tôi thay cho.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi quan sát ánh sáng. Và vài thứ khác.",
+   "w": "any"
+  },
+  {
+   "t": "Nghề tôi là thấy lớp dưới mà không chạm vào nó.",
+   "w": "any"
+  },
+  {
+   "t": "Có thứ tôi thấy lâu rồi. Chưa tới lúc nói.",
+   "w": "any"
+  },
+  {
+   "t": "Hỏi thì tôi đáp đúng phần được hỏi.",
+   "w": "any"
+  },
+  {
+   "t": "Không hỏi thì tôi không nói. Không phải giấu.",
+   "w": "any"
+  },
+  {
+   "t": "Hộp trà sáng nay có chưa. Tôi để lúc sáu giờ.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi dạy giám định. Không dạy cách bóc.",
+   "w": "any"
+  },
+  {
+   "t": "Để yên vết đỏ đó. Soi được, chạm thì chưa.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi đứng cạnh lúc soi. Thế là đủ với tôi.",
+   "w": "any"
+  },
+  {
+   "t": "Cần tôi thì gọi. Tôi ở ngay bên kia hẻm.",
+   "w": "any"
+  },
+  {
+   "t": "Bốn mét thôi. Đi hai phút nếu qua cầu thang.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi về trước. Không phải không muốn ở.",
+   "w": "any"
+  },
+  {
+   "t": "Đèn tắt muộn đêm qua. Tôi thức.",
+   "w": "any"
+  },
+  {
+   "t": "Sáng nay việc đó xong rồi. Không ai thấy tôi làm.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng cảm ơn. Tôi làm vì tôi muốn.",
+   "w": "any"
+  },
+  {
+   "t": "Trà đúng loại, đèn đúng góc, rèm sắp thay. Đủ chưa.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi không nhanh hơn luật khô của vecni. Chờ thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi biết loại trà, biết giờ đèn tắt. Thế thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Cậu Kỳ trả cọc gấp đôi. Ồn. Tôi kệ.",
+   "w": "any"
+  },
+  {
+   "t": "Nhiếp tổng có giấy. Tôi có mắt. Khác nhau.",
+   "w": "any"
+  },
+  {
+   "t": "Ngủ lại tầng hai thì khoá cửa dưới.",
+   "w": "any"
+  },
+  {
+   "t": "Đứng đây nhìn làm việc cũng là một việc.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi mang đèn khác sang. Pin đầy.",
+   "w": "any"
+  },
+  {
+   "t": "Màu ở góc đó lạ. Tôi thấy từ xa.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi không chối chuyện hay nhìn sang. Ánh sáng thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Làm sạch một bức cỡ trung mất hai ba tuần. Chờ được.",
+   "w": "any"
+  },
+  {
+   "t": "Để khung lại tôi xem mộng. Tháo đừng mạnh tay.",
+   "w": "any"
+  },
+  {
+   "t": "Cơm nguội tôi mang sang hộp khác. Ăn đi.",
+   "w": "any"
+  },
+  {
+   "t": "Soi ba phút thì đèn tắt. Sạc rồi soi tiếp.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi ở bên kia cửa sổ. Cần thì vẫy.",
+   "w": "any"
+  },
+  {
+   "t": "Thứ Sáu tôi về muộn. Đèn bật trễ.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng tự pha chai không nhãn. Chưa chắc lớp đè.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi đứng đủ gần để thấy. Đủ xa để không chạm.",
+   "w": "any"
+  },
+  {
+   "t": "Trời hanh. Phơi được đồ vừa phủ.",
+   "w": "sang"
+  },
+  {
+   "t": "Chín giờ nắng vào. Mở cửa đi.",
+   "w": "sang"
+  },
+  {
+   "t": "Hộp để trên bậu cửa. Lấy trước khi nguội.",
+   "w": "sang"
+  },
+  {
+   "t": "Giọng khàn. Ngủ ít quá.",
+   "w": "sang"
+  },
+  {
+   "t": "Mặt còn vết gối. Ngủ tầng hai à.",
+   "w": "sang"
+  },
+  {
+   "t": "Trà pha rồi uống nóng. Nguội mất vị.",
+   "w": "sang"
+  },
+  {
+   "t": "Qua trước giờ dạy. Để hộp rồi đi ngay.",
+   "w": "sang"
+  },
+  {
+   "t": "Tay lạnh buổi sáng. Ăn gì đã.",
+   "w": "sang"
+  },
+  {
+   "t": "Nắng tới ghế bà Đỗ rồi. Một tiếng nữa tới cửa.",
+   "w": "sang"
+  },
+  {
+   "t": "Sương dày sáng nay. Khung phơi lâu khô.",
+   "w": "sang"
+  },
+  {
+   "t": "Gõ nhẹ cửa rồi tôi đi. Nghe không.",
+   "w": "sang"
+  },
+  {
+   "t": "Bỏ bữa thì chiều tay run.",
+   "w": "trua"
+  },
+  {
+   "t": "Cơm phần để đó. Ăn khi nóng.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa gắt. Kéo rèm chắn bớt.",
+   "w": "trua"
+  },
+  {
+   "t": "Nghỉ mười lăm phút. Tôi tính giờ.",
+   "w": "trua"
+  },
+  {
+   "t": "Ăn rồi chợp mắt một lúc. Tôi canh cửa.",
+   "w": "trua"
+  },
+  {
+   "t": "Trưa vắng. Chỉ tôi với bên này hẻm.",
+   "w": "trua"
+  },
+  {
+   "t": "Uống nước đi. Cả buổi chưa ngụm nào.",
+   "w": "trua"
+  },
+  {
+   "t": "Chiều trời đổi. Độ ẩm lên.",
+   "w": "chieu"
+  },
+  {
+   "t": "Tiểu Mãn chạy về Học viện rồi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Dạy xong về thẳng xưởng.",
+   "w": "chieu"
+  },
+  {
+   "t": "Nắng ra khỏi hẻm. Thu đồ phủ vào.",
+   "w": "chieu"
+  },
+  {
+   "t": "Mưa rào tới. Đi lối ngách.",
+   "w": "chieu"
+  },
+  {
+   "t": "Pin đèn hết. Để tôi sạc hộ.",
+   "w": "chieu"
+  },
+  {
+   "t": "Soi cả chiều. Nghỉ mắt đi.",
+   "w": "chieu"
+  },
+  {
+   "t": "Đèn bật. Khoá cửa gỗ đi.",
+   "w": "toi"
+  },
+  {
+   "t": "Đói thì gọi. Hai phút tôi sang.",
+   "w": "toi"
+  },
+  {
+   "t": "Đèn tôi còn sáng. Cần thì vẫy.",
+   "w": "toi"
+  },
+  {
+   "t": "Rèm chưa thay. Đèn chiếu vào giường.",
+   "w": "toi"
+  },
+  {
+   "t": "Tối muộn. Ngủ đi.",
+   "w": "toi"
+  },
+  {
+   "t": "Khoá cửa rồi thì yên tâm làm nốt.",
+   "w": "toi"
+  },
+  {
+   "t": "Hẻm im. Nghe tiếng cầu thang kêu.",
+   "w": "toi"
+  },
+  {
+   "t": "Về phòng trên đi. Dưới này lạnh.",
+   "w": "toi"
+  },
+  {
+   "t": "Đèn hẻm vàng. Trong tiệm sáng hơn.",
+   "w": "toi"
+  },
+  {
+   "t": "Nằm nghiêng đi. Tôi vòng tay qua.",
+   "w": "khuya"
+  },
+  {
+   "t": "Chân gác lên tôi. Thế dễ hơn.",
+   "w": "khuya"
+  },
+  {
+   "t": "Đừng vội. Đêm còn dài.",
+   "w": "khuya"
+  },
+  {
+   "t": "Nước để đầu giường. Khát thì với tay.",
+   "w": "khuya"
+  },
+  {
+   "t": "Môi tôi ở gáy. Giữ yên.",
+   "w": "khuya"
+  },
+  {
+   "t": "Thở đều lại. Tôi chờ.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lau xong rồi. Ngủ đi.",
+   "w": "khuya"
+  },
+  {
+   "t": "Tôi về trước sáng. Đèn tắt muộn.",
+   "w": "khuya"
+  },
+  {
+   "t": "Lớp sơn khác nhau dưới đèn chéo. Nhìn kỹ.",
+   "w": "any"
+  },
+  {
+   "t": "Vá rách nhỏ thì được. Đừng động lớp dưới.",
+   "w": "any"
+  },
+  {
+   "t": "Tháo khung làm sạch bụi trước.",
+   "w": "any"
+  },
+  {
+   "t": "Ghép gốm thì lộ vết ghép nếu khách muốn.",
+   "w": "any"
+  },
+  {
+   "t": "Khô hai tư tới bảy hai giờ tuỳ ẩm.",
+   "w": "any"
+  },
+  {
+   "t": "Nghề này chậm được, không nhanh được.",
+   "w": "any"
+  },
+  {
+   "t": "Tôi giám định, không phục chế. Khác nghề.",
+   "w": "any"
+  },
+  {
+   "t": "Đứng ngoài quen rồi. Được gọi mới lạ.",
+   "w": "any"
+  },
+  {
+   "t": "Cậu Kỳ ngồi mép bàn. Tủ kính kêu kìa.",
+   "w": "any"
+  },
+  {
+   "t": "Nhiếp tổng dán tem mỗi thứ Năm. Tôi nghe bên này.",
+   "w": "any"
+  },
+  {
+   "t": "Tiểu Mãn đọc to mọi lời nhắn. Cẩn thận lời gửi.",
+   "w": "any"
+  },
+  {
+   "t": "Mắt tôi quen bóng tối. Thiếu sáng vẫn thấy.",
+   "w": "any"
+  },
+  {
+   "t": "Đừng nhận đồ không ghi sổ. Kể cả đồ đẹp.",
+   "w": "any"
+  },
+  {
+   "t": "Đứng dậy làm gì. Trà nguội tôi pha cho.",
+   "w": "any"
+  },
+  {
+   "t": "Chỗ cạnh cửa sổ tôi quen rồi. Đứng đó thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Làm sạch một bức cỡ trung hai ba tuần. Chờ được.",
+   "w": "any"
+  },
+  {
+   "t": "Khung gỗ tháo nhẹ. Mộng cũ dễ gãy.",
+   "w": "any"
+  },
+  {
+   "t": "Đèn tím hại mắt lâu. Soi vừa đủ thôi.",
+   "w": "any"
+  },
+  {
+   "t": "Dạy hai buổi một tuần. Còn lại ở bên kia cửa sổ.",
+   "w": "any"
+  },
+  {
+   "t": "Chai không nhãn đừng tự pha. Sai lớp là hỏng.",
+   "w": "any"
+  },
+  {
+   "t": "Mắt tốt thì khỏi kính. Nhìn gần vẫn rõ từng nét.",
+   "w": "any"
+  },
+  {
+   "t": "Vecni ố thì lau khô trước. Đừng vội dung môi.",
+   "w": "any"
+  }
  ]
 };
