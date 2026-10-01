@@ -352,7 +352,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 .map-card {
   position: relative; display: block;
   aspect-ratio: 640 / 809;
-  background: url("assets/card-frame.png?v=149") center / 100% 100% no-repeat;
+  background: url("assets/card-frame.png?v=150") center / 100% 100% no-repeat;
   text-decoration: none; color: var(--ink);
   overflow: visible;
   transition: transform 0.24s ease, filter 0.24s ease;
@@ -870,6 +870,8 @@ span.totem-badge-emoji:first-child { margin-left: 0; }
   padding: 30px 30px 24px;
   box-shadow: var(--shadow);
   animation: modal-up 0.25s ease;
+  max-height: calc(100dvh - 40px);
+  overflow-y: auto;
 }
 @keyframes modal-up { from { transform: translateY(14px); opacity: 0; } to { transform: none; opacity: 1; } }
 .modal-title { font-family: var(--font-display); font-size: 1.35rem; margin-bottom: 20px; color: var(--gold-bright); }
@@ -890,6 +892,31 @@ span.totem-badge-emoji:first-child { margin-left: 0; }
 .field input:focus { border-color: var(--gold); }
 .modal-actions { display: flex; align-items: center; gap: 10px; margin-top: 22px; }
 .spacer { flex: 1; }
+
+/* ── Modal sửa map: rộng, dàn 2 cột, nút Lưu ghim đáy luôn thấy ── */
+.map-modal {
+  width: min(880px, 95vw);
+  max-height: calc(100dvh - 40px);
+  overflow: hidden; /* vùng cuộn là .mm-cols */
+  display: flex; flex-direction: column;
+  padding: 24px 26px 0;
+}
+.map-modal .modal-title { flex: 0 0 auto; margin-bottom: 14px; }
+.mm-cols {
+  flex: 1 1 auto; min-height: 0; overflow-y: auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0 30px;
+  align-content: start; padding-right: 6px;
+}
+.mm-col { min-width: 0; }
+.mm-cols .field { margin-bottom: 13px; }
+.map-modal .modal-actions {
+  flex: 0 0 auto; margin-top: 0;
+  padding: 14px 0 18px; border-top: 1px solid var(--line-strong);
+}
+@media (max-width: 720px) {
+  .map-modal { width: 95vw; }
+  .mm-cols { grid-template-columns: 1fr; gap: 0; }
+}
 
 /* ── Toast ────────────────────────────────────────────── */
 .toast {
