@@ -51,6 +51,9 @@ let drafts = [];            // danh sách nháp Thư Phòng (realtime)
 let unsubMaps = null, unsubDrafts = null, unsubChat = null;
 let editingMapId = null;    // map đang mở trong modal (null = tạo mới)
 let pendingAvatar = undefined; // avatar đang sửa: undefined=không đổi, ''=bỏ, string=ảnh mới (dataURL)
+let pendingMembers = [];       // [{name, av}] — nhân vật trong cổng (modal). av=dataURL|null
+let cropTarget = null;         // null = avatar đơn; số = chỉ số thành viên đang cắt ảnh
+const memberIdx = {};          // map.id → chỉ số nhân vật đang hiển thị (random khi chưa có)
 let pendingTags = [];          // tag thế giới đang chọn trong modal (tối đa 3)
 const lastLineIdx = {};     // map.id → câu vừa hiện (tránh lặp liền, kể cả khi vét hết rổ xáo lại)
 const lineBags = {};        // "id:khung giờ" → hàng đợi đã xáo; vét hết mới xáo lại (kiểu xáo bài)
@@ -264,7 +267,7 @@ const TOTEM_IMG = { "🦇": "av-doi", "⭐": "av-cavoi" };
 function totemMini(icon, cls = "") {
   const img = TOTEM_IMG[icon];
   return img
-    ? `<img class="totem-mini ${cls}" src="assets/${img}.png?v=147" alt="">`
+    ? `<img class="totem-mini ${cls}" src="assets/${img}.png?v=148" alt="">`
     : `<span class="totem-mini-emoji ${cls}">${icon}</span>`;
 }
 // sao vàng chỉ hiện khi CẢ hai chủ (Dơi + Cá Voi Sao) cùng tiến cử
@@ -281,7 +284,7 @@ function totemBadges(recommends) {
       const img = TOTEM_IMG[a.icon];
       const tip = `${esc(a.name)} (${esc(email)}) đã tiến cử`;
       return img
-        ? `<img class="totem-badge" src="assets/${img}.png?v=147" alt="${esc(a.name)}" title="${tip}">`
+        ? `<img class="totem-badge" src="assets/${img}.png?v=148" alt="${esc(a.name)}" title="${tip}">`
         : `<span class="totem-badge totem-badge-emoji" title="${tip}">${a.icon}</span>`;
     })
     .join("");
@@ -642,6 +645,7 @@ function demoStore() {
       world: "Đô thị hiện đại, nhưng cứ nửa đêm là mọc thêm một con phố mới.",
       gasLink: DEFAULT_GAS,
       recommends: {},
+      members: ["Nhiếp Tự Hằng", "Kỳ Lăng Xuyên", "Cố Tư Yến"],
       content: "", prompt: "", ideas: "", updatedAt: now(),
     },
   ];
@@ -847,7 +851,7 @@ function teardown() {
 
 function enterForest() {
   const _ut = $("#user-totem"), _img = TOTEM_IMG[me.icon];
-  if (_img) _ut.innerHTML = `<img src="assets/${_img}.png?v=147" alt="${esc(me.name)}" class="user-totem-img">`;
+  if (_img) _ut.innerHTML = `<img src="assets/${_img}.png?v=148" alt="${esc(me.name)}" class="user-totem-img">`;
   else _ut.textContent = me.icon;
   $("#user-totem").title = `${me.name} — ${me.email}`;
   $("#user-name").textContent = me.name + (DEMO ? " (demo)" : "");
@@ -1117,7 +1121,8 @@ function renderHomeGrid() {
   const cards = pageList.map((m) => `
     <a class="map-card" href="#/map/${m.id}" data-id="${m.id}" ${canDrag ? `draggable="true"` : ""}>
       <span class="fc-num">✦ Cánh cổng ${posNo[m.id]} ✦</span>
-      <span class="mc-av-ring" data-avline="${m.id}" title="Chạm nghe một câu"><span class="mc-avatar${m.hasAvatar ? "" : " mc-av-empty"}" ${m.hasAvatar ? `data-av="${m.id}"` : ""}>${m.hasAvatar ? "" : "✦"}</span></span>
+      <span class="mc-av-ring" data-avline="${m.id}" title="Chạm nghe một câu"><span class="mc-avatar${(gateMembers(m).length || m.hasAvatar) ? "" : " mc-av-empty"}" ${(!gateMembers(m).length && m.hasAvatar) ? `data-av="${m.id}"` : ""}>${(gateMembers(m).length || m.hasAvatar) ? "" : "✦"}</span></span>
+      <span class="mc-member-name" data-mname="${m.id}"></span>
       ${tagsRow(m)}
       <span class="fc-body">
         <div class="map-card-title">${esc(m.title)}</div>
@@ -1128,7 +1133,7 @@ function renderHomeGrid() {
         </div>
       </span>
       ${m.nsfw ? `<img class="nsfw-sticker mc-stimg" src="assets/mark-sao.png" alt="NSFW" title="Cổng thiên về NSFW">` : ""}
-      ${m.wip ? `<img class="wip-chime" src="assets/chime.webp?v=147" alt="Map đang sửa" title="Map đang sửa — chưa chơi được" aria-hidden="true">` : ""}
+      ${m.wip ? `<img class="wip-chime" src="assets/chime.webp?v=148" alt="Map đang sửa" title="Map đang sửa — chưa chơi được" aria-hidden="true">` : ""}
       ${m.noH ? `<img class="noh-sticker mc-stimg" src="assets/mark-so.png" alt="" title="Không có H — chơi có 'kéo rèm'">` : ""}
       <span class="totem-corner">${totemBadges(m.recommends)}</span>
       ${bothRecommend(m.recommends) ? `<img class="fc-star" src="assets/star.png" alt="" title="Cả Dơi & Cá Voi Sao cùng tiến cử" aria-hidden="true">` : ""}
@@ -1151,12 +1156,37 @@ function renderHomeGrid() {
   });
   // chạm avatar → nghe một câu thoại ngay ngoài trang chủ (không mở cổng)
   $$(".mc-av-ring[data-avline]").forEach((ring) => {
-    ring.addEventListener("click", (e) => {
-      e.preventDefault(); e.stopPropagation();
-      const m = maps.find((x) => x.id === ring.dataset.avline);
-      if (!m) return;
-      showHomeBubble(ring, pickCharLine(m) || "…");
-    });
+    const m = maps.find((x) => x.id === ring.dataset.avline);
+    if (!m) return;
+    const mem = gateMembers(m);
+    const avEl = ring.querySelector(".mc-avatar");
+    const nameEl = ring.parentElement.querySelector(`.mc-member-name[data-mname="${m.id}"]`);
+    if (mem.length) {
+      // cổng nhiều nhân vật: hiện avatar + tên 1 người ngẫu nhiên; bấm → đổi người + thoại người đó
+      const applyMember = async (idx) => {
+        const nm = mem[idx];
+        if (nameEl) nameEl.textContent = nm;
+        const iid = `${m.id}__mav__${idx}`;
+        try {
+          const d = imgCache[iid] ?? (imgCache[iid] = await store.getImage(iid));
+          avEl.style.backgroundImage = d ? `url("${d}")` : "";
+          avEl.classList.toggle("mc-av-empty", !d);
+          avEl.textContent = d ? "" : "✦";
+        } catch {}
+      };
+      applyMember(curMemberIdx(m));
+      ring.addEventListener("click", (e) => {
+        e.preventDefault(); e.stopPropagation();
+        const idx = nextMemberIdx(m);
+        applyMember(idx);
+        showHomeBubble(ring, pickCharLine(m, mem[idx]) || "…");
+      });
+    } else {
+      ring.addEventListener("click", (e) => {
+        e.preventDefault(); e.stopPropagation();
+        showHomeBubble(ring, pickCharLine(m) || "…");
+      });
+    }
   });
   if (canDrag) wireMapDrag();
 }
@@ -1273,13 +1303,14 @@ function renderMapView({ id, tab }) {
       <div class="map-title-row">
         <button class="mv-avatar hidden" id="mv-avatar" title="Chạm để char lên tiếng" aria-label="Chạm để char lên tiếng"></button>
         <div style="flex:1; min-width: 240px;">
+          <div class="mv-member-name hidden" id="mv-member-name"></div>
           <h1 class="map-view-title" id="mv-title"></h1>
           <p class="map-view-world" id="mv-world"></p>
           <div class="mv-tags hidden" id="mv-tags"></div>
         </div>
-        <img id="mv-noh" class="mv-mark hidden" src="assets/mark-so.png?v=147" alt="" title="Không có H — chơi có 'kéo rèm'">
+        <img id="mv-noh" class="mv-mark hidden" src="assets/mark-so.png?v=148" alt="" title="Không có H — chơi có 'kéo rèm'">
         <span id="mv-wip" class="mv-mark mv-mark-emoji hidden" title="Map đang sửa — chưa chơi được">🩹</span>
-        <img id="mv-nsfw" class="mv-mark hidden" src="assets/mark-sao.png?v=147" alt="" title="Cổng thiên về NSFW">
+        <img id="mv-nsfw" class="mv-mark hidden" src="assets/mark-sao.png?v=148" alt="" title="Cổng thiên về NSFW">
         ${isGuest ? "" : `<button class="btn-icon" id="btn-edit-map" title="Sửa tên / mô tả / link GAS / nhãn">✎</button>`}
       </div>
       <div class="mv-bubble hidden" id="mv-bubble" aria-live="polite"></div>
@@ -1353,7 +1384,7 @@ function updateMapMeta({ id }) {
   if (tagsEl) {
     const ts = (m.tags || []).filter((k) => TAG_NAME[k]).slice(0, 3);
     tagsEl.innerHTML = ts
-      .map((k) => `<img class="mv-tag" src="assets/tag-${k}.png?v=147" alt="${esc(TAG_NAME[k])}" title="${esc(TAG_NAME[k])}">`)
+      .map((k) => `<img class="mv-tag" src="assets/tag-${k}.png?v=148" alt="${esc(TAG_NAME[k])}" title="${esc(TAG_NAME[k])}">`)
       .join("");
     tagsEl.classList.toggle("hidden", !ts.length);
   }
@@ -1370,7 +1401,30 @@ function updateMapMeta({ id }) {
 
   // avatar char: hiện nếu có ảnh, chạm → bốc thoại theo giờ (cả chủ lẫn cá ghé thăm)
   const av = $("#mv-avatar");
-  if (av) {
+  const nameEl = $("#mv-member-name");
+  const mem = gateMembers(m);
+  if (av && mem.length) {
+    // cổng nhiều nhân vật: avatar + tên 1 người, chạm → đổi người + thoại người đó
+    av.classList.remove("hidden");
+    const applyMember = (idx) => {
+      const nm = mem[idx];
+      if (nameEl) { nameEl.textContent = nm; nameEl.classList.remove("hidden"); }
+      av.dataset.for = id + ":" + idx;
+      av.style.backgroundImage = "";
+      store.getImage(`${id}__mav__${idx}`).then((d) => {
+        if (d && $("#mv-avatar")?.dataset.for === id + ":" + idx) av.style.backgroundImage = `url("${d}")`;
+      }).catch(() => {});
+      av.classList.toggle("mv-avatar-mute", getLinesFor(m, nm).length === 0);
+    };
+    if (av.dataset.gate !== id) { av.dataset.gate = id; applyMember(curMemberIdx(m)); }
+    av.onclick = () => {
+      const idx = nextMemberIdx(m);
+      applyMember(idx);
+      showCharBubble(pickCharLine(m, mem[idx]) || "…");
+    };
+  } else if (av) {
+    if (nameEl) nameEl.classList.add("hidden");
+    av.dataset.gate = "";
     const hasLines = getLinesFor(m).length > 0;
     av.classList.toggle("hidden", !m.hasAvatar);
     if (m.hasAvatar && av.dataset.for !== id) {
@@ -1667,7 +1721,28 @@ function renderProfileTab(m) {
 // Dữ liệu thoại nạp từ char-lines.js (window.THVG_CHAR_LINES) — thêm cổng thì sửa file đó, khỏi đụng logic.
 const CHAR_LINES = (typeof window !== "undefined" && window.THVG_CHAR_LINES) || {};
 function normKey(s) { return String(s || "").trim().toLowerCase().replace(/\s+/g, " "); }
-function getLinesFor(m) {
+// ── Cổng nhiều nhân vật: m.members = ["Tên 1", "Tên 2", …]. Mỗi người 1 avatar (${id}__mav__i) + thoại khoá theo tên ──
+function gateMembers(m) {
+  return (Array.isArray(m?.members) ? m.members : [])
+    .map((x) => (typeof x === "string" ? x : x && x.name) || "")
+    .map((s) => String(s).trim())
+    .filter(Boolean);
+}
+function curMemberIdx(m) {
+  const mem = gateMembers(m); if (!mem.length) return -1;
+  if (memberIdx[m.id] == null || memberIdx[m.id] >= mem.length) memberIdx[m.id] = Math.floor(Math.random() * mem.length);
+  return memberIdx[m.id];
+}
+function nextMemberIdx(m) {
+  const mem = gateMembers(m); if (!mem.length) return -1;
+  if (mem.length === 1) return (memberIdx[m.id] = 0);
+  let i, cur = memberIdx[m.id];
+  do { i = Math.floor(Math.random() * mem.length); } while (i === cur);
+  return (memberIdx[m.id] = i);
+}
+// khoá thoại: nếu truyền mkey (tên nhân vật) thì bốc theo người đó; không thì theo tên cổng + m.charLines
+function getLinesFor(m, mkey) {
+  if (mkey) return (CHAR_LINES[normKey(mkey)] || []).filter((l) => l && l.t && String(l.t).trim());
   const coded = CHAR_LINES[normKey(m.title)] || [];
   const doc = Array.isArray(m.charLines) ? m.charLines : [];
   return [...coded, ...doc].filter((l) => l && l.t && String(l.t).trim());
@@ -1684,8 +1759,8 @@ function shuffleArr(a) {
   for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
   return a;
 }
-function pickCharLine(m) {
-  const all = getLinesFor(m);
+function pickCharLine(m, mkey) {
+  const all = getLinesFor(m, mkey);
   if (!all.length) return null;
   const b = bucketNow();
   // khuya: chỉ bốc câu khuya (không trộn "mọi lúc"); các khung khác = câu hợp giờ + "mọi lúc"
@@ -1694,16 +1769,16 @@ function pickCharLine(m) {
     : all.filter((l) => l.w === b || l.w === "any" || !l.w);
   if (!pool.length) pool = all;
   const texts = pool.map((l) => l.t);
-  const key = m.id + ":" + b;
+  const bagId = m.id + ":" + (mkey ? normKey(mkey) : "") + ":" + b;
   const sig = texts.length + "|" + texts[0] + "|" + texts[texts.length - 1]; // rổ đổi thì xáo lại
-  let bag = lineBags[key];
+  let bag = lineBags[bagId];
   if (!bag || bag.sig !== sig || !bag.queue.length) {
     const q = shuffleArr(texts.slice());
-    if (q.length > 1 && q[0] === lastLineIdx[m.id]) q.push(q.shift()); // đừng lặp câu vừa hiện ở đầu lượt mới
-    bag = lineBags[key] = { sig, queue: q };
+    if (q.length > 1 && q[0] === lastLineIdx[bagId]) q.push(q.shift()); // đừng lặp câu vừa hiện ở đầu lượt mới
+    bag = lineBags[bagId] = { sig, queue: q };
   }
   const pick = bag.queue.shift();
-  lastLineIdx[m.id] = pick;
+  lastLineIdx[bagId] = pick;
   return pick;
 }
 let bubbleTimer = null;
@@ -1791,10 +1866,20 @@ function openMapModal(mapId) {
   $("#btn-map-delete").classList.toggle("hidden", !m);
   // avatar (ảnh chân dung char)
   pendingAvatar = undefined;
+  cropTarget = null;
   setAvatarPreview(null);
   if (m?.hasAvatar) {
     store.getImage(`${m.id}__avatar`).then((d) => { if (d && editingMapId === mapId && pendingAvatar === undefined) setAvatarPreview(d); }).catch(() => {});
   }
+  // nhân vật trong cổng (nhiều người)
+  const mem = gateMembers(m);
+  pendingMembers = mem.map((nm) => ({ name: nm, av: null }));
+  renderMembers();
+  mem.forEach((nm, i) => {
+    store.getImage(`${m.id}__mav__${i}`).then((d) => {
+      if (d && editingMapId === mapId && pendingMembers[i]) { pendingMembers[i].av = d; renderMembers(); }
+    }).catch(() => {});
+  });
   // tag thế giới
   pendingTags = Array.isArray(m?.tags) ? m.tags.filter((k) => TAG_NAME[k]).slice(0, 3) : [];
   renderTagPicker();
@@ -1809,12 +1894,55 @@ $("#modal-map").addEventListener("click", (e) => { if (e.target.id === "modal-ma
 $("#inp-map-avatar").addEventListener("change", (e) => {
   const f = e.target.files[0]; e.target.value = "";
   if (!f) return;
+  cropTarget = null; // avatar đơn
   const r = new FileReader();
   r.onload = () => openCropper(r.result);
   r.onerror = () => toast("Không đọc được ảnh.", true);
   r.readAsDataURL(f);
 });
 $("#btn-avatar-clear").addEventListener("click", () => { pendingAvatar = ""; setAvatarPreview(null); });
+
+// ── Quản lý nhân vật trong cổng (nhiều người) ──
+function renderMembers() {
+  const box = $("#members-box"); if (!box) return;
+  box.innerHTML = pendingMembers.map((mem, i) => `
+    <div class="member-row">
+      <button type="button" class="member-av${mem.av ? "" : " member-av-empty"}" data-mi="${i}" title="Ảnh nhân vật"${mem.av ? ` style="background-image:url('${mem.av}')"` : ""}>${mem.av ? "" : "＋"}</button>
+      <input class="member-name" data-mi="${i}" type="text" placeholder="Tên nhân vật (khoá thoại theo tên này)" value="${esc(mem.name || "")}">
+      <button type="button" class="member-del" data-mi="${i}" title="Bỏ nhân vật này">✕</button>
+    </div>`).join("");
+}
+// lưu ảnh từng nhân vật (chỉ người có tên), trả về mảng tên theo đúng thứ tự index ảnh
+async function persistMembers(id) {
+  const finals = pendingMembers.filter((x) => (x.name || "").trim());
+  for (let i = 0; i < finals.length; i++) {
+    if (finals[i].av) { try { await store.saveImage(`${id}__mav__${i}`, finals[i].av); } catch {} }
+  }
+  return finals.map((x) => x.name.trim());
+}
+$("#btn-member-add")?.addEventListener("click", () => {
+  if (pendingMembers.length >= 6) { toast("Tối đa 6 nhân vật một cổng.", true); return; }
+  pendingMembers.push({ name: "", av: null });
+  renderMembers();
+});
+$("#members-box")?.addEventListener("click", (e) => {
+  const avBtn = e.target.closest(".member-av");
+  if (avBtn) { cropTarget = +avBtn.dataset.mi; $("#inp-member-avatar").click(); return; }
+  const del = e.target.closest(".member-del");
+  if (del) { pendingMembers.splice(+del.dataset.mi, 1); renderMembers(); }
+});
+$("#members-box")?.addEventListener("input", (e) => {
+  const nm = e.target.closest(".member-name");
+  if (nm && pendingMembers[+nm.dataset.mi]) pendingMembers[+nm.dataset.mi].name = nm.value;
+});
+$("#inp-member-avatar")?.addEventListener("change", (e) => {
+  const f = e.target.files[0]; e.target.value = "";
+  if (!f || cropTarget === null) return;
+  const r = new FileReader();
+  r.onload = () => openCropper(r.result);
+  r.onerror = () => toast("Không đọc được ảnh.", true);
+  r.readAsDataURL(f);
+});
 
 // bộ chọn tag thế giới (tối đa 3)
 function renderTagPicker() {
@@ -1852,7 +1980,9 @@ $("#crop-modal").addEventListener("click", (e) => { if (e.target.id === "crop-mo
 $("#crop-ok").addEventListener("click", () => {
   if (!cropState) return;
   const d = cropResult();
-  pendingAvatar = d; setAvatarPreview(d);
+  if (cropTarget === null) { pendingAvatar = d; setAvatarPreview(d); }
+  else if (pendingMembers[cropTarget]) { pendingMembers[cropTarget].av = d; renderMembers(); }
+  cropTarget = null;
   $("#crop-modal").classList.add("hidden"); cropState = null;
 });
 
@@ -1877,6 +2007,9 @@ $("#btn-map-save").addEventListener("click", async () => {
         if (pendingAvatar) { await store.saveImage(`${editingMapId}__avatar`, pendingAvatar); patch.hasAvatar = true; }
         else patch.hasAvatar = false;
       }
+      patch.members = await persistMembers(editingMapId);
+      delete memberIdx[editingMapId]; // buộc random lại người hiển thị
+      const mvAv = $("#mv-avatar"); if (mvAv) mvAv.dataset.gate = "";
       await store.updateMap(editingMapId, patch);
       const av = $("#mv-avatar"); if (av) av.dataset.for = ""; // buộc nạp lại ảnh mới ở header
       toast("Đã lưu cánh cổng.");
@@ -1890,6 +2023,8 @@ $("#btn-map-save").addEventListener("click", async () => {
         createdBy: me.email,
       });
       if (pendingAvatar) { await store.saveImage(`${newId}__avatar`, pendingAvatar); await store.updateMap(newId, { hasAvatar: true }); }
+      const memberNames = await persistMembers(newId);
+      if (memberNames.length) await store.updateMap(newId, { members: memberNames });
       toast("✦ Một cánh cổng mới vừa hiện ra giữa biển sao.");
       location.hash = `#/map/${newId}`;
     }
