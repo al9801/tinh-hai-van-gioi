@@ -267,7 +267,7 @@ const TOTEM_IMG = { "🦇": "av-doi", "⭐": "av-cavoi" };
 function totemMini(icon, cls = "") {
   const img = TOTEM_IMG[icon];
   return img
-    ? `<img class="totem-mini ${cls}" src="assets/${img}.png?v=150" alt="">`
+    ? `<img class="totem-mini ${cls}" src="assets/${img}.png?v=151" alt="">`
     : `<span class="totem-mini-emoji ${cls}">${icon}</span>`;
 }
 // sao vàng chỉ hiện khi CẢ hai chủ (Dơi + Cá Voi Sao) cùng tiến cử
@@ -284,7 +284,7 @@ function totemBadges(recommends) {
       const img = TOTEM_IMG[a.icon];
       const tip = `${esc(a.name)} (${esc(email)}) đã tiến cử`;
       return img
-        ? `<img class="totem-badge" src="assets/${img}.png?v=150" alt="${esc(a.name)}" title="${tip}">`
+        ? `<img class="totem-badge" src="assets/${img}.png?v=151" alt="${esc(a.name)}" title="${tip}">`
         : `<span class="totem-badge totem-badge-emoji" title="${tip}">${a.icon}</span>`;
     })
     .join("");
@@ -851,7 +851,7 @@ function teardown() {
 
 function enterForest() {
   const _ut = $("#user-totem"), _img = TOTEM_IMG[me.icon];
-  if (_img) _ut.innerHTML = `<img src="assets/${_img}.png?v=150" alt="${esc(me.name)}" class="user-totem-img">`;
+  if (_img) _ut.innerHTML = `<img src="assets/${_img}.png?v=151" alt="${esc(me.name)}" class="user-totem-img">`;
   else _ut.textContent = me.icon;
   $("#user-totem").title = `${me.name} — ${me.email}`;
   $("#user-name").textContent = me.name + (DEMO ? " (demo)" : "");
@@ -1133,7 +1133,7 @@ function renderHomeGrid() {
         </div>
       </span>
       ${m.nsfw ? `<img class="nsfw-sticker mc-stimg" src="assets/mark-sao.png" alt="NSFW" title="Cổng thiên về NSFW">` : ""}
-      ${m.wip ? `<img class="wip-chime" src="assets/chime.webp?v=150" alt="Map đang sửa" title="Map đang sửa — chưa chơi được" aria-hidden="true">` : ""}
+      ${m.wip ? `<img class="wip-chime" src="assets/chime.webp?v=151" alt="Map đang sửa" title="Map đang sửa — chưa chơi được" aria-hidden="true">` : ""}
       ${m.noH ? `<img class="noh-sticker mc-stimg" src="assets/mark-so.png" alt="" title="Không có H — chơi có 'kéo rèm'">` : ""}
       <span class="totem-corner">${totemBadges(m.recommends)}</span>
       ${bothRecommend(m.recommends) ? `<img class="fc-star" src="assets/star.png" alt="" title="Cả Dơi & Cá Voi Sao cùng tiến cử" aria-hidden="true">` : ""}
@@ -1308,9 +1308,9 @@ function renderMapView({ id, tab }) {
           <p class="map-view-world" id="mv-world"></p>
           <div class="mv-tags hidden" id="mv-tags"></div>
         </div>
-        <img id="mv-noh" class="mv-mark hidden" src="assets/mark-so.png?v=150" alt="" title="Không có H — chơi có 'kéo rèm'">
+        <img id="mv-noh" class="mv-mark hidden" src="assets/mark-so.png?v=151" alt="" title="Không có H — chơi có 'kéo rèm'">
         <span id="mv-wip" class="mv-mark mv-mark-emoji hidden" title="Map đang sửa — chưa chơi được">🩹</span>
-        <img id="mv-nsfw" class="mv-mark hidden" src="assets/mark-sao.png?v=150" alt="" title="Cổng thiên về NSFW">
+        <img id="mv-nsfw" class="mv-mark hidden" src="assets/mark-sao.png?v=151" alt="" title="Cổng thiên về NSFW">
         ${isGuest ? "" : `<button class="btn-icon" id="btn-edit-map" title="Sửa tên / mô tả / link GAS / nhãn">✎</button>`}
       </div>
       <div class="mv-bubble hidden" id="mv-bubble" aria-live="polite"></div>
@@ -1384,7 +1384,7 @@ function updateMapMeta({ id }) {
   if (tagsEl) {
     const ts = (m.tags || []).filter((k) => TAG_NAME[k]).slice(0, 3);
     tagsEl.innerHTML = ts
-      .map((k) => `<img class="mv-tag" src="assets/tag-${k}.png?v=150" alt="${esc(TAG_NAME[k])}" title="${esc(TAG_NAME[k])}">`)
+      .map((k) => `<img class="mv-tag" src="assets/tag-${k}.png?v=151" alt="${esc(TAG_NAME[k])}" title="${esc(TAG_NAME[k])}">`)
       .join("");
     tagsEl.classList.toggle("hidden", !ts.length);
   }
@@ -1530,6 +1530,7 @@ const ICN = {
   undo: '<path d="M3 7v6h6"/><path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13"/>',
   redo: '<path d="M21 7v6h-6"/><path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3L21 13"/>',
   clock: '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
+  save: '<path d="M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7"/><path d="M7 3v4a1 1 0 0 0 1 1h7"/>',
   toc: '<path d="M21 12h-8"/><path d="M21 6H8"/><path d="M21 18h-8"/><path d="M3 6v4c0 1.1.9 2 2 2h3"/><path d="M3 10v6c0 1.1.9 2 2 2h3"/>',
   book: '<path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3Z"/>',
   copy: '<rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>',
@@ -2358,24 +2359,8 @@ function mountPagedEditor(slot, opts) {
     else shownTotal = newTotal; // đang gõ: ghi nhận để lần blur/lật kế tiếp cập nhật
   };
 
-  // Vuốt ngang để lật trang (điện thoại) — mũi tên hai bên đã ẩn trên mobile.
-  // Chỉ nhận cú vuốt NGANG rõ ràng & nhanh, để không nuốt thao tác cuộn dọc hay bôi chữ.
-  let sx = 0, sy = 0, st = 0;
-  slot.addEventListener("touchstart", (e) => {
-    // bỏ qua nếu vuốt bắt đầu trên thanh công cụ (vốn cuộn ngang) hay cụm nút lật trang
-    if (e.touches.length !== 1 || e.target.closest(".editor-toolbar, .page-nav-wrap")) { st = 0; return; }
-    sx = e.touches[0].clientX; sy = e.touches[0].clientY; st = Date.now();
-  }, { passive: true });
-  slot.addEventListener("touchend", (e) => {
-    if (!st) return;
-    const t = e.changedTouches[0]; if (!t) return;
-    const dx = t.clientX - sx, dy = t.clientY - sy, dt = Date.now() - st;
-    st = 0;
-    if (dt > 700) return; // vuốt phải nhanh, không phải giữ lâu
-    if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.8) return; // ngang & dứt khoát
-    const btn = slot.querySelector(`.pgn-btn[data-pgn="${dx < 0 ? "next" : "prev"}"]`); // vuốt trái = trang sau
-    if (btn) btn.click();
-  }, { passive: true });
+  // (Đã gỡ vuốt ngang để lật trang trên điện thoại — hay bị tự chuyển / bấm nhầm.
+  //  Lật trang dùng nút ‹ › ở cụm phân trang, hoặc phím ← → trên máy tính.)
 
   render();
 }
@@ -2681,7 +2666,10 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
       <button class="tb-btn" data-toc="1" title="Mục lục — nhảy tới các tiêu đề trong trang">${ic("toc")}</button>
       <button class="tb-btn" data-read="1" title="Chế độ đọc — ẩn thanh công cụ, chữ rộng ra">${ic("book")}</button>
       <button class="tb-more hidden" type="button" aria-label="Còn công cụ — kéo ngang để xem thêm" title="Còn công cụ — kéo ngang để xem thêm">›</button>
-      <span class="tb-status" id="tb-status">Tự động lưu</span>
+      <span class="tb-right">
+        <button class="tb-btn tb-save" id="tb-save" type="button" title="Lưu ngay (Ctrl/Cmd+S)">${ic("save")}<span>Lưu</span></button>
+        <span class="tb-status" id="tb-status">Tự động lưu</span>
+      </span>
       <input type="file" accept="image/*" class="tb-img-file" hidden>
     </div>
     ${comments ? `<div class="cmt-nav-wrap"><div class="cmt-nav-chip hidden">
@@ -2758,11 +2746,13 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
   }
 
   let saveTimer = null;
+  let lastSaveTs = Date.now(); // mốc lần lưu gần nhất — để ép lưu định kỳ khi gõ liên tục không nghỉ
   let lastSaved = html; // html từ kho đã ở dạng lưu trữ
   let saving = false;      // đang ghi → bỏ qua tiếng vọng snapshot của chính mình
   let remoteAhead = false; // người kia vừa sửa lúc mình đang gõ dở → tạm khoá tự lưu để không đè
   const doSave = async () => {
     if (remoteAhead) return; // đang chờ xử lý xung đột — không ghi đè bản người kia
+    lastSaveTs = Date.now();
     status.textContent = "Đang gửi theo hải lưu…";
     status.className = "tb-status saving";
     try {
@@ -2807,9 +2797,25 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
     status.className = "tb-status";
     clearTimeout(saveTimer);
     saveTimer = setTimeout(doSave, 900);
+    // gõ liên tục không nghỉ → debounce không bao giờ fire; ép lưu ít nhất mỗi ~8 giây
+    if (Date.now() - lastSaveTs > 8000) { clearTimeout(saveTimer); doSave(); }
   });
   page.addEventListener("blur", () => { clearTimeout(saveTimer); doSave(); });
   flushEditor = () => { clearTimeout(saveTimer); return doSave(); };
+  // nút Lưu tường minh + phím tắt Ctrl/Cmd+S
+  slot.querySelector("#tb-save")?.addEventListener("click", () => {
+    clearTimeout(saveTimer);
+    if (remoteAhead) { toast("Người kia vừa sửa trang này — chọn cách xử lý ở thanh đồng bộ trước đã.", true); return; }
+    doSave();
+  });
+  const onSaveKey = (e) => {
+    if ((e.ctrlKey || e.metaKey) && (e.key === "s" || e.key === "S")) {
+      if (!slot.isConnected) { document.removeEventListener("keydown", onSaveKey, true); return; }
+      e.preventDefault(); clearTimeout(saveTimer);
+      if (!remoteAhead) doSave();
+    }
+  };
+  document.addEventListener("keydown", onSaveKey, true);
 
   // ── Đồng bộ realtime: khi người kia sửa cùng trang ──
   // an toàn (mình chưa gõ gì) → nạp bản mới ngay; đang gõ dở → hỏi thay vì đè mất.

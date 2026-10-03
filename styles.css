@@ -352,7 +352,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 .map-card {
   position: relative; display: block;
   aspect-ratio: 640 / 809;
-  background: url("assets/card-frame.png?v=150") center / 100% 100% no-repeat;
+  background: url("assets/card-frame.png?v=151") center / 100% 100% no-repeat;
   text-decoration: none; color: var(--ink);
   overflow: visible;
   transition: transform 0.24s ease, filter 0.24s ease;
@@ -747,6 +747,11 @@ span.totem-badge-emoji:first-child { margin-left: 0; }
 .tb-status { margin-left: auto; font-size: 0.75rem; color: var(--ink-faint); padding-right: 8px; white-space: nowrap; }
 .tb-status.saving { color: var(--gold); }
 .tb-status.saved { color: var(--glow); }
+/* cụm phải: nút Lưu + trạng thái — luôn nép mép phải */
+.tb-right { display: inline-flex; align-items: center; gap: 4px; margin-left: auto; }
+.tb-right .tb-status { margin-left: 2px; }
+.tb-save { color: var(--gold-bright); padding: 0 11px; font-family: var(--font-body); }
+.tb-save:hover { background: rgba(217, 180, 111, 0.16); color: var(--gold-bright); }
 .tb-more { display: none; } /* chỉ hiện trên điện thoại (thanh công cụ cuộn ngang) */
 
 .doc-page {
@@ -1228,18 +1233,24 @@ body:not(.guest) .gas-fab { bottom: 86px; }
   }
   .editor-toolbar::-webkit-scrollbar { display: none; }
   .tb-btn { flex: 0 0 auto; min-width: 38px; height: 38px; font-size: 0.95rem; }
-  /* "Tự động lưu" quá dài, che nút → thu thành 1 icon nhỏ nép sát mép phải */
-  .tb-status {
-    position: sticky; right: 0; flex: 0 0 auto; margin-left: 4px;
-    font-size: 0; padding: 0 6px 0 10px;
-    background: linear-gradient(90deg, transparent, rgba(12, 22, 42, 0.96) 30%);
+  /* cụm Lưu + trạng thái: ghim sticky mép phải, luôn thấy dù thanh công cụ cuộn ngang */
+  .tb-right {
+    position: sticky; right: 0; z-index: 3; flex: 0 0 auto; margin-left: 4px;
+    display: inline-flex; align-items: center; gap: 2px; padding-left: 12px;
+    background: linear-gradient(90deg, transparent, rgba(12, 22, 42, 0.97) 32%);
+  }
+  .tb-save { flex: 0 0 auto; min-width: 38px; height: 38px; }
+  /* "Tự động lưu" quá dài → thu thành 1 icon nhỏ cạnh nút Lưu */
+  .tb-right .tb-status {
+    position: static; flex: 0 0 auto; margin-left: 0;
+    font-size: 0; padding: 0 4px; background: none;
   }
   .tb-status::before { font-size: 1rem; content: "💾"; opacity: 0.7; }
   .tb-status.saving::before { content: "⏳"; opacity: 1; }
   .tb-status.saved::before { content: "✓"; color: var(--glow); opacity: 1; font-weight: 700; }
-  /* mũi tên "còn công cụ" nhấp nháy ở mép phải, nép sát trái nút 💾 */
+  /* mũi tên "còn công cụ" nhấp nháy ở mép phải, nép sát trái cụm Lưu */
   .tb-more {
-    position: sticky; right: 34px; z-index: 2;
+    position: sticky; right: 104px; z-index: 2;
     flex: 0 0 auto; display: grid; place-items: center;
     width: 24px; height: 38px; padding: 0; margin: 0;
     border: none; background: linear-gradient(90deg, transparent, rgba(12, 22, 42, 0.96) 60%);
