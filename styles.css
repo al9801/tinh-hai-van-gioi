@@ -352,7 +352,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 .map-card {
   position: relative; display: block;
   aspect-ratio: 640 / 809;
-  background: url("assets/card-frame.png?v=152") center / 100% 100% no-repeat;
+  background: url("assets/card-frame.png?v=153") center / 100% 100% no-repeat;
   text-decoration: none; color: var(--ink);
   overflow: visible;
   transition: transform 0.24s ease, filter 0.24s ease;
@@ -759,6 +759,12 @@ span.totem-badge-emoji:first-child { margin-left: 0; }
 .tb-right .tb-status { margin-left: 2px; }
 .tb-save { color: var(--gold-bright); padding: 0 11px; font-family: var(--font-body); }
 .tb-save:hover { background: rgba(217, 180, 111, 0.16); color: var(--gold-bright); }
+.tb-save:active { transform: scale(0.94); }
+.tb-save-flash { animation: tb-save-flash 0.45s ease; }
+@keyframes tb-save-flash {
+  0% { background: rgba(217, 180, 111, 0.5); box-shadow: 0 0 0 2px rgba(217, 180, 111, 0.5); }
+  100% { background: none; box-shadow: none; }
+}
 .tb-more { display: none; } /* chỉ hiện trên điện thoại (thanh công cụ cuộn ngang) */
 
 .doc-page {
@@ -1952,7 +1958,7 @@ body.guest .doc-page { user-select: none; }
   position: fixed; top: 50%; transform: translateY(-50%);
   z-index: 15;
   width: 44px; height: 96px;
-  display: grid; place-items: center;
+  display: none; place-items: center; /* chỉ hiện khi màn đủ rộng để nằm NGOÀI trang (media query dưới) */
   background: rgba(13, 26, 50, 0.85);
   border: 1px solid var(--line-strong);
   border-radius: 999px;
@@ -1968,8 +1974,12 @@ body.guest .doc-page { user-select: none; }
   border-color: var(--gold);
   box-shadow: 0 0 26px rgba(217, 180, 111, 0.35);
 }
-.page-side-left  { left: max(10px, calc(50% - 505px)); }
-.page-side-right { right: max(10px, calc(50% - 505px)); }
+.page-side-left  { left: max(6px, calc(50% - 552px)); }
+.page-side-right { right: max(6px, calc(50% - 552px)); }
+/* chỉ hiện pill lật trang hai bên khi còn đủ lề NGOÀI trang (trang rộng 1000px) */
+@media (min-width: 1110px) {
+  .page-side { display: grid; }
+}
 @media (max-width: 720px) {
   /* Điện thoại: ẩn hai pill lật trang ở rìa (đè lên thanh công cụ, lại thừa vì đã có cụm ‹1/2›+🗑).
      Chỉ hiện lại khi ĐANG ĐỌC — lúc đó thanh công cụ ẩn nên không còn vướng. */
