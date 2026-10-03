@@ -352,7 +352,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 .map-card {
   position: relative; display: block;
   aspect-ratio: 640 / 809;
-  background: url("assets/card-frame.png?v=151") center / 100% 100% no-repeat;
+  background: url("assets/card-frame.png?v=152") center / 100% 100% no-repeat;
   text-decoration: none; color: var(--ink);
   overflow: visible;
   transition: transform 0.24s ease, filter 0.24s ease;
@@ -723,15 +723,18 @@ span.totem-badge-emoji:first-child { margin-left: 0; }
 
 .editor-toolbar {
   position: sticky; top: 66px; z-index: 10;
-  display: flex; align-items: center; gap: 3px; flex-wrap: wrap;
+  display: flex; align-items: center; gap: 2px;
+  flex-wrap: nowrap; overflow-x: auto; overflow-y: hidden; scrollbar-width: none;
   padding: 8px 10px;
   background: rgba(12, 22, 42, 0.92);
   backdrop-filter: blur(12px);
   border: 1px solid var(--line);
   border-radius: 12px 12px 0 0;
-  max-width: 880px; margin: 0 auto;
+  max-width: 1000px; margin: 0 auto;
 }
+.editor-toolbar::-webkit-scrollbar { display: none; }
 .tb-btn {
+  flex: 0 0 auto;
   min-width: 32px; height: 32px;
   display: inline-flex; align-items: center; justify-content: center; gap: 4px;
   background: none; border: none; border-radius: 7px;
@@ -747,15 +750,19 @@ span.totem-badge-emoji:first-child { margin-left: 0; }
 .tb-status { margin-left: auto; font-size: 0.75rem; color: var(--ink-faint); padding-right: 8px; white-space: nowrap; }
 .tb-status.saving { color: var(--gold); }
 .tb-status.saved { color: var(--glow); }
-/* cụm phải: nút Lưu + trạng thái — luôn nép mép phải */
-.tb-right { display: inline-flex; align-items: center; gap: 4px; margin-left: auto; }
+/* cụm phải: nút Lưu + trạng thái — ghim mép phải, không bao giờ rớt dòng hay cuộn khuất */
+.tb-right {
+  position: sticky; right: 0; z-index: 3; margin-left: auto;
+  display: inline-flex; align-items: center; gap: 4px; flex: 0 0 auto; padding-left: 12px;
+  background: linear-gradient(90deg, transparent, rgba(12, 22, 42, 0.95) 30%);
+}
 .tb-right .tb-status { margin-left: 2px; }
 .tb-save { color: var(--gold-bright); padding: 0 11px; font-family: var(--font-body); }
 .tb-save:hover { background: rgba(217, 180, 111, 0.16); color: var(--gold-bright); }
 .tb-more { display: none; } /* chỉ hiện trên điện thoại (thanh công cụ cuộn ngang) */
 
 .doc-page {
-  max-width: 880px;
+  max-width: 1000px;
   margin: 0 auto;
   min-height: 68vh;
   background: var(--paper);
