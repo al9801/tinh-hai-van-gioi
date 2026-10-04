@@ -25,6 +25,7 @@ window.ACCOUNTS = {
 window.GUESTS = [
   "jorneiden226@gmail.com",
   "keycorn23@gmail.com",
+  "mytran.070198@gmail.com",
 ];
 
 // Danh tính ngẫu nhiên cho cá ghé thăm (gán tự động theo email, cố định không đổi)
