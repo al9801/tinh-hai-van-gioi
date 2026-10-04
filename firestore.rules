@@ -7,7 +7,7 @@ service cloud.firestore {
     }
     // ── Cá ghé thăm 🐟: chỉ xem map; thêm email mới thì sửa cả đây lẫn firebase-config.js ──
     function guests() {
-      return ['jorneiden226@gmail.com', 'keycorn23@gmail.com'];
+      return ['jorneiden226@gmail.com', 'keycorn23@gmail.com', 'mytran.070198@gmail.com'];
     }
     function em() { return request.auth.token.email; }
     function isOwner() { return request.auth != null && em() in owners(); }
