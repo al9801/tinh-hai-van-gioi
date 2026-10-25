@@ -287,10 +287,17 @@ body {
 }
 .new-gate-btn .ic { width: 17px; height: 17px; stroke: currentColor; }
 .new-gate-btn:hover { filter: brightness(1.06); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35), 0 0 14px rgba(217, 180, 111, 0.4); }
-/* màn hẹp: header xuống dòng, tools về hàng riêng (khỏi tràn) */
-@media (max-width: 860px) {
+/* màn trung bình: hàng trên dễ chật (brand + nav + tools + user) → cho CẢ CỤM tools
+   xuống hàng riêng, giữ hàng trên gọn (brand + nav + user). */
+@media (max-width: 1320px) {
   .app-header { flex-wrap: wrap; row-gap: 10px; }
+  .brand { flex: 0 0 auto; }
+  .brand-text { white-space: nowrap; }
   .header-tools { order: 3; flex-basis: 100%; }
+  .header-tools .browse-bar .search-wrap { max-width: 460px; }
+}
+/* màn hẹp (điện thoại/tablet): browse-bar tự xuống nhiều dòng cho đỡ chật */
+@media (max-width: 860px) {
   .header-tools .browse-bar { flex-wrap: wrap; }
   .header-tools .browse-bar .search-wrap { max-width: none; }
 }
@@ -352,7 +359,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 .map-card {
   position: relative; display: block;
   aspect-ratio: 640 / 809;
-  background: url("assets/card-frame.png?v=154") center / 100% 100% no-repeat;
+  background: url("assets/card-frame.png?v=155") center / 100% 100% no-repeat;
   text-decoration: none; color: var(--ink);
   overflow: visible;
   transition: transform 0.24s ease, filter 0.24s ease;
