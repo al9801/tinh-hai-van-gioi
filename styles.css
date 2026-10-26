@@ -359,7 +359,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 .map-card {
   position: relative; display: block;
   aspect-ratio: 640 / 809;
-  background: url("assets/card-frame.png?v=155") center / 100% 100% no-repeat;
+  background: url("assets/card-frame.png?v=156") center / 100% 100% no-repeat;
   text-decoration: none; color: var(--ink);
   overflow: visible;
   transition: transform 0.24s ease, filter 0.24s ease;
@@ -915,6 +915,20 @@ span.totem-badge-emoji:first-child { margin-left: 0; }
   transition: border-color 0.2s;
 }
 .field input:focus { border-color: var(--gold); }
+/* 🪪 Thẻ cá nhân */
+.card-modal { width: min(680px, 94vw); }
+.card-hint { font-size: 0.82rem; color: var(--ink-dim); margin-bottom: 16px; line-height: 1.5; }
+.card-hint code { background: rgba(217, 180, 111, 0.16); color: var(--gold-bright); padding: 1px 6px; border-radius: 5px; font-family: monospace; }
+.card-area {
+  width: 100%; background: rgba(0, 0, 0, 0.3); border: 1px solid var(--line-strong);
+  border-radius: 9px; padding: 11px 13px; color: var(--ink);
+  font-family: var(--font-body); font-size: 0.9rem; line-height: 1.5;
+  outline: none; resize: vertical; min-height: 84px;
+}
+.card-area:focus { border-color: var(--gold); }
+.card-save-status { font-size: 0.8rem; color: var(--glow); }
+.tb-card { color: var(--gold-bright); }
+.tb-card:hover { background: rgba(217, 180, 111, 0.16); color: var(--gold-bright); }
 .modal-actions { display: flex; align-items: center; gap: 10px; margin-top: 22px; }
 .spacer { flex: 1; }
 

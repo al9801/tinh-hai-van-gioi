@@ -32,6 +32,11 @@ service cloud.firestore {
       allow read: if isOwner() || isGuest();
       allow write: if (isOwner() || isGuest()) && em() == email;
     }
+    // Thẻ cá nhân RIÊNG TƯ: mỗi người chỉ đọc/ghi được doc mang chính email mình.
+    // Dơi không thấy thẻ Cá và ngược lại; hai bên không đè nhau (doc tách biệt).
+    match /usercards/{email} {
+      allow read, write: if request.auth != null && em() == email;
+    }
     // Khu riêng của hai chủ — cá KHÔNG vào được
     match /history/{h}   { allow read, write: if isOwner(); } // lịch sử chỉnh sửa 7 ngày
     match /drafts/{id}   { allow read, write: if isOwner(); }
