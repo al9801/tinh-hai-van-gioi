@@ -359,7 +359,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 .map-card {
   position: relative; display: block;
   aspect-ratio: 640 / 809;
-  background: url("assets/card-frame.png?v=158") center / 100% 100% no-repeat;
+  background: url("assets/card-frame.png?v=159") center / 100% 100% no-repeat;
   text-decoration: none; color: var(--ink);
   overflow: visible;
   transition: transform 0.24s ease, filter 0.24s ease;
@@ -447,19 +447,26 @@ body[data-view="home"] .main { max-width: 1280px; }
 }
 /* bộ chọn tag thế giới trong modal */
 .tag-count { font-size: 0.78rem; color: var(--ink-dim); font-weight: 400; margin-left: 4px; }
-.tag-picker { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.tag-picker {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+  gap: 6px; margin-top: 8px;
+}
 .tag-opt {
-  display: flex; flex-direction: column; align-items: center; gap: 4px;
-  width: 94px; padding: 6px 5px; cursor: pointer;
-  background: rgba(13, 26, 50, 0.5); border: 1.5px solid var(--line); border-radius: 12px;
+  display: flex; flex-direction: row; align-items: center; gap: 8px;
+  padding: 4px 8px 4px 5px; cursor: pointer; min-width: 0;
+  background: rgba(13, 26, 50, 0.5); border: 1.5px solid var(--line); border-radius: 10px;
   transition: border-color 0.15s, background 0.15s;
 }
-.tag-opt img { width: 100%; height: auto; display: block; opacity: 0.5; transition: opacity 0.15s; }
-.tag-opt .tag-nm { font-size: 0.72rem; color: var(--ink-dim); }
+.tag-opt img { width: 50px; height: auto; flex: 0 0 auto; display: block; opacity: 0.42; transition: opacity 0.15s; }
+.tag-opt .tag-nm {
+  font-size: 0.78rem; color: var(--ink-dim); line-height: 1.15;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
 .tag-opt:hover { border-color: var(--line-strong); }
+.tag-opt:hover img { opacity: 0.72; }
 .tag-opt.on { border-color: var(--gold); background: rgba(217, 180, 111, 0.14); }
 .tag-opt.on img { opacity: 1; }
-.tag-opt.on .tag-nm { color: var(--gold-bright); }
+.tag-opt.on .tag-nm { color: var(--gold-bright); font-weight: 600; }
 /* sao vàng vẽ tay — nằm trong hõm đuôi cá voi (chỉ hiện khi cả hai chủ tiến cử) */
 .fc-star { position: absolute; left: 21%; top: 8.5%; width: 7%; z-index: 4; pointer-events: none; filter: drop-shadow(0 0 6px rgba(240, 212, 154, 0.6)); }
 
