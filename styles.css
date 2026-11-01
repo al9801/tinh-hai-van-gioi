@@ -360,35 +360,7 @@ body {
   min-height: calc(100vh - 160px);
 }
 
-/* tiêu đề + phân trang cùng một hàng (phân trang "ngang Biển Cổng") */
-.page-head {
-  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
-  margin-bottom: 30px;
-}
-.page-head-text { min-width: 0; }
-.ph-sentinel { height: 0; }
-/* chỉ GHIM dưới header khi THỰC SỰ có phân trang (nhiều trang) */
-.page-head:has(.pager:not(.hidden)) {
-  position: sticky; top: var(--header-h, 66px); z-index: 16;
-}
-/* phân trang: pill nổi, nằm bên phải hàng tiêu đề */
-.page-head .pager {
-  flex: 0 0 auto; align-items: center;
-  background: rgba(10, 18, 40, 0.72); backdrop-filter: blur(8px);
-  border: 1px solid var(--line); border-radius: 999px;
-  padding: 4px 6px; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
-}
-/* khi dính (đã cuộn) → nền section bar để chữ/nút không đè lên thẻ phía sau */
-.page-head.is-stuck:has(.pager:not(.hidden)) {
-  margin-left: -28px; margin-right: -28px; padding: 8px 28px;
-  background: rgba(6, 12, 26, 0.85); backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--line);
-}
-/* mobile: header cao (xuống hàng) → không ghim tiêu đề, để phân trang nằm tĩnh dưới tiêu đề */
-@media (max-width: 720px) {
-  .page-head:has(.pager:not(.hidden)) { position: static; }
-  .page-head.is-stuck:has(.pager:not(.hidden)) { margin-left: 0; margin-right: 0; padding: 0; background: none; backdrop-filter: none; border-bottom: none; }
-}
+.page-head { margin-bottom: 30px; }
 .page-title {
   font-family: var(--font-display); font-weight: 700; font-size: 1.9rem;
   color: var(--ink);
@@ -413,7 +385,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 .map-card {
   position: relative; display: block;
   aspect-ratio: 640 / 809;
-  background: url("assets/card-frame.png?v=174") center / 100% 100% no-repeat;
+  background: url("assets/card-frame.png?v=176") center / 100% 100% no-repeat;
   text-decoration: none; color: var(--ink);
   overflow: visible;
   transition: transform 0.24s ease, filter 0.24s ease;
@@ -1897,6 +1869,21 @@ img.noh-sticker { width: 16%; }
 .sort-sel option { background: var(--panel-solid); color: var(--ink); }
 .pager { display: flex; align-items: center; gap: 3px; flex-wrap: wrap; }
 .pager .btn-icon { min-width: 30px; }
+/* phân trang NỔI Ở ĐÁY màn hình khi cuộn; kéo xuống hết trang thì đậu lại ở cuối nội dung
+   (sticky + bottom làm đúng điều này). Vùng ngoài pill không chặn chuột vào nội dung. */
+.pager-foot {
+  position: sticky; bottom: 16px; z-index: 16;
+  display: flex; justify-content: center;
+  margin-top: 28px; pointer-events: none;
+}
+.pager-foot:has(.pager.hidden) { display: none; } /* 1 trang thì không chiếm chỗ */
+.pager-foot .pager {
+  pointer-events: auto;
+  background: rgba(10, 18, 40, 0.82); backdrop-filter: blur(10px);
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: 5px 7px; box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+}
+@media (max-width: 720px) { .pager-foot { bottom: 12px; } }
 .pg-num {
   min-width: 30px; height: 30px; padding: 0 8px;
   background: rgba(255, 255, 255, 0.04);
