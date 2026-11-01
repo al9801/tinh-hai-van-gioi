@@ -37,7 +37,7 @@ const TAG_NAME = Object.fromEntries(WORLD_TAGS.map((t) => [t.key, t.name]));
 function tagsRow(m) {
   const ts = (m.tags || []).filter((k) => TAG_NAME[k]).slice(0, 3);
   if (!ts.length) return "";
-  return `<span class="mc-tags">${ts.map((k) => `<span class="mc-tag-wrap" data-tip="${esc(TAG_NAME[k])}"><img class="mc-tag" src="assets/tag-${k}.png?v=166" alt="${esc(TAG_NAME[k])}"></span>`).join("")}</span>`;
+  return `<span class="mc-tags">${ts.map((k) => `<span class="mc-tag-wrap" data-tip="${esc(TAG_NAME[k])}"><img class="mc-tag" src="assets/tag-${k}.png?v=170" alt="${esc(TAG_NAME[k])}"></span>`).join("")}</span>`;
 }
 const DEMO = new URLSearchParams(location.search).has("demo");
 
@@ -173,6 +173,18 @@ function wireScrollbar() {
   window.addEventListener("touchend", end);
   window.addEventListener("resize", scrollbarUpdate);
 }
+// đồng bộ chiều cao header thật vào --header-h để phần tử sticky (pager Biển Cổng) ghim
+// đúng ngay dưới header ở mọi bề ngang (header cao/thấp khác nhau khi xuống hàng).
+let _headerRO = null;
+function syncHeaderH() {
+  const h = document.querySelector(".app-header");
+  if (!h) return;
+  if (h.offsetHeight > 0) document.documentElement.style.setProperty("--header-h", h.offsetHeight + "px");
+  // gắn observer một lần khi header đã tồn tại (header có thể được dựng sau khi script chạy)
+  if (window.ResizeObserver && !_headerRO) { _headerRO = new ResizeObserver(syncHeaderH); _headerRO.observe(h); }
+}
+window.addEventListener("resize", syncHeaderH);
+syncHeaderH();
 let cmtPop = null;
 let cmtPopCloser = null;
 let chatMsgs = [];
@@ -282,7 +294,7 @@ const TOTEM_IMG = { "🦇": "av-doi", "⭐": "av-cavoi" };
 function totemMini(icon, cls = "") {
   const img = TOTEM_IMG[icon];
   return img
-    ? `<img class="totem-mini ${cls}" src="assets/${img}.png?v=166" alt="">`
+    ? `<img class="totem-mini ${cls}" src="assets/${img}.png?v=170" alt="">`
     : `<span class="totem-mini-emoji ${cls}">${icon}</span>`;
 }
 // sao vàng chỉ hiện khi CẢ hai chủ (Dơi + Cá Voi Sao) cùng tiến cử
@@ -299,7 +311,7 @@ function totemBadges(recommends) {
       const img = TOTEM_IMG[a.icon];
       const tip = `${esc(a.name)} (${esc(email)}) đã tiến cử`;
       return img
-        ? `<img class="totem-badge" src="assets/${img}.png?v=166" alt="${esc(a.name)}" title="${tip}">`
+        ? `<img class="totem-badge" src="assets/${img}.png?v=170" alt="${esc(a.name)}" title="${tip}">`
         : `<span class="totem-badge totem-badge-emoji" title="${tip}">${a.icon}</span>`;
     })
     .join("");
@@ -878,7 +890,7 @@ function teardown() {
 
 function enterForest() {
   const _ut = $("#user-totem"), _img = TOTEM_IMG[me.icon];
-  if (_img) _ut.innerHTML = `<img src="assets/${_img}.png?v=166" alt="${esc(me.name)}" class="user-totem-img">`;
+  if (_img) _ut.innerHTML = `<img src="assets/${_img}.png?v=170" alt="${esc(me.name)}" class="user-totem-img">`;
   else _ut.textContent = me.icon;
   $("#user-totem").title = `${me.name} — ${me.email}`;
   $("#user-name").textContent = me.name + (DEMO ? " (demo)" : "");
@@ -1022,7 +1034,8 @@ let dragMapId = null;
 
 let homeQ = "";
 let homeSort = "pos";
-let homePage = 0;
+// nhớ trang hiện tại qua reload (trước đây reload luôn về trang 1)
+let homePage = (() => { try { return Math.max(0, parseInt(localStorage.getItem("thvg-home-page")) || 0); } catch { return 0; } })();
 const HOME_PAGE_SIZE = 12;
 
 // đàn cá ghé thăm nằm ở mép DƯỚI thẻ (khác huy hiệu chủ ở góc trên)
@@ -1052,8 +1065,6 @@ function renderHome() {
         <button class="btn btn-ghost icon-btn" id="btn-fulltext" title="Tìm sâu trong toàn bộ nội dung mọi map/nháp"><span class="ib-ic">${ic("fileSearch")}</span><span class="ib-tx">Tìm toàn văn</span></button>
         ${me.guest ? "" : `<button class="btn btn-ghost icon-btn" id="btn-backup" title="Tải toàn bộ nội dung về máy để giữ ngoài"><span class="ib-ic">${ic("box")}</span><span class="ib-tx">Backup</span></button>`}
         ${me.guest ? "" : `<button class="btn new-gate-btn" id="btn-new-map-hdr" title="Mở cánh cổng mới">${ic("plus")}<span class="ngb-tx">Cổng mới</span></button>`}
-        <span class="spacer"></span>
-        <div class="pager hidden" id="home-pager"></div>
       </div>
     </div>`;
   $("#main").innerHTML = `
@@ -1062,6 +1073,7 @@ function renderHome() {
       <h1 class="page-title">Biển <span class="accent">Cổng</span></h1>
       <p class="page-sub">Mỗi cánh cổng dẫn vào một thế giới.</p>
     </div>
+    <div class="pager-bar"><div class="pager hidden" id="home-pager"></div></div>
     <div id="home-grid"></div>
     </div>`;
   $("#home-sort").value = homeSort;
@@ -1076,6 +1088,10 @@ function renderHome() {
   $("#btn-backup")?.addEventListener("click", runBackup);
   $("#btn-new-map-hdr")?.addEventListener("click", () => openMapModal(null));
   renderHomeGrid();
+  // header vừa đổi nội dung → cập nhật --header-h cho pager ghim đúng (vài nhịp phòng lúc đang có animation vào rừng)
+  requestAnimationFrame(syncHeaderH);
+  setTimeout(syncHeaderH, 300);
+  setTimeout(syncHeaderH, 1200);
 }
 
 // dãy số trang gọn: đầu · quanh trang hiện tại · cuối, chèn … cho khoảng nhảy
@@ -1149,6 +1165,7 @@ function renderHomeGrid() {
 
   const pages = Math.max(1, Math.ceil(list.length / HOME_PAGE_SIZE));
   homePage = Math.min(Math.max(0, homePage), pages - 1);
+  try { localStorage.setItem("thvg-home-page", homePage); } catch {}
   const pageList = list.slice(homePage * HOME_PAGE_SIZE, (homePage + 1) * HOME_PAGE_SIZE);
   renderPager(homePage, pages);
 
@@ -1169,7 +1186,7 @@ function renderHomeGrid() {
         </div>
       </span>
       ${m.nsfw ? `<img class="nsfw-sticker mc-stimg" src="assets/mark-sao.png" alt="NSFW" title="Cổng thiên về NSFW">` : ""}
-      ${m.wip ? `<img class="wip-chime" src="assets/chime.webp?v=166" alt="Map đang sửa" title="Map đang sửa — chưa chơi được" aria-hidden="true">` : ""}
+      ${m.wip ? `<img class="wip-chime" src="assets/chime.webp?v=170" alt="Map đang sửa" title="Map đang sửa — chưa chơi được" aria-hidden="true">` : ""}
       ${m.noH ? `<img class="noh-sticker mc-stimg" src="assets/mark-so.png" alt="" title="Không có H — chơi có 'kéo rèm'">` : ""}
       <span class="totem-corner">${totemBadges(m.recommends)}</span>
       ${bothRecommend(m.recommends) ? `<img class="fc-star" src="assets/star.png" alt="" title="Cả Dơi & Cá Voi Sao cùng tiến cử" aria-hidden="true">` : ""}
@@ -1344,9 +1361,9 @@ function renderMapView({ id, tab }) {
           <p class="map-view-world" id="mv-world"></p>
           <div class="mv-tags hidden" id="mv-tags"></div>
         </div>
-        <img id="mv-noh" class="mv-mark hidden" src="assets/mark-so.png?v=166" alt="" title="Không có H — chơi có 'kéo rèm'">
+        <img id="mv-noh" class="mv-mark hidden" src="assets/mark-so.png?v=170" alt="" title="Không có H — chơi có 'kéo rèm'">
         <span id="mv-wip" class="mv-mark mv-mark-emoji hidden" title="Map đang sửa — chưa chơi được">🩹</span>
-        <img id="mv-nsfw" class="mv-mark hidden" src="assets/mark-sao.png?v=166" alt="" title="Cổng thiên về NSFW">
+        <img id="mv-nsfw" class="mv-mark hidden" src="assets/mark-sao.png?v=170" alt="" title="Cổng thiên về NSFW">
         ${isGuest ? "" : `<button class="btn-icon" id="btn-edit-map" title="Sửa tên / mô tả / link GAS / nhãn">✎</button>`}
       </div>
       <div class="mv-bubble hidden" id="mv-bubble" aria-live="polite"></div>
@@ -1420,7 +1437,7 @@ function updateMapMeta({ id }) {
   if (tagsEl) {
     const ts = (m.tags || []).filter((k) => TAG_NAME[k]).slice(0, 3);
     tagsEl.innerHTML = ts
-      .map((k) => `<img class="mv-tag" src="assets/tag-${k}.png?v=166" alt="${esc(TAG_NAME[k])}" title="${esc(TAG_NAME[k])}">`)
+      .map((k) => `<img class="mv-tag" src="assets/tag-${k}.png?v=170" alt="${esc(TAG_NAME[k])}" title="${esc(TAG_NAME[k])}">`)
       .join("");
     tagsEl.classList.toggle("hidden", !ts.length);
   }
@@ -2028,7 +2045,7 @@ $("#inp-member-avatar")?.addEventListener("change", (e) => {
 function renderTagPicker() {
   const box = $("#tag-picker"); if (!box) return;
   box.innerHTML = WORLD_TAGS.map((t) =>
-    `<button type="button" class="tag-opt${pendingTags.includes(t.key) ? " on" : ""}" data-tag="${t.key}" title="${esc(t.name)}"><img src="assets/tag-${t.key}.png?v=166" alt="${esc(t.name)}"><span class="tag-nm">${esc(t.name)}</span></button>`).join("");
+    `<button type="button" class="tag-opt${pendingTags.includes(t.key) ? " on" : ""}" data-tag="${t.key}" title="${esc(t.name)}"><img src="assets/tag-${t.key}.png?v=170" alt="${esc(t.name)}"><span class="tag-nm">${esc(t.name)}</span></button>`).join("");
   const c = $("#tag-count"); if (c) c.textContent = `(${pendingTags.length}/3)`;
 }
 $("#tag-picker")?.addEventListener("click", (e) => {

@@ -385,7 +385,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 .map-card {
   position: relative; display: block;
   aspect-ratio: 640 / 809;
-  background: url("assets/card-frame.png?v=166") center / 100% 100% no-repeat;
+  background: url("assets/card-frame.png?v=170") center / 100% 100% no-repeat;
   text-decoration: none; color: var(--ink);
   overflow: visible;
   transition: transform 0.24s ease, filter 0.24s ease;
@@ -1868,6 +1868,19 @@ img.noh-sticker { width: 16%; }
 }
 .sort-sel option { background: var(--panel-solid); color: var(--ink); }
 .pager { display: flex; align-items: center; gap: 3px; flex-wrap: wrap; }
+/* phân trang nằm trong thân Biển Cổng (ngang vùng tiêu đề), GHIM dưới header khi cuộn */
+.pager-bar {
+  position: sticky; top: var(--header-h, 66px); z-index: 15;
+  display: flex; justify-content: flex-end;
+  margin: -2px 0 14px; padding: 6px 0;
+}
+.pager-bar:has(.pager.hidden) { display: none; } /* 1 trang thì không chiếm chỗ */
+.pager-bar .pager {
+  background: rgba(10, 18, 40, 0.72); backdrop-filter: blur(8px);
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: 4px 6px; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+@media (max-width: 720px) { .pager-bar { position: static; justify-content: center; } }
 .pager .btn-icon { min-width: 30px; }
 .pg-num {
   min-width: 30px; height: 30px; padding: 0 8px;
