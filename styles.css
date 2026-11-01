@@ -400,7 +400,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 }
 .map-card-world {
   font-size: 0.85rem; color: #d3e2f2; font-style: italic; margin-top: 5px; line-height: 1.4;
-  display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
 }
 .map-card-foot {
   margin-top: 8px; font-size: 0.7rem; color: #bcd0e8;
@@ -422,7 +422,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 /* tag thế giới = bookmark dọc DÍNH RÌA TRÁI thẻ (như khe vé) */
 .mc-tags {
   position: absolute; left: -2.5%; top: 27%; z-index: 5;
-  display: flex; flex-direction: column; gap: 6px; align-items: flex-end;
+  display: flex; flex-direction: column; gap: 9px; align-items: flex-end;
 }
 .mc-tag-wrap { position: relative; display: block; line-height: 0; }
 /* tooltip tên thể loại — hiện ngay khi rê vào tag */
@@ -441,7 +441,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 }
 .mc-tag-wrap:hover::after { opacity: 1; transform: translate(0, -50%); }
 .mc-tag {
-  width: 46px; height: auto; display: block;
+  width: 60px; height: auto; display: block;
   transform: rotate(-17deg); transform-origin: right center;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.55));
 }
@@ -1358,11 +1358,9 @@ body:not(.guest) .gas-fab { bottom: 86px; }
   .mc-ico .ic { width: 15px; height: 15px; }
   .fc-num { font-size: 0.52rem; letter-spacing: 0.1em; }
   .map-card-title { font-size: 0.9rem; line-height: 1.12; }
-  .map-card-world { font-size: 0.64rem; -webkit-line-clamp: 1; margin-top: 3px; }
+  .map-card-world { font-size: 0.64rem; -webkit-line-clamp: 2; margin-top: 3px; }
   .map-card-foot { font-size: 0.56rem; gap: 7px; }
   .totem-badge { width: 44px; margin-left: -12px; }
-  .mc-tags { gap: 5px; } /* vé tag nhỏ lại cho khỏi phủ xuống tên trên thẻ hẹp */
-  .mc-tag { width: 38px; }
   .wip-sticker { font-size: 1.05rem; }
   .new-card-plus { font-size: 1.5rem; }
   .new-card-label { font-size: 0.78rem; }
