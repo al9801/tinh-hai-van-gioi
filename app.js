@@ -37,7 +37,7 @@ const TAG_NAME = Object.fromEntries(WORLD_TAGS.map((t) => [t.key, t.name]));
 function tagsRow(m) {
   const ts = (m.tags || []).filter((k) => TAG_NAME[k]).slice(0, 3);
   if (!ts.length) return "";
-  return `<span class="mc-tags">${ts.map((k) => `<span class="mc-tag-wrap" data-tip="${esc(TAG_NAME[k])}"><img class="mc-tag" src="assets/tag-${k}.png?v=162" alt="${esc(TAG_NAME[k])}"></span>`).join("")}</span>`;
+  return `<span class="mc-tags">${ts.map((k) => `<span class="mc-tag-wrap" data-tip="${esc(TAG_NAME[k])}"><img class="mc-tag" src="assets/tag-${k}.png?v=165" alt="${esc(TAG_NAME[k])}"></span>`).join("")}</span>`;
 }
 const DEMO = new URLSearchParams(location.search).has("demo");
 
@@ -282,7 +282,7 @@ const TOTEM_IMG = { "🦇": "av-doi", "⭐": "av-cavoi" };
 function totemMini(icon, cls = "") {
   const img = TOTEM_IMG[icon];
   return img
-    ? `<img class="totem-mini ${cls}" src="assets/${img}.png?v=162" alt="">`
+    ? `<img class="totem-mini ${cls}" src="assets/${img}.png?v=165" alt="">`
     : `<span class="totem-mini-emoji ${cls}">${icon}</span>`;
 }
 // sao vàng chỉ hiện khi CẢ hai chủ (Dơi + Cá Voi Sao) cùng tiến cử
@@ -299,7 +299,7 @@ function totemBadges(recommends) {
       const img = TOTEM_IMG[a.icon];
       const tip = `${esc(a.name)} (${esc(email)}) đã tiến cử`;
       return img
-        ? `<img class="totem-badge" src="assets/${img}.png?v=162" alt="${esc(a.name)}" title="${tip}">`
+        ? `<img class="totem-badge" src="assets/${img}.png?v=165" alt="${esc(a.name)}" title="${tip}">`
         : `<span class="totem-badge totem-badge-emoji" title="${tip}">${a.icon}</span>`;
     })
     .join("");
@@ -878,7 +878,7 @@ function teardown() {
 
 function enterForest() {
   const _ut = $("#user-totem"), _img = TOTEM_IMG[me.icon];
-  if (_img) _ut.innerHTML = `<img src="assets/${_img}.png?v=162" alt="${esc(me.name)}" class="user-totem-img">`;
+  if (_img) _ut.innerHTML = `<img src="assets/${_img}.png?v=165" alt="${esc(me.name)}" class="user-totem-img">`;
   else _ut.textContent = me.icon;
   $("#user-totem").title = `${me.name} — ${me.email}`;
   $("#user-name").textContent = me.name + (DEMO ? " (demo)" : "");
@@ -1039,20 +1039,22 @@ function renderHome() {
   $("#header-tools").innerHTML = `
     <div class="browse-bar">
       <span class="search-wrap">${ic("search", "search-ic")}<input id="home-search" class="search-inp" type="search" placeholder="Tìm cánh cổng…" value="${esc(homeQ)}" autocomplete="off"></span>
-      <span class="sort-wrap">
-        <span class="sort-ic" aria-hidden="true">${ic("sort")}</span>
-        <select id="home-sort" class="sort-sel" title="Sắp xếp cổng">
-          <option value="pos">Theo vị trí</option>
-          <option value="new">Mới sửa</option>
-          <option value="name">Tên A→Z</option>
-          <option value="rec">Được tiến cử</option>
-        </select>
-      </span>
-      <button class="btn btn-ghost icon-btn" id="btn-fulltext" title="Tìm sâu trong toàn bộ nội dung mọi map/nháp"><span class="ib-ic">${ic("fileSearch")}</span><span class="ib-tx">Tìm toàn văn</span></button>
-      ${me.guest ? "" : `<button class="btn btn-ghost icon-btn" id="btn-backup" title="Tải toàn bộ nội dung về máy để giữ ngoài"><span class="ib-ic">${ic("box")}</span><span class="ib-tx">Backup</span></button>`}
-      ${me.guest ? "" : `<button class="btn new-gate-btn" id="btn-new-map-hdr" title="Mở cánh cổng mới">${ic("plus")}<span class="ngb-tx">Cổng mới</span></button>`}
-      <span class="spacer"></span>
-      <div class="pager hidden" id="home-pager"></div>
+      <div class="bb-rest">
+        <span class="sort-wrap">
+          <span class="sort-ic" aria-hidden="true">${ic("sort")}</span>
+          <select id="home-sort" class="sort-sel" title="Sắp xếp cổng">
+            <option value="pos">Theo vị trí</option>
+            <option value="new">Mới sửa</option>
+            <option value="name">Tên A→Z</option>
+            <option value="rec">Được tiến cử</option>
+          </select>
+        </span>
+        <button class="btn btn-ghost icon-btn" id="btn-fulltext" title="Tìm sâu trong toàn bộ nội dung mọi map/nháp"><span class="ib-ic">${ic("fileSearch")}</span><span class="ib-tx">Tìm toàn văn</span></button>
+        ${me.guest ? "" : `<button class="btn btn-ghost icon-btn" id="btn-backup" title="Tải toàn bộ nội dung về máy để giữ ngoài"><span class="ib-ic">${ic("box")}</span><span class="ib-tx">Backup</span></button>`}
+        ${me.guest ? "" : `<button class="btn new-gate-btn" id="btn-new-map-hdr" title="Mở cánh cổng mới">${ic("plus")}<span class="ngb-tx">Cổng mới</span></button>`}
+        <span class="spacer"></span>
+        <div class="pager hidden" id="home-pager"></div>
+      </div>
     </div>`;
   $("#main").innerHTML = `
     <div class="home-wide">
@@ -1162,7 +1164,7 @@ function renderHomeGrid() {
         </div>
       </span>
       ${m.nsfw ? `<img class="nsfw-sticker mc-stimg" src="assets/mark-sao.png" alt="NSFW" title="Cổng thiên về NSFW">` : ""}
-      ${m.wip ? `<img class="wip-chime" src="assets/chime.webp?v=162" alt="Map đang sửa" title="Map đang sửa — chưa chơi được" aria-hidden="true">` : ""}
+      ${m.wip ? `<img class="wip-chime" src="assets/chime.webp?v=165" alt="Map đang sửa" title="Map đang sửa — chưa chơi được" aria-hidden="true">` : ""}
       ${m.noH ? `<img class="noh-sticker mc-stimg" src="assets/mark-so.png" alt="" title="Không có H — chơi có 'kéo rèm'">` : ""}
       <span class="totem-corner">${totemBadges(m.recommends)}</span>
       ${bothRecommend(m.recommends) ? `<img class="fc-star" src="assets/star.png" alt="" title="Cả Dơi & Cá Voi Sao cùng tiến cử" aria-hidden="true">` : ""}
@@ -1337,9 +1339,9 @@ function renderMapView({ id, tab }) {
           <p class="map-view-world" id="mv-world"></p>
           <div class="mv-tags hidden" id="mv-tags"></div>
         </div>
-        <img id="mv-noh" class="mv-mark hidden" src="assets/mark-so.png?v=162" alt="" title="Không có H — chơi có 'kéo rèm'">
+        <img id="mv-noh" class="mv-mark hidden" src="assets/mark-so.png?v=165" alt="" title="Không có H — chơi có 'kéo rèm'">
         <span id="mv-wip" class="mv-mark mv-mark-emoji hidden" title="Map đang sửa — chưa chơi được">🩹</span>
-        <img id="mv-nsfw" class="mv-mark hidden" src="assets/mark-sao.png?v=162" alt="" title="Cổng thiên về NSFW">
+        <img id="mv-nsfw" class="mv-mark hidden" src="assets/mark-sao.png?v=165" alt="" title="Cổng thiên về NSFW">
         ${isGuest ? "" : `<button class="btn-icon" id="btn-edit-map" title="Sửa tên / mô tả / link GAS / nhãn">✎</button>`}
       </div>
       <div class="mv-bubble hidden" id="mv-bubble" aria-live="polite"></div>
@@ -1413,7 +1415,7 @@ function updateMapMeta({ id }) {
   if (tagsEl) {
     const ts = (m.tags || []).filter((k) => TAG_NAME[k]).slice(0, 3);
     tagsEl.innerHTML = ts
-      .map((k) => `<img class="mv-tag" src="assets/tag-${k}.png?v=162" alt="${esc(TAG_NAME[k])}" title="${esc(TAG_NAME[k])}">`)
+      .map((k) => `<img class="mv-tag" src="assets/tag-${k}.png?v=165" alt="${esc(TAG_NAME[k])}" title="${esc(TAG_NAME[k])}">`)
       .join("");
     tagsEl.classList.toggle("hidden", !ts.length);
   }
@@ -2021,7 +2023,7 @@ $("#inp-member-avatar")?.addEventListener("change", (e) => {
 function renderTagPicker() {
   const box = $("#tag-picker"); if (!box) return;
   box.innerHTML = WORLD_TAGS.map((t) =>
-    `<button type="button" class="tag-opt${pendingTags.includes(t.key) ? " on" : ""}" data-tag="${t.key}" title="${esc(t.name)}"><img src="assets/tag-${t.key}.png?v=162" alt="${esc(t.name)}"><span class="tag-nm">${esc(t.name)}</span></button>`).join("");
+    `<button type="button" class="tag-opt${pendingTags.includes(t.key) ? " on" : ""}" data-tag="${t.key}" title="${esc(t.name)}"><img src="assets/tag-${t.key}.png?v=165" alt="${esc(t.name)}"><span class="tag-nm">${esc(t.name)}</span></button>`).join("");
   const c = $("#tag-count"); if (c) c.textContent = `(${pendingTags.length}/3)`;
 }
 $("#tag-picker")?.addEventListener("click", (e) => {

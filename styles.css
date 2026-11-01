@@ -271,8 +271,9 @@ body {
 /* thanh công cụ Biển Cổng nằm CÙNG HÀNG header (giữa nav và user); trống thì co lại */
 .header-tools { flex: 1 1 auto; min-width: 0; display: flex; }
 .header-tools:empty { display: none; }
-.header-tools .browse-bar { margin: 0; flex: 1; flex-wrap: nowrap; gap: 8px; }
-.header-tools .browse-bar .search-wrap { flex: 1 1 auto; min-width: 120px; max-width: 380px; }
+.header-tools .browse-bar { margin: 0; flex: 1; display: flex; align-items: center; flex-wrap: nowrap; gap: 8px; }
+.header-tools .browse-bar .search-wrap { flex: 0 1 380px; min-width: 120px; }
+.header-tools .bb-rest { display: flex; align-items: center; gap: 8px; flex: 1 1 auto; min-width: 0; }
 .header-tools .browse-bar .spacer { flex: 1 1 auto; }
 /* nút Tìm toàn văn / Backup → CHỈ ICON cho gọn (bỏ chữ) */
 .header-tools .browse-bar .icon-btn .ib-tx { display: none; }
@@ -287,19 +288,22 @@ body {
 }
 .new-gate-btn .ic { width: 17px; height: 17px; stroke: currentColor; }
 .new-gate-btn:hover { filter: brightness(1.06); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35), 0 0 14px rgba(217, 180, 111, 0.4); }
-/* màn trung bình: hàng trên dễ chật (brand + nav + tools + user) → cho CẢ CỤM tools
-   xuống hàng riêng, giữ hàng trên gọn (brand + nav + user). */
+/* màn trung bình: cả cụm công cụ không đủ chỗ cùng hàng nhận diện → chỉ ĐƯA Ô TÌM
+   KIẾM lên hàng 1 lấp khoảng trống giữa nav và user; phần còn lại (sắp xếp/icon/
+   Cổng mới/pager) xuống hàng 2. display:contents cho search + bb-rest thành con trực
+   tiếp của header để tách được 2 hàng. */
 @media (max-width: 1320px) {
   .app-header { flex-wrap: wrap; row-gap: 10px; }
   .brand { flex: 0 0 auto; }
   .brand-text { white-space: nowrap; }
-  .header-tools { order: 3; flex-basis: 100%; }
-  .header-tools .browse-bar .search-wrap { max-width: 460px; }
+  .header-tools, .header-tools .browse-bar { display: contents; }
+  .header-tools .browse-bar .search-wrap { order: 3; flex: 1 1 180px; min-width: 160px; }
+  .user-chip { order: 4; margin-left: 0; }
+  .header-tools .bb-rest { order: 5; flex: 1 1 100%; }
 }
-/* màn hẹp (điện thoại/tablet): browse-bar tự xuống nhiều dòng cho đỡ chật */
+/* màn hẹp (điện thoại/tablet): hàng 2 tự xuống nhiều dòng cho đỡ chật */
 @media (max-width: 860px) {
-  .header-tools .browse-bar { flex-wrap: wrap; }
-  .header-tools .browse-bar .search-wrap { max-width: none; }
+  .header-tools .bb-rest { flex-wrap: wrap; }
 }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
 .brand-glyph { font-size: 1.4rem; filter: drop-shadow(0 0 8px rgba(127, 212, 232, 0.6)); }
@@ -359,7 +363,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 .map-card {
   position: relative; display: block;
   aspect-ratio: 640 / 809;
-  background: url("assets/card-frame.png?v=162") center / 100% 100% no-repeat;
+  background: url("assets/card-frame.png?v=165") center / 100% 100% no-repeat;
   text-decoration: none; color: var(--ink);
   overflow: visible;
   transition: transform 0.24s ease, filter 0.24s ease;
