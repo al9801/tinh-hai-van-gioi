@@ -37,7 +37,7 @@ const TAG_NAME = Object.fromEntries(WORLD_TAGS.map((t) => [t.key, t.name]));
 function tagsRow(m) {
   const ts = (m.tags || []).filter((k) => TAG_NAME[k]).slice(0, 3);
   if (!ts.length) return "";
-  return `<span class="mc-tags">${ts.map((k) => `<span class="mc-tag-wrap" data-tip="${esc(TAG_NAME[k])}"><img class="mc-tag" src="assets/tag-${k}.png?v=180" alt="${esc(TAG_NAME[k])}"></span>`).join("")}</span>`;
+  return `<span class="mc-tags">${ts.map((k) => `<span class="mc-tag-wrap" data-tip="${esc(TAG_NAME[k])}"><img class="mc-tag" src="assets/tag-${k}.png?v=181" alt="${esc(TAG_NAME[k])}"></span>`).join("")}</span>`;
 }
 const DEMO = new URLSearchParams(location.search).has("demo");
 
@@ -58,18 +58,15 @@ let pendingAvatar = undefined; // avatar đang sửa: undefined=không đổi, '
 let pendingMembers = [];       // [{name, av}] — nhân vật trong cổng (modal). av=dataURL|null
 let cropTarget = null;         // null = avatar đơn; số = chỉ số thành viên đang cắt ảnh
 const memberIdx = {};          // map.id → chỉ số nhân vật đang hiển thị (random khi chưa có)
-// Thẻ User-Play-Profile RIÊNG TƯ của người đang đăng nhập: { global: thẻ chung, maps: {mapId: ghi đè riêng} }
+// Hồ sơ nhập vai RIÊNG TƯ của người đang đăng nhập (tab "Thẻ của tôi"): { maps: {mapId: hồ sơ}} — không đồng bộ.
+// (global giữ lại để tương thích dữ liệu cũ, không dùng nữa)
 let myCards = { global: "", maps: {} };
 function normalizeCards(d) {
   d = d || {};
-  if (Array.isArray(d.list)) return { global: (d.list[0] && d.list[0].body) || "", maps: {} }; // ai lỡ lưu định dạng tab → lấy lại thẻ đầu
-  if (d.slots && d.slots[""]) return { global: d.slots[""].g || "", maps: d.slots[""].m || {} }; // dọn format thử nghiệm cũ
+  if (Array.isArray(d.list)) return { global: "", maps: {} }; // định dạng tab thử nghiệm cũ → bỏ (không map được theo mapId)
+  if (d.slots && d.slots[""]) return { global: d.slots[""].g || "", maps: d.slots[""].m || {} };
   return { global: d.global || "", maps: d.maps || {} };
 }
-function resolveCard(mapId) { return (myCards.maps && myCards.maps[mapId]) || myCards.global || ""; }
-// Dòng cần thay: marker [DÁN KHỐI <User-Play-Profile> VÀO ĐÂY, THAY CẢ DÒNG NÀY] (dung sai nội dung trong ngoặc),
-// hoặc token gọn {{user-play-profile}} / {{THẺ}} nếu ai thích gõ ngắn.
-const CARD_TOKEN = /\[[^\][]*user[\s\-_]*play[\s\-_]*profile[^\][]*\]|\{\{\s*(?:user[\s\-_]*play[\s\-_]*profile|thẻ|the|card)\s*\}\}/giu;
 let pendingTags = [];          // tag thế giới đang chọn trong modal (tối đa 3)
 const lastLineIdx = {};     // map.id → câu vừa hiện (tránh lặp liền, kể cả khi vét hết rổ xáo lại)
 const lineBags = {};        // "id:khung giờ" → hàng đợi đã xáo; vét hết mới xáo lại (kiểu xáo bài)
@@ -283,7 +280,7 @@ const TOTEM_IMG = { "🦇": "av-doi", "⭐": "av-cavoi" };
 function totemMini(icon, cls = "") {
   const img = TOTEM_IMG[icon];
   return img
-    ? `<img class="totem-mini ${cls}" src="assets/${img}.png?v=180" alt="">`
+    ? `<img class="totem-mini ${cls}" src="assets/${img}.png?v=181" alt="">`
     : `<span class="totem-mini-emoji ${cls}">${icon}</span>`;
 }
 // sao vàng chỉ hiện khi CẢ hai chủ (Dơi + Cá Voi Sao) cùng tiến cử
@@ -300,7 +297,7 @@ function totemBadges(recommends) {
       const img = TOTEM_IMG[a.icon];
       const tip = `${esc(a.name)} (${esc(email)}) đã tiến cử`;
       return img
-        ? `<img class="totem-badge" src="assets/${img}.png?v=180" alt="${esc(a.name)}" title="${tip}">`
+        ? `<img class="totem-badge" src="assets/${img}.png?v=181" alt="${esc(a.name)}" title="${tip}">`
         : `<span class="totem-badge totem-badge-emoji" title="${tip}">${a.icon}</span>`;
     })
     .join("");
@@ -879,7 +876,7 @@ function teardown() {
 
 function enterForest() {
   const _ut = $("#user-totem"), _img = TOTEM_IMG[me.icon];
-  if (_img) _ut.innerHTML = `<img src="assets/${_img}.png?v=180" alt="${esc(me.name)}" class="user-totem-img">`;
+  if (_img) _ut.innerHTML = `<img src="assets/${_img}.png?v=181" alt="${esc(me.name)}" class="user-totem-img">`;
   else _ut.textContent = me.icon;
   $("#user-totem").title = `${me.name} — ${me.email}`;
   $("#user-name").textContent = me.name + (DEMO ? " (demo)" : "");
@@ -1171,7 +1168,7 @@ function renderHomeGrid() {
         </div>
       </span>
       ${m.nsfw ? `<img class="nsfw-sticker mc-stimg" src="assets/mark-sao.png" alt="NSFW" title="Cổng thiên về NSFW">` : ""}
-      ${m.wip ? `<img class="wip-chime" src="assets/chime.webp?v=180" alt="Map đang sửa" title="Map đang sửa — chưa chơi được" aria-hidden="true">` : ""}
+      ${m.wip ? `<img class="wip-chime" src="assets/chime.webp?v=181" alt="Map đang sửa" title="Map đang sửa — chưa chơi được" aria-hidden="true">` : ""}
       ${m.noH ? `<img class="noh-sticker mc-stimg" src="assets/mark-so.png" alt="" title="Không có H — chơi có 'kéo rèm'">` : ""}
       <span class="totem-corner">${totemBadges(m.recommends)}</span>
       ${bothRecommend(m.recommends) ? `<img class="fc-star" src="assets/star.png" alt="" title="Cả Dơi & Cá Voi Sao cùng tiến cử" aria-hidden="true">` : ""}
@@ -1329,10 +1326,12 @@ function renderMapView({ id, tab }) {
   if (tabKey === "phong-choi") tabKey = m.hasHtml ? "ban-do" : "map"; // tab phòng chơi cũ đã gỡ
   const isMapHtmlTab = tabKey === "ban-do";
   const isProfileTab = tabKey === "ho-so";
+  const isMyCardTab = tabKey === "the-cua-toi"; // thẻ hồ sơ RIÊNG của mình, không đồng bộ
   const st = SUBTABS.find((t) => t.key === tabKey) || SUBTABS[0];
+  const activeKey = isMapHtmlTab ? "ban-do" : isProfileTab ? "ho-so" : isMyCardTab ? "the-cua-toi" : st.key;
   const allTabs = isGuest
     ? [{ key: "ban-do", icon: "compass", label: "Bản đồ HTML" }, SUBTABS[0], { key: "ho-so", icon: "mask", label: "Hồ sơ" }]
-    : [{ key: "ban-do", icon: "compass", label: "Bản đồ HTML" }, ...SUBTABS, { key: "ho-so", icon: "mask", label: "Hồ sơ" }];
+    : [{ key: "ban-do", icon: "compass", label: "Bản đồ HTML" }, ...SUBTABS, { key: "the-cua-toi", icon: "card", label: "Thẻ của tôi" }, { key: "ho-so", icon: "mask", label: "Hồ sơ" }];
 
   $("#main").innerHTML = `
     <div class="map-view-head">
@@ -1346,15 +1345,14 @@ function renderMapView({ id, tab }) {
           <p class="map-view-world" id="mv-world"></p>
           <div class="mv-tags hidden" id="mv-tags"></div>
         </div>
-        <img id="mv-noh" class="mv-mark hidden" src="assets/mark-so.png?v=180" alt="" title="Không có H — chơi có 'kéo rèm'">
+        <img id="mv-noh" class="mv-mark hidden" src="assets/mark-so.png?v=181" alt="" title="Không có H — chơi có 'kéo rèm'">
         <span id="mv-wip" class="mv-mark mv-mark-emoji hidden" title="Map đang sửa — chưa chơi được">🩹</span>
-        <img id="mv-nsfw" class="mv-mark hidden" src="assets/mark-sao.png?v=180" alt="" title="Cổng thiên về NSFW">
+        <img id="mv-nsfw" class="mv-mark hidden" src="assets/mark-sao.png?v=181" alt="" title="Cổng thiên về NSFW">
         ${isGuest ? "" : `<button class="btn-icon" id="btn-edit-map" title="Sửa tên / mô tả / link GAS / nhãn">✎</button>`}
       </div>
       <div class="mv-bubble hidden" id="mv-bubble" aria-live="polite"></div>
       <div class="map-actions">
         <a class="btn gas-btn" id="mv-gas" target="_blank" rel="noopener">🌀 Mở Google AI Studio</a>
-        ${isGuest ? "" : `<button class="btn mv-card-btn" id="mv-card-btn" title="Thẻ hồ sơ của bạn cho map này — điền một lần, mốt chơi lại Copy ra dán. Chỉ mình bạn thấy.">${ic("card")}<span>Thẻ của tôi</span></button>`}
         ${isGuest
           ? `<button class="btn rec-btn" id="btn-fish"></button>
         <span class="rec-status" id="fish-visited"></span>`
@@ -1363,14 +1361,13 @@ function renderMapView({ id, tab }) {
       </div>
     </div>
     <div class="subtabs">
-      ${allTabs.map((t) => `<button class="subtab ${t.key === (isMapHtmlTab ? "ban-do" : (isProfileTab ? "ho-so" : st.key)) ? "active" : ""}" data-tab="${t.key}">${ic(t.icon)}<span>${t.label}</span></button>`).join("")}
+      ${allTabs.map((t) => `<button class="subtab ${t.key === activeKey ? "active" : ""}" data-tab="${t.key}">${ic(t.icon)}<span>${t.label}</span></button>`).join("")}
     </div>
     <div class="editor-wrap" id="editor-slot"></div>`;
 
   $$(".subtab").forEach((b) =>
     b.addEventListener("click", () => { location.hash = `#/map/${id}/${b.dataset.tab}`; }));
   $("#btn-edit-map")?.addEventListener("click", () => openMapModal(id));
-  $("#mv-card-btn")?.addEventListener("click", () => openCardModal(id));
   $("#btn-rec")?.addEventListener("click", () => toggleRecommend(id));
   $("#btn-fish")?.addEventListener("click", () => toggleFishMark(id));
 
@@ -1381,6 +1378,10 @@ function renderMapView({ id, tab }) {
     activeCmt = null;
     flushEditor = null;
     renderProfileTab(m);
+  } else if (isMyCardTab) {
+    activeCmt = null;
+    flushEditor = null;
+    renderMyCardTab(m);
   } else if (st.key === "map") {
     // tab Nội dung Map là "cuốn sổ" nhiều trang (giữ nguyên các trang khi nháp đẩy ra biển)
     mountPagedEditor($("#editor-slot"), {
@@ -1424,7 +1425,7 @@ function updateMapMeta({ id }) {
   if (tagsEl) {
     const ts = (m.tags || []).filter((k) => TAG_NAME[k]).slice(0, 3);
     tagsEl.innerHTML = ts
-      .map((k) => `<img class="mv-tag" src="assets/tag-${k}.png?v=180" alt="${esc(TAG_NAME[k])}" title="${esc(TAG_NAME[k])}">`)
+      .map((k) => `<img class="mv-tag" src="assets/tag-${k}.png?v=181" alt="${esc(TAG_NAME[k])}" title="${esc(TAG_NAME[k])}">`)
       .join("");
     tagsEl.classList.toggle("hidden", !ts.length);
   }
@@ -1757,6 +1758,47 @@ function renderProfileTab(m) {
   });
 }
 
+// 🪪 Thẻ của tôi: hồ sơ nhập vai RIÊNG của mình cho map này — lưu riêng tư (usercards), KHÔNG đồng bộ với người kia
+function renderMyCardTab(m) {
+  const slot = $("#editor-slot");
+  const cur = (myCards.maps || {})[m.id] || "";
+  slot.innerHTML = `
+    <div class="mycard-tab">
+      <p class="mycard-hint">🔒 Hồ sơ nhập vai của <b>riêng bạn</b> cho map này — chỉ mình bạn thấy, <b>không đồng bộ</b> với người kia. Điền một lần, mốt chơi lại bấm <b>⧉ Copy</b> dán vào là xong.</p>
+      <div class="mycard-bar">
+        <button class="btn btn-ghost" id="mycard-copy" title="Copy hồ sơ này để dán vào khi chơi">⧉ Copy</button>
+        <span class="spacer"></span>
+        <span class="mycard-status" id="mycard-status"></span>
+      </div>
+      <textarea id="mycard-body" class="mycard-area" placeholder="Dán / điền hồ sơ nhập vai của bạn cho map này…">${esc(cur)}</textarea>
+    </div>`;
+  const ta = $("#mycard-body");
+  let timer = null, lastSaved = cur;
+  const doSave = async () => {
+    clearTimeout(timer);
+    const v = ta.value;
+    if (v === lastSaved) return;
+    const maps = { ...(myCards.maps || {}) };
+    if (v.trim()) maps[m.id] = v; else delete maps[m.id];
+    myCards = { ...myCards, maps };
+    $("#mycard-status").textContent = "Đang lưu…";
+    try { await store.saveUserCards({ global: myCards.global || "", maps }); lastSaved = v; $("#mycard-status").textContent = "✓ Đã lưu"; }
+    catch { $("#mycard-status").textContent = "⚠ Chưa lưu được"; }
+  };
+  flushEditor = doSave; // rời tab / đổi trang → lưu nốt
+  ta.addEventListener("input", () => { $("#mycard-status").textContent = "…"; clearTimeout(timer); timer = setTimeout(doSave, 800); });
+  ta.addEventListener("blur", doSave);
+  $("#mycard-copy").addEventListener("click", async () => {
+    const v = ta.value.trim();
+    if (!v) { toast("Chưa có gì để copy — điền hồ sơ đã nhé.", true); return; }
+    try {
+      await navigator.clipboard.writeText(v);
+      const b = $("#mycard-copy"), o = b.textContent; b.textContent = "✓ Đã copy"; setTimeout(() => { b.textContent = o; }, 1200);
+      toast("⧉ Đã copy hồ sơ của bạn.");
+    } catch { toast("Không copy được — bôi đen trong ô rồi copy tay.", true); }
+  });
+}
+
 /* ── Modal tạo / sửa map ──────────────────────────────── */
 // ── Chạm avatar → char lên tiếng. Lời thoại cài sẵn trong CHAR_LINES (Claude nhập theo list bạn đưa) ──
 // Khoá = tên cổng đã chuẩn hoá. Mỗi câu: { t: "lời", w: "sang"|"trua"|"chieu"|"toi"|"khuya"|"any" }.
@@ -1933,59 +1975,6 @@ function closeMapModal() { $("#modal-map").classList.add("hidden"); }
 $("#btn-map-cancel").addEventListener("click", closeMapModal);
 $("#modal-map").addEventListener("click", (e) => { if (e.target.id === "modal-map") closeMapModal(); });
 
-// ── 🪪 Thẻ User-Play-Profile: một thẻ (chung + ghi đè theo map), thay vào dòng marker khi Copy ──
-let cardModalMapId = null;
-function openCardModal(mapId) {
-  cardModalMapId = mapId || null;
-  $("#inp-card-global").value = myCards.global || "";
-  const mapRow = $("#card-map-field");
-  if (mapId) {
-    mapRow.classList.remove("hidden");
-    $("#inp-card-map").value = (myCards.maps || {})[mapId] || "";
-    const m = findMap(mapId);
-    $("#card-map-name").textContent = m ? `“${m.title || "map này"}”` : "map này";
-  } else {
-    mapRow.classList.add("hidden");
-  }
-  $("#card-save-status").textContent = "";
-  $("#modal-card").classList.remove("hidden");
-  setTimeout(() => $("#inp-card-global").focus(), 60);
-}
-function closeCardModal() { $("#modal-card").classList.add("hidden"); }
-$("#btn-card-cancel")?.addEventListener("click", closeCardModal);
-$("#modal-card")?.addEventListener("click", (e) => { if (e.target.id === "modal-card") closeCardModal(); });
-// Copy riêng thẻ ra clipboard (dùng khi map bắt dán hồ sơ ở tin nhắn đầu) — ưu tiên thẻ của map đang mở
-$("#btn-card-copy")?.addEventListener("click", async () => {
-  const mapVal = cardModalMapId ? ($("#inp-card-map").value || "").trim() : "";
-  const text = mapVal || ($("#inp-card-global").value || "").trim();
-  if (!text) { toast("Chưa có gì để copy — điền thẻ đã nhé.", true); return; }
-  try {
-    await navigator.clipboard.writeText(text);
-    const btn = $("#btn-card-copy"), old = btn.textContent;
-    btn.textContent = "✓ Đã copy"; setTimeout(() => { btn.textContent = old; }, 1200);
-    toast("⧉ Đã copy thẻ — dán vào tin nhắn đầu khi chơi.");
-  } catch { toast("Không copy được — bôi đen trong ô rồi copy tay.", true); }
-});
-$("#btn-card-save")?.addEventListener("click", async () => {
-  const btn = $("#btn-card-save");
-  const global = $("#inp-card-global").value;
-  const maps = { ...(myCards.maps || {}) };
-  if (cardModalMapId) {
-    const v = $("#inp-card-map").value.trim();
-    if (v) maps[cardModalMapId] = $("#inp-card-map").value; else delete maps[cardModalMapId];
-  }
-  btn.disabled = true; btn.textContent = "Đang lưu…";
-  try {
-    await store.saveUserCards({ global, maps });
-    myCards = { global, maps };
-    $("#card-save-status").textContent = "✓ Đã lưu";
-    toast("🪪 Đã lưu thẻ của bạn.");
-    setTimeout(closeCardModal, 500);
-  } catch (e) {
-    $("#card-save-status").textContent = "⚠ Lỗi lưu";
-    toast("Không lưu được thẻ: " + e.message, true);
-  } finally { btn.disabled = false; btn.textContent = "Lưu thẻ"; }
-});
 
 $("#inp-map-avatar").addEventListener("change", (e) => {
   const f = e.target.files[0]; e.target.value = "";
@@ -2044,7 +2033,7 @@ $("#inp-member-avatar")?.addEventListener("change", (e) => {
 function renderTagPicker() {
   const box = $("#tag-picker"); if (!box) return;
   box.innerHTML = WORLD_TAGS.map((t) =>
-    `<button type="button" class="tag-opt${pendingTags.includes(t.key) ? " on" : ""}" data-tag="${t.key}" title="${esc(t.name)}"><img src="assets/tag-${t.key}.png?v=180" alt="${esc(t.name)}"><span class="tag-nm">${esc(t.name)}</span></button>`).join("");
+    `<button type="button" class="tag-opt${pendingTags.includes(t.key) ? " on" : ""}" data-tag="${t.key}" title="${esc(t.name)}"><img src="assets/tag-${t.key}.png?v=181" alt="${esc(t.name)}"><span class="tag-nm">${esc(t.name)}</span></button>`).join("");
   const c = $("#tag-count"); if (c) c.textContent = `(${pendingTags.length}/3)`;
 }
 $("#tag-picker")?.addEventListener("click", (e) => {
@@ -2756,7 +2745,7 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
         if (t.image) return `<button class="tb-btn" data-img="1" title="${t.title}">${inner}</button>`;
         return `<button class="tb-btn" data-cmd="${t.cmd || ""}" data-block="${t.block || ""}" title="${t.title}" ${t.style ? `style="${t.style}"` : ""}>${inner}</button>`;
       }).join("")}
-      ${showCopy ? `<span class="tb-sep"></span>${readOnly ? "" : `<button class="tb-btn tb-card" id="tb-card" title="Thẻ User-Play-Profile của bạn — tự thay vào dòng marker khi Copy (chỉ mình bạn thấy)">${ic("card")}<span>Thẻ</span></button>`}<button class="tb-btn" id="tb-copy" title="Copy prompt — tự thay dòng [DÁN KHỐI <User-Play-Profile>…] bằng thẻ của bạn — để dán vào AI Studio">${ic("copy")}<span>Copy</span></button>` : ""}
+      ${showCopy ? `<span class="tb-sep"></span><button class="tb-btn" id="tb-copy" title="Copy toàn bộ prompt để dán vào Google AI Studio">${ic("copy")}<span>Copy</span></button>` : ""}
       ${(coll && id && field) ? `<span class="tb-sep"></span><button class="tb-btn" data-hist="1" title="Lịch sử chỉnh sửa (giữ 7 ngày) — xem lại & khôi phục bản cũ nếu lỡ mất">${ic("clock")}</button>` : ""}
       <button class="tb-btn" data-toc="1" title="Mục lục — nhảy tới các tiêu đề trong trang">${ic("toc")}</button>
       <button class="tb-btn" data-read="1" title="Chế độ đọc — ẩn thanh công cụ, chữ rộng ra">${ic("book")}</button>
@@ -3437,25 +3426,10 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
 
   slot.querySelector("#tb-copy")?.addEventListener("click", async () => {
     try {
-      const text = page.innerText;
-      const mapId = (coll === "maps") ? id : null;
-      CARD_TOKEN.lastIndex = 0;
-      if (CARD_TOKEN.test(text)) {
-        const card = resolveCard(mapId);
-        if (card && card.trim()) {
-          await navigator.clipboard.writeText(text.replace(CARD_TOKEN, () => card));
-          toast("⧉ Đã copy — tự chèn thẻ của bạn vào prompt.");
-        } else {
-          await navigator.clipboard.writeText(text.replace(CARD_TOKEN, ""));
-          toast("⧉ Đã copy. ⚠ Bạn chưa điền Thẻ — mở nút 🪪 Thẻ để điền.", true);
-        }
-      } else {
-        await navigator.clipboard.writeText(text);
-        toast("⧉ Đã copy toàn bộ prompt — dán thẳng vào AI Studio.");
-      }
+      await navigator.clipboard.writeText(page.innerText);
+      toast("⧉ Đã copy toàn bộ prompt — dán thẳng vào AI Studio.");
     } catch { toast("Không copy được — hãy bôi đen thủ công.", true); }
   });
-  slot.querySelector("#tb-card")?.addEventListener("click", () => openCardModal(coll === "maps" ? id : null));
 
   // ── ghi chú 💧 kiểu docx ──
   if (comments) {

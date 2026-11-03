@@ -385,7 +385,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 .map-card {
   position: relative; display: block;
   aspect-ratio: 640 / 809;
-  background: url("assets/card-frame.png?v=180") center / 100% 100% no-repeat;
+  background: url("assets/card-frame.png?v=181") center / 100% 100% no-repeat;
   text-decoration: none; color: var(--ink);
   overflow: visible;
   transition: transform 0.24s ease, filter 0.24s ease;
@@ -729,9 +729,20 @@ span.totem-badge-emoji:first-child { margin-left: 0; }
   color: #bfe8f4;
 }
 .gas-btn:hover { box-shadow: 0 4px 22px rgba(127, 212, 232, 0.22); color: #dcf4fb; }
-.mv-card-btn { display: inline-flex; align-items: center; gap: 7px; }
-.mv-card-btn svg { width: 16px; height: 16px; }
-.mv-card-btn:hover { border-color: var(--gold); color: var(--gold-bright); }
+/* 🪪 Tab "Thẻ của tôi" — hồ sơ riêng tư, không đồng bộ */
+.mycard-tab { padding: 4px 2px 40px; }
+.mycard-hint { font-size: 0.86rem; color: var(--ink-dim); line-height: 1.55; margin: 4px 2px 14px; }
+.mycard-hint b { color: var(--ink); }
+.mycard-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.mycard-bar .spacer { flex: 1 1 auto; }
+.mycard-status { font-size: 0.8rem; color: var(--glow); }
+.mycard-area {
+  width: 100%; min-height: 440px; resize: vertical;
+  background: rgba(0, 0, 0, 0.3); border: 1px solid var(--line-strong); border-radius: 12px;
+  padding: 16px 18px; color: var(--ink);
+  font-family: var(--font-body); font-size: 0.95rem; line-height: 1.6; outline: none;
+}
+.mycard-area:focus { border-color: var(--gold); }
 
 .rec-btn.rec-on {
   background: linear-gradient(180deg, rgba(217, 180, 111, 0.30), rgba(217, 180, 111, 0.12));
