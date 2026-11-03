@@ -385,7 +385,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 .map-card {
   position: relative; display: block;
   aspect-ratio: 640 / 809;
-  background: url("assets/card-frame.png?v=177") center / 100% 100% no-repeat;
+  background: url("assets/card-frame.png?v=178") center / 100% 100% no-repeat;
   text-decoration: none; color: var(--ink);
   overflow: visible;
   transition: transform 0.24s ease, filter 0.24s ease;
@@ -729,6 +729,9 @@ span.totem-badge-emoji:first-child { margin-left: 0; }
   color: #bfe8f4;
 }
 .gas-btn:hover { box-shadow: 0 4px 22px rgba(127, 212, 232, 0.22); color: #dcf4fb; }
+.mv-card-btn { display: inline-flex; align-items: center; gap: 7px; }
+.mv-card-btn svg { width: 16px; height: 16px; }
+.mv-card-btn:hover { border-color: var(--gold); color: var(--gold-bright); }
 
 .rec-btn.rec-on {
   background: linear-gradient(180deg, rgba(217, 180, 111, 0.30), rgba(217, 180, 111, 0.12));
