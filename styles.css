@@ -385,7 +385,7 @@ body[data-view="home"] .main { max-width: 1280px; }
 .map-card {
   position: relative; display: block;
   aspect-ratio: 640 / 809;
-  background: url("assets/card-frame.png?v=179") center / 100% 100% no-repeat;
+  background: url("assets/card-frame.png?v=178") center / 100% 100% no-repeat;
   text-decoration: none; color: var(--ink);
   overflow: visible;
   transition: transform 0.24s ease, filter 0.24s ease;
@@ -965,28 +965,19 @@ span.totem-badge-emoji:first-child { margin-left: 0; }
 .card-save-status { font-size: 0.8rem; color: var(--glow); }
 .tb-card { color: var(--gold-bright); }
 .tb-card:hover { background: rgba(217, 180, 111, 0.16); color: var(--gold-bright); }
-/* thanh tab trong modal thẻ */
-.card-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
-.card-tab {
-  padding: 6px 12px; border-radius: 999px; cursor: pointer;
-  background: rgba(13, 26, 50, 0.5); border: 1.5px solid var(--line); color: var(--ink-dim);
-  font-family: var(--font-body); font-size: 0.82rem; max-width: 190px;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  transition: border-color 0.15s, background 0.15s, color 0.15s;
+.card-slot { border: 1px solid var(--line-strong); border-radius: 12px; padding: 12px 14px 4px; margin-bottom: 12px; background: rgba(255, 255, 255, 0.02); }
+.card-slot-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.card-slot-title { font-family: var(--font-display); font-size: 0.92rem; color: var(--gold-bright); flex: 1; }
+.card-slot-title code { background: rgba(217, 180, 111, 0.16); color: var(--gold-bright); padding: 1px 6px; border-radius: 5px; font-family: monospace; font-size: 0.82em; }
+.card-slot-del { width: 28px; height: 28px; border-radius: 7px; background: rgba(255, 90, 90, 0.08); border: 1px solid rgba(255, 120, 120, 0.3); color: #ff9b9b; cursor: pointer; flex: 0 0 auto; }
+.card-slot-del:hover { background: rgba(255, 90, 90, 0.16); }
+.card-addrow { display: flex; gap: 8px; margin-bottom: 4px; }
+.card-addrow input {
+  flex: 1; background: rgba(0, 0, 0, 0.3); border: 1px solid var(--line-strong);
+  border-radius: 9px; padding: 9px 12px; color: var(--ink); font-family: var(--font-body); font-size: 0.86rem; outline: none;
 }
-.card-tab:hover { border-color: var(--line-strong); }
-.card-tab.on { border-color: var(--gold); background: rgba(217, 180, 111, 0.14); color: var(--gold-bright); font-weight: 600; }
-.card-tab-add { color: var(--glow); border-style: dashed; }
-.card-tab-add:hover { color: var(--gold-bright); border-color: var(--gold); }
-.card-name-inp {
-  width: 100%; background: rgba(0, 0, 0, 0.3); border: 1px solid var(--line-strong);
-  border-radius: 9px; padding: 9px 12px; color: var(--ink);
-  font-family: var(--font-body); font-size: 0.9rem; outline: none;
-}
-.card-name-inp:focus { border-color: var(--gold); }
-.card-area { margin-top: 10px; }
-#btn-card-del { color: #ff9b9b; border-color: rgba(255, 120, 120, 0.3); }
-#btn-card-del:hover { background: rgba(255, 90, 90, 0.14); border-color: rgba(255, 120, 120, 0.5); }
+.card-addrow input:focus { border-color: var(--gold); }
+.card-addrow .btn { flex: 0 0 auto; font-size: 0.85rem; }
 .modal-actions { display: flex; align-items: center; gap: 10px; margin-top: 22px; }
 .spacer { flex: 1; }
 

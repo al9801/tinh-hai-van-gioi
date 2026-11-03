@@ -37,7 +37,7 @@ const TAG_NAME = Object.fromEntries(WORLD_TAGS.map((t) => [t.key, t.name]));
 function tagsRow(m) {
   const ts = (m.tags || []).filter((k) => TAG_NAME[k]).slice(0, 3);
   if (!ts.length) return "";
-  return `<span class="mc-tags">${ts.map((k) => `<span class="mc-tag-wrap" data-tip="${esc(TAG_NAME[k])}"><img class="mc-tag" src="assets/tag-${k}.png?v=179" alt="${esc(TAG_NAME[k])}"></span>`).join("")}</span>`;
+  return `<span class="mc-tags">${ts.map((k) => `<span class="mc-tag-wrap" data-tip="${esc(TAG_NAME[k])}"><img class="mc-tag" src="assets/tag-${k}.png?v=178" alt="${esc(TAG_NAME[k])}"></span>`).join("")}</span>`;
 }
 const DEMO = new URLSearchParams(location.search).has("demo");
 
@@ -58,31 +58,14 @@ let pendingAvatar = undefined; // avatar đang sửa: undefined=không đổi, '
 let pendingMembers = [];       // [{name, av}] — nhân vật trong cổng (modal). av=dataURL|null
 let cropTarget = null;         // null = avatar đơn; số = chỉ số thành viên đang cắt ảnh
 const memberIdx = {};          // map.id → chỉ số nhân vật đang hiển thị (random khi chưa có)
-// Thẻ hồ sơ RIÊNG TƯ của người đang đăng nhập: { list: [{name, body}] } — mỗi tab 1 hồ sơ, dùng chung cho mọi map.
-let myCards = { list: [{ name: "Hồ sơ 1", body: "" }] };
-function cardBody(x) { return typeof x === "string" ? x : ""; }
+// Thẻ User-Play-Profile RIÊNG TƯ của người đang đăng nhập: { global: thẻ chung, maps: {mapId: ghi đè riêng} }
+let myCards = { global: "", maps: {} };
 function normalizeCards(d) {
   d = d || {};
-  // format mới: danh sách tab
-  if (Array.isArray(d.list)) {
-    const list = d.list.filter((c) => c && typeof c === "object")
-      .map((c, i) => ({ name: (c.name || `Hồ sơ ${i + 1}`).toString().slice(0, 40), body: cardBody(c.body) }));
-    return { list: list.length ? list : [{ name: "Hồ sơ 1", body: "" }] };
-  }
-  // format cũ (global + ghi đè theo map, hoặc slots thử nghiệm) → gộp hết thành các tab
-  let global = "", maps = {};
-  if (d.slots && d.slots[""]) { global = d.slots[""].g || ""; maps = d.slots[""].m || {}; }
-  else { global = d.global || ""; maps = d.maps || {}; }
-  const list = [{ name: "Mặc định", body: cardBody(global) }];
-  for (const [mapId, body] of Object.entries(maps)) {
-    if (!cardBody(body).trim()) continue;
-    const m = (typeof findMap === "function") ? findMap(mapId) : null;
-    list.push({ name: (m?.title || "Hồ sơ map").toString().slice(0, 40), body: cardBody(body) });
-  }
-  return { list };
+  if (d.slots && d.slots[""]) return { global: d.slots[""].g || "", maps: d.slots[""].m || {} }; // dọn format thử nghiệm cũ
+  return { global: d.global || "", maps: d.maps || {} };
 }
-// thẻ dùng khi Copy prompt tự chèn vào marker: lấy TAB ĐẦU (mặc định)
-function resolveCard() { return myCards.list?.[0]?.body || ""; }
+function resolveCard(mapId) { return (myCards.maps && myCards.maps[mapId]) || myCards.global || ""; }
 // Dòng cần thay: marker [DÁN KHỐI <User-Play-Profile> VÀO ĐÂY, THAY CẢ DÒNG NÀY] (dung sai nội dung trong ngoặc),
 // hoặc token gọn {{user-play-profile}} / {{THẺ}} nếu ai thích gõ ngắn.
 const CARD_TOKEN = /\[[^\][]*user[\s\-_]*play[\s\-_]*profile[^\][]*\]|\{\{\s*(?:user[\s\-_]*play[\s\-_]*profile|thẻ|the|card)\s*\}\}/giu;
@@ -299,7 +282,7 @@ const TOTEM_IMG = { "🦇": "av-doi", "⭐": "av-cavoi" };
 function totemMini(icon, cls = "") {
   const img = TOTEM_IMG[icon];
   return img
-    ? `<img class="totem-mini ${cls}" src="assets/${img}.png?v=179" alt="">`
+    ? `<img class="totem-mini ${cls}" src="assets/${img}.png?v=178" alt="">`
     : `<span class="totem-mini-emoji ${cls}">${icon}</span>`;
 }
 // sao vàng chỉ hiện khi CẢ hai chủ (Dơi + Cá Voi Sao) cùng tiến cử
@@ -316,7 +299,7 @@ function totemBadges(recommends) {
       const img = TOTEM_IMG[a.icon];
       const tip = `${esc(a.name)} (${esc(email)}) đã tiến cử`;
       return img
-        ? `<img class="totem-badge" src="assets/${img}.png?v=179" alt="${esc(a.name)}" title="${tip}">`
+        ? `<img class="totem-badge" src="assets/${img}.png?v=178" alt="${esc(a.name)}" title="${tip}">`
         : `<span class="totem-badge totem-badge-emoji" title="${tip}">${a.icon}</span>`;
     })
     .join("");
@@ -638,14 +621,14 @@ function firestoreStore() {
     },
     addSticker: (data) => addDoc(collection(db, "stickers"), { data, by: me.email, at: serverTimestamp() }),
     deleteSticker: (id) => deleteDoc(doc(db, "stickers", id)),
-    // Thẻ cá nhân RIÊNG TƯ: 1 doc usercards/{email} = { list: [{name, body}] }
+    // Thẻ cá nhân RIÊNG TƯ: 1 doc usercards/{email} = { global, maps: {mapId: text} }
     async getUserCards() {
       const s = await getDoc(doc(db, "usercards", me.email));
       return s.exists() ? (s.data() || {}) : {};
     },
     async saveUserCards(data) {
       await setDoc(doc(db, "usercards", me.email),
-        { list: data.list || [], by: me.email, at: serverTimestamp() });
+        { global: data.global || "", maps: data.maps || {}, by: me.email, at: serverTimestamp() });
     },
   };
 }
@@ -733,7 +716,7 @@ button{margin-top:14px;width:100%;padding:10px;border:1px dashed #8a7962;backgro
   return {
     demo: true,
     async getUserCards() { return demoCards[me.email] ? JSON.parse(JSON.stringify(demoCards[me.email])) : {}; },
-    async saveUserCards(data) { demoCards[me.email] = { list: JSON.parse(JSON.stringify(data.list || [])) }; },
+    async saveUserCards(data) { demoCards[me.email] = { global: data.global || "", maps: JSON.parse(JSON.stringify(data.maps || {})) }; },
     subscribe() { mapsLoaded = true; draftsLoaded = true; maybeResumeLastEdit(); },
     subscribeChat(cb) { chatCb = cb; cb(chatArr.slice()); },
     async sendChat(payload) { chatArr.push({ id: uid(), by: me.email, ...payload, at: now() }); chatCb?.(chatArr.slice()); },
@@ -895,14 +878,14 @@ function teardown() {
 
 function enterForest() {
   const _ut = $("#user-totem"), _img = TOTEM_IMG[me.icon];
-  if (_img) _ut.innerHTML = `<img src="assets/${_img}.png?v=179" alt="${esc(me.name)}" class="user-totem-img">`;
+  if (_img) _ut.innerHTML = `<img src="assets/${_img}.png?v=178" alt="${esc(me.name)}" class="user-totem-img">`;
   else _ut.textContent = me.icon;
   $("#user-totem").title = `${me.name} — ${me.email}`;
   $("#user-name").textContent = me.name + (DEMO ? " (demo)" : "");
   document.body.classList.toggle("guest", !!me.guest);
   show("#screen-app");
   store.subscribe(!!me.guest);
-  myCards = { list: [{ name: "Hồ sơ 1", body: "" }] };
+  myCards = { global: "", maps: {} };
   if (!me.guest) { // khu riêng của hai chủ
     store.getUserCards?.().then((d) => { myCards = normalizeCards(d); }).catch(() => {});
     store.subscribeChat(onChatMsgs);
@@ -1187,7 +1170,7 @@ function renderHomeGrid() {
         </div>
       </span>
       ${m.nsfw ? `<img class="nsfw-sticker mc-stimg" src="assets/mark-sao.png" alt="NSFW" title="Cổng thiên về NSFW">` : ""}
-      ${m.wip ? `<img class="wip-chime" src="assets/chime.webp?v=179" alt="Map đang sửa" title="Map đang sửa — chưa chơi được" aria-hidden="true">` : ""}
+      ${m.wip ? `<img class="wip-chime" src="assets/chime.webp?v=178" alt="Map đang sửa" title="Map đang sửa — chưa chơi được" aria-hidden="true">` : ""}
       ${m.noH ? `<img class="noh-sticker mc-stimg" src="assets/mark-so.png" alt="" title="Không có H — chơi có 'kéo rèm'">` : ""}
       <span class="totem-corner">${totemBadges(m.recommends)}</span>
       ${bothRecommend(m.recommends) ? `<img class="fc-star" src="assets/star.png" alt="" title="Cả Dơi & Cá Voi Sao cùng tiến cử" aria-hidden="true">` : ""}
@@ -1362,9 +1345,9 @@ function renderMapView({ id, tab }) {
           <p class="map-view-world" id="mv-world"></p>
           <div class="mv-tags hidden" id="mv-tags"></div>
         </div>
-        <img id="mv-noh" class="mv-mark hidden" src="assets/mark-so.png?v=179" alt="" title="Không có H — chơi có 'kéo rèm'">
+        <img id="mv-noh" class="mv-mark hidden" src="assets/mark-so.png?v=178" alt="" title="Không có H — chơi có 'kéo rèm'">
         <span id="mv-wip" class="mv-mark mv-mark-emoji hidden" title="Map đang sửa — chưa chơi được">🩹</span>
-        <img id="mv-nsfw" class="mv-mark hidden" src="assets/mark-sao.png?v=179" alt="" title="Cổng thiên về NSFW">
+        <img id="mv-nsfw" class="mv-mark hidden" src="assets/mark-sao.png?v=178" alt="" title="Cổng thiên về NSFW">
         ${isGuest ? "" : `<button class="btn-icon" id="btn-edit-map" title="Sửa tên / mô tả / link GAS / nhãn">✎</button>`}
       </div>
       <div class="mv-bubble hidden" id="mv-bubble" aria-live="polite"></div>
@@ -1386,7 +1369,7 @@ function renderMapView({ id, tab }) {
   $$(".subtab").forEach((b) =>
     b.addEventListener("click", () => { location.hash = `#/map/${id}/${b.dataset.tab}`; }));
   $("#btn-edit-map")?.addEventListener("click", () => openMapModal(id));
-  $("#mv-card-btn")?.addEventListener("click", () => openCardModal());
+  $("#mv-card-btn")?.addEventListener("click", () => openCardModal(id));
   $("#btn-rec")?.addEventListener("click", () => toggleRecommend(id));
   $("#btn-fish")?.addEventListener("click", () => toggleFishMark(id));
 
@@ -1440,7 +1423,7 @@ function updateMapMeta({ id }) {
   if (tagsEl) {
     const ts = (m.tags || []).filter((k) => TAG_NAME[k]).slice(0, 3);
     tagsEl.innerHTML = ts
-      .map((k) => `<img class="mv-tag" src="assets/tag-${k}.png?v=179" alt="${esc(TAG_NAME[k])}" title="${esc(TAG_NAME[k])}">`)
+      .map((k) => `<img class="mv-tag" src="assets/tag-${k}.png?v=178" alt="${esc(TAG_NAME[k])}" title="${esc(TAG_NAME[k])}">`)
       .join("");
     tagsEl.classList.toggle("hidden", !ts.length);
   }
@@ -1949,62 +1932,32 @@ function closeMapModal() { $("#modal-map").classList.add("hidden"); }
 $("#btn-map-cancel").addEventListener("click", closeMapModal);
 $("#modal-map").addEventListener("click", (e) => { if (e.target.id === "modal-map") closeMapModal(); });
 
-// ── 🪪 Thẻ hồ sơ: nhiều tab, mỗi tab 1 hồ sơ, dùng chung cho mọi map ──
-let cardEdit = { list: [], idx: 0 };
-function renderCardTabs() {
-  const bar = $("#card-tabs"); if (!bar) return;
-  bar.innerHTML = cardEdit.list.map((c, i) =>
-    `<button type="button" class="card-tab${i === cardEdit.idx ? " on" : ""}" data-ci="${i}">${esc(c.name || `Hồ sơ ${i + 1}`)}</button>`
-  ).join("") + `<button type="button" class="card-tab card-tab-add" id="card-tab-add" title="Thêm thẻ mới">+ Thêm thẻ</button>`;
-}
-function showCardTab(i) {
-  cardEdit.idx = Math.max(0, Math.min(i, cardEdit.list.length - 1));
-  const c = cardEdit.list[cardEdit.idx] || { name: "", body: "" };
-  $("#inp-card-name").value = c.name || "";
-  $("#inp-card-body").value = c.body || "";
-  $("#btn-card-del").classList.toggle("hidden", cardEdit.list.length <= 1);
-  renderCardTabs();
-}
-function syncCurrentCard() {
-  const c = cardEdit.list[cardEdit.idx]; if (!c) return;
-  c.name = ($("#inp-card-name").value || "").slice(0, 40);
-  c.body = $("#inp-card-body").value;
-}
-function openCardModal() {
-  // nạp bản sao để sửa, không đụng myCards tới khi Lưu
-  cardEdit.list = (myCards.list && myCards.list.length ? myCards.list : [{ name: "Hồ sơ 1", body: "" }])
-    .map((c) => ({ name: c.name || "", body: c.body || "" }));
-  showCardTab(0);
+// ── 🪪 Thẻ User-Play-Profile: một thẻ (chung + ghi đè theo map), thay vào dòng marker khi Copy ──
+let cardModalMapId = null;
+function openCardModal(mapId) {
+  cardModalMapId = mapId || null;
+  $("#inp-card-global").value = myCards.global || "";
+  const mapRow = $("#card-map-field");
+  if (mapId) {
+    mapRow.classList.remove("hidden");
+    $("#inp-card-map").value = (myCards.maps || {})[mapId] || "";
+    const m = findMap(mapId);
+    $("#card-map-name").textContent = m ? `“${m.title || "map này"}”` : "map này";
+  } else {
+    mapRow.classList.add("hidden");
+  }
   $("#card-save-status").textContent = "";
   $("#modal-card").classList.remove("hidden");
-  setTimeout(() => $("#inp-card-body").focus(), 60);
+  setTimeout(() => $("#inp-card-global").focus(), 60);
 }
 function closeCardModal() { $("#modal-card").classList.add("hidden"); }
 $("#btn-card-cancel")?.addEventListener("click", closeCardModal);
 $("#modal-card")?.addEventListener("click", (e) => { if (e.target.id === "modal-card") closeCardModal(); });
-$("#inp-card-name")?.addEventListener("input", () => { syncCurrentCard(); renderCardTabs(); });
-$("#inp-card-body")?.addEventListener("input", syncCurrentCard);
-$("#card-tabs")?.addEventListener("click", (e) => {
-  if (e.target.closest("#card-tab-add")) {
-    syncCurrentCard();
-    cardEdit.list.push({ name: `Hồ sơ ${cardEdit.list.length + 1}`, body: "" });
-    showCardTab(cardEdit.list.length - 1);
-    setTimeout(() => $("#inp-card-name").select(), 30);
-    return;
-  }
-  const t = e.target.closest(".card-tab[data-ci]");
-  if (t) { syncCurrentCard(); showCardTab(+t.dataset.ci); }
-});
-$("#btn-card-del")?.addEventListener("click", () => {
-  if (cardEdit.list.length <= 1) return;
-  cardEdit.list.splice(cardEdit.idx, 1);
-  showCardTab(Math.min(cardEdit.idx, cardEdit.list.length - 1));
-});
-// Copy nội dung tab đang xem (để dán vào tin nhắn đầu)
+// Copy riêng thẻ ra clipboard (dùng khi map bắt dán hồ sơ ở tin nhắn đầu) — ưu tiên thẻ của map đang mở
 $("#btn-card-copy")?.addEventListener("click", async () => {
-  syncCurrentCard();
-  const text = (cardEdit.list[cardEdit.idx]?.body || "").trim();
-  if (!text) { toast("Thẻ này chưa có gì để copy.", true); return; }
+  const mapVal = cardModalMapId ? ($("#inp-card-map").value || "").trim() : "";
+  const text = mapVal || ($("#inp-card-global").value || "").trim();
+  if (!text) { toast("Chưa có gì để copy — điền thẻ đã nhé.", true); return; }
   try {
     await navigator.clipboard.writeText(text);
     const btn = $("#btn-card-copy"), old = btn.textContent;
@@ -2013,23 +1966,24 @@ $("#btn-card-copy")?.addEventListener("click", async () => {
   } catch { toast("Không copy được — bôi đen trong ô rồi copy tay.", true); }
 });
 $("#btn-card-save")?.addEventListener("click", async () => {
-  syncCurrentCard();
   const btn = $("#btn-card-save");
-  let list = cardEdit.list
-    .map((c, i) => ({ name: (c.name || `Hồ sơ ${i + 1}`).slice(0, 40), body: c.body || "" }))
-    .filter((c) => c.body.trim() || c.name.trim());
-  if (!list.length) list = [{ name: "Hồ sơ 1", body: "" }];
+  const global = $("#inp-card-global").value;
+  const maps = { ...(myCards.maps || {}) };
+  if (cardModalMapId) {
+    const v = $("#inp-card-map").value.trim();
+    if (v) maps[cardModalMapId] = $("#inp-card-map").value; else delete maps[cardModalMapId];
+  }
   btn.disabled = true; btn.textContent = "Đang lưu…";
   try {
-    await store.saveUserCards({ list });
-    myCards = { list };
+    await store.saveUserCards({ global, maps });
+    myCards = { global, maps };
     $("#card-save-status").textContent = "✓ Đã lưu";
     toast("🪪 Đã lưu thẻ của bạn.");
     setTimeout(closeCardModal, 500);
   } catch (e) {
     $("#card-save-status").textContent = "⚠ Lỗi lưu";
     toast("Không lưu được thẻ: " + e.message, true);
-  } finally { btn.disabled = false; btn.textContent = "Lưu"; }
+  } finally { btn.disabled = false; btn.textContent = "Lưu thẻ"; }
 });
 
 $("#inp-map-avatar").addEventListener("change", (e) => {
@@ -2089,7 +2043,7 @@ $("#inp-member-avatar")?.addEventListener("change", (e) => {
 function renderTagPicker() {
   const box = $("#tag-picker"); if (!box) return;
   box.innerHTML = WORLD_TAGS.map((t) =>
-    `<button type="button" class="tag-opt${pendingTags.includes(t.key) ? " on" : ""}" data-tag="${t.key}" title="${esc(t.name)}"><img src="assets/tag-${t.key}.png?v=179" alt="${esc(t.name)}"><span class="tag-nm">${esc(t.name)}</span></button>`).join("");
+    `<button type="button" class="tag-opt${pendingTags.includes(t.key) ? " on" : ""}" data-tag="${t.key}" title="${esc(t.name)}"><img src="assets/tag-${t.key}.png?v=178" alt="${esc(t.name)}"><span class="tag-nm">${esc(t.name)}</span></button>`).join("");
   const c = $("#tag-count"); if (c) c.textContent = `(${pendingTags.length}/3)`;
 }
 $("#tag-picker")?.addEventListener("click", (e) => {
@@ -3483,9 +3437,10 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
   slot.querySelector("#tb-copy")?.addEventListener("click", async () => {
     try {
       const text = page.innerText;
+      const mapId = (coll === "maps") ? id : null;
       CARD_TOKEN.lastIndex = 0;
       if (CARD_TOKEN.test(text)) {
-        const card = resolveCard();
+        const card = resolveCard(mapId);
         if (card && card.trim()) {
           await navigator.clipboard.writeText(text.replace(CARD_TOKEN, () => card));
           toast("⧉ Đã copy — tự chèn thẻ của bạn vào prompt.");
@@ -3499,7 +3454,7 @@ function mountEditor(slot, { html, load = null, placeholder, save, showCopy = fa
       }
     } catch { toast("Không copy được — hãy bôi đen thủ công.", true); }
   });
-  slot.querySelector("#tb-card")?.addEventListener("click", () => openCardModal());
+  slot.querySelector("#tb-card")?.addEventListener("click", () => openCardModal(coll === "maps" ? id : null));
 
   // ── ghi chú 💧 kiểu docx ──
   if (comments) {
