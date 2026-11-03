@@ -37,7 +37,7 @@ const TAG_NAME = Object.fromEntries(WORLD_TAGS.map((t) => [t.key, t.name]));
 function tagsRow(m) {
   const ts = (m.tags || []).filter((k) => TAG_NAME[k]).slice(0, 3);
   if (!ts.length) return "";
-  return `<span class="mc-tags">${ts.map((k) => `<span class="mc-tag-wrap" data-tip="${esc(TAG_NAME[k])}"><img class="mc-tag" src="assets/tag-${k}.png?v=176" alt="${esc(TAG_NAME[k])}"></span>`).join("")}</span>`;
+  return `<span class="mc-tags">${ts.map((k) => `<span class="mc-tag-wrap" data-tip="${esc(TAG_NAME[k])}"><img class="mc-tag" src="assets/tag-${k}.png?v=177" alt="${esc(TAG_NAME[k])}"></span>`).join("")}</span>`;
 }
 const DEMO = new URLSearchParams(location.search).has("demo");
 
@@ -282,7 +282,7 @@ const TOTEM_IMG = { "🦇": "av-doi", "⭐": "av-cavoi" };
 function totemMini(icon, cls = "") {
   const img = TOTEM_IMG[icon];
   return img
-    ? `<img class="totem-mini ${cls}" src="assets/${img}.png?v=176" alt="">`
+    ? `<img class="totem-mini ${cls}" src="assets/${img}.png?v=177" alt="">`
     : `<span class="totem-mini-emoji ${cls}">${icon}</span>`;
 }
 // sao vàng chỉ hiện khi CẢ hai chủ (Dơi + Cá Voi Sao) cùng tiến cử
@@ -299,7 +299,7 @@ function totemBadges(recommends) {
       const img = TOTEM_IMG[a.icon];
       const tip = `${esc(a.name)} (${esc(email)}) đã tiến cử`;
       return img
-        ? `<img class="totem-badge" src="assets/${img}.png?v=176" alt="${esc(a.name)}" title="${tip}">`
+        ? `<img class="totem-badge" src="assets/${img}.png?v=177" alt="${esc(a.name)}" title="${tip}">`
         : `<span class="totem-badge totem-badge-emoji" title="${tip}">${a.icon}</span>`;
     })
     .join("");
@@ -878,7 +878,7 @@ function teardown() {
 
 function enterForest() {
   const _ut = $("#user-totem"), _img = TOTEM_IMG[me.icon];
-  if (_img) _ut.innerHTML = `<img src="assets/${_img}.png?v=176" alt="${esc(me.name)}" class="user-totem-img">`;
+  if (_img) _ut.innerHTML = `<img src="assets/${_img}.png?v=177" alt="${esc(me.name)}" class="user-totem-img">`;
   else _ut.textContent = me.icon;
   $("#user-totem").title = `${me.name} — ${me.email}`;
   $("#user-name").textContent = me.name + (DEMO ? " (demo)" : "");
@@ -1170,7 +1170,7 @@ function renderHomeGrid() {
         </div>
       </span>
       ${m.nsfw ? `<img class="nsfw-sticker mc-stimg" src="assets/mark-sao.png" alt="NSFW" title="Cổng thiên về NSFW">` : ""}
-      ${m.wip ? `<img class="wip-chime" src="assets/chime.webp?v=176" alt="Map đang sửa" title="Map đang sửa — chưa chơi được" aria-hidden="true">` : ""}
+      ${m.wip ? `<img class="wip-chime" src="assets/chime.webp?v=177" alt="Map đang sửa" title="Map đang sửa — chưa chơi được" aria-hidden="true">` : ""}
       ${m.noH ? `<img class="noh-sticker mc-stimg" src="assets/mark-so.png" alt="" title="Không có H — chơi có 'kéo rèm'">` : ""}
       <span class="totem-corner">${totemBadges(m.recommends)}</span>
       ${bothRecommend(m.recommends) ? `<img class="fc-star" src="assets/star.png" alt="" title="Cả Dơi & Cá Voi Sao cùng tiến cử" aria-hidden="true">` : ""}
@@ -1345,9 +1345,9 @@ function renderMapView({ id, tab }) {
           <p class="map-view-world" id="mv-world"></p>
           <div class="mv-tags hidden" id="mv-tags"></div>
         </div>
-        <img id="mv-noh" class="mv-mark hidden" src="assets/mark-so.png?v=176" alt="" title="Không có H — chơi có 'kéo rèm'">
+        <img id="mv-noh" class="mv-mark hidden" src="assets/mark-so.png?v=177" alt="" title="Không có H — chơi có 'kéo rèm'">
         <span id="mv-wip" class="mv-mark mv-mark-emoji hidden" title="Map đang sửa — chưa chơi được">🩹</span>
-        <img id="mv-nsfw" class="mv-mark hidden" src="assets/mark-sao.png?v=176" alt="" title="Cổng thiên về NSFW">
+        <img id="mv-nsfw" class="mv-mark hidden" src="assets/mark-sao.png?v=177" alt="" title="Cổng thiên về NSFW">
         ${isGuest ? "" : `<button class="btn-icon" id="btn-edit-map" title="Sửa tên / mô tả / link GAS / nhãn">✎</button>`}
       </div>
       <div class="mv-bubble hidden" id="mv-bubble" aria-live="polite"></div>
@@ -1421,7 +1421,7 @@ function updateMapMeta({ id }) {
   if (tagsEl) {
     const ts = (m.tags || []).filter((k) => TAG_NAME[k]).slice(0, 3);
     tagsEl.innerHTML = ts
-      .map((k) => `<img class="mv-tag" src="assets/tag-${k}.png?v=176" alt="${esc(TAG_NAME[k])}" title="${esc(TAG_NAME[k])}">`)
+      .map((k) => `<img class="mv-tag" src="assets/tag-${k}.png?v=177" alt="${esc(TAG_NAME[k])}" title="${esc(TAG_NAME[k])}">`)
       .join("");
     tagsEl.classList.toggle("hidden", !ts.length);
   }
@@ -1951,6 +1951,18 @@ function openCardModal(mapId) {
 function closeCardModal() { $("#modal-card").classList.add("hidden"); }
 $("#btn-card-cancel")?.addEventListener("click", closeCardModal);
 $("#modal-card")?.addEventListener("click", (e) => { if (e.target.id === "modal-card") closeCardModal(); });
+// Copy riêng thẻ ra clipboard (dùng khi map bắt dán hồ sơ ở tin nhắn đầu) — ưu tiên thẻ của map đang mở
+$("#btn-card-copy")?.addEventListener("click", async () => {
+  const mapVal = cardModalMapId ? ($("#inp-card-map").value || "").trim() : "";
+  const text = mapVal || ($("#inp-card-global").value || "").trim();
+  if (!text) { toast("Chưa có gì để copy — điền thẻ đã nhé.", true); return; }
+  try {
+    await navigator.clipboard.writeText(text);
+    const btn = $("#btn-card-copy"), old = btn.textContent;
+    btn.textContent = "✓ Đã copy"; setTimeout(() => { btn.textContent = old; }, 1200);
+    toast("⧉ Đã copy thẻ — dán vào tin nhắn đầu khi chơi.");
+  } catch { toast("Không copy được — bôi đen trong ô rồi copy tay.", true); }
+});
 $("#btn-card-save")?.addEventListener("click", async () => {
   const btn = $("#btn-card-save");
   const global = $("#inp-card-global").value;
@@ -2029,7 +2041,7 @@ $("#inp-member-avatar")?.addEventListener("change", (e) => {
 function renderTagPicker() {
   const box = $("#tag-picker"); if (!box) return;
   box.innerHTML = WORLD_TAGS.map((t) =>
-    `<button type="button" class="tag-opt${pendingTags.includes(t.key) ? " on" : ""}" data-tag="${t.key}" title="${esc(t.name)}"><img src="assets/tag-${t.key}.png?v=176" alt="${esc(t.name)}"><span class="tag-nm">${esc(t.name)}</span></button>`).join("");
+    `<button type="button" class="tag-opt${pendingTags.includes(t.key) ? " on" : ""}" data-tag="${t.key}" title="${esc(t.name)}"><img src="assets/tag-${t.key}.png?v=177" alt="${esc(t.name)}"><span class="tag-nm">${esc(t.name)}</span></button>`).join("");
   const c = $("#tag-count"); if (c) c.textContent = `(${pendingTags.length}/3)`;
 }
 $("#tag-picker")?.addEventListener("click", (e) => {
